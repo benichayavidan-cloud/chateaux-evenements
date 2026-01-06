@@ -110,7 +110,7 @@ export default function EvenementsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
-                  style={{ order: index % 2 === 0 ? 2 : 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}
+                  style={{ order: index % 2 === 0 ? 2 : 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingLeft: '20px' }}
                 >
                   {/* Badge */}
                   <div className="inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 rounded-full" style={{ padding: '10px 24px', marginBottom: '20px' }}>
