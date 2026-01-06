@@ -61,7 +61,7 @@ export function HeroSection() {
           <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/10 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/15 via-transparent to-white/15" />
           {/* Overlay général pour meilleure lisibilité du contenu */}
-          <div className="absolute inset-0 bg-white/25 backdrop-blur-[1.5px]" />
+          <div className="absolute inset-0 bg-white/30" />
         </motion.div>
       </AnimatePresence>
 
@@ -104,8 +104,8 @@ export function HeroSection() {
           >
             {/* Statistique 1 : Années */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-500 backdrop-blur-md bg-white/80 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
-                <Award className="w-7 h-7 group-hover:scale-110 transition-transform" style={{ color: '#B8860B' }} />
+              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
+                <Award className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" style={{ color: '#B8860B' }} />
               </div>
               <div className="text-3xl font-medium font-[var(--font-cormorant)] leading-none mb-2" style={{ color: '#000000' }}>
                 15+
@@ -117,8 +117,8 @@ export function HeroSection() {
 
             {/* Statistique 2 : Événements */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-500 backdrop-blur-md bg-white/80 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
-                <Users className="w-7 h-7 group-hover:scale-110 transition-transform" style={{ color: '#B8860B' }} />
+              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
+                <Users className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" style={{ color: '#B8860B' }} />
               </div>
               <div className="text-3xl font-medium font-[var(--font-cormorant)] leading-none mb-2" style={{ color: '#000000' }}>
                 500+
@@ -130,8 +130,8 @@ export function HeroSection() {
 
             {/* Statistique 3 : Châteaux */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-500 backdrop-blur-md bg-white/80 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
-                <Building className="w-7 h-7 group-hover:scale-110 transition-transform" style={{ color: '#B8860B' }} />
+              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
+                <Building className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" style={{ color: '#B8860B' }} />
               </div>
               <div className="text-3xl font-medium font-[var(--font-cormorant)] leading-none mb-2" style={{ color: '#000000' }}>
                 4
@@ -152,7 +152,7 @@ export function HeroSection() {
           >
             <Link
               href="/devis"
-              className="group relative text-base font-bold text-white bg-[var(--bronze-antique)] rounded-full overflow-hidden transition-all duration-500 hover:shadow-[var(--shadow-glow)] inline-flex items-center justify-center whitespace-nowrap"
+              className="group relative text-base font-bold text-white bg-[var(--bronze-antique)] rounded-full overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-glow)] inline-flex items-center justify-center whitespace-nowrap"
               style={{
                 filter: 'drop-shadow(0 8px 16px rgba(163, 126, 44, 0.4))',
                 padding: '18px 40px',
@@ -161,14 +161,14 @@ export function HeroSection() {
                 textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
               }}
             >
-              <span className="relative z-10 group-hover:text-white transition-colors">
+              <span className="relative z-10 group-hover:text-white transition-colors duration-200">
                 Demander un Devis
               </span>
-              <span className="absolute inset-0 bg-[var(--bronze-light)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <span className="absolute inset-0 bg-[var(--bronze-light)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </Link>
             <Link
               href="/chateaux"
-              className="backdrop-blur-xl bg-white/90 text-black text-base font-bold rounded-full hover:bg-white hover:border-[var(--bronze-antique)] transition-all duration-500 border-2 border-white/50 inline-flex items-center justify-center whitespace-nowrap shadow-lg"
+              className="bg-white/95 text-black text-base font-bold rounded-full hover:bg-white hover:border-[var(--bronze-antique)] transition-all duration-300 border-2 border-white/50 inline-flex items-center justify-center whitespace-nowrap shadow-lg"
               style={{
                 filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2))',
                 padding: '18px 40px',
@@ -185,7 +185,7 @@ export function HeroSection() {
       <div className="absolute bottom-12 right-12 flex items-center space-x-6 z-10">
         <button
           onClick={prevSlide}
-          className="w-12 h-12 rounded-full backdrop-blur-xl bg-gray-900/70 hover:bg-gray-900/90 hover:border-[var(--bronze-antique)] transition-all duration-300 flex items-center justify-center text-white hover:text-[var(--bronze-antique)] border-2 border-white/40 shadow-lg"
+          className="w-12 h-12 rounded-full bg-gray-900/80 hover:bg-gray-900/90 hover:border-[var(--bronze-antique)] transition-all duration-200 flex items-center justify-center text-white hover:text-[var(--bronze-antique)] border-2 border-white/40 shadow-lg"
           aria-label="Image précédente"
         >
           <ChevronLeft className="w-5 h-5" />
@@ -195,7 +195,7 @@ export function HeroSection() {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-[3px] rounded-full transition-all duration-500 shadow-md ${
+              className={`h-[3px] rounded-full transition-all duration-300 shadow-md ${
                 index === currentSlide
                   ? "bg-[var(--bronze-antique)] w-12"
                   : "bg-gray-800/70 hover:bg-gray-700/80 w-8"
@@ -206,7 +206,7 @@ export function HeroSection() {
         </div>
         <button
           onClick={nextSlide}
-          className="w-12 h-12 rounded-full backdrop-blur-xl bg-gray-900/70 hover:bg-gray-900/90 hover:border-[var(--bronze-antique)] transition-all duration-300 flex items-center justify-center text-white hover:text-[var(--bronze-antique)] border-2 border-white/40 shadow-lg"
+          className="w-12 h-12 rounded-full bg-gray-900/80 hover:bg-gray-900/90 hover:border-[var(--bronze-antique)] transition-all duration-200 flex items-center justify-center text-white hover:text-[var(--bronze-antique)] border-2 border-white/40 shadow-lg"
           aria-label="Image suivante"
         >
           <ChevronRight className="w-5 h-5" />
@@ -228,7 +228,7 @@ export function HeroSection() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-6 h-10 rounded-full border-2 border-gray-700/60 flex items-start justify-center p-2 backdrop-blur-sm bg-white/50 shadow-md"
+            className="w-6 h-10 rounded-full border-2 border-gray-700/60 flex items-start justify-center p-2 bg-white/60 shadow-md"
           >
             <div className="w-1 h-2 bg-[var(--bronze-antique)] rounded-full" />
           </motion.div>
@@ -244,7 +244,7 @@ export function HeroSection() {
         style={{ bottom: '70px', zIndex: 10 }}
       >
         <div
-          className="flex items-center backdrop-blur-xl bg-gray-900/80 rounded-full border border-white/30 shadow-lg"
+          className="flex items-center bg-gray-900/90 rounded-full border border-white/30 shadow-lg"
           style={{
             gap: '8px',
             padding: '10px 20px',

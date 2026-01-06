@@ -26,10 +26,10 @@
   --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.5);
   --shadow-subtle: 0 2px 20px rgba(0, 0, 0, 0.2);
 
-  /* Transitions Premium */
-  --transition-smooth: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transitions Premium - Optimisées pour performance */
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @theme inline {
@@ -87,17 +87,15 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.02em;
 }
 
-/* Animations Premium */
+/* Animations Premium - Optimisées GPU (transform + opacity seulement) */
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(40px);
-    clip-path: inset(100% 0 0 0);
+    transform: translateY(20px) translateZ(0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
-    clip-path: inset(0 0 0 0);
+    transform: translateY(0) translateZ(0);
   }
 }
 
@@ -111,29 +109,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-reveal {
-  animation: reveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: reveal 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-glow {
   animation: glow 3s ease-in-out infinite;
 }
 
-/* Grayscale to Color Effect */
+/* Grayscale to Color Effect - Optimisé avec GPU */
 .grayscale-hover {
   filter: grayscale(100%);
   transition: filter var(--transition-smooth);
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  will-change: filter;
 }
 
 .grayscale-hover:hover {
   filter: grayscale(0%);
 }
 
-/* Glass Morphism Premium */
+/* Glass Morphism Premium - Optimisé pour performance */
 .glass-premium {
   background: var(--white-5);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--white-5);
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* Bordures Invisibles */

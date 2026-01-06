@@ -56,11 +56,12 @@ export function NavigationLuxe() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-xl border-b",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm border-b",
         isScrolled
           ? "bg-white/95 shadow-lg border-gray-200"
           : "bg-gradient-to-b from-white/80 via-white/60 to-white/40 border-white/30"
       )}
+      style={{ willChange: 'transform' }}
     >
       {/* Container avec grille 3 colonnes égales sur toute la largeur */}
       <div className="w-full px-8">
@@ -115,9 +116,10 @@ export function NavigationLuxe() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-80 bg-white backdrop-blur-xl border border-gray-100 rounded-2xl overflow-hidden z-50"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-80 bg-white backdrop-blur-sm border border-gray-100 rounded-2xl overflow-hidden z-50"
                         style={{
                           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 0 15px rgba(184, 134, 11, 0.08)',
+                          willChange: 'transform, opacity'
                         }}
                       >
                         <div className="py-4 px-4">
@@ -202,7 +204,7 @@ export function NavigationLuxe() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200"
+            className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200"
           >
             <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
               {navLinks.map((link) => (
