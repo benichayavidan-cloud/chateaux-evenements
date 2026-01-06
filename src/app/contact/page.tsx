@@ -65,7 +65,7 @@ export default function ContactPage() {
       </div>
 
       {/* Section Formulaire - Tout centré avec espaces respirants */}
-      <div style={{ paddingTop: '120px', paddingBottom: '120px' }}>
+      <div style={{ paddingTop: '30px', paddingBottom: '30px' }}>
         {/* Titre centré */}
         <div style={{ width: '100%', textAlign: 'center', marginBottom: '80px', padding: '0 40px' }}>
           <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
@@ -292,7 +292,7 @@ export default function ContactPage() {
 
       {/* Section FAQ - Tout centré avec plus d'espaces */}
       <div className="bg-gray-50">
-        <div style={{ padding: '140px 40px' }}>
+        <div style={{ padding: '30px 40px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
