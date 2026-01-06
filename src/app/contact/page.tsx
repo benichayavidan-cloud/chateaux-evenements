@@ -24,25 +24,25 @@ export default function ContactPage() {
 
         {/* Contenu centré */}
         <div className="relative h-screen flex items-center justify-center">
-          <div className="container mx-auto" style={{ padding: '120px 40px' }}>
+          <div className="section-container" style={{ paddingTop: 'var(--space-7xl)', paddingBottom: 'var(--space-7xl)' }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="flex flex-col items-center text-center"
             >
-              <div className="flex items-center justify-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-12 shadow-lg" style={{ padding: '14px 28px' }}>
+              <div className="badge-lg flex items-center justify-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg" style={{ marginBottom: 'var(--space-4xl)' }}>
                 <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
                 <span className="text-sm font-bold uppercase tracking-widest text-gray-900">
                   Contactez-nous
                 </span>
               </div>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-12 font-[var(--font-cormorant)] leading-none">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 font-[var(--font-cormorant)] leading-none" style={{ marginBottom: 'var(--space-4xl)' }}>
                 Parlons de<br />votre projet
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-700 mb-16 max-w-3xl leading-relaxed font-medium">
+              <p className="text-xl md:text-2xl text-gray-700 max-w-3xl leading-relaxed font-medium" style={{ marginBottom: 'var(--space-5xl)' }}>
                 Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions.
               </p>
             </motion.div>
@@ -65,10 +65,10 @@ export default function ContactPage() {
       </div>
 
       {/* Section Formulaire - Tout centré avec espaces respirants */}
-      <div style={{ paddingTop: '30px', paddingBottom: '30px' }}>
+      <div className="section-padding-sm">
         {/* Titre centré */}
-        <div style={{ width: '100%', textAlign: 'center', marginBottom: '20px', padding: '0 40px' }}>
-          <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
+        <div className="section-container" style={{ width: '100%', textAlign: 'center', marginBottom: 'var(--space-lg)' }}>
+          <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--gap-md)' }}>
             Recevez vite votre devis
           </h2>
           <p className="text-xl text-gray-600">
@@ -76,7 +76,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="container mx-auto" style={{ padding: '0 40px' }}>
+        <div className="section-container">
           <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
             {/* Informations de contact - Centré */}
@@ -87,7 +87,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center"
             >
-              <h3 className="text-3xl font-light italic text-gray-900 mb-16 font-[var(--font-cormorant)]">
+              <h3 className="text-3xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--space-5xl)' }}>
                 Nos coordonnées
               </h3>
 
@@ -177,82 +177,82 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="bg-gray-50 border-2 border-gray-200 rounded-3xl shadow-xl mx-auto w-full"
-              style={{ padding: '60px' }}
+              style={{ padding: 'var(--space-md,60px)' }}
             >
               <form>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-14" style={{ marginBottom: '40px' }}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-14" style={{ marginBottom: 'var(--space-3xl)' }}>
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
+                    <label className="block text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md)' }}>
                       Prénom <span className="text-[var(--bronze-antique)]">*</span>
                     </label>
                     <input
                       type="text"
                       required
                       className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '18px 20px' }}
+                      style={{ padding: 'var(--btn-padding-lg)' }}
                       placeholder="Votre prénom"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
+                    <label className="block text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md)' }}>
                       Nom <span className="text-[var(--bronze-antique)]">*</span>
                     </label>
                     <input
                       type="text"
                       required
                       className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '18px 20px' }}
+                      style={{ padding: 'var(--btn-padding-lg)' }}
                       placeholder="Votre nom"
                     />
                   </div>
                 </div>
 
-                <div style={{ marginBottom: '40px' }}>
-                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
+                <div style={{ marginBottom: 'var(--space-3xl)' }}>
+                  <label className="block text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md)' }}>
                     Email <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <input
                     type="email"
                     required
                     className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '18px 20px' }}
+                    style={{ padding: 'var(--btn-padding-lg)' }}
                     placeholder="votre.email@entreprise.com"
                   />
                 </div>
 
-                <div style={{ marginBottom: '40px' }}>
-                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
+                <div style={{ marginBottom: 'var(--space-3xl)' }}>
+                  <label className="block text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md)' }}>
                     Téléphone
                   </label>
                   <input
                     type="tel"
                     className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '18px 20px' }}
+                    style={{ padding: 'var(--btn-padding-lg)' }}
                     placeholder="+33 6 12 34 56 78"
                   />
                 </div>
 
-                <div style={{ marginBottom: '40px' }}>
-                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
+                <div style={{ marginBottom: 'var(--space-3xl)' }}>
+                  <label className="block text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md)' }}>
                     Entreprise
                   </label>
                   <input
                     type="text"
                     className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '18px 20px' }}
+                    style={{ padding: 'var(--btn-padding-lg)' }}
                     placeholder="Nom de votre entreprise"
                   />
                 </div>
 
-                <div style={{ marginBottom: '40px' }}>
-                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
+                <div style={{ marginBottom: 'var(--space-3xl)' }}>
+                  <label className="block text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md)' }}>
                     Sujet <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <select
                     required
                     className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 transition-all duration-300"
-                    style={{ padding: '18px 20px' }}
+                    style={{ padding: 'var(--btn-padding-lg)' }}
                   >
                     <option value="">Sélectionnez un sujet</option>
                     <option value="devis">Demande de devis</option>
@@ -262,15 +262,15 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                <div style={{ marginBottom: '40px' }}>
-                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
+                <div style={{ marginBottom: 'var(--space-3xl)' }}>
+                  <label className="block text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md)' }}>
                     Message <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <textarea
                     required
                     rows={6}
                     className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none resize-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '18px 20px' }}
+                    style={{ padding: 'var(--btn-padding-lg)' }}
                     placeholder="Décrivez-nous votre projet..."
                   />
                 </div>
@@ -278,7 +278,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   className="w-full bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 shadow-lg hover:shadow-xl group flex items-center justify-center gap-3"
-                  style={{ padding: '20px 40px', marginTop: '32px' }}
+                  style={{ padding: 'var(--btn-padding-lg)', marginTop: 'var(--space-2xl)' }}
                 >
                   <span>Envoyer le message</span>
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -292,21 +292,21 @@ export default function ContactPage() {
 
       {/* Section FAQ - Tout centré avec plus d'espaces */}
       <div className="bg-gray-50">
-        <div style={{ padding: '30px 40px' }}>
+        <div className="section-padding-sm section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            style={{ width: '100%', textAlign: 'center', marginBottom: '20px' }}
+            style={{ width: '100%', textAlign: 'center', marginBottom: 'var(--space-lg)' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '40px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--gap-md)', marginBottom: 'var(--space-3xl)' }}>
               <Sparkles className="w-7 h-7 text-[var(--bronze-antique)]" />
               <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
                 FAQ
               </h2>
             </div>
-            <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-10 font-[var(--font-cormorant)]">
+            <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--space-3xl)' }}>
               Questions Fréquentes
             </h3>
             <p className="text-xl text-gray-600 leading-relaxed">
@@ -314,7 +314,7 @@ export default function ContactPage() {
             </p>
           </motion.div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '896px', margin: '0 auto', gap: '48px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '896px', margin: '0 auto', gap: 'var(--space-4xl)' }}>
             {[
               {
                 q: "Quel est le délai de réservation recommandé ?",
@@ -340,9 +340,9 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="w-full bg-white border-2 border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-xl group text-center"
-                style={{ padding: '48px' }}
+                style={{ padding: 'var(--space-4xl)' }}
               >
-                <h4 className="text-2xl font-semibold text-gray-900 mb-5 group-hover:text-[var(--bronze-antique)] transition-colors">
+                <h4 className="text-2xl font-semibold text-gray-900 group-hover:text-[var(--bronze-antique)] transition-colors" style={{ marginBottom: 'var(--gap-lg)' }}>
                   {faq.q}
                 </h4>
                 <p className="text-gray-600 leading-relaxed text-lg">{faq.a}</p>
