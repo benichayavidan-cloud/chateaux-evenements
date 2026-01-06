@@ -8,7 +8,7 @@ import { chateaux } from "@/data/chateaux";
 
 export function ChateauxSection() {
   return (
-    <section className="bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden" style={{ paddingTop: '30px', paddingBottom: '30px' }}>
+    <section className="section-padding-sm bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
       {/* Glow effect subtil */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
@@ -21,7 +21,7 @@ export function ChateauxSection() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           className="flex flex-col items-center justify-center text-center w-full px-4"
-          style={{ marginBottom: '45px' }}
+          style={{ marginBottom: 'var(--space-4xl,45px)' }}
         >
           <div className="flex items-center justify-center mb-4">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--bronze-antique)]" />
@@ -67,27 +67,27 @@ export function ChateauxSection() {
 
                   {/* Overlay informations - visible uniquement au hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/90 to-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-[800ms] ease-out">
-                    <div className="absolute inset-0 flex flex-col justify-end" style={{ padding: '15px' }}>
+                    <div className="absolute inset-0 flex flex-col justify-end" style={{ padding: 'var(--gap-md,15px)' }}>
                       {/* Titre */}
                       <motion.h3
                         className="text-3xl lg:text-4xl font-light italic text-black font-[var(--font-cormorant)] translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
-                        style={{ marginBottom: '18px' }}
+                        style={{ marginBottom: 'var(--btn-padding-lg,18px)' }}
                       >
                         {chateau.nom}
                       </motion.h3>
 
                       {/* Description */}
-                      <p className="text-gray-700 line-clamp-2 leading-relaxed translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75" style={{ marginBottom: '20px' }}>
+                      <p className="text-gray-700 line-clamp-2 leading-relaxed translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75" style={{ marginBottom: 'var(--space-lg)' }}>
                         {chateau.description}
                       </p>
 
                       {/* Informations clés */}
-                      <div className="flex items-center gap-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" style={{ marginBottom: '20px' }}>
-                        <div className="flex items-center text-gray-700" style={{ gap: '5px' }}>
+                      <div className="flex items-center gap-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100" style={{ marginBottom: 'var(--space-lg)' }}>
+                        <div className="flex items-center text-gray-700" style={{ gap: 'var(--gap-sm,5px)' }}>
                           <MapPin className="w-5 h-5 text-[var(--bronze-antique)]" />
                           <span className="text-sm">{chateau.region}</span>
                         </div>
-                        <div className="flex items-center text-gray-700" style={{ gap: '5px' }}>
+                        <div className="flex items-center text-gray-700" style={{ gap: 'var(--gap-sm,5px)' }}>
                           <Users className="w-5 h-5 text-[var(--bronze-antique)]" />
                           <span className="text-sm">
                             {chateau.capacite.min}-{chateau.capacite.max} personnes
@@ -96,20 +96,20 @@ export function ChateauxSection() {
                       </div>
 
                       {/* Atouts principaux */}
-                      <ul className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150" style={{ marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      <ul className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150" style={{ marginBottom: 'var(--space-lg)', display: 'flex', flexDirection: 'column', gap: 'var(--gap-sm)' }}>
                         {chateau.atouts.slice(0, 3).map((atout, i) => (
                           <li
                             key={i}
                             className="text-sm text-gray-700 flex items-start"
                           >
-                            <span className="text-[var(--bronze-antique)] mt-0.5 font-bold text-base" style={{ marginRight: '5px' }}>•</span>
+                            <span className="text-[var(--bronze-antique)] mt-0.5 font-bold text-base" style={{ marginRight: 'var(--gap-sm,5px)' }}>•</span>
                             <span>{atout}</span>
                           </li>
                         ))}
                       </ul>
 
                       {/* CTA */}
-                      <div className="inline-flex items-center text-[var(--bronze-antique)] font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200" style={{ padding: '10px' }}>
+                      <div className="badge inline-flex items-center text-[var(--bronze-antique)] font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200">
                         <span className="text-sm uppercase tracking-wider">Découvrir</span>
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                       </div>
@@ -117,7 +117,7 @@ export function ChateauxSection() {
                   </div>
 
                   {/* Badge région - toujours visible en haut */}
-                  <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full z-10 shadow-lg" style={{ padding: '10px' }}>
+                  <div className="badge absolute top-6 right-6 bg-white/90 backdrop-blur-sm border border-gray-200 z-10 shadow-lg">
                     <span className="text-xs text-[var(--bronze-antique)] uppercase tracking-wider font-medium">
                       {chateau.region}
                     </span>
@@ -141,12 +141,12 @@ export function ChateauxSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex items-center justify-center w-full px-4"
-          style={{ marginTop: '30px' }}
+          style={{ marginTop: 'var(--section-padding-sm)' }}
         >
           <Link
             href="/chateaux"
             className="group inline-flex items-center bg-white/80 backdrop-blur-sm border border-[var(--bronze-antique)]/30 rounded-full text-gray-900 hover:text-[var(--bronze-antique)] hover:border-[var(--bronze-antique)] transition-all duration-500 hover:shadow-2xl"
-            style={{ padding: '16px 32px' }}
+            style={{ padding: 'var(--btn-padding-md)' }}
           >
             <span className="font-medium">Voir tous nos châteaux</span>
             <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
