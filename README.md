@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ChâteauxPrestige - Site Web Premium pour Événements d'Entreprise
 
-## Getting Started
+Site web moderne et performant pour promouvoir 4 châteaux d'exception destinés aux événements d'entreprise en France.
 
-First, run the development server:
+## 🎯 Objectifs du Projet
+
+- **Conversion maximale** : Design et UX optimisés pour générer des demandes de devis
+- **Émotion et projection** : Visuels premium et storytelling immersif
+- **Performance** : Site ultra-rapide avec optimisation SEO complète
+- **Responsive 100%** : Expérience parfaite sur tous les appareils
+
+## ✨ Fonctionnalités Principales
+
+### Pages
+
+1. **Accueil** (`/`)
+   - Hero Section avec slider d'images full-screen
+   - Présentation des 4 châteaux en grid responsive
+   - Types d'événements avec cards animées
+   - Section social proof (témoignages, chiffres clés, logos clients)
+
+2. **Nos Châteaux** (`/chateaux`)
+   - Présentation détaillée de chaque château
+   - Galeries photos
+   - Informations complètes (capacité, localisation, atouts)
+
+3. **Types d'Événements** (`/evenements`)
+   - Séminaires résidentiels
+   - Journées d'étude
+   - Soirées d'entreprise
+   - Team building
+   - Services inclus et processus détaillé
+
+4. **Demande de Devis** (`/devis`)
+   - **Formulaire multi-étapes (4 étapes)**
+   - Validation en temps réel avec Zod
+   - Animations fluides entre les étapes
+   - Progress bar visuelle
+
+5. **Contact** (`/contact`)
+   - Formulaire de contact
+   - Informations pratiques
+   - FAQ
+
+## 🚀 Stack Technique
+
+- **Framework** : Next.js 15 (App Router)
+- **Language** : TypeScript
+- **Styling** : Tailwind CSS v4
+- **Animations** : Framer Motion
+- **Formulaires** : React Hook Form + Zod
+- **Polices** : Playfair Display (titres) + Inter (corps)
+- **Images** : Unsplash (placeholders haute qualité)
+
+## 📦 Installation
+
+### Prérequis
+
+- Node.js 18+
+- npm
+
+### Commandes
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Construire pour la production
+npm run build
+
+# Lancer la version de production
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site sera accessible sur `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Design System
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Couleurs
 
-## Learn More
+```css
+--primary: #1e40af      /* Bleu royal */
+--secondary: #faf9f6    /* Blanc cassé */
+--accent: #b87333       /* Cuivre */
+--gold: #d4af37         /* Or */
+--text-primary: #1f2937 /* Gris anthracite */
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Typographie
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Titres** : Playfair Display (serif élégant)
+- **Corps** : Inter (sans-serif lisible)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Breakpoints
 
-## Deploy on Vercel
+- Mobile : 640px
+- Tablet : 768px
+- Desktop : 1024px+
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Structure du Projet
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/                    # Pages Next.js
+├── components/             # Composants React
+├── data/                   # Données fictives
+├── types/                  # Types TypeScript
+└── lib/                    # Utilitaires
+```
+
+## 🚢 Déploiement
+
+### Vercel (Recommandé)
+
+1. Push le code sur GitHub
+2. Connecter le repo à Vercel
+3. Déploiement automatique
+
+```bash
+npm i -g vercel
+vercel
+```
+
+## ⚡ Performance
+
+- Score Lighthouse visé : **90+**
+- Images optimisées avec next/image
+- Lazy loading automatique
+- Code splitting par route
+
+## 📝 Prochaines Étapes
+
+1. Remplacer les images placeholder par des photos réelles
+2. Configurer l'envoi d'emails pour les formulaires
+3. Ajouter Google Analytics
+4. Créer un sitemap.xml dynamique
+5. Implémenter les structured data
+
+---
+
+**Développé avec Next.js 15 + TypeScript + Tailwind CSS**
