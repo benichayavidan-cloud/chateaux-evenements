@@ -19,8 +19,8 @@ export default function ContactPage() {
           quality={90}
         />
         {/* Overlay CLAIR */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/15 to-white/40" />
-        <div className="absolute inset-0 bg-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/25 to-white/50" />
+        <div className="absolute inset-0 bg-white/30" />
 
         {/* Contenu centré */}
         <div className="relative h-full flex items-center">
@@ -30,18 +30,18 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-8 shadow-lg" style={{ padding: '12px 24px' }}>
+              <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-10 shadow-lg" style={{ padding: '14px 28px' }}>
                 <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
                 <span className="text-sm font-bold uppercase tracking-widest text-gray-900">
                   Contactez-nous
                 </span>
               </div>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)] leading-none">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-10 font-[var(--font-cormorant)] leading-none">
                 Parlons de<br />votre projet
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+              <p className="text-xl md:text-2xl text-gray-700 mb-14 max-w-3xl mx-auto leading-relaxed font-medium">
                 Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions
               </p>
             </motion.div>
@@ -63,71 +63,72 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Contenu principal */}
-      <div className="container mx-auto" style={{ padding: '80px 40px' }}>
+      {/* Contenu principal avec plus d'espaces */}
+      <div className="container mx-auto" style={{ padding: '100px 40px' }}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             {/* Informations de contact */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="text-center lg:text-left"
             >
-              <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-12 font-[var(--font-cormorant)]">
+              <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-14 font-[var(--font-cormorant)]">
                 Nos coordonnées
               </h2>
 
-              <div className="space-y-6 mb-12">
+              <div className="space-y-8 mb-14 max-w-xl mx-auto lg:mx-0">
                 {/* Téléphone */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                <div className="flex items-start gap-5 group">
+                  <div className="w-16 h-16 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
                     <Phone className="w-6 h-6 text-[var(--bronze-antique)]" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                  <div className="text-left">
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">
                       Téléphone
                     </h3>
                     <a
                       href="tel:+33123456789"
-                      className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-lg font-medium"
+                      className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-lg font-medium block mb-2"
                     >
                       +33 1 23 45 67 89
                     </a>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-500">
                       Du lundi au vendredi, 9h-18h
                     </p>
                   </div>
                 </div>
 
                 {/* Email */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                <div className="flex items-start gap-5 group">
+                  <div className="w-16 h-16 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
                     <Mail className="w-6 h-6 text-[var(--bronze-antique)]" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                  <div className="text-left">
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">
                       Email
                     </h3>
                     <a
                       href="mailto:contact@chateauxprestige.fr"
-                      className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-lg font-medium break-all"
+                      className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-lg font-medium break-all block mb-2"
                     >
                       contact@chateauxprestige.fr
                     </a>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-500">
                       Réponse sous 24h ouvrées
                     </p>
                   </div>
                 </div>
 
                 {/* Adresse */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                <div className="flex items-start gap-5 group">
+                  <div className="w-16 h-16 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
                     <MapPin className="w-6 h-6 text-[var(--bronze-antique)]" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                  <div className="text-left">
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">
                       Adresse
                     </h3>
                     <p className="text-gray-700 leading-relaxed font-medium">
@@ -139,12 +140,12 @@ export default function ContactPage() {
                 </div>
 
                 {/* Horaires */}
-                <div className="flex items-start gap-4 group">
-                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                <div className="flex items-start gap-5 group">
+                  <div className="w-16 h-16 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
                     <Clock className="w-6 h-6 text-[var(--bronze-antique)]" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                  <div className="text-left">
+                    <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wider">
                       Horaires
                     </h3>
                     <p className="text-gray-700 leading-relaxed font-medium">
@@ -156,12 +157,12 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* CTA Box */}
-              <div className="bg-gray-50 border border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-lg" style={{ padding: '32px' }}>
-                <h3 className="text-3xl font-light italic text-gray-900 mb-4 font-[var(--font-cormorant)]">
+              {/* CTA Box avec plus d'espaces */}
+              <div className="bg-gray-50 border border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-lg max-w-xl mx-auto lg:mx-0" style={{ padding: '40px' }}>
+                <h3 className="text-3xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
                   Besoin d'un devis rapide ?
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-8 leading-relaxed">
                   Remplissez notre formulaire de devis en ligne et recevez une
                   réponse personnalisée sous 24h
                 </p>
@@ -176,93 +177,93 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            {/* Formulaire de contact */}
+            {/* Formulaire de contact avec plus d'espaces */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white border border-gray-200 rounded-3xl shadow-lg"
-              style={{ padding: '40px' }}
+              className="bg-white border border-gray-200 rounded-3xl shadow-lg mx-auto w-full"
+              style={{ padding: '50px' }}
             >
-              <h2 className="text-3xl md:text-4xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)]">
+              <h2 className="text-3xl md:text-4xl font-light italic text-gray-900 mb-10 font-[var(--font-cormorant)] text-center lg:text-left">
                 Envoyez-nous un message
               </h2>
 
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form className="space-y-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                    <label className="block text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
                       Prénom <span className="text-[var(--bronze-antique)]">*</span>
                     </label>
                     <input
                       type="text"
                       required
                       className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '14px 16px' }}
+                      style={{ padding: '16px 18px' }}
                       placeholder="Votre prénom"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                    <label className="block text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
                       Nom <span className="text-[var(--bronze-antique)]">*</span>
                     </label>
                     <input
                       type="text"
                       required
                       className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '14px 16px' }}
+                      style={{ padding: '16px 18px' }}
                       placeholder="Votre nom"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
                     Email <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <input
                     type="email"
                     required
                     className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '14px 16px' }}
+                    style={{ padding: '16px 18px' }}
                     placeholder="votre.email@entreprise.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
                     Téléphone
                   </label>
                   <input
                     type="tel"
                     className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '14px 16px' }}
+                    style={{ padding: '16px 18px' }}
                     placeholder="+33 6 12 34 56 78"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
                     Entreprise
                   </label>
                   <input
                     type="text"
                     className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '14px 16px' }}
+                    style={{ padding: '16px 18px' }}
                     placeholder="Nom de votre entreprise"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
                     Sujet <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <select
                     required
                     className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 transition-all duration-300"
-                    style={{ padding: '14px 16px' }}
+                    style={{ padding: '16px 18px' }}
                   >
                     <option value="">Sélectionnez un sujet</option>
                     <option value="devis">Demande de devis</option>
@@ -273,14 +274,14 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
                     Message <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <textarea
                     required
                     rows={6}
                     className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none resize-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '14px 16px' }}
+                    style={{ padding: '16px 18px' }}
                     placeholder="Décrivez-nous votre projet..."
                   />
                 </div>
@@ -299,23 +300,23 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* FAQ Section */}
+      {/* FAQ Section avec plus d'espaces */}
       <div className="bg-gray-50">
-        <div className="container mx-auto" style={{ padding: '120px 40px' }}>
+        <div className="container mx-auto" style={{ padding: '140px 40px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Sparkles className="w-6 h-6 text-[var(--bronze-antique)]" />
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <Sparkles className="w-7 h-7 text-[var(--bronze-antique)]" />
               <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
                 FAQ
               </h2>
             </div>
-            <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
+            <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)]">
               Questions Fréquentes
             </h3>
             <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
@@ -323,7 +324,7 @@ export default function ContactPage() {
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-7">
             {[
               {
                 q: "Quel est le délai de réservation recommandé ?",
@@ -349,9 +350,9 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="bg-white border border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-lg group"
-                style={{ padding: '32px' }}
+                style={{ padding: '40px' }}
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-[var(--bronze-antique)] transition-colors">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-[var(--bronze-antique)] transition-colors">
                   {faq.q}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">{faq.a}</p>
