@@ -42,7 +42,7 @@ export default function ContactPage() {
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-700 mb-14 max-w-3xl mx-auto leading-relaxed font-medium">
-                Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions
+                Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions.
               </p>
             </motion.div>
           </div>
