@@ -145,3 +145,4 @@ vercel
 # Test déploiement automatique
 # Fix ignored build step
 
+# Déploiements automatiques activés
