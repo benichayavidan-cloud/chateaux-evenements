@@ -122,8 +122,8 @@ export function NavigationLuxe() {
                           willChange: 'transform, opacity'
                         }}
                       >
-                        <div className="py-4 px-4">
-                          <div className="mb-3 px-4">
+                        <div className="p-[10px]">
+                          <div className="mb-3 px-2">
                             <p className="text-xs font-semibold tracking-wider uppercase" style={{ color: '#B8860B' }}>
                               Nos Châteaux
                             </p>
