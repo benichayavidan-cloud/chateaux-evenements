@@ -30,6 +30,60 @@
   --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     SPACING SYSTEM - Scale harmonique 8px base
+     ============================================ */
+
+  /* Standard spacing (20-40px) */
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 40px;
+
+  /* Large spacing (48-100px) - sections */
+  --space-4xl: 48px;
+  --space-5xl: 64px;
+  --space-6xl: 80px;
+  --space-7xl: 100px;
+
+  /* Section vertical spacing */
+  --section-padding-sm: 30px;
+  --section-padding-md: 60px;
+  --section-padding-lg: 100px;
+
+  /* Container horizontal padding */
+  --container-padding: 40px;
+
+  /* ============================================
+     SIZES - Largeurs et hauteurs
+     ============================================ */
+
+  /* Max widths - containers */
+  --max-width-sm: 600px;
+  --max-width-content: 1280px;
+
+  /* Heights */
+  --height-image-card: 500px;
+  --height-icon-lg: 90px;
+
+  /* ============================================
+     GAPS - Espacement entre éléments
+     ============================================ */
+
+  --gap-sm: 12px;
+  --gap-md: 16px;
+  --gap-lg: 20px;
+  --gap-3xl: 40px;
+
+  /* ============================================
+     BUTTON & BADGE PADDING
+     ============================================ */
+
+  --btn-padding-md: 16px 32px;
+  --btn-padding-lg: 18px 40px;
+  --badge-padding-md: 10px 24px;
+  --badge-padding-lg: 14px 28px;
 }
 
 @theme inline {
@@ -222,4 +276,40 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     background-position: 200% center;
   }
+}
+
+/* ============================================
+   UTILITY CLASSES - Layout standardisé
+   ============================================ */
+
+/* Section container standardisé */
+.section-container {
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Section padding vertical */
+.section-padding-sm {
+  padding: var(--section-padding-sm) 0;
+}
+
+.section-padding-md {
+  padding: var(--section-padding-md) 0;
+}
+
+.section-padding-lg {
+  padding: var(--section-padding-lg) 0;
+}
+
+/* Badge standardisé */
+.badge {
+  padding: var(--badge-padding-md);
+  border-radius: var(--radius-full, 9999px);
+}
+
+.badge-lg {
+  padding: var(--badge-padding-lg);
+  border-radius: var(--radius-full, 9999px);
 }

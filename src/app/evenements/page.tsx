@@ -33,7 +33,7 @@ export default function EvenementsPage() {
               transition={{ duration: 0.8 }}
               style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
             >
-              <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-10 shadow-lg" style={{ padding: '14px 28px' }}>
+              <div className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-10">
                 <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
                 <span className="text-sm font-bold uppercase tracking-widest text-gray-900">
                   Événements sur mesure
@@ -51,7 +51,7 @@ export default function EvenementsPage() {
               <Link
                 href="/devis"
                 className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
-                style={{ padding: '18px 40px' }}
+                style={{ padding: 'var(--btn-padding-lg)' }}
               >
                 <span>Planifier mon événement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -76,15 +76,14 @@ export default function EvenementsPage() {
       </div>
 
       {/* Types d'événements - CENTRÉ avec plus d'espaces */}
-      <div style={{ paddingTop: '30px', paddingBottom: '30px' }}>
+      <div className="section-padding-sm">
         {typesEvenements.map((evenement, index) => (
           <div
             key={evenement.id}
-            className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
-            style={{ padding: '100px 0' }}
+            className={`section-padding-lg ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
           >
-            <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'center' }}>
+            <div className="section-container">
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--gap-3xl)', alignItems: 'center' }}>
                 {/* Image */}
                 <motion.div
                   initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
@@ -93,7 +92,7 @@ export default function EvenementsPage() {
                   viewport={{ once: true }}
                   style={{ order: index % 2 === 0 ? 1 : 2 }}
                 >
-                  <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl group" style={{ height: 'var(--height-image-card)' }}>
                     <Image
                       src={evenement.image}
                       alt={evenement.titre}
@@ -113,31 +112,31 @@ export default function EvenementsPage() {
                   style={{ order: index % 2 === 0 ? 2 : 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}
                 >
                   {/* Badge */}
-                  <div className="inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 rounded-full" style={{ padding: '10px 24px', marginBottom: '20px' }}>
+                  <div className="badge inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10" style={{ marginBottom: 'var(--space-lg)' }}>
                     <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
                     <span className="text-xs font-bold uppercase tracking-widest text-[var(--bronze-antique)]">
                       Événement Premium
                     </span>
                   </div>
 
-                  <h2 className="text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: '20px' }}>
+                  <h2 className="text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--space-lg)' }}>
                     {evenement.titre}
                   </h2>
 
-                  <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: '20px' }}>
+                  <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: 'var(--space-lg)' }}>
                     {evenement.description}
                   </p>
 
                   {/* Services inclus */}
-                  <div style={{ marginBottom: '32px', width: '100%' }}>
-                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: '20px' }}>
+                  <div style={{ marginBottom: 'var(--space-2xl)', width: '100%' }}>
+                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--space-lg)' }}>
                       Services inclus
                     </h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px', margin: '0 auto' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', maxWidth: 'var(--max-width-sm)', margin: '0 auto' }}>
                       {evenement.servicesInclus.map((service, i) => (
                         <div
                           key={i}
-                          style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', textAlign: 'left' }}
+                          style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--gap-md)', textAlign: 'left' }}
                         >
                           <div className="w-7 h-7 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center flex-shrink-0 mt-1">
                             <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
@@ -151,7 +150,7 @@ export default function EvenementsPage() {
                   <Link
                     href="/devis"
                     className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
-                    style={{ padding: '16px 32px' }}
+                    style={{ padding: 'var(--btn-padding-md)' }}
                   >
                     <span>Organiser cet événement</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -164,16 +163,16 @@ export default function EvenementsPage() {
       </div>
 
       {/* Processus - CENTERED avec plus d'espaces */}
-      <div className="bg-gray-50">
-        <div style={{ padding: '30px 40px' }}>
+      <div className="bg-gray-50 section-padding-sm">
+        <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            style={{ width: '100%', textAlign: 'center', marginBottom: '20px' }}
+            style={{ width: '100%', textAlign: 'center', marginBottom: 'var(--space-lg)' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '32px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--gap-md)', marginBottom: 'var(--space-2xl)' }}>
               <Trophy className="w-7 h-7 text-[var(--bronze-antique)]" />
               <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
                 Notre processus
@@ -187,7 +186,7 @@ export default function EvenementsPage() {
             </p>
           </motion.div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', maxWidth: '1280px', margin: '0 auto', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--gap-3xl)', maxWidth: 'var(--max-width-content)', margin: '0 auto', justifyContent: 'center' }}>
             {[
               {
                 step: "1",
@@ -218,10 +217,10 @@ export default function EvenementsPage() {
                 viewport={{ once: true }}
                 style={{ width: '250px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
               >
-                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex items-center justify-center text-3xl font-bold shadow-lg" style={{ width: '90px', height: '90px', marginBottom: '32px' }}>
+                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex items-center justify-center text-3xl font-bold shadow-lg" style={{ width: 'var(--height-icon-lg)', height: 'var(--height-icon-lg)', marginBottom: 'var(--space-2xl)' }}>
                   {item.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: '20px' }}>
+                <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: 'var(--space-lg)' }}>
                   {item.titre}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">{item.description}</p>
@@ -232,8 +231,8 @@ export default function EvenementsPage() {
       </div>
 
       {/* CTA Final avec plus d'espaces */}
-      <div className="bg-white">
-        <div style={{ padding: '30px 40px' }}>
+      <div className="bg-white section-padding-sm">
+        <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -241,18 +240,18 @@ export default function EvenementsPage() {
             viewport={{ once: true }}
             style={{ width: '100%', textAlign: 'center' }}
           >
-            <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: '20px' }}>
+            <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--space-lg)' }}>
               Prêt à créer un événement mémorable ?
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: '20px' }}>
+            <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: 'var(--space-lg)' }}>
               Nos équipes sont à votre écoute pour concrétiser votre projet
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '20px', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 'var(--gap-lg)', alignItems: 'center', justifyContent: 'center' }}>
               <Link
                 href="/devis"
                 className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
-                style={{ padding: '18px 40px' }}
+                style={{ padding: 'var(--btn-padding-lg)' }}
               >
                 <Calendar className="w-5 h-5" />
                 <span>Demander un Devis</span>
@@ -262,7 +261,7 @@ export default function EvenementsPage() {
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-3 bg-white text-gray-900 font-semibold rounded-full border-2 border-gray-200 hover:border-[var(--bronze-antique)] transition-all duration-300"
-                style={{ padding: '18px 40px' }}
+                style={{ padding: 'var(--btn-padding-lg)' }}
               >
                 <Users className="w-5 h-5" />
                 <span>Parler à un Expert</span>
