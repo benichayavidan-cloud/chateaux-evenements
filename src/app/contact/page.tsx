@@ -179,8 +179,8 @@ export default function ContactPage() {
               className="bg-gray-50 border-2 border-gray-200 rounded-3xl shadow-xl mx-auto w-full"
               style={{ padding: '60px' }}
             >
-              <form className="space-y-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+              <form>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-14" style={{ marginBottom: '40px' }}>
                   <div>
                     <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                       Prénom <span className="text-[var(--bronze-antique)]">*</span>
@@ -208,7 +208,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div>
+                <div style={{ marginBottom: '40px' }}>
                   <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Email <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div>
+                <div style={{ marginBottom: '40px' }}>
                   <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Téléphone
                   </label>
@@ -233,7 +233,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div>
+                <div style={{ marginBottom: '40px' }}>
                   <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Entreprise
                   </label>
@@ -245,7 +245,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div>
+                <div style={{ marginBottom: '40px' }}>
                   <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Sujet <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
@@ -262,7 +262,7 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                <div>
+                <div style={{ marginBottom: '40px' }}>
                   <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Message <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
