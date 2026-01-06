@@ -67,7 +67,7 @@ export default function ContactPage() {
       {/* Section Formulaire - Tout centré avec espaces respirants */}
       <div style={{ paddingTop: '30px', paddingBottom: '30px' }}>
         {/* Titre centré */}
-        <div style={{ width: '100%', textAlign: 'center', marginBottom: '80px', padding: '0 40px' }}>
+        <div style={{ width: '100%', textAlign: 'center', marginBottom: '20px', padding: '0 40px' }}>
           <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
             Recevez vite votre devis
           </h2>
@@ -298,7 +298,7 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            style={{ width: '100%', textAlign: 'center', marginBottom: '96px' }}
+            style={{ width: '100%', textAlign: 'center', marginBottom: '20px' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '40px' }}>
               <Sparkles className="w-7 h-7 text-[var(--bronze-antique)]" />
