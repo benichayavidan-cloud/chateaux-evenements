@@ -131,7 +131,72 @@ vercel
 - Lazy loading automatique
 - Code splitting par route
 
-## 📝 Prochaines Étapes
+## 📝 Dev Log
+
+### Session du 06/01/2026 - Système de Design Tokens
+
+**✅ Implémenté:**
+
+1. **Système de Design Tokens Centralisé** (`globals.css`)
+   - Variables CSS pour tous les espacements : `--space-lg`, `--space-2xl`, `--space-3xl`, `--space-4xl`, etc.
+   - Variables pour sections : `--section-padding-sm/md/lg`
+   - Variables pour containers : `--container-padding`, `--max-width-content`
+   - Variables pour gaps : `--gap-sm/md/lg/3xl`
+   - Variables pour hauteurs : `--height-image-card`, `--height-icon-lg`
+   - Variables pour boutons : `--btn-padding-md/lg`
+   - Variables pour badges : `--badge-padding-md/lg`
+
+2. **Classes Utilitaires Créées**
+   - `.section-container` - Container standardisé avec max-width et padding
+   - `.section-padding-sm/md/lg` - Padding vertical des sections
+   - `.badge`, `.badge-lg` - Badges standardisés
+
+3. **Refactorisation Complète du Site**
+   - ✅ `/src/app/evenements/page.tsx` - 77 valeurs hard-codées → variables CSS
+   - ✅ `/src/app/contact/page.tsx` - Toutes valeurs inline → variables CSS
+   - ✅ `/src/components/HeroSection.tsx` - Spacings standardisés
+   - ✅ `/src/components/ChateauxSection.tsx` - Classes utilitaires appliquées
+   - ✅ `/src/components/EvenementsSection.tsx` - Variables CSS appliquées
+   - ✅ `/src/components/SocialProofSection.tsx` - Spacings standardisés
+   - ✅ `/src/components/NavigationLuxe.tsx` + `FooterLuxe.tsx` - Badges standardisés
+
+4. **Corrections Design Page Événements**
+   - Gap entre colonnes optimisé : 40px → 20px
+   - Espacement services/CTA augmenté : 32px → 48px
+   - Puces de liste centrées avec le texte
+
+**📊 Résultats:**
+- **0 changement visuel** - valeurs identiques, juste centralisées
+- **Maintenance ultra-rapide** - modifier 1 variable au lieu de 50+ lignes
+- **Cohérence garantie** - tous les composants utilisent les mêmes valeurs
+
+**🎯 Avantages pour les sessions futures:**
+
+Avant : Changer tous les espacements de sections = chercher dans 15 fichiers, modifier 50+ lignes, 15 minutes
+Maintenant : `--section-padding-lg: 120px` = 5 secondes, tout le site se met à jour
+
+**Exemples d'utilisation rapide:**
+```css
+/* Augmenter tous les espacements de sections */
+--section-padding-lg: 120px; /* était 100px */
+
+/* Modifier tous les gaps entre colonnes */
+--gap-3xl: 30px; /* était 20px */
+
+/* Ajuster tous les paddings de boutons */
+--btn-padding-lg: 20px 48px; /* était 18px 40px */
+```
+
+---
+
+### 📝 Pour la Prochaine Session
+
+**Prêt à modifier rapidement:**
+- Tous les espacements centralisés dans `globals.css`
+- Modifier le design en quelques secondes au lieu de minutes
+- Système cohérent et maintenable
+
+**Prochaines Étapes:**
 
 1. Remplacer les images placeholder par des photos réelles
 2. Configurer l'envoi d'emails pour les formulaires
@@ -142,7 +207,3 @@ vercel
 ---
 
 **Développé avec Next.js 15 + TypeScript + Tailwind CSS**
-# Test déploiement automatique
-# Fix ignored build step
-
-# Déploiements automatiques activés
