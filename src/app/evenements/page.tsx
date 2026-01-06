@@ -13,7 +13,7 @@ export default function EvenementsPage() {
       {/* Hero Section CLAIR avec image CLAIRE */}
       <div className="relative h-screen overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1519167758481-83f29da8c6f0?w=1920&q=90"
+          src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=90"
           alt="Événements d'entreprise"
           fill
           className="object-cover"
@@ -25,12 +25,13 @@ export default function EvenementsPage() {
         <div className="absolute inset-0 bg-white/30" />
 
         {/* Contenu */}
-        <div className="relative h-full flex items-center">
-          <div className="container mx-auto text-center" style={{ padding: '0 40px' }}>
+        <div className="relative h-full flex items-center justify-center">
+          <div style={{ width: '100%', textAlign: 'center', padding: '0 40px' }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
             >
               <div className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-10 shadow-lg" style={{ padding: '14px 28px' }}>
                 <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
@@ -43,7 +44,7 @@ export default function EvenementsPage() {
                 Vos Événements<br />d'Exception
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-700 mb-14 max-w-3xl mx-auto leading-relaxed font-medium">
+              <p className="text-xl md:text-2xl text-gray-700 mb-14 max-w-3xl leading-relaxed font-medium">
                 Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables.
               </p>
 
