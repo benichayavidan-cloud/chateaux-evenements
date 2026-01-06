@@ -136,7 +136,7 @@ export default function EvenementsPage() {
                       {evenement.servicesInclus.map((service, i) => (
                         <div
                           key={i}
-                          style={{ display: 'flex', alignItems: 'center', gap: 'var(--gap-md)', textAlign: 'left' }}
+                          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--gap-md)' }}
                         >
                           <div className="w-7 h-7 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center flex-shrink-0">
                             <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
