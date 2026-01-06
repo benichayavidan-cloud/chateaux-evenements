@@ -68,12 +68,12 @@ export default function ContactPage() {
       <div className="container mx-auto" style={{ padding: '120px 40px' }}>
         <div className="max-w-7xl mx-auto">
           {/* Titre centré */}
-          <div className="text-center mb-20">
+          <div className="flex flex-col items-center text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
-              Envoyez-nous un message
+              Recevez vite votre devis
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Remplissez le formulaire ci-dessous et nous vous répondrons sous 24h
+            <p className="text-xl text-gray-600 max-w-2xl">
+              Découvrez si un de nos châteaux est disponible
             </p>
           </div>
 
