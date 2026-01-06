@@ -76,7 +76,7 @@ export default function EvenementsPage() {
       </div>
 
       {/* Types d'événements - CENTRÉ avec plus d'espaces */}
-      <div style={{ paddingTop: '140px', paddingBottom: '140px' }}>
+      <div style={{ paddingTop: '30px', paddingBottom: '30px' }}>
         {typesEvenements.map((evenement, index) => (
           <div
             key={evenement.id}
@@ -121,11 +121,11 @@ export default function EvenementsPage() {
                       </span>
                     </div>
 
-                    <h2 className="text-5xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)]">
+                    <h2 className="text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: '20px' }}>
                       {evenement.titre}
                     </h2>
 
-                    <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+                    <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: '20px' }}>
                       {evenement.description}
                     </p>
 
@@ -167,15 +167,15 @@ export default function EvenementsPage() {
 
       {/* Processus - CENTERED avec plus d'espaces */}
       <div className="bg-gray-50">
-        <div className="container mx-auto text-center" style={{ padding: '140px 40px' }}>
+        <div style={{ padding: '30px 40px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto mb-24"
+            style={{ width: '100%', textAlign: 'center', marginBottom: '20px' }}
           >
-            <div className="flex items-center justify-center gap-4 mb-8">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '32px' }}>
               <Trophy className="w-7 h-7 text-[var(--bronze-antique)]" />
               <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
                 Notre processus
@@ -189,7 +189,7 @@ export default function EvenementsPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', maxWidth: '1280px', margin: '0 auto' }}>
             {[
               {
                 step: "1",
@@ -235,22 +235,22 @@ export default function EvenementsPage() {
 
       {/* CTA Final avec plus d'espaces */}
       <div className="bg-white">
-        <div className="container mx-auto text-center" style={{ padding: '140px 40px' }}>
+        <div style={{ padding: '30px 40px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto"
+            style={{ width: '100%', textAlign: 'center' }}
           >
-            <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)]">
+            <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: '20px' }}>
               Prêt à créer un événement mémorable ?
             </h2>
-            <p className="text-xl text-gray-600 mb-14 leading-relaxed">
+            <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: '20px' }}>
               Nos équipes sont à votre écoute pour concrétiser votre projet
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', justifyContent: 'center' }}>
               <Link
                 href="/devis"
                 className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
