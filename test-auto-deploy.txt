@@ -1,0 +1,2 @@
+Test de déploiement automatique réussi !
+Date: $(date)
