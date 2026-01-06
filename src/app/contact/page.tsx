@@ -1,48 +1,63 @@
 "use client";
 
 import { Metadata } from "next";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, Sparkles } from "lucide-react";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section SANS IMAGE - Fond blanc pur */}
-      <div className="relative min-h-screen flex items-center justify-center bg-white">
+      {/* Hero Section avec image château et jardin */}
+      <div className="relative min-h-screen overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=90"
+          alt="Contact - Château et jardins"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+        {/* Overlay CLAIR - Style lumineux */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/25 to-white/50" />
+        <div className="absolute inset-0 bg-white/30" />
+
         {/* Contenu centré */}
-        <div className="container mx-auto" style={{ padding: '120px 40px' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center text-center"
-          >
-            <div className="flex items-center justify-center gap-3 bg-[var(--bronze-antique)]/10 border border-[var(--bronze-antique)]/20 rounded-full mb-12 shadow-sm" style={{ padding: '14px 28px' }}>
-              <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
-              <span className="text-sm font-bold uppercase tracking-widest text-[var(--bronze-antique)]">
-                Contactez-nous
-              </span>
-            </div>
+        <div className="relative h-screen flex items-center justify-center">
+          <div className="container mx-auto" style={{ padding: '120px 40px' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center text-center"
+            >
+              <div className="flex items-center justify-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-12 shadow-lg" style={{ padding: '14px 28px' }}>
+                <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
+                <span className="text-sm font-bold uppercase tracking-widest text-gray-900">
+                  Contactez-nous
+                </span>
+              </div>
 
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-12 font-[var(--font-cormorant)] leading-none">
-              Parlons de<br />votre projet
-            </h1>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-12 font-[var(--font-cormorant)] leading-none">
+                Parlons de<br />votre projet
+              </h1>
 
-            <p className="text-xl md:text-2xl text-gray-600 mb-16 max-w-3xl leading-relaxed">
-              Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions.
-            </p>
-          </motion.div>
+              <p className="text-xl md:text-2xl text-gray-700 mb-16 max-w-3xl leading-relaxed font-medium">
+                Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions.
+              </p>
+            </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-2"
           >
             <span className="text-gray-800 text-xs uppercase tracking-widest font-bold">Découvrir</span>
-            <div className="w-6 h-10 border-2 border-gray-800 rounded-full flex items-start justify-center p-2 bg-white">
+            <div className="w-6 h-10 border-2 border-gray-800 rounded-full flex items-start justify-center p-2 bg-white/90">
               <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
             </div>
           </motion.div>
