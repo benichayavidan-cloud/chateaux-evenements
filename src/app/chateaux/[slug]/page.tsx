@@ -84,9 +84,9 @@ export default function ChateauPage() {
           />
         </motion.div>
 
-        {/* Gradient overlay sophistiqué */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
+        {/* Overlay CLAIR pour lisibilité */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-white/30" />
+        <div className="absolute inset-0 bg-white/15" />
 
         {/* Contenu Hero */}
         <motion.div
@@ -94,42 +94,43 @@ export default function ChateauPage() {
           className="relative h-full flex flex-col justify-between py-8"
         >
           {/* Header avec back button */}
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto" style={{ padding: '0 40px' }}>
             <Link
               href="/chateaux"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-300 group"
+              className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full text-gray-900 hover:bg-white transition-all duration-300 group shadow-lg"
+              style={{ padding: '12px 24px' }}
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-              <span className="font-medium">Retour</span>
+              <span className="font-semibold">Retour</span>
             </Link>
           </div>
 
           {/* Titre et infos - Centré */}
-          <div className="container mx-auto px-6 flex-1 flex flex-col justify-end pb-20">
+          <div className="container mx-auto flex-1 flex flex-col justify-end" style={{ padding: '0 40px 80px' }}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               {/* Badge style architectural */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-6 shadow-lg" style={{ padding: '10px 20px' }}>
                 <Award className="w-4 h-4 text-[var(--bronze-antique)]" />
-                <span className="text-sm font-medium text-white">{chateau.style_architectural}</span>
+                <span className="text-sm font-semibold text-gray-900">{chateau.style_architectural}</span>
               </div>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-white mb-6 font-[var(--font-cormorant)] leading-none">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)] leading-none">
                 {chateau.nom}
               </h1>
 
               {/* Infos en badges modernes */}
               <div className="flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-3 px-5 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+                <div className="flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg" style={{ padding: '12px 20px' }}>
                   <MapPin className="w-5 h-5 text-[var(--bronze-antique)]" />
-                  <span className="text-white font-medium">{chateau.region}</span>
+                  <span className="text-gray-900 font-semibold">{chateau.region}</span>
                 </div>
-                <div className="flex items-center gap-3 px-5 py-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+                <div className="flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg" style={{ padding: '12px 20px' }}>
                   <Users className="w-5 h-5 text-[var(--bronze-antique)]" />
-                  <span className="text-white font-medium">
+                  <span className="text-gray-900 font-semibold">
                     {chateau.capacite_min}-{chateau.capacite_max} personnes
                   </span>
                 </div>
@@ -144,9 +145,9 @@ export default function ChateauPage() {
               transition={{ repeat: Infinity, duration: 2 }}
               className="flex flex-col items-center gap-2"
             >
-              <span className="text-white/80 text-xs uppercase tracking-widest font-semibold">Découvrir</span>
-              <div className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-2">
-                <div className="w-1 h-3 bg-white rounded-full" />
+              <span className="text-gray-800 text-xs uppercase tracking-widest font-bold">Découvrir</span>
+              <div className="w-6 h-10 border-2 border-gray-800 rounded-full flex items-start justify-center p-2 bg-white/90">
+                <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
               </div>
             </motion.div>
           </div>
@@ -155,25 +156,25 @@ export default function ChateauPage() {
 
       {/* Contenu principal */}
       <div className="relative bg-white">
-        {/* Section À propos - Largeur contenue */}
-        <div className="container mx-auto px-6 py-24">
-          <div className="max-w-4xl mx-auto">
+        {/* Section À propos - CENTRÉE */}
+        <div className="container mx-auto" style={{ padding: '80px 40px' }}>
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center justify-center gap-3 mb-6">
                 <Sparkles className="w-6 h-6 text-[var(--bronze-antique)]" />
-                <h2 className="text-sm uppercase tracking-widest font-semibold text-[var(--bronze-antique)]">
+                <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
                   À propos
                 </h2>
               </div>
               <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)] leading-tight">
                 Une expérience d'exception
               </h3>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 {chateau.description}
               </p>
             </motion.div>
@@ -181,54 +182,57 @@ export default function ChateauPage() {
         </div>
 
         {/* Points forts - Bento Grid */}
-        <div className="container mx-auto px-6 py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)] mb-4">
-                Points forts
-              </h2>
-              <p className="text-lg text-gray-600">
-                Ce qui rend ce lieu unique
-              </p>
-            </motion.div>
+        <div className="bg-gray-50">
+          <div className="container mx-auto" style={{ padding: '80px 40px' }}>
+            <div className="max-w-7xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)] mb-4">
+                  Points forts
+                </h2>
+                <p className="text-lg text-gray-600">
+                  Ce qui rend ce lieu unique
+                </p>
+              </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {chateau.atouts.map((atout: string, index: number) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group relative bg-white p-8 rounded-3xl border border-gray-200 hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-2xl"
-                >
-                  <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Check className="w-6 h-6 text-[var(--bronze-antique)]" />
-                  </div>
-                  <p className="text-lg font-medium text-gray-900 pr-16 leading-relaxed">
-                    {atout}
-                  </p>
-                </motion.div>
-              ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {chateau.atouts.map((atout: string, index: number) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="group relative bg-white rounded-3xl border border-gray-200 hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-2xl"
+                    style={{ padding: '32px' }}
+                  >
+                    <div className="absolute rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center group-hover:scale-110 transition-transform" style={{ top: '24px', right: '24px', width: '48px', height: '48px' }}>
+                      <Check className="w-6 h-6 text-[var(--bronze-antique)]" />
+                    </div>
+                    <p className="text-lg font-medium text-gray-900 leading-relaxed" style={{ paddingRight: '64px' }}>
+                      {atout}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* Galerie - Masonry moderne */}
-        <div className="container mx-auto px-6 py-24">
+        <div className="container mx-auto" style={{ padding: '80px 40px' }}>
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="mb-12"
+              className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)] mb-4">
                 Galerie
@@ -238,7 +242,7 @@ export default function ChateauPage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {chateau.images.slice(1).map((image: string, index: number) => (
                 <motion.div
                   key={index}
@@ -254,10 +258,9 @@ export default function ChateauPage() {
                     src={image}
                     alt={`${chateau.nom} - ${index + 2}`}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(min-width: 1024px) 33vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
               ))}
             </div>
@@ -265,18 +268,8 @@ export default function ChateauPage() {
         </div>
 
         {/* CTA Section finale */}
-        <div className="relative py-32 overflow-hidden">
-          {/* Background avec image floue */}
-          <div className="absolute inset-0">
-            <Image
-              src={chateau.images[0]}
-              alt="Background"
-              fill
-              className="object-cover opacity-10 blur-3xl"
-            />
-          </div>
-
-          <div className="relative container mx-auto px-6 text-center">
+        <div className="bg-gray-50">
+          <div className="container mx-auto text-center" style={{ padding: '120px 40px' }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -294,7 +287,8 @@ export default function ChateauPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/devis"
-                  className="group relative px-10 py-5 bg-[var(--bronze-antique)] text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl inline-flex items-center gap-3"
+                  className="group relative bg-[var(--bronze-antique)] text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-2xl inline-flex items-center gap-3"
+                  style={{ padding: '16px 40px' }}
                 >
                   <span className="relative z-10">Demander un Devis</span>
                   <Calendar className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform" />
@@ -303,7 +297,8 @@ export default function ChateauPage() {
 
                 <Link
                   href="/chateaux"
-                  className="px-10 py-5 bg-white text-gray-900 font-semibold rounded-full border-2 border-gray-200 hover:border-[var(--bronze-antique)] transition-all duration-300"
+                  className="bg-white text-gray-900 font-semibold rounded-full border-2 border-gray-200 hover:border-[var(--bronze-antique)] transition-all duration-300"
+                  style={{ padding: '16px 40px' }}
                 >
                   Voir d'autres châteaux
                 </Link>
@@ -318,16 +313,17 @@ export default function ChateauPage() {
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="fixed bottom-8 right-8 z-40 hidden xl:block"
+        className="fixed z-40 hidden xl:block"
+        style={{ bottom: '32px', right: '32px' }}
       >
-        <div className="bg-white/95 backdrop-blur-xl border border-gray-200 rounded-3xl p-6 shadow-2xl w-80">
-          <h3 className="text-xl font-semibold text-gray-900 mb-4 font-[var(--font-cormorant)] italic">
+        <div className="bg-white/95 backdrop-blur-sm border border-gray-200 rounded-3xl shadow-2xl" style={{ padding: '32px', width: '320px' }}>
+          <h3 className="text-xl font-semibold text-gray-900 mb-6 font-[var(--font-cormorant)] italic">
             Informations
           </h3>
 
-          <div className="space-y-4 mb-6">
-            <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1 font-semibold">
+          <div style={{ marginBottom: '24px' }}>
+            <div style={{ marginBottom: '20px' }}>
+              <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">
                 Style
               </p>
               <p className="text-gray-900 font-medium">
@@ -335,8 +331,8 @@ export default function ChateauPage() {
               </p>
             </div>
 
-            <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1 font-semibold">
+            <div style={{ marginBottom: '20px' }}>
+              <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">
                 Capacité
               </p>
               <p className="text-gray-900 font-medium">
@@ -345,7 +341,7 @@ export default function ChateauPage() {
             </div>
 
             <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wider mb-1 font-semibold">
+              <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 font-bold">
                 Région
               </p>
               <p className="text-gray-900 font-medium">{chateau.region}</p>
@@ -354,7 +350,8 @@ export default function ChateauPage() {
 
           <Link
             href="/devis"
-            className="w-full inline-flex items-center justify-center px-6 py-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-lg"
+            className="w-full inline-flex items-center justify-center bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-lg"
+            style={{ padding: '14px 24px' }}
           >
             Réserver
           </Link>
