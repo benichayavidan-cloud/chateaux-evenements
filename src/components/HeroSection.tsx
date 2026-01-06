@@ -74,7 +74,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-7xl italic leading-tight font-[var(--font-cormorant)]"
-            style={{ color: '#000000', marginBottom: '24px', fontWeight: 500 }}
+            style={{ color: '#000000', marginBottom: 'var(--space-xl)', fontWeight: 500 }}
           >
             Transformez vos événements en{" "}
             <span className="block md:inline relative" style={{ color: '#8B6914', fontWeight: 600 }}>
@@ -88,7 +88,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
             className="text-lg md:text-xl leading-relaxed font-medium"
-            style={{ color: '#1a1a1a', marginBottom: '48px' }}
+            style={{ color: '#1a1a1a', marginBottom: 'var(--space-4xl)' }}
           >
             Organisez vos séminaires, conventions et événements d'entreprise
             dans nos 4 châteaux d'exception en France.
@@ -100,11 +100,11 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
             className="flex flex-row justify-center items-center gap-8 lg:gap-12 flex-wrap"
-            style={{ marginBottom: '32px' }}
+            style={{ marginBottom: 'var(--space-2xl)' }}
           >
             {/* Statistique 1 : Années */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
+              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: 'var(--space-xl)' }}>
                 <Award className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" style={{ color: '#B8860B' }} />
               </div>
               <div className="text-3xl font-medium font-[var(--font-cormorant)] leading-none mb-2" style={{ color: '#000000' }}>
@@ -117,7 +117,7 @@ export function HeroSection() {
 
             {/* Statistique 2 : Événements */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
+              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: 'var(--space-xl)' }}>
                 <Users className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" style={{ color: '#B8860B' }} />
               </div>
               <div className="text-3xl font-medium font-[var(--font-cormorant)] leading-none mb-2" style={{ color: '#000000' }}>
@@ -130,7 +130,7 @@ export function HeroSection() {
 
             {/* Statistique 3 : Châteaux */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: '24px' }}>
+              <div className="w-16 h-16 rounded-full border-2 flex items-center justify-center group transition-all duration-300 bg-white/90 shadow-lg" style={{ borderColor: '#B8860B', marginBottom: 'var(--space-xl)' }}>
                 <Building className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" style={{ color: '#B8860B' }} />
               </div>
               <div className="text-3xl font-medium font-[var(--font-cormorant)] leading-none mb-2" style={{ color: '#000000' }}>
@@ -148,14 +148,14 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
             className="flex flex-col sm:flex-row justify-center items-center"
-            style={{ gap: '20px' }}
+            style={{ gap: 'var(--gap-lg)' }}
           >
             <Link
               href="/devis"
               className="group relative text-base font-bold text-white bg-[var(--bronze-antique)] rounded-full overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-glow)] inline-flex items-center justify-center whitespace-nowrap"
               style={{
                 filter: 'drop-shadow(0 8px 16px rgba(163, 126, 44, 0.4))',
-                padding: '18px 40px',
+                padding: 'var(--btn-padding-lg)',
                 height: '56px',
                 border: '2px solid transparent',
                 textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)'
@@ -171,7 +171,7 @@ export function HeroSection() {
               className="bg-white/95 text-black text-base font-bold rounded-full hover:bg-white hover:border-[var(--bronze-antique)] transition-all duration-300 border-2 border-white/50 inline-flex items-center justify-center whitespace-nowrap shadow-lg"
               style={{
                 filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2))',
-                padding: '18px 40px',
+                padding: 'var(--btn-padding-lg)',
                 height: '56px'
               }}
             >
@@ -246,8 +246,8 @@ export function HeroSection() {
         <div
           className="flex items-center bg-gray-900/90 rounded-full border border-white/30 shadow-lg"
           style={{
-            gap: '8px',
-            padding: '10px 20px',
+            gap: 'var(--gap-sm)',
+            padding: 'var(--badge-padding-md)',
             filter: 'drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4))'
           }}
         >
