@@ -114,17 +114,25 @@ export function NavigationLuxe() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 mt-2 w-64 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-xl shadow-lg overflow-hidden z-50"
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="absolute top-full left-0 mt-3 w-72 bg-white/98 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl overflow-hidden z-50"
+                        style={{ boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)' }}
                       >
-                        <div className="py-2">
-                          {chateaux.map((chateau) => (
+                        <div className="py-4 px-3">
+                          {chateaux.map((chateau, index) => (
                             <Link
                               key={chateau.slug}
                               href={`/chateaux/${chateau.slug}`}
-                              className="block px-4 py-3 text-sm text-gray-700 hover:bg-[var(--bronze-antique)] hover:text-white transition-colors duration-200"
+                              className="group block px-5 py-3.5 text-sm font-medium text-gray-700 hover:text-white rounded-xl transition-all duration-300 relative overflow-hidden"
+                              style={{
+                                marginBottom: index < chateaux.length - 1 ? '6px' : '0'
+                              }}
                             >
-                              {chateau.nom}
+                              <span className="absolute inset-0 bg-gradient-to-r from-[var(--bronze-antique)] to-[var(--bronze-light)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl" />
+                              <span className="relative z-10 flex items-center">
+                                <span className="w-1.5 h-1.5 rounded-full bg-current mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                {chateau.nom}
+                              </span>
                             </Link>
                           ))}
                         </div>
@@ -183,7 +191,7 @@ export function NavigationLuxe() {
             <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
               {navLinks.map((link) => (
                 link.hasSubmenu ? (
-                  <div key={link.href} className="flex flex-col space-y-2">
+                  <div key={link.href} className="flex flex-col space-y-3">
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
@@ -192,13 +200,13 @@ export function NavigationLuxe() {
                       {link.label}
                     </Link>
                     {chateaux.length > 0 && (
-                      <div className="pl-4 flex flex-col space-y-2 border-l-2 border-gray-200">
+                      <div className="ml-2 pl-4 flex flex-col space-y-2 border-l-2" style={{ borderColor: '#B8860B' }}>
                         {chateaux.map((chateau) => (
                           <Link
                             key={chateau.slug}
                             href={`/chateaux/${chateau.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="text-sm text-gray-600 hover:text-[var(--bronze-antique)] transition-colors duration-300 py-1"
+                            className="text-sm text-gray-600 hover:text-[var(--bronze-antique)] transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50 font-medium"
                           >
                             {chateau.nom}
                           </Link>

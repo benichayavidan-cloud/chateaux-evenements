@@ -40,10 +40,10 @@ export function HeroSection() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           className="absolute inset-0"
         >
           <Image
@@ -53,7 +53,9 @@ export function HeroSection() {
             sizes="100vw"
             className="object-cover"
             style={{ filter: 'saturate(1.2) contrast(1.1) brightness(1.05)' }}
-            priority
+            priority={currentSlide === 0}
+            loading={currentSlide === 0 ? "eager" : "lazy"}
+            quality={85}
           />
           {/* Overlay ultra lumineux - Maximum blanc avec léger gris */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/10 to-transparent" />
@@ -68,9 +70,9 @@ export function HeroSection() {
         <div className="w-full max-w-5xl mx-auto text-center">
           {/* Titre principal avec animation Reveal */}
           <motion.h1
-            initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
-            animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
-            transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
             className="text-5xl md:text-6xl lg:text-7xl italic leading-tight font-[var(--font-cormorant)]"
             style={{ color: '#000000', marginBottom: '24px', fontWeight: 500 }}
           >
@@ -82,9 +84,9 @@ export function HeroSection() {
 
           {/* Sous-titre avec animation Reveal décalée */}
           <motion.p
-            initial={{ opacity: 0, y: 40, clipPath: "inset(100% 0 0 0)" }}
-            animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
-            transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
             className="text-lg md:text-xl leading-relaxed font-medium"
             style={{ color: '#1a1a1a', marginBottom: '48px' }}
           >
@@ -94,9 +96,9 @@ export function HeroSection() {
 
           {/* Trust Badges Luxe - Stats Section - Flex Row pour centrage parfait */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.6 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
             className="flex flex-row justify-center items-center gap-8 lg:gap-12 flex-wrap"
             style={{ marginBottom: '32px' }}
           >
@@ -142,9 +144,9 @@ export function HeroSection() {
 
           {/* Boutons CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1], delay: 0.8 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
             className="flex flex-col sm:flex-row justify-center items-center"
             style={{ gap: '20px' }}
           >
