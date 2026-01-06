@@ -84,28 +84,34 @@ export default function EvenementsPage() {
             style={{ padding: '100px 0' }}
           >
             <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
-              >
-                {/* Image - Centrée */}
-                <div style={{ width: '100%', maxWidth: '700px', marginBottom: '40px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+                {/* Image */}
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  style={{ order: index % 2 === 0 ? 1 : 2 }}
+                >
                   <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
                     <Image
                       src={evenement.image}
                       alt={evenement.titre}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      sizes="(min-width: 1024px) 700px, 100vw"
+                      sizes="50vw"
                     />
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Contenu - Centré */}
-                <div style={{ width: '100%', maxWidth: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                {/* Contenu */}
+                <motion.div
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  style={{ order: index % 2 === 0 ? 2 : 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
+                >
                   {/* Badge */}
                   <div className="inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 rounded-full" style={{ padding: '10px 24px', marginBottom: '20px' }}>
                     <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
@@ -122,7 +128,7 @@ export default function EvenementsPage() {
                     {evenement.description}
                   </p>
 
-                  {/* Services inclus - Centré */}
+                  {/* Services inclus */}
                   <div style={{ marginBottom: '32px', width: '100%' }}>
                     <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: '20px' }}>
                       Services inclus
@@ -150,8 +156,8 @@ export default function EvenementsPage() {
                     <span>Organiser cet événement</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
           </div>
         ))}
