@@ -189,7 +189,7 @@ export default function EvenementsPage() {
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', maxWidth: '1280px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '40px', maxWidth: '1280px', margin: '0 auto', justifyContent: 'center' }}>
             {[
               {
                 step: "1",
@@ -218,12 +218,12 @@ export default function EvenementsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
+                style={{ width: '250px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
               >
-                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex items-center justify-center text-3xl font-bold mx-auto mb-8 shadow-lg" style={{ width: '90px', height: '90px' }}>
+                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex items-center justify-center text-3xl font-bold shadow-lg" style={{ width: '90px', height: '90px', marginBottom: '32px' }}>
                   {item.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-5">
+                <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: '20px' }}>
                   {item.titre}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">{item.description}</p>
@@ -250,7 +250,7 @@ export default function EvenementsPage() {
               Nos équipes sont à votre écoute pour concrétiser votre projet
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '20px', alignItems: 'center', justifyContent: 'center' }}>
               <Link
                 href="/devis"
                 className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
