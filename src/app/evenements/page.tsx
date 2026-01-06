@@ -128,7 +128,7 @@ export default function EvenementsPage() {
                   </p>
 
                   {/* Services inclus */}
-                  <div style={{ marginBottom: 'var(--space-2xl)', width: '100%' }}>
+                  <div style={{ marginBottom: 'var(--space-4xl)', width: '100%' }}>
                     <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--space-lg)' }}>
                       Services inclus
                     </h3>
