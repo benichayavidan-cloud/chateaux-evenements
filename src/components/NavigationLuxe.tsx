@@ -122,8 +122,8 @@ export function NavigationLuxe() {
                           willChange: 'transform, opacity'
                         }}
                       >
-                        <div style={{ padding: '10px' }}>
-                          <div style={{ marginBottom: '12px', paddingLeft: '10px', paddingRight: '10px' }}>
+                        <div className="badge">
+                          <div style={{ marginBottom: 'var(--gap-sm)', paddingLeft: 'var(--badge-padding-md)', paddingRight: 'var(--badge-padding-md)' }}>
                             <p className="text-xs font-semibold tracking-wider uppercase" style={{ color: '#B8860B' }}>
                               Nos Châteaux
                             </p>
@@ -133,7 +133,7 @@ export function NavigationLuxe() {
                               <Link
                                 href={`/chateaux/${chateau.slug}`}
                                 className="group block rounded-xl transition-all duration-300 hover:bg-gray-50"
-                                style={{ padding: '12px 10px' }}
+                                style={{ padding: 'var(--gap-sm) var(--badge-padding-md)' }}
                               >
                                 <div className="flex items-center justify-between">
                                   <span className="text-sm font-medium text-gray-900 group-hover:text-[var(--bronze-antique)] transition-colors">
@@ -150,7 +150,7 @@ export function NavigationLuxe() {
                                 </div>
                               </Link>
                               {index < chateaux.length - 1 && (
-                                <div style={{ marginLeft: '10px', marginRight: '10px' }} className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+                                <div style={{ marginLeft: 'var(--badge-padding-md)', marginRight: 'var(--badge-padding-md)' }} className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                               )}
                             </div>
                           ))}
@@ -178,8 +178,7 @@ export function NavigationLuxe() {
             {/* CTA Desktop */}
             <Link
               href="/devis"
-              className="hidden md:inline-flex relative text-sm font-medium text-white bg-[var(--bronze-antique)] border-2 border-[var(--bronze-antique)] rounded-full overflow-hidden group hover:text-black transition-all duration-300 whitespace-nowrap shadow-md hover:shadow-xl"
-              style={{ padding: '10px 20px' }}
+              className="badge hidden md:inline-flex relative text-sm font-medium text-white bg-[var(--bronze-antique)] border-2 border-[var(--bronze-antique)] overflow-hidden group hover:text-black transition-all duration-300 whitespace-nowrap shadow-md hover:shadow-xl"
             >
               <span className="relative z-10">Demander un Devis</span>
               <span className="absolute inset-0 bg-[var(--bronze-light)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -247,7 +246,7 @@ export function NavigationLuxe() {
               <Link
                 href="/devis"
                 onClick={() => setIsMobileMenuOpen(false)}
-                style={{ padding: '15px' }}
+                style={{ padding: 'var(--gap-md,15px)' }}
                 className="text-center bg-[var(--bronze-antique)] text-white font-medium rounded-full hover:bg-[var(--bronze-light)] transition-colors"
               >
                 Demander un Devis
