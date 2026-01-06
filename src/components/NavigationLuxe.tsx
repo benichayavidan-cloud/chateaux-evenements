@@ -118,19 +118,19 @@ export function NavigationLuxe() {
                         className="absolute top-full left-0 mt-3 w-72 bg-white/98 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl overflow-hidden z-50"
                         style={{ boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)' }}
                       >
-                        <div className="py-4 px-3">
+                        <div className="py-3 px-2">
                           {chateaux.map((chateau, index) => (
                             <Link
                               key={chateau.slug}
                               href={`/chateaux/${chateau.slug}`}
-                              className="group block px-5 py-3.5 text-sm font-medium text-gray-700 hover:text-white rounded-xl transition-all duration-300 relative overflow-hidden"
+                              className="group block px-4 py-2.5 text-sm font-medium text-gray-700 hover:text-white rounded-lg transition-all duration-200 relative"
                               style={{
-                                marginBottom: index < chateaux.length - 1 ? '6px' : '0'
+                                marginBottom: index < chateaux.length - 1 ? '4px' : '0'
                               }}
                             >
-                              <span className="absolute inset-0 bg-gradient-to-r from-[var(--bronze-antique)] to-[var(--bronze-light)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl" />
+                              <span className="absolute inset-0 bg-gradient-to-r from-[var(--bronze-antique)] to-[var(--bronze-light)] opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg" />
                               <span className="relative z-10 flex items-center">
-                                <span className="w-1.5 h-1.5 rounded-full bg-current mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                <span className="w-1 h-1 rounded-full mr-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: 'currentColor' }} />
                                 {chateau.nom}
                               </span>
                             </Link>
