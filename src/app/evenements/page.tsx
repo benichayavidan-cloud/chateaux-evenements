@@ -83,83 +83,75 @@ export default function EvenementsPage() {
             className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
             style={{ padding: '100px 0' }}
           >
-            <div className="container mx-auto" style={{ padding: '0 40px' }}>
-              <div className="max-w-7xl mx-auto">
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-20 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
-                  {/* Image - Centrée sur mobile */}
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className={`${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'} mx-auto w-full`}
-                  >
-                    <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
-                      <Image
-                        src={evenement.image}
-                        alt={evenement.titre}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(min-width: 1024px) 50vw, 100vw"
-                      />
-                    </div>
-                  </motion.div>
-
-                  {/* Contenu - Centré sur mobile */}
-                  <motion.div
-                    initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className={`${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'} text-center lg:text-left`}
-                  >
-                    {/* Badge avec plus d'espace */}
-                    <div className="inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 rounded-full mb-8" style={{ padding: '10px 24px' }}>
-                      <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
-                      <span className="text-xs font-bold uppercase tracking-widest text-[var(--bronze-antique)]">
-                        Événement Premium
-                      </span>
-                    </div>
-
-                    <h2 className="text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: '20px' }}>
-                      {evenement.titre}
-                    </h2>
-
-                    <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: '20px' }}>
-                      {evenement.description}
-                    </p>
-
-                    {/* Services inclus - Centré sur mobile avec plus d'espaces */}
-                    <div className="mb-12">
-                      <h3 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wider">
-                        Services inclus
-                      </h3>
-                      <div className="grid grid-cols-1 gap-4 max-w-xl mx-auto lg:mx-0">
-                        {evenement.servicesInclus.map((service, i) => (
-                          <div
-                            key={i}
-                            className="flex items-start gap-4 text-left"
-                          >
-                            <div className="w-7 h-7 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center flex-shrink-0 mt-1">
-                              <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
-                            </div>
-                            <span className="text-gray-700 font-medium leading-relaxed">{service}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <Link
-                      href="/devis"
-                      className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
-                      style={{ padding: '16px 32px' }}
-                    >
-                      <span>Organiser cet événement</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </motion.div>
+            <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
+              >
+                {/* Image - Centrée */}
+                <div style={{ width: '100%', maxWidth: '700px', marginBottom: '40px' }}>
+                  <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
+                    <Image
+                      src={evenement.image}
+                      alt={evenement.titre}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(min-width: 1024px) 700px, 100vw"
+                    />
+                  </div>
                 </div>
-              </div>
+
+                {/* Contenu - Centré */}
+                <div style={{ width: '100%', maxWidth: '700px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 rounded-full" style={{ padding: '10px 24px', marginBottom: '20px' }}>
+                    <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--bronze-antique)]">
+                      Événement Premium
+                    </span>
+                  </div>
+
+                  <h2 className="text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: '20px' }}>
+                    {evenement.titre}
+                  </h2>
+
+                  <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: '20px' }}>
+                    {evenement.description}
+                  </p>
+
+                  {/* Services inclus - Centré */}
+                  <div style={{ marginBottom: '32px', width: '100%' }}>
+                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: '20px' }}>
+                      Services inclus
+                    </h3>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '600px', margin: '0 auto' }}>
+                      {evenement.servicesInclus.map((service, i) => (
+                        <div
+                          key={i}
+                          style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', textAlign: 'left' }}
+                        >
+                          <div className="w-7 h-7 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center flex-shrink-0 mt-1">
+                            <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
+                          </div>
+                          <span className="text-gray-700 font-medium leading-relaxed">{service}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/devis"
+                    className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
+                    style={{ padding: '16px 32px' }}
+                  >
+                    <span>Organiser cet événement</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
             </div>
           </div>
         ))}
