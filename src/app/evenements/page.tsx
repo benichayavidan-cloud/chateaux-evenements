@@ -44,7 +44,7 @@ export default function EvenementsPage() {
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-700 mb-14 max-w-3xl mx-auto leading-relaxed font-medium">
-                Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables
+                Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables.
               </p>
 
               <Link
