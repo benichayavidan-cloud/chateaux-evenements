@@ -66,16 +66,14 @@ export default function ContactPage() {
 
       {/* Section Formulaire - Tout centré avec espaces respirants */}
       <div style={{ paddingTop: '120px', paddingBottom: '120px' }}>
-        <div className="container mx-auto text-center" style={{ padding: '0 40px' }}>
-          {/* Titre centré */}
-          <div className="max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
-              Recevez vite votre devis
-            </h2>
-            <p className="text-xl text-gray-600">
-              Découvrez si un de nos châteaux est disponible
-            </p>
-          </div>
+        {/* Titre centré */}
+        <div style={{ width: '100%', textAlign: 'center', marginBottom: '80px', padding: '0 40px' }}>
+          <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
+            Recevez vite votre devis
+          </h2>
+          <p className="text-xl text-gray-600">
+            Découvrez si un de nos châteaux est disponible
+          </p>
         </div>
 
         <div className="container mx-auto" style={{ padding: '0 40px' }}>
