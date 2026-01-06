@@ -15,7 +15,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function EvenementsSection() {
   return (
-    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ paddingTop: '30px', paddingBottom: '30px' }}>
+    <section className="section-padding-sm bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
       {/* Glow effects subtils */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
@@ -28,7 +28,7 @@ export function EvenementsSection() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           className="flex flex-col items-center justify-center text-center w-full px-4"
-          style={{ marginBottom: '45px' }}
+          style={{ marginBottom: 'var(--space-4xl,45px)' }}
         >
           <div className="flex items-center justify-center mb-4">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--bronze-antique)]" />
@@ -77,17 +77,17 @@ export function EvenementsSection() {
                 </div>
 
                 {/* Contenu */}
-                <div className="flex-1 flex flex-col" style={{ padding: '20px' }}>
-                  <h3 className="text-2xl font-light italic text-gray-900 font-[var(--font-cormorant)] group-hover:text-[var(--bronze-antique)] transition-colors duration-500" style={{ marginBottom: '15px' }}>
+                <div className="flex-1 flex flex-col" style={{ padding: 'var(--space-lg)' }}>
+                  <h3 className="text-2xl font-light italic text-gray-900 font-[var(--font-cormorant)] group-hover:text-[var(--bronze-antique)] transition-colors duration-500" style={{ marginBottom: 'var(--gap-md,15px)' }}>
                     {evenement.titre}
                   </h3>
 
-                  <p className="text-gray-600 text-sm leading-relaxed flex-1" style={{ marginBottom: '20px' }}>
+                  <p className="text-gray-600 text-sm leading-relaxed flex-1" style={{ marginBottom: 'var(--space-lg)' }}>
                     {evenement.description}
                   </p>
 
                   {/* Services inclus */}
-                  <ul className="flex flex-col" style={{ gap: '8px', marginBottom: '20px' }}>
+                  <ul className="flex flex-col" style={{ gap: 'var(--gap-sm)', marginBottom: 'var(--space-lg)' }}>
                     {evenement.servicesInclus.slice(0, 3).map((service, i) => (
                       <li
                         key={i}
@@ -104,8 +104,7 @@ export function EvenementsSection() {
                   {/* CTA */}
                   <Link
                     href={`/evenements#${evenement.id}`}
-                    className="text-[var(--bronze-antique)]/80 hover:text-[var(--bronze-antique)] font-medium text-sm transition-colors flex items-center group/link"
-                    style={{ padding: '10px' }}
+                    className="badge text-[var(--bronze-antique)]/80 hover:text-[var(--bronze-antique)] font-medium text-sm transition-colors flex items-center group/link"
                   >
                     <span className="uppercase tracking-wider">En savoir plus</span>
                     <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-300" />
@@ -123,12 +122,12 @@ export function EvenementsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex items-center justify-center w-full px-4"
-          style={{ marginTop: '30px' }}
+          style={{ marginTop: 'var(--section-padding-sm)' }}
         >
           <Link
             href="/devis"
             className="group inline-flex items-center bg-[var(--bronze-antique)] text-white font-medium rounded-full hover:bg-[var(--bronze-light)] transition-all duration-500 hover:shadow-[var(--shadow-glow)] relative overflow-hidden"
-            style={{ padding: '16px 32px' }}
+            style={{ padding: 'var(--btn-padding-md)' }}
           >
             <span className="relative z-10">Demander un Devis Personnalisé</span>
             <ArrowRight className="w-5 h-5 ml-3 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
