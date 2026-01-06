@@ -179,8 +179,8 @@ export default function ContactPage() {
               className="bg-gray-50 border-2 border-gray-200 rounded-3xl shadow-xl mx-auto w-full"
               style={{ padding: '60px' }}
             >
-              <form className="space-y-14">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <form className="space-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
                   <div>
                     <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                       Prénom <span className="text-[var(--bronze-antique)]">*</span>
