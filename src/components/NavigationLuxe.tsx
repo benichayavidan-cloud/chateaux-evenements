@@ -122,8 +122,8 @@ export function NavigationLuxe() {
                           willChange: 'transform, opacity'
                         }}
                       >
-                        <div className="p-[10px]">
-                          <div className="mb-3 px-2">
+                        <div style={{ padding: '10px' }}>
+                          <div style={{ marginBottom: '12px', paddingLeft: '10px', paddingRight: '10px' }}>
                             <p className="text-xs font-semibold tracking-wider uppercase" style={{ color: '#B8860B' }}>
                               Nos Châteaux
                             </p>
@@ -132,7 +132,8 @@ export function NavigationLuxe() {
                             <div key={chateau.slug}>
                               <Link
                                 href={`/chateaux/${chateau.slug}`}
-                                className="group block px-4 py-3 rounded-xl transition-all duration-300 hover:bg-gray-50"
+                                className="group block rounded-xl transition-all duration-300 hover:bg-gray-50"
+                                style={{ padding: '12px 10px' }}
                               >
                                 <div className="flex items-center justify-between">
                                   <span className="text-sm font-medium text-gray-900 group-hover:text-[var(--bronze-antique)] transition-colors">
@@ -149,7 +150,7 @@ export function NavigationLuxe() {
                                 </div>
                               </Link>
                               {index < chateaux.length - 1 && (
-                                <div className="mx-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+                                <div style={{ marginLeft: '10px', marginRight: '10px' }} className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                               )}
                             </div>
                           ))}
