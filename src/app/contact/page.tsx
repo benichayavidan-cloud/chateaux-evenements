@@ -1,253 +1,329 @@
-import { Metadata } from "next";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact | ChâteauxPrestige",
-  description:
-    "Contactez-nous pour organiser votre événement d'entreprise dans l'un de nos châteaux d'exception. Notre équipe est à votre écoute.",
-};
+import { Metadata } from "next";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Clock, Send, Sparkles } from "lucide-react";
+import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-black">
-      {/* Hero dark */}
-      <div className="relative bg-black text-white py-32 pt-40 overflow-hidden">
-        {/* Glow effect */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-[var(--bronze-antique)]/10 rounded-full blur-3xl" />
+    <div className="min-h-screen bg-white">
+      {/* Hero Section CLAIR */}
+      <div className="relative h-screen overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1516690553513-7d1cf9ed90eb?w=1920&q=90"
+          alt="Contact Châteaux Prestige"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+        {/* Overlay CLAIR */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/15 to-white/40" />
+        <div className="absolute inset-0 bg-white/20" />
 
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light italic mb-6 font-[var(--font-cormorant)]">
-            Contactez-nous
-          </h1>
-          <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-            Notre équipe d'experts est à votre disposition pour répondre à
-            toutes vos questions et vous accompagner dans votre projet
-          </p>
+        {/* Contenu centré */}
+        <div className="relative h-full flex items-center">
+          <div className="container mx-auto text-center" style={{ padding: '0 40px' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-full mb-8 shadow-lg" style={{ padding: '12px 24px' }}>
+                <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
+                <span className="text-sm font-bold uppercase tracking-widest text-gray-900">
+                  Contactez-nous
+                </span>
+              </div>
+
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)] leading-none">
+                Parlons de<br />votre projet
+              </h1>
+
+              <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+                Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="flex flex-col items-center gap-2"
+          >
+            <span className="text-gray-800 text-xs uppercase tracking-widest font-bold">Découvrir</span>
+            <div className="w-6 h-10 border-2 border-gray-800 rounded-full flex items-start justify-center p-2 bg-white/90">
+              <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Informations de contact */}
-          <div>
-            <h2 className="text-4xl font-light italic text-white mb-10 font-[var(--font-cormorant)]">
-              Parlons de votre projet
-            </h2>
+      {/* Contenu principal */}
+      <div className="container mx-auto" style={{ padding: '80px 40px' }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Informations de contact */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-12 font-[var(--font-cormorant)]">
+                Nos coordonnées
+              </h2>
 
-            <div className="space-y-6 mb-12">
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 glass-premium border border-[var(--bronze-antique)]/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-[var(--bronze-antique)] transition-all duration-500">
-                  <Phone className="w-5 h-5 text-[var(--bronze-antique)]" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-white mb-2 text-sm uppercase tracking-wider">
-                    Téléphone
-                  </h3>
-                  <a
-                    href="tel:+33123456789"
-                    className="text-white/70 hover:text-[var(--bronze-antique)] transition-colors text-lg"
-                  >
-                    +33 1 23 45 67 89
-                  </a>
-                  <p className="text-sm text-white/40 mt-1">
-                    Du lundi au vendredi, 9h-18h
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 glass-premium border border-[var(--bronze-antique)]/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-[var(--bronze-antique)] transition-all duration-500">
-                  <Mail className="w-5 h-5 text-[var(--bronze-antique)]" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-white mb-2 text-sm uppercase tracking-wider">
-                    Email
-                  </h3>
-                  <a
-                    href="mailto:contact@chateauxprestige.fr"
-                    className="text-white/70 hover:text-[var(--bronze-antique)] transition-colors text-lg break-all"
-                  >
-                    contact@chateauxprestige.fr
-                  </a>
-                  <p className="text-sm text-white/40 mt-1">
-                    Réponse sous 24h ouvrées
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 glass-premium border border-[var(--bronze-antique)]/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-[var(--bronze-antique)] transition-all duration-500">
-                  <MapPin className="w-5 h-5 text-[var(--bronze-antique)]" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-white mb-2 text-sm uppercase tracking-wider">
-                    Adresse
-                  </h3>
-                  <p className="text-white/70 leading-relaxed">
-                    15 Avenue des Châteaux
-                    <br />
-                    75008 Paris, France
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4 group">
-                <div className="w-12 h-12 glass-premium border border-[var(--bronze-antique)]/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-[var(--bronze-antique)] transition-all duration-500">
-                  <Clock className="w-5 h-5 text-[var(--bronze-antique)]" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-white mb-2 text-sm uppercase tracking-wider">
-                    Horaires
-                  </h3>
-                  <p className="text-white/70 leading-relaxed">
-                    Lundi - Vendredi : 9h00 - 18h00
-                    <br />
-                    Weekend : Sur rendez-vous uniquement
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Box */}
-            <div className="glass-premium border border-[var(--bronze-antique)]/20 rounded-2xl p-8 hover:border-[var(--bronze-antique)]/40 transition-all duration-500 hover:shadow-[var(--shadow-glow)]">
-              <h3 className="text-2xl font-light italic text-white mb-4 font-[var(--font-cormorant)]">
-                Besoin d'un devis rapide ?
-              </h3>
-              <p className="text-white/70 mb-6 leading-relaxed">
-                Remplissez notre formulaire de devis en ligne et recevez une
-                réponse personnalisée sous 24h
-              </p>
-              <a
-                href="/devis"
-                className="inline-flex items-center px-8 py-3 bg-[var(--bronze-antique)] text-white font-medium rounded-full hover:bg-[var(--bronze-light)] transition-all duration-500 hover:shadow-[var(--shadow-glow)] group"
-              >
-                <span>Demander un Devis</span>
-                <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-
-          {/* Formulaire de contact */}
-          <div className="glass-premium border border-white/5 rounded-2xl p-8 lg:p-10">
-            <h2 className="text-3xl font-light italic text-white mb-8 font-[var(--font-cormorant)]">
-              Envoyez-nous un message
-            </h2>
-
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2 uppercase tracking-wider">
-                    Prénom <span className="text-[var(--bronze-antique)]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 bg-black border border-white/10 rounded-lg focus:border-[var(--bronze-antique)] focus:outline-none text-white placeholder:text-white/30 transition-all duration-300"
-                    placeholder="Votre prénom"
-                  />
+              <div className="space-y-6 mb-12">
+                {/* Téléphone */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                    <Phone className="w-6 h-6 text-[var(--bronze-antique)]" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                      Téléphone
+                    </h3>
+                    <a
+                      href="tel:+33123456789"
+                      className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-lg font-medium"
+                    >
+                      +33 1 23 45 67 89
+                    </a>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Du lundi au vendredi, 9h-18h
+                    </p>
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-white/80 mb-2 uppercase tracking-wider">
-                    Nom <span className="text-[var(--bronze-antique)]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 bg-black border border-white/10 rounded-lg focus:border-[var(--bronze-antique)] focus:outline-none text-white placeholder:text-white/30 transition-all duration-300"
-                    placeholder="Votre nom"
-                  />
+                {/* Email */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                    <Mail className="w-6 h-6 text-[var(--bronze-antique)]" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:contact@chateauxprestige.fr"
+                      className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-lg font-medium break-all"
+                    >
+                      contact@chateauxprestige.fr
+                    </a>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Réponse sous 24h ouvrées
+                    </p>
+                  </div>
+                </div>
+
+                {/* Adresse */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                    <MapPin className="w-6 h-6 text-[var(--bronze-antique)]" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                      Adresse
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed font-medium">
+                      15 Avenue des Châteaux
+                      <br />
+                      75008 Paris, France
+                    </p>
+                  </div>
+                </div>
+
+                {/* Horaires */}
+                <div className="flex items-start gap-4 group">
+                  <div className="w-14 h-14 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
+                    <Clock className="w-6 h-6 text-[var(--bronze-antique)]" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                      Horaires
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed font-medium">
+                      Lundi - Vendredi : 9h00 - 18h00
+                      <br />
+                      Weekend : Sur rendez-vous uniquement
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-white/80 mb-2 uppercase tracking-wider">
-                  Email <span className="text-[var(--bronze-antique)]">*</span>
-                </label>
-                <input
-                  type="email"
-                  required
-                  className="w-full px-4 py-3 bg-black border border-white/10 rounded-lg focus:border-[var(--bronze-antique)] focus:outline-none text-white placeholder:text-white/30 transition-all duration-300"
-                  placeholder="votre.email@entreprise.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-white/80 mb-2 uppercase tracking-wider">
-                  Téléphone
-                </label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-3 bg-black border border-white/10 rounded-lg focus:border-[var(--bronze-antique)] focus:outline-none text-white placeholder:text-white/30 transition-all duration-300"
-                  placeholder="+33 6 12 34 56 78"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-white/80 mb-2 uppercase tracking-wider">
-                  Entreprise
-                </label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 bg-black border border-white/10 rounded-lg focus:border-[var(--bronze-antique)] focus:outline-none text-white placeholder:text-white/30 transition-all duration-300"
-                  placeholder="Nom de votre entreprise"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-white/80 mb-2 uppercase tracking-wider">
-                  Sujet <span className="text-[var(--bronze-antique)]">*</span>
-                </label>
-                <select
-                  required
-                  className="w-full px-4 py-3 bg-black border border-white/10 rounded-lg focus:border-[var(--bronze-antique)] focus:outline-none text-white transition-all duration-300"
+              {/* CTA Box */}
+              <div className="bg-gray-50 border border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-lg" style={{ padding: '32px' }}>
+                <h3 className="text-3xl font-light italic text-gray-900 mb-4 font-[var(--font-cormorant)]">
+                  Besoin d'un devis rapide ?
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Remplissez notre formulaire de devis en ligne et recevez une
+                  réponse personnalisée sous 24h
+                </p>
+                <a
+                  href="/devis"
+                  className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-xl group"
+                  style={{ padding: '16px 32px' }}
                 >
-                  <option value="" className="bg-black">Sélectionnez un sujet</option>
-                  <option value="devis" className="bg-black">Demande de devis</option>
-                  <option value="info" className="bg-black">Information générale</option>
-                  <option value="visite" className="bg-black">Demande de visite</option>
-                  <option value="autre" className="bg-black">Autre</option>
-                </select>
+                  <span>Demander un Devis</span>
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </div>
+            </motion.div>
 
-              <div>
-                <label className="block text-sm font-medium text-white/80 mb-2 uppercase tracking-wider">
-                  Message <span className="text-[var(--bronze-antique)]">*</span>
-                </label>
-                <textarea
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-black border border-white/10 rounded-lg focus:border-[var(--bronze-antique)] focus:outline-none resize-none text-white placeholder:text-white/30 transition-all duration-300"
-                  placeholder="Décrivez-nous votre projet..."
-                />
-              </div>
+            {/* Formulaire de contact */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white border border-gray-200 rounded-3xl shadow-lg"
+              style={{ padding: '40px' }}
+            >
+              <h2 className="text-3xl md:text-4xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)]">
+                Envoyez-nous un message
+              </h2>
 
-              <button
-                type="submit"
-                className="w-full px-8 py-4 bg-[var(--bronze-antique)] text-white font-medium rounded-full hover:bg-[var(--bronze-light)] transition-all duration-500 shadow-lg hover:shadow-[var(--shadow-glow)] hover:scale-[1.02] group flex items-center justify-center"
-              >
-                <span>Envoyer le message</span>
-                <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                      Prénom <span className="text-[var(--bronze-antique)]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
+                      style={{ padding: '14px 16px' }}
+                      placeholder="Votre prénom"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                      Nom <span className="text-[var(--bronze-antique)]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
+                      style={{ padding: '14px 16px' }}
+                      placeholder="Votre nom"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                    Email <span className="text-[var(--bronze-antique)]">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
+                    style={{ padding: '14px 16px' }}
+                    placeholder="votre.email@entreprise.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                    Téléphone
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
+                    style={{ padding: '14px 16px' }}
+                    placeholder="+33 6 12 34 56 78"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                    Entreprise
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
+                    style={{ padding: '14px 16px' }}
+                    placeholder="Nom de votre entreprise"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                    Sujet <span className="text-[var(--bronze-antique)]">*</span>
+                  </label>
+                  <select
+                    required
+                    className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 transition-all duration-300"
+                    style={{ padding: '14px 16px' }}
+                  >
+                    <option value="">Sélectionnez un sujet</option>
+                    <option value="devis">Demande de devis</option>
+                    <option value="info">Information générale</option>
+                    <option value="visite">Demande de visite</option>
+                    <option value="autre">Autre</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-gray-900 mb-2 uppercase tracking-wider">
+                    Message <span className="text-[var(--bronze-antique)]">*</span>
+                  </label>
+                  <textarea
+                    required
+                    rows={6}
+                    className="w-full bg-white border-2 border-gray-200 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none resize-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
+                    style={{ padding: '14px 16px' }}
+                    placeholder="Décrivez-nous votre projet..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 shadow-lg hover:shadow-xl group flex items-center justify-center gap-3"
+                  style={{ padding: '18px 40px' }}
+                >
+                  <span>Envoyer le message</span>
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+            </motion.div>
           </div>
         </div>
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-black py-20 relative overflow-hidden">
-        {/* Glow effect */}
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
+      <div className="bg-gray-50">
+        <div className="container mx-auto" style={{ padding: '120px 40px' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <Sparkles className="w-6 h-6 text-[var(--bronze-antique)]" />
+              <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
+                FAQ
+              </h2>
+            </div>
+            <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
+              Questions Fréquentes
+            </h3>
+            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              Retrouvez les réponses aux questions les plus courantes
+            </p>
+          </motion.div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-light italic text-center text-white mb-6 font-[var(--font-cormorant)]">
-            Questions Fréquentes
-          </h2>
-          <p className="text-lg text-center text-white/60 mb-16 max-w-2xl mx-auto leading-relaxed">
-            Retrouvez les réponses aux questions les plus courantes
-          </p>
-
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-6">
             {[
               {
                 q: "Quel est le délai de réservation recommandé ?",
@@ -266,21 +342,23 @@ export default function ContactPage() {
                 a: "Absolument ! Nous travaillons avec vous pour créer un programme sur-mesure qui répond parfaitement à vos objectifs et à vos attentes.",
               },
             ].map((faq, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="glass-premium border border-white/5 rounded-xl p-6 hover:border-[var(--bronze-antique)]/30 transition-all duration-500 group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white border border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-lg group"
+                style={{ padding: '32px' }}
               >
-                <h3 className="font-medium text-white mb-3 group-hover:text-[var(--bronze-antique)] transition-colors">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-[var(--bronze-antique)] transition-colors">
                   {faq.q}
                 </h3>
-                <p className="text-white/70 leading-relaxed">{faq.a}</p>
-              </div>
+                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+              </motion.div>
             ))}
           </div>
         </div>
-
-        {/* Ligne décorative */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--bronze-antique)]/20 to-transparent" />
       </div>
     </div>
   );
