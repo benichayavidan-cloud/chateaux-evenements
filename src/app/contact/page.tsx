@@ -292,15 +292,15 @@ export default function ContactPage() {
 
       {/* Section FAQ - Tout centré avec plus d'espaces */}
       <div className="bg-gray-50">
-        <div className="container mx-auto" style={{ padding: '140px 40px' }}>
+        <div style={{ padding: '140px 40px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center justify-center text-center mb-24"
+            style={{ width: '100%', textAlign: 'center', marginBottom: '96px' }}
           >
-            <div className="flex items-center justify-center gap-4 mb-10">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '40px' }}>
               <Sparkles className="w-7 h-7 text-[var(--bronze-antique)]" />
               <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
                 FAQ
@@ -309,12 +309,12 @@ export default function ContactPage() {
             <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-10 font-[var(--font-cormorant)]">
               Questions Fréquentes
             </h3>
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Retrouvez les réponses aux questions les plus courantes
             </p>
           </motion.div>
 
-          <div className="flex flex-col items-center max-w-4xl mx-auto space-y-12">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', maxWidth: '896px', margin: '0 auto', gap: '48px' }}>
             {[
               {
                 q: "Quel est le délai de réservation recommandé ?",
