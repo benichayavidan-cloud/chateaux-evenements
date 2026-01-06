@@ -83,8 +83,8 @@ export default function EvenementsPage() {
             className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}
             style={{ padding: '100px 0' }}
           >
-            <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', padding: '0 60px' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', padding: '0 40px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px', alignItems: 'center' }}>
                 {/* Image */}
                 <motion.div
                   initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
