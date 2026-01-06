@@ -61,7 +61,7 @@ function AnimatedCounter({
 
 export function SocialProofSection() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ paddingTop: '30px', paddingBottom: '30px' }}>
+    <section className="section-padding-sm bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden">
       {/* Glow effects subtils */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
@@ -74,7 +74,7 @@ export function SocialProofSection() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           className="flex flex-col items-center justify-center w-full px-4"
-          style={{ marginBottom: '45px' }}
+          style={{ marginBottom: 'var(--space-4xl,45px)' }}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto w-full">
             {chiffresCles.map((chiffre, index) => (
@@ -86,13 +86,13 @@ export function SocialProofSection() {
                 transition={{ duration: 0.8, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] }}
                 className="text-center group"
               >
-                <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-[var(--bronze-antique)]/50 transition-all duration-500 hover:shadow-2xl" style={{ padding: '20px' }}>
-                  <div className="text-5xl md:text-6xl font-light italic text-[var(--bronze-antique)] font-[var(--font-cormorant)] flex items-center justify-center" style={{ marginBottom: '15px' }}>
+                <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-[var(--bronze-antique)]/50 transition-all duration-500 hover:shadow-2xl" style={{ padding: 'var(--space-lg)' }}>
+                  <div className="text-5xl md:text-6xl font-light italic text-[var(--bronze-antique)] font-[var(--font-cormorant)] flex items-center justify-center" style={{ marginBottom: 'var(--gap-md,15px)' }}>
                     {chiffre.unite}
                     <AnimatedCounter value={chiffre.valeur} />
                     {chiffre.suffix}
                   </div>
-                  <div className="text-sm text-gray-600 uppercase tracking-wider" style={{ marginBottom: '15px' }}>
+                  <div className="text-sm text-gray-600 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md,15px)' }}>
                     {chiffre.label}
                   </div>
                   <TrendingUp className="w-4 h-4 text-[var(--bronze-antique)]/50 mx-auto" />
@@ -109,7 +109,7 @@ export function SocialProofSection() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           className="flex flex-col items-center justify-center text-center w-full px-4"
-          style={{ marginBottom: '45px' }}
+          style={{ marginBottom: 'var(--space-4xl,45px)' }}
         >
           <div className="flex items-center justify-center mb-4">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--bronze-antique)]" />
@@ -119,7 +119,7 @@ export function SocialProofSection() {
           <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
             Ils nous font confiance
           </h2>
-          <p className="text-lg text-gray-600 max-w-4xl leading-relaxed" style={{ marginBottom: '45px' }}>
+          <p className="text-lg text-gray-600 max-w-4xl leading-relaxed" style={{ marginBottom: 'var(--space-4xl,45px)' }}>
             Découvrez les retours de nos clients qui ont organisé leurs
             événements dans nos châteaux
           </p>
@@ -133,9 +133,9 @@ export function SocialProofSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-white/80 backdrop-blur-sm rounded-2xl hover:border-[var(--bronze-antique)]/50 transition-all duration-500 border border-gray-200 group hover:shadow-2xl"
-                style={{ padding: '20px' }}
+                style={{ padding: 'var(--space-lg)' }}
               >
-                <div className="flex items-start justify-between" style={{ marginBottom: '20px' }}>
+                <div className="flex items-start justify-between" style={{ marginBottom: 'var(--space-lg)' }}>
                   <Quote className="w-10 h-10 text-[var(--bronze-antique)]/30 flex-shrink-0" />
                   <div className="flex space-x-1">
                     {[...Array(testimonial.note)].map((_, i) => (
@@ -147,12 +147,12 @@ export function SocialProofSection() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed text-sm italic text-left" style={{ marginBottom: '20px' }}>
+                <p className="text-gray-700 leading-relaxed text-sm italic text-left" style={{ marginBottom: 'var(--space-lg)' }}>
                   "{testimonial.contenu}"
                 </p>
 
-                <div className="flex items-center border-t border-gray-200" style={{ paddingTop: '20px' }}>
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[var(--bronze-antique)]/30 flex-shrink-0" style={{ marginRight: '16px' }}>
+                <div className="flex items-center border-t border-gray-200" style={{ paddingTop: 'var(--space-lg)' }}>
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[var(--bronze-antique)]/30 flex-shrink-0" style={{ marginRight: 'var(--gap-md)' }}>
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.nom}
@@ -186,7 +186,7 @@ export function SocialProofSection() {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center justify-center w-full px-4"
         >
-          <div className="text-center" style={{ marginBottom: '30px' }}>
+          <div className="text-center" style={{ marginBottom: 'var(--section-padding-sm)' }}>
             <h3 className="text-2xl font-light italic text-gray-700 font-[var(--font-cormorant)]">
               Ils ont choisi nos châteaux pour leurs événements
             </h3>
