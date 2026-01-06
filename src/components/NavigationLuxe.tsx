@@ -115,25 +115,41 @@ export function NavigationLuxe() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="absolute top-full left-0 mt-3 w-72 bg-white/98 backdrop-blur-xl border border-gray-200 rounded-2xl shadow-2xl overflow-hidden z-50"
-                        style={{ boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)' }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-80 bg-white backdrop-blur-xl border border-gray-100 rounded-2xl overflow-hidden z-50"
+                        style={{
+                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 0 15px rgba(184, 134, 11, 0.08)',
+                        }}
                       >
-                        <div className="py-3 px-2">
+                        <div className="py-4 px-4">
+                          <div className="mb-3 px-4">
+                            <p className="text-xs font-semibold tracking-wider uppercase" style={{ color: '#B8860B' }}>
+                              Nos Châteaux
+                            </p>
+                          </div>
                           {chateaux.map((chateau, index) => (
-                            <Link
-                              key={chateau.slug}
-                              href={`/chateaux/${chateau.slug}`}
-                              className="group block px-4 py-2.5 text-sm font-medium text-gray-700 hover:text-white rounded-lg transition-all duration-200 relative"
-                              style={{
-                                marginBottom: index < chateaux.length - 1 ? '4px' : '0'
-                              }}
-                            >
-                              <span className="absolute inset-0 bg-gradient-to-r from-[var(--bronze-antique)] to-[var(--bronze-light)] opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg" />
-                              <span className="relative z-10 flex items-center">
-                                <span className="w-1 h-1 rounded-full mr-2.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ backgroundColor: 'currentColor' }} />
-                                {chateau.nom}
-                              </span>
-                            </Link>
+                            <div key={chateau.slug}>
+                              <Link
+                                href={`/chateaux/${chateau.slug}`}
+                                className="group block px-4 py-3 rounded-xl transition-all duration-300 hover:bg-gray-50"
+                              >
+                                <div className="flex items-center justify-between">
+                                  <span className="text-sm font-medium text-gray-900 group-hover:text-[var(--bronze-antique)] transition-colors">
+                                    {chateau.nom}
+                                  </span>
+                                  <svg
+                                    className="w-4 h-4 text-gray-400 group-hover:text-[var(--bronze-antique)] transform group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  </svg>
+                                </div>
+                              </Link>
+                              {index < chateaux.length - 1 && (
+                                <div className="mx-4 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+                              )}
+                            </div>
                           ))}
                         </div>
                       </motion.div>
