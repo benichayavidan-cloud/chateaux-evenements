@@ -209,7 +209,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Email <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <input
@@ -222,7 +222,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Téléphone
                   </label>
                   <input
@@ -234,7 +234,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Entreprise
                   </label>
                   <input
@@ -246,7 +246,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Sujet <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <select
@@ -263,7 +263,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">
+                  <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                     Message <span className="text-[var(--bronze-antique)]">*</span>
                   </label>
                   <textarea
