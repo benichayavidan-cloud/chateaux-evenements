@@ -68,11 +68,11 @@ export default function ContactPage() {
       <div className="container mx-auto" style={{ padding: '120px 40px' }}>
         <div className="max-w-7xl mx-auto">
           {/* Titre centré */}
-          <div className="flex flex-col items-center text-center mb-20">
+          <div className="flex flex-col items-center justify-center text-center mb-20 mx-auto">
             <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
               Recevez vite votre devis
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Découvrez si un de nos châteaux est disponible
             </p>
           </div>
@@ -178,10 +178,10 @@ export default function ContactPage() {
               className="bg-gray-50 border-2 border-gray-200 rounded-3xl shadow-xl mx-auto w-full"
               style={{ padding: '60px' }}
             >
-              <form className="space-y-8">
+              <form className="space-y-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">
+                    <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                       Prénom <span className="text-[var(--bronze-antique)]">*</span>
                     </label>
                     <input
@@ -194,7 +194,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">
+                    <label className="block text-sm font-bold text-gray-900 mb-6 uppercase tracking-wider">
                       Nom <span className="text-[var(--bronze-antique)]">*</span>
                     </label>
                     <input
@@ -296,7 +296,7 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-24"
+            className="flex flex-col items-center justify-center text-center mb-24"
           >
             <div className="flex items-center justify-center gap-4 mb-10">
               <Sparkles className="w-7 h-7 text-[var(--bronze-antique)]" />
@@ -312,7 +312,7 @@ export default function ContactPage() {
             </p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="flex flex-col items-center max-w-4xl mx-auto space-y-12">
             {[
               {
                 q: "Quel est le délai de réservation recommandé ?",
@@ -337,7 +337,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border-2 border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-xl group text-center"
+                className="w-full bg-white border-2 border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-xl group text-center"
                 style={{ padding: '48px' }}
               >
                 <h4 className="text-2xl font-semibold text-gray-900 mb-5 group-hover:text-[var(--bronze-antique)] transition-colors">
