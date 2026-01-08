@@ -2,15 +2,21 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronDown, ArrowRight, Award } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { supabase } from "@/lib/supabase";
+import { chateaux as chateauxData } from "@/data/chateaux";
+import { theme } from "@/config/theme";
+import { colors, spacing } from "@/config/themeHelpers";
+import { Button } from "@/components/ui/Button";
+import { Badge } from "@/components/ui/Badge";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/chateaux", label: "Châteaux", hasSubmenu: true },
   { href: "/evenements", label: "Événements" },
+  { href: "/team-building", label: "Team Building" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -20,10 +26,19 @@ type Chateau = {
 };
 
 export function NavigationLuxe() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [chateaux, setChateaux] = useState<Chateau[]>([]);
   const [isChateauxOpen, setIsChateauxOpen] = useState(false);
+
+  // Utiliser les données locales au lieu de Supabase
+  const chateaux: Chateau[] = chateauxData.map(c => ({
+    slug: c.slug,
+    nom: c.nom
+  }));
+
+  // Ne pas afficher le bouton CTA sur la page devis
+  const isOnDevisPage = pathname === "/devis";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,37 +49,25 @@ export function NavigationLuxe() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fetch châteaux from Supabase
-  useEffect(() => {
-    const fetchChateaux = async () => {
-      const { data, error } = await supabase
-        .from("chateaux")
-        .select("slug, nom")
-        .order("nom", { ascending: true });
-
-      if (data && !error) {
-        setChateaux(data);
-      }
-    };
-
-    fetchChateaux();
-  }, []);
-
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm border-b",
+        "fixed top-0 left-0 right-0 z-50 border-b",
         isScrolled
           ? "bg-white/95 shadow-lg border-gray-200"
           : "bg-gradient-to-b from-white/80 via-white/60 to-white/40 border-white/30"
       )}
-      style={{ willChange: 'transform' }}
+      style={{
+        willChange: 'transform',
+        transition: `all ${theme.effects.transitions.smooth}`,
+        backdropFilter: `blur(${theme.effects.blur.sm})`
+      }}
     >
       {/* Container avec grille 3 colonnes égales sur toute la largeur */}
-      <div className="w-full px-8">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="h-16 w-full" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', alignItems: 'center', gap: 0 }}>
 
           {/* Colonne 1 : Logo centré */}
@@ -75,10 +78,21 @@ export function NavigationLuxe() {
                 transition={{ duration: 0.3 }}
                 className="flex flex-col"
               >
-                <span className="text-xl font-light italic text-black font-[var(--font-cormorant)]">
+                <span style={{
+                  fontSize: theme.typography.fontSize.xl,
+                  fontWeight: theme.typography.fontWeight.light,
+                  fontStyle: "italic",
+                  color: colors.black,
+                  fontFamily: theme.typography.fonts.heading
+                }}>
                   Châteaux
                 </span>
-                <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: '#B8860B' }}>
+                <span style={{
+                  fontSize: "10px",
+                  letterSpacing: theme.typography.letterSpacing.ultra,
+                  textTransform: "uppercase",
+                  color: colors.gold
+                }}>
                   PRESTIGE
                 </span>
               </motion.div>
@@ -86,7 +100,7 @@ export function NavigationLuxe() {
           </div>
 
           {/* Colonne 2 : Navigation centrée */}
-          <nav className="hidden md:flex items-center justify-center" style={{ gap: '2.5rem' }}>
+          <nav className="hidden md:flex items-center justify-center" style={{ gap: theme.components.navigation.gap }}>
             {navLinks.map((link) => (
               link.hasSubmenu ? (
                 <div
@@ -97,63 +111,322 @@ export function NavigationLuxe() {
                 >
                   <Link
                     href={link.href}
-                    className="relative text-sm transition-colors duration-300 whitespace-nowrap font-semibold header-nav-link flex items-center gap-1"
-                    style={{ color: '#2C1810' }}
+                    className="relative whitespace-nowrap font-semibold header-nav-link flex items-center gap-1"
+                    style={{
+                      fontSize: theme.typography.fontSize.sm,
+                      color: theme.colors.text.tertiary,
+                      transition: `colors ${theme.effects.transitions.smooth}`
+                    }}
                   >
                     {link.label}
-                    <ChevronDown className={cn(
-                      "w-4 h-4 transition-transform duration-300",
-                      isChateauxOpen && "rotate-180"
-                    )} />
-                    <span className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300" style={{ backgroundColor: '#B8860B' }} />
+                    <ChevronDown
+                      className={cn(
+                        "w-4 h-4",
+                        isChateauxOpen && "rotate-180"
+                      )}
+                      style={{ transition: `transform ${theme.effects.transitions.smooth}` }}
+                    />
+                    <span className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full" style={{
+                      backgroundColor: colors.gold,
+                      transition: `all ${theme.effects.transitions.smooth}`
+                    }} />
                   </Link>
 
-                  {/* Dropdown Menu */}
+                  {/* Dropdown Menu - PREMIUM VERSION */}
                   <AnimatePresence>
                     {isChateauxOpen && chateaux.length > 0 && (
                       <motion.div
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-80 bg-white backdrop-blur-sm border border-gray-100 rounded-2xl overflow-hidden z-50"
+                        transition={{
+                          duration: 0.25,
+                          ease: [0.22, 1, 0.36, 1]
+                        }}
+                        className="absolute left-1/2 -translate-x-1/2 overflow-hidden w-[240px]"
                         style={{
-                          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 0 15px rgba(184, 134, 11, 0.08)',
-                          willChange: 'transform, opacity'
+                          top: "calc(100% + 8px)",
+                          zIndex: 9999,
+                          background: "rgba(255, 255, 255, 0.98)",
+                          backdropFilter: `blur(12px)`,
+                          border: `1px solid rgba(163, 126, 44, 0.1)`,
+                          borderRadius: "12px",
+                          boxShadow: "0 8px 32px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(163, 126, 44, 0.05)",
+                          willChange: 'transform, opacity',
+                          padding: "12px",
                         }}
                       >
-                        <div className="badge">
-                          <div style={{ marginBottom: 'var(--gap-sm)', paddingLeft: 'var(--badge-padding-md)', paddingRight: 'var(--badge-padding-md)' }}>
-                            <p className="text-xs font-semibold tracking-wider uppercase" style={{ color: '#B8860B' }}>
+                        <div>
+                          {/* Header du dropdown */}
+                          <div style={{
+                            marginBottom: "8px",
+                            paddingBottom: "6px",
+                            borderBottom: `1px solid rgba(163, 126, 44, 0.08)`,
+                          }}>
+                            <p style={{
+                              fontSize: "9px",
+                              fontWeight: "600",
+                              letterSpacing: "0.1em",
+                              textTransform: "uppercase",
+                              color: "#a37e2c",
+                              opacity: 0.7
+                            }}>
                               Nos Châteaux
                             </p>
                           </div>
-                          {chateaux.map((chateau, index) => (
-                            <div key={chateau.slug}>
-                              <Link
-                                href={`/chateaux/${chateau.slug}`}
-                                className="group block rounded-xl transition-all duration-300 hover:bg-gray-50"
-                                style={{ padding: 'var(--gap-sm) var(--badge-padding-md)' }}
+
+                          {/* Liste des châteaux */}
+                          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                            {chateaux.map((chateau, index) => (
+                              <motion.div
+                                key={chateau.slug}
+                                initial={{ opacity: 0, x: -8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{
+                                  duration: 0.2,
+                                  delay: index * 0.03,
+                                  ease: [0.22, 1, 0.36, 1]
+                                }}
                               >
-                                <div className="flex items-center justify-between">
-                                  <span className="text-sm font-medium text-gray-900 group-hover:text-[var(--bronze-antique)] transition-colors">
-                                    {chateau.nom}
-                                  </span>
+                                <Link
+                                  href={`/chateaux/${chateau.slug}`}
+                                  onMouseEnter={(e) => {
+                                    const link = e.currentTarget;
+                                    const bg = link.querySelector('.hover-bg') as HTMLElement;
+                                    const icon = link.querySelector('.icon-box') as HTMLElement;
+                                    const iconSvg = link.querySelector('.icon-svg') as HTMLElement;
+                                    const text = link.querySelector('.chateau-name') as HTMLElement;
+                                    const arrow = link.querySelector('.arrow-icon') as HTMLElement;
+
+                                    if (bg) {
+                                      bg.style.opacity = '1';
+                                      bg.style.transform = 'scale(1.02)';
+                                    }
+                                    if (icon) {
+                                      icon.style.transform = 'scale(1.1) rotate(12deg)';
+                                    }
+                                    if (iconSvg) {
+                                      iconSvg.style.transform = 'scale(1.1)';
+                                    }
+                                    if (text) {
+                                      text.style.color = '#a37e2c';
+                                      text.style.transform = 'translateX(2px)';
+                                    }
+                                    if (arrow) {
+                                      arrow.style.stroke = '#a37e2c';
+                                      arrow.style.opacity = '1';
+                                      arrow.style.transform = 'translateX(4px)';
+                                    }
+                                  }}
+                                  onMouseLeave={(e) => {
+                                    const link = e.currentTarget;
+                                    const bg = link.querySelector('.hover-bg') as HTMLElement;
+                                    const icon = link.querySelector('.icon-box') as HTMLElement;
+                                    const iconSvg = link.querySelector('.icon-svg') as HTMLElement;
+                                    const text = link.querySelector('.chateau-name') as HTMLElement;
+                                    const arrow = link.querySelector('.arrow-icon') as HTMLElement;
+
+                                    if (bg) {
+                                      bg.style.opacity = '0';
+                                      bg.style.transform = 'scale(1)';
+                                    }
+                                    if (icon) {
+                                      icon.style.transform = 'scale(1) rotate(0deg)';
+                                    }
+                                    if (iconSvg) {
+                                      iconSvg.style.transform = 'scale(1)';
+                                    }
+                                    if (text) {
+                                      text.style.color = '#1f2937';
+                                      text.style.transform = 'translateX(0)';
+                                    }
+                                    if (arrow) {
+                                      arrow.style.stroke = '#9ca3af';
+                                      arrow.style.opacity = '0.4';
+                                      arrow.style.transform = 'translateX(0)';
+                                    }
+                                  }}
+                                  style={{
+                                    padding: "8px 10px",
+                                    borderRadius: "8px",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "space-between",
+                                    position: "relative",
+                                    textDecoration: "none",
+                                  }}
+                                >
+                                  {/* Hover background avec animation */}
+                                  <div
+                                    className="hover-bg"
+                                    style={{
+                                      position: "absolute",
+                                      inset: 0,
+                                      background: `linear-gradient(135deg, rgba(163, 126, 44, 0.05) 0%, rgba(163, 126, 44, 0.02) 100%)`,
+                                      borderRadius: "8px",
+                                      transition: `all 0.3s cubic-bezier(0.4, 0, 0.2, 1)`,
+                                      border: "1px solid rgba(163, 126, 44, 0.1)",
+                                      opacity: 0,
+                                      transform: "scale(1)",
+                                    }}
+                                  />
+
+                                  <div style={{ display: "flex", alignItems: "center", position: "relative", zIndex: 10, gap: "10px" }}>
+                                    {/* Icon château avec rotation */}
+                                    <div
+                                      className="icon-box"
+                                      style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        flexShrink: 0,
+                                        width: "20px",
+                                        height: "20px",
+                                        borderRadius: "6px",
+                                        background: `rgba(163, 126, 44, 0.08)`,
+                                        transition: `all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)`,
+                                        transform: "scale(1) rotate(0deg)",
+                                      }}
+                                    >
+                                      <Award
+                                        className="icon-svg"
+                                        style={{
+                                          width: "12px",
+                                          height: "12px",
+                                          color: "#a37e2c",
+                                          opacity: 0.7,
+                                          transition: `all 0.3s ease`,
+                                          transform: "scale(1)",
+                                        }}
+                                      />
+                                    </div>
+
+                                    {/* Nom du château avec slide */}
+                                    <span
+                                      className="chateau-name"
+                                      style={{
+                                        fontSize: "14px",
+                                        fontWeight: "500",
+                                        color: "#1f2937",
+                                        transition: `all 0.3s ease`,
+                                        transform: "translateX(0)",
+                                      }}
+                                    >
+                                      {chateau.nom}
+                                    </span>
+                                  </div>
+
+                                  {/* Arrow icon avec bounce */}
                                   <svg
-                                    className="w-4 h-4 text-gray-400 group-hover:text-[var(--bronze-antique)] transform group-hover:translate-x-1 transition-all opacity-0 group-hover:opacity-100"
+                                    className="arrow-icon"
+                                    style={{
+                                      width: "14px",
+                                      height: "14px",
+                                      stroke: "#9ca3af",
+                                      opacity: 0.4,
+                                      flexShrink: 0,
+                                      transition: `all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)`,
+                                      transform: "translateX(0)",
+                                    }}
                                     fill="none"
                                     viewBox="0 0 24 24"
-                                    stroke="currentColor"
                                   >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                   </svg>
-                                </div>
-                              </Link>
-                              {index < chateaux.length - 1 && (
-                                <div style={{ marginLeft: 'var(--badge-padding-md)', marginRight: 'var(--badge-padding-md)' }} className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-                              )}
-                            </div>
-                          ))}
+                                </Link>
+                              </motion.div>
+                            ))}
+                          </div>
+
+                          {/* Footer du dropdown */}
+                          <div style={{
+                            marginTop: "10px",
+                            paddingTop: "8px",
+                            borderTop: `1px solid rgba(163, 126, 44, 0.08)`,
+                          }}>
+                            <Link
+                              href="/chateaux"
+                              onMouseEnter={(e) => {
+                                const link = e.currentTarget;
+                                const shimmer = link.querySelector('.shimmer-effect') as HTMLElement;
+                                const text = link.querySelector('.footer-text') as HTMLElement;
+                                const arrow = link.querySelector('.footer-arrow') as HTMLElement;
+
+                                if (shimmer) shimmer.style.opacity = '1';
+                                if (text) {
+                                  text.style.color = '#8b6923';
+                                  text.style.transform = 'scale(1.05)';
+                                }
+                                if (arrow) arrow.style.transform = 'translateX(4px)';
+                              }}
+                              onMouseLeave={(e) => {
+                                const link = e.currentTarget;
+                                const shimmer = link.querySelector('.shimmer-effect') as HTMLElement;
+                                const text = link.querySelector('.footer-text') as HTMLElement;
+                                const arrow = link.querySelector('.footer-arrow') as HTMLElement;
+
+                                if (shimmer) shimmer.style.opacity = '0';
+                                if (text) {
+                                  text.style.color = '#a37e2c';
+                                  text.style.transform = 'scale(1)';
+                                }
+                                if (arrow) arrow.style.transform = 'translateX(0)';
+                              }}
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                position: "relative",
+                                overflow: "hidden",
+                                padding: "6px 12px",
+                                background: `rgba(163, 126, 44, 0.03)`,
+                                borderRadius: "8px",
+                                border: `1px solid rgba(163, 126, 44, 0.08)`,
+                                textDecoration: "none",
+                              }}
+                            >
+                              {/* Shimmer effect au hover */}
+                              <div
+                                className="shimmer-effect"
+                                style={{
+                                  position: "absolute",
+                                  inset: 0,
+                                  background: `linear-gradient(90deg, transparent, rgba(163, 126, 44, 0.1), transparent)`,
+                                  transition: `all 0.3s ease`,
+                                  opacity: 0,
+                                }}
+                              />
+
+                              <span
+                                className="footer-text"
+                                style={{
+                                  fontSize: "13px",
+                                  fontWeight: "500",
+                                  color: "#a37e2c",
+                                  transition: `all 0.3s ease`,
+                                  position: "relative",
+                                  zIndex: 1,
+                                  transform: "scale(1)",
+                                }}
+                              >
+                                Voir tous les châteaux
+                              </span>
+                              <ArrowRight
+                                className="footer-arrow"
+                                style={{
+                                  width: "14px",
+                                  height: "14px",
+                                  marginLeft: "6px",
+                                  color: "#a37e2c",
+                                  opacity: 0.7,
+                                  transition: `all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)`,
+                                  position: "relative",
+                                  zIndex: 10,
+                                  transform: "translateX(0)",
+                                }}
+                              />
+                            </Link>
+                          </div>
                         </div>
                       </motion.div>
                     )}
@@ -163,11 +436,18 @@ export function NavigationLuxe() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative text-sm transition-colors duration-300 group whitespace-nowrap font-semibold header-nav-link"
-                  style={{ color: '#2C1810' }}
+                  className="relative group whitespace-nowrap font-semibold header-nav-link"
+                  style={{
+                    fontSize: theme.typography.fontSize.sm,
+                    color: theme.colors.text.tertiary,
+                    transition: `colors ${theme.effects.transitions.smooth}`
+                  }}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300" style={{ backgroundColor: '#B8860B' }} />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full" style={{
+                    backgroundColor: colors.gold,
+                    transition: `all ${theme.effects.transitions.smooth}`
+                  }} />
                 </Link>
               )
             ))}
@@ -176,19 +456,27 @@ export function NavigationLuxe() {
           {/* Colonne 3 : CTA + Mobile centré */}
           <div className="flex items-center justify-center">
             {/* CTA Desktop */}
-            <Link
-              href="/devis"
-              className="badge hidden md:inline-flex relative text-sm font-medium text-white bg-[var(--bronze-antique)] border-2 border-[var(--bronze-antique)] overflow-hidden group hover:text-black transition-all duration-300 whitespace-nowrap shadow-md hover:shadow-xl"
-            >
-              <span className="relative z-10">Demander un Devis</span>
-              <span className="absolute inset-0 bg-[var(--bronze-light)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-            </Link>
+            {!isOnDevisPage && (
+              <Button
+                href="/devis"
+                variant="primary"
+                size="sm"
+                className="hidden md:inline-flex"
+              >
+                Demander un Devis
+              </Button>
+            )}
 
             {/* Mobile : Bouton menu */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-gray-900 hover:text-[var(--bronze-antique)] transition-colors"
+              className="md:hidden"
               aria-label="Toggle menu"
+              style={{
+                padding: spacing.sm,
+                color: theme.colors.neutral.gray900,
+                transition: `colors ${theme.effects.transitions.smooth}`
+              }}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -204,27 +492,49 @@ export function NavigationLuxe() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200"
+            className="md:hidden"
+            style={{
+              background: theme.colors.overlay.white95,
+              backdropFilter: `blur(${theme.effects.blur.sm})`,
+              borderTop: `1px solid ${theme.colors.neutral.gray200}`
+            }}
           >
-            <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+            <nav className="container mx-auto flex flex-col px-4 sm:px-6 py-6" style={{ gap: spacing.lg }}>
               {navLinks.map((link) => (
                 link.hasSubmenu ? (
-                  <div key={link.href} className="flex flex-col space-y-3">
+                  <div key={link.href} className="flex flex-col" style={{ gap: spacing.md }}>
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors duration-300 py-2 font-medium"
+                      className="font-medium hover:text-[var(--bronze-antique)]"
+                      style={{
+                        color: theme.colors.neutral.gray700,
+                        padding: `${spacing.sm} 0`,
+                        transition: `colors ${theme.effects.transitions.smooth}`
+                      }}
                     >
                       {link.label}
                     </Link>
                     {chateaux.length > 0 && (
-                      <div className="ml-2 pl-4 flex flex-col space-y-2 border-l-2" style={{ borderColor: '#B8860B' }}>
+                      <div className="flex flex-col" style={{
+                        marginLeft: spacing.sm,
+                        paddingLeft: spacing.lg,
+                        gap: spacing.sm,
+                        borderLeft: `2px solid ${colors.gold}`
+                      }}>
                         {chateaux.map((chateau) => (
                           <Link
                             key={chateau.slug}
                             href={`/chateaux/${chateau.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="text-sm text-gray-600 hover:text-[var(--bronze-antique)] transition-all duration-300 py-2 px-3 rounded-lg hover:bg-gray-50 font-medium"
+                            className="hover:text-[var(--bronze-antique)] hover:bg-gray-50 font-medium"
+                            style={{
+                              fontSize: theme.typography.fontSize.sm,
+                              color: theme.colors.neutral.gray600,
+                              padding: `${spacing.sm} ${spacing.md}`,
+                              borderRadius: theme.effects.borderRadius.lg,
+                              transition: `all ${theme.effects.transitions.smooth}`
+                            }}
                           >
                             {chateau.nom}
                           </Link>
@@ -237,33 +547,57 @@ export function NavigationLuxe() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors duration-300 py-2 font-medium"
+                    className="font-medium hover:text-[var(--bronze-antique)]"
+                    style={{
+                      color: theme.colors.neutral.gray700,
+                      padding: `${spacing.sm} 0`,
+                      transition: `colors ${theme.effects.transitions.smooth}`
+                    }}
                   >
                     {link.label}
                   </Link>
                 )
               ))}
-              <Link
-                href="/devis"
-                onClick={() => setIsMobileMenuOpen(false)}
-                style={{ padding: 'var(--gap-md,15px)' }}
-                className="text-center bg-[var(--bronze-antique)] text-white font-medium rounded-full hover:bg-[var(--bronze-light)] transition-colors"
-              >
-                Demander un Devis
-              </Link>
+              {!isOnDevisPage && (
+                <Button
+                  href="/devis"
+                  variant="primary"
+                  size="md"
+                  fullWidth
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Demander un Devis
+                </Button>
+              )}
 
               {/* Contact Info */}
-              <div className="flex flex-col space-y-3 pt-6 border-t border-gray-200">
+              <div className="flex flex-col" style={{
+                paddingTop: spacing["2xl"],
+                borderTop: `1px solid ${theme.colors.neutral.gray200}`,
+                gap: spacing.md
+              }}>
                 <a
                   href="tel:+33123456789"
-                  className="flex items-center space-x-3 text-gray-600 hover:text-[var(--bronze-antique)] transition-colors text-sm"
+                  className="flex items-center hover:text-[var(--bronze-antique)]"
+                  style={{
+                    gap: spacing.md,
+                    color: theme.colors.neutral.gray600,
+                    fontSize: theme.typography.fontSize.sm,
+                    transition: `colors ${theme.effects.transitions.smooth}`
+                  }}
                 >
                   <Phone className="w-4 h-4" />
                   <span>+33 1 23 45 67 89</span>
                 </a>
                 <a
                   href="mailto:contact@chateauxprestige.fr"
-                  className="flex items-center space-x-3 text-gray-600 hover:text-[var(--bronze-antique)] transition-colors text-sm"
+                  className="flex items-center hover:text-[var(--bronze-antique)]"
+                  style={{
+                    gap: spacing.md,
+                    color: theme.colors.neutral.gray600,
+                    fontSize: theme.typography.fontSize.sm,
+                    transition: `colors ${theme.effects.transitions.smooth}`
+                  }}
                 >
                   <Mail className="w-4 h-4" />
                   <span>contact@chateauxprestige.fr</span>

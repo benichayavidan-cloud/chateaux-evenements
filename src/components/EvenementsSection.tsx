@@ -5,6 +5,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Presentation, BookOpen, Sparkles, Users, ArrowRight, Star } from "lucide-react";
 import { typesEvenements } from "@/data/chateaux";
+import { theme } from "@/config/theme";
+import { colors, spacing } from "@/config/themeHelpers";
+import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 
 const iconMap: Record<string, React.ReactNode> = {
   presentation: <Presentation className="w-6 h-6" />,
@@ -15,10 +19,18 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function EvenementsSection() {
   return (
-    <section className="section-padding-sm bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: `${theme.spacing.section.sm} 0` }}>
       {/* Glow effects subtils */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 left-0 rounded-full blur-3xl" style={{
+        width: "384px",
+        height: "384px",
+        background: `${colors.bronze}0D`
+      }} />
+      <div className="absolute bottom-1/3 right-0 rounded-full blur-3xl" style={{
+        width: "384px",
+        height: "384px",
+        background: `${colors.bronze}0D`
+      }} />
 
       <div className="w-full flex flex-col items-center justify-center relative z-10">
         {/* Titre section avec animation Reveal */}
@@ -27,25 +39,45 @@ export function EvenementsSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full px-4"
-          style={{ marginBottom: 'var(--space-4xl,45px)' }}
+          className="flex flex-col items-center justify-center text-center w-full"
+          style={{ marginBottom: spacing["4xl"], padding: `0 ${spacing.lg}` }}
         >
-          <div className="flex items-center justify-center mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--bronze-antique)]" />
-            <Star className="w-4 h-4 text-[var(--bronze-antique)] mx-4" />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[var(--bronze-antique)]" />
+          <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
+            <div style={{
+              height: "1px",
+              width: "48px",
+              background: `linear-gradient(to right, transparent, ${colors.bronze})`
+            }} />
+            <Star className="w-4 h-4" style={{ color: colors.bronze, margin: `0 ${spacing.lg}` }} />
+            <div style={{
+              height: "1px",
+              width: "48px",
+              background: `linear-gradient(to left, transparent, ${colors.bronze})`
+            }} />
           </div>
-          <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
+          <h2 style={{
+            fontSize: "clamp(2.5rem, 6vw, 3.75rem)",
+            fontWeight: theme.typography.fontWeight.light,
+            fontStyle: "italic",
+            color: theme.colors.neutral.gray900,
+            marginBottom: spacing["2xl"],
+            fontFamily: theme.typography.fonts.heading
+          }}>
             Types d'Événements
           </h2>
-          <p className="text-lg text-gray-600 max-w-4xl leading-relaxed">
+          <p style={{
+            fontSize: theme.typography.fontSize.lg,
+            color: theme.colors.neutral.gray600,
+            maxWidth: theme.dimensions.maxWidth.lg,
+            lineHeight: theme.typography.lineHeight.relaxed
+          }}>
             Des solutions sur-mesure pour tous vos besoins événementiels
             d'entreprise
           </p>
         </motion.div>
 
         {/* Grille d'événements */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto w-full px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto w-full gap-4 md:gap-6 lg:gap-8 px-4 sm:px-6">
           {typesEvenements.map((evenement, index) => (
             <motion.div
               key={evenement.id}
@@ -55,48 +87,91 @@ export function EvenementsSection() {
               transition={{ duration: 0.8, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] }}
               className="group"
             >
-              <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl overflow-hidden hover:border-[var(--bronze-antique)]/50 transition-all duration-500 h-full flex flex-col hover:shadow-2xl">
+              <Card
+                variant="hover"
+                padding="none"
+                hoverable
+                className="h-full flex flex-col overflow-hidden"
+                style={{ background: theme.colors.overlay.white80, backdropFilter: `blur(${theme.effects.blur.sm})` }}
+              >
                 {/* Image avec grayscale hover */}
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative overflow-hidden h-40 sm:h-48 md:h-52">
                   <Image
                     src={evenement.image}
                     alt={evenement.titre}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover group-hover:scale-110 transition-all duration-[800ms] ease-out"
+                    className="object-cover group-hover:scale-110"
+                    style={{ transition: `all ${theme.effects.transitions.ultra} ease-out` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 via-gray-900/10 to-transparent" />
+                  <div className="absolute inset-0" style={{
+                    background: `linear-gradient(to top, ${theme.colors.neutral.gray900}4D, ${theme.colors.neutral.gray900}1A, transparent)`
+                  }} />
 
                   {/* Icône avec glass morphism */}
-                  <div className="absolute top-6 left-6 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm border border-[var(--bronze-antique)]/30 text-[var(--bronze-antique)] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:border-[var(--bronze-antique)] transition-all duration-500">
+                  <div className="absolute flex items-center justify-center group-hover:scale-110 group-hover:border-[var(--bronze-antique)] w-10 h-10 sm:w-12 sm:h-12 top-4 left-4 sm:top-6 sm:left-6" style={{
+                    borderRadius: theme.effects.borderRadius.full,
+                    background: theme.colors.overlay.white90,
+                    backdropFilter: `blur(${theme.effects.blur.sm})`,
+                    border: `1px solid ${colors.bronze}4D`,
+                    color: colors.bronze,
+                    boxShadow: theme.effects.shadows.lg,
+                    transition: `all ${theme.effects.transitions.slower}`
+                  }}>
                     {iconMap[evenement.icon]}
                   </div>
 
                   {/* Ligne de séparation bronze en bas */}
-                  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--bronze-antique)]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100" style={{
+                    height: "1px",
+                    background: `linear-gradient(to right, transparent, ${colors.bronze}80, transparent)`,
+                    transition: `opacity ${theme.effects.transitions.slower}`
+                  }} />
                 </div>
 
                 {/* Contenu */}
-                <div className="flex-1 flex flex-col" style={{ padding: 'var(--space-lg)' }}>
-                  <h3 className="text-2xl font-light italic text-gray-900 font-[var(--font-cormorant)] group-hover:text-[var(--bronze-antique)] transition-colors duration-500" style={{ marginBottom: 'var(--gap-md,15px)' }}>
+                <div className="flex-1 flex flex-col" style={{ padding: spacing.lg }}>
+                  <h3 className="group-hover:text-[var(--bronze-antique)]" style={{
+                    fontSize: theme.typography.fontSize["2xl"],
+                    fontWeight: theme.typography.fontWeight.light,
+                    fontStyle: "italic",
+                    color: theme.colors.neutral.gray900,
+                    fontFamily: theme.typography.fonts.heading,
+                    marginBottom: spacing.md,
+                    transition: `colors ${theme.effects.transitions.slower}`
+                  }}>
                     {evenement.titre}
                   </h3>
 
-                  <p className="text-gray-600 text-sm leading-relaxed flex-1" style={{ marginBottom: 'var(--space-lg)' }}>
+                  <p className="flex-1" style={{
+                    color: theme.colors.neutral.gray600,
+                    fontSize: theme.typography.fontSize.sm,
+                    lineHeight: theme.typography.lineHeight.relaxed,
+                    marginBottom: spacing.lg
+                  }}>
                     {evenement.description}
                   </p>
 
                   {/* Services inclus */}
-                  <ul className="flex flex-col" style={{ gap: 'var(--gap-sm)', marginBottom: 'var(--space-lg)' }}>
+                  <ul className="flex flex-col" style={{ gap: spacing.sm, marginBottom: spacing.lg }}>
                     {evenement.servicesInclus.slice(0, 3).map((service, i) => (
                       <li
                         key={i}
-                        className="text-xs text-gray-500 flex items-start"
+                        className="flex items-start"
+                        style={{
+                          fontSize: theme.typography.fontSize.xs,
+                          color: theme.colors.neutral.gray600
+                        }}
                       >
-                        <span className="text-[var(--bronze-antique)] mr-2.5 flex-shrink-0 mt-0.5">
+                        <span style={{
+                          color: colors.bronze,
+                          marginRight: "10px",
+                          flexShrink: 0,
+                          marginTop: "2px"
+                        }}>
                           •
                         </span>
-                        <span className="leading-relaxed">{service}</span>
+                        <span style={{ lineHeight: theme.typography.lineHeight.relaxed }}>{service}</span>
                       </li>
                     ))}
                   </ul>
@@ -104,13 +179,25 @@ export function EvenementsSection() {
                   {/* CTA */}
                   <Link
                     href={`/evenements#${evenement.id}`}
-                    className="badge text-[var(--bronze-antique)]/80 hover:text-[var(--bronze-antique)] font-medium text-sm transition-colors flex items-center group/link"
+                    className="flex items-center group/link hover:text-[var(--bronze-antique)]"
+                    style={{
+                      color: `${colors.bronze}CC`,
+                      fontWeight: theme.typography.fontWeight.medium,
+                      fontSize: theme.typography.fontSize.sm,
+                      transition: `colors ${theme.effects.transitions.smooth}`
+                    }}
                   >
-                    <span className="uppercase tracking-wider">En savoir plus</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-300" />
+                    <span style={{
+                      textTransform: "uppercase",
+                      letterSpacing: theme.typography.letterSpacing.wider
+                    }}>En savoir plus</span>
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1" style={{
+                      marginLeft: spacing.sm,
+                      transition: `transform ${theme.effects.transitions.smooth}`
+                    }} />
                   </Link>
                 </div>
-              </div>
+              </Card>
             </motion.div>
           ))}
         </div>
@@ -121,25 +208,31 @@ export function EvenementsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex items-center justify-center w-full px-4"
-          style={{ marginTop: 'var(--section-padding-sm)' }}
+          className="flex items-center justify-center w-full"
+          style={{ marginTop: theme.spacing.section.sm, padding: `0 ${spacing.lg}` }}
         >
-          <Link
+          <Button
             href="/devis"
-            className="group inline-flex items-center bg-[var(--bronze-antique)] text-white font-medium rounded-full hover:bg-[var(--bronze-light)] transition-all duration-500 hover:shadow-[var(--shadow-glow)] relative overflow-hidden"
-            style={{ padding: 'var(--btn-padding-md)' }}
+            variant="primary"
+            size="md"
+            icon={<ArrowRight className="w-5 h-5" />}
+            iconPosition="right"
           >
-            <span className="relative z-10">Demander un Devis Personnalisé</span>
-            <ArrowRight className="w-5 h-5 ml-3 relative z-10 group-hover:translate-x-2 transition-transform duration-300" />
-            <span className="absolute inset-0 bg-[var(--bronze-light)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-          </Link>
+            Demander un Devis Personnalisé
+          </Button>
         </motion.div>
       </div>
 
       {/* Ligne décorative en haut */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--bronze-antique)]/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0" style={{
+        height: "1px",
+        background: `linear-gradient(to right, transparent, ${colors.bronze}33, transparent)`
+      }} />
       {/* Ligne décorative en bas */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--bronze-antique)]/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0" style={{
+        height: "1px",
+        background: `linear-gradient(to right, transparent, ${colors.bronze}33, transparent)`
+      }} />
     </section>
   );
 }

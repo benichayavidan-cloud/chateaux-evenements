@@ -287,20 +287,29 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: var(--max-width-content);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 12px;
 }
 
 /* Section padding vertical */
 .section-padding-sm {
-  padding: var(--section-padding-sm) 0;
+  padding: var(--section-padding-sm) 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-padding-md {
-  padding: var(--section-padding-md) 0;
+  padding: var(--section-padding-md) 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .section-padding-lg {
-  padding: var(--section-padding-lg) 0;
+  padding: var(--section-padding-lg) 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Badge standardisé */
@@ -313,3 +322,241 @@ h1, h2, h3, h4, h5, h6 {
   padding: var(--badge-padding-lg);
   border-radius: var(--radius-full, 9999px);
 }
+
+/* ============================================
+   HERO SECTIONS - Classes standardisées
+   ============================================ */
+
+.hero-section {
+  height: 75vh;
+  position: relative;
+  overflow: hidden;
+  background: white;
+}
+
+.hero-content {
+  width: 100%;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.hero-overlay-light {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.5));
+}
+
+.hero-overlay-light-extra {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   SECTION BACKGROUNDS
+   ============================================ */
+
+.section-white {
+  background: white;
+  padding: 12px;
+}
+
+.section-gray {
+  background: #f9fafb;
+  padding: 12px;
+}
+
+/* Section générique avec padding */
+section {
+  padding: 12px;
+}
+
+/* ============================================
+   TYPOGRAPHY - Classes standardisées
+   ============================================ */
+
+.heading-display {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300;
+  font-style: italic;
+  font-family: var(--font-cormorant), serif;
+  line-height: 1;
+  color: #111827;
+}
+
+.heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  font-style: italic;
+  font-family: var(--font-cormorant), serif;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  font-family: var(--font-cormorant), serif;
+  color: #111827;
+}
+
+.heading-md {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #111827;
+}
+
+.text-body-xl {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.text-body-lg {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.text-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ============================================
+   GRID LAYOUTS - Standardisés
+   ============================================ */
+
+.grid-2-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-3xl);
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .grid-2-cols {
+    grid-template-columns: 1fr;
+    gap: var(--space-4xl);
+  }
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-3xl);
+}
+
+/* ============================================
+   CONTENT PADDING - Standard 10px minimum
+   ============================================ */
+
+.content-padding {
+  padding: 10px;
+}
+
+.content-padding-lg {
+  padding: 40px;
+}
+
+/* ============================================
+   BUTTONS - Standardisés
+   ============================================ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--btn-padding-lg);
+  background: var(--bronze-antique);
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--bronze-light);
+  box-shadow: 0 20px 40px rgba(163, 126, 44, 0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: var(--btn-padding-lg);
+  background: white;
+  color: #111827;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 2px solid #e5e7eb;
+  transition: all var(--transition-smooth);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--bronze-antique);
+}
+
+/* ============================================
+   CARDS & IMAGES
+   ============================================ */
+
+.card-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  height: var(--height-image-card);
+}
+
+.card-image:hover img {
+  transform: scale(1.05);
+}
+
+.card-image img {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   CENTERING UTILITIES
+   ============================================ */
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ============================================
+   SPACING UTILITIES
+   ============================================ */
+
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mb-2xl { margin-bottom: var(--space-2xl); }
+.mb-3xl { margin-bottom: var(--space-3xl); }
+.mb-4xl { margin-bottom: var(--space-4xl); }
+.mb-5xl { margin-bottom: var(--space-5xl); }
+
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-2xl { margin-top: var(--space-2xl); }
+
+.gap-sm { gap: var(--gap-sm); }
+.gap-md { gap: var(--gap-md); }
+.gap-lg { gap: var(--gap-lg); }
+.gap-3xl { gap: var(--gap-3xl); }

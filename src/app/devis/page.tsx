@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { DevisForm } from "@/components/DevisForm";
+import { theme } from "@/config/theme";
 
 export const metadata: Metadata = {
   title: "Demande de Devis | ChâteauxPrestige",
@@ -9,14 +10,34 @@ export const metadata: Metadata = {
 
 export default function DevisPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[var(--secondary)] to-white">
+    <div style={{ minHeight: "100vh", background: theme.colors.neutral.gray50, paddingTop: "64px" }}>
       {/* Hero */}
-      <div className="bg-[var(--primary)] text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-[var(--font-playfair)]">
+      <div style={{
+        background: theme.colors.primary.bronze,
+        color: "white",
+        padding: "40px 40px",
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: "200px"
+      }}>
+        <div>
+          <h1 style={{
+            fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+            fontWeight: theme.typography.fontWeight.light,
+            fontStyle: "italic",
+            fontFamily: theme.typography.fonts.heading,
+            marginBottom: "16px"
+          }}>
             Demandez votre Devis Personnalisé
           </h1>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto">
+          <p style={{
+            fontSize: "20px",
+            opacity: 0.9,
+            maxWidth: "800px",
+            margin: "0 auto"
+          }}>
             Remplissez ce formulaire en 4 étapes simples et recevez votre devis
             sur-mesure dans les 24 heures
           </p>
@@ -24,40 +45,12 @@ export default function DevisPage() {
       </div>
 
       {/* Formulaire */}
-      <div className="container mx-auto px-4 py-16">
+      <div style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "10px 40px 60px"
+      }}>
         <DevisForm />
-      </div>
-
-      {/* Trust Section */}
-      <div className="bg-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-[var(--gold)] mb-2">
-                24h
-              </div>
-              <p className="text-[var(--text-secondary)]">
-                Réponse garantie sous 24 heures
-              </p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[var(--gold)] mb-2">
-                100%
-              </div>
-              <p className="text-[var(--text-secondary)]">
-                Devis personnalisé et sans engagement
-              </p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-[var(--gold)] mb-2">
-                15+
-              </div>
-              <p className="text-[var(--text-secondary)]">
-                Années d'expertise événementielle
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

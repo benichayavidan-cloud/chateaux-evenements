@@ -34,16 +34,21 @@ const formSchema = z.object({
     "team-building",
     "autre",
   ]),
-  nombreParticipants: z.number().min(10).max(500),
   datesSouhaitees: z.string().min(1, "Veuillez sélectionner une date"),
   duree: z.enum(["1-jour", "2-jours", "3-jours-plus"]),
   chateauId: z.string().min(1, "Veuillez sélectionner un château"),
   entreprise: z.string().min(2, "Nom de l'entreprise requis"),
-  nom: z.string().min(2, "Nom requis"),
-  prenom: z.string().min(2, "Prénom requis"),
+  nomPrenom: z.string().min(2, "Nom et prénom requis"),
   email: z.string().email("Email invalide"),
-  telephone: z.string().min(10, "Numéro de téléphone invalide"),
-  message: z.string().optional(),
+  telephoneMobile: z.string().min(10, "Numéro de téléphone invalide"),
+  nombreParticipants: z.number().min(10).max(500),
+  nombreChambres: z.number().min(1).max(400),
+  plusDe500Participants: z.boolean().optional(),
+  plusDe400Chambres: z.boolean().optional(),
+  chambresTwin: z.boolean().optional(),
+  budget: z.string().min(1, "Budget requis"),
+  commentaireDeroulement: z.string().min(10, "Veuillez décrire le déroulement de votre événement"),
+  fichier: z.any().optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -78,6 +83,83 @@ export function DevisForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Styles pour les sliders et file input
+  const styleSheet = `
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #a37e2c;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(163, 126, 44, 0.4);
+      transition: all 0.3s;
+    }
+
+    .range-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 4px 12px rgba(163, 126, 44, 0.6);
+    }
+
+    .range-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #a37e2c;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 8px rgba(163, 126, 44, 0.4);
+      transition: all 0.3s;
+    }
+
+    .range-slider::-moz-range-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 4px 12px rgba(163, 126, 44, 0.6);
+    }
+
+    input[type="file"]::file-selector-button {
+      color: #1f2937;
+      font-weight: 600;
+    }
+
+    /* Changer tous les focus bleus en doré */
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="date"]:focus,
+    input[type="file"]:focus,
+    textarea:focus,
+    input[type="checkbox"]:focus,
+    input[type="range"]:focus,
+    button:focus {
+      outline: 2px solid #a37e2c !important;
+      outline-offset: 2px;
+      border-color: #a37e2c !important;
+    }
+
+    /* Checkbox accent doré */
+    input[type="checkbox"]:checked {
+      accent-color: #a37e2c;
+    }
+
+    /* Poignée de redimensionnement plus visible avec relief */
+    textarea {
+      resize: vertical;
+      position: relative;
+    }
+
+    textarea::-webkit-resizer {
+      background:
+        linear-gradient(135deg, transparent 6px, #b8902f 6px, #b8902f 8px, transparent 8px),
+        linear-gradient(135deg, transparent 10px, #c4a049 10px, #c4a049 12px, transparent 12px),
+        linear-gradient(135deg, transparent 14px, #a37e2c 14px, #a37e2c 16px, transparent 16px);
+      background-position: bottom right;
+      background-repeat: no-repeat;
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.2));
+    }
+  `;
+
   const {
     register,
     handleSubmit,
@@ -89,6 +171,10 @@ export function DevisForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       nombreParticipants: 50,
+      nombreChambres: 10,
+      plusDe500Participants: false,
+      plusDe400Chambres: false,
+      chambresTwin: false,
     },
   });
 
@@ -102,11 +188,7 @@ export function DevisForm() {
         isValid = await trigger("typeEvenement");
         break;
       case 2:
-        isValid = await trigger([
-          "nombreParticipants",
-          "datesSouhaitees",
-          "duree",
-        ]);
+        isValid = await trigger(["datesSouhaitees", "duree"]);
         break;
       case 3:
         isValid = await trigger("chateauId");
@@ -135,20 +217,46 @@ export function DevisForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="max-w-2xl mx-auto text-center py-16"
+        style={{
+          maxWidth: "700px",
+          margin: "0 auto",
+          textAlign: "center",
+          padding: "60px 20px"
+        }}
       >
-        <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-          <Check className="w-10 h-10 text-white" />
+        <div style={{
+          width: "80px",
+          height: "80px",
+          background: "#10b981",
+          borderRadius: "50%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "0 auto 24px"
+        }}>
+          <Check style={{ width: "40px", height: "40px", color: "white" }} />
         </div>
-        <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-4 font-[var(--font-playfair)]">
+        <h2 style={{
+          fontSize: "36px",
+          fontWeight: "bold",
+          marginBottom: "16px"
+        }}>
           Demande envoyée avec succès !
         </h2>
-        <p className="text-lg text-[var(--text-secondary)] mb-8">
+        <p style={{
+          fontSize: "18px",
+          color: "#6b7280",
+          marginBottom: "32px"
+        }}>
           Merci pour votre demande. Notre équipe vous contactera dans les 24
           heures pour discuter de votre projet et établir un devis personnalisé.
         </p>
-        <div className="bg-[var(--secondary)] rounded-lg p-6">
-          <p className="text-[var(--text-secondary)]">
+        <div style={{
+          background: "#f3f4f6",
+          borderRadius: "12px",
+          padding: "24px"
+        }}>
+          <p style={{ color: "#6b7280" }}>
             <strong>Numéro de référence:</strong> #DEV
             {Math.random().toString(36).substr(2, 9).toUpperCase()}
           </p>
@@ -158,46 +266,148 @@ export function DevisForm() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <>
+      <style>{styleSheet}</style>
+      <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+        {/* Trust Section */}
+        <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{
+          background: "white",
+          padding: "16px 20px",
+          marginBottom: "40px",
+          borderRadius: "16px"
+        }}
+      >
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: "40px",
+          textAlign: "center"
+        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <div style={{
+              fontSize: "48px",
+              fontWeight: "bold",
+              color: "#a37e2c",
+              marginBottom: "8px"
+            }}>
+              24h
+            </div>
+            <p style={{ color: "#6b7280" }}>
+              Réponse garantie sous 24 heures
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <div style={{
+              fontSize: "48px",
+              fontWeight: "bold",
+              color: "#a37e2c",
+              marginBottom: "8px"
+            }}>
+              100%
+            </div>
+            <p style={{ color: "#6b7280" }}>
+              Devis personnalisé et sans engagement
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <div style={{
+              fontSize: "48px",
+              fontWeight: "bold",
+              color: "#a37e2c",
+              marginBottom: "8px"
+            }}>
+              15+
+            </div>
+            <p style={{ color: "#6b7280" }}>
+              Années d'expertise événementielle
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
       {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="flex justify-between mb-2">
+      <div style={{ marginBottom: "40px" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           {[1, 2, 3, 4].map((step) => (
             <div
               key={step}
-              className={`flex items-center ${
-                step < 4 ? "flex-1" : ""
-              }`}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flex: step < 4 ? 1 : "0"
+              }}
             >
-              <div
-                className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-colors ${
-                  step === currentStep
-                    ? "bg-[var(--gold)] text-white"
-                    : step < currentStep
-                    ? "bg-green-500 text-white"
-                    : "bg-gray-200 text-gray-400"
-                }`}
-              >
-                {step < currentStep ? <Check className="w-5 h-5" /> : step}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: "bold",
+                    background: step === currentStep
+                      ? "#a37e2c"
+                      : step < currentStep
+                      ? "#10b981"
+                      : "#e5e7eb",
+                    color: step > currentStep ? "#9ca3af" : "white",
+                    transition: "all 0.3s",
+                    marginBottom: "8px"
+                  }}
+                >
+                  {step < currentStep ? <Check style={{ width: "20px", height: "20px" }} /> : step}
+                </div>
+                <span style={{
+                  fontSize: "14px",
+                  color: "#6b7280",
+                  whiteSpace: "nowrap"
+                }}>
+                  {["Type", "Dates", "Château", "Formulaire"][step - 1]}
+                </span>
               </div>
               {step < 4 && (
-                <div className="flex-1 h-2 mx-2 bg-gray-200 rounded-full overflow-hidden">
+                <div style={{
+                  flex: 1,
+                  height: "8px",
+                  margin: "0 8px",
+                  background: "#e5e7eb",
+                  borderRadius: "999px",
+                  overflow: "hidden",
+                  marginBottom: "28px"
+                }}>
                   <div
-                    className="h-full bg-[var(--gold)] transition-all duration-300"
                     style={{
-                      width: step < currentStep ? "100%" : "0%",
+                      height: "100%",
+                      background: "#a37e2c",
+                      transition: "width 0.3s",
+                      width: step < currentStep ? "100%" : "0%"
                     }}
                   />
                 </div>
               )}
             </div>
           ))}
-        </div>
-        <div className="flex justify-between text-sm text-[var(--text-secondary)] mt-2">
-          <span>Type</span>
-          <span>Détails</span>
-          <span>Château</span>
-          <span>Contact</span>
         </div>
       </div>
 
@@ -210,30 +420,51 @@ export function DevisForm() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              className="space-y-6"
+              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
+              <h3 style={{
+                fontSize: "28px",
+                fontWeight: "bold",
+                marginBottom: "12px",
+                color: "#1f2937"
+              }}>
                 Quel type d'événement souhaitez-vous organiser ?
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gap: "16px"
+              }}>
                 {eventTypes.map((type) => {
                   const Icon = type.icon;
+                  const isSelected = watchedValues.typeEvenement === type.id;
                   return (
                     <button
                       key={type.id}
                       type="button"
-                      onClick={() => {
-                        setValue("typeEvenement", type.id);
+                      onClick={() => setValue("typeEvenement", type.id)}
+                      style={{
+                        padding: "24px",
+                        borderRadius: "16px",
+                        border: `2px solid ${isSelected ? "#a37e2c" : "#e5e7eb"}`,
+                        background: isSelected ? "rgba(163, 126, 44, 0.05)" : "white",
+                        cursor: "pointer",
+                        transition: "all 0.3s",
+                        textAlign: "left"
                       }}
-                      className={`p-6 rounded-xl border-2 transition-all hover:shadow-lg ${
-                        watchedValues.typeEvenement === type.id
-                          ? "border-[var(--gold)] bg-[var(--gold)]/5"
-                          : "border-gray-200 hover:border-[var(--gold)]"
-                      }`}
                     >
-                      <Icon className="w-8 h-8 text-[var(--gold)] mb-3" />
-                      <div className="font-semibold text-[var(--text-primary)]">
+                      <Icon style={{
+                        width: "32px",
+                        height: "32px",
+                        color: "#a37e2c",
+                        marginBottom: "12px"
+                      }} />
+                      <div style={{
+                        fontWeight: "600",
+                        fontSize: "16px",
+                        color: "#1f2937"
+                      }}>
                         {type.label}
                       </div>
                     </button>
@@ -241,64 +472,60 @@ export function DevisForm() {
                 })}
               </div>
               {errors.typeEvenement && (
-                <p className="text-red-500 text-sm">
+                <p style={{ color: "#ef4444", fontSize: "14px" }}>
                   {errors.typeEvenement.message}
                 </p>
               )}
             </motion.div>
           )}
 
-          {/* Étape 2: Détails */}
+          {/* Étape 2: Dates et durée */}
           {currentStep === 2 && (
             <motion.div
               key="step2"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              className="space-y-6"
+              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-                Précisez les détails de votre événement
+              <h3 style={{
+                fontSize: "28px",
+                fontWeight: "bold",
+                marginBottom: "12px",
+                color: "#1f2937"
+              }}>
+                Quand souhaitez-vous organiser votre événement ?
               </h3>
-
-              {/* Nombre de participants */}
-              <div>
-                <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                  Nombre de participants: {watchedValues.nombreParticipants}
-                </label>
-                <input
-                  type="range"
-                  min="10"
-                  max="500"
-                  step="10"
-                  {...register("nombreParticipants", { valueAsNumber: true })}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[var(--gold)]"
-                />
-                <div className="flex justify-between text-xs text-[var(--text-secondary)] mt-1">
-                  <span>10</span>
-                  <span>500</span>
-                </div>
-                {errors.nombreParticipants && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.nombreParticipants.message}
-                  </p>
-                )}
-              </div>
 
               {/* Dates souhaitées */}
               <div>
-                <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                  <Calendar className="w-4 h-4 inline mr-2" />
-                  Dates souhaitées
+                <label style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  marginBottom: "8px",
+                  color: "#1f2937"
+                }}>
+                  <Calendar style={{ width: "16px", height: "16px", color: "#1f2937" }} />
+                  Date souhaitée *
                 </label>
                 <input
                   type="date"
                   {...register("datesSouhaitees")}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[var(--gold)] focus:outline-none"
+                  style={{
+                    width: "100%",
+                    padding: "12px 16px",
+                    border: "2px solid #e5e7eb",
+                    borderRadius: "12px",
+                    fontSize: "16px",
+                    color: "#1f2937"
+                  }}
                   min={new Date().toISOString().split("T")[0]}
                 />
                 {errors.datesSouhaitees && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
                     {errors.datesSouhaitees.message}
                   </p>
                 )}
@@ -306,28 +533,47 @@ export function DevisForm() {
 
               {/* Durée */}
               <div>
-                <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                  <Clock className="w-4 h-4 inline mr-2" />
-                  Durée de l'événement
+                <label style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  marginBottom: "8px",
+                  color: "#1f2937"
+                }}>
+                  <Clock style={{ width: "16px", height: "16px", color: "#1f2937" }} />
+                  Durée de l'événement *
                 </label>
-                <div className="grid grid-cols-3 gap-4">
-                  {dureeOptions.map((option) => (
-                    <button
-                      key={option.value}
-                      type="button"
-                      onClick={() => setValue("duree", option.value)}
-                      className={`px-4 py-3 rounded-lg border-2 transition-all ${
-                        watchedValues.duree === option.value
-                          ? "border-[var(--gold)] bg-[var(--gold)]/5"
-                          : "border-gray-200 hover:border-[var(--gold)]"
-                      }`}
-                    >
-                      {option.label}
-                    </button>
-                  ))}
+                <div style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, 1fr)",
+                  gap: "16px"
+                }}>
+                  {dureeOptions.map((option) => {
+                    const isSelected = watchedValues.duree === option.value;
+                    return (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setValue("duree", option.value)}
+                        style={{
+                          padding: "12px 16px",
+                          borderRadius: "12px",
+                          border: `2px solid ${isSelected ? "#a37e2c" : "#e5e7eb"}`,
+                          background: isSelected ? "rgba(163, 126, 44, 0.05)" : "white",
+                          cursor: "pointer",
+                          transition: "all 0.3s",
+                          color: "#1f2937"
+                        }}
+                      >
+                        {option.label}
+                      </button>
+                    );
+                  })}
                 </div>
                 {errors.duree && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
                     {errors.duree.message}
                   </p>
                 )}
@@ -342,65 +588,88 @@ export function DevisForm() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              className="space-y-6"
+              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
+              <h3 style={{
+                fontSize: "28px",
+                fontWeight: "bold",
+                marginBottom: "12px",
+                color: "#1f2937"
+              }}>
                 Choisissez votre château
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {chateaux.map((chateau) => (
-                  <button
-                    key={chateau.id}
-                    type="button"
-                    onClick={() => setValue("chateauId", chateau.id)}
-                    className={`text-left rounded-xl border-2 overflow-hidden transition-all hover:shadow-lg ${
-                      watchedValues.chateauId === chateau.id
-                        ? "border-[var(--gold)]"
-                        : "border-gray-200 hover:border-[var(--gold)]"
-                    }`}
-                  >
-                    <div className="relative h-40">
-                      <Image
-                        src={chateau.images[0]}
-                        alt={chateau.nom}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h4 className="font-bold text-[var(--text-primary)]">
-                        {chateau.nom}
-                      </h4>
-                      <p className="text-sm text-[var(--text-secondary)]">
-                        {chateau.region} • {chateau.capacite.min}-
-                        {chateau.capacite.max} pers.
-                      </p>
-                    </div>
-                  </button>
-                ))}
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                gap: "16px"
+              }}>
+                {chateaux.map((chateau) => {
+                  const isSelected = watchedValues.chateauId === chateau.id;
+                  return (
+                    <button
+                      key={chateau.id}
+                      type="button"
+                      onClick={() => setValue("chateauId", chateau.id)}
+                      style={{
+                        textAlign: "left",
+                        borderRadius: "16px",
+                        border: `2px solid ${isSelected ? "#a37e2c" : "#e5e7eb"}`,
+                        overflow: "hidden",
+                        cursor: "pointer",
+                        transition: "all 0.3s",
+                        background: "white"
+                      }}
+                    >
+                      <div style={{ position: "relative", height: "160px" }}>
+                        <Image
+                          src={chateau.images[0]}
+                          alt={chateau.nom}
+                          fill
+                          style={{ objectFit: "cover" }}
+                        />
+                      </div>
+                      <div style={{ padding: "16px" }}>
+                        <h4 style={{ fontWeight: "bold", marginBottom: "4px", color: "#1f2937" }}>
+                          {chateau.nom}
+                        </h4>
+                        <p style={{ fontSize: "14px", color: "#6b7280" }}>
+                          {chateau.region} • {chateau.capacite.min}-{chateau.capacite.max} pers.
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })}
 
                 {/* Option "Laissez-nous vous conseiller" */}
                 <button
                   type="button"
                   onClick={() => setValue("chateauId", "conseil")}
-                  className={`p-6 rounded-xl border-2 border-dashed transition-all hover:shadow-lg flex flex-col items-center justify-center text-center ${
-                    watchedValues.chateauId === "conseil"
-                      ? "border-[var(--gold)] bg-[var(--gold)]/5"
-                      : "border-gray-300 hover:border-[var(--gold)]"
-                  }`}
+                  style={{
+                    padding: "24px",
+                    borderRadius: "16px",
+                    border: `2px dashed ${watchedValues.chateauId === "conseil" ? "#a37e2c" : "#d1d5db"}`,
+                    background: watchedValues.chateauId === "conseil" ? "rgba(163, 126, 44, 0.05)" : "white",
+                    cursor: "pointer",
+                    transition: "all 0.3s",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    textAlign: "center"
+                  }}
                 >
-                  <Building className="w-12 h-12 text-[var(--gold)] mb-3" />
-                  <div className="font-semibold text-[var(--text-primary)]">
+                  <Building style={{ width: "48px", height: "48px", color: "#a37e2c", marginBottom: "12px" }} />
+                  <div style={{ fontWeight: "600", marginBottom: "8px", color: "#1f2937" }}>
                     Laissez-nous vous conseiller
                   </div>
-                  <p className="text-sm text-[var(--text-secondary)] mt-2">
+                  <p style={{ fontSize: "14px", color: "#6b7280" }}>
                     Nos experts choisiront le château idéal pour votre événement
                   </p>
                 </button>
               </div>
               {errors.chateauId && (
-                <p className="text-red-500 text-sm">
+                <p style={{ color: "#ef4444", fontSize: "14px" }}>
                   {errors.chateauId.message}
                 </p>
               )}
@@ -414,120 +683,421 @@ export function DevisForm() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
-              className="space-y-6"
+              style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
-              <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-                Vos coordonnées
+              <h3 style={{
+                fontSize: "28px",
+                fontWeight: "bold",
+                marginBottom: "12px",
+                color: "#1f2937"
+              }}>
+                Vos coordonnées et détails
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gap: "24px"
+              }}>
                 {/* Entreprise */}
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                    <Briefcase className="w-4 h-4 inline mr-2" />
+                <div>
+                  <label style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginBottom: "8px",
+                    color: "#1f2937"
+                  }}>
+                    <Briefcase style={{ width: "16px", height: "16px", color: "#1f2937" }} />
                     Entreprise *
                   </label>
                   <input
                     type="text"
                     {...register("entreprise")}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[var(--gold)] focus:outline-none"
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      border: "2px solid #e5e7eb",
+                      borderRadius: "12px",
+                      fontSize: "16px",
+                      color: "#1f2937"
+                    }}
                     placeholder="Nom de votre entreprise"
                   />
                   {errors.entreprise && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
                       {errors.entreprise.message}
                     </p>
                   )}
                 </div>
 
-                {/* Prénom */}
+                {/* Nom Prénom */}
                 <div>
-                  <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                    <User className="w-4 h-4 inline mr-2" />
-                    Prénom *
+                  <label style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginBottom: "8px",
+                    color: "#1f2937"
+                  }}>
+                    <User style={{ width: "16px", height: "16px", color: "#1f2937" }} />
+                    Nom Prénom *
                   </label>
                   <input
                     type="text"
-                    {...register("prenom")}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[var(--gold)] focus:outline-none"
-                    placeholder="Votre prénom"
+                    {...register("nomPrenom")}
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      border: "2px solid #e5e7eb",
+                      borderRadius: "12px",
+                      fontSize: "16px",
+                      color: "#1f2937"
+                    }}
+                    placeholder="Votre nom et prénom"
                   />
-                  {errors.prenom && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.prenom.message}
-                    </p>
-                  )}
-                </div>
-
-                {/* Nom */}
-                <div>
-                  <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                    <User className="w-4 h-4 inline mr-2" />
-                    Nom *
-                  </label>
-                  <input
-                    type="text"
-                    {...register("nom")}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[var(--gold)] focus:outline-none"
-                    placeholder="Votre nom"
-                  />
-                  {errors.nom && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.nom.message}
+                  {errors.nomPrenom && (
+                    <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
+                      {errors.nomPrenom.message}
                     </p>
                   )}
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                    <Mail className="w-4 h-4 inline mr-2" />
+                  <label style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginBottom: "8px",
+                    color: "#1f2937"
+                  }}>
+                    <Mail style={{ width: "16px", height: "16px", color: "#1f2937" }} />
                     Email *
                   </label>
                   <input
                     type="email"
                     {...register("email")}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[var(--gold)] focus:outline-none"
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      border: "2px solid #e5e7eb",
+                      borderRadius: "12px",
+                      fontSize: "16px",
+                      color: "#1f2937"
+                    }}
                     placeholder="votre.email@entreprise.com"
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
                       {errors.email.message}
                     </p>
                   )}
                 </div>
 
-                {/* Téléphone */}
+                {/* Téléphone Mobile */}
                 <div>
-                  <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                    <Phone className="w-4 h-4 inline mr-2" />
-                    Téléphone *
+                  <label style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginBottom: "8px",
+                    color: "#1f2937"
+                  }}>
+                    <Phone style={{ width: "16px", height: "16px", color: "#1f2937" }} />
+                    Téléphone Mobile *
                   </label>
                   <input
                     type="tel"
-                    {...register("telephone")}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[var(--gold)] focus:outline-none"
+                    {...register("telephoneMobile")}
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      border: "2px solid #e5e7eb",
+                      borderRadius: "12px",
+                      fontSize: "16px",
+                      color: "#1f2937"
+                    }}
                     placeholder="+33 6 12 34 56 78"
                   />
-                  {errors.telephone && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.telephone.message}
+                  {errors.telephoneMobile && (
+                    <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
+                      {errors.telephoneMobile.message}
                     </p>
                   )}
                 </div>
 
-                {/* Message */}
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold text-[var(--text-primary)] mb-2">
-                    <MessageSquare className="w-4 h-4 inline mr-2" />
-                    Message complémentaire (optionnel)
+                {/* Nombre de participants et chambres sur la même ligne */}
+                <div style={{ gridColumn: "1 / -1", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+                  {/* Nombre de participants */}
+                  <div>
+                    <label style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      marginBottom: "8px",
+                      color: "#1f2937"
+                    }}>
+                      <Users style={{ width: "16px", height: "16px", color: "#1f2937" }} />
+                      Nombre de participants: {watchedValues.nombreParticipants}
+                    </label>
+                    <input
+                      type="range"
+                      min="10"
+                      max="500"
+                      step="10"
+                      {...register("nombreParticipants", { valueAsNumber: true })}
+                      style={{
+                        width: "100%",
+                        height: "8px",
+                        borderRadius: "999px",
+                        cursor: "pointer",
+                        WebkitAppearance: "none",
+                        appearance: "none",
+                        background: `linear-gradient(to right, #a37e2c 0%, #a37e2c ${((watchedValues.nombreParticipants - 10) / (500 - 10)) * 100}%, #e5e7eb ${((watchedValues.nombreParticipants - 10) / (500 - 10)) * 100}%, #e5e7eb 100%)`
+                      }}
+                      className="range-slider"
+                    />
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#6b7280", marginTop: "4px" }}>
+                      <span>10</span>
+                      <span>500</span>
+                    </div>
+                    <label style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      cursor: "pointer",
+                      marginTop: "8px"
+                    }}>
+                      <input
+                        type="checkbox"
+                        {...register("plusDe500Participants")}
+                        style={{
+                          width: "18px",
+                          height: "18px",
+                          cursor: "pointer"
+                        }}
+                      />
+                      <span style={{ fontSize: "13px", color: "#1f2937" }}>
+                        Plus de 500 participants
+                      </span>
+                    </label>
+                    {errors.nombreParticipants && (
+                      <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
+                        {errors.nombreParticipants.message}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Nombre de chambres */}
+                  <div>
+                    <label style={{
+                      fontSize: "14px",
+                      fontWeight: "600",
+                      marginBottom: "8px",
+                      display: "block",
+                      color: "#1f2937"
+                    }}>
+                      Nombre de chambres: {watchedValues.nombreChambres}
+                    </label>
+                    <input
+                      type="range"
+                      min="1"
+                      max="400"
+                      step="1"
+                      {...register("nombreChambres", { valueAsNumber: true })}
+                      style={{
+                        width: "100%",
+                        height: "8px",
+                        borderRadius: "999px",
+                        cursor: "pointer",
+                        WebkitAppearance: "none",
+                        appearance: "none",
+                        background: `linear-gradient(to right, #a37e2c 0%, #a37e2c ${((watchedValues.nombreChambres - 1) / (400 - 1)) * 100}%, #e5e7eb ${((watchedValues.nombreChambres - 1) / (400 - 1)) * 100}%, #e5e7eb 100%)`
+                      }}
+                      className="range-slider"
+                    />
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#6b7280", marginTop: "4px" }}>
+                      <span>1</span>
+                      <span>400</span>
+                    </div>
+                    <label style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      cursor: "pointer",
+                      marginTop: "8px"
+                    }}>
+                      <input
+                        type="checkbox"
+                        {...register("plusDe400Chambres")}
+                        style={{
+                          width: "18px",
+                          height: "18px",
+                          cursor: "pointer"
+                        }}
+                      />
+                      <span style={{ fontSize: "13px", color: "#1f2937" }}>
+                        Plus de 400 chambres
+                      </span>
+                    </label>
+                    {errors.nombreChambres && (
+                      <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
+                        {errors.nombreChambres.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Chambres Twin */}
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <label style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    cursor: "pointer"
+                  }}>
+                    <input
+                      type="checkbox"
+                      {...register("chambresTwin")}
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        cursor: "pointer"
+                      }}
+                    />
+                    <span style={{ fontSize: "14px", fontWeight: "600", color: "#1f2937" }}>
+                      Possibilité de chambres twin
+                    </span>
+                  </label>
+                </div>
+
+                {/* Budget */}
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <label style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginBottom: "8px",
+                    display: "block",
+                    color: "#1f2937"
+                  }}>
+                    Budget estimé *
+                  </label>
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+                    gap: "12px"
+                  }}>
+                    {[
+                      "< 10 000 €",
+                      "10 000 - 25 000 €",
+                      "25 000 - 50 000 €",
+                      "50 000 - 100 000 €",
+                      "> 100 000 €"
+                    ].map((budgetOption) => {
+                      const isSelected = watchedValues.budget === budgetOption;
+                      return (
+                        <button
+                          key={budgetOption}
+                          type="button"
+                          onClick={() => setValue("budget", budgetOption)}
+                          style={{
+                            padding: "12px 16px",
+                            borderRadius: "12px",
+                            border: `2px solid ${isSelected ? "#a37e2c" : "#e5e7eb"}`,
+                            background: isSelected ? "rgba(163, 126, 44, 0.1)" : "white",
+                            cursor: "pointer",
+                            transition: "all 0.3s",
+                            fontSize: "14px",
+                            fontWeight: isSelected ? "600" : "500",
+                            color: isSelected ? "#a37e2c" : "#1f2937"
+                          }}
+                        >
+                          {budgetOption}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {errors.budget && (
+                    <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
+                      {errors.budget.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Commentaire déroulement */}
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <label style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginBottom: "8px",
+                    color: "#1f2937"
+                  }}>
+                    <MessageSquare style={{ width: "16px", height: "16px", color: "#1f2937" }} />
+                    Commentaire sur votre déroulé d'événement *
                   </label>
                   <textarea
-                    {...register("message")}
-                    rows={4}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[var(--gold)] focus:outline-none resize-none"
-                    placeholder="Détails supplémentaires sur votre projet..."
+                    {...register("commentaireDeroulement")}
+                    rows={6}
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      border: "2px solid #e5e7eb",
+                      borderRadius: "12px",
+                      fontSize: "16px",
+                      resize: "vertical",
+                      color: "#1f2937",
+                      minHeight: "138px"
+                    }}
+                    placeholder="Décrivez le déroulement de votre événement, les activités prévues, les besoins spécifiques..."
                   />
+                  {errors.commentaireDeroulement && (
+                    <p style={{ color: "#ef4444", fontSize: "14px", marginTop: "4px" }}>
+                      {errors.commentaireDeroulement.message}
+                    </p>
+                  )}
+                </div>
+
+                {/* Upload fichier */}
+                <div style={{ gridColumn: "1 / -1" }}>
+                  <label style={{
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    marginBottom: "8px",
+                    display: "block",
+                    color: "#1f2937"
+                  }}>
+                    Importer un fichier (PDF, Excel, Word) - Optionnel
+                  </label>
+                  <input
+                    type="file"
+                    accept=".pdf,.xlsx,.xls,.doc,.docx"
+                    {...register("fichier")}
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      border: "2px solid #e5e7eb",
+                      borderRadius: "12px",
+                      fontSize: "14px",
+                      color: "#1f2937"
+                    }}
+                  />
+                  <p style={{ fontSize: "12px", color: "#6b7280", marginTop: "4px" }}>
+                    Formats acceptés: PDF, Excel (.xlsx, .xls), Word (.doc, .docx)
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -535,14 +1105,32 @@ export function DevisForm() {
         </AnimatePresence>
 
         {/* Navigation buttons */}
-        <div className="flex justify-between mt-8 pt-6 border-t border-gray-200">
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "32px",
+          paddingTop: "24px",
+          borderTop: "1px solid #e5e7eb"
+        }}>
           {currentStep > 1 ? (
             <button
               type="button"
               onClick={prevStep}
-              className="px-6 py-3 bg-gray-200 text-[var(--text-primary)] font-semibold rounded-full hover:bg-gray-300 transition-colors flex items-center"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "12px 24px",
+                background: "#e5e7eb",
+                color: "#1f2937",
+                fontWeight: "600",
+                borderRadius: "999px",
+                border: "none",
+                cursor: "pointer",
+                transition: "all 0.3s"
+              }}
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
+              <ArrowLeft style={{ width: "20px", height: "20px" }} />
               Précédent
             </button>
           ) : (
@@ -553,22 +1141,49 @@ export function DevisForm() {
             <button
               type="button"
               onClick={nextStep}
-              className="px-6 py-3 bg-[var(--gold)] text-white font-semibold rounded-full hover:bg-[var(--accent)] transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "12px 24px",
+                background: "#a37e2c",
+                color: "white",
+                fontWeight: "600",
+                borderRadius: "999px",
+                border: "none",
+                cursor: "pointer",
+                transition: "all 0.3s",
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+              }}
             >
               Suivant
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight style={{ width: "20px", height: "20px" }} />
             </button>
           ) : (
             <button
               type="submit"
-              className="px-8 py-3 bg-[var(--gold)] text-white font-semibold rounded-full hover:bg-[var(--accent)] transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "12px 32px",
+                background: "#a37e2c",
+                color: "white",
+                fontWeight: "600",
+                borderRadius: "999px",
+                border: "none",
+                cursor: "pointer",
+                transition: "all 0.3s",
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+              }}
             >
               Envoyer ma demande
-              <Check className="w-5 h-5 ml-2" />
+              <Check style={{ width: "20px", height: "20px" }} />
             </button>
           )}
         </div>
       </form>
-    </div>
+      </div>
+    </>
   );
 }

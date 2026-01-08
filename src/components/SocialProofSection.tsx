@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { Star, Quote, TrendingUp } from "lucide-react";
 import { testimonials, chiffresCles, clientLogos } from "@/data/chateaux";
 import { useEffect, useRef, useState } from "react";
+import { theme } from "@/config/theme";
+import { colors, spacing } from "@/config/themeHelpers";
+import { Card } from "@/components/ui/Card";
 
 function AnimatedCounter({
   value,
@@ -61,10 +64,18 @@ function AnimatedCounter({
 
 export function SocialProofSection() {
   return (
-    <section className="section-padding-sm bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden">
+    <section className="bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: `${theme.spacing.section.sm} 0` }}>
       {/* Glow effects subtils */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[var(--bronze-antique)]/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-1/4 rounded-full blur-3xl" style={{
+        width: "384px",
+        height: "384px",
+        background: `${colors.bronze}0D`
+      }} />
+      <div className="absolute bottom-0 left-1/4 rounded-full blur-3xl" style={{
+        width: "384px",
+        height: "384px",
+        background: `${colors.bronze}0D`
+      }} />
 
       <div className="w-full flex flex-col items-center justify-center relative z-10">
         {/* Chiffres clés */}
@@ -73,10 +84,10 @@ export function SocialProofSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center w-full px-4"
-          style={{ marginBottom: 'var(--space-4xl,45px)' }}
+          className="flex flex-col items-center justify-center w-full px-4 sm:px-6"
+          style={{ marginBottom: spacing["4xl"] }}
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto w-full gap-6 md:gap-8 lg:gap-10">
             {chiffresCles.map((chiffre, index) => (
               <motion.div
                 key={index}
@@ -86,17 +97,35 @@ export function SocialProofSection() {
                 transition={{ duration: 0.8, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] }}
                 className="text-center group"
               >
-                <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl hover:border-[var(--bronze-antique)]/50 transition-all duration-500 hover:shadow-2xl" style={{ padding: 'var(--space-lg)' }}>
-                  <div className="text-5xl md:text-6xl font-light italic text-[var(--bronze-antique)] font-[var(--font-cormorant)] flex items-center justify-center" style={{ marginBottom: 'var(--gap-md,15px)' }}>
+                <Card
+                  variant="hover"
+                  padding="lg"
+                  hoverable
+                  style={{ background: theme.colors.overlay.white80, backdropFilter: `blur(${theme.effects.blur.sm})` }}
+                >
+                  <div className="flex items-center justify-center" style={{
+                    fontSize: "clamp(2.5rem, 6vw, 3.75rem)",
+                    fontWeight: theme.typography.fontWeight.light,
+                    fontStyle: "italic",
+                    color: colors.bronze,
+                    fontFamily: theme.typography.fonts.heading,
+                    marginBottom: spacing.md
+                  }}>
                     {chiffre.unite}
                     <AnimatedCounter value={chiffre.valeur} />
                     {chiffre.suffix}
                   </div>
-                  <div className="text-sm text-gray-600 uppercase tracking-wider" style={{ marginBottom: 'var(--gap-md,15px)' }}>
+                  <div style={{
+                    fontSize: theme.typography.fontSize.sm,
+                    color: theme.colors.neutral.gray600,
+                    textTransform: "uppercase",
+                    letterSpacing: theme.typography.letterSpacing.wider,
+                    marginBottom: spacing.md
+                  }}>
                     {chiffre.label}
                   </div>
-                  <TrendingUp className="w-4 h-4 text-[var(--bronze-antique)]/50 mx-auto" />
-                </div>
+                  <TrendingUp className="w-4 h-4 mx-auto" style={{ color: `${colors.bronze}80` }} />
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -108,23 +137,44 @@ export function SocialProofSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full px-4"
-          style={{ marginBottom: 'var(--space-4xl,45px)' }}
+          className="flex flex-col items-center justify-center text-center w-full"
+          style={{ marginBottom: spacing["4xl"], padding: `0 ${spacing.lg}` }}
         >
-          <div className="flex items-center justify-center mb-4">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--bronze-antique)]" />
-            <Quote className="w-4 h-4 text-[var(--bronze-antique)] mx-4" />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-[var(--bronze-antique)]" />
+          <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
+            <div style={{
+              height: "1px",
+              width: "48px",
+              background: `linear-gradient(to right, transparent, ${colors.bronze})`
+            }} />
+            <Quote className="w-4 h-4" style={{ color: colors.bronze, margin: `0 ${spacing.lg}` }} />
+            <div style={{
+              height: "1px",
+              width: "48px",
+              background: `linear-gradient(to left, transparent, ${colors.bronze})`
+            }} />
           </div>
-          <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-6 font-[var(--font-cormorant)]">
+          <h2 style={{
+            fontSize: "clamp(2.5rem, 6vw, 3.75rem)",
+            fontWeight: theme.typography.fontWeight.light,
+            fontStyle: "italic",
+            color: theme.colors.neutral.gray900,
+            marginBottom: spacing["2xl"],
+            fontFamily: theme.typography.fonts.heading
+          }}>
             Ils nous font confiance
           </h2>
-          <p className="text-lg text-gray-600 max-w-4xl leading-relaxed" style={{ marginBottom: 'var(--space-4xl,45px)' }}>
+          <p style={{
+            fontSize: theme.typography.fontSize.lg,
+            color: theme.colors.neutral.gray600,
+            maxWidth: theme.dimensions.maxWidth.lg,
+            lineHeight: theme.typography.lineHeight.relaxed,
+            marginBottom: spacing["4xl"]
+          }}>
             Découvrez les retours de nos clients qui ont organisé leurs
             événements dans nos châteaux
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -132,47 +182,87 @@ export function SocialProofSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl hover:border-[var(--bronze-antique)]/50 transition-all duration-500 border border-gray-200 group hover:shadow-2xl"
-                style={{ padding: 'var(--space-lg)' }}
               >
-                <div className="flex items-start justify-between" style={{ marginBottom: 'var(--space-lg)' }}>
-                  <Quote className="w-10 h-10 text-[var(--bronze-antique)]/30 flex-shrink-0" />
-                  <div className="flex space-x-1">
-                    {[...Array(testimonial.note)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-[var(--bronze-antique)] text-[var(--bronze-antique)]"
+                <Card
+                  variant="hover"
+                  padding="lg"
+                  hoverable
+                  className="group"
+                  style={{ background: theme.colors.overlay.white80, backdropFilter: `blur(${theme.effects.blur.sm})` }}
+                >
+                  <div className="flex items-start justify-between" style={{ marginBottom: spacing.lg }}>
+                    <Quote className="flex-shrink-0" style={{
+                      width: "40px",
+                      height: "40px",
+                      color: `${colors.bronze}4D`
+                    }} />
+                    <div className="flex" style={{ gap: spacing.xs }}>
+                      {[...Array(testimonial.note)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4"
+                          style={{
+                            fill: colors.bronze,
+                            color: colors.bronze
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-left" style={{
+                    color: theme.colors.neutral.gray700,
+                    lineHeight: theme.typography.lineHeight.relaxed,
+                    fontSize: theme.typography.fontSize.sm,
+                    fontStyle: "italic",
+                    marginBottom: spacing.lg
+                  }}>
+                    "{testimonial.contenu}"
+                  </p>
+
+                  <div className="flex items-center" style={{
+                    borderTop: `1px solid ${theme.colors.neutral.gray200}`,
+                    paddingTop: spacing.lg
+                  }}>
+                    <div className="relative flex-shrink-0 overflow-hidden" style={{
+                      width: "48px",
+                      height: "48px",
+                      borderRadius: theme.effects.borderRadius.full,
+                      border: `1px solid ${colors.bronze}4D`,
+                      marginRight: spacing.md
+                    }}>
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.nom}
+                        fill
+                        sizes="48px"
+                        className="object-cover"
+                        style={{ transition: `all ${theme.effects.transitions.slower}` }}
                       />
-                    ))}
-                  </div>
-                </div>
-
-                <p className="text-gray-700 leading-relaxed text-sm italic text-left" style={{ marginBottom: 'var(--space-lg)' }}>
-                  "{testimonial.contenu}"
-                </p>
-
-                <div className="flex items-center border-t border-gray-200" style={{ paddingTop: 'var(--space-lg)' }}>
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[var(--bronze-antique)]/30 flex-shrink-0" style={{ marginRight: 'var(--gap-md)' }}>
-                    <Image
-                      src={testimonial.avatar}
-                      alt={testimonial.nom}
-                      fill
-                      sizes="48px"
-                      className="object-cover transition-all duration-500"
-                    />
-                  </div>
-                  <div className="text-left">
-                    <div className="font-medium text-gray-900 text-sm">
-                      {testimonial.nom}
                     </div>
-                    <div className="text-xs text-gray-500">
-                      {testimonial.poste}
-                    </div>
-                    <div className="text-xs text-[var(--bronze-antique)]/80">
-                      {testimonial.entreprise}
+                    <div className="text-left">
+                      <div style={{
+                        fontWeight: theme.typography.fontWeight.medium,
+                        color: theme.colors.neutral.gray900,
+                        fontSize: theme.typography.fontSize.sm
+                      }}>
+                        {testimonial.nom}
+                      </div>
+                      <div style={{
+                        fontSize: theme.typography.fontSize.xs,
+                        color: theme.colors.neutral.gray600
+                      }}>
+                        {testimonial.poste}
+                      </div>
+                      <div style={{
+                        fontSize: theme.typography.fontSize.xs,
+                        color: `${colors.bronze}CC`
+                      }}>
+                        {testimonial.entreprise}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -184,15 +274,22 @@ export function SocialProofSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center justify-center w-full px-4"
+          className="flex flex-col items-center justify-center w-full"
+          style={{ padding: `0 ${spacing.lg}` }}
         >
-          <div className="text-center" style={{ marginBottom: 'var(--section-padding-sm)' }}>
-            <h3 className="text-2xl font-light italic text-gray-700 font-[var(--font-cormorant)]">
+          <div className="text-center" style={{ marginBottom: theme.spacing.section.sm }}>
+            <h3 style={{
+              fontSize: theme.typography.fontSize["2xl"],
+              fontWeight: theme.typography.fontWeight.light,
+              fontStyle: "italic",
+              color: theme.colors.neutral.gray700,
+              fontFamily: theme.typography.fonts.heading
+            }}>
               Ils ont choisi nos châteaux pour leurs événements
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-7xl mx-auto w-full gap-4 md:gap-6">
             {clientLogos.map((logo, index) => (
               <motion.div
                 key={index}
@@ -202,8 +299,21 @@ export function SocialProofSection() {
                 transition={{ duration: 0.5, delay: index * 0.05, ease: [0.4, 0, 0.2, 1] }}
                 className="flex items-center justify-center"
               >
-                <div className="w-full h-20 bg-white/60 backdrop-blur-sm border border-gray-200 rounded-xl flex items-center justify-center px-4 hover:border-[var(--bronze-antique)]/50 transition-all duration-500 group hover:shadow-lg">
-                  <span className="text-gray-400 group-hover:text-gray-700 font-medium text-xs text-center transition-colors duration-500 uppercase tracking-wider">
+                <div className="w-full h-16 md:h-20 flex items-center justify-center group hover:border-[var(--bronze-antique)]/50 hover:shadow-lg p-3 md:p-4" style={{
+                  background: theme.colors.overlay.white60,
+                  backdropFilter: `blur(${theme.effects.blur.sm})`,
+                  border: `1px solid ${theme.colors.neutral.gray200}`,
+                  borderRadius: theme.effects.borderRadius.xl,
+                  transition: `all ${theme.effects.transitions.slower}`
+                }}>
+                  <span className="text-center group-hover:text-gray-700" style={{
+                    color: theme.colors.neutral.gray400,
+                    fontWeight: theme.typography.fontWeight.medium,
+                    fontSize: theme.typography.fontSize.xs,
+                    textTransform: "uppercase",
+                    letterSpacing: theme.typography.letterSpacing.wider,
+                    transition: `colors ${theme.effects.transitions.slower}`
+                  }}>
                     {logo.nom}
                   </span>
                 </div>
@@ -214,9 +324,15 @@ export function SocialProofSection() {
       </div>
 
       {/* Ligne décorative en haut */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--bronze-antique)]/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0" style={{
+        height: "1px",
+        background: `linear-gradient(to right, transparent, ${colors.bronze}33, transparent)`
+      }} />
       {/* Ligne décorative en bas */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--bronze-antique)]/20 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0" style={{
+        height: "1px",
+        background: `linear-gradient(to right, transparent, ${colors.bronze}33, transparent)`
+      }} />
     </section>
   );
 }

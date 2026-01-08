@@ -10,8 +10,8 @@ import { typesEvenements } from "@/data/chateaux";
 export default function EvenementsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section CLAIR avec image CLAIRE */}
-      <div className="relative h-screen overflow-hidden">
+      {/* Hero Section */}
+      <div className="hero-section">
         <Image
           src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=90"
           alt="Événements d'entreprise"
@@ -20,39 +20,35 @@ export default function EvenementsPage() {
           priority
           quality={90}
         />
-        {/* Overlay CLAIR - Plus blanc pour éclaircir */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/25 to-white/50" />
-        <div className="absolute inset-0 bg-white/30" />
+        {/* Overlay CLAIR */}
+        <div className="hero-overlay-light" />
+        <div className="hero-overlay-light-extra" />
 
         {/* Contenu */}
-        <div className="relative h-full flex items-center justify-center">
-          <div style={{ width: '100%', textAlign: 'center', padding: '0 40px' }}>
+        <div className="relative h-full flex-center">
+          <div className="hero-content">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+              className="flex-col-center"
             >
               <div className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-10">
                 <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
-                <span className="text-sm font-bold uppercase tracking-widest text-gray-900">
+                <span className="text-label text-gray-900">
                   Événements sur mesure
                 </span>
               </div>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 mb-10 font-[var(--font-cormorant)] leading-none">
+              <h1 className="heading-display mb-10 leading-none">
                 Vos Événements<br />d'Exception
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-700 mb-14 max-w-3xl leading-relaxed font-medium">
+              <p className="text-body-xl mb-14 max-w-3xl font-medium text-gray-700">
                 Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables.
               </p>
 
-              <Link
-                href="/devis"
-                className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
-                style={{ padding: 'var(--btn-padding-lg)' }}
-              >
+              <Link href="/devis" className="btn-primary group">
                 <span>Planifier mon événement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -75,15 +71,15 @@ export default function EvenementsPage() {
         </div>
       </div>
 
-      {/* Types d'événements - CENTRÉ avec plus d'espaces */}
+      {/* Types d'événements */}
       <div className="section-padding-sm">
         {typesEvenements.map((evenement, index) => (
           <div
             key={evenement.id}
-            className={`section-padding-lg ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+            className={`section-padding-lg ${index % 2 === 0 ? 'section-white' : 'section-gray'}`}
           >
             <div className="section-container">
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--gap-3xl)', alignItems: 'center' }}>
+              <div className="grid-2-cols">
                 {/* Image */}
                 <motion.div
                   initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
@@ -92,7 +88,7 @@ export default function EvenementsPage() {
                   viewport={{ once: true }}
                   style={{ order: index % 2 === 0 ? 1 : 2 }}
                 >
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl group" style={{ height: 'var(--height-image-card)' }}>
+                  <div className="card-image group">
                     <Image
                       src={evenement.image}
                       alt={evenement.titre}
@@ -109,49 +105,46 @@ export default function EvenementsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   viewport={{ once: true }}
-                  style={{ order: index % 2 === 0 ? 2 : 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}
+                  style={{ order: index % 2 === 0 ? 2 : 1 }}
+                  className="flex-col-center"
                 >
                   {/* Badge */}
-                  <div className="badge inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10" style={{ marginBottom: 'var(--space-lg)' }}>
+                  <div className="badge inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 mb-lg">
                     <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
-                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--bronze-antique)]">
+                    <span className="text-label text-[var(--bronze-antique)]">
                       Événement Premium
                     </span>
                   </div>
 
-                  <h2 className="text-5xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--space-lg)' }}>
+                  <h2 className="heading-xl mb-lg">
                     {evenement.titre}
                   </h2>
 
-                  <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: 'var(--space-lg)' }}>
+                  <p className="text-body-xl mb-lg">
                     {evenement.description}
                   </p>
 
                   {/* Services inclus */}
-                  <div style={{ marginBottom: 'var(--space-4xl)', width: '100%' }}>
-                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: 'var(--space-lg)' }}>
+                  <div className="mb-4xl w-full flex-col-center">
+                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-lg">
                       Services inclus
                     </h3>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-md)', maxWidth: 'var(--max-width-sm)', margin: '0 auto' }}>
+                    <div className="flex flex-col gap-md">
                       {evenement.servicesInclus.map((service, i) => (
                         <div
                           key={i}
-                          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--gap-md)' }}
+                          className="flex items-center gap-md"
                         >
-                          <div className="w-7 h-7 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center flex-shrink-0">
+                          <div className="w-7 h-7 rounded-full bg-[var(--bronze-antique)]/10 flex-center flex-shrink-0">
                             <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
                           </div>
-                          <span className="text-gray-700 font-medium leading-relaxed">{service}</span>
+                          <span className="text-gray-700 font-medium leading-relaxed text-left">{service}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <Link
-                    href="/devis"
-                    className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
-                    style={{ padding: 'var(--btn-padding-md)' }}
-                  >
+                  <Link href="/devis" className="btn-primary group">
                     <span>Organiser cet événement</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
@@ -162,31 +155,31 @@ export default function EvenementsPage() {
         ))}
       </div>
 
-      {/* Processus - CENTERED avec plus d'espaces */}
-      <div className="bg-gray-50 section-padding-sm">
+      {/* Processus */}
+      <div className="section-gray section-padding-sm">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            style={{ width: '100%', textAlign: 'center', marginBottom: 'var(--space-lg)' }}
+            className="w-full text-center mb-lg"
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--gap-md)', marginBottom: 'var(--space-2xl)' }}>
+            <div className="flex-center gap-md mb-2xl">
               <Trophy className="w-7 h-7 text-[var(--bronze-antique)]" />
-              <h2 className="text-sm uppercase tracking-widest font-bold text-[var(--bronze-antique)]">
+              <h2 className="text-label text-[var(--bronze-antique)]">
                 Notre processus
               </h2>
             </div>
-            <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 mb-8 font-[var(--font-cormorant)]">
+            <h3 className="heading-xl mb-8">
               Comment ça marche ?
             </h3>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-body-xl">
               Un processus simple et personnalisé pour organiser votre événement parfait
             </p>
           </motion.div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--gap-3xl)', maxWidth: 'var(--max-width-content)', margin: '0 auto', justifyContent: 'center' }}>
+          <div className="flex flex-wrap gap-3xl max-w-[var(--max-width-content)] mx-auto justify-center">
             {[
               {
                 step: "1",
@@ -215,12 +208,12 @@ export default function EvenementsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                style={{ width: '250px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                className="w-[250px] flex-col-center"
               >
-                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex items-center justify-center text-3xl font-bold shadow-lg" style={{ width: 'var(--height-icon-lg)', height: 'var(--height-icon-lg)', marginBottom: 'var(--space-2xl)' }}>
+                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-2xl" style={{ width: 'var(--height-icon-lg)', height: 'var(--height-icon-lg)' }}>
                   {item.step}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: 'var(--space-lg)' }}>
+                <h3 className="heading-md mb-lg">
                   {item.titre}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">{item.description}</p>
@@ -230,39 +223,31 @@ export default function EvenementsPage() {
         </div>
       </div>
 
-      {/* CTA Final avec plus d'espaces */}
-      <div className="bg-white section-padding-sm">
+      {/* CTA Final */}
+      <div className="section-white section-padding-sm" style={{ paddingBottom: '80px' }}>
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            style={{ width: '100%', textAlign: 'center' }}
+            className="w-full text-center content-padding"
           >
-            <h2 className="text-5xl md:text-6xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--space-lg)' }}>
+            <h2 className="heading-xl mb-lg">
               Prêt à créer un événement mémorable ?
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed" style={{ marginBottom: 'var(--space-lg)' }}>
+            <p className="text-body-xl mb-lg">
               Nos équipes sont à votre écoute pour concrétiser votre projet
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: 'var(--gap-lg)', alignItems: 'center', justifyContent: 'center' }}>
-              <Link
-                href="/devis"
-                className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 hover:shadow-2xl group"
-                style={{ padding: 'var(--btn-padding-lg)' }}
-              >
+            <div className="flex flex-wrap gap-lg items-center justify-center">
+              <Link href="/devis" className="btn-primary group">
                 <Calendar className="w-5 h-5" />
                 <span>Demander un Devis</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 bg-white text-gray-900 font-semibold rounded-full border-2 border-gray-200 hover:border-[var(--bronze-antique)] transition-all duration-300"
-                style={{ padding: 'var(--btn-padding-lg)' }}
-              >
+              <Link href="/contact" className="btn-secondary">
                 <Users className="w-5 h-5" />
                 <span>Parler à un Expert</span>
               </Link>
