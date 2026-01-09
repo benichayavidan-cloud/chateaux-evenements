@@ -166,6 +166,7 @@ export function DevisForm() {
     handleSubmit,
     watch,
     setValue,
+    getValues,
     formState: { errors },
     trigger,
   } = useForm<FormData>({
@@ -567,8 +568,9 @@ export function DevisForm() {
                     setValue("datesSouhaitees", e.target.value);
                     // Auto-passage si date ET durée sont remplis
                     setTimeout(async () => {
+                      const formValues = getValues();
                       const isValid = await trigger(["datesSouhaitees", "duree"]);
-                      if (isValid && watchedValues.duree) {
+                      if (isValid && formValues.duree) {
                         setCurrentStep(3);
                       }
                     }, 500);
@@ -619,8 +621,9 @@ export function DevisForm() {
                           setValue("duree", option.value);
                           // Auto-passage à l'étape suivante si date ET durée sont remplis
                           setTimeout(async () => {
+                            const formValues = getValues();
                             const isValid = await trigger(["datesSouhaitees", "duree"]);
-                            if (isValid && watchedValues.datesSouhaitees) {
+                            if (isValid && formValues.datesSouhaitees) {
                               setCurrentStep(3);
                             }
                           }, 500);
