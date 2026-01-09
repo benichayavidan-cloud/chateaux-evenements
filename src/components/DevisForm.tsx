@@ -37,7 +37,7 @@ const formSchema = z.object({
   ]),
   datesSouhaitees: z.string().min(1, "Veuillez sélectionner une date"),
   duree: z.enum(["1-jour", "2-jours", "3-jours-plus"]),
-  chateauId: z.string().min(1, "Veuillez sélectionner un château"),
+  chateauIds: z.array(z.string()).min(1, "Veuillez sélectionner au moins un château"),
   entreprise: z.string().min(2, "Nom de l'entreprise requis"),
   nomPrenom: z.string().min(2, "Nom et prénom requis"),
   email: z.string().email("Email invalide"),
@@ -48,7 +48,7 @@ const formSchema = z.object({
   plusDe400Chambres: z.boolean().optional(),
   chambresTwin: z.boolean().optional(),
   budget: z.string().min(1, "Budget requis"),
-  commentaireDeroulement: z.string().min(10, "Veuillez décrire le déroulement de votre événement"),
+  commentaireDeroulement: z.string().optional(),
   fichier: z.any().optional(),
 });
 
@@ -176,6 +176,7 @@ export function DevisForm() {
       plusDe500Participants: false,
       plusDe400Chambres: false,
       chambresTwin: false,
+      chateauIds: [],
     },
   });
 
@@ -192,7 +193,7 @@ export function DevisForm() {
         isValid = await trigger(["datesSouhaitees", "duree"]);
         break;
       case 3:
-        isValid = await trigger("chateauId");
+        isValid = await trigger("chateauIds");
         break;
     }
 
@@ -214,7 +215,7 @@ export function DevisForm() {
         type_evenement: data.typeEvenement,
         dates_souhaitees: data.datesSouhaitees,
         duree: data.duree,
-        chateau_id: data.chateauId,
+        chateau_id: data.chateauIds.join(', '), // Joindre les IDs multiples
         entreprise: data.entreprise,
         nom_prenom: data.nomPrenom,
         email: data.email,
@@ -225,7 +226,7 @@ export function DevisForm() {
         plus_de_400_chambres: data.plusDe400Chambres || false,
         chambres_twin: data.chambresTwin || false,
         budget: data.budget,
-        commentaire_deroulement: data.commentaireDeroulement,
+        commentaire_deroulement: data.commentaireDeroulement || '',
         fichier_url: null, // TODO: Gérer l'upload de fichier si nécessaire
       };
 
@@ -482,7 +483,16 @@ export function DevisForm() {
                     <button
                       key={type.id}
                       type="button"
-                      onClick={() => setValue("typeEvenement", type.id)}
+                      onClick={async () => {
+                        setValue("typeEvenement", type.id);
+                        // Auto-passage à l'étape suivante après 500ms
+                        setTimeout(async () => {
+                          const isValid = await trigger("typeEvenement");
+                          if (isValid) {
+                            setCurrentStep(2);
+                          }
+                        }, 500);
+                      }}
                       style={{
                         padding: "24px",
                         borderRadius: "16px",
@@ -553,6 +563,16 @@ export function DevisForm() {
                 <input
                   type="date"
                   {...register("datesSouhaitees")}
+                  onChange={async (e) => {
+                    setValue("datesSouhaitees", e.target.value);
+                    // Auto-passage si date ET durée sont remplis
+                    setTimeout(async () => {
+                      const isValid = await trigger(["datesSouhaitees", "duree"]);
+                      if (isValid && watchedValues.duree) {
+                        setCurrentStep(3);
+                      }
+                    }, 500);
+                  }}
                   style={{
                     width: "100%",
                     padding: "12px 16px",
@@ -595,7 +615,16 @@ export function DevisForm() {
                       <button
                         key={option.value}
                         type="button"
-                        onClick={() => setValue("duree", option.value)}
+                        onClick={async () => {
+                          setValue("duree", option.value);
+                          // Auto-passage à l'étape suivante si date ET durée sont remplis
+                          setTimeout(async () => {
+                            const isValid = await trigger(["datesSouhaitees", "duree"]);
+                            if (isValid && watchedValues.datesSouhaitees) {
+                              setCurrentStep(3);
+                            }
+                          }, 500);
+                        }}
                         style={{
                           padding: "12px 16px",
                           borderRadius: "12px",
@@ -635,8 +664,11 @@ export function DevisForm() {
                 marginBottom: "12px",
                 color: "#1f2937"
               }}>
-                Choisissez votre château
+                Choisissez vos châteaux
               </h3>
+              <p style={{ fontSize: "14px", color: "#6b7280", marginBottom: "16px" }}>
+                Vous pouvez sélectionner plusieurs châteaux pour comparer les offres
+              </p>
 
               <div style={{
                 display: "grid",
@@ -644,12 +676,21 @@ export function DevisForm() {
                 gap: "16px"
               }}>
                 {chateaux.map((chateau) => {
-                  const isSelected = watchedValues.chateauId === chateau.id;
+                  const isSelected = watchedValues.chateauIds?.includes(chateau.id);
                   return (
                     <button
                       key={chateau.id}
                       type="button"
-                      onClick={() => setValue("chateauId", chateau.id)}
+                      onClick={() => {
+                        const currentIds = watchedValues.chateauIds || [];
+                        if (isSelected) {
+                          // Retirer si déjà sélectionné
+                          setValue("chateauIds", currentIds.filter(id => id !== chateau.id));
+                        } else {
+                          // Ajouter à la sélection
+                          setValue("chateauIds", [...currentIds, chateau.id]);
+                        }
+                      }}
                       style={{
                         textAlign: "left",
                         borderRadius: "16px",
@@ -657,9 +698,27 @@ export function DevisForm() {
                         overflow: "hidden",
                         cursor: "pointer",
                         transition: "all 0.3s",
-                        background: "white"
+                        background: "white",
+                        position: "relative"
                       }}
                     >
+                      {isSelected && (
+                        <div style={{
+                          position: "absolute",
+                          top: "12px",
+                          right: "12px",
+                          width: "32px",
+                          height: "32px",
+                          borderRadius: "50%",
+                          background: "#a37e2c",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          zIndex: 10
+                        }}>
+                          <Check style={{ width: "20px", height: "20px", color: "white" }} />
+                        </div>
+                      )}
                       <div style={{ position: "relative", height: "160px" }}>
                         <Image
                           src={chateau.images[0]}
@@ -683,21 +742,46 @@ export function DevisForm() {
                 {/* Option "Laissez-nous vous conseiller" */}
                 <button
                   type="button"
-                  onClick={() => setValue("chateauId", "conseil")}
+                  onClick={() => {
+                    const currentIds = watchedValues.chateauIds || [];
+                    const isSelected = currentIds.includes("conseil");
+                    if (isSelected) {
+                      setValue("chateauIds", currentIds.filter(id => id !== "conseil"));
+                    } else {
+                      setValue("chateauIds", [...currentIds, "conseil"]);
+                    }
+                  }}
                   style={{
                     padding: "24px",
                     borderRadius: "16px",
-                    border: `2px dashed ${watchedValues.chateauId === "conseil" ? "#a37e2c" : "#d1d5db"}`,
-                    background: watchedValues.chateauId === "conseil" ? "rgba(163, 126, 44, 0.05)" : "white",
+                    border: `2px dashed ${watchedValues.chateauIds?.includes("conseil") ? "#a37e2c" : "#d1d5db"}`,
+                    background: watchedValues.chateauIds?.includes("conseil") ? "rgba(163, 126, 44, 0.05)" : "white",
                     cursor: "pointer",
                     transition: "all 0.3s",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    textAlign: "center"
+                    textAlign: "center",
+                    position: "relative"
                   }}
                 >
+                  {watchedValues.chateauIds?.includes("conseil") && (
+                    <div style={{
+                      position: "absolute",
+                      top: "12px",
+                      right: "12px",
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      background: "#a37e2c",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}>
+                      <Check style={{ width: "20px", height: "20px", color: "white" }} />
+                    </div>
+                  )}
                   <Building style={{ width: "48px", height: "48px", color: "#a37e2c", marginBottom: "12px" }} />
                   <div style={{ fontWeight: "600", marginBottom: "8px", color: "#1f2937" }}>
                     Laissez-nous vous conseiller
@@ -707,9 +791,9 @@ export function DevisForm() {
                   </p>
                 </button>
               </div>
-              {errors.chateauId && (
+              {errors.chateauIds && (
                 <p style={{ color: "#ef4444", fontSize: "14px" }}>
-                  {errors.chateauId.message}
+                  {errors.chateauIds.message}
                 </p>
               )}
             </motion.div>
@@ -1086,7 +1170,7 @@ export function DevisForm() {
                     color: "#1f2937"
                   }}>
                     <MessageSquare style={{ width: "16px", height: "16px", color: "#1f2937" }} />
-                    Commentaire sur votre déroulé d'événement *
+                    Commentaire sur votre déroulé d'événement (optionnel)
                   </label>
                   <textarea
                     {...register("commentaireDeroulement")}
