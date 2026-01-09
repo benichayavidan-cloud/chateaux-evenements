@@ -8,9 +8,10 @@ const RATE_LIMIT = 100; // Requêtes max par fenêtre
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 
 function getRateLimitKey(req: NextRequest): string {
-  // Utiliser l'IP du client
+  // Utiliser l'IP du client depuis les headers
   const forwarded = req.headers.get('x-forwarded-for');
-  const ip = forwarded ? forwarded.split(',')[0] : req.ip || 'unknown';
+  const realIp = req.headers.get('x-real-ip');
+  const ip = forwarded ? forwarded.split(',')[0] : realIp || 'unknown';
   return ip;
 }
 
