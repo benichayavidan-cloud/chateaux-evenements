@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "ChâteauxPrestige - Événements d'Entreprise d'Exception",
   description:
-    "Organisez vos séminaires, conventions et événements d'entreprise dans nos 4 châteaux d'exception en France. Excellence, prestige et authenticité pour des moments inoubliables.",
+    "Organisez vos séminaires, conventions et événements d'entreprise dans nos 3 châteaux d'exception en France. Excellence, prestige et authenticité pour des moments inoubliables.",
   keywords: [
     "château événement entreprise",
     "séminaire résidentiel",

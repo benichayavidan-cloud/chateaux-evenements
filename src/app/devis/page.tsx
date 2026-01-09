@@ -5,7 +5,7 @@ import { theme } from "@/config/theme";
 export const metadata: Metadata = {
   title: "Demande de Devis | ChâteauxPrestige",
   description:
-    "Obtenez un devis personnalisé pour votre événement d'entreprise dans l'un de nos 4 châteaux d'exception en France.",
+    "Obtenez un devis personnalisé pour votre événement d'entreprise dans l'un de nos 3 châteaux d'exception en France.",
 };
 
 export default function DevisPage() {

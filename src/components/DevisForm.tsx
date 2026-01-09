@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { chateaux } from "@/data/chateaux";
 import type { DevisFormData, EventType, DureeEvent } from "@/types";
+import { supabase } from "@/lib/supabase";
 
 const formSchema = z.object({
   typeEvenement: z.enum([
@@ -205,9 +206,47 @@ export function DevisForm() {
   };
 
   const onSubmit = async (data: FormData) => {
-    console.log("Demande de devis:", data);
-    setIsSubmitted(true);
-    // Ici, vous ajouteriez l'appel API pour envoyer les données
+    try {
+      console.log("Envoi de la demande de devis...", data);
+
+      // Préparer les données pour Supabase
+      const devisData = {
+        type_evenement: data.typeEvenement,
+        dates_souhaitees: data.datesSouhaitees,
+        duree: data.duree,
+        chateau_id: data.chateauId,
+        entreprise: data.entreprise,
+        nom_prenom: data.nomPrenom,
+        email: data.email,
+        telephone_mobile: data.telephoneMobile,
+        nombre_participants: data.nombreParticipants,
+        nombre_chambres: data.nombreChambres,
+        plus_de_500_participants: data.plusDe500Participants || false,
+        plus_de_400_chambres: data.plusDe400Chambres || false,
+        chambres_twin: data.chambresTwin || false,
+        budget: data.budget,
+        commentaire_deroulement: data.commentaireDeroulement,
+        fichier_url: null, // TODO: Gérer l'upload de fichier si nécessaire
+      };
+
+      // Insérer dans Supabase
+      const { data: insertedData, error } = await supabase
+        .from('demandes_devis_chateaux')
+        .insert([devisData])
+        .select();
+
+      if (error) {
+        console.error("Erreur lors de l'insertion:", error);
+        alert("Une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer.");
+        return;
+      }
+
+      console.log("Demande de devis enregistrée avec succès:", insertedData);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Erreur inattendue:", error);
+      alert("Une erreur inattendue est survenue. Veuillez réessayer.");
+    }
   };
 
   const progressPercentage = (currentStep / 4) * 100;

@@ -451,6 +451,67 @@ section {
 }
 
 /* ============================================
+   RESPONSIVE - Media Queries
+   ============================================ */
+
+/* Mobile (< 640px) */
+@media (max-width: 639px) {
+  .hero-section {
+    height: 80vh;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .section-container {
+    padding: 8px;
+  }
+
+  .section-padding-sm {
+    padding: 24px 16px;
+  }
+
+  .section-padding-md {
+    padding: 40px 16px;
+  }
+
+  .section-padding-lg {
+    padding: 60px 16px;
+  }
+
+  .content-padding-lg {
+    padding: 24px;
+  }
+}
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .section-padding-sm {
+    padding: 36px 20px;
+  }
+
+  .section-padding-md {
+    padding: 50px 20px;
+  }
+
+  .section-padding-lg {
+    padding: 80px 20px;
+  }
+
+  .content-padding-lg {
+    padding: 32px;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .hero-section {
+    height: 75vh;
+  }
+}
+
+/* ============================================
    CONTENT PADDING - Standard 10px minimum
    ============================================ */
 

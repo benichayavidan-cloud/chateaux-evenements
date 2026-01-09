@@ -64,7 +64,7 @@ export function ChateauxSection() {
             maxWidth: theme.dimensions.maxWidth.lg,
             lineHeight: theme.typography.lineHeight.relaxed
           }}>
-            Découvrez nos 4 châteaux soigneusement sélectionnés à travers la
+            Découvrez nos 3 châteaux soigneusement sélectionnés à travers la
             France, chacun offrant un cadre unique pour vos événements
             d'entreprise.
           </p>

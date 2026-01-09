@@ -92,7 +92,7 @@ export function HeroSection() {
             className="text-body-xl text-gray-800 font-medium mb-12"
           >
             Organisez vos séminaires, conventions et événements d'entreprise
-            dans nos 4 châteaux d'exception en France.
+            dans nos 3 châteaux d'exception en France.
           </motion.p>
 
           {/* Trust Badges Luxe - Stats Section */}
@@ -119,7 +119,7 @@ export function HeroSection() {
             {/* Statistique 3 */}
             <StatBadge
               icon={<Building className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
-              value="4"
+              value="3"
               label="Châteaux"
             />
           </motion.div>
