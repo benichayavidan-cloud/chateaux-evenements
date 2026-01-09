@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import NavigationLuxe from "@/components/NavigationLuxe";
+import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
 
 export const metadata: Metadata = {
