@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { useState, useEffect } from "react";
-import { clientLogos } from "@/data/chateaux";
 
 export default function ChateauxPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -577,64 +576,6 @@ export default function ChateauxPage() {
                         4.9/5 · Basé sur 120+ avis
                       </span>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section Preuve Sociale - Logos Clients */}
-      <section className="py-16 md:py-20" style={{ background: theme.colors.neutral.gray50 }}>
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h3
-              style={{
-                fontSize: theme.typography.fontSize.xl,
-                fontWeight: theme.typography.fontWeight.light,
-                fontStyle: "italic",
-                color: theme.colors.text.secondary,
-                fontFamily: theme.typography.fonts.heading,
-              }}
-            >
-              Ils nous font confiance pour leurs événements
-            </h3>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-            {clientLogos.slice(0, 6).map((logo, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true }}
-                className="flex items-center justify-center"
-              >
-                <div className="w-full h-20 flex items-center justify-center group hover:border-[var(--bronze-antique)]/50 hover:shadow-lg p-4" style={{
-                  background: theme.colors.overlay.white60,
-                  backdropFilter: `blur(${theme.effects.blur.sm})`,
-                  border: `1px solid ${theme.colors.neutral.gray200}`,
-                  borderRadius: theme.effects.borderRadius.xl,
-                  transition: `all ${theme.effects.transitions.slower}`
-                }}>
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <Image
-                      src={logo.url}
-                      alt={`Logo ${logo.nom}`}
-                      width={80}
-                      height={80}
-                      className="object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ maxWidth: "80%", maxHeight: "80%" }}
-                      unoptimized
-                    />
                   </div>
                 </div>
               </motion.div>
