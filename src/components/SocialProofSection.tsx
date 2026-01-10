@@ -300,23 +300,23 @@ export function SocialProofSection() {
                 transition={{ duration: 0.5, delay: index * 0.05, ease: [0.4, 0, 0.2, 1] }}
                 className="flex items-center justify-center"
               >
-                <div className="w-full h-16 md:h-20 flex items-center justify-center group hover:border-[var(--bronze-antique)]/50 hover:shadow-lg p-3 md:p-4 relative" style={{
+                <div className="w-full h-16 md:h-20 flex items-center justify-center group hover:border-[var(--bronze-antique)]/50 hover:shadow-lg p-3 md:p-4" style={{
                   background: theme.colors.overlay.white60,
                   backdropFilter: `blur(${theme.effects.blur.sm})`,
                   border: `1px solid ${theme.colors.neutral.gray200}`,
                   borderRadius: theme.effects.borderRadius.xl,
                   transition: `all ${theme.effects.transitions.slower}`
                 }}>
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <Image
-                      src={logo.url}
-                      alt={`Logo ${logo.nom}`}
-                      width={120}
-                      height={60}
-                      className="object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
-                      style={{ maxWidth: "100%", maxHeight: "100%" }}
-                    />
-                  </div>
+                  <span className="text-center group-hover:text-gray-700" style={{
+                    color: theme.colors.neutral.gray400,
+                    fontWeight: theme.typography.fontWeight.semibold,
+                    fontSize: theme.typography.fontSize.xs,
+                    textTransform: "uppercase",
+                    letterSpacing: theme.typography.letterSpacing.wider,
+                    transition: `colors ${theme.effects.transitions.slower}`
+                  }}>
+                    {logo.nom}
+                  </span>
                 </div>
               </motion.div>
             ))}
