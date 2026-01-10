@@ -744,7 +744,7 @@ export default function ChateauxPage() {
                 icon={<Phone className="w-6 h-6" />}
                 style={{
                   color: theme.colors.neutral.white,
-                  borderColor: theme.colors.overlay.white40,
+                  borderColor: theme.colors.overlay.white30,
                 }}
               >
                 Appeler un Expert
