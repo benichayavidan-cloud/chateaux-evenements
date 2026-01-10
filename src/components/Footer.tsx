@@ -17,7 +17,7 @@ export function Footer() {
           {/* Colonne 1 - À propos */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-[var(--gold)]">
-              Châteaux<span className="text-white">Prestige</span>
+              Select<span className="text-white">Chateaux</span>
             </h3>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Organisez vos événements d'entreprise dans des châteaux
@@ -140,10 +140,10 @@ export function Footer() {
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[var(--gold)] flex-shrink-0" />
                 <a
-                  href="mailto:contact@chateauxprestige.fr"
+                  href="mailto:contact@selectchateaux.com"
                   className="text-gray-300 hover:text-[var(--gold)] transition-colors"
                 >
-                  contact@chateauxprestige.fr
+                  contact@selectchateaux.com
                 </a>
               </li>
             </ul>
@@ -154,7 +154,7 @@ export function Footer() {
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              &copy; {new Date().getFullYear()} ChâteauxPrestige. Tous droits
+              &copy; {new Date().getFullYear()} SelectChateaux.com. Tous droits
               réservés.
             </p>
             <div className="flex space-x-6 text-sm">

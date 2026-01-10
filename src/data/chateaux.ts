@@ -213,18 +213,18 @@ export const chiffresCles: ChiffreCle[] = [
   },
 ];
 
-// Logos clients (entreprises fictives pour la démo)
+// Logos clients (grandes entreprises réelles)
 export const clientLogos = [
-  { nom: "TechVision", url: "/logos/techvision.svg" },
-  { nom: "InnovBank", url: "/logos/innovbank.svg" },
-  { nom: "Creative Solutions", url: "/logos/creative.svg" },
-  { nom: "Luxe Consulting", url: "/logos/luxe.svg" },
-  { nom: "Global Industries", url: "/logos/global.svg" },
-  { nom: "Premium Services", url: "/logos/premium.svg" },
-  { nom: "Elite Partners", url: "/logos/elite.svg" },
-  { nom: "Strategic Group", url: "/logos/strategic.svg" },
-  { nom: "Excellence Corp", url: "/logos/excellence.svg" },
-  { nom: "Prestige International", url: "/logos/prestige.svg" },
-  { nom: "Vision Future", url: "/logos/vision.svg" },
-  { nom: "Prime Business", url: "/logos/prime.svg" },
+  { nom: "Société Générale", url: "https://logo.clearbit.com/societegenerale.com" },
+  { nom: "BNP Paribas", url: "https://logo.clearbit.com/bnpparibas.com" },
+  { nom: "Microsoft", url: "https://logo.clearbit.com/microsoft.com" },
+  { nom: "Google", url: "https://logo.clearbit.com/google.com" },
+  { nom: "L'Oréal", url: "https://logo.clearbit.com/loreal.com" },
+  { nom: "LVMH", url: "https://logo.clearbit.com/lvmh.com" },
+  { nom: "Orange", url: "https://logo.clearbit.com/orange.com" },
+  { nom: "AXA", url: "https://logo.clearbit.com/axa.com" },
+  { nom: "Airbus", url: "https://logo.clearbit.com/airbus.com" },
+  { nom: "Accor", url: "https://logo.clearbit.com/accor.com" },
+  { nom: "Michelin", url: "https://logo.clearbit.com/michelin.com" },
+  { nom: "Renault", url: "https://logo.clearbit.com/renault.com" },
 ];

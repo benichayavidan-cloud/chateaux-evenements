@@ -174,7 +174,7 @@ export function SocialProofSection() {
             événements dans nos châteaux
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full gap-6 md:gap-8 md:auto-rows-fr">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -182,12 +182,13 @@ export function SocialProofSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
+                className="flex"
               >
                 <Card
                   variant="hover"
                   padding="lg"
                   hoverable
-                  className="group"
+                  className="group h-full flex flex-col"
                   style={{ background: theme.colors.overlay.white80, backdropFilter: `blur(${theme.effects.blur.sm})` }}
                 >
                   <div className="flex items-start justify-between" style={{ marginBottom: spacing.lg }}>
@@ -210,7 +211,7 @@ export function SocialProofSection() {
                     </div>
                   </div>
 
-                  <p className="text-left" style={{
+                  <p className="text-left flex-grow" style={{
                     color: theme.colors.neutral.gray700,
                     lineHeight: theme.typography.lineHeight.relaxed,
                     fontSize: theme.typography.fontSize.sm,
@@ -299,23 +300,23 @@ export function SocialProofSection() {
                 transition={{ duration: 0.5, delay: index * 0.05, ease: [0.4, 0, 0.2, 1] }}
                 className="flex items-center justify-center"
               >
-                <div className="w-full h-16 md:h-20 flex items-center justify-center group hover:border-[var(--bronze-antique)]/50 hover:shadow-lg p-3 md:p-4" style={{
+                <div className="w-full h-16 md:h-20 flex items-center justify-center group hover:border-[var(--bronze-antique)]/50 hover:shadow-lg p-3 md:p-4 relative" style={{
                   background: theme.colors.overlay.white60,
                   backdropFilter: `blur(${theme.effects.blur.sm})`,
                   border: `1px solid ${theme.colors.neutral.gray200}`,
                   borderRadius: theme.effects.borderRadius.xl,
                   transition: `all ${theme.effects.transitions.slower}`
                 }}>
-                  <span className="text-center group-hover:text-gray-700" style={{
-                    color: theme.colors.neutral.gray400,
-                    fontWeight: theme.typography.fontWeight.medium,
-                    fontSize: theme.typography.fontSize.xs,
-                    textTransform: "uppercase",
-                    letterSpacing: theme.typography.letterSpacing.wider,
-                    transition: `colors ${theme.effects.transitions.slower}`
-                  }}>
-                    {logo.nom}
-                  </span>
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <Image
+                      src={logo.url}
+                      alt={`Logo ${logo.nom}`}
+                      width={120}
+                      height={60}
+                      className="object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
+                      style={{ maxWidth: "100%", maxHeight: "100%" }}
+                    />
+                  </div>
                 </div>
               </motion.div>
             ))}

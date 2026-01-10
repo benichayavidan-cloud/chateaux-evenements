@@ -46,7 +46,7 @@ export function Navigation() {
                   isScrolled ? "text-[var(--primary)]" : "text-white"
                 )}
               >
-                Châteaux<span className="text-[var(--gold)]">Prestige</span>
+                Select<span className="text-[var(--gold)]">Chateaux</span>
               </div>
             </div>
           </Link>
@@ -138,11 +138,11 @@ export function Navigation() {
                   <span>+33 1 23 45 67 89</span>
                 </a>
                 <a
-                  href="mailto:contact@chateauxprestige.fr"
+                  href="mailto:contact@selectchateaux.com"
                   className="flex items-center space-x-2 text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  <span>contact@chateauxprestige.fr</span>
+                  <span>contact@selectchateaux.com</span>
                 </a>
               </div>
             </nav>

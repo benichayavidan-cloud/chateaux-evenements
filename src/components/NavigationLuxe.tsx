@@ -76,24 +76,24 @@ export function NavigationLuxe() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                className="flex flex-col"
+                className="flex items-center gap-2"
               >
+                <span style={{
+                  fontSize: theme.typography.fontSize.xl,
+                  fontWeight: theme.typography.fontWeight.medium,
+                  color: colors.black,
+                  fontFamily: theme.typography.fonts.heading
+                }}>
+                  Select
+                </span>
                 <span style={{
                   fontSize: theme.typography.fontSize.xl,
                   fontWeight: theme.typography.fontWeight.light,
                   fontStyle: "italic",
-                  color: colors.black,
+                  color: colors.gold,
                   fontFamily: theme.typography.fonts.heading
                 }}>
-                  Châteaux
-                </span>
-                <span style={{
-                  fontSize: "10px",
-                  letterSpacing: theme.typography.letterSpacing.ultra,
-                  textTransform: "uppercase",
-                  color: colors.gold
-                }}>
-                  PRESTIGE
+                  Chateaux
                 </span>
               </motion.div>
             </Link>
@@ -590,7 +590,7 @@ export function NavigationLuxe() {
                   <span>+33 1 23 45 67 89</span>
                 </a>
                 <a
-                  href="mailto:contact@chateauxprestige.fr"
+                  href="mailto:contact@selectchateaux.com"
                   className="flex items-center hover:text-[var(--bronze-antique)]"
                   style={{
                     gap: spacing.md,
@@ -600,7 +600,7 @@ export function NavigationLuxe() {
                   }}
                 >
                   <Mail className="w-4 h-4" />
-                  <span>contact@chateauxprestige.fr</span>
+                  <span>contact@selectchateaux.com</span>
                 </a>
               </div>
             </nav>

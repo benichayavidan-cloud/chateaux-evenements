@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ChâteauxPrestige - Événements d'Entreprise d'Exception",
+  title: "SelectChateaux.com - Événements d'Entreprise d'Exception",
   description:
     "Organisez vos séminaires, conventions et événements d'entreprise dans nos 3 châteaux d'exception en France. Excellence, prestige et authenticité pour des moments inoubliables.",
   keywords: [
@@ -29,9 +29,14 @@ export const metadata: Metadata = {
     "événement corporate",
     "team building château",
   ],
-  authors: [{ name: "ChâteauxPrestige" }],
+  authors: [{ name: "SelectChateaux.com" }],
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
-    title: "ChâteauxPrestige - Événements d'Entreprise d'Exception",
+    title: "SelectChateaux.com - Événements d'Entreprise d'Exception",
     description:
       "Organisez vos événements d'entreprise dans des châteaux d'exception",
     type: "website",

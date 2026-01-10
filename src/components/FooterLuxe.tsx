@@ -34,23 +34,23 @@ export function FooterLuxe() {
         }}>
           {/* Colonne 1 - À propos */}
           <div>
-            <div style={{ marginBottom: spacing.lg }}>
-              <span className="block" style={{
+            <div style={{ marginBottom: spacing.lg }} className="flex items-center gap-2">
+              <span style={{
                 fontSize: theme.typography.fontSize["2xl"],
-                fontWeight: theme.typography.fontWeight.light,
-                fontStyle: "italic",
+                fontWeight: theme.typography.fontWeight.medium,
                 color: theme.colors.neutral.gray900,
                 fontFamily: theme.typography.fonts.heading
               }}>
-                Châteaux
+                Select
               </span>
               <span style={{
-                fontSize: theme.typography.fontSize.xs,
+                fontSize: theme.typography.fontSize["2xl"],
+                fontWeight: theme.typography.fontWeight.light,
+                fontStyle: "italic",
                 color: colors.gold,
-                letterSpacing: theme.typography.letterSpacing.ultra,
-                textTransform: "uppercase"
+                fontFamily: theme.typography.fonts.heading
               }}>
-                Prestige
+                Chateaux
               </span>
             </div>
             <p style={{
@@ -199,7 +199,7 @@ export function FooterLuxe() {
                   color: colors.bronze
                 }} />
                 <a
-                  href="mailto:contact@chateauxprestige.fr"
+                  href="mailto:contact@selectchateaux.com"
                   className="hover:text-[var(--bronze-antique)]"
                   style={{
                     color: theme.colors.neutral.gray600,
@@ -207,7 +207,7 @@ export function FooterLuxe() {
                     transition: `colors ${theme.effects.transitions.smooth}`
                   }}
                 >
-                  contact@chateauxprestige.fr
+                  contact@selectchateaux.com
                 </a>
               </li>
             </ul>
@@ -224,7 +224,7 @@ export function FooterLuxe() {
               color: theme.colors.neutral.gray600,
               fontSize: theme.typography.fontSize.xs
             }}>
-              &copy; {new Date().getFullYear()} ChâteauxPrestige. Tous droits réservés.
+              &copy; {new Date().getFullYear()} SelectChateaux.com. Tous droits réservés.
             </p>
             <div className="flex" style={{
               gap: spacing.xl,

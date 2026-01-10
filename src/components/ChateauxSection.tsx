@@ -103,7 +103,7 @@ export function ChateauxSection() {
 
                   {/* Overlay informations - visible uniquement au hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100" style={{
-                    background: theme.gradients.hoverWhite,
+                    background: 'rgba(255, 255, 255, 0.97)',
                     transition: `opacity ${theme.effects.transitions.ultra} ease-out`
                   }}>
                     <div className="absolute inset-0 flex flex-col justify-end" style={{ padding: spacing.lg }}>
@@ -114,7 +114,7 @@ export function ChateauxSection() {
                           fontSize: theme.typography.fontSize["4xl"],
                           fontWeight: theme.typography.fontWeight.light,
                           fontStyle: "italic",
-                          color: colors.black,
+                          color: theme.colors.neutral.gray900,
                           fontFamily: theme.typography.fonts.heading,
                           marginBottom: spacing.lg,
                           transition: `transform ${theme.effects.transitions.slower}`
@@ -125,7 +125,7 @@ export function ChateauxSection() {
 
                       {/* Description */}
                       <p className="line-clamp-2 translate-y-4 group-hover:translate-y-0" style={{
-                        color: theme.colors.neutral.gray700,
+                        color: theme.colors.neutral.gray800,
                         lineHeight: theme.typography.lineHeight.relaxed,
                         marginBottom: spacing.lg,
                         transition: `transform ${theme.effects.transitions.slower} 75ms`
@@ -141,14 +141,14 @@ export function ChateauxSection() {
                       }}>
                         <div className="flex items-center" style={{
                           gap: spacing.sm,
-                          color: theme.colors.neutral.gray700
+                          color: theme.colors.neutral.gray800
                         }}>
                           <MapPin className="w-5 h-5" style={{ color: colors.bronze }} />
                           <span style={{ fontSize: theme.typography.fontSize.sm }}>{chateau.region}</span>
                         </div>
                         <div className="flex items-center" style={{
                           gap: spacing.sm,
-                          color: theme.colors.neutral.gray700
+                          color: theme.colors.neutral.gray800
                         }}>
                           <Users className="w-5 h-5" style={{ color: colors.bronze }} />
                           <span style={{ fontSize: theme.typography.fontSize.sm }}>
@@ -171,7 +171,7 @@ export function ChateauxSection() {
                             className="flex items-start"
                             style={{
                               fontSize: theme.typography.fontSize.sm,
-                              color: theme.colors.neutral.gray700
+                              color: theme.colors.neutral.gray800
                             }}
                           >
                             <span style={{
