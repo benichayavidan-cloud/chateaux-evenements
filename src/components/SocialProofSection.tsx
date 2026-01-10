@@ -111,8 +111,8 @@ export function SocialProofSection() {
                     fontFamily: theme.typography.fonts.heading,
                     marginBottom: spacing.md
                   }}>
-                    {chiffre.unite}
                     <AnimatedCounter value={chiffre.valeur} />
+                    {chiffre.unite}
                     {chiffre.suffix}
                   </div>
                   <div style={{
