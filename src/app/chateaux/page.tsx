@@ -732,7 +732,7 @@ export default function ChateauxPage() {
               <Button
                 href="/devis"
                 variant="secondary"
-                size="xl"
+                size="lg"
                 icon={<ArrowRight className="w-6 h-6" />}
               >
                 Obtenir Mon Devis Gratuit
@@ -740,7 +740,7 @@ export default function ChateauxPage() {
               <Button
                 href="/contact"
                 variant="ghost"
-                size="xl"
+                size="lg"
                 icon={<Phone className="w-6 h-6" />}
                 style={{
                   color: theme.colors.neutral.white,
