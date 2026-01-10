@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Star, Quote, TrendingUp } from "lucide-react";
-import { testimonials, chiffresCles, clientLogos } from "@/data/chateaux";
+import { testimonials, chiffresCles } from "@/data/chateaux";
 import { useEffect, useRef, useState } from "react";
 import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
@@ -264,61 +264,6 @@ export function SocialProofSection() {
                     </div>
                   </div>
                 </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Logos clients */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center justify-center w-full"
-          style={{ padding: `0 ${spacing.lg}` }}
-        >
-          <div className="text-center" style={{ marginBottom: theme.spacing.section.sm }}>
-            <h3 style={{
-              fontSize: theme.typography.fontSize["2xl"],
-              fontWeight: theme.typography.fontWeight.light,
-              fontStyle: "italic",
-              color: theme.colors.neutral.gray700,
-              fontFamily: theme.typography.fonts.heading
-            }}>
-              Ils ont choisi nos châteaux pour leurs événements
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 max-w-7xl mx-auto w-full gap-4 md:gap-6">
-            {clientLogos.map((logo, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05, ease: [0.4, 0, 0.2, 1] }}
-                className="flex items-center justify-center"
-              >
-                <div className="w-full h-16 md:h-20 flex items-center justify-center group hover:border-[var(--bronze-antique)]/50 hover:shadow-lg p-3 md:p-4" style={{
-                  background: theme.colors.overlay.white60,
-                  backdropFilter: `blur(${theme.effects.blur.sm})`,
-                  border: `1px solid ${theme.colors.neutral.gray200}`,
-                  borderRadius: theme.effects.borderRadius.xl,
-                  transition: `all ${theme.effects.transitions.slower}`
-                }}>
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <Image
-                      src={logo.url}
-                      alt={`Logo ${logo.nom}`}
-                      width={80}
-                      height={80}
-                      className="object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ maxWidth: "80%", maxHeight: "80%" }}
-                      unoptimized
-                    />
-                  </div>
-                </div>
               </motion.div>
             ))}
           </div>

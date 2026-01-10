@@ -5,18 +5,18 @@ import { theme } from "@/config/theme";
 import { spacing } from "@/config/themeHelpers";
 
 const logos = [
-  { nom: "Microsoft", url: "https://cdn.simpleicons.org/microsoft/666666" },
-  { nom: "Google", url: "https://cdn.simpleicons.org/google/666666" },
-  { nom: "Amazon", url: "https://cdn.simpleicons.org/amazon/666666" },
-  { nom: "Apple", url: "https://cdn.simpleicons.org/apple/666666" },
-  { nom: "IBM", url: "https://cdn.simpleicons.org/ibm/666666" },
-  { nom: "Adobe", url: "https://cdn.simpleicons.org/adobe/666666" },
-  { nom: "Tesla", url: "https://cdn.simpleicons.org/tesla/666666" },
-  { nom: "Netflix", url: "https://cdn.simpleicons.org/netflix/666666" },
-  { nom: "Spotify", url: "https://cdn.simpleicons.org/spotify/666666" },
-  { nom: "Nike", url: "https://cdn.simpleicons.org/nike/666666" },
-  { nom: "Samsung", url: "https://cdn.simpleicons.org/samsung/666666" },
-  { nom: "Intel", url: "https://cdn.simpleicons.org/intel/666666" },
+  { nom: "Microsoft", url: "https://cdn.simpleicons.org/microsoft/gray" },
+  { nom: "Google", url: "https://cdn.simpleicons.org/google/gray" },
+  { nom: "Amazon", url: "https://cdn.simpleicons.org/amazon/gray" },
+  { nom: "Apple", url: "https://cdn.simpleicons.org/apple/gray" },
+  { nom: "IBM", url: "https://cdn.simpleicons.org/ibm/gray" },
+  { nom: "Adobe", url: "https://cdn.simpleicons.org/adobe/gray" },
+  { nom: "Tesla", url: "https://cdn.simpleicons.org/tesla/gray" },
+  { nom: "Netflix", url: "https://cdn.simpleicons.org/netflix/gray" },
+  { nom: "Spotify", url: "https://cdn.simpleicons.org/spotify/gray" },
+  { nom: "Nike", url: "https://cdn.simpleicons.org/nike/gray" },
+  { nom: "Samsung", url: "https://cdn.simpleicons.org/samsung/gray" },
+  { nom: "Intel", url: "https://cdn.simpleicons.org/intel/gray" },
 ];
 
 export function LogoCarousel() {
