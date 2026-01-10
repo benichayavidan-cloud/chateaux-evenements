@@ -10,7 +10,6 @@ const logos = [
   { nom: "Amazon", url: "https://cdn.simpleicons.org/amazon/666666" },
   { nom: "Apple", url: "https://cdn.simpleicons.org/apple/666666" },
   { nom: "IBM", url: "https://cdn.simpleicons.org/ibm/666666" },
-  { nom: "SAP", url: "https://cdn.simpleicons.org/sap/666666" },
   { nom: "Adobe", url: "https://cdn.simpleicons.org/adobe/666666" },
   { nom: "Tesla", url: "https://cdn.simpleicons.org/tesla/666666" },
   { nom: "Netflix", url: "https://cdn.simpleicons.org/netflix/666666" },
@@ -18,9 +17,6 @@ const logos = [
   { nom: "Nike", url: "https://cdn.simpleicons.org/nike/666666" },
   { nom: "Samsung", url: "https://cdn.simpleicons.org/samsung/666666" },
   { nom: "Intel", url: "https://cdn.simpleicons.org/intel/666666" },
-  { nom: "HP", url: "https://cdn.simpleicons.org/hp/666666" },
-  { nom: "Dell", url: "https://cdn.simpleicons.org/dell/666666" },
-  { nom: "Oracle", url: "https://cdn.simpleicons.org/oracle/666666" },
 ];
 
 export function LogoCarousel() {
@@ -29,15 +25,15 @@ export function LogoCarousel() {
 
   return (
     <section className="py-12 md:py-16 overflow-hidden" style={{ background: theme.colors.neutral.gray50 }}>
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 mb-8">
+      <div className="w-full text-center mb-8 px-4">
         <p
-          className="text-center"
           style={{
             fontSize: theme.typography.fontSize.sm,
             color: theme.colors.text.muted,
             textTransform: "uppercase",
             letterSpacing: theme.typography.letterSpacing.wider,
             fontWeight: theme.typography.fontWeight.medium,
+            width: "100%",
           }}
         >
           Ils nous font confiance
