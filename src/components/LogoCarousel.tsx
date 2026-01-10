@@ -5,18 +5,14 @@ import { theme } from "@/config/theme";
 import { spacing } from "@/config/themeHelpers";
 
 const logos = [
-  { nom: "Microsoft", url: "https://cdn.simpleicons.org/microsoft/gray" },
-  { nom: "Google", url: "https://cdn.simpleicons.org/google/gray" },
-  { nom: "Amazon", url: "https://cdn.simpleicons.org/amazon/gray" },
-  { nom: "Apple", url: "https://cdn.simpleicons.org/apple/gray" },
-  { nom: "IBM", url: "https://cdn.simpleicons.org/ibm/gray" },
-  { nom: "Adobe", url: "https://cdn.simpleicons.org/adobe/gray" },
-  { nom: "Tesla", url: "https://cdn.simpleicons.org/tesla/gray" },
-  { nom: "Netflix", url: "https://cdn.simpleicons.org/netflix/gray" },
-  { nom: "Spotify", url: "https://cdn.simpleicons.org/spotify/gray" },
-  { nom: "Nike", url: "https://cdn.simpleicons.org/nike/gray" },
-  { nom: "Samsung", url: "https://cdn.simpleicons.org/samsung/gray" },
-  { nom: "Intel", url: "https://cdn.simpleicons.org/intel/gray" },
+  { nom: "Google", url: "https://cdn.simpleicons.org/google/808080" },
+  { nom: "Apple", url: "https://cdn.simpleicons.org/apple/808080" },
+  { nom: "Tesla", url: "https://cdn.simpleicons.org/tesla/808080" },
+  { nom: "Netflix", url: "https://cdn.simpleicons.org/netflix/808080" },
+  { nom: "Spotify", url: "https://cdn.simpleicons.org/spotify/808080" },
+  { nom: "Nike", url: "https://cdn.simpleicons.org/nike/808080" },
+  { nom: "Samsung", url: "https://cdn.simpleicons.org/samsung/808080" },
+  { nom: "Intel", url: "https://cdn.simpleicons.org/intel/808080" },
 ];
 
 export function LogoCarousel() {
@@ -24,7 +20,7 @@ export function LogoCarousel() {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="py-12 md:py-16 overflow-hidden" style={{ background: theme.colors.neutral.gray50 }}>
+    <section className="py-12 md:py-16 overflow-hidden" style={{ background: theme.colors.neutral.white }}>
       <div className="w-full text-center mb-8 px-4">
         <p
           style={{
@@ -46,7 +42,7 @@ export function LogoCarousel() {
         <div
           className="absolute left-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
           style={{
-            background: `linear-gradient(to right, ${theme.colors.neutral.gray50}, transparent)`,
+            background: `linear-gradient(to right, ${theme.colors.neutral.white}, transparent)`,
           }}
         />
 
@@ -54,7 +50,7 @@ export function LogoCarousel() {
         <div
           className="absolute right-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
           style={{
-            background: `linear-gradient(to left, ${theme.colors.neutral.gray50}, transparent)`,
+            background: `linear-gradient(to left, ${theme.colors.neutral.white}, transparent)`,
           }}
         />
 
