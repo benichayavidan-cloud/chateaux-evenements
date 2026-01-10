@@ -625,16 +625,17 @@ export default function ChateauxPage() {
                   borderRadius: theme.effects.borderRadius.xl,
                   transition: `all ${theme.effects.transitions.slower}`
                 }}>
-                  <span className="text-center group-hover:text-gray-700" style={{
-                    color: theme.colors.neutral.gray400,
-                    fontWeight: theme.typography.fontWeight.semibold,
-                    fontSize: theme.typography.fontSize.xs,
-                    textTransform: "uppercase",
-                    letterSpacing: theme.typography.letterSpacing.wider,
-                    transition: `colors ${theme.effects.transitions.slower}`
-                  }}>
-                    {logo.nom}
-                  </span>
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <Image
+                      src={logo.url}
+                      alt={`Logo ${logo.nom}`}
+                      width={80}
+                      height={80}
+                      className="object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ maxWidth: "80%", maxHeight: "80%" }}
+                      unoptimized
+                    />
+                  </div>
                 </div>
               </motion.div>
             ))}
