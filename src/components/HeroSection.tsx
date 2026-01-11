@@ -61,16 +61,21 @@ export function HeroSection() {
             loading={currentSlide === 0 ? "eager" : "lazy"}
             quality={85}
           />
-          {/* Overlays */}
-          <div className="hero-overlay-light" />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 via-transparent to-white/10" />
-          <div className="hero-overlay-light-extra" />
+          {/* Gradient subtil en bas pour les boutons */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
         </motion.div>
       </AnimatePresence>
 
       {/* Contenu centré avec padding-top pour éviter header */}
       <div className="relative h-full flex flex-col items-center justify-center px-6 pt-20">
-        <div className="w-full max-w-5xl mx-auto text-center">
+        <div
+          className="w-full max-w-5xl mx-auto text-center rounded-3xl p-8 md:p-12"
+          style={{
+            background: 'rgba(255, 255, 255, 0.85)',
+            backdropFilter: 'blur(12px)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+          }}
+        >
           {/* Titre principal */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
