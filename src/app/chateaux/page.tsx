@@ -69,8 +69,8 @@ const SectionWrapper = ({
   className?: string;
 }) => (
   <section
-    className={`py-20 md:py-28 flex items-center justify-center ${className}`}
-    style={{ background: bg }}
+    className={`flex items-center justify-center ${className}`}
+    style={{ background: bg, paddingTop: '25px', paddingBottom: '25px' }}
   >
     <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 w-full">
       {children}
@@ -262,16 +262,6 @@ export default function ChateauxPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                       >
-                        {/* Badge localisation */}
-                        <Badge
-                          variant="glass"
-                          size="lg"
-                          icon={<MapPin className="w-4 h-4" />}
-                          style={{ marginBottom: spacing.xl }}
-                        >
-                          {chateau.region}
-                        </Badge>
-
                         {/* Titre */}
                         <h1
                           style={{
@@ -299,11 +289,35 @@ export default function ChateauxPage() {
                           {chateau.description}
                         </p>
 
-                        {/* Infos capacité */}
-                        <div className="flex flex-wrap items-center gap-6" style={{ marginBottom: spacing.xl }}>
-                          <div className="flex items-center gap-2">
-                            <Users className="w-5 h-5" style={{ color: colors.gold }} />
-                            <span style={{ fontSize: theme.typography.fontSize.lg, color: theme.colors.neutral.white }}>
+                        {/* Badges localisation + capacité */}
+                        <div className="flex flex-wrap items-center gap-4" style={{ marginBottom: spacing.xl }}>
+                          <Badge
+                            variant="glass"
+                            size="lg"
+                            icon={<MapPin className="w-4 h-4" />}
+                          >
+                            {chateau.region}
+                          </Badge>
+
+                          <div
+                            className="inline-flex items-center gap-3"
+                            style={{
+                              background: theme.colors.overlay.white20,
+                              backdropFilter: `blur(${theme.effects.blur.md})`,
+                              border: `1px solid ${theme.colors.overlay.white30}`,
+                              padding: spacing.lg,
+                              borderRadius: theme.effects.borderRadius.full,
+                              color: theme.colors.neutral.white,
+                            }}
+                          >
+                            <Users className="w-5 h-5" style={{ color: theme.colors.neutral.white }} />
+                            <span style={{
+                              fontSize: theme.typography.fontSize.sm,
+                              fontWeight: theme.typography.fontWeight.medium,
+                              textTransform: "uppercase",
+                              letterSpacing: theme.typography.letterSpacing.wider,
+                              whiteSpace: "nowrap"
+                            }}>
                               {chateau.capacite.min}-{chateau.capacite.max} personnes
                             </span>
                           </div>
@@ -441,9 +455,9 @@ export default function ChateauxPage() {
               viewport={{ once: true }}
               className="flex justify-center"
             >
-              <Card variant="hover" padding="lg" hoverable className="h-full text-center w-full">
+              <Card variant="hover" padding="lg" hoverable className="h-full w-full flex flex-col items-center justify-center text-center">
                 <div
-                  className="flex items-center justify-center mx-auto mb-4"
+                  className="flex items-center justify-center mb-4"
                   style={{
                     width: "64px",
                     height: "64px",
@@ -688,9 +702,11 @@ export default function ChateauxPage() {
       {/* SECTION 4: CTA FINALE - CENTRAGE TOTAL */}
       {/* ============================================ */}
       <section
-        className="py-20 md:py-28 relative overflow-hidden flex items-center justify-center"
+        className="relative overflow-hidden flex items-center justify-center"
         style={{
           background: `linear-gradient(135deg, ${colors.bronze} 0%, ${colors.bronzeDark} 100%)`,
+          paddingTop: '25px',
+          paddingBottom: '25px',
         }}
       >
         {/* Pattern décoratif */}
