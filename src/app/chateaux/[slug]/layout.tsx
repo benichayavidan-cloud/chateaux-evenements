@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: "fr_FR",
       images: [
         {
-          url: chateau.images[0],
+          url: chateau.images.openGraph,
           width: 1200,
           height: 630,
           alt: `${chateau.seoH1} - Vue principale`,

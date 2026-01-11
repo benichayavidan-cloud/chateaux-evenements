@@ -90,7 +90,7 @@ export function ChateauxSection() {
                 {/* Image avec effet grayscale → couleur */}
                 <div className="relative overflow-hidden" style={{ height: theme.dimensions.height.imageCardLg }}>
                   <Image
-                    src={chateau.images[0]}
+                    src={chateau.images.card}
                     alt={chateau.nom}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"

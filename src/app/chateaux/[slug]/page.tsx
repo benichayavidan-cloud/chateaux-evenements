@@ -47,7 +47,7 @@ export default function ChateauPage() {
       "addressRegion": chateau.region,
       "addressCountry": "FR"
     },
-    "image": chateau.images,
+    "image": [...chateau.images.hero, ...chateau.images.galerie],
     "amenityFeature": chateau.atouts.map((atout) => ({
       "@type": "LocationFeatureSpecification",
       "name": atout,
@@ -93,7 +93,7 @@ export default function ChateauPage() {
         {/* Image de fond */}
         <div className="absolute inset-0">
           <Image
-            src={chateau.images[0]}
+            src={chateau.images.hero[0]}
             alt={`${chateau.seoH1} - Vue principale`}
             fill
             className="object-cover"
@@ -389,7 +389,7 @@ export default function ChateauPage() {
                 className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6"
                 style={{ gridAutoRows: "238px" }}
               >
-                {chateau.images.slice(1).map((image: string, index: number) => (
+                {chateau.images.galerie.map((image: string, index: number) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -402,7 +402,7 @@ export default function ChateauPage() {
                   >
                     <Image
                       src={image}
-                      alt={`${chateau.seoH1} - vue ${index + 2}`}
+                      alt={`${chateau.seoH1} - vue ${index + 1}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(min-width: 1024px) 33vw, 50vw"

@@ -253,7 +253,7 @@ export default function ChateauxPage() {
                 {/* Image de fond */}
                 <div className="absolute inset-0">
                   <Image
-                    src={chateau.images[0]}
+                    src={chateau.images.hero[0]}
                     alt={chateau.nom}
                     fill
                     className="object-cover"
@@ -535,7 +535,7 @@ export default function ChateauxPage() {
                 {/* Image avec galerie */}
                 <div className={`relative ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
                   <ImageGallery
-                    images={chateau.images}
+                    images={chateau.images.galerie}
                     name={chateau.nom}
                     chateauId={chateau.id}
                     selectedIndex={selectedImageIndex[chateau.id] ?? 0}

@@ -724,7 +724,7 @@ export function DevisForm() {
                       )}
                       <div style={{ position: "relative", height: "160px" }}>
                         <Image
-                          src={chateau.images[0]}
+                          src={chateau.images.card}
                           alt={chateau.nom}
                           fill
                           style={{ objectFit: "cover" }}

@@ -12,7 +12,7 @@ import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
 
 const heroSlides = chateaux.map((chateau) => ({
-  image: chateau.images[0],
+  image: chateau.images.hero[0],
   title: chateau.nom,
   region: chateau.region,
 }));

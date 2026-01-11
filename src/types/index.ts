@@ -1,3 +1,10 @@
+export interface ChateauImages {
+  hero: string[];        // Images slider hero section
+  openGraph: string;      // Image OpenGraph/meta (1200x630)
+  card: string;          // Image card catalogue
+  galerie: string[];     // Images galerie page détail
+}
+
 export interface Chateau {
   id: string;
   nom: string;
@@ -9,7 +16,7 @@ export interface Chateau {
   styleArchitectural: string;
   description: string;
   atouts: string[];
-  images: string[];
+  images: ChateauImages;
   slug: string;
   // Nouveaux champs SEO
   seoH1: string;
