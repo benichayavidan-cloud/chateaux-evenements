@@ -416,9 +416,11 @@ export default function ChateauPage() {
 
         {/* Section FAQ - Design Premium */}
         <div
-          className="relative section-padding-sm overflow-hidden"
+          className="relative overflow-hidden"
           style={{
             background: 'linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%)',
+            paddingTop: '120px',
+            paddingBottom: '120px',
           }}
         >
           {/* Pattern décoratif subtil */}
@@ -430,9 +432,9 @@ export default function ChateauPage() {
             }}
           />
 
-          <div className="section-container relative z-10">
+          <div className="w-full relative z-10">
             {/* Titre avec ornement */}
-            <div className="text-center mb-20">
+            <div className="text-center mb-24">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -442,10 +444,11 @@ export default function ChateauPage() {
               >
                 {/* Badge supérieur */}
                 <div
-                  className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full"
+                  className="inline-flex items-center gap-2 mb-6 rounded-full"
                   style={{
                     background: `linear-gradient(135deg, ${colors.bronze}15, ${colors.gold}10)`,
                     border: `1px solid ${colors.bronze}30`,
+                    padding: '12px 20px',
                   }}
                 >
                   <HelpCircle
@@ -516,7 +519,7 @@ export default function ChateauPage() {
             </div>
 
             {/* Accordion FAQ Premium */}
-            <div className="max-w-4xl mx-auto space-y-8 px-4">
+            <div className="max-w-4xl mx-auto px-6">
               {chateau.faq.map((item, index) => {
                 const isOpen = openFaqIndex === index;
 
@@ -527,7 +530,8 @@ export default function ChateauPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.15 }}
                     viewport={{ once: true }}
-                    className="group"
+                    className="group w-full"
+                    style={{ marginBottom: index < chateau.faq.length - 1 ? '48px' : '0' }}
                   >
                     <div
                       style={{
@@ -540,26 +544,27 @@ export default function ChateauPage() {
                           ? `0 8px 32px ${colors.bronze}15, 0 2px 8px ${colors.bronze}08`
                           : '0 2px 8px rgba(0, 0, 0, 0.04)',
                         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                        padding: '4px',
+                        padding: '8px',
                       }}
                       className="hover:shadow-xl"
                     >
                       {/* Button Question */}
                       <button
                         onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                        className="w-full text-left p-6 md:p-8"
+                        className="w-full text-left"
                         style={{
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '24px',
+                          gap: '28px',
+                          padding: '32px 40px',
                         }}
                       >
                         {/* Numéro avec cercle décoratif */}
-                        <div className="flex-shrink-0 relative">
+                        <div className="flex-shrink-0">
                           <div
                             style={{
-                              width: '48px',
-                              height: '48px',
+                              width: '56px',
+                              height: '56px',
                               borderRadius: theme.effects.borderRadius.full,
                               background: isOpen
                                 ? `linear-gradient(135deg, ${colors.bronze}, ${colors.bronzeDark})`
@@ -567,7 +572,6 @@ export default function ChateauPage() {
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
-                              position: 'relative',
                               transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                               boxShadow: isOpen
                                 ? `0 4px 16px ${colors.bronze}40`
@@ -577,7 +581,7 @@ export default function ChateauPage() {
                           >
                             <span
                               style={{
-                                fontSize: theme.typography.fontSize.lg,
+                                fontSize: theme.typography.fontSize.xl,
                                 fontWeight: theme.typography.fontWeight.bold,
                                 color: isOpen ? theme.colors.neutral.white : colors.bronze,
                                 fontFamily: theme.typography.fonts.heading,
@@ -597,33 +601,20 @@ export default function ChateauPage() {
                               fontWeight: theme.typography.fontWeight.semibold,
                               color: theme.colors.text.primary,
                               lineHeight: theme.typography.lineHeight.snug,
-                              marginBottom: spacing.xs,
                               transition: 'color 0.3s ease',
                             }}
                             className="group-hover:text-[var(--bronze-antique)]"
                           >
                             {item.question}
                           </h3>
-
-                          {!isOpen && (
-                            <p
-                              style={{
-                                fontSize: theme.typography.fontSize.sm,
-                                color: colors.bronze,
-                                fontWeight: theme.typography.fontWeight.medium,
-                              }}
-                            >
-                              Cliquez pour voir la réponse
-                            </p>
-                          )}
                         </div>
 
                         {/* Icon Toggle */}
                         <div className="flex-shrink-0">
                           <div
                             style={{
-                              width: '40px',
-                              height: '40px',
+                              width: '48px',
+                              height: '48px',
                               borderRadius: theme.effects.borderRadius.full,
                               background: isOpen
                                 ? `${colors.bronze}15`
@@ -637,12 +628,12 @@ export default function ChateauPage() {
                           >
                             {isOpen ? (
                               <Minus
-                                className="w-5 h-5 transition-all duration-400"
+                                className="w-6 h-6 transition-all duration-400"
                                 style={{ color: colors.bronze }}
                               />
                             ) : (
                               <Plus
-                                className="w-5 h-5 transition-all duration-400"
+                                className="w-6 h-6 transition-all duration-400"
                                 style={{ color: isOpen ? colors.bronze : theme.colors.neutral.gray600 }}
                               />
                             )}
@@ -674,14 +665,19 @@ export default function ChateauPage() {
                             style={{ overflow: 'hidden' }}
                           >
                             <div
-                              className="px-6 md:px-8 pb-6 md:pb-8"
                               style={{
-                                paddingLeft: 'calc(24px + 48px + 24px)', // Align with question text
+                                paddingLeft: '40px',
+                                paddingRight: '40px',
+                                paddingBottom: '40px',
+                                paddingTop: '24px',
                               }}
                             >
                               <div
                                 style={{
-                                  paddingTop: spacing.lg,
+                                  paddingTop: '24px',
+                                  paddingBottom: '8px',
+                                  paddingLeft: 'calc(56px + 28px)', // Align with question text
+                                  paddingRight: 'calc(48px + 28px)', // Align with icon
                                   borderTop: `1px solid ${colors.bronze}20`,
                                 }}
                               >
@@ -711,7 +707,7 @@ export default function ChateauPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-center mt-16"
+              className="text-center mt-20"
             >
               <div
                 className="inline-flex flex-col items-center gap-4 px-12 py-8 rounded-2xl"
