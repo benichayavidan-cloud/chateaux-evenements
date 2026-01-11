@@ -98,18 +98,19 @@ const SectionHeader = ({
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
-    className="text-center mb-16 max-w-4xl mx-auto"
+    className="mb-16 max-w-4xl mx-auto w-full"
+    style={{ textAlign: 'center' }}
   >
     {icon && (
       <div className="flex items-center justify-center gap-3 mb-4">
         {icon}
       </div>
     )}
-    <h2 style={SECTION_STYLES.typography.title}>
+    <h2 style={{ ...SECTION_STYLES.typography.title, textAlign: 'center', width: '100%' }}>
       {title}
     </h2>
     {subtitle && (
-      <p style={SECTION_STYLES.typography.subtitle} className="mt-6">
+      <p style={{ ...SECTION_STYLES.typography.subtitle, textAlign: 'center', width: '100%' }} className="mt-6">
         {subtitle}
       </p>
     )}
@@ -731,7 +732,9 @@ export default function ChateauxPage() {
                 fontFamily: theme.typography.fonts.heading,
                 lineHeight: theme.typography.lineHeight.tight,
                 marginBottom: spacing["2xl"],
-                textAlign: 'center'
+                textAlign: 'center',
+                width: '100%',
+                display: 'block'
               }}
             >
               Prêt à Organiser Votre Événement ?
@@ -745,7 +748,9 @@ export default function ChateauxPage() {
                 lineHeight: theme.typography.lineHeight.relaxed,
                 maxWidth: "700px",
                 margin: `0 auto ${spacing["3xl"]}`,
-                textAlign: 'center'
+                textAlign: 'center',
+                width: '100%',
+                display: 'block'
               }}
             >
               Nos experts vous accompagnent gratuitement dans le choix du château idéal.
