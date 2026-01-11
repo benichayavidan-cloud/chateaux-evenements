@@ -31,12 +31,28 @@ export const chateaux: Chateau[] = [
     descriptionLongue: "Le plus vaste Château-Hôtel de la région. Ce manoir anglo-normand, niché dans une forêt privée de 25 hectares, est l'unique lieu capable d'accueillir 280 personnes en résidentiel. Avec son amphithéâtre privé de 200 places et son Spa Nuxe de 800m², c'est le choix n°1 pour les grandes conventions qui veulent marquer les esprits.",
     faq: [
       {
-        question: "Quelle est la capacité de l'amphithéâtre ?",
-        answer: "L'amphithéâtre peut accueillir 200 personnes assises avec régie complète."
+        question: "Quelle est la capacité maximale d'accueil du domaine ?",
+        answer: "Le domaine peut accueillir jusqu'à 280 personnes en résidentiel avec plus de 100 chambres disponibles. L'amphithéâtre privé dispose de 200 places assises avec régie audiovisuelle complète."
       },
       {
-        question: "Y a-t-il un spa ?",
-        answer: "Oui, un Spa Nuxe de 800m² avec piscine intérieure est privatisable."
+        question: "Quels sont les équipements du Spa Nuxe ?",
+        answer: "Le Spa Nuxe de 800m² comprend une piscine intérieure chauffée, un sauna, un hammam, des cabines de soins, ainsi qu'un espace fitness de 200m² avec équipements dernière génération. Le spa est entièrement privatisable pour vos événements."
+      },
+      {
+        question: "À quelle distance se trouve le domaine de Paris ?",
+        answer: "Le domaine est situé à seulement 35 minutes de Paris en voiture et à 20 minutes de l'aéroport Charles de Gaulle. Il est niché dans une forêt privée de 25 hectares en plein cœur de la région de Chantilly."
+      },
+      {
+        question: "Combien de salles de réunion sont disponibles ?",
+        answer: "Le domaine dispose de 21 salles de réunion modulables équipées des dernières technologies audiovisuelles, avec des capacités allant de 15 à 300m². Toutes bénéficient de lumière naturelle et d'équipements professionnels."
+      },
+      {
+        question: "Quelles activités team-building proposez-vous ?",
+        answer: "Nous proposons des activités variées : parcours aventure dans la forêt, olympiades sportives, ateliers culinaires, dégustation de vins, chasse au trésor, tennis, VTT, et des activités bien-être au spa. Un coordinateur dédié personnalise votre programme."
+      },
+      {
+        question: "Le domaine est-il accessible aux personnes à mobilité réduite ?",
+        answer: "Oui, le domaine est entièrement accessible PMR avec des ascenseurs, des rampes d'accès et des chambres adaptées. Les salles de réunion et espaces communs sont tous accessibles."
       }
     ],
   },
@@ -70,12 +86,28 @@ export const chateaux: Chateau[] = [
     descriptionLongue: "Un miracle urbain. Cette bâtisse du XVIIe siècle, transformée en hôtel 5 étoiles, offre un calme monacal à 15 min du centre de Paris en métro. Idéal pour les CODIRs stratégiques exigeant confidentialité et excellence gastronomique. Profitez d'une vue imprenable depuis le jardin suspendu classé.",
     faq: [
       {
-        question: "Est-ce accessible en transport ?",
-        answer: "Oui, ligne de métro directe à 5 min à pied."
+        question: "Comment accéder au domaine en transport en commun ?",
+        answer: "Le domaine est accessible via la ligne de métro à seulement 5 minutes à pied de la station. Un accès idéal pour vos participants venant de Paris sans avoir besoin de voiture. Des navettes privées peuvent également être organisées depuis l'aéroport ou les gares."
       },
       {
-        question: "Quel type d'événements ?",
-        answer: "Idéal pour CODIR, Comex et dîners confidentiels (max 180 pers)."
+        question: "Quelle est l'histoire de ce lieu exceptionnel ?",
+        answer: "Cette bâtisse du XVIIe siècle, ancienne propriété de Marguerite de Valois, a été transformée en hôtel 5 étoiles tout en préservant son caractère historique. Le jardin suspendu classé offre une vue imprenable sur Paris."
+      },
+      {
+        question: "Quels types d'événements organisez-vous principalement ?",
+        answer: "Le domaine est spécialisé dans les événements confidentiels haut de gamme : CODIR, COMEX, séminaires stratégiques, dîners d'affaires et réceptions privées pour 80 à 180 personnes. Le calme monacal du lieu garantit la confidentialité absolue."
+      },
+      {
+        question: "Quelle est la capacité d'hébergement ?",
+        answer: "Nous disposons de chambres et suites premium toutes équipées avec vue sur le parc ou le jardin suspendu. L'hébergement est inclus dans nos formules résidentielles avec petit-déjeuner gastronomique."
+      },
+      {
+        question: "Proposez-vous de la restauration gastronomique ?",
+        answer: "Oui, notre chef étoilé propose une cuisine gastronomique raffinée avec des menus personnalisables. Nous disposons d'une cave à vins exceptionnelle et pouvons organiser des dégustations commentées. Tous les régimes alimentaires peuvent être accommodés."
+      },
+      {
+        question: "Y a-t-il un espace bien-être ?",
+        answer: "Le domaine dispose d'un spa privatisable avec bar à rhum situé dans une chapelle désacralisée classée, créant une ambiance unique. Parfait pour des moments de détente entre les sessions de travail."
       }
     ],
   },
@@ -109,12 +141,28 @@ export const chateaux: Chateau[] = [
     descriptionLongue: "Déconnexion radicale garantie. Une abbaye cistercienne du XIIe siècle classée Monument Historique, au cœur de la Vallée de Chevreuse. Entre les ruines romantiques et l'étang privé immense, offrez à vos équipes une retraite spirituelle et stratégique inoubliable. Salles voûtées monumentales pour vos soirées.",
     faq: [
       {
-        question: "Peut-on faire du bruit le soir ?",
-        answer: "Oui, le domaine est isolé, idéal pour les soirées festives."
+        question: "Quelle est l'histoire de cette abbaye cistercienne ?",
+        answer: "L'Abbaye des Vaux-de-Cernay est une abbaye cistercienne fondée au XIIe siècle, classée Monument Historique en 1994. Située dans le Parc naturel régional de la Vallée de Chevreuse, elle offre un cadre historique exceptionnel avec ses salles voûtées monumentales et ses ruines romantiques."
       },
       {
-        question: "Quelles activités team building ?",
-        answer: "Olympiades, barque sur l'étang, escape game dans les ruines."
+        question: "Quelle est la taille du parc et de l'étang ?",
+        answer: "Le domaine s'étend sur 65 hectares de parc boisé avec un étang majestueux de 70 hectares. Des barques sont disponibles pour des promenades bucoliques ou des activités team-building nautiques. Le cadre naturel exceptionnel garantit une déconnexion totale."
+      },
+      {
+        question: "Combien de personnes pouvez-vous accueillir ?",
+        answer: "L'abbaye dispose de vastes salles de réunion pouvant accueillir de 20 à 600 personnes selon la configuration. Nous proposons 57 chambres pour l'hébergement résidentiel, idéal pour des groupes de 60 à 150 personnes en formule complète."
+      },
+      {
+        question: "Peut-on organiser des soirées festives le soir ?",
+        answer: "Oui, le domaine est totalement isolé dans la vallée, ce qui permet d'organiser des soirées animées sans contrainte de voisinage. Les salles voûtées de l'abbaye offrent une acoustique exceptionnelle et une ambiance médiévale unique pour vos soirées de gala."
+      },
+      {
+        question: "Quelles activités team-building proposez-vous ?",
+        answer: "Nous proposons des activités variées tirant parti du cadre exceptionnel : olympiades dans le parc, promenades en barque sur l'étang, escape game dans les ruines de l'abbaye, parcours d'orientation en forêt, ateliers œnologie, et activités sportives. Un programme sur-mesure peut être élaboré avec nos partenaires."
+      },
+      {
+        question: "À quelle distance de Paris se situe l'abbaye ?",
+        answer: "L'abbaye est située à environ 40 kilomètres au sud-ouest de Paris dans les Yvelines (78), soit environ 45 minutes en voiture. Un service de navettes privées peut être organisé depuis Paris ou les gares RER pour faciliter l'accès de vos participants."
       }
     ],
   },

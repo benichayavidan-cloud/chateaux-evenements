@@ -432,7 +432,7 @@ export default function ChateauPage() {
 
           <div className="section-container relative z-10">
             {/* Titre avec ornement */}
-            <div className="text-center mb-16">
+            <div className="text-center mb-20">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -516,7 +516,7 @@ export default function ChateauPage() {
             </div>
 
             {/* Accordion FAQ Premium */}
-            <div className="max-w-4xl mx-auto space-y-5">
+            <div className="max-w-4xl mx-auto space-y-8 px-4">
               {chateau.faq.map((item, index) => {
                 const isOpen = openFaqIndex === index;
 
@@ -540,6 +540,7 @@ export default function ChateauPage() {
                           ? `0 8px 32px ${colors.bronze}15, 0 2px 8px ${colors.bronze}08`
                           : '0 2px 8px rgba(0, 0, 0, 0.04)',
                         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                        padding: '4px',
                       }}
                       className="hover:shadow-xl"
                     >
@@ -549,7 +550,7 @@ export default function ChateauPage() {
                         className="w-full text-left p-6 md:p-8"
                         style={{
                           display: 'flex',
-                          alignItems: 'flex-start',
+                          alignItems: 'center',
                           gap: '24px',
                         }}
                       >
@@ -710,10 +711,10 @@ export default function ChateauPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-center mt-12"
+              className="text-center mt-16"
             >
               <div
-                className="inline-flex flex-col items-center gap-4 px-8 py-6 rounded-2xl"
+                className="inline-flex flex-col items-center gap-4 px-12 py-8 rounded-2xl"
                 style={{
                   background: `linear-gradient(135deg, ${colors.bronze}08, ${colors.gold}05)`,
                   border: `1px solid ${colors.bronze}20`,
@@ -724,6 +725,8 @@ export default function ChateauPage() {
                     fontSize: theme.typography.fontSize.lg,
                     color: theme.colors.text.primary,
                     fontWeight: theme.typography.fontWeight.medium,
+                    padding: '0 16px',
+                    textAlign: 'center',
                   }}
                 >
                   Une autre question ? Notre équipe est à votre écoute
