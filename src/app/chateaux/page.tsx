@@ -299,7 +299,7 @@ export default function ChateauxPage() {
                           {chateau.description}
                         </p>
 
-                        {/* Infos */}
+                        {/* Infos capacité */}
                         <div className="flex flex-wrap items-center gap-6" style={{ marginBottom: spacing.xl }}>
                           <div className="flex items-center gap-2">
                             <Users className="w-5 h-5" style={{ color: colors.gold }} />
@@ -307,9 +307,6 @@ export default function ChateauxPage() {
                               {chateau.capacite.min}-{chateau.capacite.max} personnes
                             </span>
                           </div>
-                          <Badge variant="glass" size="md">
-                            {chateau.styleArchitectural}
-                          </Badge>
                         </div>
 
                         {/* Boutons */}
@@ -413,7 +410,7 @@ export default function ChateauxPage() {
         />
 
         {/* Grille USP - Centrée */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-center justify-items-center">
           {[
             {
               icon: <Award className="w-8 h-8" />,
@@ -572,41 +569,34 @@ export default function ChateauxPage() {
                     {chateau.description}
                   </p>
 
-                  {/* Badges (Localisation + Capacité) */}
+                  {/* Badges (Localisation + Capacité) - Même hauteur */}
                   <div className="flex flex-wrap items-center gap-4 mb-8">
                     <Badge variant="outline" size="md" icon={<MapPin className="w-4 h-4" />}>
                       {chateau.region}
                     </Badge>
 
                     <div
-                      className="inline-flex items-center gap-3 rounded-xl"
+                      className="inline-flex items-center gap-3"
                       style={{
                         background: `${colors.bronze}10`,
-                        border: `1px solid ${colors.bronze}30`,
-                        padding: spacing.md,
+                        border: `2px solid ${colors.bronze}`,
+                        padding: spacing.lg,
+                        borderRadius: theme.effects.borderRadius.full,
+                        height: "fit-content",
                       }}
                     >
-                      <Users className="w-6 h-6" style={{ color: colors.bronze }} />
-                      <div>
-                        <div
-                          style={{
-                            fontSize: theme.typography.fontSize.xs,
-                            color: theme.colors.text.muted,
-                            textTransform: "uppercase",
-                            letterSpacing: theme.typography.letterSpacing.wider,
-                          }}
-                        >
-                          Capacité
-                        </div>
-                        <div
-                          style={{
-                            fontSize: theme.typography.fontSize.xl,
-                            fontWeight: theme.typography.fontWeight.bold,
-                            color: colors.bronze,
-                          }}
-                        >
-                          {chateau.capacite.min}-{chateau.capacite.max} personnes
-                        </div>
+                      <Users className="w-5 h-5" style={{ color: colors.bronze }} />
+                      <div
+                        style={{
+                          fontSize: theme.typography.fontSize.xs,
+                          color: colors.bronze,
+                          textTransform: "uppercase",
+                          letterSpacing: theme.typography.letterSpacing.wider,
+                          fontWeight: theme.typography.fontWeight.medium,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {chateau.capacite.min}-{chateau.capacite.max} personnes
                       </div>
                     </div>
                   </div>
@@ -698,7 +688,7 @@ export default function ChateauxPage() {
       {/* SECTION 4: CTA FINALE - CENTRAGE TOTAL */}
       {/* ============================================ */}
       <section
-        className="py-24 md:py-32 relative overflow-hidden flex items-center justify-center"
+        className="py-20 md:py-28 relative overflow-hidden flex items-center justify-center"
         style={{
           background: `linear-gradient(135deg, ${colors.bronze} 0%, ${colors.bronzeDark} 100%)`,
         }}
@@ -775,12 +765,13 @@ export default function ChateauxPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full"
+                  className="flex items-center gap-2 rounded-full"
                   style={{
                     background: theme.colors.overlay.white20,
                     backdropFilter: `blur(${theme.effects.blur.sm})`,
                     border: `1px solid ${theme.colors.overlay.white30}`,
                     color: theme.colors.neutral.white,
+                    padding: spacing.lg,
                   }}
                 >
                   <div style={{ width: "16px", height: "16px" }}>
