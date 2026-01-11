@@ -67,14 +67,14 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Contenu à gauche avec badge au-dessus */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start" style={{ paddingLeft: '20px' }}>
+      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start" style={{ paddingLeft: 'clamp(1rem, 3vw, 1.5rem)' }}>
         {/* Badge lieu au-dessus du conteneur */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="flex justify-center w-full"
-          style={{ maxWidth: '100%', marginBottom: '20px' }}
+          style={{ maxWidth: '100%', marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)' }}
         >
           <Badge variant="glass" size="md">
             <div
@@ -114,7 +114,7 @@ export function HeroSection() {
             background: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(12px)',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            padding: '20px 16px',
+            padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 2.5vw, 1.25rem)',
           }}
         >
           {/* Titre principal */}

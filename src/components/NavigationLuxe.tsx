@@ -66,9 +66,9 @@ export function NavigationLuxe() {
         backdropFilter: `blur(${theme.effects.blur.sm})`
       }}
     >
-      {/* Container avec grille 3 colonnes égales sur toute la largeur */}
+      {/* Container avec grille responsive */}
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="h-16 w-full" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', alignItems: 'center', gap: 0 }}>
+        <div className="h-16 w-full grid grid-cols-3 items-center gap-3 sm:gap-4 md:gap-0">
 
           {/* Colonne 1 : Logo centré */}
           <div className="flex items-center justify-center">
@@ -79,7 +79,7 @@ export function NavigationLuxe() {
                 className="flex items-center gap-2"
               >
                 <span style={{
-                  fontSize: theme.typography.fontSize.xl,
+                  fontSize: 'clamp(1.125rem, 3vw, 1.25rem)',
                   fontWeight: theme.typography.fontWeight.medium,
                   color: colors.black,
                   fontFamily: theme.typography.fonts.heading
@@ -87,7 +87,7 @@ export function NavigationLuxe() {
                   Select
                 </span>
                 <span style={{
-                  fontSize: theme.typography.fontSize.xl,
+                  fontSize: 'clamp(1.125rem, 3vw, 1.25rem)',
                   fontWeight: theme.typography.fontWeight.light,
                   fontStyle: "italic",
                   color: colors.gold,
@@ -473,7 +473,12 @@ export function NavigationLuxe() {
               className="md:hidden"
               aria-label="Toggle menu"
               style={{
-                padding: spacing.sm,
+                padding: '10px',
+                minWidth: '44px',
+                minHeight: '44px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 color: theme.colors.neutral.gray900,
                 transition: `colors ${theme.effects.transitions.smooth}`
               }}

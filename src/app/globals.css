@@ -628,3 +628,73 @@ section {
 .gap-md { gap: var(--gap-md); }
 .gap-lg { gap: var(--gap-lg); }
 .gap-3xl { gap: var(--gap-3xl); }
+
+/* ============================================
+   MOBILE TOUCH TARGETS & ACCESSIBILITY
+   ============================================ */
+
+/* Ensure all interactive elements meet iOS/Android touch guidelines */
+@media (max-width: 767px) {
+  /* Touch targets - minimum 44x44px */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"],
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Buttons with text padding adjustment */
+  button:not(.icon-only),
+  .btn-primary,
+  .btn-secondary {
+    padding: clamp(10px, 2.5vw, 14px) clamp(16px, 4vw, 24px);
+  }
+
+  /* Form inputs - minimum 16px to prevent iOS zoom */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+
+  /* Grid cards - ensure proper stacking on mobile */
+  .grid-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  /* Reduce hero height on very small devices */
+  .hero-section {
+    min-height: 60vh;
+  }
+}
+
+/* Extra small devices (< 375px) */
+@media (max-width: 374px) {
+  :root {
+    --container-padding: 16px;
+    --section-padding-sm: 20px;
+    --section-padding-md: 40px;
+    --section-padding-lg: 50px;
+  }
+
+  .section-container {
+    padding: 6px;
+  }
+
+  /* Even smaller text on tiny screens */
+  .heading-display {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  .heading-xl {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  /* Reduce grid gaps */
+  .grid-cards {
+    gap: var(--space-xl);
+  }
+}

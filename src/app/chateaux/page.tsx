@@ -82,7 +82,7 @@ const SectionWrapper = ({
 }) => (
   <section
     className={`flex items-center justify-center ${className}`}
-    style={{ background: bg, paddingTop: '25px', paddingBottom: '25px' }}
+    style={{ background: bg, paddingTop: 'clamp(1rem, 3vw, 2rem)', paddingBottom: 'clamp(1rem, 3vw, 2rem)' }}
   >
     <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 w-full">
       {children}
@@ -268,14 +268,14 @@ export default function ChateauxPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
 
                 {/* Contenu à gauche avec badge au-dessus */}
-                <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: '48px' }}>
+                <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: 'clamp(1rem, 5vw, 3rem)' }}>
                   {/* Badge lieu au-dessus du conteneur */}
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.8 }}
                     className="flex justify-center"
-                    style={{ maxWidth: '480px', width: '100%', marginBottom: '20px' }}
+                    style={{ maxWidth: '480px', width: '100%', marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)' }}
                   >
                     <Badge variant="glass" size="md">
                       <div
@@ -316,7 +316,7 @@ export default function ChateauxPage() {
                       background: 'rgba(255, 255, 255, 0.85)',
                       backdropFilter: 'blur(12px)',
                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                      padding: '24px 20px',
+                      padding: 'clamp(1rem, 3.5vw, 1.75rem) clamp(1rem, 2.5vw, 1.5rem)',
                     }}
                   >
                     {/* Titre */}
@@ -725,7 +725,7 @@ export default function ChateauxPage() {
         <div className="w-full relative z-10 flex items-center justify-center">
           <div
             className="flex flex-col items-center justify-center w-full"
-            style={{ maxWidth: '1280px', padding: '0 24px' }}
+            style={{ maxWidth: '1280px', padding: '0 clamp(1rem, 3vw, 1.5rem)' }}
           >
             {/* Icône */}
             <motion.div

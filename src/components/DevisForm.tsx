@@ -472,10 +472,8 @@ export function DevisForm() {
                 Quel type d'événement souhaitez-vous organiser ?
               </h3>
 
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "16px"
+              <div className="grid gap-4" style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 160px), 1fr))"
               }}>
                 {eventTypes.map((type) => {
                   const Icon = type.icon;
@@ -606,11 +604,7 @@ export function DevisForm() {
                   <Clock style={{ width: "16px", height: "16px", color: "#1f2937" }} />
                   Durée de l'événement *
                 </label>
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(3, 1fr)",
-                  gap: "16px"
-                }}>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {dureeOptions.map((option) => {
                     const isSelected = watchedValues.duree === option.value;
                     return (
@@ -673,10 +667,8 @@ export function DevisForm() {
                 Vous pouvez sélectionner plusieurs châteaux pour comparer les offres
               </p>
 
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-                gap: "16px"
+              <div className="grid gap-4" style={{
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))"
               }}>
                 {chateaux.map((chateau) => {
                   const isSelected = watchedValues.chateauIds?.includes(chateau.id);
@@ -820,11 +812,7 @@ export function DevisForm() {
                 Vos coordonnées et détails
               </h3>
 
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                gap: "24px"
-              }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Entreprise */}
                 <div>
                   <label style={{
@@ -1217,7 +1205,7 @@ export function DevisForm() {
                       padding: "12px 16px",
                       border: "2px solid #e5e7eb",
                       borderRadius: "12px",
-                      fontSize: "14px",
+                      fontSize: "16px",
                       color: "#1f2937"
                     }}
                   />

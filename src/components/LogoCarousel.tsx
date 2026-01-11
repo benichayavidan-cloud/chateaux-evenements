@@ -40,16 +40,18 @@ export function LogoCarousel() {
       <div className="relative">
         {/* Gradient gauche */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
+          className="absolute left-0 top-0 bottom-0 z-10 pointer-events-none"
           style={{
+            width: 'clamp(4rem, 15vw, 12rem)',
             background: `linear-gradient(to right, ${theme.colors.neutral.white}, transparent)`,
           }}
         />
 
         {/* Gradient droite */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-32 md:w-48 z-10 pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
           style={{
+            width: 'clamp(4rem, 15vw, 12rem)',
             background: `linear-gradient(to left, ${theme.colors.neutral.white}, transparent)`,
           }}
         />

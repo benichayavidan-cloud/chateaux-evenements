@@ -18,8 +18,8 @@ export function FooterLuxe() {
       <div style={{ height: '8px', background: 'white' }} />
 
       <footer className="relative bg-gradient-to-b from-gray-100 via-gray-50 to-white" style={{
-        paddingTop: '50px',
-        paddingBottom: '40px',
+        paddingTop: 'clamp(2rem, 6vw, 3.125rem)',
+        paddingBottom: 'clamp(1.5rem, 5vw, 2.5rem)',
         borderTop: `1px solid ${theme.colors.neutral.gray200}`
       }}>
       {/* Glow effect top */}

@@ -134,7 +134,7 @@ export default function TeamBuildingPage() {
       <div
         style={{
           background: 'white',
-          padding: '40px 24px'
+          padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem)'
         }}
       >
         <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
@@ -185,7 +185,7 @@ export default function TeamBuildingPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '80px 24px'
+          padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 3vw, 1.5rem)'
         }}
       >
         <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
@@ -340,7 +340,7 @@ export default function TeamBuildingPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '80px 24px'
+          padding: 'clamp(3rem, 8vw, 5rem) clamp(1rem, 3vw, 1.5rem)'
         }}
       >
         <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
@@ -448,7 +448,7 @@ export default function TeamBuildingPage() {
       <div
         style={{
           background: '#f9fafb',
-          padding: '40px 24px',
+          padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem)',
           overflow: 'hidden'
         }}
       >
@@ -556,7 +556,7 @@ export default function TeamBuildingPage() {
         style={{
           position: 'relative',
           background: 'white',
-          padding: '40px 24px',
+          padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem)',
           overflow: 'hidden'
         }}
       >

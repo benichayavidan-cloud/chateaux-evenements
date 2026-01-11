@@ -224,7 +224,7 @@ export default function EvenementsPage() {
       </div>
 
       {/* CTA Final */}
-      <div className="section-white section-padding-sm" style={{ paddingBottom: '80px' }}>
+      <div className="section-white section-padding-sm" style={{ paddingBottom: 'clamp(3rem, 8vw, 5rem)' }}>
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

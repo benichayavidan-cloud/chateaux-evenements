@@ -88,7 +88,7 @@ export function ChateauxSection() {
                 className="group block relative overflow-hidden"
               >
                 {/* Image avec effet grayscale → couleur */}
-                <div className="relative overflow-hidden" style={{ height: theme.dimensions.height.imageCardLg }}>
+                <div className="relative overflow-hidden" style={{ height: 'clamp(20rem, 40vw, 28rem)' }}>
                   <Image
                     src={chateau.images.card}
                     alt={chateau.nom}

@@ -177,7 +177,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="bg-gray-50 border-2 border-gray-200 rounded-3xl shadow-xl mx-auto w-full"
-              style={{ padding: '24px' }}
+              style={{ padding: 'clamp(1rem, 3vw, 1.5rem)' }}
             >
               <form>
                 {/* Ligne 1: Prénom + Nom */}
@@ -190,7 +190,7 @@ export default function ContactPage() {
                       type="text"
                       required
                       className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '8px 12px', fontSize: '14px' }}
+                      style={{ padding: '10px 14px', fontSize: '16px' }}
                       placeholder="Votre prénom"
                     />
                   </div>
@@ -203,7 +203,7 @@ export default function ContactPage() {
                       type="text"
                       required
                       className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '8px 12px', fontSize: '14px' }}
+                      style={{ padding: '10px 14px', fontSize: '16px' }}
                       placeholder="Votre nom"
                     />
                   </div>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                       type="email"
                       required
                       className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '8px 12px', fontSize: '14px' }}
+                      style={{ padding: '10px 14px', fontSize: '16px' }}
                       placeholder="votre.email@entreprise.com"
                     />
                   </div>
@@ -231,7 +231,7 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                      style={{ padding: '8px 12px', fontSize: '14px' }}
+                      style={{ padding: '10px 14px', fontSize: '16px' }}
                       placeholder="+33 6 12 34 56 78"
                     />
                   </div>
@@ -245,7 +245,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '8px 12px', fontSize: '14px' }}
+                    style={{ padding: '10px 14px', fontSize: '16px' }}
                     placeholder="Nom de votre entreprise"
                   />
                 </div>
@@ -259,7 +259,7 @@ export default function ContactPage() {
                     required
                     rows={3}
                     className="w-full bg-white border-2 border-gray-300 rounded-xl focus:border-[var(--bronze-antique)] focus:outline-none resize-vertical text-gray-900 placeholder:text-gray-400 transition-all duration-300"
-                    style={{ padding: '8px 12px', fontSize: '14px', minHeight: '80px' }}
+                    style={{ padding: '10px 14px', fontSize: '16px', minHeight: '80px' }}
                     placeholder="Décrivez-nous votre projet..."
                   />
                 </div>
@@ -267,7 +267,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   className="w-full bg-[var(--bronze-antique)] text-white font-semibold rounded-full hover:bg-[var(--bronze-light)] transition-all duration-300 shadow-lg hover:shadow-xl group flex items-center justify-center gap-3"
-                  style={{ padding: '10px 20px', marginTop: '16px' }}
+                  style={{ padding: 'clamp(10px, 2vw, 14px) clamp(18px, 3vw, 24px)', marginTop: '16px' }}
                 >
                   <span>Envoyer le message</span>
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
