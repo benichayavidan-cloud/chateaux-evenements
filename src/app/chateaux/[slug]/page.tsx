@@ -3,8 +3,9 @@
 import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, Home, HelpCircle } from "lucide-react";
+import { ChevronRight, Home, HelpCircle, Plus, Minus } from "lucide-react";
 import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, Users, Check, Sparkles, Calendar, Award } from "lucide-react";
 import { chateaux as chateauxData } from "@/data/chateaux";
@@ -413,69 +414,330 @@ export default function ChateauPage() {
           </div>
         </div>
 
-        {/* Section FAQ */}
-        <div className="section-white section-padding-sm">
-          <div className="section-container">
-            {/* Titre centré */}
-            <div className="text-center mb-12">
+        {/* Section FAQ - Design Premium */}
+        <div
+          className="relative section-padding-sm overflow-hidden"
+          style={{
+            background: 'linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%)',
+          }}
+        >
+          {/* Pattern décoratif subtil */}
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, ${colors.bronze} 1px, transparent 0)`,
+              backgroundSize: '40px 40px',
+            }}
+          />
+
+          <div className="section-container relative z-10">
+            {/* Titre avec ornement */}
+            <div className="text-center mb-16">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="flex flex-col items-center gap-3 mb-4"
+                className="flex flex-col items-center"
               >
-                <HelpCircle className="w-6 h-6 text-[var(--bronze-antique)]" />
-                <h2 className="heading-lg">
-                  Questions Fréquentes
+                {/* Badge supérieur */}
+                <div
+                  className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full"
+                  style={{
+                    background: `linear-gradient(135deg, ${colors.bronze}15, ${colors.gold}10)`,
+                    border: `1px solid ${colors.bronze}30`,
+                  }}
+                >
+                  <HelpCircle
+                    className="w-4 h-4"
+                    style={{ color: colors.bronze }}
+                  />
+                  <span
+                    style={{
+                      fontSize: theme.typography.fontSize.xs,
+                      fontWeight: theme.typography.fontWeight.semibold,
+                      textTransform: 'uppercase',
+                      letterSpacing: theme.typography.letterSpacing.wider,
+                      color: colors.bronze,
+                    }}
+                  >
+                    Questions & Réponses
+                  </span>
+                </div>
+
+                {/* Titre principal */}
+                <h2
+                  className="mb-4"
+                  style={{
+                    fontSize: 'clamp(2rem, 4vw, 3rem)',
+                    fontWeight: theme.typography.fontWeight.light,
+                    fontStyle: 'italic',
+                    fontFamily: theme.typography.fonts.heading,
+                    color: theme.colors.text.primary,
+                    lineHeight: theme.typography.lineHeight.tight,
+                  }}
+                >
+                  Tout ce que vous devez savoir
                 </h2>
-                <p className="text-body-xl text-gray-600 max-w-2xl">
-                  Tout ce que vous devez savoir sur ce château
+
+                {/* Ligne décorative */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div
+                    style={{
+                      width: '40px',
+                      height: '1px',
+                      background: `linear-gradient(to right, transparent, ${colors.bronze})`,
+                    }}
+                  />
+                  <Sparkles
+                    className="w-4 h-4"
+                    style={{ color: colors.bronze }}
+                  />
+                  <div
+                    style={{
+                      width: '40px',
+                      height: '1px',
+                      background: `linear-gradient(to left, transparent, ${colors.bronze})`,
+                    }}
+                  />
+                </div>
+
+                <p
+                  className="max-w-2xl"
+                  style={{
+                    fontSize: theme.typography.fontSize.lg,
+                    color: theme.colors.text.secondary,
+                    lineHeight: theme.typography.lineHeight.relaxed,
+                  }}
+                >
+                  Des réponses claires à vos questions essentielles sur ce lieu d'exception
                 </p>
               </motion.div>
             </div>
 
-            {/* Accordion FAQ */}
-            <div className="max-w-3xl mx-auto space-y-4">
-              {chateau.faq.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                    className="w-full text-left bg-white border border-gray-200 rounded-2xl p-6 hover:border-[var(--bronze-antique)] transition-all duration-300"
+            {/* Accordion FAQ Premium */}
+            <div className="max-w-4xl mx-auto space-y-5">
+              {chateau.faq.map((item, index) => {
+                const isOpen = openFaqIndex === index;
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.15 }}
+                    viewport={{ once: true }}
+                    className="group"
                   >
-                    <div className="flex justify-between items-center gap-4">
-                      <h3 className="text-lg font-semibold text-gray-900 flex-1">
-                        {item.question}
-                      </h3>
-                      <ChevronRight
-                        className={`w-5 h-5 text-[var(--bronze-antique)] transition-transform duration-300 flex-shrink-0 ${
-                          openFaqIndex === index ? 'rotate-90' : ''
-                        }`}
-                      />
-                    </div>
-                    {openFaqIndex === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 pt-4 border-t border-gray-100"
+                    <div
+                      style={{
+                        background: isOpen
+                          ? `linear-gradient(135deg, ${theme.colors.neutral.white} 0%, ${colors.bronze}05 100%)`
+                          : theme.colors.neutral.white,
+                        borderRadius: theme.effects.borderRadius['2xl'],
+                        border: `1px solid ${isOpen ? colors.bronze : theme.colors.neutral.gray200}`,
+                        boxShadow: isOpen
+                          ? `0 8px 32px ${colors.bronze}15, 0 2px 8px ${colors.bronze}08`
+                          : '0 2px 8px rgba(0, 0, 0, 0.04)',
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                      }}
+                      className="hover:shadow-xl"
+                    >
+                      {/* Button Question */}
+                      <button
+                        onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                        className="w-full text-left p-6 md:p-8"
+                        style={{
+                          display: 'flex',
+                          alignItems: 'flex-start',
+                          gap: '24px',
+                        }}
                       >
-                        <p className="text-gray-600 leading-relaxed">
-                          {item.answer}
-                        </p>
-                      </motion.div>
-                    )}
-                  </button>
-                </motion.div>
-              ))}
+                        {/* Numéro avec cercle décoratif */}
+                        <div className="flex-shrink-0 relative">
+                          <div
+                            style={{
+                              width: '48px',
+                              height: '48px',
+                              borderRadius: theme.effects.borderRadius.full,
+                              background: isOpen
+                                ? `linear-gradient(135deg, ${colors.bronze}, ${colors.bronzeDark})`
+                                : `${colors.bronze}10`,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              position: 'relative',
+                              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                              boxShadow: isOpen
+                                ? `0 4px 16px ${colors.bronze}40`
+                                : 'none',
+                            }}
+                            className="group-hover:scale-110"
+                          >
+                            <span
+                              style={{
+                                fontSize: theme.typography.fontSize.lg,
+                                fontWeight: theme.typography.fontWeight.bold,
+                                color: isOpen ? theme.colors.neutral.white : colors.bronze,
+                                fontFamily: theme.typography.fonts.heading,
+                                transition: 'color 0.4s ease',
+                              }}
+                            >
+                              {String(index + 1).padStart(2, '0')}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Question */}
+                        <div className="flex-1 min-w-0">
+                          <h3
+                            style={{
+                              fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                              fontWeight: theme.typography.fontWeight.semibold,
+                              color: theme.colors.text.primary,
+                              lineHeight: theme.typography.lineHeight.snug,
+                              marginBottom: spacing.xs,
+                              transition: 'color 0.3s ease',
+                            }}
+                            className="group-hover:text-[var(--bronze-antique)]"
+                          >
+                            {item.question}
+                          </h3>
+
+                          {!isOpen && (
+                            <p
+                              style={{
+                                fontSize: theme.typography.fontSize.sm,
+                                color: colors.bronze,
+                                fontWeight: theme.typography.fontWeight.medium,
+                              }}
+                            >
+                              Cliquez pour voir la réponse
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Icon Toggle */}
+                        <div className="flex-shrink-0">
+                          <div
+                            style={{
+                              width: '40px',
+                              height: '40px',
+                              borderRadius: theme.effects.borderRadius.full,
+                              background: isOpen
+                                ? `${colors.bronze}15`
+                                : `${theme.colors.neutral.gray200}80`,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                            }}
+                            className="group-hover:bg-[var(--bronze-antique)] group-hover:bg-opacity-20"
+                          >
+                            {isOpen ? (
+                              <Minus
+                                className="w-5 h-5 transition-all duration-400"
+                                style={{ color: colors.bronze }}
+                              />
+                            ) : (
+                              <Plus
+                                className="w-5 h-5 transition-all duration-400"
+                                style={{ color: isOpen ? colors.bronze : theme.colors.neutral.gray600 }}
+                              />
+                            )}
+                          </div>
+                        </div>
+                      </button>
+
+                      {/* Answer avec AnimatePresence */}
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{
+                              height: 'auto',
+                              opacity: 1,
+                              transition: {
+                                height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+                                opacity: { duration: 0.3, delay: 0.1 }
+                              }
+                            }}
+                            exit={{
+                              height: 0,
+                              opacity: 0,
+                              transition: {
+                                height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+                                opacity: { duration: 0.2 }
+                              }
+                            }}
+                            style={{ overflow: 'hidden' }}
+                          >
+                            <div
+                              className="px-6 md:px-8 pb-6 md:pb-8"
+                              style={{
+                                paddingLeft: 'calc(24px + 48px + 24px)', // Align with question text
+                              }}
+                            >
+                              <div
+                                style={{
+                                  paddingTop: spacing.lg,
+                                  borderTop: `1px solid ${colors.bronze}20`,
+                                }}
+                              >
+                                <p
+                                  style={{
+                                    fontSize: theme.typography.fontSize.base,
+                                    color: theme.colors.text.secondary,
+                                    lineHeight: theme.typography.lineHeight.relaxed,
+                                  }}
+                                >
+                                  {item.answer}
+                                </p>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
+
+            {/* CTA Contact en bas de FAQ */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-center mt-12"
+            >
+              <div
+                className="inline-flex flex-col items-center gap-4 px-8 py-6 rounded-2xl"
+                style={{
+                  background: `linear-gradient(135deg, ${colors.bronze}08, ${colors.gold}05)`,
+                  border: `1px solid ${colors.bronze}20`,
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: theme.typography.fontSize.lg,
+                    color: theme.colors.text.primary,
+                    fontWeight: theme.typography.fontWeight.medium,
+                  }}
+                >
+                  Une autre question ? Notre équipe est à votre écoute
+                </p>
+                <Button
+                  href="/contact"
+                  variant="primary"
+                  size="md"
+                  icon={<HelpCircle className="w-5 h-5" />}
+                >
+                  Nous Contacter
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </div>
 
