@@ -716,7 +716,7 @@ export default function ChateauPage() {
                 style={{
                   background: `linear-gradient(135deg, ${colors.bronze}08, ${colors.gold}05)`,
                   border: `1px solid ${colors.bronze}20`,
-                  padding: '48px 64px',
+                  padding: '10px',
                 }}
               >
                 <p
