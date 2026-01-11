@@ -72,10 +72,10 @@ const SectionWrapper = ({
   className?: string;
 }) => (
   <section
-    className={`py-20 md:py-28 ${className}`}
+    className={`py-20 md:py-28 flex items-center justify-center ${className}`}
     style={{ background: bg }}
   >
-    <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+    <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 w-full">
       {children}
     </div>
   </section>
@@ -245,7 +245,7 @@ export default function ChateauxPage() {
                 {/* Contenu */}
                 <div className="relative h-full flex items-center">
                   <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
-                    <div className="max-w-3xl" style={{ paddingBottom: spacing["4xl"] }}>
+                    <div className="max-w-3xl" style={{ paddingBottom: spacing["4xl"], paddingLeft: spacing["2xl"] }}>
                       <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -402,7 +402,7 @@ export default function ChateauxPage() {
         />
 
         {/* Grille USP - Centrée */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-center">
           {[
             {
               icon: <Award className="w-8 h-8" />,

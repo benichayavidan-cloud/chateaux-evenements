@@ -266,9 +266,9 @@ export const components = {
   // Boutons
   button: {
     padding: {
-      sm: "12px 24px",
-      md: "16px 32px",
-      lg: "18px 40px",
+      sm: "16px",
+      md: "20px",
+      lg: "24px",
     },
     height: {
       sm: "40px",
@@ -280,9 +280,9 @@ export const components = {
   // Badges
   badge: {
     padding: {
-      sm: "8px 16px",
-      md: "10px 24px",
-      lg: "14px 28px",
+      sm: "12px",
+      md: "16px",
+      lg: "20px",
     },
   },
 
