@@ -519,7 +519,7 @@ export default function ChateauPage() {
             </div>
 
             {/* Accordion FAQ Premium */}
-            <div className="max-w-4xl mx-auto px-6">
+            <div className="w-full max-w-4xl px-6">
               {chateau.faq.map((item, index) => {
                 const isOpen = openFaqIndex === index;
 
@@ -531,7 +531,9 @@ export default function ChateauPage() {
                     transition={{ duration: 0.5, delay: index * 0.15 }}
                     viewport={{ once: true }}
                     className="group w-full"
-                    style={{ marginBottom: index < chateau.faq.length - 1 ? '48px' : '0' }}
+                    style={{
+                      marginBottom: index < chateau.faq.length - 1 ? '48px' : '64px'
+                    }}
                   >
                     <div
                       style={{
