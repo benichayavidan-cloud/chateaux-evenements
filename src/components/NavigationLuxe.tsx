@@ -470,15 +470,12 @@ export function NavigationLuxe() {
             {/* Mobile : Bouton menu */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden"
+              className="md:hidden flex items-center justify-center"
               aria-label="Toggle menu"
               style={{
                 padding: '12px',
                 minWidth: '44px',
                 minHeight: '44px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
                 color: theme.colors.neutral.gray900,
                 transition: `colors ${theme.effects.transitions.smooth}`
               }}
