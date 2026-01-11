@@ -46,15 +46,12 @@ const SECTION_STYLES = {
       fontStyle: "italic",
       color: theme.colors.text.primary,
       fontFamily: theme.typography.fonts.heading,
-      textAlign: 'center' as const
     },
     subtitle: {
       fontSize: theme.typography.fontSize.xl,
       color: theme.colors.text.secondary,
       lineHeight: theme.typography.lineHeight.relaxed,
-      textAlign: 'center' as const,
       maxWidth: '800px',
-      margin: '0 auto'
     }
   }
 };
@@ -82,7 +79,7 @@ const SectionWrapper = ({
 );
 
 // ============================================
-// COMPOSANT: Section Header (Titre + Sous-titre)
+// COMPOSANT: Section Header (Titre + Sous-titre) - CENTRÉ
 // ============================================
 const SectionHeader = ({
   title,
@@ -93,28 +90,41 @@ const SectionHeader = ({
   subtitle?: string;
   icon?: React.ReactNode;
 }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-    className="mb-16 max-w-4xl mx-auto w-full"
-    style={{ textAlign: 'center' }}
-  >
-    {icon && (
-      <div className="flex items-center justify-center gap-3 mb-4">
-        {icon}
-      </div>
-    )}
-    <h2 style={{ ...SECTION_STYLES.typography.title, textAlign: 'center', width: '100%' }}>
-      {title}
-    </h2>
-    {subtitle && (
-      <p style={{ ...SECTION_STYLES.typography.subtitle, textAlign: 'center', width: '100%' }} className="mt-6">
-        {subtitle}
-      </p>
-    )}
-  </motion.div>
+  <div className="flex flex-col items-center justify-center mb-16 w-full">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="flex flex-col items-center justify-center max-w-4xl w-full"
+    >
+      {icon && (
+        <div className="flex items-center justify-center gap-3 mb-4">
+          {icon}
+        </div>
+      )}
+      <h2
+        className="text-center w-full"
+        style={{
+          ...SECTION_STYLES.typography.title,
+          marginBottom: subtitle ? spacing.lg : 0
+        }}
+      >
+        {title}
+      </h2>
+      {subtitle && (
+        <p
+          className="text-center w-full"
+          style={{
+            ...SECTION_STYLES.typography.subtitle,
+            marginTop: spacing.lg
+          }}
+        >
+          {subtitle}
+        </p>
+      )}
+    </motion.div>
+  </div>
 );
 
 // ============================================
@@ -685,10 +695,10 @@ export default function ChateauxPage() {
       </SectionWrapper>
 
       {/* ============================================ */}
-      {/* SECTION 4: CTA FINALE */}
+      {/* SECTION 4: CTA FINALE - CENTRAGE TOTAL */}
       {/* ============================================ */}
       <section
-        className="py-24 md:py-32 relative overflow-hidden"
+        className="py-24 md:py-32 relative overflow-hidden flex items-center justify-center"
         style={{
           background: `linear-gradient(135deg, ${colors.bronze} 0%, ${colors.bronzeDark} 100%)`,
         }}
@@ -709,21 +719,21 @@ export default function ChateauxPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center"
+            className="flex flex-col items-center justify-center max-w-4xl mx-auto w-full"
           >
             {/* Icône */}
             <Sparkles
-              className="mx-auto"
+              className="mb-6"
               style={{
                 width: "56px",
                 height: "56px",
                 color: theme.colors.neutral.white,
-                marginBottom: spacing["2xl"]
               }}
             />
 
             {/* Titre */}
             <h2
+              className="text-center w-full"
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: theme.typography.fontWeight.light,
@@ -732,9 +742,6 @@ export default function ChateauxPage() {
                 fontFamily: theme.typography.fonts.heading,
                 lineHeight: theme.typography.lineHeight.tight,
                 marginBottom: spacing["2xl"],
-                textAlign: 'center',
-                width: '100%',
-                display: 'block'
               }}
             >
               Prêt à Organiser Votre Événement ?
@@ -742,15 +749,13 @@ export default function ChateauxPage() {
 
             {/* Sous-titre */}
             <p
+              className="text-center"
               style={{
                 fontSize: theme.typography.fontSize.xl,
                 color: theme.colors.overlay.white90,
                 lineHeight: theme.typography.lineHeight.relaxed,
                 maxWidth: "700px",
-                margin: `0 auto ${spacing["3xl"]}`,
-                textAlign: 'center',
-                width: '100%',
-                display: 'block'
+                marginBottom: spacing["3xl"],
               }}
             >
               Nos experts vous accompagnent gratuitement dans le choix du château idéal.
@@ -759,7 +764,7 @@ export default function ChateauxPage() {
 
             {/* Badges USP */}
             <div
-              className="flex flex-wrap items-center justify-center gap-4"
+              className="flex flex-wrap items-center justify-center gap-4 w-full"
               style={{ marginBottom: spacing["3xl"] }}
             >
               {[
@@ -792,7 +797,7 @@ export default function ChateauxPage() {
 
             {/* Boutons CTA */}
             <div
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
               style={{ marginBottom: spacing["2xl"] }}
             >
               <Button
@@ -819,11 +824,11 @@ export default function ChateauxPage() {
 
             {/* Note d'urgence */}
             <p
+              className="text-center w-full"
               style={{
                 fontSize: theme.typography.fontSize.sm,
                 color: theme.colors.overlay.white70,
                 marginTop: spacing["2xl"],
-                textAlign: 'center'
               }}
             >
               ⚡ Places limitées : Réservez dès maintenant pour garantir vos dates
