@@ -7,7 +7,8 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const chateau = chateauxData.find((c) => c.slug === params.slug);
+  const { slug } = await params;
+  const chateau = chateauxData.find((c) => c.slug === slug);
 
   if (!chateau) {
     return {
