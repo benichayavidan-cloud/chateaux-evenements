@@ -712,10 +712,11 @@ export default function ChateauPage() {
               className="text-center mt-20"
             >
               <div
-                className="inline-flex flex-col items-center gap-4 px-12 py-8 rounded-2xl"
+                className="inline-flex flex-col items-center gap-6 rounded-2xl"
                 style={{
                   background: `linear-gradient(135deg, ${colors.bronze}08, ${colors.gold}05)`,
                   border: `1px solid ${colors.bronze}20`,
+                  padding: '48px 64px',
                 }}
               >
                 <p
@@ -723,7 +724,6 @@ export default function ChateauPage() {
                     fontSize: theme.typography.fontSize.lg,
                     color: theme.colors.text.primary,
                     fontWeight: theme.typography.fontWeight.medium,
-                    padding: '0 16px',
                     textAlign: 'center',
                   }}
                 >
