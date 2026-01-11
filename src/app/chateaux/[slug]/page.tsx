@@ -432,9 +432,9 @@ export default function ChateauPage() {
             }}
           />
 
-          <div className="w-full relative z-10">
+          <div className="w-full relative z-10 flex flex-col items-center">
             {/* Titre avec ornement */}
-            <div className="text-center mb-24">
+            <div className="text-center mb-24 w-full">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
