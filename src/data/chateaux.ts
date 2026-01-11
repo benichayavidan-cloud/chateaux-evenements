@@ -3,20 +3,20 @@ import { Chateau, TypeEvenement, Testimonial, ChiffreCle } from "@/types";
 export const chateaux: Chateau[] = [
   {
     id: "1",
-    nom: "Le Domaine des Grands Bois de Chantilly",
+    nom: "Le Manoir Anglo-Normand & Son Parc (Chantilly)",
     region: "Oise (60)",
     capacite: {
       min: 50,
-      max: 200,
+      max: 280,
     },
-    styleArchitectural: "Château contemporain de luxe",
+    styleArchitectural: "Manoir style anglo-normand",
     description:
-      "Niché dans un écrin de verdure aux portes de Chantilly, le Domaine des Grands Bois incarne l'excellence à la française. Ses espaces élégants et son parc forestier offrent un cadre majestueux pour vos événements d'entreprise les plus prestigieux.",
+      "Le plus vaste Château-Hôtel de la région. Un manoir style anglo-normand niché au cœur d'une forêt privée, à 35 min de Paris. Idéal pour les grands groupes avec amphithéâtre et spa.",
     atouts: [
-      "Salles de réception spacieuses et lumineuses",
-      "Parc boisé de plusieurs hectares",
-      "Proximité immédiate de Paris (30 minutes)",
-      "Équipements audiovisuels de dernière génération",
+      "Capacité 280 pers",
+      "100+ Chambres",
+      "Piscine & Spa",
+      "Amphithéâtre et équipements audiovisuels",
     ],
     images: [
       "/images/chateaux/chantilly/domaine-grands-bois-chantilly-facade-principale-evenement-entreprise-oise-60.png",
@@ -29,20 +29,20 @@ export const chateaux: Chateau[] = [
   },
   {
     id: "2",
-    nom: "Le Domaine des Hauts de Seine",
+    nom: "Le Refuge Historique Suspendu (Portes de Paris)",
     region: "Hauts-de-Seine (92)",
     capacite: {
       min: 80,
       max: 180,
     },
-    styleArchitectural: "Domaine MGallery de prestige",
+    styleArchitectural: "Bâtisse du XVIIe siècle en hôtel 5 étoiles",
     description:
-      "Au cœur des Hauts-de-Seine, le Domaine des Hauts de Seine allie élégance contemporaine et raffinement à la française. Son architecture remarquable et ses infrastructures modernes créent une atmosphère unique pour vos séminaires résidentiels.",
+      "Un secret gardé aux portes de Paris (92). Bâtisse du XVIIe siècle en hôtel 5 étoiles, calme monacal et vue imprenable. Idéal pour CODIR stratégique accessible en métro.",
     atouts: [
-      "Situation privilégiée en proche banlieue parisienne",
-      "Collection MGallery garantissant un service d'excellence",
-      "Espaces modulables pour tous types d'événements",
-      "Suites de luxe avec prestations haut de gamme",
+      "Luxe 5 Étoiles",
+      "Jardin Suspendu",
+      "Gastronomie",
+      "Accessible en métro",
     ],
     images: [
       "/images/chateaux/hauts-de-seine/domaine-hauts-de-seine-mgallery-facade-evenement-entreprise-92.png",
@@ -55,20 +55,20 @@ export const chateaux: Chateau[] = [
   },
   {
     id: "3",
-    nom: "Le Monastère de la Vallée de Chevreuse",
+    nom: "L'Abbaye Millénaire & Son Étang (78)",
     region: "Yvelines (78)",
     capacite: {
       min: 60,
       max: 150,
     },
-    styleArchitectural: "Abbaye cistercienne du XIIe siècle",
+    styleArchitectural: "Abbaye cistercienne monumentale",
     description:
-      "Joyau de l'architecture cistercienne, le Monastère de la Vallée de Chevreuse conjugue l'authenticité médiévale avec le confort contemporain. Ses voûtes séculaires et son parc naturel offrent un cadre unique pour des événements corporate mémorables.",
+      "Déconnexion radicale en Vallée de Chevreuse. Une abbaye cistercienne monumentale, ruines romantiques et étang privé. Le lieu ultime pour l'effet 'Wow'.",
     atouts: [
-      "Site historique exceptionnel classé monument historique",
-      "Cadre naturel préservé au cœur du Parc Naturel",
-      "Atmosphère propice à la réflexion et à la sérénité",
-      "Espaces authentiques pour des événements d'exception",
+      "Site Classé",
+      "Salles Voûtées",
+      "Étang 70 hectares",
+      "Ruines romantiques",
     ],
     images: [
       "/images/chateaux/chevreuse/monastere-vallee-chevreuse-abbaye-facade-evenement-entreprise-78.png",
@@ -155,7 +155,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "TechVision France",
     poste: "Directrice des Ressources Humaines",
     contenu:
-      "Le Domaine des Grands Bois de Chantilly a transformé notre séminaire annuel en une expérience inoubliable. Le cadre exceptionnel et le service impeccable ont permis à nos équipes de se ressourcer et de renforcer leur cohésion. Un investissement qui en valait vraiment la peine.",
+      "Le Manoir Anglo-Normand & Son Parc (Chantilly) a transformé notre séminaire annuel en une expérience inoubliable. Le cadre exceptionnel et le service impeccable ont permis à nos équipes de se ressourcer et de renforcer leur cohésion. Un investissement qui en valait vraiment la peine.",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
@@ -165,7 +165,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "Groupe InnovBank",
     poste: "Directeur Général",
     contenu:
-      "Nous avons organisé notre convention annuelle au Domaine des Hauts de Seine. L'infrastructure moderne alliée au prestige des lieux a impressionné nos 180 collaborateurs. L'équipe sur place s'est montrée d'une réactivité remarquable.",
+      "Nous avons organisé notre convention annuelle au Refuge Historique Suspendu (Portes de Paris). L'infrastructure moderne alliée au prestige des lieux a impressionné nos 180 collaborateurs. L'équipe sur place s'est montrée d'une réactivité remarquable.",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
@@ -175,7 +175,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "Creative Solutions",
     poste: "Chef de Projet Événementiel",
     contenu:
-      "Le Domaine des Hauts de Seine offre un cadre magique pour nos événements clients. La qualité de la restauration et l'attention aux détails font toute la différence. Nos clients repartent toujours enchantés.",
+      "Le Refuge Historique Suspendu (Portes de Paris) offre un cadre magique pour nos événements clients. La qualité de la restauration et l'attention aux détails font toute la différence. Nos clients repartent toujours enchantés.",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
@@ -185,7 +185,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "Luxe Consulting Group",
     poste: "Associé Fondateur",
     contenu:
-      "Pour notre soirée de gala annuelle, nous cherchions un lieu qui reflète nos valeurs d'excellence. Le Monastère de la Vallée de Chevreuse a dépassé toutes nos attentes. L'authenticité médiévale combinée au luxe contemporain a créé une ambiance unique.",
+      "Pour notre soirée de gala annuelle, nous cherchions un lieu qui reflète nos valeurs d'excellence. L'Abbaye Millénaire & Son Étang (78) a dépassé toutes nos attentes. L'authenticité médiévale combinée au luxe contemporain a créé une ambiance unique.",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },

@@ -67,7 +67,7 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Contenu à gauche avec badge au-dessus */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start px-4 md:px-12 lg:px-16">
+      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start" style={{ paddingLeft: '20px' }}>
         {/* Badge lieu au-dessus du conteneur */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -132,9 +132,9 @@ export function HeroSection() {
               marginBottom: spacing.md,
             }}
           >
-            Transformez vos événements en{" "}
+            Séminaires & Châteaux Privés :{" "}
             <span style={{ color: colors.bronzeDark }}>
-              expériences d'exception
+              La Collection Confidentielle (Paris / Île-de-France)
             </span>
           </motion.h1>
 
@@ -151,8 +151,7 @@ export function HeroSection() {
               marginBottom: spacing.xl,
             }}
           >
-            Organisez vos séminaires, conventions et événements d'entreprise
-            dans nos 3 châteaux d'exception en France.
+            L'accès exclusif aux 3 domaines les plus convoités pour vos CODIR et événements d'entreprise. Chantilly · Vallée de Chevreuse · Portes de Paris.
           </motion.p>
 
           {/* Trust Badges Luxe - Stats Section */}

@@ -19,28 +19,51 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SelectChateaux.com - Événements d'Entreprise d'Exception",
+  title: "Select Châteaux | Lieux de Séminaire Luxe & Confidentiels (Paris / Île-de-France)",
   description:
-    "Organisez vos séminaires, conventions et événements d'entreprise dans nos 3 châteaux d'exception en France. Excellence, prestige et authenticité pour des moments inoubliables.",
+    "Accédez à notre collection privée de châteaux pour séminaires, CODIR et soirées d'entreprise. Lieux confidentiels dans le 60, 78 et 92. Vérifiez les disponibilités.",
   keywords: [
+    "séminaire chateau ile de france",
+    "location chateau seminaire",
+    "lieu événementiel confidentiel",
+    "organisation codir luxe",
+    "chateau chantilly seminaire",
+    "abbaye vaux de cernay seminaire",
     "château événement entreprise",
     "séminaire résidentiel",
-    "location château entreprise",
-    "événement corporate",
     "team building château",
   ],
-  authors: [{ name: "SelectChateaux.com" }],
+  authors: [{ name: "Select Châteaux" }],
   icons: {
     icon: '/icon.svg',
     shortcut: '/icon.svg',
     apple: '/apple-icon.png',
   },
+  metadataBase: new URL('https://www.selectchateaux.com'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: "SelectChateaux.com - Événements d'Entreprise d'Exception",
-    description:
-      "Organisez vos événements d'entreprise dans des châteaux d'exception",
     type: "website",
+    title: "Select Châteaux - La Collection Confidentielle",
+    description:
+      "3 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.",
+    url: "https://www.selectchateaux.com/",
+    siteName: "Select Châteaux",
     locale: "fr_FR",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Select Châteaux - Lieux de séminaire d'exception",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Select Châteaux | Lieux Secrets pour Séminaires",
+    description: "Découvrez nos domaines privés pour vos événements d'entreprise.",
   },
 };
 
@@ -49,8 +72,77 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.selectchateaux.com/#organization",
+        "name": "Select Châteaux",
+        "url": "https://www.selectchateaux.com/",
+        "logo": "https://www.selectchateaux.com/logo.png",
+        "description": "Agence spécialisée dans la location de lieux confidentiels et de châteaux pour séminaires d'entreprise en Île-de-France.",
+        "areaServed": "Île-de-France",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+33757991146",
+          "contactType": "sales",
+          "email": "seminaires@selectchateaux.com",
+          "availableLanguage": ["French", "English"]
+        }
+      },
+      {
+        "@type": "Service",
+        "name": "Organisation de Séminaires d'Entreprise",
+        "provider": {
+          "@id": "https://www.selectchateaux.com/#organization"
+        },
+        "areaServed": {
+          "@type": "State",
+          "name": "Île-de-France"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Lieux de Séminaire",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Le Domaine des Grands Bois de Chantilly",
+                "description": "Château-hôtel style anglo-normand pour grands séminaires avec spa et parc forestier."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Le Domaine des Hauts de Seine",
+                "description": "Refuge historique et jardin suspendu aux portes de Paris pour CODIR exclusif."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Le Monastère de la Vallée de Chevreuse",
+                "description": "Abbaye cistercienne et étang privé pour événements grandioses."
+              }
+            }
+          ]
+        }
+      }
+    ]
+  };
+
   return (
     <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <NavigationLuxe />
         <main className="min-h-screen">{children}</main>

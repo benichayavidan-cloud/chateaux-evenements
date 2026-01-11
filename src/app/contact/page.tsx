@@ -102,10 +102,10 @@ export default function ContactPage() {
                       Téléphone
                     </h4>
                     <a
-                      href="tel:+33123456789"
+                      href="tel:+33757991146"
                       className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-base font-medium block mb-1"
                     >
-                      +33 1 23 45 67 89
+                      07 57 99 11 46
                     </a>
                     <p className="text-xs text-gray-500">
                       Du lundi au vendredi, 9h-18h
@@ -123,10 +123,10 @@ export default function ContactPage() {
                       Email
                     </h4>
                     <a
-                      href="mailto:contact@chateauxprestige.fr"
+                      href="mailto:seminaires@selectchateaux.com"
                       className="text-gray-700 hover:text-[var(--bronze-antique)] transition-colors text-base font-medium block mb-1"
                     >
-                      contact@chateauxprestige.fr
+                      seminaires@selectchateaux.com
                     </a>
                     <p className="text-xs text-gray-500">
                       Réponse sous 24h ouvrées

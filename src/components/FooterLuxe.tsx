@@ -181,7 +181,7 @@ export function FooterLuxe() {
                   color: colors.bronze
                 }} />
                 <a
-                  href="tel:+33123456789"
+                  href="tel:+33757991146"
                   className="hover:text-[var(--bronze-antique)]"
                   style={{
                     color: theme.colors.neutral.gray600,
@@ -189,7 +189,7 @@ export function FooterLuxe() {
                     transition: `colors ${theme.effects.transitions.smooth}`
                   }}
                 >
-                  +33 1 23 45 67 89
+                  07 57 99 11 46
                 </a>
               </li>
               <li className="flex items-center" style={{ gap: spacing.sm }}>
@@ -199,7 +199,7 @@ export function FooterLuxe() {
                   color: colors.bronze
                 }} />
                 <a
-                  href="mailto:contact@selectchateaux.com"
+                  href="mailto:seminaires@selectchateaux.com"
                   className="hover:text-[var(--bronze-antique)]"
                   style={{
                     color: theme.colors.neutral.gray600,
@@ -207,7 +207,7 @@ export function FooterLuxe() {
                     transition: `colors ${theme.effects.transitions.smooth}`
                   }}
                 >
-                  contact@selectchateaux.com
+                  seminaires@selectchateaux.com
                 </a>
               </li>
             </ul>
