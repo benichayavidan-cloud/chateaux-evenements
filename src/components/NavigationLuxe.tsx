@@ -67,11 +67,11 @@ export function NavigationLuxe() {
       }}
     >
       {/* Container avec grille responsive */}
-      <div className="w-full px-8 sm:px-10 md:px-12 lg:px-16">
-        <div className="h-16 w-full grid grid-cols-3 items-center gap-3 sm:gap-4 md:gap-0">
+      <div className="w-full px-6 sm:px-8 md:px-12 lg:px-16">
+        <div className="h-16 w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0">
 
-          {/* Colonne 1 : Logo centré */}
-          <div className="flex items-center justify-center">
+          {/* Colonne 1 : Logo */}
+          <div className="flex items-center justify-start md:justify-center">
             <Link href="/" className="relative group">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -453,8 +453,8 @@ export function NavigationLuxe() {
             ))}
           </nav>
 
-          {/* Colonne 3 : CTA + Mobile centré */}
-          <div className="flex items-center justify-center">
+          {/* Colonne 3 : CTA + Mobile */}
+          <div className="flex items-center justify-end md:justify-center">
             {/* CTA Desktop */}
             {!isOnDevisPage && (
               <Button
@@ -473,7 +473,7 @@ export function NavigationLuxe() {
               className="md:hidden"
               aria-label="Toggle menu"
               style={{
-                padding: '10px',
+                padding: '12px',
                 minWidth: '44px',
                 minHeight: '44px',
                 display: 'flex',
