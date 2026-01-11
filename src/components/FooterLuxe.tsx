@@ -28,8 +28,8 @@ export function FooterLuxe() {
         background: `linear-gradient(to right, transparent, ${colors.bronze}, transparent)`
       }} />
 
-      <div className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto w-full gap-8 md:gap-10 lg:gap-12" style={{
+      <div className="w-full flex flex-col items-center justify-center px-8 sm:px-10 md:px-12 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto w-full gap-10 md:gap-12 lg:gap-14" style={{
           marginBottom: '32px'
         }}>
           {/* Colonne 1 - À propos */}

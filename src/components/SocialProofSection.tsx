@@ -84,7 +84,7 @@ export function SocialProofSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center w-full px-6 sm:px-8 md:px-10 lg:px-12"
+          className="flex flex-col items-center justify-center w-full px-8 sm:px-10 md:px-12 lg:px-16"
           style={{ marginBottom: spacing["4xl"] }}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto w-full gap-6 md:gap-8 lg:gap-10">
@@ -137,7 +137,7 @@ export function SocialProofSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full px-6 sm:px-8 md:px-10 lg:px-12"
+          className="flex flex-col items-center justify-center text-center w-full px-8 sm:px-10 md:px-12 lg:px-16"
           style={{ marginBottom: spacing["4xl"] }}
         >
           <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>

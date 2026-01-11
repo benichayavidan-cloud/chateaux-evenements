@@ -67,7 +67,7 @@ export function NavigationLuxe() {
       }}
     >
       {/* Container avec grille responsive */}
-      <div className="w-full px-6 sm:px-8 md:px-10 lg:px-12">
+      <div className="w-full px-8 sm:px-10 md:px-12 lg:px-16">
         <div className="h-16 w-full grid grid-cols-3 items-center gap-3 sm:gap-4 md:gap-0">
 
           {/* Colonne 1 : Logo centré */}
@@ -504,7 +504,7 @@ export function NavigationLuxe() {
               borderTop: `1px solid ${theme.colors.neutral.gray200}`
             }}
           >
-            <nav className="container mx-auto flex flex-col px-4 sm:px-6 py-6" style={{ gap: spacing.lg }}>
+            <nav className="container mx-auto flex flex-col px-8 sm:px-10 py-6" style={{ gap: spacing.lg }}>
               {navLinks.map((link) => (
                 link.hasSubmenu ? (
                   <div key={link.href} className="flex flex-col" style={{ gap: spacing.md }}>
