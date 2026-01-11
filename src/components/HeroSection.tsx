@@ -66,14 +66,16 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Contenu centré avec padding-top pour éviter header */}
-      <div className="relative h-full flex flex-col items-center justify-center px-6 pt-20">
+      {/* Contenu à gauche avec largeur fixe */}
+      <div className="absolute left-0 top-0 h-full flex items-center px-4 md:px-8">
         <div
-          className="w-full max-w-5xl mx-auto text-center rounded-3xl p-8 md:p-12"
+          className="text-left rounded-3xl w-full"
           style={{
+            maxWidth: '1200px',
             background: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(12px)',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+            padding: '32px 24px',
           }}
         >
           {/* Titre principal */}
@@ -81,10 +83,18 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
-            className="heading-display mb-10 leading-tight"
+            style={{
+              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              fontWeight: theme.typography.fontWeight.light,
+              fontStyle: 'italic',
+              fontFamily: theme.typography.fonts.heading,
+              lineHeight: theme.typography.lineHeight.tight,
+              color: theme.colors.text.primary,
+              marginBottom: spacing.xl,
+            }}
           >
             Transformez vos événements en{" "}
-            <span className="block md:inline text-[var(--bronze-dark)]">
+            <span style={{ color: colors.bronzeDark }}>
               expériences d'exception
             </span>
           </motion.h1>
@@ -94,7 +104,13 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-            className="text-body-xl text-gray-800 font-medium mb-12"
+            style={{
+              fontSize: theme.typography.fontSize.lg,
+              color: theme.colors.text.secondary,
+              fontWeight: theme.typography.fontWeight.medium,
+              lineHeight: theme.typography.lineHeight.relaxed,
+              marginBottom: spacing['3xl'],
+            }}
           >
             Organisez vos séminaires, conventions et événements d'entreprise
             dans nos 3 châteaux d'exception en France.
@@ -105,25 +121,25 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-            className="flex flex-row justify-center items-center gap-8 lg:gap-12 flex-wrap mb-6"
+            className="flex flex-col gap-6"
           >
             {/* Statistique 1 */}
             <StatBadge
-              icon={<Award className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
+              icon={<Award className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
               value="15+"
               label="Années"
             />
 
             {/* Statistique 2 */}
             <StatBadge
-              icon={<Users className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
+              icon={<Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
               value="500+"
               label="Événements"
             />
 
             {/* Statistique 3 */}
             <StatBadge
-              icon={<Building className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
+              icon={<Building className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
               value="3"
               label="Châteaux"
             />
@@ -131,30 +147,6 @@ export function HeroSection() {
 
         </div>
       </div>
-
-      {/* Bouton Devis - En bas à gauche au-dessus du nom du lieu */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
-        className="absolute bottom-20 left-4 sm:left-8 md:left-12 z-10"
-      >
-        <Button href="/devis" size="lg" variant="primary">
-          Demander un Devis
-        </Button>
-      </motion.div>
-
-      {/* Bouton Châteaux - En bas à droite au même niveau que le bouton Devis */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.45 }}
-        className="absolute bottom-20 right-4 sm:right-8 md:right-12 z-10"
-      >
-        <Button href="/chateaux" size="lg" variant="secondary">
-          Découvrir nos Châteaux
-        </Button>
-      </motion.div>
 
       {/* Navigation du slider - En bas à droite */}
       <div className="absolute bottom-8 right-4 sm:right-8 md:right-12 flex items-center space-x-3 sm:space-x-4 md:space-x-6 z-10">
@@ -203,12 +195,13 @@ export function HeroSection() {
         </div>
       </motion.div>
 
-      {/* Indicateur de château actuel - En bas à gauche au même niveau que les flèches */}
+      {/* Indicateur de château actuel - En haut à droite */}
       <motion.div
-        initial={{ opacity: 0, x: -10 }}
+        initial={{ opacity: 0, x: 10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="absolute left-4 sm:left-8 md:left-12 hidden lg:block bottom-8 z-10"
+        className="absolute z-10"
+        style={{ top: '96px', right: '32px' }}
       >
         <Badge variant="glass" size="md">
           <div
@@ -250,25 +243,38 @@ export function HeroSection() {
 
 function StatBadge({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
   return (
-    <div className="flex flex-col items-center text-center">
+    <div className="flex items-center gap-3">
       <div
-        className="rounded-full border-2 flex-center group transition-all duration-300 w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-3 bg-white/90 shadow-lg"
+        className="rounded-full border-2 flex-center group transition-all duration-300 flex-shrink-0 bg-white/90 shadow-lg"
         style={{
           borderColor: colors.gold,
+          width: '48px',
+          height: '48px',
         }}
       >
         {icon}
       </div>
-      <div
-        className="leading-none mb-1.5 text-2xl md:text-3xl font-medium text-gray-900"
-        style={{
-          fontFamily: theme.typography.fonts.heading,
-        }}
-      >
-        {value}
-      </div>
-      <div className="text-xs font-bold uppercase tracking-wider text-gray-600">
-        {label}
+      <div>
+        <div
+          className="leading-none mb-1"
+          style={{
+            fontFamily: theme.typography.fonts.heading,
+            fontSize: theme.typography.fontSize['2xl'],
+            fontWeight: theme.typography.fontWeight.medium,
+            color: theme.colors.text.primary,
+          }}
+        >
+          {value}
+        </div>
+        <div style={{
+          fontSize: theme.typography.fontSize.xs,
+          fontWeight: theme.typography.fontWeight.bold,
+          textTransform: 'uppercase',
+          letterSpacing: theme.typography.letterSpacing.wider,
+          color: theme.colors.text.muted,
+        }}>
+          {label}
+        </div>
       </div>
     </div>
   );
