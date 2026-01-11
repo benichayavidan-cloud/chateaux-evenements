@@ -524,12 +524,8 @@ export default function ChateauPage() {
                 const isOpen = openFaqIndex === index;
 
                 return (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.15 }}
-                    viewport={{ once: true }}
                     className="group w-full"
                     style={{
                       marginBottom: index < chateau.faq.length - 1 ? '48px' : '64px'
@@ -545,8 +541,9 @@ export default function ChateauPage() {
                         boxShadow: isOpen
                           ? `0 8px 32px ${colors.bronze}15, 0 2px 8px ${colors.bronze}08`
                           : '0 2px 8px rgba(0, 0, 0, 0.04)',
-                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                        transition: 'background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease',
                         padding: '8px',
+                        willChange: 'background, border, box-shadow',
                       }}
                       className="hover:shadow-xl"
                     >
@@ -698,7 +695,7 @@ export default function ChateauPage() {
                         )}
                       </AnimatePresence>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
