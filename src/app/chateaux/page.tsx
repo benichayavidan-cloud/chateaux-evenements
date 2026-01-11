@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 export default function ChateauxPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<{ [key: string]: number }>({});
 
   // Auto-play du slider
   useEffect(() => {
@@ -167,7 +168,7 @@ export default function ChateauxPage() {
 
         {/* Navigation Slider */}
         <div className="absolute bottom-8 left-0 right-0 z-20">
-          <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
             <div className="flex items-center justify-between max-w-3xl">
               {/* Boutons prev/next */}
               <div className="flex gap-2">
@@ -263,7 +264,7 @@ export default function ChateauxPage() {
           </motion.div>
 
           {/* Grid des USP */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto justify-items-center">
             {[
               {
                 icon: <Award className="w-8 h-8" />,
@@ -386,7 +387,7 @@ export default function ChateauxPage() {
                     <Card variant="hover" padding="none" hoverable className="overflow-hidden group">
                       <div className="relative h-96 md:h-[500px]">
                         <Image
-                          src={chateau.images[0]}
+                          src={chateau.images[selectedImageIndex[chateau.id] ?? 0]}
                           alt={chateau.nom}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -400,19 +401,24 @@ export default function ChateauxPage() {
                         </div>
                         {/* Galerie miniature */}
                         <div className="absolute bottom-6 left-6 right-6 flex gap-2">
-                          {chateau.images.slice(1, 4).map((image, i) => (
-                            <div
+                          {chateau.images.slice(0, 4).map((image, i) => (
+                            <button
                               key={i}
-                              className="relative flex-1 h-20 rounded-lg overflow-hidden"
+                              onClick={() => setSelectedImageIndex({ ...selectedImageIndex, [chateau.id]: i })}
+                              className="relative flex-1 h-20 rounded-lg overflow-hidden cursor-pointer transition-all hover:ring-2 hover:ring-white hover:scale-105"
+                              style={{
+                                opacity: (selectedImageIndex[chateau.id] ?? 0) === i ? 1 : 0.7,
+                                border: (selectedImageIndex[chateau.id] ?? 0) === i ? '2px solid white' : 'none',
+                              }}
                             >
                               <Image
                                 src={image}
-                                alt={`${chateau.nom} ${i + 2}`}
+                                alt={`${chateau.nom} ${i + 1}`}
                                 fill
                                 className="object-cover"
                                 sizes="200px"
                               />
-                            </div>
+                            </button>
                           ))}
                         </div>
                       </div>
@@ -421,16 +427,6 @@ export default function ChateauxPage() {
 
                   {/* Contenu */}
                   <div className={index % 2 !== 0 ? 'lg:col-start-1 lg:row-start-1' : ''}>
-                    {/* Badge région */}
-                    <Badge
-                      variant="outline"
-                      size="md"
-                      icon={<MapPin className="w-4 h-4" />}
-                      style={{ marginBottom: spacing.lg }}
-                    >
-                      {chateau.region}
-                    </Badge>
-
                     {/* Titre */}
                     <h3
                       style={{
@@ -471,40 +467,51 @@ export default function ChateauxPage() {
                       {chateau.description}
                     </p>
 
-                    {/* Capacité highlight */}
-                    <div
-                      className="inline-flex items-center gap-3 mb-8 p-4 rounded-xl"
-                      style={{
-                        background: `${colors.bronze}10`,
-                        border: `1px solid ${colors.bronze}30`,
-                      }}
-                    >
-                      <Users className="w-6 h-6" style={{ color: colors.bronze }} />
-                      <div>
-                        <div
-                          style={{
-                            fontSize: theme.typography.fontSize.xs,
-                            color: theme.colors.text.muted,
-                            textTransform: "uppercase",
-                            letterSpacing: theme.typography.letterSpacing.wider,
-                          }}
-                        >
-                          Capacité
-                        </div>
-                        <div
-                          style={{
-                            fontSize: theme.typography.fontSize.xl,
-                            fontWeight: theme.typography.fontWeight.bold,
-                            color: colors.bronze,
-                          }}
-                        >
-                          {chateau.capacite.min}-{chateau.capacite.max} personnes
+                    {/* Badge région et Capacité sur la même ligne */}
+                    <div className="flex flex-wrap items-center gap-4 mb-8">
+                      <Badge
+                        variant="outline"
+                        size="md"
+                        icon={<MapPin className="w-4 h-4" />}
+                      >
+                        {chateau.region}
+                      </Badge>
+
+                      <div
+                        className="inline-flex items-center gap-3 rounded-xl"
+                        style={{
+                          background: `${colors.bronze}10`,
+                          border: `1px solid ${colors.bronze}30`,
+                          padding: spacing.md,
+                        }}
+                      >
+                        <Users className="w-6 h-6" style={{ color: colors.bronze }} />
+                        <div>
+                          <div
+                            style={{
+                              fontSize: theme.typography.fontSize.xs,
+                              color: theme.colors.text.muted,
+                              textTransform: "uppercase",
+                              letterSpacing: theme.typography.letterSpacing.wider,
+                            }}
+                          >
+                            Capacité
+                          </div>
+                          <div
+                            style={{
+                              fontSize: theme.typography.fontSize.xl,
+                              fontWeight: theme.typography.fontWeight.bold,
+                              color: colors.bronze,
+                            }}
+                          >
+                            {chateau.capacite.min}-{chateau.capacite.max} personnes
+                          </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Points forts */}
-                    <div className="mb-8">
+                    <div style={{ marginBottom: spacing["2xl"] }}>
                       <h4
                         style={{
                           fontSize: theme.typography.fontSize.base,
@@ -546,7 +553,7 @@ export default function ChateauxPage() {
                     </div>
 
                     {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4" style={{ marginBottom: spacing.xl }}>
                       <Button
                         href={`/chateaux/${chateau.slug}`}
                         variant="primary"
@@ -566,7 +573,7 @@ export default function ChateauxPage() {
                     </div>
 
                     {/* Note de satisfaction */}
-                    <div className="flex items-center gap-4 mt-6 pt-6 border-t" style={{ borderColor: theme.colors.neutral.gray200 }}>
+                    <div className="flex items-center gap-4 pt-6 border-t" style={{ borderColor: theme.colors.neutral.gray200, marginTop: spacing.xl }}>
                       <div className="flex gap-1">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-5 h-5" style={{ fill: colors.gold, color: colors.gold }} />
@@ -610,8 +617,8 @@ export default function ChateauxPage() {
             className="max-w-4xl mx-auto"
           >
             <Sparkles
-              className="mx-auto mb-6"
-              style={{ width: "56px", height: "56px", color: theme.colors.neutral.white }}
+              className="mx-auto"
+              style={{ width: "56px", height: "56px", color: theme.colors.neutral.white, marginBottom: spacing["2xl"] }}
             />
 
             <h2
@@ -622,7 +629,7 @@ export default function ChateauxPage() {
                 color: theme.colors.neutral.white,
                 fontFamily: theme.typography.fonts.heading,
                 lineHeight: theme.typography.lineHeight.tight,
-                marginBottom: spacing.xl,
+                marginBottom: spacing["2xl"],
               }}
             >
               Prêt à Organiser Votre Événement ?
@@ -633,7 +640,6 @@ export default function ChateauxPage() {
                 fontSize: theme.typography.fontSize.xl,
                 color: theme.colors.overlay.white90,
                 lineHeight: theme.typography.lineHeight.relaxed,
-                marginBottom: spacing["3xl"],
                 maxWidth: "700px",
                 margin: `0 auto ${spacing["3xl"]}`,
               }}
@@ -643,7 +649,7 @@ export default function ChateauxPage() {
             </p>
 
             {/* USP Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+            <div className="flex flex-wrap items-center justify-center gap-4" style={{ marginBottom: spacing["3xl"] }}>
               {[
                 { icon: <Phone />, text: "Réponse sous 2h" },
                 { icon: <Calendar />, text: "Visite virtuelle gratuite" },
@@ -670,7 +676,7 @@ export default function ChateauxPage() {
             </div>
 
             {/* CTAs Principaux */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4" style={{ marginBottom: spacing["2xl"] }}>
               <Button
                 href="/devis"
                 variant="secondary"
@@ -698,7 +704,7 @@ export default function ChateauxPage() {
               style={{
                 fontSize: theme.typography.fontSize.sm,
                 color: theme.colors.overlay.white70,
-                marginTop: spacing.xl,
+                marginTop: spacing["2xl"],
               }}
             >
               ⚡ Places limitées : Réservez dès maintenant pour garantir vos dates
