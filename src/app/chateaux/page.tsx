@@ -53,6 +53,18 @@ const SECTION_STYLES = {
       lineHeight: theme.typography.lineHeight.relaxed,
       maxWidth: '800px',
     }
+  },
+
+  // CTA Section - MODULABLE
+  cta: {
+    padding: { top: '80px', bottom: '80px' },
+    spacing: {
+      iconToTitle: '32px',
+      titleToSubtitle: '20px',
+      subtitleToBadges: '48px',
+      badgesToButtons: '40px',
+      buttonsToNote: '32px',
+    }
   }
 };
 
@@ -90,7 +102,7 @@ const SectionHeader = ({
   subtitle?: string;
   icon?: React.ReactNode;
 }) => (
-  <div className="flex flex-col items-center justify-center mb-16 w-full">
+  <div className="flex flex-col items-center justify-center w-full" style={{ marginBottom: spacing['4xl'] }}>
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +119,7 @@ const SectionHeader = ({
         className="text-center w-full"
         style={{
           ...SECTION_STYLES.typography.title,
-          marginBottom: subtitle ? spacing.lg : 0
+          marginBottom: subtitle ? spacing.xs : 0
         }}
       >
         {title}
@@ -117,7 +129,8 @@ const SectionHeader = ({
           className="text-center w-full"
           style={{
             ...SECTION_STYLES.typography.subtitle,
-            marginTop: spacing.lg
+            marginTop: spacing.xs,
+            marginBottom: spacing.xl
           }}
         >
           {subtitle}
@@ -247,103 +260,126 @@ export default function ChateauxPage() {
                     priority={index === 0}
                     quality={95}
                     sizes="100vw"
+                    style={{ filter: 'saturate(1.2) contrast(1.1) brightness(1.05)' }}
                   />
                 </div>
 
-                {/* Overlay */}
-                <div className="absolute inset-0" style={{ background: SECTION_STYLES.hero.overlay }} />
+                {/* Gradient subtil en bas */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
 
-                {/* Contenu */}
-                <div className="relative h-full flex items-center">
-                  <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
-                    <div className="max-w-3xl" style={{ paddingBottom: spacing["4xl"], paddingLeft: spacing["2xl"] }}>
-                      <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                {/* Contenu à gauche avec badge au-dessus */}
+                <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: '48px' }}>
+                  {/* Badge lieu au-dessus du conteneur */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1, duration: 0.8 }}
+                    className="flex justify-center"
+                    style={{ maxWidth: '480px', width: '100%', marginBottom: '20px' }}
+                  >
+                    <Badge variant="glass" size="md">
+                      <div
+                        className="w-1.5 h-1.5 rounded-full animate-pulse"
+                        style={{
+                          background: colors.bronze,
+                          filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
+                        }}
+                      />
+                      <div
+                        className="italic font-semibold"
+                        style={{
+                          fontSize: theme.typography.fontSize.xs,
+                          color: colors.white,
+                          fontFamily: theme.typography.fonts.heading,
+                        }}
                       >
-                        {/* Titre */}
-                        <h1
-                          style={{
-                            fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                            fontWeight: theme.typography.fontWeight.light,
-                            fontStyle: "italic",
-                            color: theme.colors.neutral.white,
-                            fontFamily: theme.typography.fonts.heading,
-                            lineHeight: theme.typography.lineHeight.tight,
-                            marginBottom: spacing.xl,
-                          }}
-                        >
-                          {chateau.nom}
-                        </h1>
+                        {chateau.nom}
+                      </div>
+                      <div style={{ color: colors.bronze }}>·</div>
+                      <div
+                        className="font-medium"
+                        style={{
+                          fontSize: theme.typography.fontSize.xs,
+                          color: theme.colors.neutral.gray300,
+                        }}
+                      >
+                        {chateau.region}
+                      </div>
+                    </Badge>
+                  </motion.div>
 
-                        {/* Description */}
-                        <p
-                          style={{
-                            fontSize: theme.typography.fontSize.xl,
-                            color: theme.colors.overlay.white80,
-                            lineHeight: theme.typography.lineHeight.relaxed,
-                            marginBottom: spacing["2xl"],
-                          }}
-                        >
-                          {chateau.description}
-                        </p>
+                  {/* Conteneur principal */}
+                  <div
+                    className="text-left rounded-2xl w-full"
+                    style={{
+                      maxWidth: '480px',
+                      background: 'rgba(255, 255, 255, 0.85)',
+                      backdropFilter: 'blur(12px)',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                      padding: '24px 20px',
+                    }}
+                  >
+                    {/* Titre */}
+                    <motion.h1
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+                      style={{
+                        fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                        fontWeight: theme.typography.fontWeight.light,
+                        fontStyle: 'italic',
+                        fontFamily: theme.typography.fonts.heading,
+                        lineHeight: theme.typography.lineHeight.tight,
+                        color: theme.colors.text.primary,
+                        marginBottom: spacing.sm,
+                      }}
+                    >
+                      Découvrez nos Châteaux d'Exception
+                    </motion.h1>
 
-                        {/* Badges localisation + capacité */}
-                        <div className="flex flex-wrap items-center gap-4" style={{ marginBottom: spacing.xl }}>
-                          <Badge
-                            variant="glass"
-                            size="lg"
-                            icon={<MapPin className="w-4 h-4" />}
-                          >
-                            {chateau.region}
-                          </Badge>
+                    {/* Description */}
+                    <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+                      style={{
+                        fontSize: theme.typography.fontSize.sm,
+                        color: theme.colors.text.secondary,
+                        fontWeight: theme.typography.fontWeight.normal,
+                        lineHeight: theme.typography.lineHeight.relaxed,
+                        marginBottom: spacing.lg,
+                      }}
+                    >
+                      {chateau.description}
+                    </motion.p>
 
-                          <div
-                            className="inline-flex items-center gap-3"
-                            style={{
-                              background: theme.colors.overlay.white20,
-                              backdropFilter: `blur(${theme.effects.blur.md})`,
-                              border: `1px solid ${theme.colors.overlay.white30}`,
-                              padding: spacing.lg,
-                              borderRadius: theme.effects.borderRadius.full,
-                              color: theme.colors.neutral.white,
-                            }}
-                          >
-                            <Users className="w-5 h-5" style={{ color: theme.colors.neutral.white }} />
-                            <span style={{
-                              fontSize: theme.typography.fontSize.sm,
-                              fontWeight: theme.typography.fontWeight.medium,
-                              textTransform: "uppercase",
-                              letterSpacing: theme.typography.letterSpacing.wider,
-                              whiteSpace: "nowrap"
-                            }}>
-                              {chateau.capacite.min}-{chateau.capacite.max} personnes
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Boutons */}
-                        <div className="flex flex-col sm:flex-row gap-4" style={{ marginBottom: spacing["3xl"] }}>
-                          <Button
-                            href={`/chateaux/${chateau.slug}`}
-                            variant="primary"
-                            size="lg"
-                            icon={<ArrowRight className="w-5 h-5" />}
-                          >
-                            Découvrir ce Château
-                          </Button>
-                          <Button
-                            href="/devis"
-                            variant="secondary"
-                            size="lg"
-                            icon={<Calendar className="w-5 h-5" />}
-                          >
-                            Obtenir un Devis
-                          </Button>
-                        </div>
-                      </motion.div>
-                    </div>
+                    {/* Badge capacité */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
+                      className="inline-flex items-center gap-2"
+                      style={{
+                        background: `${colors.bronze}10`,
+                        border: `2px solid ${colors.bronze}`,
+                        padding: spacing.md,
+                        borderRadius: theme.effects.borderRadius.full,
+                      }}
+                    >
+                      <Users className="w-4 h-4" style={{ color: colors.bronze }} />
+                      <div
+                        style={{
+                          fontSize: theme.typography.fontSize.xs,
+                          color: colors.bronze,
+                          textTransform: "uppercase",
+                          letterSpacing: theme.typography.letterSpacing.wider,
+                          fontWeight: theme.typography.fontWeight.medium,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {chateau.capacite.min}-{chateau.capacite.max} personnes
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -351,46 +387,10 @@ export default function ChateauxPage() {
           ))}
         </AnimatePresence>
 
-        {/* Navigation du slider */}
+        {/* Navigation du slider - Indicateurs uniquement */}
         <div className="absolute bottom-8 left-0 right-0 z-20">
           <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
-            <div className="flex items-center justify-between max-w-3xl">
-              {/* Boutons prev/next */}
-              <div className="flex gap-2">
-                <button
-                  onClick={prevSlide}
-                  className="flex items-center justify-center hover:scale-110 transition-transform"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: theme.effects.borderRadius.full,
-                    background: theme.colors.overlay.white20,
-                    backdropFilter: `blur(${theme.effects.blur.sm})`,
-                    border: `1px solid ${theme.colors.overlay.white30}`,
-                    color: theme.colors.neutral.white,
-                  }}
-                  aria-label="Château précédent"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="flex items-center justify-center hover:scale-110 transition-transform"
-                  style={{
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: theme.effects.borderRadius.full,
-                    background: theme.colors.overlay.white20,
-                    backdropFilter: `blur(${theme.effects.blur.sm})`,
-                    border: `1px solid ${theme.colors.overlay.white30}`,
-                    color: theme.colors.neutral.white,
-                  }}
-                  aria-label="Château suivant"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
-              </div>
-
+            <div className="flex items-center justify-center">
               {/* Indicateurs */}
               <div className="flex gap-3">
                 {chateaux.map((_, index) => (
@@ -473,7 +473,7 @@ export default function ChateauxPage() {
                     fontSize: theme.typography.fontSize.lg,
                     fontWeight: theme.typography.fontWeight.semibold,
                     color: theme.colors.text.primary,
-                    marginBottom: spacing.sm,
+                    marginBottom: spacing.xs,
                   }}
                 >
                   {usp.title}
@@ -483,6 +483,7 @@ export default function ChateauxPage() {
                     fontSize: theme.typography.fontSize.sm,
                     color: theme.colors.text.muted,
                     lineHeight: theme.typography.lineHeight.relaxed,
+                    marginBottom: spacing.lg,
                   }}
                 >
                   {usp.description}
@@ -551,7 +552,7 @@ export default function ChateauxPage() {
                       fontStyle: "italic",
                       color: theme.colors.text.primary,
                       fontFamily: theme.typography.fonts.heading,
-                      marginBottom: spacing.md,
+                      marginBottom: spacing.sm,
                     }}
                   >
                     {chateau.nom}
@@ -565,7 +566,7 @@ export default function ChateauxPage() {
                       textTransform: "uppercase",
                       letterSpacing: theme.typography.letterSpacing.wider,
                       fontWeight: theme.typography.fontWeight.medium,
-                      marginBottom: spacing.xl,
+                      marginBottom: spacing["2xl"],
                     }}
                   >
                     {chateau.styleArchitectural}
@@ -622,7 +623,7 @@ export default function ChateauxPage() {
                         fontSize: theme.typography.fontSize.base,
                         fontWeight: theme.typography.fontWeight.semibold,
                         color: theme.colors.text.primary,
-                        marginBottom: spacing.lg,
+                        marginBottom: spacing.md,
                       }}
                     >
                       Points Forts
@@ -699,14 +700,14 @@ export default function ChateauxPage() {
       </SectionWrapper>
 
       {/* ============================================ */}
-      {/* SECTION 4: CTA FINALE - CENTRAGE TOTAL */}
+      {/* SECTION 4: CTA FINALE - MODULABLE */}
       {/* ============================================ */}
       <section
         className="relative overflow-hidden flex items-center justify-center"
         style={{
           background: `linear-gradient(135deg, ${colors.bronze} 0%, ${colors.bronzeDark} 100%)`,
-          paddingTop: '25px',
-          paddingBottom: '25px',
+          paddingTop: SECTION_STYLES.cta.padding.top,
+          paddingBottom: SECTION_STYLES.cta.padding.bottom,
         }}
       >
         {/* Pattern décoratif */}
@@ -720,26 +721,33 @@ export default function ChateauxPage() {
         </div>
 
         <div className="w-full relative z-10 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
+          <div
             className="flex flex-col items-center justify-center w-full"
             style={{ maxWidth: '1280px', padding: '0 24px' }}
           >
             {/* Icône */}
-            <Sparkles
-              className="mb-6"
-              style={{
-                width: "56px",
-                height: "56px",
-                color: theme.colors.neutral.white,
-              }}
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              style={{ marginBottom: SECTION_STYLES.cta.spacing.iconToTitle }}
+            >
+              <Sparkles
+                style={{
+                  width: "56px",
+                  height: "56px",
+                  color: theme.colors.neutral.white,
+                }}
+              />
+            </motion.div>
 
             {/* Titre */}
-            <h2
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              viewport={{ once: true }}
               className="text-center w-full"
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
@@ -748,31 +756,41 @@ export default function ChateauxPage() {
                 color: theme.colors.neutral.white,
                 fontFamily: theme.typography.fonts.heading,
                 lineHeight: theme.typography.lineHeight.tight,
-                marginBottom: spacing["2xl"],
+                marginBottom: SECTION_STYLES.cta.spacing.titleToSubtitle,
               }}
             >
               Prêt à Organiser Votre Événement ?
-            </h2>
+            </motion.h2>
 
             {/* Sous-titre */}
-            <p
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
               className="text-center w-full"
               style={{
                 fontSize: theme.typography.fontSize.xl,
                 color: theme.colors.overlay.white90,
                 lineHeight: theme.typography.lineHeight.relaxed,
                 maxWidth: "700px",
-                margin: `0 auto ${spacing["3xl"]} auto`,
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginBottom: SECTION_STYLES.cta.spacing.subtitleToBadges,
               }}
             >
               Nos experts vous accompagnent gratuitement dans le choix du château idéal.
               Réponse sous 2h et devis personnalisé sous 24h.
-            </p>
+            </motion.p>
 
             {/* Badges USP */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              viewport={{ once: true }}
               className="flex flex-wrap items-center justify-center gap-4 w-full"
-              style={{ marginBottom: spacing["3xl"] }}
+              style={{ marginBottom: SECTION_STYLES.cta.spacing.badgesToButtons }}
             >
               {[
                 { icon: <Phone />, text: "Réponse sous 2h" },
@@ -801,12 +819,16 @@ export default function ChateauxPage() {
                   </span>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Boutons CTA */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              viewport={{ once: true }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
-              style={{ marginBottom: spacing["2xl"] }}
+              style={{ marginBottom: SECTION_STYLES.cta.spacing.buttonsToNote }}
             >
               <Button
                 href="/devis"
@@ -828,20 +850,23 @@ export default function ChateauxPage() {
               >
                 Appeler un Expert
               </Button>
-            </div>
+            </motion.div>
 
             {/* Note d'urgence */}
-            <p
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              viewport={{ once: true }}
               className="text-center w-full"
               style={{
                 fontSize: theme.typography.fontSize.sm,
                 color: theme.colors.overlay.white70,
-                marginTop: spacing["2xl"],
               }}
             >
               ⚡ Places limitées : Réservez dès maintenant pour garantir vos dates
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
         </div>
       </section>
     </div>

@@ -34,123 +34,168 @@ export default function ChateauPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Full Screen Immersive */}
-      <div style={{ height: '75vh' }} className="relative overflow-hidden">
-        {/* Image avec parallax */}
-        <motion.div
-          style={{ y: heroY }}
-          className="absolute inset-0 w-full h-[120vh]"
-        >
+      {/* Hero Section - Design compact */}
+      <div style={{ height: '85vh', minHeight: '600px' }} className="relative overflow-hidden">
+        {/* Image de fond */}
+        <div className="absolute inset-0">
           <Image
             src={chateau.images[0]}
             alt={chateau.nom}
             fill
             className="object-cover"
             priority
-            quality={90}
+            quality={95}
             sizes="100vw"
+            style={{ filter: 'saturate(1.2) contrast(1.1) brightness(1.05)' }}
           />
-        </motion.div>
+        </div>
 
-        {/* Overlay CLAIR pour lisibilité */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to-b, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.3) 100%)",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: theme.colors.overlay.white10 }}
-        />
+        {/* Gradient subtil en bas */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
 
-        {/* Contenu Hero */}
-        <motion.div
-          style={{ opacity: heroOpacity }}
-          className="relative h-full flex items-end"
-        >
-          <div style={{ padding: "32px 32px 80px 32px", width: "100%" }}>
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              {/* Badge style architectural */}
-              <div style={{ marginBottom: spacing["3xl"] }}>
-                <Badge
-                  variant="default"
-                  size="md"
-                  icon={<Award className="w-4 h-4" />}
-                >
-                  {chateau.styleArchitectural}
-                </Badge>
-              </div>
-
-              <h1
+        {/* Contenu à gauche avec badge au-dessus */}
+        <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: '48px' }}>
+          {/* Badge lieu au-dessus du conteneur */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="flex justify-center"
+            style={{ maxWidth: '480px', width: '100%', marginBottom: '20px' }}
+          >
+            <Badge variant="glass" size="md">
+              <div
+                className="w-1.5 h-1.5 rounded-full animate-pulse"
                 style={{
-                  fontSize: "clamp(3rem, 8vw, 6rem)",
-                  fontWeight: theme.typography.fontWeight.light,
-                  fontStyle: "italic",
-                  color: theme.colors.text.primary,
+                  background: colors.bronze,
+                  filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
+                }}
+              />
+              <div
+                className="italic font-semibold"
+                style={{
+                  fontSize: theme.typography.fontSize.xs,
+                  color: colors.white,
                   fontFamily: theme.typography.fonts.heading,
-                  lineHeight: theme.typography.lineHeight.none,
-                  marginBottom: spacing["4xl"],
                 }}
               >
                 {chateau.nom}
-              </h1>
+              </div>
+              <div style={{ color: colors.bronze }}>·</div>
+              <div
+                className="font-medium"
+                style={{
+                  fontSize: theme.typography.fontSize.xs,
+                  color: theme.colors.neutral.gray300,
+                }}
+              >
+                {chateau.region}
+              </div>
+            </Badge>
+          </motion.div>
 
-              {/* Infos en badges modernes */}
-              <div className="flex flex-wrap items-center gap-3 md:gap-4">
-                <Badge variant="default" size="md" icon={<MapPin className="w-5 h-5" />}>
-                  {chateau.region}
-                </Badge>
-                <Badge variant="default" size="md" icon={<Users className="w-5 h-5" />}>
-                  {chateau.capacite.min}-{chateau.capacite.max} personnes
-                </Badge>
+          {/* Conteneur principal */}
+          <div
+            className="text-left rounded-2xl w-full"
+            style={{
+              maxWidth: '480px',
+              background: 'rgba(255, 255, 255, 0.85)',
+              backdropFilter: 'blur(12px)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              padding: '24px 20px',
+            }}
+          >
+            {/* Titre */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+              style={{
+                fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                fontWeight: theme.typography.fontWeight.light,
+                fontStyle: 'italic',
+                fontFamily: theme.typography.fonts.heading,
+                lineHeight: theme.typography.lineHeight.tight,
+                color: theme.colors.text.primary,
+                marginBottom: spacing.sm,
+              }}
+            >
+              Un Château d'Exception
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+              style={{
+                fontSize: theme.typography.fontSize.sm,
+                color: theme.colors.text.secondary,
+                fontWeight: theme.typography.fontWeight.normal,
+                lineHeight: theme.typography.lineHeight.relaxed,
+                marginBottom: spacing.lg,
+              }}
+            >
+              {chateau.description}
+            </motion.p>
+
+            {/* Badge capacité */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
+              className="inline-flex items-center gap-2"
+              style={{
+                background: `${colors.bronze}10`,
+                border: `2px solid ${colors.bronze}`,
+                padding: spacing.md,
+                borderRadius: theme.effects.borderRadius.full,
+              }}
+            >
+              <Users className="w-4 h-4" style={{ color: colors.bronze }} />
+              <div
+                style={{
+                  fontSize: theme.typography.fontSize.xs,
+                  color: colors.bronze,
+                  textTransform: "uppercase",
+                  letterSpacing: theme.typography.letterSpacing.wider,
+                  fontWeight: theme.typography.fontWeight.medium,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {chateau.capacite.min}-{chateau.capacite.max} personnes
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll indicator */}
-        <div
-          className="absolute left-1/2 -translate-x-1/2 bottom-48 md:bottom-56 lg:bottom-64"
-        >
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-8 z-5">
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="flex flex-col items-center gap-2 md:gap-3"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-3"
           >
             <span
               style={{
                 color: theme.colors.text.primary,
                 fontSize: theme.typography.fontSize.xs,
                 textTransform: "uppercase",
-                letterSpacing: theme.typography.letterSpacing.ultra,
+                letterSpacing: theme.typography.letterSpacing.widest,
                 fontWeight: theme.typography.fontWeight.bold,
               }}
             >
-              Découvrir
+              Découvrez
             </span>
             <div
-              className="flex items-start justify-center"
+              className="w-6 h-10 rounded-full border-2 flex items-start justify-center p-2 bg-white/60 shadow-md"
               style={{
-                width: "24px",
-                height: "40px",
-                border: `2px solid ${theme.colors.text.primary}`,
-                borderRadius: theme.effects.borderRadius.full,
-                padding: spacing.sm,
-                background: theme.colors.overlay.white90,
+                borderColor: theme.colors.neutral.gray600,
               }}
             >
               <div
-                style={{
-                  width: "4px",
-                  height: "12px",
-                  background: colors.bronze,
-                  borderRadius: theme.effects.borderRadius.full,
-                }}
+                className="w-1 h-2 rounded-full"
+                style={{ background: colors.bronze }}
               />
             </div>
           </motion.div>
@@ -204,10 +249,10 @@ export default function ChateauPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="heading-lg mb-lg">
+                <h2 className="heading-lg mb-md">
                   Points forts
                 </h2>
-                <p className="text-body-xl text-gray-600">
+                <p className="text-body-xl text-gray-600 mb-xl">
                   Ce qui rend ce lieu unique
                 </p>
               </motion.div>
@@ -275,10 +320,10 @@ export default function ChateauPage() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <h2 className="heading-lg mb-lg">
+                <h2 className="heading-lg mb-md">
                   Galerie
                 </h2>
-                <p className="text-body-xl text-gray-600">
+                <p className="text-body-xl text-gray-600 mb-xl">
                   Découvrez les espaces du château
                 </p>
               </motion.div>
@@ -319,21 +364,21 @@ export default function ChateauPage() {
         <div className="section-gray section-padding-sm" style={{ paddingBottom: '80px' }}>
           <div className="section-container">
             {/* Titre et sous-titre centrés */}
-            <div className="text-center mb-10">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="heading-xl mb-6">
-                  Prêt à organiser votre événement ?
-                </h2>
-                <p className="text-body-xl text-gray-600">
-                  Contactez-nous pour recevoir une proposition personnalisée
-                </p>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center"
+              style={{ marginBottom: '40px' }}
+            >
+              <h2 className="heading-xl mb-3">
+                Prêt à organiser votre événement ?
+              </h2>
+              <p className="text-body-xl text-gray-600">
+                Contactez-nous pour recevoir une proposition personnalisée
+              </p>
+            </motion.div>
 
             {/* Boutons centrés */}
             <motion.div

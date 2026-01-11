@@ -40,7 +40,7 @@ export default function EvenementsPage() {
                 </span>
               </div>
 
-              <h1 className="heading-display mb-10 leading-none">
+              <h1 className="heading-display mb-5 leading-none">
                 Vos Événements<br />d'Exception
               </h1>
 
@@ -116,17 +116,17 @@ export default function EvenementsPage() {
                     </span>
                   </div>
 
-                  <h2 className="heading-xl mb-lg">
+                  <h2 className="heading-xl mb-md">
                     {evenement.titre}
                   </h2>
 
-                  <p className="text-body-xl mb-lg">
+                  <p className="text-body-xl mb-xl">
                     {evenement.description}
                   </p>
 
                   {/* Services inclus */}
                   <div className="mb-4xl w-full flex-col-center">
-                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-lg">
+                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-md">
                       Services inclus
                     </h3>
                     <div className="flex flex-col gap-md">
@@ -171,10 +171,10 @@ export default function EvenementsPage() {
                 Notre processus
               </h2>
             </div>
-            <h3 className="heading-xl mb-8">
+            <h3 className="heading-xl mb-4">
               Comment ça marche ?
             </h3>
-            <p className="text-body-xl">
+            <p className="text-body-xl mb-xl">
               Un processus simple et personnalisé pour organiser votre événement parfait
             </p>
           </motion.div>
@@ -213,10 +213,10 @@ export default function EvenementsPage() {
                 <div className="rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-2xl" style={{ width: 'var(--height-icon-lg)', height: 'var(--height-icon-lg)' }}>
                   {item.step}
                 </div>
-                <h3 className="heading-md mb-lg">
+                <h3 className="heading-md mb-md">
                   {item.titre}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                <p className="text-gray-600 leading-relaxed mb-lg">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -233,10 +233,10 @@ export default function EvenementsPage() {
             viewport={{ once: true }}
             className="w-full text-center content-padding"
           >
-            <h2 className="heading-xl mb-lg">
+            <h2 className="heading-xl mb-md">
               Prêt à créer un événement mémorable ?
             </h2>
-            <p className="text-body-xl mb-lg">
+            <p className="text-body-xl mb-xl">
               Nos équipes sont à votre écoute pour concrétiser votre projet
             </p>
 

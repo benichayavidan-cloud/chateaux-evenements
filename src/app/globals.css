@@ -99,10 +99,17 @@
 
 html {
   scroll-behavior: auto; /* Désactivé car Lenis gère le smooth scroll */
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 html.lenis {
   height: auto;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .lenis.lenis-smooth {

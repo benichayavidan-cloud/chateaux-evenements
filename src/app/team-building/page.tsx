@@ -68,7 +68,7 @@ export default function TeamBuildingPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="heading-display mb-10 leading-none"
+                className="heading-display mb-5 leading-none"
               >
                 Team Building
                 <br />
@@ -131,8 +131,13 @@ export default function TeamBuildingPage() {
       </div>
 
       {/* Section Stats avec animations */}
-      <div className="section-white section-padding-sm">
-        <div className="section-container">
+      <div
+        style={{
+          background: 'white',
+          padding: '40px 24px'
+        }}
+      >
+        <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
             {[
               { icon: Users, value: "500+", label: "Équipes formées" },
@@ -173,30 +178,49 @@ export default function TeamBuildingPage() {
       </div>
 
       {/* Section Activités */}
-      <div className="section-gray section-padding-sm">
-        <div className="section-container">
+      <div
+        style={{
+          background: '#f9fafb',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '80px 24px'
+        }}
+      >
+        <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="w-full text-center mb-lg"
+            style={{
+              width: '100%',
+              textAlign: 'center',
+              marginBottom: '64px'
+            }}
           >
-            <div className="flex-center gap-md mb-2xl">
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              marginBottom: '24px'
+            }}>
               <Zap className="w-7 h-7 text-[var(--bronze-antique)]" />
               <h2 className="text-label text-[var(--bronze-antique)]">
                 Nos activités
               </h2>
             </div>
-            <h3 className="heading-xl mb-6">
+            <h3 className="heading-xl" style={{ marginBottom: '12px' }}>
               Des expériences qui marquent
             </h3>
-            <p className="text-body-xl max-w-3xl mx-auto">
+            <p className="text-body-xl" style={{ maxWidth: '768px', margin: '0 auto' }}>
               Chaque activité est conçue pour renforcer la cohésion, stimuler la créativité et créer des souvenirs mémorables
             </p>
           </motion.div>
 
-          <div className="grid-cards mt-16">
+          <div className="grid-cards">
             {[
               {
                 icon: Lightbulb,
@@ -277,10 +301,10 @@ export default function TeamBuildingPage() {
 
                   {/* Contenu */}
                   <div className="content-padding-lg text-center">
-                    <h3 className="heading-md mb-5 group-hover:text-[var(--bronze-antique)] transition-colors">
+                    <h3 className="heading-md mb-3 group-hover:text-[var(--bronze-antique)] transition-colors">
                       {activite.titre}
                     </h3>
-                    <p className="text-body-lg mb-8">
+                    <p className="text-body-lg mb-10">
                       {activite.description}
                     </p>
 
@@ -309,24 +333,38 @@ export default function TeamBuildingPage() {
       </div>
 
       {/* Section Bénéfices */}
-      <div className="section-white section-padding-sm">
-        <div className="section-container">
+      <div
+        style={{
+          background: 'white',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '80px 24px'
+        }}
+      >
+        <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
+          {/* Header centré */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            style={{
+              textAlign: 'center',
+              marginBottom: '64px'
+            }}
           >
-            <h2 className="heading-xl mb-6">
+            <h2 className="heading-xl" style={{ marginBottom: '12px' }}>
               Pourquoi choisir nos expériences ?
             </h2>
-            <p className="text-body-xl max-w-3xl mx-auto">
+            <p className="text-body-xl" style={{ maxWidth: '768px', margin: '0 auto' }}>
               Des bénéfices mesurables pour votre équipe
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto content-padding-lg">
+          {/* Grille de bénéfices - Tout centré */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16" style={{ maxWidth: '1280px', margin: '0 auto' }}>
             {[
               {
                 titre: "Cohésion renforcée",
@@ -355,24 +393,35 @@ export default function TeamBuildingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="flex-col-center"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                }}
               >
+                {/* Cercle de pourcentage */}
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 200 }}
                   viewport={{ once: true }}
-                  className="w-24 h-24 rounded-full bg-[var(--bronze-antique)]/10 flex-center mb-6 p-5"
+                  className="w-24 h-24 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center p-5"
+                  style={{ marginBottom: '24px' }}
                 >
                   <span className="text-3xl font-bold text-[var(--bronze-antique)]">
                     {benefice.percentage}%
                   </span>
                 </motion.div>
 
-                <h3 className="heading-md mb-4">
+                {/* Titre */}
+                <h3 className="heading-md text-center" style={{ marginBottom: '8px' }}>
                   {benefice.titre}
                 </h3>
-                <p className="text-body-lg mb-6">
+
+                {/* Description */}
+                <p className="text-body-lg text-center" style={{ marginBottom: '32px' }}>
                   {benefice.description}
                 </p>
 
@@ -396,16 +445,31 @@ export default function TeamBuildingPage() {
       </div>
 
       {/* Section Témoignages */}
-      <div className="section-gray section-padding-sm overflow-hidden">
-        <div className="section-container">
+      <div
+        style={{
+          background: '#f9fafb',
+          padding: '40px 24px',
+          overflow: 'hidden'
+        }}
+      >
+        <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            style={{
+              textAlign: 'center',
+              marginBottom: '64px'
+            }}
           >
-            <div className="flex-center gap-md mb-2xl">
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              marginBottom: '24px'
+            }}>
               <Star className="w-7 h-7 text-[var(--bronze-antique)]" />
               <h2 className="text-label text-[var(--bronze-antique)]">
                 Témoignages
@@ -416,7 +480,7 @@ export default function TeamBuildingPage() {
             </h3>
           </motion.div>
 
-          <div className="grid-cards mt-12">
+          <div className="grid-cards" style={{ marginTop: '48px' }}>
             {[
               {
                 nom: "Sophie Durand",
@@ -488,7 +552,14 @@ export default function TeamBuildingPage() {
       </div>
 
       {/* CTA Final */}
-      <div className="relative section-white section-padding-sm overflow-hidden" style={{ paddingBottom: '80px' }}>
+      <div
+        style={{
+          position: 'relative',
+          background: 'white',
+          padding: '40px 24px',
+          overflow: 'hidden'
+        }}
+      >
         {/* Cercles animés en arrière-plan */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
@@ -511,34 +582,49 @@ export default function TeamBuildingPage() {
           />
         </div>
 
-        <div className="section-container relative z-10">
+        <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center"
+            style={{ textAlign: 'center' }}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="inline-block mb-8"
+              style={{ display: 'inline-block', marginBottom: '32px' }}
             >
-              <div className="w-20 h-20 rounded-full bg-[var(--bronze-antique)]/10 flex-center mx-auto">
+              <div style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                background: 'rgba(163, 126, 44, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto'
+              }}>
                 <Trophy className="w-10 h-10 text-[var(--bronze-antique)]" />
               </div>
             </motion.div>
 
-            <h2 className="heading-xl mb-6">
+            <h2 className="heading-xl" style={{ marginBottom: '12px' }}>
               Prêt à transformer votre équipe ?
             </h2>
-            <p className="text-body-xl max-w-3xl mx-auto mb-14">
+            <p className="text-body-xl" style={{ maxWidth: '768px', margin: '0 auto 64px auto' }}>
               Contactez-nous pour créer une expérience team building sur-mesure dans l'un de nos châteaux d'exception
             </p>
 
-            <div className="flex flex-wrap gap-5 items-center justify-center">
+            <div style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '20px',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link href="/devis" className="btn-primary group">
                   <Rocket className="w-5 h-5" />

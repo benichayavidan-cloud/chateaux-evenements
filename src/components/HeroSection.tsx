@@ -66,16 +66,55 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Contenu à gauche avec largeur fixe */}
-      <div className="absolute left-0 top-0 h-full flex items-center px-4 md:px-8">
+      {/* Contenu à gauche avec badge au-dessus */}
+      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start px-4 md:px-12 lg:px-16">
+        {/* Badge lieu au-dessus du conteneur */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="flex justify-center w-full"
+          style={{ maxWidth: '100%', marginBottom: '20px' }}
+        >
+          <Badge variant="glass" size="md">
+            <div
+              className="w-1.5 h-1.5 rounded-full animate-pulse"
+              style={{
+                background: colors.bronze,
+                filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
+              }}
+            />
+            <div
+              className="italic font-semibold"
+              style={{
+                fontSize: theme.typography.fontSize.xs,
+                color: colors.white,
+                fontFamily: theme.typography.fonts.heading,
+              }}
+            >
+              {heroSlides[currentSlide].title}
+            </div>
+            <div style={{ color: colors.bronze }}>·</div>
+            <div
+              className="font-medium"
+              style={{
+                fontSize: theme.typography.fontSize.xs,
+                color: theme.colors.neutral.gray300,
+              }}
+            >
+              {heroSlides[currentSlide].region}
+            </div>
+          </Badge>
+        </motion.div>
+
+        {/* Conteneur principal */}
         <div
-          className="text-left rounded-3xl w-full"
+          className="text-center md:text-left rounded-2xl w-full max-w-full md:max-w-[480px]"
           style={{
-            maxWidth: '1200px',
             background: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(12px)',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            padding: '32px 24px',
+            padding: '20px 16px',
           }}
         >
           {/* Titre principal */}
@@ -84,13 +123,13 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
             style={{
-              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
               fontWeight: theme.typography.fontWeight.light,
               fontStyle: 'italic',
               fontFamily: theme.typography.fonts.heading,
               lineHeight: theme.typography.lineHeight.tight,
               color: theme.colors.text.primary,
-              marginBottom: spacing.xl,
+              marginBottom: spacing.md,
             }}
           >
             Transformez vos événements en{" "}
@@ -105,11 +144,11 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
             style={{
-              fontSize: theme.typography.fontSize.lg,
+              fontSize: theme.typography.fontSize.sm,
               color: theme.colors.text.secondary,
-              fontWeight: theme.typography.fontWeight.medium,
+              fontWeight: theme.typography.fontWeight.normal,
               lineHeight: theme.typography.lineHeight.relaxed,
-              marginBottom: spacing['3xl'],
+              marginBottom: spacing.xl,
             }}
           >
             Organisez vos séminaires, conventions et événements d'entreprise
@@ -121,25 +160,25 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center md:justify-start"
           >
             {/* Statistique 1 */}
             <StatBadge
-              icon={<Award className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
+              icon={<Award className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
               value="15+"
               label="Années"
             />
 
             {/* Statistique 2 */}
             <StatBadge
-              icon={<Users className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
+              icon={<Users className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
               value="500+"
               label="Événements"
             />
 
             {/* Statistique 3 */}
             <StatBadge
-              icon={<Building className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
+              icon={<Building className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
               value="3"
               label="Châteaux"
             />
@@ -148,9 +187,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Navigation du slider - En bas à droite */}
-      <div className="absolute bottom-8 right-4 sm:right-8 md:right-12 flex items-center space-x-3 sm:space-x-4 md:space-x-6 z-10">
-        <SliderButton direction="prev" onClick={prevSlide} />
+      {/* Navigation du slider - Indicateurs uniquement */}
+      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center z-10">
         <div className="flex space-x-2">
           {heroSlides.map((_, index) => (
             <button
@@ -168,7 +206,6 @@ export function HeroSection() {
             />
           ))}
         </div>
-        <SliderButton direction="next" onClick={nextSlide} />
       </div>
 
       {/* Scroll indicator - Repositionné */}
@@ -195,44 +232,6 @@ export function HeroSection() {
         </div>
       </motion.div>
 
-      {/* Indicateur de château actuel - En haut à droite */}
-      <motion.div
-        initial={{ opacity: 0, x: 10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="absolute z-10"
-        style={{ top: '96px', right: '32px' }}
-      >
-        <Badge variant="glass" size="md">
-          <div
-            className="w-1.5 h-1.5 rounded-full animate-pulse"
-            style={{
-              background: colors.bronze,
-              filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
-            }}
-          />
-          <div
-            className="italic font-semibold"
-            style={{
-              fontSize: theme.typography.fontSize.xs,
-              color: colors.white,
-              fontFamily: theme.typography.fonts.heading,
-            }}
-          >
-            {heroSlides[currentSlide].title}
-          </div>
-          <div style={{ color: colors.bronze }}>·</div>
-          <div
-            className="font-medium"
-            style={{
-              fontSize: theme.typography.fontSize.xs,
-              color: theme.colors.neutral.gray300,
-            }}
-          >
-            {heroSlides[currentSlide].region}
-          </div>
-        </Badge>
-      </motion.div>
     </section>
   );
 }
@@ -243,23 +242,23 @@ export function HeroSection() {
 
 function StatBadge({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2">
       <div
         className="rounded-full border-2 flex-center group transition-all duration-300 flex-shrink-0 bg-white/90 shadow-lg"
         style={{
           borderColor: colors.gold,
-          width: '48px',
-          height: '48px',
+          width: '36px',
+          height: '36px',
         }}
       >
         {icon}
       </div>
       <div>
         <div
-          className="leading-none mb-1"
+          className="leading-none mb-0.5"
           style={{
             fontFamily: theme.typography.fonts.heading,
-            fontSize: theme.typography.fontSize['2xl'],
+            fontSize: theme.typography.fontSize.lg,
             fontWeight: theme.typography.fontWeight.medium,
             color: theme.colors.text.primary,
           }}
@@ -267,10 +266,10 @@ function StatBadge({ icon, value, label }: { icon: React.ReactNode; value: strin
           {value}
         </div>
         <div style={{
-          fontSize: theme.typography.fontSize.xs,
+          fontSize: '10px',
           fontWeight: theme.typography.fontWeight.bold,
           textTransform: 'uppercase',
-          letterSpacing: theme.typography.letterSpacing.wider,
+          letterSpacing: theme.typography.letterSpacing.wide,
           color: theme.colors.text.muted,
         }}>
           {label}
