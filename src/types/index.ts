@@ -11,6 +11,14 @@ export interface Chateau {
   atouts: string[];
   images: string[];
   slug: string;
+  // Nouveaux champs SEO
+  seoH1: string;
+  accrocheHero: string;
+  descriptionLongue: string;
+  faq: Array<{
+    question: string;
+    answer: string;
+  }>;
 }
 
 export interface TypeEvenement {

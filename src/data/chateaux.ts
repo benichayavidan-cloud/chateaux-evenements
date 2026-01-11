@@ -15,8 +15,8 @@ export const chateaux: Chateau[] = [
     atouts: [
       "Capacité 280 pers",
       "100+ Chambres",
-      "Piscine & Spa",
-      "Amphithéâtre et équipements audiovisuels",
+      "Piscine & Spa Nuxe",
+      "Amphithéâtre Privé",
     ],
     images: [
       "/images/chateaux/chantilly/domaine-grands-bois-chantilly-facade-principale-evenement-entreprise-oise-60.png",
@@ -26,6 +26,19 @@ export const chateaux: Chateau[] = [
       "/images/chateaux/chantilly/evenement-entreprise-chantilly-domaine-luxe-parc-boise-60.png",
     ],
     slug: "domaine-grands-bois-chantilly",
+    seoH1: "Château Séminaire Chantilly : Manoir Anglo-Normand 280 pers",
+    accrocheHero: "Le Géant de la Forêt : Amphithéâtre & Spa à 35 min de Paris",
+    descriptionLongue: "Le plus vaste Château-Hôtel de la région. Ce manoir anglo-normand, niché dans une forêt privée de 25 hectares, est l'unique lieu capable d'accueillir 280 personnes en résidentiel. Avec son amphithéâtre privé de 200 places et son Spa Nuxe de 800m², c'est le choix n°1 pour les grandes conventions qui veulent marquer les esprits.",
+    faq: [
+      {
+        question: "Quelle est la capacité de l'amphithéâtre ?",
+        answer: "L'amphithéâtre peut accueillir 200 personnes assises avec régie complète."
+      },
+      {
+        question: "Y a-t-il un spa ?",
+        answer: "Oui, un Spa Nuxe de 800m² avec piscine intérieure est privatisable."
+      }
+    ],
   },
   {
     id: "2",
@@ -41,8 +54,8 @@ export const chateaux: Chateau[] = [
     atouts: [
       "Luxe 5 Étoiles",
       "Jardin Suspendu",
+      "Accessible Métro",
       "Gastronomie",
-      "Accessible en métro",
     ],
     images: [
       "/images/chateaux/hauts-de-seine/domaine-hauts-de-seine-mgallery-facade-evenement-entreprise-92.png",
@@ -52,6 +65,19 @@ export const chateaux: Chateau[] = [
       "/images/chateaux/hauts-de-seine/evenement-entreprise-92-domaine-mgallery-parc-jardin.png",
     ],
     slug: "domaine-hauts-de-seine",
+    seoH1: "Château Paris 92 Accessible Métro : Refuge 5★ pour CODIR",
+    accrocheHero: "Le Secret des Hauts-de-Seine : Un Jardin Suspendu aux portes de Paris",
+    descriptionLongue: "Un miracle urbain. Cette bâtisse du XVIIe siècle, transformée en hôtel 5 étoiles, offre un calme monacal à 15 min du centre de Paris en métro. Idéal pour les CODIRs stratégiques exigeant confidentialité et excellence gastronomique. Profitez d'une vue imprenable depuis le jardin suspendu classé.",
+    faq: [
+      {
+        question: "Est-ce accessible en transport ?",
+        answer: "Oui, ligne de métro directe à 5 min à pied."
+      },
+      {
+        question: "Quel type d'événements ?",
+        answer: "Idéal pour CODIR, Comex et dîners confidentiels (max 180 pers)."
+      }
+    ],
   },
   {
     id: "3",
@@ -65,10 +91,10 @@ export const chateaux: Chateau[] = [
     description:
       "Déconnexion radicale en Vallée de Chevreuse. Une abbaye cistercienne monumentale, ruines romantiques et étang privé. Le lieu ultime pour l'effet 'Wow'.",
     atouts: [
-      "Site Classé",
+      "Site Classé MH",
       "Salles Voûtées",
-      "Étang 70 hectares",
-      "Ruines romantiques",
+      "Étang 70 Hectares",
+      "Ruines Romantiques",
     ],
     images: [
       "/images/chateaux/chevreuse/monastere-vallee-chevreuse-abbaye-facade-evenement-entreprise-78.png",
@@ -78,6 +104,19 @@ export const chateaux: Chateau[] = [
       "/images/chateaux/chevreuse/evenement-entreprise-chevreuse-abbaye-parc-naturel-yvelines.png",
     ],
     slug: "monastere-vallee-chevreuse",
+    seoH1: "Abbaye Vallée Chevreuse : Monastère Cistercien Séminaire (78)",
+    accrocheHero: "L'Effet Wow : Abbaye Millénaire & Étang de 70 Hectares",
+    descriptionLongue: "Déconnexion radicale garantie. Une abbaye cistercienne du XIIe siècle classée Monument Historique, au cœur de la Vallée de Chevreuse. Entre les ruines romantiques et l'étang privé immense, offrez à vos équipes une retraite spirituelle et stratégique inoubliable. Salles voûtées monumentales pour vos soirées.",
+    faq: [
+      {
+        question: "Peut-on faire du bruit le soir ?",
+        answer: "Oui, le domaine est isolé, idéal pour les soirées festives."
+      },
+      {
+        question: "Quelles activités team building ?",
+        answer: "Olympiades, barque sur l'étang, escape game dans les ruines."
+      }
+    ],
   },
 ];
 

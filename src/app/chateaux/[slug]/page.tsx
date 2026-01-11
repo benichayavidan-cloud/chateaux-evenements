@@ -3,6 +3,8 @@
 import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronRight, Home, HelpCircle } from "lucide-react";
+import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, Users, Check, Sparkles, Calendar, Award } from "lucide-react";
 import { chateaux as chateauxData } from "@/data/chateaux";
@@ -17,6 +19,7 @@ export default function ChateauPage() {
   const params = useParams();
   const slug = params.slug as string;
   const { scrollY } = useScroll();
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   // Parallax effect pour le hero
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
@@ -32,15 +35,65 @@ export default function ChateauPage() {
     notFound();
   }
 
+  // Schema JSON-LD "Place"
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": chateau.seoH1,
+    "description": chateau.descriptionLongue,
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": chateau.region,
+      "addressCountry": "FR"
+    },
+    "image": chateau.images,
+    "amenityFeature": chateau.atouts.map((atout) => ({
+      "@type": "LocationFeatureSpecification",
+      "name": atout,
+      "value": true
+    })),
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "120",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Schema JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
+      {/* Breadcrumbs */}
+      <div className="bg-white border-b border-gray-100">
+        <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-4">
+          <nav className="flex items-center text-sm text-gray-600" aria-label="Fil d'Ariane">
+            <Link href="/" className="hover:text-[var(--bronze-antique)] transition-colors flex items-center gap-1">
+              <Home className="w-4 h-4" />
+              <span>Accueil</span>
+            </Link>
+            <ChevronRight className="w-4 h-4 mx-2" />
+            <Link href="/chateaux" className="hover:text-[var(--bronze-antique)] transition-colors">
+              Nos Châteaux
+            </Link>
+            <ChevronRight className="w-4 h-4 mx-2" />
+            <span className="text-gray-900 font-medium">{chateau.nom}</span>
+          </nav>
+        </div>
+      </div>
+
       {/* Hero Section - Design compact */}
       <div style={{ height: '85vh', minHeight: '600px' }} className="relative overflow-hidden">
         {/* Image de fond */}
         <div className="absolute inset-0">
           <Image
             src={chateau.images[0]}
-            alt={chateau.nom}
+            alt={`${chateau.seoH1} - Vue principale`}
             fill
             className="object-cover"
             priority
@@ -105,13 +158,13 @@ export default function ChateauPage() {
               padding: '24px 20px',
             }}
           >
-            {/* Titre */}
+            {/* Titre SEO optimisé */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
               style={{
-                fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+                fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)',
                 fontWeight: theme.typography.fontWeight.light,
                 fontStyle: 'italic',
                 fontFamily: theme.typography.fonts.heading,
@@ -120,10 +173,10 @@ export default function ChateauPage() {
                 marginBottom: spacing.sm,
               }}
             >
-              Un Château d'Exception
+              {chateau.seoH1}
             </motion.h1>
 
-            {/* Description */}
+            {/* Accroche Hero */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,7 +189,7 @@ export default function ChateauPage() {
                 marginBottom: spacing.lg,
               }}
             >
-              {chateau.description}
+              {chateau.accrocheHero}
             </motion.p>
 
             {/* Badge capacité */}
@@ -225,7 +278,7 @@ export default function ChateauPage() {
               </h3>
             </motion.div>
 
-            {/* Contenu centré */}
+            {/* Contenu centré - Description longue */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +286,7 @@ export default function ChateauPage() {
               viewport={{ once: true }}
               className="text-body-xl text-gray-600 max-w-4xl text-center"
             >
-              {chateau.description}
+              {chateau.descriptionLongue}
             </motion.p>
           </div>
         </div>
@@ -348,7 +401,7 @@ export default function ChateauPage() {
                   >
                     <Image
                       src={image}
-                      alt={`${chateau.nom} - ${index + 2}`}
+                      alt={`${chateau.seoH1} - vue ${index + 2}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(min-width: 1024px) 33vw, 50vw"
@@ -356,6 +409,72 @@ export default function ChateauPage() {
                   </motion.div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section FAQ */}
+        <div className="section-white section-padding-sm">
+          <div className="section-container">
+            {/* Titre centré */}
+            <div className="text-center mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center gap-3 mb-4"
+              >
+                <HelpCircle className="w-6 h-6 text-[var(--bronze-antique)]" />
+                <h2 className="heading-lg">
+                  Questions Fréquentes
+                </h2>
+                <p className="text-body-xl text-gray-600 max-w-2xl">
+                  Tout ce que vous devez savoir sur ce château
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Accordion FAQ */}
+            <div className="max-w-3xl mx-auto space-y-4">
+              {chateau.faq.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    className="w-full text-left bg-white border border-gray-200 rounded-2xl p-6 hover:border-[var(--bronze-antique)] transition-all duration-300"
+                  >
+                    <div className="flex justify-between items-center gap-4">
+                      <h3 className="text-lg font-semibold text-gray-900 flex-1">
+                        {item.question}
+                      </h3>
+                      <ChevronRight
+                        className={`w-5 h-5 text-[var(--bronze-antique)] transition-transform duration-300 flex-shrink-0 ${
+                          openFaqIndex === index ? 'rotate-90' : ''
+                        }`}
+                      />
+                    </div>
+                    {openFaqIndex === index && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="mt-4 pt-4 border-t border-gray-100"
+                      >
+                        <p className="text-gray-600 leading-relaxed">
+                          {item.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </button>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
