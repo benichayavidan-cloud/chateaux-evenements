@@ -713,13 +713,14 @@ export default function ChateauxPage() {
           }} />
         </div>
 
-        <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative z-10">
+        <div className="w-full relative z-10 flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center justify-center max-w-4xl mx-auto w-full"
+            className="flex flex-col items-center justify-center w-full"
+            style={{ maxWidth: '1280px', padding: '0 24px' }}
           >
             {/* Icône */}
             <Sparkles
