@@ -71,7 +71,7 @@ export function ChateauxSection() {
         </motion.div>
 
         {/* Grille de cartes châteaux */}
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full" style={{ gap: `${spacing["2xl"]} ${spacing["3xl"]}`, padding: `0 ${spacing.lg}` }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-10 lg:px-12" style={{ gap: `${spacing["2xl"]} ${spacing["3xl"]}` }}>
           {chateaux.map((chateau, index) => (
             <motion.div
               key={chateau.id}

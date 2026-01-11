@@ -294,29 +294,74 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: var(--max-width-content);
   margin: 0 auto;
-  padding: 12px;
+  padding: 0 24px;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding: 0 48px;
+  }
 }
 
 /* Section padding vertical */
 .section-padding-sm {
-  padding: var(--section-padding-sm) 12px;
+  padding: var(--section-padding-sm) 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .section-padding-md {
-  padding: var(--section-padding-md) 12px;
+  padding: var(--section-padding-md) 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .section-padding-lg {
-  padding: var(--section-padding-lg) 12px;
+  padding: var(--section-padding-lg) 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .section-padding-sm,
+  .section-padding-md,
+  .section-padding-lg {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-padding-sm,
+  .section-padding-md,
+  .section-padding-lg {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding-sm,
+  .section-padding-md,
+  .section-padding-lg {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
 }
 
 /* Badge standardisé */
@@ -344,7 +389,19 @@ h1, h2, h3, h4, h5, h6 {
 .hero-content {
   width: 100%;
   text-align: center;
-  padding: 0 40px;
+  padding: 0 24px;
+}
+
+@media (min-width: 640px) {
+  .hero-content {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    padding: 0 40px;
+  }
 }
 
 .hero-overlay-light {
@@ -365,17 +422,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-white {
   background: white;
-  padding: 12px;
 }
 
 .section-gray {
   background: #f9fafb;
-  padding: 12px;
-}
-
-/* Section générique avec padding */
-section {
-  padding: 12px;
 }
 
 /* ============================================
@@ -467,25 +517,7 @@ section {
     height: 80vh;
   }
 
-  .hero-content {
-    padding: 0 16px;
-  }
-
-  .section-container {
-    padding: 8px;
-  }
-
-  .section-padding-sm {
-    padding: 24px 16px;
-  }
-
-  .section-padding-md {
-    padding: 40px 16px;
-  }
-
-  .section-padding-lg {
-    padding: 60px 16px;
-  }
+  /* Mobile padding already defined above, no override needed */
 
   .content-padding-lg {
     padding: 24px;
@@ -494,17 +526,7 @@ section {
 
 /* Tablet (640px - 1024px) */
 @media (min-width: 640px) and (max-width: 1023px) {
-  .section-padding-sm {
-    padding: 36px 20px;
-  }
-
-  .section-padding-md {
-    padding: 50px 20px;
-  }
-
-  .section-padding-lg {
-    padding: 80px 20px;
-  }
+  /* Tablet padding already defined in main media queries above */
 
   .content-padding-lg {
     padding: 32px;
@@ -678,10 +700,6 @@ section {
     --section-padding-sm: 20px;
     --section-padding-md: 40px;
     --section-padding-lg: 50px;
-  }
-
-  .section-container {
-    padding: 6px;
   }
 
   /* Even smaller text on tiny screens */
