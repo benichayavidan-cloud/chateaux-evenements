@@ -331,33 +331,33 @@ export default function ChateauxPage() {
                         fontFamily: theme.typography.fonts.heading,
                         lineHeight: theme.typography.lineHeight.tight,
                         color: theme.colors.text.primary,
-                        marginBottom: spacing.sm,
+                        marginBottom: spacing.xs,
                       }}
                     >
-                      Découvrez nos Châteaux d'Exception
+                      Location de Châteaux pour Séminaires : La Collection Île-de-France
                     </motion.h1>
 
-                    {/* Description */}
-                    <motion.p
+                    {/* Sous-titre H2 */}
+                    <motion.h2
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.15 }}
                       style={{
                         fontSize: theme.typography.fontSize.sm,
-                        color: theme.colors.text.secondary,
                         fontWeight: theme.typography.fontWeight.normal,
+                        color: theme.colors.text.secondary,
                         lineHeight: theme.typography.lineHeight.relaxed,
                         marginBottom: spacing.lg,
                       }}
                     >
-                      {chateau.description}
-                    </motion.p>
+                      3 Domaines d'exception, privatisables pour vos événements d'entreprise. Oise (60) · Yvelines (78) · Hauts-de-Seine (92).
+                    </motion.h2>
 
-                    {/* Badge capacité */}
+                    {/* Badge capacité - texte personnalisé par château */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
+                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
                       className="inline-flex items-center gap-2"
                       style={{
                         background: `${colors.bronze}10`,
@@ -377,7 +377,9 @@ export default function ChateauxPage() {
                           whiteSpace: "nowrap",
                         }}
                       >
-                        {chateau.capacite.min}-{chateau.capacite.max} personnes
+                        {chateau.id === "1" && "Jusqu'à 280 pers. en résidentiel"}
+                        {chateau.id === "2" && "Jusqu'à 180 pers. accessible métro"}
+                        {chateau.id === "3" && "Jusqu'à 150 pers. site classé"}
                       </div>
                     </motion.div>
                   </div>
@@ -428,23 +430,23 @@ export default function ChateauxPage() {
           {[
             {
               icon: <Award className="w-8 h-8" />,
-              title: "Excellence Garantie",
-              description: "Châteaux classés monuments historiques avec services 5 étoiles"
+              title: "Lieux Classés & Protégés",
+              description: "3 domaines classés Monuments Historiques ou Sites Remarquables"
             },
             {
               icon: <Clock className="w-8 h-8" />,
-              title: "Disponibilité 24/7",
-              description: "Équipe dédiée et réponse sous 2h pour toute demande urgente"
+              title: "Réservation Express",
+              description: "Confirmation sous 48h • Visite virtuelle gratuite sur demande"
             },
             {
               icon: <Shield className="w-8 h-8" />,
-              title: "Annulation Flexible",
-              description: "Politique d'annulation jusqu'à 30 jours avant votre événement"
+              title: "Paiement Sécurisé",
+              description: "Règlement en 3 fois sans frais • Annulation flexible jusqu'à 30 jours"
             },
             {
               icon: <TrendingUp className="w-8 h-8" />,
-              title: "98% Satisfaction",
-              description: "Plus de 500 événements organisés avec succès depuis 15 ans"
+              title: "97% Recommandent",
+              description: "Plus de 450 événements organisés avec succès depuis 2010"
             },
           ].map((usp, index) => (
             <motion.div
