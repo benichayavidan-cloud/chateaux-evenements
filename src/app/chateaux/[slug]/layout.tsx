@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { chateaux as chateauxData } from "@/data/chateaux";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   children: React.ReactNode;
 };
 
