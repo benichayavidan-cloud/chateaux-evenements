@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     shortcut: '/icon.svg',
     apple: '/apple-icon.png',
   },
-  metadataBase: new URL('https://www.selectchateaux.com'),
+  metadataBase: new URL('https://selectchateaux.vercel.app'),
   alternates: {
     canonical: '/',
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Select Châteaux - La Collection Confidentielle",
     description:
       "3 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.",
-    url: "https://www.selectchateaux.com/",
+    url: "https://selectchateaux.vercel.app/",
     siteName: "Select Châteaux",
     locale: "fr_FR",
     images: [
@@ -77,10 +77,10 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://www.selectchateaux.com/#organization",
+        "@id": "https://selectchateaux.vercel.app/#organization",
         "name": "Select Châteaux",
-        "url": "https://www.selectchateaux.com/",
-        "logo": "https://www.selectchateaux.com/logo.png",
+        "url": "https://selectchateaux.vercel.app/",
+        "logo": "https://selectchateaux.vercel.app/logo.png",
         "description": "Agence spécialisée dans la location de lieux confidentiels et de châteaux pour séminaires d'entreprise en Île-de-France.",
         "areaServed": "Île-de-France",
         "contactPoint": {
@@ -95,7 +95,7 @@ export default function RootLayout({
         "@type": "Service",
         "name": "Organisation de Séminaires d'Entreprise",
         "provider": {
-          "@id": "https://www.selectchateaux.com/#organization"
+          "@id": "https://selectchateaux.vercel.app/#organization"
         },
         "areaServed": {
           "@type": "State",
