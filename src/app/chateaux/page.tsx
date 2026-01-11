@@ -749,13 +749,13 @@ export default function ChateauxPage() {
 
             {/* Sous-titre */}
             <p
-              className="text-center"
+              className="text-center w-full"
               style={{
                 fontSize: theme.typography.fontSize.xl,
                 color: theme.colors.overlay.white90,
                 lineHeight: theme.typography.lineHeight.relaxed,
                 maxWidth: "700px",
-                marginBottom: spacing["3xl"],
+                margin: `0 auto ${spacing["3xl"]} auto`,
               }}
             >
               Nos experts vous accompagnent gratuitement dans le choix du château idéal.
