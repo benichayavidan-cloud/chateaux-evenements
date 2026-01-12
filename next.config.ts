@@ -23,6 +23,12 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "logo.clearbit.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "jmeiepmtgidqtmxfnlwf.supabase.co",
         port: "",
         pathname: "/storage/v1/object/public/**",

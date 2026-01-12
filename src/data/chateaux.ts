@@ -342,18 +342,18 @@ export const chiffresCles: ChiffreCle[] = [
   },
 ];
 
-// Logos clients (grandes entreprises réelles)
+// Logos clients (grandes entreprises réelles) - Clearbit API pour vrais logos officiels
 export const clientLogos = [
-  { nom: "Microsoft", url: "https://cdn.simpleicons.org/microsoft/0078D4" },
-  { nom: "Google", url: "https://cdn.simpleicons.org/google/4285F4" },
-  { nom: "Amazon", url: "https://cdn.simpleicons.org/amazon/FF9900" },
-  { nom: "Apple", url: "https://cdn.simpleicons.org/apple/000000" },
-  { nom: "BMW", url: "https://cdn.simpleicons.org/bmw/0066B1" },
-  { nom: "Mercedes", url: "https://cdn.simpleicons.org/mercedesbenz/00ADEF" },
-  { nom: "Air France", url: "https://cdn.simpleicons.org/airfrance/002157" },
-  { nom: "Airbus", url: "https://cdn.simpleicons.org/airbus/00205B" },
-  { nom: "L'Oréal", url: "https://cdn.simpleicons.org/loreal/000000" },
-  { nom: "Accor", url: "https://cdn.simpleicons.org/accor/95242F" },
-  { nom: "Orange", url: "https://cdn.simpleicons.org/orange/FF6600" },
-  { nom: "Renault", url: "https://cdn.simpleicons.org/renault/FFCC00" },
+  { nom: "Microsoft", url: "https://logo.clearbit.com/microsoft.com" },
+  { nom: "Google", url: "https://logo.clearbit.com/google.com" },
+  { nom: "Amazon", url: "https://logo.clearbit.com/amazon.com" },
+  { nom: "Apple", url: "https://logo.clearbit.com/apple.com" },
+  { nom: "BMW", url: "https://logo.clearbit.com/bmw.com" },
+  { nom: "Mercedes-Benz", url: "https://logo.clearbit.com/mercedes-benz.com" },
+  { nom: "Air France", url: "https://logo.clearbit.com/airfrance.fr" },
+  { nom: "Airbus", url: "https://logo.clearbit.com/airbus.com" },
+  { nom: "L'Oréal", url: "https://logo.clearbit.com/loreal.com" },
+  { nom: "Accor", url: "https://logo.clearbit.com/accor.com" },
+  { nom: "Orange", url: "https://logo.clearbit.com/orange.com" },
+  { nom: "Renault", url: "https://logo.clearbit.com/renault.com" },
 ];
