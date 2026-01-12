@@ -34,7 +34,7 @@ export function FooterLuxe() {
         }}>
           {/* Colonne 1 - À propos */}
           <div>
-            <div style={{ marginBottom: spacing.lg }}>
+            <div style={{ marginBottom: spacing.lg, display: 'block' }}>
               <img
                 src="/logo.png"
                 alt="Select Chateaux"
@@ -42,7 +42,8 @@ export function FooterLuxe() {
                 style={{
                   height: 'clamp(4rem, 6vw, 5rem)',
                   maxWidth: '280px',
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
+                  display: 'block'
                 }}
               />
             </div>
@@ -50,7 +51,7 @@ export function FooterLuxe() {
               color: theme.colors.neutral.gray600,
               lineHeight: theme.typography.lineHeight.relaxed,
               fontSize: theme.typography.fontSize.sm,
-              marginBottom: spacing.xl
+              margin: '0 0 ' + spacing.xl + ' 0'
             }}>
               L'excellence événementielle dans des châteaux d'exception à travers la France.
             </p>
