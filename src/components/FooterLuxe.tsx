@@ -38,9 +38,10 @@ export function FooterLuxe() {
               <img
                 src="/logo.png"
                 alt="Select Chateaux"
-                className="h-20 w-auto object-contain"
+                className="w-auto object-contain"
                 style={{
-                  maxWidth: '260px',
+                  height: 'clamp(3rem, 5vw, 4rem)',
+                  maxWidth: '240px',
                   filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
                 }}
               />
