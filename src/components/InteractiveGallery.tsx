@@ -137,7 +137,7 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
                 style={{
                   width: 'clamp(100px, 15vw, 160px)',
                   height: 'clamp(80px, 12vw, 120px)',
-                  ringColor: index === currentIndex ? colors.bronze : 'transparent',
+                  ...(index === currentIndex && { '--tw-ring-color': colors.bronze } as any),
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
