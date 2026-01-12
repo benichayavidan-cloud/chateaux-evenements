@@ -25,7 +25,7 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
   return (
     <div className="w-full">
       {/* Image principale */}
-      <div className="relative w-full mb-10 md:mb-12">
+      <div className="relative w-full" style={{ marginBottom: '60px' }}>
         <div
           className="relative w-full rounded-3xl overflow-hidden bg-gray-100"
           style={{
@@ -170,7 +170,7 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
       </div>
 
       {/* Points de navigation mobile (optionnel) */}
-      <div className="flex justify-center gap-2 mt-6 md:hidden">
+      <div className="flex justify-center gap-2 md:hidden" style={{ marginTop: '32px' }}>
         {images.map((_, index) => (
           <button
             key={index}
