@@ -99,7 +99,7 @@ export function HeroSection() {
       </motion.div>
 
       {/* Contenu à gauche */}
-      <div className="absolute inset-0 flex flex-col justify-center items-start px-5 sm:px-10 md:px-12 lg:px-16">
+      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start px-5 sm:px-10 md:px-12 lg:px-16">
 
         {/* Conteneur principal */}
         <div
