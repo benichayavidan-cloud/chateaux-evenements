@@ -25,7 +25,7 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
   return (
     <div className="w-full">
       {/* Image principale */}
-      <div className="relative w-full mb-6">
+      <div className="relative w-full mb-10 md:mb-12">
         <div
           className="relative w-full rounded-3xl overflow-hidden bg-gray-100"
           style={{
