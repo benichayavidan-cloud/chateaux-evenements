@@ -72,7 +72,7 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/devis"
-              className="px-6 py-2.5 bg-[var(--gold)] text-white font-semibold rounded-full hover:bg-[var(--accent)] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="px-6 py-2 bg-[var(--gold)] text-white font-semibold rounded-full hover:bg-[var(--accent)] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               Obtenir un Devis
             </Link>
