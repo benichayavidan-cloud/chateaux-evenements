@@ -9,6 +9,7 @@ import { colors, spacing } from "@/config/themeHelpers";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { useState, useEffect } from "react";
 
 // ============================================
@@ -702,7 +703,12 @@ export default function ChateauxPage() {
       </SectionWrapper>
 
       {/* ============================================ */}
-      {/* SECTION 4: CTA FINALE - MODULABLE */}
+      {/* SECTION 4: TÉMOIGNAGES CLIENTS */}
+      {/* ============================================ */}
+      <TestimonialsSection />
+
+      {/* ============================================ */}
+      {/* SECTION 5: CTA FINALE - MODULABLE */}
       {/* ============================================ */}
       <section
         className="relative overflow-hidden flex items-center justify-center"
