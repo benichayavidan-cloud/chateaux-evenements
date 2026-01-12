@@ -274,7 +274,7 @@ export function TestimonialsSection() {
           </div>
 
           {/* Indicateurs de pagination */}
-          <div className="flex justify-center items-center gap-3 mt-20">
+          <div className="flex justify-center items-center gap-3" style={{ marginTop: '80px', paddingTop: '20px' }}>
             {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
