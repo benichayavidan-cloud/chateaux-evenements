@@ -66,46 +66,40 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Contenu à gauche avec badge au-dessus */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start px-8 sm:px-10 md:px-12 lg:px-16">
-        {/* Badge lieu au-dessus du conteneur */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="flex justify-center w-full"
-          style={{ maxWidth: '100%', marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)' }}
+      {/* Badge lieu - Petit et discret en haut à droite */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.7 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute top-4 right-4 md:top-6 md:right-6 z-10"
+      >
+        <div
+          className="px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5"
+          style={{
+            background: 'rgba(0, 0, 0, 0.3)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+          }}
         >
-          <Badge variant="glass" size="md">
-            <div
-              className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{
-                background: colors.bronze,
-                filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
-              }}
-            />
-            <div
-              className="italic font-semibold"
-              style={{
-                fontSize: theme.typography.fontSize.xs,
-                color: colors.white,
-                fontFamily: theme.typography.fonts.heading,
-              }}
-            >
-              {heroSlides[currentSlide].title}
-            </div>
-            <div style={{ color: colors.bronze }}>·</div>
-            <div
-              className="font-medium"
-              style={{
-                fontSize: theme.typography.fontSize.xs,
-                color: theme.colors.neutral.gray300,
-              }}
-            >
-              {heroSlides[currentSlide].region}
-            </div>
-          </Badge>
-        </motion.div>
+          <div
+            className="w-1 h-1 rounded-full"
+            style={{
+              background: colors.bronze,
+            }}
+          />
+          <div
+            style={{
+              fontSize: '0.65rem',
+              color: 'rgba(255, 255, 255, 0.9)',
+              fontWeight: 500,
+            }}
+          >
+            {heroSlides[currentSlide].region}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Contenu à gauche */}
+      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start px-5 sm:px-10 md:px-12 lg:px-16">
 
         {/* Conteneur principal */}
         <div

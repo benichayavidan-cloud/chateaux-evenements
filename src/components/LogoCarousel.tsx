@@ -11,7 +11,7 @@ export function LogoCarousel() {
 
   return (
     <section className="py-12 md:py-16 overflow-hidden" style={{ background: theme.colors.neutral.white }}>
-      <div className="w-full text-center mb-8 px-4">
+      <div className="w-full text-center mb-[15px] px-4">
         <p
           style={{
             fontSize: theme.typography.fontSize.sm,
