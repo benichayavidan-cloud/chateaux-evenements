@@ -35,17 +35,17 @@ export function Navigation() {
           : "bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-6 md:px-8">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center">
             <div className="relative">
               <img
                 src="/logo.png"
                 alt="Select Chateaux"
-                className="h-16 w-auto object-contain transition-all duration-300"
+                className="h-20 w-auto object-contain transition-all duration-300"
                 style={{
-                  maxWidth: '200px',
+                  maxWidth: '280px',
                   filter: isScrolled ? 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' : 'drop-shadow(0 2px 8px rgba(0,0,0,0.3))'
                 }}
               />

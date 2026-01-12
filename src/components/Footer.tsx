@@ -16,13 +16,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Colonne 1 - À propos */}
           <div>
-            <div className="mb-4">
+            <div className="mb-6">
               <img
                 src="/logo.png"
                 alt="Select Chateaux"
-                className="h-14 w-auto object-contain"
+                className="h-20 w-auto object-contain"
                 style={{
-                  maxWidth: '200px',
+                  maxWidth: '260px',
                   filter: 'drop-shadow(0 2px 4px rgba(255,255,255,0.1))'
                 }}
               />
