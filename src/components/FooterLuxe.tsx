@@ -34,24 +34,16 @@ export function FooterLuxe() {
         }}>
           {/* Colonne 1 - À propos */}
           <div>
-            <div style={{ marginBottom: spacing.lg }} className="flex items-center gap-2">
-              <span style={{
-                fontSize: theme.typography.fontSize["2xl"],
-                fontWeight: theme.typography.fontWeight.medium,
-                color: theme.colors.neutral.gray900,
-                fontFamily: theme.typography.fonts.heading
-              }}>
-                Select
-              </span>
-              <span style={{
-                fontSize: theme.typography.fontSize["2xl"],
-                fontWeight: theme.typography.fontWeight.light,
-                fontStyle: "italic",
-                color: colors.gold,
-                fontFamily: theme.typography.fonts.heading
-              }}>
-                Chateaux
-              </span>
+            <div style={{ marginBottom: spacing.lg }}>
+              <img
+                src="/logo.png"
+                alt="Select Chateaux"
+                className="h-20 w-auto object-contain"
+                style={{
+                  maxWidth: '260px',
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                }}
+              />
             </div>
             <p style={{
               color: theme.colors.neutral.gray600,
