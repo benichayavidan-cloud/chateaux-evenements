@@ -33,7 +33,7 @@ export function FooterLuxe() {
           marginBottom: '32px'
         }}>
           {/* Colonne 1 - À propos */}
-          <div>
+          <div style={{ paddingLeft: '8px' }}>
             <div style={{ marginBottom: spacing.lg, display: 'block' }}>
               <img
                 src="/logo.png"
