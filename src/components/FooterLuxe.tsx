@@ -28,7 +28,7 @@ export function FooterLuxe() {
         background: `linear-gradient(to right, transparent, ${colors.bronze}, transparent)`
       }} />
 
-      <div className="w-full flex flex-col items-center justify-center px-8 sm:px-10 md:px-12 lg:px-16">
+      <div className="w-full flex flex-col items-center justify-center px-8 sm:px-10 md:px-14 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto w-full gap-10 md:gap-12 lg:gap-14" style={{
           marginBottom: '32px'
         }}>
