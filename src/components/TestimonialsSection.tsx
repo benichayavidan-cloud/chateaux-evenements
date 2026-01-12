@@ -76,7 +76,7 @@ export function TestimonialsSection() {
               >
                 {/* Avatar et info */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-offset-2" style={{ ringColor: colors.bronze }}>
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-offset-2" style={{ '--tw-ring-color': colors.bronze } as any}>
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.nom}
