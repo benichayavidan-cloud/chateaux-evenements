@@ -318,6 +318,86 @@ export const testimonials: Testimonial[] = [
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
+  {
+    id: "5",
+    nom: "Caroline Bertrand",
+    entreprise: "Airbus Group",
+    poste: "Responsable Événementiel International",
+    contenu:
+      "Nous organisons régulièrement des conventions internationales et le Manoir Anglo-Normand & Son Parc (Chantilly) s'est révélé être un choix parfait. Les infrastructures sont de niveau international et le cadre forestier offre une déconnexion bienvenue après des mois de travail intense.",
+    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
+  {
+    id: "6",
+    nom: "Philippe Mercier",
+    entreprise: "BNP Paribas Asset Management",
+    poste: "Directeur de la Stratégie",
+    contenu:
+      "Le Refuge Historique Suspendu (Portes de Paris) offre une discrétion rare pour nos réunions stratégiques. L'accessibilité en métro est un atout considérable, et le jardin suspendu crée une bulle hors du temps en plein cœur de la région parisienne.",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
+  {
+    id: "7",
+    nom: "Valérie Rousseau",
+    entreprise: "L'Oréal Paris",
+    poste: "VP Marketing Europe",
+    contenu:
+      "Nous avons choisi L'Abbaye Millénaire & Son Étang (78) pour notre lancement produit. L'effet 'wow' était garanti dès l'arrivée de nos invités. Les salles voûtées ont apporté une dimension spectaculaire à notre événement. Un succès retentissant.",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
+  {
+    id: "8",
+    nom: "Antoine Chevalier",
+    entreprise: "Mercedes-Benz France",
+    poste: "Directeur Commercial",
+    contenu:
+      "Pour notre convention des concessionnaires, nous voulions un lieu à la hauteur de notre image de marque. Le Manoir Anglo-Normand & Son Parc (Chantilly) a été parfait. Le parc nous a permis d'organiser des essais privés dans un cadre somptueux.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
+  {
+    id: "9",
+    nom: "Nathalie Fontaine",
+    entreprise: "Orange Business Services",
+    poste: "Chief Innovation Officer",
+    contenu:
+      "Notre séminaire d'innovation nécessitait un environnement inspirant. L'architecture historique du Refuge Historique Suspendu (Portes de Paris) mêlée aux équipements technologiques modernes a créé le parfait équilibre entre tradition et innovation.",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
+  {
+    id: "10",
+    nom: "François Legrand",
+    entreprise: "LVMH Corporate",
+    poste: "Directeur des Affaires Publiques",
+    contenu:
+      "L'Abbaye Millénaire & Son Étang (78) incarne parfaitement les valeurs de notre groupe : patrimoine, excellence et raffinement. Nos partenaires institutionnels ont été conquis par l'authenticité du lieu et la qualité du service.",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
+  {
+    id: "11",
+    nom: "Émilie Vasseur",
+    entreprise: "Renault Group",
+    poste: "Directrice de la Communication Externe",
+    contenu:
+      "Organiser notre conférence de presse au Manoir Anglo-Normand & Son Parc (Chantilly) a été une décision stratégique payante. Le cadre exceptionnel a impressionné les journalistes internationaux et l'amphithéâtre privé était parfait pour nos annonces.",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
+  {
+    id: "12",
+    nom: "Laurent Deschamps",
+    entreprise: "Danone Groupe",
+    poste: "VP Human Resources",
+    contenu:
+      "Le team-building que nous avons organisé à L'Abbaye Millénaire & Son Étang (78) a dépassé nos espérances. Les activités sur l'étang et dans le parc ont renforcé la cohésion de nos équipes de direction. Un moment authentique et fédérateur.",
+    avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300&auto=format&fit=crop&q=80",
+    note: 5,
+  },
 ];
 
 export const chiffresCles: ChiffreCle[] = [
