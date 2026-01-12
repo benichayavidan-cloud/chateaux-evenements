@@ -103,7 +103,7 @@ export function HeroSection() {
 
         {/* Conteneur principal */}
         <div
-          className="text-center md:text-left rounded-2xl w-full max-w-full md:max-w-[480px]"
+          className="text-center md:text-left rounded-2xl w-full max-w-[90%] md:max-w-[480px]"
           style={{
             background: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(12px)',
