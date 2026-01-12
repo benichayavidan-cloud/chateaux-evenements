@@ -16,9 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  // URL canonique de production
+  const canonicalUrl = `https://www.selectchateaux.com/chateaux/${chateau.slug}`;
+
   return {
-    title: `${chateau.seoH1} | Select Châteaux`,
-    description: chateau.descriptionLongue.substring(0, 160) + "...",
+    title: `${chateau.seoTitle} | Select Châteaux`,
+    description: chateau.descriptionLongue.substring(0, 160),
     keywords: [
       `chateau ${chateau.region.toLowerCase()}`,
       `seminaire ${chateau.region.toLowerCase()}`,
@@ -26,15 +29,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `evenement entreprise ${chateau.region.toLowerCase()}`,
       `${chateau.styleArchitectural.toLowerCase()} seminaire`,
     ],
-    metadataBase: new URL("https://selectchateaux.vercel.app"),
+    metadataBase: new URL("https://www.selectchateaux.com"),
     alternates: {
-      canonical: `/chateaux/${chateau.slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       type: "website",
-      title: chateau.seoH1,
-      description: "Découvrez ce lieu d'exception pour vos séminaires.",
-      url: `https://selectchateaux.vercel.app/chateaux/${chateau.slug}`,
+      title: chateau.seoTitle,
+      description: chateau.descriptionLongue,
+      url: canonicalUrl,
       siteName: "Select Châteaux",
       locale: "fr_FR",
       images: [
@@ -48,8 +51,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: chateau.seoH1,
-      description: chateau.descriptionLongue.substring(0, 160) + "...",
+      title: chateau.seoTitle,
+      description: chateau.descriptionLongue.substring(0, 160),
     },
   };
 }

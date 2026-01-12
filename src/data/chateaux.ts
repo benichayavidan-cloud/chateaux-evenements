@@ -38,22 +38,27 @@ export const chateaux: Chateau[] = [
         "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/chantilly-6.webp",
       ],
     },
-    slug: "domaine-grands-bois-chantilly",
+    slug: "manoir-anglo-normand-chantilly",
     seoH1: "Château Séminaire Chantilly : Manoir Anglo-Normand 280 pers",
+    seoTitle: "Château Séminaire Chantilly (60) | Manoir & Amphithéâtre 280 pers",
     accrocheHero: "Le Géant de la Forêt : Amphithéâtre & Spa à 35 min de Paris",
-    descriptionLongue: "Le plus vaste Château-Hôtel de la région. Ce manoir anglo-normand, niché dans une forêt privée de 25 hectares, est l'unique lieu capable d'accueillir 280 personnes en résidentiel. Avec son amphithéâtre privé de 200 places et son Spa Nuxe de 800m², c'est le choix n°1 pour les grandes conventions qui veulent marquer les esprits.",
+    descriptionLongue: "Le Géant de la Forêt. Ce manoir anglo-normand de 100 chambres, niché dans une forêt privée, est l'unique lieu de l'Oise capable d'accueillir 280 personnes en résidentiel. Avec son amphithéâtre privé et son Spa Nuxe de 800m², c'est la référence pour les conventions d'envergure.",
     faq: [
       {
-        question: "Quelle est la capacité maximale d'accueil du domaine ?",
-        answer: "Le domaine peut accueillir jusqu'à 280 personnes en résidentiel avec plus de 100 chambres disponibles. L'amphithéâtre privé dispose de 200 places assises avec régie audiovisuelle complète."
+        question: "Capacité de l'amphithéâtre ?",
+        answer: "200 places assises avec régie audiovisuelle complète et équipements professionnels pour vos présentations d'entreprise."
+      },
+      {
+        question: "Distance de Paris ?",
+        answer: "35 min de la Gare du Nord en voiture et 45 min de l'aéroport Charles de Gaulle. Navettes privées disponibles."
       },
       {
         question: "Quels sont les équipements du Spa Nuxe ?",
         answer: "Le Spa Nuxe de 800m² comprend une piscine intérieure chauffée, un sauna, un hammam, des cabines de soins, ainsi qu'un espace fitness de 200m² avec équipements dernière génération. Le spa est entièrement privatisable pour vos événements."
       },
       {
-        question: "À quelle distance se trouve le domaine de Paris ?",
-        answer: "Le domaine est situé à seulement 35 minutes de Paris en voiture et à 20 minutes de l'aéroport Charles de Gaulle. Il est niché dans une forêt privée de 25 hectares en plein cœur de la région de Chantilly."
+        question: "Quelle est la capacité maximale d'accueil du domaine ?",
+        answer: "Le domaine peut accueillir jusqu'à 280 personnes en résidentiel avec plus de 100 chambres disponibles. L'amphithéâtre privé dispose de 200 places assises avec régie audiovisuelle complète."
       },
       {
         question: "Combien de salles de réunion sont disponibles ?",
@@ -62,10 +67,6 @@ export const chateaux: Chateau[] = [
       {
         question: "Quelles activités team-building proposez-vous ?",
         answer: "Nous proposons des activités variées : parcours aventure dans la forêt, olympiades sportives, ateliers culinaires, dégustation de vins, chasse au trésor, tennis, VTT, et des activités bien-être au spa. Un coordinateur dédié personnalise votre programme."
-      },
-      {
-        question: "Le domaine est-il accessible aux personnes à mobilité réduite ?",
-        answer: "Oui, le domaine est entièrement accessible PMR avec des ascenseurs, des rampes d'accès et des chambres adaptées. Les salles de réunion et espaces communs sont tous accessibles."
       }
     ],
   },
@@ -119,14 +120,19 @@ export const chateaux: Chateau[] = [
         "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hauts-de-seine-6.webp",
       ],
     },
-    slug: "domaine-hauts-de-seine",
+    slug: "hotel-historique-seminaire-paris-92",
     seoH1: "Château Paris 92 Accessible Métro : Refuge 5★ pour CODIR",
+    seoTitle: "Hôtel Séminaire Luxe 92 | Château Historique Accessible Métro Paris",
     accrocheHero: "Le Secret des Hauts-de-Seine : Un Jardin Suspendu aux portes de Paris",
-    descriptionLongue: "Un miracle urbain. Cette bâtisse du XVIIe siècle, transformée en hôtel 5 étoiles, offre un calme monacal à 15 min du centre de Paris en métro. Idéal pour les CODIRs stratégiques exigeant confidentialité et excellence gastronomique. Profitez d'une vue imprenable depuis le jardin suspendu classé.",
+    descriptionLongue: "Le Secret le mieux gardé des Hauts-de-Seine. Une bâtisse du XVIIe siècle classée Monument Historique, transformée en hôtel 5 étoiles. Le seul 'château' accessible en métro, offrant un jardin suspendu avec vue sur Paris. Idéal pour les CODIRs stratégiques.",
     faq: [
       {
-        question: "Comment accéder au domaine en transport en commun ?",
-        answer: "Le domaine est accessible via la ligne de métro à seulement 5 minutes à pied de la station. Un accès idéal pour vos participants venant de Paris sans avoir besoin de voiture. Des navettes privées peuvent également être organisées depuis l'aéroport ou les gares."
+        question: "Accès transport ?",
+        answer: "Métro ligne 12 à 5 min à pied. Des navettes privées peuvent être organisées depuis l'aéroport ou les gares pour vos participants."
+      },
+      {
+        question: "Standing ?",
+        answer: "Hôtel 5 étoiles MGallery, service Palace. Ancienne propriété de Marguerite de Valois, classée Monument Historique avec jardin suspendu classé."
       },
       {
         question: "Quelle est l'histoire de ce lieu exceptionnel ?",
@@ -135,10 +141,6 @@ export const chateaux: Chateau[] = [
       {
         question: "Quels types d'événements organisez-vous principalement ?",
         answer: "Le domaine est spécialisé dans les événements confidentiels haut de gamme : CODIR, COMEX, séminaires stratégiques, dîners d'affaires et réceptions privées pour 80 à 180 personnes. Le calme monacal du lieu garantit la confidentialité absolue."
-      },
-      {
-        question: "Quelle est la capacité d'hébergement ?",
-        answer: "Nous disposons de chambres et suites premium toutes équipées avec vue sur le parc ou le jardin suspendu. L'hébergement est inclus dans nos formules résidentielles avec petit-déjeuner gastronomique."
       },
       {
         question: "Proposez-vous de la restauration gastronomique ?",
@@ -201,11 +203,20 @@ export const chateaux: Chateau[] = [
         "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/chevreuse-9.webp",
       ],
     },
-    slug: "monastere-vallee-chevreuse",
+    slug: "abbaye-millenaire-vallee-chevreuse",
     seoH1: "Abbaye Vallée Chevreuse : Monastère Cistercien Séminaire (78)",
+    seoTitle: "Abbaye Séminaire 78 | Lieu Événementiel Vallée de Chevreuse & Étang",
     accrocheHero: "L'Effet Wow : Abbaye Millénaire & Étang de 70 Hectares",
-    descriptionLongue: "Déconnexion radicale garantie. Une abbaye cistercienne du XIIe siècle classée Monument Historique, au cœur de la Vallée de Chevreuse. Entre les ruines romantiques et l'étang privé immense, offrez à vos équipes une retraite spirituelle et stratégique inoubliable. Salles voûtées monumentales pour vos soirées.",
+    descriptionLongue: "L'Effet Wow garanti. Une abbaye cistercienne du XIIe siècle au cœur d'un domaine de 70 hectares avec étang privé. Ruines romantiques et salles voûtées pour des soirées de gala inoubliables. Déconnexion totale pour vos équipes.",
     faq: [
+      {
+        question: "Soirées festives ?",
+        answer: "Oui, lieu isolé sans contrainte sonore. Les salles voûtées offrent une acoustique exceptionnelle pour vos soirées de gala."
+      },
+      {
+        question: "Activités ?",
+        answer: "Barque sur l'étang, Escape Game géant dans les ruines, olympiades dans le parc, parcours d'orientation en forêt, ateliers œnologie."
+      },
       {
         question: "Quelle est l'histoire de cette abbaye cistercienne ?",
         answer: "L'Abbaye des Vaux-de-Cernay est une abbaye cistercienne fondée au XIIe siècle, classée Monument Historique en 1994. Située dans le Parc naturel régional de la Vallée de Chevreuse, elle offre un cadre historique exceptionnel avec ses salles voûtées monumentales et ses ruines romantiques."
@@ -217,14 +228,6 @@ export const chateaux: Chateau[] = [
       {
         question: "Combien de personnes pouvez-vous accueillir ?",
         answer: "L'abbaye dispose de vastes salles de réunion pouvant accueillir de 20 à 600 personnes selon la configuration. Nous proposons 57 chambres pour l'hébergement résidentiel, idéal pour des groupes de 60 à 150 personnes en formule complète."
-      },
-      {
-        question: "Peut-on organiser des soirées festives le soir ?",
-        answer: "Oui, le domaine est totalement isolé dans la vallée, ce qui permet d'organiser des soirées animées sans contrainte de voisinage. Les salles voûtées de l'abbaye offrent une acoustique exceptionnelle et une ambiance médiévale unique pour vos soirées de gala."
-      },
-      {
-        question: "Quelles activités team-building proposez-vous ?",
-        answer: "Nous proposons des activités variées tirant parti du cadre exceptionnel : olympiades dans le parc, promenades en barque sur l'étang, escape game dans les ruines de l'abbaye, parcours d'orientation en forêt, ateliers œnologie, et activités sportives. Un programme sur-mesure peut être élaboré avec nos partenaires."
       },
       {
         question: "À quelle distance de Paris se situe l'abbaye ?",

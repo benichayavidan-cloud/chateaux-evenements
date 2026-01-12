@@ -20,6 +20,7 @@ export interface Chateau {
   slug: string;
   // Nouveaux champs SEO
   seoH1: string;
+  seoTitle: string;
   accrocheHero: string;
   descriptionLongue: string;
   faq: Array<{

@@ -36,12 +36,15 @@ export default function ChateauPage() {
     notFound();
   }
 
-  // Schema JSON-LD "Place"
+  // Schema JSON-LD "Place" avec URL canonique
+  const canonicalUrl = `https://www.selectchateaux.com/chateaux/${chateau.slug}`;
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Place",
     "name": chateau.seoH1,
     "description": chateau.descriptionLongue,
+    "url": canonicalUrl,
     "address": {
       "@type": "PostalAddress",
       "addressRegion": chateau.region,

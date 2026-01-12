@@ -77,6 +77,26 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // Redirections 301 des anciens slugs vers les nouveaux (SEO)
+  async redirects() {
+    return [
+      {
+        source: '/chateaux/domaine-grands-bois-chantilly',
+        destination: '/chateaux/manoir-anglo-normand-chantilly',
+        permanent: true, // 301 redirect
+      },
+      {
+        source: '/chateaux/domaine-hauts-de-seine',
+        destination: '/chateaux/hotel-historique-seminaire-paris-92',
+        permanent: true, // 301 redirect
+      },
+      {
+        source: '/chateaux/monastere-vallee-chevreuse',
+        destination: '/chateaux/abbaye-millenaire-vallee-chevreuse',
+        permanent: true, // 301 redirect
+      },
+    ];
+  },
 };
 
 export default nextConfig;
