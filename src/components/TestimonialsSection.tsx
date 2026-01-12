@@ -10,7 +10,7 @@ import { theme } from "@/config/theme";
 
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardsPerView, setCardsPerView] = useState(2);
+  const [cardsPerView, setCardsPerView] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
 
   // Responsive cards per view
@@ -18,10 +18,10 @@ export function TestimonialsSection() {
     const updateCardsPerView = () => {
       if (window.innerWidth < 768) {
         setCardsPerView(1);
-      } else if (window.innerWidth < 1280) {
-        setCardsPerView(1);
-      } else {
+      } else if (window.innerWidth < 1024) {
         setCardsPerView(2);
+      } else {
+        setCardsPerView(3);
       }
     };
 
@@ -172,24 +172,35 @@ export function TestimonialsSection() {
                   >
                     {/* Carte horizontale (format carte de visite) */}
                     <div
-                      className="h-full rounded-2xl transition-all duration-300 flex"
+                      className="h-full rounded-xl transition-all duration-300 flex relative"
                       style={{
                         background: 'white',
-                        boxShadow: '0 8px 30px rgba(0, 0, 0, 0.08)',
-                        padding: 'clamp(2rem, 3vw, 3rem)',
+                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+                        padding: 'clamp(1.25rem, 2vw, 1.75rem)',
                         border: '1px solid rgba(163, 126, 44, 0.1)',
-                        minHeight: '280px',
-                        gap: 'clamp(2rem, 3vw, 3rem)',
+                        minHeight: '220px',
+                        gap: 'clamp(1.25rem, 2vw, 1.75rem)',
                       }}
                     >
+                      {/* Étoiles en haut à gauche */}
+                      <div className="absolute flex gap-0.5" style={{ top: '12px', left: '12px' }}>
+                        {[...Array(testimonial.note)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-3.5 h-3.5 fill-current"
+                            style={{ color: colors.gold }}
+                          />
+                        ))}
+                      </div>
+
                       {/* Partie gauche : Avatar + Info */}
-                      <div className="flex flex-col items-center justify-center" style={{ minWidth: '140px', flex: '0 0 140px' }}>
+                      <div className="flex flex-col items-center justify-center" style={{ minWidth: '110px', flex: '0 0 110px' }}>
                         {/* Avatar */}
                         <div
-                          className="relative flex-shrink-0 rounded-full overflow-hidden ring-2 ring-offset-4 transition-all duration-300 group-hover:ring-4 mb-6"
+                          className="relative flex-shrink-0 rounded-full overflow-hidden ring-2 ring-offset-2 transition-all duration-300 group-hover:ring-4 mb-4"
                           style={{
-                            width: '100px',
-                            height: '100px',
+                            width: '70px',
+                            height: '70px',
                             '--tw-ring-color': colors.bronze,
                             '--tw-ring-offset-color': 'white',
                           } as any}
@@ -199,16 +210,16 @@ export function TestimonialsSection() {
                             alt={testimonial.nom}
                             fill
                             className="object-cover"
-                            sizes="100px"
+                            sizes="70px"
                           />
                         </div>
 
                         {/* Info personne */}
                         <div className="text-center">
                           <h3
-                            className="font-bold mb-2"
+                            className="font-bold mb-1"
                             style={{
-                              fontSize: theme.typography.fontSize.base,
+                              fontSize: theme.typography.fontSize.sm,
                               color: theme.colors.text.primary,
                               lineHeight: '1.3'
                             }}
@@ -216,9 +227,9 @@ export function TestimonialsSection() {
                             {testimonial.nom}
                           </h3>
                           <p
-                            className="font-medium mb-2"
+                            className="font-medium mb-1"
                             style={{
-                              fontSize: theme.typography.fontSize.xs,
+                              fontSize: '0.7rem',
                               color: theme.colors.text.muted
                             }}
                           >
@@ -227,37 +238,26 @@ export function TestimonialsSection() {
                           <p
                             className="font-semibold"
                             style={{
-                              fontSize: theme.typography.fontSize.xs,
+                              fontSize: '0.7rem',
                               color: colors.bronze
                             }}
                           >
                             {testimonial.entreprise}
                           </p>
                         </div>
-
-                        {/* Étoiles */}
-                        <div className="flex gap-1 mt-4">
-                          {[...Array(testimonial.note)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className="w-4 h-4 fill-current"
-                              style={{ color: colors.gold }}
-                            />
-                          ))}
-                        </div>
                       </div>
 
                       {/* Partie droite : Contenu */}
                       <div className="flex-1 flex flex-col justify-between">
                         {/* Quote icon en haut */}
-                        <div className="flex justify-start mb-6">
+                        <div className="flex justify-start mb-3">
                           <div
-                            className="w-12 h-12 rounded-full flex items-center justify-center"
+                            className="w-9 h-9 rounded-full flex items-center justify-center"
                             style={{
                               background: `linear-gradient(135deg, ${colors.bronze}15, ${colors.bronze}05)`,
                             }}
                           >
-                            <Quote className="w-6 h-6" style={{ color: colors.bronze }} />
+                            <Quote className="w-5 h-5" style={{ color: colors.bronze }} />
                           </div>
                         </div>
 
@@ -265,9 +265,9 @@ export function TestimonialsSection() {
                         <p
                           className="leading-relaxed italic flex-1"
                           style={{
-                            fontSize: theme.typography.fontSize.base,
+                            fontSize: theme.typography.fontSize.sm,
                             color: theme.colors.text.secondary,
-                            lineHeight: '1.8',
+                            lineHeight: '1.7',
                           }}
                         >
                           "{testimonial.contenu}"
@@ -275,7 +275,7 @@ export function TestimonialsSection() {
 
                         {/* Séparateur élégant en bas */}
                         <div
-                          className="w-full mt-6"
+                          className="w-full mt-4"
                           style={{
                             height: '1px',
                             background: `linear-gradient(90deg, ${colors.bronze}30, transparent)`,

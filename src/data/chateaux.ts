@@ -290,12 +290,12 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "2",
-    nom: "Marc Dubois",
+    nom: "Mamadou Diallo",
     entreprise: "Groupe InnovBank",
     poste: "Directeur Général",
     contenu:
       "Nous avons organisé notre convention annuelle au Refuge Historique Suspendu (Portes de Paris). L'infrastructure moderne alliée au prestige des lieux a impressionné nos 180 collaborateurs. L'équipe sur place s'est montrée d'une réactivité remarquable.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format&fit=crop&q=80",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -320,22 +320,22 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "5",
-    nom: "Caroline Bertrand",
+    nom: "Leïla Benali",
     entreprise: "Airbus Group",
     poste: "Responsable Événementiel International",
     contenu:
       "Nous organisons régulièrement des conventions internationales et le Manoir Anglo-Normand & Son Parc (Chantilly) s'est révélé être un choix parfait. Les infrastructures sont de niveau international et le cadre forestier offre une déconnexion bienvenue après des mois de travail intense.",
-    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&auto=format&fit=crop&q=80",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
     id: "6",
-    nom: "Philippe Mercier",
+    nom: "Rachid El Fassi",
     entreprise: "BNP Paribas Asset Management",
     poste: "Directeur de la Stratégie",
     contenu:
       "Le Refuge Historique Suspendu (Portes de Paris) offre une discrétion rare pour nos réunions stratégiques. L'accessibilité en métro est un atout considérable, et le jardin suspendu crée une bulle hors du temps en plein cœur de la région parisienne.",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format&fit=crop&q=80",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -360,12 +360,12 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "9",
-    nom: "Nathalie Fontaine",
+    nom: "Aminata Touré",
     entreprise: "Orange Business Services",
     poste: "Chief Innovation Officer",
     contenu:
       "Notre séminaire d'innovation nécessitait un environnement inspirant. L'architecture historique du Refuge Historique Suspendu (Portes de Paris) mêlée aux équipements technologiques modernes a créé le parfait équilibre entre tradition et innovation.",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80",
+    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -380,12 +380,12 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "11",
-    nom: "Émilie Vasseur",
+    nom: "Fatima Zahra Amrani",
     entreprise: "Renault Group",
     poste: "Directrice de la Communication Externe",
     contenu:
       "Organiser notre conférence de presse au Manoir Anglo-Normand & Son Parc (Chantilly) a été une décision stratégique payante. Le cadre exceptionnel a impressionné les journalistes internationaux et l'amphithéâtre privé était parfait pour nos annonces.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
