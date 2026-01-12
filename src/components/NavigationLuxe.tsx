@@ -71,7 +71,7 @@ export function NavigationLuxe() {
         <div className="h-20 w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0">
 
           {/* Colonne 1 : Logo */}
-          <div className="flex items-center justify-start md:justify-center">
+          <div className="flex items-center justify-start">
             <Link href="/" className="relative group">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -448,7 +448,7 @@ export function NavigationLuxe() {
           </nav>
 
           {/* Colonne 3 : CTA + Mobile */}
-          <div className="flex items-center justify-end md:justify-center">
+          <div className="flex items-center justify-end">
             {/* CTA Desktop */}
             {!isOnDevisPage && (
               <Button
