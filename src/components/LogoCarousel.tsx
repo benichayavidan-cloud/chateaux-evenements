@@ -58,14 +58,15 @@ export function LogoCarousel() {
               }}
             >
               <div className="relative w-full h-full flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={logo.url}
                   alt={`Logo ${logo.nom}`}
                   width={100}
                   height={60}
                   className="object-contain"
                   style={{ maxWidth: "100%", maxHeight: "100%" }}
-                  unoptimized
+                  loading="lazy"
                 />
               </div>
             </div>
