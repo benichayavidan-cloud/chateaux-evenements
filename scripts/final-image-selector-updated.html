@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏰 Sélecteur d'Images Complet - Select Châteaux</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #2d3748;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+    .subtitle {
+      text-align: center;
+      color: #718096;
+      margin-bottom: 40px;
+      font-size: 1.1em;
+    }
+    .section {
+      margin-bottom: 60px;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 30px;
+      background: #f7fafc;
+    }
+    .section-title {
+      color: #667eea;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #667eea;
+    }
+    .category {
+      margin: 30px 0;
+    }
+    .category-title {
+      color: #4a5568;
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      padding: 10px;
+      background: white;
+      border-left: 5px solid #48bb78;
+      border-radius: 5px;
+    }
+    .select-field {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .preview {
+      margin-top: 15px;
+    }
+    .preview img {
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .generate-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 18px 40px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .generate-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    }
+    .code-output {
+      display: none;
+      margin-top: 40px;
+      padding: 30px;
+      background: #1a202c;
+      border-radius: 15px;
+      position: relative;
+    }
+    .code-output pre {
+      color: #68d391;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9em;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #48bb78;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .copy-btn:hover {
+      background: #38a169;
+    }
+    .info-box {
+      background: #edf2f7;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 4px solid #667eea;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏰 Sélecteur d'Images Complet</h1>
+    <p class="subtitle">Choisissez vos images pour les 3 châteaux, les événements et le team building</p>
+
+    <div class="info-box">
+      <strong>📋 Instructions :</strong> Sélectionnez vos images dans les menus déroulants ci-dessous.
+      Une fois terminé, cliquez sur "Générer le Code" pour obtenir le code à copier-coller.
+    </div>
+
+    <!-- SECTION ÉVÉNEMENTS -->
+    <div class="section">
+      <h2 class="section-title">🎯 Images des 4 Types d'Événements (Page d'accueil)</h2>
+
+      <div class="category">
+        <h3 class="category-title">1. Séminaire Résidentiel</h3>
+        <select class="select-field" id="event-seminaire">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-event-seminaire"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">2. Journée d'Étude</h3>
+        <select class="select-field" id="event-journee">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-event-journee"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">3. Soirée d'Entreprise</h3>
+        <select class="select-field" id="event-soiree">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-event-soiree"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">4. Team Building</h3>
+        <select class="select-field" id="event-teambuilding">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-event-teambuilding"></div>
+      </div>
+    </div>
+
+    <!-- SECTION TEAM BUILDING -->
+    <div class="section">
+      <h2 class="section-title">💪 Images de la Page Team Building</h2>
+
+      <div class="category">
+        <h3 class="category-title">Hero (Grande image en haut)</h3>
+        <select class="select-field" id="tb-hero">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-tb-hero"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">Activité 1 : Challenges Créatifs</h3>
+        <select class="select-field" id="tb-challenges">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-tb-challenges"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">Activité 2 : Escape Game Château</h3>
+        <select class="select-field" id="tb-escape">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-tb-escape"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">Activité 3 : Cohésion d'Équipe</h3>
+        <select class="select-field" id="tb-cohesion">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-tb-cohesion"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">Activité 4 : Leadership Training</h3>
+        <select class="select-field" id="tb-leadership">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-tb-leadership"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">Activité 5 : Gestion de Crise</h3>
+        <select class="select-field" id="tb-crise">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-tb-crise"></div>
+      </div>
+
+      <div class="category">
+        <h3 class="category-title">Activité 6 : Séminaires Stratégiques</h3>
+        <select class="select-field" id="tb-strategique">
+          <option value="">-- Sélectionner une image --</option>
+        </select>
+        <div class="preview" id="preview-tb-strategique"></div>
+      </div>
+    </div>
+
+    <button class="generate-btn" onclick="generateCode()">📋 Générer le Code</button>
+
+    <div class="code-output" id="code-output">
+      <button class="copy-btn" onclick="copyCode()">📄 Copier le Code</button>
+      <pre id="generated-code"></pre>
+    </div>
+  </div>
+
+  <script>
+    // Charger les images uploadées
+    const allImages = {
+  "chantilly": [
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp",
+      "description": "Déjeuner extérieur dans le parc forestier"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-restaurant-escalier-monumental-sol-damier.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-restaurant-escalier-monumental-sol-damier.webp",
+      "description": "Restaurant avec escalier monumental et sol damier"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp",
+      "description": "Chambre de luxe avec lit double et stores en bois"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp",
+      "description": "Salle de réunion séminaire en configuration tables en U"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-chambre-rouge-luxe-deco-moderne.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-chambre-rouge-luxe-deco-moderne.webp",
+      "description": "Chambre rouge de luxe avec décoration moderne"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-salon-bar-luxe-miroir-dore.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-salon-bar-luxe-miroir-dore.webp",
+      "description": "Salon bar de luxe avec miroir doré"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp",
+      "description": "Façade terrasse pierre cocktail réception"
+    }
+  ],
+  "hauts-de-seine": [
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp",
+      "description": "Espace spa avec accueil moderne"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-salle-reunion-bois-hauteur-plafond.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-salle-reunion-bois-hauteur-plafond.webp",
+      "description": "Salle de réunion en bois avec grande hauteur sous plafond"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-jardin-suspendu-vue-aerienne-reception.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-jardin-suspendu-vue-aerienne-reception.webp",
+      "description": "Vue aérienne du jardin suspendu avec réception"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-restaurant-verriere-terrasse-conviviale.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-restaurant-verriere-terrasse-conviviale.webp",
+      "description": "Restaurant avec verrière et terrasse conviviale"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-chambre-luxe-mur-bleu-citation.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-chambre-luxe-mur-bleu-citation.webp",
+      "description": "Chambre de luxe avec mur bleu et citation"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-espace-coworking-lumineux-moderne.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-espace-coworking-lumineux-moderne.webp",
+      "description": "Espace coworking lumineux et moderne"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-salle-reunion-vue-baie-vitree-terrasse.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-salle-reunion-vue-baie-vitree-terrasse.webp",
+      "description": "Salle de réunion avec vue baie vitrée sur terrasse"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp",
+      "description": "Façade et cour d'honneur pendant soirée cocktail"
+    }
+  ],
+  "chevreuse": [
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp",
+      "description": "Salle de conférence avec chaises Napoléon"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-terrasse-bord-lac-parasols-oranges.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-terrasse-bord-lac-parasols-oranges.webp",
+      "description": "Terrasse en bord de lac avec parasols oranges"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-bain-luxe-baignoire-miroirs-dores.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-bain-luxe-baignoire-miroirs-dores.webp",
+      "description": "Salle de bain de luxe avec baignoire et miroirs dorés"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-facade-pierre-cour-cocktail-tour.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-facade-pierre-cour-cocktail-tour.webp",
+      "description": "Façade en pierre avec cour pour cocktail et tour"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-voutee-banquet-arches-pierre.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-voutee-banquet-arches-pierre.webp",
+      "description": "Salle voûtée pour banquet avec arches en pierre"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-rotonde-cocktail-buffet-lustre-cristal.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-rotonde-cocktail-buffet-lustre-cristal.webp",
+      "description": "Rotonde pour cocktail et buffet avec lustre en cristal"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-chambre-boiseries-fauteuil-lit-baldaquin.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-chambre-boiseries-fauteuil-lit-baldaquin.webp",
+      "description": "Chambre avec boiseries, fauteuil et lit à baldaquin"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp",
+      "description": "Salle de conférence sous verrière avec chaises dorées"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-vue-aerienne-domaine-etang-parc.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-vue-aerienne-domaine-etang-parc.webp",
+      "description": "Vue aérienne du domaine avec étang et parc"
+    }
+  ]
+};
+
+    // Remplir tous les selects
+    function populateSelects() {
+      const selects = [
+        'event-seminaire', 'event-journee', 'event-soiree', 'event-teambuilding',
+        'tb-hero', 'tb-challenges', 'tb-escape', 'tb-cohesion', 'tb-leadership', 'tb-crise', 'tb-strategique'
+      ];
+
+      selects.forEach(selectId => {
+        const select = document.getElementById(selectId);
+
+        // Ajouter toutes les images de tous les châteaux
+        Object.entries(allImages).forEach(([chateau, images]) => {
+          const optgroup = document.createElement('optgroup');
+          optgroup.label = chateau.toUpperCase();
+
+          images.forEach(img => {
+            const option = document.createElement('option');
+            option.value = img.url;
+            option.textContent = img.description;
+            optgroup.appendChild(option);
+          });
+
+          select.appendChild(optgroup);
+        });
+
+        // Ajouter l'événement de prévisualisation
+        select.addEventListener('change', (e) => {
+          const previewDiv = document.getElementById(`preview-${selectId}`);
+          if (e.target.value) {
+            previewDiv.innerHTML = `<img src="${e.target.value}" alt="Preview" />`;
+          } else {
+            previewDiv.innerHTML = '';
+          }
+        });
+      });
+    }
+
+    function generateCode() {
+      const selections = {
+        events: {
+          seminaire: document.getElementById('event-seminaire').value,
+          journee: document.getElementById('event-journee').value,
+          soiree: document.getElementById('event-soiree').value,
+          teambuilding: document.getElementById('event-teambuilding').value
+        },
+        teamBuilding: {
+          hero: document.getElementById('tb-hero').value,
+          challenges: document.getElementById('tb-challenges').value,
+          escape: document.getElementById('tb-escape').value,
+          cohesion: document.getElementById('tb-cohesion').value,
+          leadership: document.getElementById('tb-leadership').value,
+          crise: document.getElementById('tb-crise').value,
+          strategique: document.getElementById('tb-strategique').value
+        }
+      };
+
+      let code = `// ============================================
+// CODE À COPIER
+// ============================================
+
+// ================================================
+// 1. ÉVÉNEMENTS (src/data/chateaux.ts)
+// ================================================
+// Remplacer les 'image' des typesEvenements (lignes ~240-310)
+
+export const typesEvenements: TypeEvenement[] = [
+  {
+    id: "seminaire",
+    titre: "Séminaire Résidentiel",
+    description: "...",
+    icon: "presentation",
+    servicesInclus: [...],
+    image: "${selections.events.seminaire}",
+  },
+  {
+    id: "journee-etude",
+    titre: "Journée d'Étude",
+    description: "...",
+    icon: "book-open",
+    servicesInclus: [...],
+    image: "${selections.events.journee}",
+  },
+  {
+    id: "soiree-entreprise",
+    titre: "Soirée d'Entreprise",
+    description: "...",
+    icon: "champagne",
+    servicesInclus: [...],
+    image: "${selections.events.soiree}",
+  },
+  {
+    id: "team-building",
+    titre: "Team Building",
+    description: "...",
+    icon: "users",
+    servicesInclus: [...],
+    image: "${selections.events.teambuilding}",
+  },
+];
+
+// ================================================
+// 2. TEAM BUILDING (src/app/team-building/page.tsx)
+// ================================================
+
+// LIGNE ~26 - Hero Image
+src="${selections.teamBuilding.hero}"
+
+// LIGNES ~230, 237, 244, 251, 258, 265 - Activités
+{
+  icon: Lightbulb,
+  titre: "Challenges Créatifs",
+  description: "...",
+  color: "#D4AF37",
+  image: "${selections.teamBuilding.challenges}"
+},
+{
+  icon: Target,
+  titre: "Escape Game Château",
+  description: "...",
+  color: "#A37E2C",
+  image: "${selections.teamBuilding.escape}"
+},
+{
+  icon: Heart,
+  titre: "Cohésion d'Équipe",
+  description: "...",
+  color: "#C09448",
+  image: "${selections.teamBuilding.cohesion}"
+},
+{
+  icon: Rocket,
+  titre: "Leadership Training",
+  description: "...",
+  color: "#8A6823",
+  image: "${selections.teamBuilding.leadership}"
+},
+{
+  icon: Shield,
+  titre: "Gestion de Crise",
+  description: "...",
+  color: "#B8860B",
+  image: "${selections.teamBuilding.crise}"
+},
+{
+  icon: TrendingUp,
+  titre: "Séminaires Stratégiques",
+  description: "...",
+  color: "#A37E2C",
+  image: "${selections.teamBuilding.strategique}"
+},
+
+// ============================================
+// FIN DU CODE
+// ============================================
+`;
+
+      document.getElementById('generated-code').textContent = code;
+      document.getElementById('code-output').style.display = 'block';
+      document.getElementById('code-output').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyCode() {
+      const code = document.getElementById('generated-code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = '✅ Copié !';
+        setTimeout(() => {
+          btn.textContent = '📄 Copier le Code';
+        }, 2000);
+      });
+    }
+
+    // Initialiser
+    populateSelects();
+  </script>
+</body>
+</html>

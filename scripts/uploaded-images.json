@@ -1,0 +1,128 @@
+{
+  "chantilly": [
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp",
+      "description": "Déjeuner extérieur dans le parc forestier"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-restaurant-escalier-monumental-sol-damier.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-restaurant-escalier-monumental-sol-damier.webp",
+      "description": "Restaurant avec escalier monumental et sol damier"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp",
+      "description": "Chambre de luxe avec lit double et stores en bois"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp",
+      "description": "Salle de réunion séminaire en configuration tables en U"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-chambre-rouge-luxe-deco-moderne.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-chambre-rouge-luxe-deco-moderne.webp",
+      "description": "Chambre rouge de luxe avec décoration moderne"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-salon-bar-luxe-miroir-dore.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-salon-bar-luxe-miroir-dore.webp",
+      "description": "Salon bar de luxe avec miroir doré"
+    },
+    {
+      "name": "manoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chantilly/manoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp",
+      "description": "Façade terrasse pierre cocktail réception"
+    }
+  ],
+  "hauts-de-seine": [
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp",
+      "description": "Espace spa avec accueil moderne"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-salle-reunion-bois-hauteur-plafond.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-salle-reunion-bois-hauteur-plafond.webp",
+      "description": "Salle de réunion en bois avec grande hauteur sous plafond"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-jardin-suspendu-vue-aerienne-reception.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-jardin-suspendu-vue-aerienne-reception.webp",
+      "description": "Vue aérienne du jardin suspendu avec réception"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-restaurant-verriere-terrasse-conviviale.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-restaurant-verriere-terrasse-conviviale.webp",
+      "description": "Restaurant avec verrière et terrasse conviviale"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-chambre-luxe-mur-bleu-citation.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-chambre-luxe-mur-bleu-citation.webp",
+      "description": "Chambre de luxe avec mur bleu et citation"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-espace-coworking-lumineux-moderne.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-espace-coworking-lumineux-moderne.webp",
+      "description": "Espace coworking lumineux et moderne"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-salle-reunion-vue-baie-vitree-terrasse.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-salle-reunion-vue-baie-vitree-terrasse.webp",
+      "description": "Salle de réunion avec vue baie vitrée sur terrasse"
+    },
+    {
+      "name": "hotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hauts-de-seine/hotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp",
+      "description": "Façade et cour d'honneur pendant soirée cocktail"
+    }
+  ],
+  "chevreuse": [
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp",
+      "description": "Salle de conférence avec chaises Napoléon"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-terrasse-bord-lac-parasols-oranges.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-terrasse-bord-lac-parasols-oranges.webp",
+      "description": "Terrasse en bord de lac avec parasols oranges"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-bain-luxe-baignoire-miroirs-dores.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-bain-luxe-baignoire-miroirs-dores.webp",
+      "description": "Salle de bain de luxe avec baignoire et miroirs dorés"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-facade-pierre-cour-cocktail-tour.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-facade-pierre-cour-cocktail-tour.webp",
+      "description": "Façade en pierre avec cour pour cocktail et tour"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-voutee-banquet-arches-pierre.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-voutee-banquet-arches-pierre.webp",
+      "description": "Salle voûtée pour banquet avec arches en pierre"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-rotonde-cocktail-buffet-lustre-cristal.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-rotonde-cocktail-buffet-lustre-cristal.webp",
+      "description": "Rotonde pour cocktail et buffet avec lustre en cristal"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-chambre-boiseries-fauteuil-lit-baldaquin.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-chambre-boiseries-fauteuil-lit-baldaquin.webp",
+      "description": "Chambre avec boiseries, fauteuil et lit à baldaquin"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp",
+      "description": "Salle de conférence sous verrière avec chaises dorées"
+    },
+    {
+      "name": "abbaye-vaux-cernay-chevreuse-yvelines-78-vue-aerienne-domaine-etang-parc.webp",
+      "url": "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chevreuse/abbaye-vaux-cernay-chevreuse-yvelines-78-vue-aerienne-domaine-etang-parc.webp",
+      "description": "Vue aérienne du domaine avec étang et parc"
+    }
+  ]
+}
