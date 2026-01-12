@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, Sparkles } from "lucide-react";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function ContactPage() {
   return (
@@ -350,6 +351,9 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
+
+      {/* Section Témoignages */}
+      <TestimonialsSection />
     </div>
   );
 }

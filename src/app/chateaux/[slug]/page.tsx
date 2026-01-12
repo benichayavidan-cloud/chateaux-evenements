@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { InteractiveGallery } from "@/components/InteractiveGallery";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function ChateauPage() {
   const params = useParams();
@@ -888,6 +889,9 @@ export default function ChateauPage() {
           </Button>
         </Card>
       </motion.div>
+
+      {/* Section Témoignages */}
+      <TestimonialsSection />
     </div>
   );
 }

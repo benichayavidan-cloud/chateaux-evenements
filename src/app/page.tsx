@@ -3,6 +3,7 @@ import { LogoCarousel } from "@/components/LogoCarousel";
 import { ChateauxSection } from "@/components/ChateauxSection";
 import { EvenementsSection } from "@/components/EvenementsSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ChateauxSection />
       <EvenementsSection />
       <SocialProofSection />
+      <TestimonialsSection />
     </>
   );
 }
