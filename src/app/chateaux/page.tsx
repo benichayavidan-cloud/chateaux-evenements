@@ -427,7 +427,7 @@ export default function ChateauxPage() {
         />
 
         {/* Grille USP - Centrée */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-center justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-stretch justify-items-center">
           {[
             {
               icon: <Award className="w-8 h-8" />,
