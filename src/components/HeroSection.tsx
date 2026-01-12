@@ -66,49 +66,57 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Badge lieu - Petit et discret en haut à droite */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.7 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute top-4 right-4 md:top-6 md:right-6 z-10"
-      >
-        <div
-          className="px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5"
-          style={{
-            background: 'rgba(0, 0, 0, 0.3)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-          }}
-        >
-          <div
-            className="w-1 h-1 rounded-full"
-            style={{
-              background: colors.bronze,
-            }}
-          />
-          <div
-            style={{
-              fontSize: '0.65rem',
-              color: 'rgba(255, 255, 255, 0.9)',
-              fontWeight: 500,
-            }}
-          >
-            {heroSlides[currentSlide].region}
-          </div>
-        </div>
-      </motion.div>
+      {/* Contenu à gauche avec badge au-dessus */}
+      <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: '48px' }}>
 
-      {/* Contenu à gauche */}
-      <div className="absolute inset-0 flex flex-col justify-center items-center md:items-start px-5 sm:px-10 md:px-12 lg:px-16">
+        {/* Badge lieu au-dessus du conteneur */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="flex justify-center"
+          style={{ maxWidth: '480px', width: '100%', marginBottom: '20px' }}
+        >
+          <Badge variant="glass" size="md">
+            <div
+              className="w-1.5 h-1.5 rounded-full animate-pulse"
+              style={{
+                background: colors.bronze,
+                filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
+              }}
+            />
+            <div
+              className="italic font-semibold"
+              style={{
+                fontSize: theme.typography.fontSize.xs,
+                color: colors.white,
+                fontFamily: theme.typography.fonts.heading,
+              }}
+            >
+              {heroSlides[currentSlide].title}
+            </div>
+            <div style={{ color: colors.bronze }}>·</div>
+            <div
+              className="font-medium"
+              style={{
+                fontSize: theme.typography.fontSize.xs,
+                color: theme.colors.neutral.gray300,
+              }}
+            >
+              {heroSlides[currentSlide].region}
+            </div>
+          </Badge>
+        </motion.div>
 
         {/* Conteneur principal */}
         <div
-          className="text-center md:text-left rounded-2xl w-full max-w-[90%] md:max-w-[480px]"
+          className="text-left rounded-2xl w-full"
           style={{
+            maxWidth: '480px',
             background: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(12px)',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.5rem, 3vw, 2rem)',
+            padding: '24px 20px',
           }}
         >
           {/* Titre principal */}
@@ -153,7 +161,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-center md:justify-start"
+            className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-start"
           >
             {/* Statistique 1 */}
             <StatBadge
