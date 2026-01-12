@@ -76,25 +76,14 @@ export function NavigationLuxe() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                className="flex items-center gap-2"
+                className="flex items-center"
               >
-                <span style={{
-                  fontSize: 'clamp(1.125rem, 3vw, 1.25rem)',
-                  fontWeight: theme.typography.fontWeight.medium,
-                  color: colors.black,
-                  fontFamily: theme.typography.fonts.heading
-                }}>
-                  Select
-                </span>
-                <span style={{
-                  fontSize: 'clamp(1.125rem, 3vw, 1.25rem)',
-                  fontWeight: theme.typography.fontWeight.light,
-                  fontStyle: "italic",
-                  color: colors.gold,
-                  fontFamily: theme.typography.fonts.heading
-                }}>
-                  Chateaux
-                </span>
+                <img
+                  src="/logo.png"
+                  alt="Select Chateaux"
+                  style={{ height: 'clamp(2.5rem, 5vw, 3rem)', width: 'auto' }}
+                  className="object-contain"
+                />
               </motion.div>
             </Link>
           </div>

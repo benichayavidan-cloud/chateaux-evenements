@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Select Châteaux" }],
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg',
+    icon: '/icon.png',
+    shortcut: '/icon.png',
     apple: '/apple-icon.png',
   },
   metadataBase: new URL('https://selectchateaux.vercel.app'),

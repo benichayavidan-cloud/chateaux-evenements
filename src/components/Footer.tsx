@@ -16,9 +16,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Colonne 1 - À propos */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[var(--gold)]">
-              Select<span className="text-white">Chateaux</span>
-            </h3>
+            <div className="mb-4">
+              <img
+                src="/logo.png"
+                alt="Select Chateaux"
+                className="h-10 w-auto object-contain"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
+            </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Organisez vos événements d'entreprise dans des châteaux
               d'exception à travers la France. Excellence, prestige et

@@ -39,15 +39,13 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="relative">
-              <div
-                className={cn(
-                  "text-2xl font-bold transition-colors",
-                  isScrolled ? "text-[var(--primary)]" : "text-white"
-                )}
-              >
-                Select<span className="text-[var(--gold)]">Chateaux</span>
-              </div>
+            <div className="relative h-12 w-auto">
+              <img
+                src="/logo.png"
+                alt="Select Chateaux"
+                className="h-12 w-auto object-contain transition-opacity duration-300"
+                style={{ filter: isScrolled ? 'none' : 'brightness(0) invert(1)' }}
+              />
             </div>
           </Link>
 
