@@ -218,7 +218,8 @@ export function FooterLuxe() {
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start" style={{ gap: spacing.md }}>
             <p style={{
               color: theme.colors.neutral.gray600,
-              fontSize: theme.typography.fontSize.xs
+              fontSize: theme.typography.fontSize.xs,
+              margin: 0
             }}>
               &copy; {new Date().getFullYear()} SelectChateaux.com. Tous droits réservés.
             </p>
