@@ -211,7 +211,9 @@ export function FooterLuxe() {
         {/* Ligne de séparation */}
         <div className="w-full" style={{
           borderTop: `1px solid ${theme.colors.neutral.gray200}`,
-          paddingTop: theme.spacing.section.sm
+          paddingTop: theme.spacing.section.sm,
+          paddingLeft: '8px',
+          paddingRight: '8px'
         }}>
           <div className="flex flex-col md:flex-row justify-between items-center" style={{ gap: spacing.md }}>
             <p style={{
