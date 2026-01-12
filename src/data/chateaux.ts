@@ -342,18 +342,18 @@ export const chiffresCles: ChiffreCle[] = [
   },
 ];
 
-// Logos clients (grandes entreprises réelles) - Logos haute qualité
+// Logos clients (grandes entreprises réelles) - Vrais logos officiels avec couleurs
 export const clientLogos = [
-  { nom: "Microsoft", url: "https://logo.clearbit.com/microsoft.com?size=200" },
-  { nom: "Google", url: "https://logo.clearbit.com/google.com?size=200" },
-  { nom: "Amazon", url: "https://logo.clearbit.com/amazon.com?size=200" },
-  { nom: "Apple", url: "https://logo.clearbit.com/apple.com?size=200" },
-  { nom: "BMW", url: "https://logo.clearbit.com/bmw.com?size=200" },
-  { nom: "Mercedes-Benz", url: "https://logo.clearbit.com/mercedes-benz.com?size=200" },
-  { nom: "Air France", url: "https://logo.clearbit.com/airfrance.fr?size=200" },
-  { nom: "Airbus", url: "https://logo.clearbit.com/airbus.com?size=200" },
-  { nom: "L'Oréal", url: "https://logo.clearbit.com/loreal.com?size=200" },
-  { nom: "Accor", url: "https://logo.clearbit.com/accor.com?size=200" },
-  { nom: "Orange", url: "https://logo.clearbit.com/orange.com?size=200" },
-  { nom: "Renault", url: "https://logo.clearbit.com/renault.com?size=200" },
+  { nom: "Microsoft", url: "/logos/microsoft.svg" },
+  { nom: "Amazon", url: "/logos/amazon.svg" },
+  { nom: "Apple", url: "/logos/apple.svg" },
+  { nom: "Mercedes-Benz", url: "/logos/mercedes-benz.svg" },
+  { nom: "Airbus", url: "/logos/airbus.svg" },
+  { nom: "L'Oréal", url: "/logos/loreal.svg" },
+  { nom: "Accor", url: "/logos/accor.svg" },
+  { nom: "Orange", url: "/logos/orange.svg" },
+  { nom: "Renault", url: "/logos/renault.svg" },
+  { nom: "BNP Paribas", url: "/logos/bnp-paribas.svg" },
+  { nom: "LVMH", url: "/logos/lvmh.svg" },
+  { nom: "Danone", url: "/logos/danone.svg" },
 ];
