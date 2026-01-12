@@ -39,11 +39,11 @@ export default function ContactPage() {
                 </span>
               </div>
 
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-light italic text-gray-900 font-[var(--font-cormorant)] leading-none" style={{ marginBottom: 'var(--space-4xl)' }}>
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light italic text-gray-900 font-[var(--font-cormorant)] leading-none" style={{ marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
                 Parlons de<br />votre projet
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-700 max-w-3xl leading-relaxed font-medium" style={{ marginBottom: 'var(--space-5xl)' }}>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl leading-relaxed font-medium" style={{ marginBottom: 'clamp(2rem, 5vw, 4rem)' }}>
                 Notre équipe d'experts est à votre disposition pour répondre à toutes vos questions.
               </p>
             </motion.div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
 
         <div className="section-container">
           <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 lg:gap-24">
             {/* Informations de contact - Centré */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -98,11 +98,11 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="flex flex-col items-center text-center"
             >
-              <h3 className="text-3xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: '24px' }}>
+              <h3 className="text-2xl sm:text-3xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'clamp(1rem, 3vw, 1.5rem)' }}>
                 Nos coordonnées
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full">
                 {/* Téléphone */}
                 <div className="flex flex-col items-center gap-3 group">
                   <div className="w-16 h-16 bg-[var(--bronze-antique)]/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--bronze-antique)]/20 transition-all duration-300">
@@ -192,7 +192,7 @@ export default function ContactPage() {
             >
               <form>
                 {/* Ligne 1: Prénom + Nom */}
-                <div className="grid grid-cols-2 gap-4" style={{ marginBottom: '14px' }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" style={{ marginBottom: '14px' }}>
                   <div>
                     <label className="block text-xs font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: '4px' }}>
                       Prénom <span className="text-[var(--bronze-antique)]">*</span>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Ligne 2: Email + Téléphone */}
-                <div className="grid grid-cols-2 gap-4" style={{ marginBottom: '14px' }}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" style={{ marginBottom: '14px' }}>
                   <div>
                     <label className="block text-xs font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: '4px' }}>
                       Email <span className="text-[var(--bronze-antique)]">*</span>
@@ -306,10 +306,10 @@ export default function ContactPage() {
                 FAQ
               </h2>
             </div>
-            <h3 className="text-5xl md:text-6xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'var(--space-3xl)' }}>
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light italic text-gray-900 font-[var(--font-cormorant)]" style={{ marginBottom: 'clamp(1.5rem, 4vw, 3rem)' }}>
               Questions Fréquentes
             </h3>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
               Retrouvez les réponses aux questions les plus courantes
             </p>
           </motion.div>
@@ -340,12 +340,12 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="w-full bg-white border-2 border-gray-200 rounded-3xl hover:border-[var(--bronze-antique)] transition-all duration-300 hover:shadow-xl group text-center"
-                style={{ padding: 'var(--space-4xl)' }}
+                style={{ padding: 'clamp(1.5rem, 4vw, 3rem)' }}
               >
-                <h4 className="text-2xl font-semibold text-gray-900 group-hover:text-[var(--bronze-antique)] transition-colors" style={{ marginBottom: 'var(--gap-lg)' }}>
+                <h4 className="text-xl sm:text-2xl font-semibold text-gray-900 group-hover:text-[var(--bronze-antique)] transition-colors" style={{ marginBottom: 'clamp(0.75rem, 2vw, 1rem)' }}>
                   {faq.q}
                 </h4>
-                <p className="text-gray-600 leading-relaxed text-lg">{faq.a}</p>
+                <p className="text-gray-600 leading-relaxed text-base sm:text-lg">{faq.a}</p>
               </motion.div>
             ))}
           </div>

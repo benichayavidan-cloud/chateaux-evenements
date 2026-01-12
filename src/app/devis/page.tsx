@@ -15,25 +15,25 @@ export default function DevisPage() {
       <div style={{
         background: theme.colors.primary.bronze,
         color: "white",
-        padding: "40px 40px",
+        padding: "clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 4vw, 2.5rem)",
         textAlign: "center",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        minHeight: "200px"
+        minHeight: "clamp(160px, 30vh, 200px)"
       }}>
         <div>
           <h1 style={{
-            fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
+            fontSize: "clamp(1.75rem, 5vw, 3.5rem)",
             fontWeight: theme.typography.fontWeight.light,
             fontStyle: "italic",
             fontFamily: theme.typography.fonts.heading,
-            marginBottom: "16px"
+            marginBottom: "clamp(0.75rem, 2vw, 1rem)"
           }}>
             Demandez votre Devis Personnalisé
           </h1>
           <p style={{
-            fontSize: "20px",
+            fontSize: "clamp(0.875rem, 2.5vw, 1.25rem)",
             opacity: 0.9,
             maxWidth: "800px",
             margin: "0 auto"
@@ -48,7 +48,7 @@ export default function DevisPage() {
       <div style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: "10px 40px 60px"
+        padding: "clamp(0.5rem, 2vw, 0.625rem) clamp(1rem, 4vw, 2.5rem) clamp(2rem, 6vw, 3.75rem)"
       }}>
         <DevisForm />
       </div>

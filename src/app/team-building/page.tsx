@@ -149,7 +149,7 @@ export default function TeamBuildingPage() {
         }}
       >
         <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto' }}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
             {[
               { icon: Users, value: "500+", label: "Équipes formées" },
               { icon: Trophy, value: "98%", label: "Satisfaction" },
@@ -168,18 +168,20 @@ export default function TeamBuildingPage() {
                 <motion.div
                   whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                   transition={{ duration: 0.5 }}
-                  className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--bronze-antique)]/10 mb-5 group-hover:bg-[var(--bronze-antique)]/20 transition-all"
+                  className="inline-flex items-center justify-center rounded-full bg-[var(--bronze-antique)]/10 mb-3 sm:mb-5 group-hover:bg-[var(--bronze-antique)]/20 transition-all"
+                  style={{ width: 'clamp(3rem, 10vw, 4rem)', height: 'clamp(3rem, 10vw, 4rem)' }}
                 >
-                  <stat.icon className="w-8 h-8 text-[var(--bronze-antique)]" />
+                  <stat.icon className="text-[var(--bronze-antique)]" style={{ width: 'clamp(1.5rem, 6vw, 2rem)', height: 'clamp(1.5rem, 6vw, 2rem)' }} />
                 </motion.div>
                 <motion.div
                   initial={{ scale: 1 }}
                   whileHover={{ scale: 1.1 }}
-                  className="text-4xl font-bold text-gray-900 mb-3"
+                  className="font-bold text-gray-900"
+                  style={{ fontSize: 'clamp(1.5rem, 5vw, 2.25rem)', marginBottom: 'clamp(0.5rem, 2vw, 0.75rem)' }}
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-sm text-gray-600 uppercase tracking-wider font-medium">
+                <div className="text-gray-600 uppercase tracking-wider font-medium" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}>
                   {stat.label}
                 </div>
               </motion.div>
@@ -208,7 +210,7 @@ export default function TeamBuildingPage() {
             style={{
               width: '100%',
               textAlign: 'center',
-              marginBottom: '64px'
+              marginBottom: 'clamp(2rem, 6vw, 4rem)'
             }}
           >
             <div style={{
@@ -231,7 +233,7 @@ export default function TeamBuildingPage() {
             </p>
           </motion.div>
 
-          <div className="grid-cards">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {[
               {
                 icon: Lightbulb,
@@ -377,7 +379,7 @@ export default function TeamBuildingPage() {
             viewport={{ once: true }}
             style={{
               textAlign: 'center',
-              marginBottom: '64px'
+              marginBottom: 'clamp(2rem, 6vw, 4rem)'
             }}
           >
             <h2 className="heading-xl" style={{ marginBottom: '12px' }}>
@@ -389,7 +391,7 @@ export default function TeamBuildingPage() {
           </motion.div>
 
           {/* Grille de bénéfices - Tout centré */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16" style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16" style={{ maxWidth: '1280px', margin: '0 auto' }}>
             {[
               {
                 titre: "Cohésion renforcée",
@@ -432,21 +434,26 @@ export default function TeamBuildingPage() {
                   whileInView={{ scale: 1 }}
                   transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 200 }}
                   viewport={{ once: true }}
-                  className="w-24 h-24 rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center p-5"
-                  style={{ marginBottom: '24px' }}
+                  className="rounded-full bg-[var(--bronze-antique)]/10 flex items-center justify-center"
+                  style={{
+                    width: 'clamp(5rem, 12vw, 6rem)',
+                    height: 'clamp(5rem, 12vw, 6rem)',
+                    padding: 'clamp(1rem, 3vw, 1.25rem)',
+                    marginBottom: 'clamp(1rem, 3vw, 1.5rem)'
+                  }}
                 >
-                  <span className="text-3xl font-bold text-[var(--bronze-antique)]">
+                  <span className="font-bold text-[var(--bronze-antique)]" style={{ fontSize: 'clamp(1.5rem, 5vw, 1.875rem)' }}>
                     {benefice.percentage}%
                   </span>
                 </motion.div>
 
                 {/* Titre */}
-                <h3 className="heading-md text-center" style={{ marginBottom: '8px' }}>
+                <h3 className="heading-md text-center" style={{ marginBottom: 'clamp(0.5rem, 2vw, 0.5rem)' }}>
                   {benefice.titre}
                 </h3>
 
                 {/* Description */}
-                <p className="text-body-lg text-center" style={{ marginBottom: '32px' }}>
+                <p className="text-body-lg text-center" style={{ marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}>
                   {benefice.description}
                 </p>
 
@@ -513,11 +520,11 @@ export default function TeamBuildingPage() {
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              style={{ display: 'inline-block', marginBottom: '32px' }}
+              style={{ display: 'inline-block', marginBottom: 'clamp(1.5rem, 4vw, 2rem)' }}
             >
               <div style={{
-                width: '80px',
-                height: '80px',
+                width: 'clamp(4rem, 10vw, 5rem)',
+                height: 'clamp(4rem, 10vw, 5rem)',
                 borderRadius: '50%',
                 background: 'rgba(163, 126, 44, 0.1)',
                 display: 'flex',
@@ -525,21 +532,21 @@ export default function TeamBuildingPage() {
                 justifyContent: 'center',
                 margin: '0 auto'
               }}>
-                <Trophy className="w-10 h-10 text-[var(--bronze-antique)]" />
+                <Trophy className="text-[var(--bronze-antique)]" style={{ width: 'clamp(2rem, 6vw, 2.5rem)', height: 'clamp(2rem, 6vw, 2.5rem)' }} />
               </div>
             </motion.div>
 
             <h2 className="heading-xl" style={{ marginBottom: '12px' }}>
               Prêt à transformer votre équipe ?
             </h2>
-            <p className="text-body-xl" style={{ maxWidth: '768px', margin: '0 auto 64px auto' }}>
+            <p className="text-body-xl" style={{ maxWidth: '768px', margin: '0 auto clamp(2rem, 6vw, 4rem) auto' }}>
               Contactez-nous pour créer une expérience team building sur-mesure dans l'un de nos châteaux d'exception
             </p>
 
             <div style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '20px',
+              gap: 'clamp(0.75rem, 3vw, 1.25rem)',
               alignItems: 'center',
               justifyContent: 'center'
             }}>

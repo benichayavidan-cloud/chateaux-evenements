@@ -317,15 +317,15 @@ export function DevisForm() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         style={{
           background: "white",
-          padding: "16px 20px",
-          marginBottom: "40px",
+          padding: "clamp(1rem, 3vw, 1.5rem)",
+          marginBottom: "clamp(1.5rem, 4vw, 2.5rem)",
           borderRadius: "16px"
         }}
       >
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "40px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(160px, 100%), 1fr))",
+          gap: "clamp(1.5rem, 4vw, 2.5rem)",
           textAlign: "center"
         }}>
           <motion.div
@@ -335,14 +335,14 @@ export function DevisForm() {
             whileHover={{ scale: 1.05 }}
           >
             <div style={{
-              fontSize: "48px",
+              fontSize: "clamp(2rem, 6vw, 3rem)",
               fontWeight: "bold",
               color: "#a37e2c",
-              marginBottom: "8px"
+              marginBottom: "clamp(0.25rem, 1vw, 0.5rem)"
             }}>
               24h
             </div>
-            <p style={{ color: "#6b7280" }}>
+            <p style={{ color: "#6b7280", fontSize: "clamp(0.875rem, 2vw, 1rem)" }}>
               Réponse garantie sous 24 heures
             </p>
           </motion.div>
@@ -353,14 +353,14 @@ export function DevisForm() {
             whileHover={{ scale: 1.05 }}
           >
             <div style={{
-              fontSize: "48px",
+              fontSize: "clamp(2rem, 6vw, 3rem)",
               fontWeight: "bold",
               color: "#a37e2c",
-              marginBottom: "8px"
+              marginBottom: "clamp(0.25rem, 1vw, 0.5rem)"
             }}>
               100%
             </div>
-            <p style={{ color: "#6b7280" }}>
+            <p style={{ color: "#6b7280", fontSize: "clamp(0.875rem, 2vw, 1rem)" }}>
               Devis personnalisé et sans engagement
             </p>
           </motion.div>
@@ -371,14 +371,14 @@ export function DevisForm() {
             whileHover={{ scale: 1.05 }}
           >
             <div style={{
-              fontSize: "48px",
+              fontSize: "clamp(2rem, 6vw, 3rem)",
               fontWeight: "bold",
               color: "#a37e2c",
-              marginBottom: "8px"
+              marginBottom: "clamp(0.25rem, 1vw, 0.5rem)"
             }}>
               15+
             </div>
-            <p style={{ color: "#6b7280" }}>
+            <p style={{ color: "#6b7280", fontSize: "clamp(0.875rem, 2vw, 1rem)" }}>
               Années d'expertise événementielle
             </p>
           </motion.div>
@@ -386,7 +386,7 @@ export function DevisForm() {
       </motion.div>
 
       {/* Progress Bar */}
-      <div style={{ marginBottom: "40px" }}>
+      <div style={{ marginBottom: "clamp(1.5rem, 4vw, 2.5rem)" }}>
         <div style={{ display: "flex", alignItems: "center" }}>
           {[1, 2, 3, 4].map((step) => (
             <div
@@ -400,8 +400,8 @@ export function DevisForm() {
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <div
                   style={{
-                    width: "40px",
-                    height: "40px",
+                    width: "clamp(32px, 6vw, 40px)",
+                    height: "clamp(32px, 6vw, 40px)",
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
@@ -414,13 +414,14 @@ export function DevisForm() {
                       : "#e5e7eb",
                     color: step > currentStep ? "#9ca3af" : "white",
                     transition: "all 0.3s",
-                    marginBottom: "8px"
+                    marginBottom: "clamp(0.25rem, 1vw, 0.5rem)",
+                    fontSize: "clamp(0.875rem, 2vw, 1rem)"
                   }}
                 >
-                  {step < currentStep ? <Check style={{ width: "20px", height: "20px" }} /> : step}
+                  {step < currentStep ? <Check style={{ width: "clamp(16px, 3vw, 20px)", height: "clamp(16px, 3vw, 20px)" }} /> : step}
                 </div>
                 <span style={{
-                  fontSize: "14px",
+                  fontSize: "clamp(0.75rem, 2vw, 0.875rem)",
                   color: "#6b7280",
                   whiteSpace: "nowrap"
                 }}>
@@ -464,9 +465,9 @@ export function DevisForm() {
               style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
               <h3 style={{
-                fontSize: "28px",
+                fontSize: "clamp(1.25rem, 4vw, 1.75rem)",
                 fontWeight: "bold",
-                marginBottom: "12px",
+                marginBottom: "clamp(0.5rem, 2vw, 0.75rem)",
                 color: "#1f2937"
               }}>
                 Quel type d'événement souhaitez-vous organiser ?
@@ -537,9 +538,9 @@ export function DevisForm() {
               style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
               <h3 style={{
-                fontSize: "28px",
+                fontSize: "clamp(1.25rem, 4vw, 1.75rem)",
                 fontWeight: "bold",
-                marginBottom: "12px",
+                marginBottom: "clamp(0.5rem, 2vw, 0.75rem)",
                 color: "#1f2937"
               }}>
                 Quand souhaitez-vous organiser votre événement ?
@@ -656,9 +657,9 @@ export function DevisForm() {
               style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
               <h3 style={{
-                fontSize: "28px",
+                fontSize: "clamp(1.25rem, 4vw, 1.75rem)",
                 fontWeight: "bold",
-                marginBottom: "12px",
+                marginBottom: "clamp(0.5rem, 2vw, 0.75rem)",
                 color: "#1f2937"
               }}>
                 Choisissez vos châteaux
@@ -804,9 +805,9 @@ export function DevisForm() {
               style={{ display: "flex", flexDirection: "column", gap: "24px" }}
             >
               <h3 style={{
-                fontSize: "28px",
+                fontSize: "clamp(1.25rem, 4vw, 1.75rem)",
                 fontWeight: "bold",
-                marginBottom: "12px",
+                marginBottom: "clamp(0.5rem, 2vw, 0.75rem)",
                 color: "#1f2937"
               }}>
                 Vos coordonnées et détails
@@ -950,7 +951,7 @@ export function DevisForm() {
                 </div>
 
                 {/* Nombre de participants et chambres sur la même ligne */}
-                <div style={{ gridColumn: "1 / -1", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+                <div style={{ gridColumn: "1 / -1", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(200px, 100%), 1fr))", gap: "clamp(1rem, 3vw, 1.5rem)" }}>
                   {/* Nombre de participants */}
                   <div>
                     <label style={{
@@ -1222,9 +1223,11 @@ export function DevisForm() {
         <div style={{
           display: "flex",
           justifyContent: "space-between",
-          marginTop: "32px",
-          paddingTop: "24px",
-          borderTop: "1px solid #e5e7eb"
+          marginTop: "clamp(1.5rem, 4vw, 2rem)",
+          paddingTop: "clamp(1rem, 3vw, 1.5rem)",
+          borderTop: "1px solid #e5e7eb",
+          gap: "clamp(0.5rem, 2vw, 1rem)",
+          flexWrap: "wrap"
         }}>
           {currentStep > 1 ? (
             <button
@@ -1233,15 +1236,16 @@ export function DevisForm() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
-                padding: "12px 24px",
+                gap: "clamp(0.25rem, 1vw, 0.5rem)",
+                padding: "clamp(0.625rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem)",
                 background: "#e5e7eb",
                 color: "#1f2937",
                 fontWeight: "600",
                 borderRadius: "999px",
                 border: "none",
                 cursor: "pointer",
-                transition: "all 0.3s"
+                transition: "all 0.3s",
+                fontSize: "clamp(0.875rem, 2vw, 1rem)"
               }}
             >
               <ArrowLeft style={{ width: "20px", height: "20px" }} />
@@ -1258,8 +1262,8 @@ export function DevisForm() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
-                padding: "12px 24px",
+                gap: "clamp(0.25rem, 1vw, 0.5rem)",
+                padding: "clamp(0.625rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem)",
                 background: "#a37e2c",
                 color: "white",
                 fontWeight: "600",
@@ -1267,7 +1271,8 @@ export function DevisForm() {
                 border: "none",
                 cursor: "pointer",
                 transition: "all 0.3s",
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                fontSize: "clamp(0.875rem, 2vw, 1rem)"
               }}
             >
               Suivant
@@ -1279,8 +1284,8 @@ export function DevisForm() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "8px",
-                padding: "12px 32px",
+                gap: "clamp(0.25rem, 1vw, 0.5rem)",
+                padding: "clamp(0.625rem, 2vw, 0.75rem) clamp(1.25rem, 4vw, 2rem)",
                 background: "#a37e2c",
                 color: "white",
                 fontWeight: "600",
@@ -1288,7 +1293,8 @@ export function DevisForm() {
                 border: "none",
                 cursor: "pointer",
                 transition: "all 0.3s",
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                fontSize: "clamp(0.875rem, 2vw, 1rem)"
               }}
             >
               Envoyer ma demande
