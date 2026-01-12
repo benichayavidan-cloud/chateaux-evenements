@@ -3,21 +3,11 @@
 import Image from "next/image";
 import { theme } from "@/config/theme";
 import { spacing } from "@/config/themeHelpers";
-
-const logos = [
-  { nom: "Google", url: "https://cdn.simpleicons.org/google/808080" },
-  { nom: "Apple", url: "https://cdn.simpleicons.org/apple/808080" },
-  { nom: "Tesla", url: "https://cdn.simpleicons.org/tesla/808080" },
-  { nom: "Netflix", url: "https://cdn.simpleicons.org/netflix/808080" },
-  { nom: "Spotify", url: "https://cdn.simpleicons.org/spotify/808080" },
-  { nom: "Nike", url: "https://cdn.simpleicons.org/nike/808080" },
-  { nom: "Samsung", url: "https://cdn.simpleicons.org/samsung/808080" },
-  { nom: "Intel", url: "https://cdn.simpleicons.org/intel/808080" },
-];
+import { clientLogos } from "@/data/chateaux";
 
 export function LogoCarousel() {
   // Dupliquer les logos pour créer un effet de boucle infinie
-  const duplicatedLogos = [...logos, ...logos];
+  const duplicatedLogos = [...clientLogos, ...clientLogos];
 
   return (
     <section className="py-12 md:py-16 overflow-hidden" style={{ background: theme.colors.neutral.white }}>
@@ -67,7 +57,7 @@ export function LogoCarousel() {
                 height: "80px",
               }}
             >
-              <div className="relative w-full h-full flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <div className="relative w-full h-full flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300">
                 <Image
                   src={logo.url}
                   alt={`Logo ${logo.nom}`}
