@@ -212,16 +212,25 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-4 z-5"
+        className="absolute left-1/2 -translate-x-1/2 bottom-8 z-10"
       >
         <div className="flex flex-col items-center gap-3">
-          <span className="text-gray-800 text-xs uppercase tracking-widest font-bold">
+          <span
+            className="text-white text-xs uppercase tracking-widest font-bold drop-shadow-lg"
+            style={{
+              textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 1px rgba(0,0,0,0.9)'
+            }}
+          >
             Découvrez
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-6 h-10 rounded-full border-2 border-gray-600/60 flex items-start justify-center p-2 bg-white/60 shadow-md"
+            className="w-6 h-10 rounded-full border-2 flex items-start justify-center p-2 shadow-xl"
+            style={{
+              borderColor: 'rgba(255, 255, 255, 0.9)',
+              background: 'rgba(255, 255, 255, 0.95)',
+            }}
           >
             <div
               className="w-1 h-2 rounded-full"

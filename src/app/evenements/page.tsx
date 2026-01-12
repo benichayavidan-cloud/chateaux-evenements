@@ -57,14 +57,24 @@ export default function EvenementsPage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-3"
           >
-            <span className="text-gray-800 text-xs uppercase tracking-widest font-bold">Découvrir</span>
-            <div className="w-6 h-10 border-2 border-gray-800 rounded-full flex items-start justify-center p-2 bg-white/90">
+            <span
+              className="text-gray-900 text-xs uppercase tracking-widest font-bold"
+              style={{
+                textShadow: '0 2px 4px rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.2)'
+              }}
+            >
+              Découvrir
+            </span>
+            <div className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 shadow-lg" style={{
+              borderColor: 'rgba(17, 24, 39, 0.8)',
+              background: 'rgba(255, 255, 255, 0.95)'
+            }}>
               <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
             </div>
           </motion.div>

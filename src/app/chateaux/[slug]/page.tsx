@@ -227,7 +227,7 @@ export default function ChateauPage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-8 z-5">
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-8 z-10">
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -235,19 +235,21 @@ export default function ChateauPage() {
           >
             <span
               style={{
-                color: theme.colors.text.primary,
+                color: 'white',
                 fontSize: theme.typography.fontSize.xs,
                 textTransform: "uppercase",
                 letterSpacing: theme.typography.letterSpacing.widest,
                 fontWeight: theme.typography.fontWeight.bold,
+                textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 1px rgba(0,0,0,0.9)'
               }}
             >
               Découvrez
             </span>
             <div
-              className="w-6 h-10 rounded-full border-2 flex items-start justify-center p-2 bg-white/60 shadow-md"
+              className="w-6 h-10 rounded-full border-2 flex items-start justify-center p-2 shadow-xl"
               style={{
-                borderColor: theme.colors.neutral.gray600,
+                borderColor: 'rgba(255, 255, 255, 0.9)',
+                background: 'rgba(255, 255, 255, 0.95)',
               }}
             >
               <div
