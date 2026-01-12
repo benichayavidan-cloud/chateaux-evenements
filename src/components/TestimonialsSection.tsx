@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Quote, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { useState, useEffect } from "react";
 import { testimonials } from "@/data/chateaux";
 import { colors } from "@/config/themeHelpers";
@@ -60,7 +60,7 @@ export function TestimonialsSection() {
     <section
       style={{
         background: 'linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%)',
-        padding: 'clamp(5rem, 12vw, 8rem) clamp(1.5rem, 4vw, 2rem)',
+        padding: '80px clamp(1.5rem, 4vw, 2rem)',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -76,14 +76,14 @@ export function TestimonialsSection() {
 
       <div className="relative z-10" style={{ maxWidth: '1400px', margin: '0 auto' }}>
         {/* En-tête de la section - Centré verticalement */}
-        <div className="flex flex-col items-center justify-center text-center mb-16">
+        <div className="flex flex-col items-center justify-center text-center" style={{ marginBottom: '60px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="flex items-center justify-center gap-3" style={{ marginBottom: '24px' }}>
               <Quote className="w-7 h-7" style={{ color: colors.bronze }} />
               <span
                 className="uppercase tracking-wider font-semibold"
@@ -125,31 +125,8 @@ export function TestimonialsSection() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Navigation Buttons */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl"
-            style={{
-              border: `2px solid ${colors.bronze}`,
-            }}
-            aria-label="Témoignage précédent"
-          >
-            <ChevronLeft className="w-6 h-6" style={{ color: colors.bronze }} />
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-14 h-14 rounded-full bg-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl"
-            style={{
-              border: `2px solid ${colors.bronze}`,
-            }}
-            aria-label="Témoignage suivant"
-          >
-            <ChevronRight className="w-6 h-6" style={{ color: colors.bronze }} />
-          </button>
-
           {/* Carousel Track */}
-          <div className="overflow-hidden" style={{ padding: '0 20px' }}>
+          <div className="overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -177,13 +154,13 @@ export function TestimonialsSection() {
                       style={{
                         background: '#FFFFFF',
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
-                        padding: '20px 28px',
+                        padding: '24px 28px',
                         border: '1px solid #e8e8e8',
                         minHeight: '140px',
                       }}
                     >
                       {/* Header: Étoiles à gauche, Badge "Avis Google" à droite */}
-                      <div className="flex items-center justify-between" style={{ marginBottom: '16px' }}>
+                      <div className="flex items-center justify-between" style={{ marginBottom: '20px' }}>
                         {/* Étoiles style Google (jaune Google) */}
                         <div className="flex gap-1">
                           {[...Array(testimonial.note)].map((_, i) => (
@@ -229,14 +206,14 @@ export function TestimonialsSection() {
                         {/* Info + Contenu */}
                         <div className="flex-1" style={{ minWidth: 0 }}>
                           {/* Nom et poste sur la même ligne que l'avatar */}
-                          <div style={{ marginBottom: '8px' }}>
+                          <div style={{ marginBottom: '12px' }}>
                             <h3
                               className="font-semibold"
                               style={{
                                 fontSize: '0.875rem',
                                 color: '#202124',
                                 lineHeight: '1.3',
-                                marginBottom: '2px'
+                                marginBottom: '4px'
                               }}
                             >
                               {testimonial.nom}
@@ -274,7 +251,7 @@ export function TestimonialsSection() {
           </div>
 
           {/* Indicateurs de pagination */}
-          <div className="flex justify-center items-center gap-3" style={{ marginTop: '80px', paddingTop: '20px' }}>
+          <div className="flex justify-center items-center gap-3" style={{ marginTop: '60px' }}>
             {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
