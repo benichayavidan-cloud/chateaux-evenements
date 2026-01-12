@@ -458,7 +458,7 @@ export default function ChateauxPage() {
               viewport={{ once: true }}
               className="flex justify-center"
             >
-              <Card variant="hover" padding="lg" hoverable className="h-full w-full flex flex-col items-center justify-center text-center">
+              <Card variant="hover" padding="lg" hoverable className="h-full w-full flex flex-col items-center justify-start text-center">
                 <div
                   className="flex items-center justify-center mb-4"
                   style={{
