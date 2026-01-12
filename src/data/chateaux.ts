@@ -284,7 +284,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "TechVision France",
     poste: "Directrice des Ressources Humaines",
     contenu:
-      "Le Manoir Anglo-Normand & Son Parc (Chantilly) a transformé notre séminaire annuel en une expérience inoubliable. Le cadre exceptionnel et le service impeccable ont permis à nos équipes de se ressourcer et de renforcer leur cohésion. Un investissement qui en valait vraiment la peine.",
+      "Le Manoir Anglo-Normand a transformé notre séminaire annuel en une expérience inoubliable. Le cadre exceptionnel et le service impeccable ont permis à nos équipes de renforcer leur cohésion.",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
@@ -294,8 +294,8 @@ export const testimonials: Testimonial[] = [
     entreprise: "Groupe InnovBank",
     poste: "Directeur Général",
     contenu:
-      "Nous avons organisé notre convention annuelle au Refuge Historique Suspendu (Portes de Paris). L'infrastructure moderne alliée au prestige des lieux a impressionné nos 180 collaborateurs. L'équipe sur place s'est montrée d'une réactivité remarquable.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
+      "Une convention annuelle mémorable au Refuge Historique Suspendu. Infrastructure moderne et prestige du lieu ont impressionné nos 180 collaborateurs. L'équipe sur place s'est montrée d'une réactivité remarquable.",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -304,7 +304,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "Creative Solutions",
     poste: "Chef de Projet Événementiel",
     contenu:
-      "Le Refuge Historique Suspendu (Portes de Paris) offre un cadre magique pour nos événements clients. La qualité de la restauration et l'attention aux détails font toute la différence. Nos clients repartent toujours enchantés.",
+      "Un cadre magique pour nos événements clients. La restauration exceptionnelle et l'attention aux détails font toute la différence. Nos clients repartent toujours enchantés.",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
@@ -314,7 +314,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "Luxe Consulting Group",
     poste: "Associé Fondateur",
     contenu:
-      "Pour notre soirée de gala annuelle, nous cherchions un lieu qui reflète nos valeurs d'excellence. L'Abbaye Millénaire & Son Étang (78) a dépassé toutes nos attentes. L'authenticité médiévale combinée au luxe contemporain a créé une ambiance unique.",
+      "Un lieu qui reflète nos valeurs d'excellence. L'Abbaye Millénaire a dépassé toutes nos attentes pour notre gala annuel. L'authenticité médiévale combinée au luxe contemporain crée une ambiance unique.",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
@@ -324,8 +324,8 @@ export const testimonials: Testimonial[] = [
     entreprise: "Airbus Group",
     poste: "Responsable Événementiel International",
     contenu:
-      "Nous organisons régulièrement des conventions internationales et le Manoir Anglo-Normand & Son Parc (Chantilly) s'est révélé être un choix parfait. Les infrastructures sont de niveau international et le cadre forestier offre une déconnexion bienvenue après des mois de travail intense.",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80",
+      "Des conventions internationales réussies au Manoir Anglo-Normand. Les infrastructures sont de niveau international et le cadre forestier offre une déconnexion bienvenue.",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -334,8 +334,8 @@ export const testimonials: Testimonial[] = [
     entreprise: "BNP Paribas Asset Management",
     poste: "Directeur de la Stratégie",
     contenu:
-      "Le Refuge Historique Suspendu (Portes de Paris) offre une discrétion rare pour nos réunions stratégiques. L'accessibilité en métro est un atout considérable, et le jardin suspendu crée une bulle hors du temps en plein cœur de la région parisienne.",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
+      "Une discrétion rare pour nos réunions stratégiques. L'accessibilité et le jardin suspendu créent une bulle hors du temps en plein cœur de la région parisienne.",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -344,7 +344,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "L'Oréal Paris",
     poste: "VP Marketing Europe",
     contenu:
-      "Nous avons choisi L'Abbaye Millénaire & Son Étang (78) pour notre lancement produit. L'effet 'wow' était garanti dès l'arrivée de nos invités. Les salles voûtées ont apporté une dimension spectaculaire à notre événement. Un succès retentissant.",
+      "L'Abbaye Millénaire a offert un effet 'wow' garanti pour notre lancement produit. Les salles voûtées ont apporté une dimension spectaculaire à notre événement. Un succès retentissant.",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
@@ -354,8 +354,8 @@ export const testimonials: Testimonial[] = [
     entreprise: "Mercedes-Benz France",
     poste: "Directeur Commercial",
     contenu:
-      "Pour notre convention des concessionnaires, nous voulions un lieu à la hauteur de notre image de marque. Le Manoir Anglo-Normand & Son Parc (Chantilly) a été parfait. Le parc nous a permis d'organiser des essais privés dans un cadre somptueux.",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80",
+      "Un lieu à la hauteur de notre image de marque. Le Manoir Anglo-Normand a été parfait pour notre convention. Le parc nous a permis d'organiser des essais privés dans un cadre somptueux.",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -364,8 +364,8 @@ export const testimonials: Testimonial[] = [
     entreprise: "Orange Business Services",
     poste: "Chief Innovation Officer",
     contenu:
-      "Notre séminaire d'innovation nécessitait un environnement inspirant. L'architecture historique du Refuge Historique Suspendu (Portes de Paris) mêlée aux équipements technologiques modernes a créé le parfait équilibre entre tradition et innovation.",
-    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&auto=format&fit=crop&q=80",
+      "Un environnement inspirant pour notre séminaire d'innovation. L'architecture historique mêlée aux équipements modernes a créé le parfait équilibre entre tradition et innovation.",
+    avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -374,8 +374,8 @@ export const testimonials: Testimonial[] = [
     entreprise: "LVMH Corporate",
     poste: "Directeur des Affaires Publiques",
     contenu:
-      "L'Abbaye Millénaire & Son Étang (78) incarne parfaitement les valeurs de notre groupe : patrimoine, excellence et raffinement. Nos partenaires institutionnels ont été conquis par l'authenticité du lieu et la qualité du service.",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&auto=format&fit=crop&q=80",
+      "L'Abbaye Millénaire incarne nos valeurs : patrimoine, excellence et raffinement. Nos partenaires institutionnels ont été conquis par l'authenticité du lieu et la qualité du service.",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -384,8 +384,8 @@ export const testimonials: Testimonial[] = [
     entreprise: "Renault Group",
     poste: "Directrice de la Communication Externe",
     contenu:
-      "Organiser notre conférence de presse au Manoir Anglo-Normand & Son Parc (Chantilly) a été une décision stratégique payante. Le cadre exceptionnel a impressionné les journalistes internationaux et l'amphithéâtre privé était parfait pour nos annonces.",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80",
+      "Une décision stratégique payante pour notre conférence de presse. Le cadre exceptionnel a impressionné les journalistes internationaux et l'amphithéâtre privé était parfait.",
+    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
   {
@@ -394,7 +394,7 @@ export const testimonials: Testimonial[] = [
     entreprise: "Danone Groupe",
     poste: "VP Human Resources",
     contenu:
-      "Le team-building que nous avons organisé à L'Abbaye Millénaire & Son Étang (78) a dépassé nos espérances. Les activités sur l'étang et dans le parc ont renforcé la cohésion de nos équipes de direction. Un moment authentique et fédérateur.",
+      "Un team-building qui a dépassé nos espérances. Les activités sur l'étang et dans le parc ont renforcé la cohésion de nos équipes de direction. Un moment authentique et fédérateur.",
     avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300&auto=format&fit=crop&q=80",
     note: 5,
   },
