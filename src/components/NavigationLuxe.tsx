@@ -67,7 +67,7 @@ export function NavigationLuxe() {
       }}
     >
       {/* Container avec grille responsive */}
-      <div className="w-full px-8 sm:px-10 md:px-14 lg:px-20">
+      <div className="w-full px-12 sm:px-16 md:px-20 lg:px-24">
         <div className="h-20 w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0">
 
           {/* Colonne 1 : Logo */}
