@@ -39,7 +39,7 @@ export function EvenementsSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full px-8 sm:px-10 md:px-12 lg:px-16"
+          className="flex flex-col items-center justify-center text-center w-full px-4 sm:px-8 md:px-12 lg:px-16"
           style={{ marginBottom: spacing["4xl"] }}
         >
           <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
@@ -56,11 +56,11 @@ export function EvenementsSection() {
             }} />
           </div>
           <h2 style={{
-            fontSize: "clamp(2.5rem, 6vw, 3.75rem)",
+            fontSize: "clamp(2rem, 6vw, 3.75rem)",
             fontWeight: theme.typography.fontWeight.light,
             fontStyle: "italic",
             color: theme.colors.neutral.gray900,
-            marginBottom: spacing["2xl"],
+            marginBottom: 'clamp(1rem, 3vw, 2rem)',
             fontFamily: theme.typography.fonts.heading
           }}>
             Types d'Événements
@@ -77,7 +77,7 @@ export function EvenementsSection() {
         </motion.div>
 
         {/* Grille d'événements */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto w-full gap-5 md:gap-6 lg:gap-8 px-8 sm:px-10 md:px-12 lg:px-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto w-full gap-4 md:gap-5 lg:gap-8 px-4 sm:px-8 md:px-12 lg:px-16">
           {typesEvenements.map((evenement, index) => (
             <motion.div
               key={evenement.id}
@@ -208,7 +208,7 @@ export function EvenementsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex items-center justify-center w-full px-8 sm:px-10 md:px-12 lg:px-16"
+          className="flex items-center justify-center w-full px-4 sm:px-8 md:px-12 lg:px-16"
           style={{ marginTop: theme.spacing.section.sm }}
         >
           <Button

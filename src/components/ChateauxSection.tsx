@@ -32,7 +32,7 @@ export function ChateauxSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full px-8 sm:px-10 md:px-12 lg:px-16"
+          className="flex flex-col items-center justify-center text-center w-full px-4 sm:px-8 md:px-12 lg:px-16"
           style={{ marginBottom: spacing["4xl"] }}
         >
           <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
@@ -49,11 +49,11 @@ export function ChateauxSection() {
             }} />
           </div>
           <h2 style={{
-            fontSize: "clamp(2.5rem, 6vw, 3.75rem)",
+            fontSize: "clamp(2rem, 6vw, 3.75rem)",
             fontWeight: theme.typography.fontWeight.light,
             fontStyle: "italic",
             color: theme.colors.neutral.gray900,
-            marginBottom: spacing["2xl"],
+            marginBottom: 'clamp(1rem, 3vw, 2rem)',
             fontFamily: theme.typography.fonts.heading
           }}>
             Nos Châteaux d'Exception
@@ -71,7 +71,7 @@ export function ChateauxSection() {
         </motion.div>
 
         {/* Grille de cartes châteaux */}
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full px-8 sm:px-10 md:px-12 lg:px-16" style={{ gap: `${spacing.xl} ${spacing["2xl"]}` }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full px-4 sm:px-8 md:px-12 lg:px-16" style={{ gap: 'clamp(1rem, 3vw, 2rem)' }}>
           {chateaux.map((chateau, index) => (
             <motion.div
               key={chateau.id}

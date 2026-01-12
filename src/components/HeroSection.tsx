@@ -67,7 +67,7 @@ export function HeroSection() {
       </AnimatePresence>
 
       {/* Contenu à gauche avec badge au-dessus */}
-      <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: '48px' }}>
+      <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: 'clamp(0.75rem, 4vw, 3rem)' }}>
 
         {/* Badge lieu au-dessus du conteneur */}
         <motion.div
@@ -75,7 +75,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="flex justify-center"
-          style={{ maxWidth: '480px', width: '100%', marginBottom: '20px' }}
+          style={{ maxWidth: 'min(480px, 95vw)', width: '100%', marginBottom: 'clamp(0.75rem, 2vw, 1.25rem)' }}
         >
           <Badge variant="glass" size="md">
             <div
@@ -112,11 +112,11 @@ export function HeroSection() {
         <div
           className="text-left rounded-2xl w-full"
           style={{
-            maxWidth: '480px',
+            maxWidth: 'min(480px, 95vw)',
             background: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(12px)',
             boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            padding: '24px 20px',
+            padding: 'clamp(1rem, 3vw, 1.5rem)',
           }}
         >
           {/* Titre principal */}
@@ -125,13 +125,13 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
             style={{
-              fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+              fontSize: 'clamp(1.125rem, 4vw, 2.25rem)',
               fontWeight: theme.typography.fontWeight.light,
               fontStyle: 'italic',
               fontFamily: theme.typography.fonts.heading,
               lineHeight: theme.typography.lineHeight.tight,
               color: theme.colors.text.primary,
-              marginBottom: spacing.md,
+              marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
             }}
           >
             Séminaires & Châteaux Privés :{" "}
