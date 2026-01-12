@@ -15,12 +15,15 @@ import { colors, spacing } from "@/config/themeHelpers";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { GalleryLightbox } from "@/components/GalleryLightbox";
 
 export default function ChateauPage() {
   const params = useParams();
   const slug = params.slug as string;
   const { scrollY } = useScroll();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Parallax effect pour le hero
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
@@ -404,14 +407,24 @@ export default function ChateauPage() {
                     className={`relative overflow-hidden group cursor-pointer rounded-3xl ${
                       index === 0 ? 'md:col-span-2 md:row-span-2' : ''
                     }`}
+                    onClick={() => {
+                      setCurrentImageIndex(index);
+                      setLightboxOpen(true);
+                    }}
                   >
                     <Image
                       src={image}
                       alt={`${chateau.seoH1} - vue ${index + 1}`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
                       sizes="(min-width: 1024px) 33vw, 50vw"
                     />
+                    {/* Overlay au hover */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+                        Cliquez pour agrandir
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -902,6 +915,16 @@ export default function ChateauPage() {
           </Button>
         </Card>
       </motion.div>
+
+      {/* Lightbox Galerie */}
+      <GalleryLightbox
+        images={chateau.images.galerie}
+        isOpen={lightboxOpen}
+        currentIndex={currentImageIndex}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={(index) => setCurrentImageIndex(index)}
+        altPrefix={chateau.seoH1}
+      />
     </div>
   );
 }
