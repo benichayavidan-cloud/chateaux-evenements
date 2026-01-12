@@ -266,12 +266,12 @@ export const components = {
   // Boutons
   button: {
     padding: {
-      sm: "16px",
+      sm: "12px 20px",
       md: "20px",
       lg: "24px",
     },
     height: {
-      sm: "40px",
+      sm: "36px",
       md: "48px",
       lg: "56px",
     },
