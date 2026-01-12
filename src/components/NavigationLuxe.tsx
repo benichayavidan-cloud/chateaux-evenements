@@ -67,8 +67,8 @@ export function NavigationLuxe() {
       }}
     >
       {/* Container avec grille responsive */}
-      <div className="w-full px-24 sm:px-32 md:px-40 lg:px-48">
-        <div className="h-20 w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0">
+      <div className="w-full px-4 sm:px-8 md:px-40 lg:px-48">
+        <div className="h-16 sm:h-20 w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0">
 
           {/* Colonne 1 : Logo */}
           <div className="flex items-center justify-start">
@@ -82,9 +82,9 @@ export function NavigationLuxe() {
                   src="/logo.png"
                   alt="Select Chateaux"
                   style={{
-                    height: 'clamp(4rem, 6vw, 5rem)',
+                    height: 'clamp(2.5rem, 5vw, 5rem)',
                     width: 'auto',
-                    maxWidth: '280px',
+                    maxWidth: 'clamp(160px, 50vw, 280px)',
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.08))'
                   }}
                   className="object-contain"

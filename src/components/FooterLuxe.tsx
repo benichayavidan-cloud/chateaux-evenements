@@ -28,8 +28,8 @@ export function FooterLuxe() {
         background: `linear-gradient(to right, transparent, ${colors.bronze}, transparent)`
       }} />
 
-      <div className="w-full px-24 sm:px-32 md:px-40 lg:px-48">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-10 md:gap-12 lg:gap-14" style={{
+      <div className="w-full px-4 sm:px-8 md:px-40 lg:px-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-6 md:gap-10 lg:gap-14" style={{
           marginBottom: '32px'
         }}>
           {/* Colonne 1 - À propos */}
@@ -40,8 +40,8 @@ export function FooterLuxe() {
                 alt="Select Chateaux"
                 className="w-auto object-contain"
                 style={{
-                  height: 'clamp(4rem, 6vw, 5rem)',
-                  maxWidth: '280px',
+                  height: 'clamp(2.5rem, 5vw, 4rem)',
+                  maxWidth: 'clamp(140px, 45vw, 240px)',
                   filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                   display: 'block'
                 }}

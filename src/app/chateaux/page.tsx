@@ -269,14 +269,14 @@ export default function ChateauxPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
 
                 {/* Contenu à gauche avec badge au-dessus */}
-                <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: 'clamp(1rem, 5vw, 3rem)' }}>
+                <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: 'clamp(0.75rem, 4vw, 3rem)' }}>
                   {/* Badge lieu au-dessus du conteneur */}
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.8 }}
                     className="flex justify-center"
-                    style={{ maxWidth: '480px', width: '100%', marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)' }}
+                    style={{ maxWidth: 'min(480px, 95vw)', width: '100%', marginBottom: 'clamp(0.75rem, 2vw, 1.25rem)' }}
                   >
                     <Badge variant="glass" size="md">
                       <div
@@ -313,11 +313,11 @@ export default function ChateauxPage() {
                   <div
                     className="text-left rounded-2xl w-full"
                     style={{
-                      maxWidth: '480px',
+                      maxWidth: 'min(480px, 95vw)',
                       background: 'rgba(255, 255, 255, 0.85)',
                       backdropFilter: 'blur(12px)',
                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                      padding: 'clamp(1rem, 3.5vw, 1.75rem) clamp(1rem, 2.5vw, 1.5rem)',
+                      padding: 'clamp(0.75rem, 3vw, 1.75rem) clamp(0.75rem, 2vw, 1.5rem)',
                     }}
                   >
                     {/* Titre */}
@@ -427,7 +427,7 @@ export default function ChateauxPage() {
         />
 
         {/* Grille USP - Centrée */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto items-stretch justify-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto items-stretch">
           {[
             {
               icon: <Award className="w-8 h-8" />,
