@@ -10,7 +10,7 @@ import { theme } from "@/config/theme";
 
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardsPerView, setCardsPerView] = useState(3);
+  const [cardsPerView, setCardsPerView] = useState(2);
   const [isPaused, setIsPaused] = useState(false);
 
   // Responsive cards per view
@@ -18,10 +18,10 @@ export function TestimonialsSection() {
     const updateCardsPerView = () => {
       if (window.innerWidth < 768) {
         setCardsPerView(1);
-      } else if (window.innerWidth < 1024) {
-        setCardsPerView(2);
+      } else if (window.innerWidth < 1280) {
+        setCardsPerView(1);
       } else {
-        setCardsPerView(3);
+        setCardsPerView(2);
       }
     };
 
@@ -170,67 +170,26 @@ export function TestimonialsSection() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     className="group"
                   >
+                    {/* Carte horizontale (format carte de visite) */}
                     <div
-                      className="h-full rounded-2xl transition-all duration-300"
+                      className="h-full rounded-2xl transition-all duration-300 flex"
                       style={{
                         background: 'white',
                         boxShadow: '0 8px 30px rgba(0, 0, 0, 0.08)',
-                        padding: 'clamp(1.5rem, 3vw, 2.5rem)',
+                        padding: 'clamp(2rem, 3vw, 3rem)',
                         border: '1px solid rgba(163, 126, 44, 0.1)',
+                        minHeight: '280px',
+                        gap: 'clamp(2rem, 3vw, 3rem)',
                       }}
                     >
-                      {/* Quote icon en haut */}
-                      <div className="flex justify-start mb-6">
+                      {/* Partie gauche : Avatar + Info */}
+                      <div className="flex flex-col items-center justify-center" style={{ minWidth: '140px', flex: '0 0 140px' }}>
+                        {/* Avatar */}
                         <div
-                          className="w-12 h-12 rounded-full flex items-center justify-center"
+                          className="relative flex-shrink-0 rounded-full overflow-hidden ring-2 ring-offset-4 transition-all duration-300 group-hover:ring-4 mb-6"
                           style={{
-                            background: `linear-gradient(135deg, ${colors.bronze}15, ${colors.bronze}05)`,
-                          }}
-                        >
-                          <Quote className="w-6 h-6" style={{ color: colors.bronze }} />
-                        </div>
-                      </div>
-
-                      {/* Contenu du témoignage */}
-                      <p
-                        className="leading-relaxed italic mb-8"
-                        style={{
-                          fontSize: theme.typography.fontSize.base,
-                          color: theme.colors.text.secondary,
-                          lineHeight: '1.8',
-                          minHeight: '140px',
-                        }}
-                      >
-                        "{testimonial.contenu}"
-                      </p>
-
-                      {/* Étoiles */}
-                      <div className="flex gap-1 mb-6">
-                        {[...Array(testimonial.note)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-5 h-5 fill-current"
-                            style={{ color: colors.gold }}
-                          />
-                        ))}
-                      </div>
-
-                      {/* Séparateur élégant */}
-                      <div
-                        className="w-full mb-6"
-                        style={{
-                          height: '1px',
-                          background: `linear-gradient(90deg, transparent, ${colors.bronze}30, transparent)`,
-                        }}
-                      />
-
-                      {/* Avatar et info */}
-                      <div className="flex items-center gap-4">
-                        <div
-                          className="relative flex-shrink-0 rounded-full overflow-hidden ring-2 ring-offset-2 transition-all duration-300 group-hover:ring-4"
-                          style={{
-                            width: '64px',
-                            height: '64px',
+                            width: '100px',
+                            height: '100px',
                             '--tw-ring-color': colors.bronze,
                             '--tw-ring-offset-color': 'white',
                           } as any}
@@ -240,14 +199,16 @@ export function TestimonialsSection() {
                             alt={testimonial.nom}
                             fill
                             className="object-cover"
-                            sizes="64px"
+                            sizes="100px"
                           />
                         </div>
-                        <div className="flex-1">
+
+                        {/* Info personne */}
+                        <div className="text-center">
                           <h3
-                            className="font-bold mb-1"
+                            className="font-bold mb-2"
                             style={{
-                              fontSize: theme.typography.fontSize.lg,
+                              fontSize: theme.typography.fontSize.base,
                               color: theme.colors.text.primary,
                               lineHeight: '1.3'
                             }}
@@ -255,9 +216,9 @@ export function TestimonialsSection() {
                             {testimonial.nom}
                           </h3>
                           <p
-                            className="font-medium mb-1"
+                            className="font-medium mb-2"
                             style={{
-                              fontSize: theme.typography.fontSize.sm,
+                              fontSize: theme.typography.fontSize.xs,
                               color: theme.colors.text.muted
                             }}
                           >
@@ -266,13 +227,60 @@ export function TestimonialsSection() {
                           <p
                             className="font-semibold"
                             style={{
-                              fontSize: theme.typography.fontSize.sm,
+                              fontSize: theme.typography.fontSize.xs,
                               color: colors.bronze
                             }}
                           >
                             {testimonial.entreprise}
                           </p>
                         </div>
+
+                        {/* Étoiles */}
+                        <div className="flex gap-1 mt-4">
+                          {[...Array(testimonial.note)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 fill-current"
+                              style={{ color: colors.gold }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Partie droite : Contenu */}
+                      <div className="flex-1 flex flex-col justify-between">
+                        {/* Quote icon en haut */}
+                        <div className="flex justify-start mb-6">
+                          <div
+                            className="w-12 h-12 rounded-full flex items-center justify-center"
+                            style={{
+                              background: `linear-gradient(135deg, ${colors.bronze}15, ${colors.bronze}05)`,
+                            }}
+                          >
+                            <Quote className="w-6 h-6" style={{ color: colors.bronze }} />
+                          </div>
+                        </div>
+
+                        {/* Contenu du témoignage */}
+                        <p
+                          className="leading-relaxed italic flex-1"
+                          style={{
+                            fontSize: theme.typography.fontSize.base,
+                            color: theme.colors.text.secondary,
+                            lineHeight: '1.8',
+                          }}
+                        >
+                          "{testimonial.contenu}"
+                        </p>
+
+                        {/* Séparateur élégant en bas */}
+                        <div
+                          className="w-full mt-6"
+                          style={{
+                            height: '1px',
+                            background: `linear-gradient(90deg, ${colors.bronze}30, transparent)`,
+                          }}
+                        />
                       </div>
                     </div>
                   </motion.div>
