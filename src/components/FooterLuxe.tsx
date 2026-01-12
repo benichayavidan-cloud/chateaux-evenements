@@ -215,7 +215,7 @@ export function FooterLuxe() {
           paddingLeft: '8px',
           paddingRight: '8px'
         }}>
-          <div className="flex flex-col items-start" style={{ gap: spacing.md }}>
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-start" style={{ gap: spacing.md }}>
             <p style={{
               color: theme.colors.neutral.gray600,
               fontSize: theme.typography.fontSize.xs
