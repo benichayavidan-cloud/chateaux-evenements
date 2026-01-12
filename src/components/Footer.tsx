@@ -20,8 +20,11 @@ export function Footer() {
               <img
                 src="/logo.png"
                 alt="Select Chateaux"
-                className="h-10 w-auto object-contain"
-                style={{ filter: 'brightness(0) invert(1)' }}
+                className="h-14 w-auto object-contain"
+                style={{
+                  maxWidth: '200px',
+                  filter: 'drop-shadow(0 2px 4px rgba(255,255,255,0.1))'
+                }}
               />
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">

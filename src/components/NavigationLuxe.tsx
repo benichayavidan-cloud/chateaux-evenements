@@ -81,7 +81,12 @@ export function NavigationLuxe() {
                 <img
                   src="/logo.png"
                   alt="Select Chateaux"
-                  style={{ height: 'clamp(2.5rem, 5vw, 3rem)', width: 'auto' }}
+                  style={{
+                    height: 'clamp(3.5rem, 6vw, 4.5rem)',
+                    width: 'auto',
+                    maxWidth: '250px',
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.08))'
+                  }}
                   className="object-contain"
                 />
               </motion.div>
