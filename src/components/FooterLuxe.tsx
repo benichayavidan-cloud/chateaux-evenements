@@ -211,19 +211,19 @@ export function FooterLuxe() {
         {/* Ligne de séparation */}
         <div className="w-full" style={{
           borderTop: `1px solid ${theme.colors.neutral.gray200}`,
-          paddingTop: theme.spacing.section.sm,
-          paddingLeft: '8px',
-          paddingRight: '8px'
+          paddingTop: theme.spacing.section.sm
         }}>
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start" style={{ gap: spacing.md }}>
-            <p style={{
-              color: theme.colors.neutral.gray600,
-              fontSize: theme.typography.fontSize.xs,
-              margin: 0
-            }}>
-              &copy; {new Date().getFullYear()} SelectChateaux.com. Tous droits réservés.
-            </p>
-            <div className="flex" style={{
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-10 md:gap-12 lg:gap-14">
+            <div className="md:col-span-1 lg:col-span-3" style={{ paddingLeft: '8px' }}>
+              <p style={{
+                color: theme.colors.neutral.gray600,
+                fontSize: theme.typography.fontSize.xs,
+                margin: 0
+              }}>
+                &copy; {new Date().getFullYear()} SelectChateaux.com. Tous droits réservés.
+              </p>
+            </div>
+            <div className="flex flex-col md:flex-row" style={{
               gap: spacing.xl,
               fontSize: theme.typography.fontSize.xs
             }}>
