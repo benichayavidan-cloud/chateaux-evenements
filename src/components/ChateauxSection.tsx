@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/Badge";
 
 export function ChateauxSection() {
   return (
-    <section className="bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden" style={{ padding: `${theme.spacing.section.sm} 0` }}>
+    <section className="bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden" style={{ padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
       {/* Glow effect subtil */}
       <div className="absolute top-0 left-1/4 rounded-full blur-3xl" style={{
         width: "384px",
@@ -32,8 +32,8 @@ export function ChateauxSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full px-4 sm:px-8 md:px-12 lg:px-16"
-          style={{ marginBottom: spacing["4xl"] }}
+          className="flex flex-col items-center justify-center text-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
+          style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}
         >
           <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
             <div style={{
@@ -88,7 +88,7 @@ export function ChateauxSection() {
                 className="group block relative overflow-hidden"
               >
                 {/* Image avec effet grayscale → couleur */}
-                <div className="relative overflow-hidden" style={{ height: 'clamp(20rem, 40vw, 28rem)' }}>
+                <div className="relative overflow-hidden" style={{ height: 'clamp(18rem, 45vw, 28rem)' }}>
                   <Image
                     src={chateau.images.card}
                     alt={chateau.nom}
@@ -106,17 +106,17 @@ export function ChateauxSection() {
                     background: 'rgba(255, 255, 255, 0.97)',
                     transition: `opacity ${theme.effects.transitions.ultra} ease-out`
                   }}>
-                    <div className="absolute inset-0 flex flex-col justify-end" style={{ padding: spacing.lg }}>
+                    <div className="absolute inset-0 flex flex-col justify-end" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
                       {/* Titre */}
                       <motion.h3
                         className="translate-y-4 group-hover:translate-y-0"
                         style={{
-                          fontSize: theme.typography.fontSize["4xl"],
+                          fontSize: 'clamp(1.5rem, 4vw, 2.25rem)',
                           fontWeight: theme.typography.fontWeight.light,
                           fontStyle: "italic",
                           color: theme.colors.neutral.gray900,
                           fontFamily: theme.typography.fonts.heading,
-                          marginBottom: spacing.lg,
+                          marginBottom: 'clamp(0.75rem, 2.5vw, 1.25rem)',
                           transition: `transform ${theme.effects.transitions.slower}`
                         }}
                       >
@@ -125,9 +125,10 @@ export function ChateauxSection() {
 
                       {/* Description */}
                       <p className="line-clamp-2 translate-y-4 group-hover:translate-y-0" style={{
+                        fontSize: 'clamp(0.9375rem, 2vw, 1rem)',
                         color: theme.colors.neutral.gray800,
                         lineHeight: theme.typography.lineHeight.relaxed,
-                        marginBottom: spacing.lg,
+                        marginBottom: 'clamp(0.875rem, 2.5vw, 1.25rem)',
                         transition: `transform ${theme.effects.transitions.slower} 75ms`
                       }}>
                         {chateau.description}
@@ -135,8 +136,8 @@ export function ChateauxSection() {
 
                       {/* Informations clés */}
                       <div className="flex items-center translate-y-4 group-hover:translate-y-0" style={{
-                        gap: spacing["2xl"],
-                        marginBottom: spacing.lg,
+                        gap: 'clamp(1rem, 3vw, 2rem)',
+                        marginBottom: 'clamp(0.875rem, 2.5vw, 1.25rem)',
                         transition: `transform ${theme.effects.transitions.slower} 100ms`
                       }}>
                         <div className="flex items-center" style={{
@@ -159,10 +160,10 @@ export function ChateauxSection() {
 
                       {/* Atouts principaux */}
                       <ul className="translate-y-4 group-hover:translate-y-0" style={{
-                        marginBottom: spacing.lg,
+                        marginBottom: 'clamp(0.875rem, 2.5vw, 1.25rem)',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: spacing.sm,
+                        gap: 'clamp(0.5rem, 1.5vw, 0.625rem)',
                         transition: `transform ${theme.effects.transitions.slower} 150ms`
                       }}>
                         {chateau.atouts.slice(0, 3).map((atout, i) => (
@@ -170,7 +171,7 @@ export function ChateauxSection() {
                             key={i}
                             className="flex items-start"
                             style={{
-                              fontSize: theme.typography.fontSize.sm,
+                              fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
                               color: theme.colors.neutral.gray800
                             }}
                           >
@@ -178,8 +179,8 @@ export function ChateauxSection() {
                               color: colors.bronze,
                               marginTop: "2px",
                               fontWeight: theme.typography.fontWeight.bold,
-                              fontSize: theme.typography.fontSize.base,
-                              marginRight: spacing.sm
+                              fontSize: 'clamp(1rem, 2.2vw, 1.125rem)',
+                              marginRight: 'clamp(0.5rem, 1.5vw, 0.625rem)'
                             }}>•</span>
                             <span>{atout}</span>
                           </li>
@@ -210,7 +211,7 @@ export function ChateauxSection() {
                     variant="default"
                     size="md"
                     className="absolute z-10"
-                    style={{ top: spacing["2xl"], right: spacing["2xl"] }}
+                    style={{ top: 'clamp(1rem, 3vw, 2rem)', right: 'clamp(1rem, 3vw, 2rem)' }}
                   >
                     {chateau.region}
                   </Badge>
@@ -241,7 +242,7 @@ export function ChateauxSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex items-center justify-center w-full"
-          style={{ marginTop: theme.spacing.section.sm, padding: `0 ${spacing.lg}` }}
+          style={{ marginTop: 'clamp(2.5rem, 6vw, 4rem)', padding: `0 clamp(1rem, 3vw, 1.25rem)` }}
         >
           <Link
             href="/chateaux"

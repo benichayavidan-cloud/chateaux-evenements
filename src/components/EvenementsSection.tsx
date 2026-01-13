@@ -19,7 +19,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function EvenementsSection() {
   return (
-    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: `${theme.spacing.section.sm} 0` }}>
+    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
       {/* Glow effects subtils */}
       <div className="absolute top-1/3 left-0 rounded-full blur-3xl" style={{
         width: "384px",
@@ -39,8 +39,8 @@ export function EvenementsSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center text-center w-full px-4 sm:px-8 md:px-12 lg:px-16"
-          style={{ marginBottom: spacing["4xl"] }}
+          className="flex flex-col items-center justify-center text-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
+          style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}
         >
           <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
             <div style={{

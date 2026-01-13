@@ -18,8 +18,10 @@ export function FooterLuxe() {
       <div style={{ height: '8px', background: 'white' }} />
 
       <footer className="relative bg-gradient-to-b from-gray-100 via-gray-50 to-white" style={{
-        paddingTop: 'clamp(2rem, 6vw, 3.125rem)',
-        paddingBottom: 'clamp(1.5rem, 5vw, 2.5rem)',
+        paddingTop: 'clamp(2.5rem, 7vw, 3.125rem)',
+        paddingBottom: 'clamp(2rem, 6vw, 2.5rem)',
+        paddingLeft: 'clamp(1rem, 3vw, 1.5rem)',
+        paddingRight: 'clamp(1rem, 3vw, 1.5rem)',
         borderTop: `1px solid ${theme.colors.neutral.gray200}`
       }}>
       {/* Glow effect top */}
@@ -28,20 +30,20 @@ export function FooterLuxe() {
         background: `linear-gradient(to right, transparent, ${colors.bronze}, transparent)`
       }} />
 
-      <div className="w-full px-4 sm:px-8 md:px-40 lg:px-48">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-6 md:gap-10 lg:gap-14" style={{
-          marginBottom: '32px'
+      <div className="w-full px-4 sm:px-6 md:px-40 lg:px-48">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-8 md:gap-10 lg:gap-14" style={{
+          marginBottom: 'clamp(2rem, 5vw, 2.5rem)'
         }}>
           {/* Colonne 1 - À propos */}
-          <div style={{ paddingLeft: '8px' }}>
-            <div style={{ marginBottom: spacing.lg, display: 'block' }}>
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <div style={{ marginBottom: spacing.lg, display: 'block', width: '100%' }}>
               <img
                 src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
                 alt="Select Chateaux"
-                className="w-auto object-contain"
+                className="w-auto object-contain mx-auto md:mx-0"
                 style={{
                   height: 'clamp(3.5rem, 6vw, 5rem)',
-                  maxWidth: 'clamp(200px, 55vw, 320px)',
+                  maxWidth: 'clamp(180px, 50vw, 320px)',
                   filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                   display: 'block'
                 }}
@@ -50,12 +52,13 @@ export function FooterLuxe() {
             <p style={{
               color: theme.colors.neutral.gray600,
               lineHeight: theme.typography.lineHeight.relaxed,
-              fontSize: theme.typography.fontSize.sm,
-              margin: '0 0 ' + spacing.xl + ' 0'
+              fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
+              margin: '0 0 ' + spacing.xl + ' 0',
+              maxWidth: '280px'
             }}>
               L'excellence événementielle dans des châteaux d'exception à travers la France.
             </p>
-            <div className="flex" style={{ gap: spacing.sm }}>
+            <div className="flex justify-center md:justify-start w-full" style={{ gap: spacing.sm }}>
               {[Facebook, Instagram, Linkedin, Twitter].map((Icon, index) => (
                 <a
                   key={index}
@@ -78,18 +81,18 @@ export function FooterLuxe() {
           </div>
 
           {/* Colonne 2 - Navigation */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
               fontWeight: theme.typography.fontWeight.medium,
-              fontSize: theme.typography.fontSize.sm,
+              fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)',
               textTransform: "uppercase",
               letterSpacing: theme.typography.letterSpacing.wider,
-              marginBottom: spacing.lg
+              marginBottom: 'clamp(1rem, 3vw, 1.25rem)'
             }}>
               Navigation
             </h3>
-            <ul className="flex flex-col" style={{ gap: spacing.sm }}>
+            <ul className="flex flex-col items-center md:items-start" style={{ gap: 'clamp(0.5rem, 2vw, 0.625rem)' }}>
               {[
                 { label: "Nos Châteaux", href: "/chateaux" },
                 { label: "Événements", href: "/evenements" },
@@ -102,7 +105,7 @@ export function FooterLuxe() {
                     className="inline-block hover:text-[var(--bronze-antique)]"
                     style={{
                       color: theme.colors.neutral.gray600,
-                      fontSize: theme.typography.fontSize.sm,
+                      fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
                       transition: `colors ${theme.effects.transitions.smooth}`
                     }}
                   >
@@ -114,20 +117,20 @@ export function FooterLuxe() {
           </div>
 
           {/* Colonne 3 - Services */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
               fontWeight: theme.typography.fontWeight.medium,
-              fontSize: theme.typography.fontSize.sm,
+              fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)',
               textTransform: "uppercase",
               letterSpacing: theme.typography.letterSpacing.wider,
-              marginBottom: spacing.lg
+              marginBottom: 'clamp(1rem, 3vw, 1.25rem)'
             }}>
               Nos Services
             </h3>
-            <ul className="flex flex-col" style={{
-              gap: spacing.sm,
-              fontSize: theme.typography.fontSize.sm,
+            <ul className="flex flex-col items-center md:items-start" style={{
+              gap: 'clamp(0.5rem, 2vw, 0.625rem)',
+              fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
               color: theme.colors.neutral.gray600
             }}>
               <li>Séminaires Résidentiels</li>
@@ -140,18 +143,18 @@ export function FooterLuxe() {
           </div>
 
           {/* Colonne 4 - Contact */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
               fontWeight: theme.typography.fontWeight.medium,
-              fontSize: theme.typography.fontSize.sm,
+              fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)',
               textTransform: "uppercase",
               letterSpacing: theme.typography.letterSpacing.wider,
-              marginBottom: spacing.lg
+              marginBottom: 'clamp(1rem, 3vw, 1.25rem)'
             }}>
               Contact
             </h3>
-            <ul className="flex flex-col" style={{ gap: spacing.md }}>
+            <ul className="flex flex-col items-center md:items-start" style={{ gap: 'clamp(0.75rem, 2.5vw, 1rem)' }}>
               <li className="flex items-start" style={{ gap: spacing.sm }}>
                 <MapPin className="flex-shrink-0" style={{
                   width: "16px",
@@ -161,7 +164,7 @@ export function FooterLuxe() {
                 }} />
                 <span style={{
                   color: theme.colors.neutral.gray600,
-                  fontSize: theme.typography.fontSize.sm,
+                  fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
                   lineHeight: theme.typography.lineHeight.relaxed
                 }}>
                   15 Avenue des Châteaux<br />
@@ -179,7 +182,7 @@ export function FooterLuxe() {
                   className="hover:text-[var(--bronze-antique)]"
                   style={{
                     color: theme.colors.neutral.gray600,
-                    fontSize: theme.typography.fontSize.sm,
+                    fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
                     transition: `colors ${theme.effects.transitions.smooth}`
                   }}
                 >
@@ -197,8 +200,9 @@ export function FooterLuxe() {
                   className="hover:text-[var(--bronze-antique)]"
                   style={{
                     color: theme.colors.neutral.gray600,
-                    fontSize: theme.typography.fontSize.sm,
-                    transition: `colors ${theme.effects.transitions.smooth}`
+                    fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
+                    transition: `colors ${theme.effects.transitions.smooth}`,
+                    wordBreak: 'break-word'
                   }}
                 >
                   seminaires@selectchateaux.com
@@ -211,28 +215,30 @@ export function FooterLuxe() {
         {/* Ligne de séparation */}
         <div className="w-full" style={{
           borderTop: `1px solid ${theme.colors.neutral.gray200}`,
-          paddingTop: theme.spacing.section.sm
+          paddingTop: 'clamp(1.25rem, 4vw, 1.75rem)',
+          marginTop: 'clamp(0.5rem, 2vw, 1rem)'
         }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-10 md:gap-12 lg:gap-14">
-            <div className="md:col-span-1 lg:col-span-3" style={{ paddingLeft: '8px' }}>
+          <div className="flex flex-col md:flex-row md:justify-between items-center gap-6 md:gap-4">
+            <div className="text-center md:text-left order-2 md:order-1">
               <p style={{
                 color: theme.colors.neutral.gray600,
-                fontSize: theme.typography.fontSize.xs,
+                fontSize: 'clamp(0.75rem, 1.8vw, 0.8125rem)',
                 margin: 0
               }}>
                 &copy; {new Date().getFullYear()} SelectChateaux.com. Tous droits réservés.
               </p>
             </div>
-            <div className="flex flex-col md:flex-row" style={{
-              gap: spacing.xl,
-              fontSize: theme.typography.fontSize.xs
+            <div className="flex flex-col sm:flex-row items-center justify-center order-1 md:order-2" style={{
+              gap: 'clamp(1rem, 3vw, 1.5rem)',
+              fontSize: 'clamp(0.75rem, 1.8vw, 0.8125rem)'
             }}>
               <Link
                 href="/mentions-legales"
                 className="hover:text-[var(--bronze-antique)]"
                 style={{
                   color: theme.colors.neutral.gray600,
-                  transition: `colors ${theme.effects.transitions.smooth}`
+                  transition: `colors ${theme.effects.transitions.smooth}`,
+                  whiteSpace: 'nowrap'
                 }}
               >
                 Mentions Légales
@@ -242,7 +248,8 @@ export function FooterLuxe() {
                 className="hover:text-[var(--bronze-antique)]"
                 style={{
                   color: theme.colors.neutral.gray600,
-                  transition: `colors ${theme.effects.transitions.smooth}`
+                  transition: `colors ${theme.effects.transitions.smooth}`,
+                  whiteSpace: 'nowrap'
                 }}
               >
                 Confidentialité
@@ -252,7 +259,8 @@ export function FooterLuxe() {
                 className="hover:text-[var(--bronze-antique)]"
                 style={{
                   color: theme.colors.neutral.gray600,
-                  transition: `colors ${theme.effects.transitions.smooth}`
+                  transition: `colors ${theme.effects.transitions.smooth}`,
+                  whiteSpace: 'nowrap'
                 }}
               >
                 CGV

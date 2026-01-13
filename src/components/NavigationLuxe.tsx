@@ -49,7 +49,13 @@ export function NavigationLuxe() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Fermer le menu mobile lors du changement de route
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
+    <>
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -609,5 +615,8 @@ export function NavigationLuxe() {
         )}
       </AnimatePresence>
     </motion.header>
+    {/* Spacer mobile pour barre d'état */}
+    <div className="md:hidden" style={{ height: '10px' }} />
+    </>
   );
 }

@@ -63,7 +63,7 @@ function AnimatedCounter({
 
 export function SocialProofSection() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: `${theme.spacing.section.sm} 0` }}>
+    <section className="bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
       {/* Glow effects subtils */}
       <div className="absolute top-0 right-1/4 rounded-full blur-3xl" style={{
         width: "384px",
@@ -83,8 +83,8 @@ export function SocialProofSection() {
           whileInView={{ opacity: 1, y: 0, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-col items-center justify-center w-full px-8 sm:px-10 md:px-12 lg:px-16"
-          style={{ marginBottom: spacing["4xl"] }}
+          className="flex flex-col items-center justify-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
+          style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 max-w-7xl mx-auto w-full gap-6 md:gap-8 lg:gap-10">
             {chiffresCles.map((chiffre, index) => (

@@ -60,7 +60,7 @@ export function TestimonialsSection() {
     <section
       style={{
         background: 'linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%)',
-        padding: '80px clamp(1.5rem, 4vw, 2rem)',
+        padding: 'clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 2rem)',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -76,7 +76,7 @@ export function TestimonialsSection() {
 
       <div className="relative z-10" style={{ maxWidth: '1400px', margin: '0 auto' }}>
         {/* En-tête de la section - Centré verticalement */}
-        <div className="flex flex-col items-center justify-center text-center" style={{ marginBottom: '60px' }}>
+        <div className="flex flex-col items-center justify-center text-center" style={{ marginBottom: 'clamp(2.5rem, 6vw, 3.75rem)' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ export function TestimonialsSection() {
                 className="grid"
                 style={{
                   gridTemplateColumns: `repeat(${cardsPerView}, 1fr)`,
-                  gap: '24px',
+                  gap: 'clamp(1rem, 3vw, 1.5rem)',
                 }}
               >
                 {visibleTestimonials.map((testimonial, index) => (
@@ -154,13 +154,13 @@ export function TestimonialsSection() {
                       style={{
                         background: '#FFFFFF',
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
-                        padding: '24px 28px',
+                        padding: 'clamp(1.25rem, 4vw, 1.75rem) clamp(1rem, 3.5vw, 1.5rem)',
                         border: '1px solid #e8e8e8',
-                        minHeight: '140px',
+                        minHeight: 'clamp(140px, 25vw, 180px)',
                       }}
                     >
                       {/* Header: Étoiles à gauche, Badge "Avis Google" à droite */}
-                      <div className="flex items-center justify-between" style={{ marginBottom: '20px' }}>
+                      <div className="flex items-center justify-between" style={{ marginBottom: 'clamp(0.875rem, 3vw, 1.25rem)' }}>
                         {/* Étoiles style Google (jaune Google) */}
                         <div className="flex gap-1">
                           {[...Array(testimonial.note)].map((_, i) => (
@@ -185,13 +185,13 @@ export function TestimonialsSection() {
                       </div>
 
                       {/* Layout horizontal: Avatar + Info + Contenu */}
-                      <div className="flex gap-3 items-center">
+                      <div className="flex items-center" style={{ gap: 'clamp(0.75rem, 2.5vw, 1rem)' }}>
                         {/* Avatar */}
                         <div
                           className="relative flex-shrink-0 rounded-full overflow-hidden"
                           style={{
-                            width: '48px',
-                            height: '48px',
+                            width: 'clamp(40px, 10vw, 48px)',
+                            height: 'clamp(40px, 10vw, 48px)',
                           }}
                         >
                           <Image
@@ -251,17 +251,18 @@ export function TestimonialsSection() {
           </div>
 
           {/* Indicateurs de pagination */}
-          <div className="flex justify-center items-center gap-3" style={{ marginTop: '60px' }}>
+          <div className="flex justify-center items-center" style={{ marginTop: 'clamp(2.5rem, 6vw, 3.75rem)', gap: 'clamp(0.5rem, 2vw, 0.75rem)' }}>
             {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className="transition-all duration-300"
                 style={{
-                  width: currentIndex === index ? '32px' : '10px',
-                  height: '10px',
-                  borderRadius: '5px',
+                  width: currentIndex === index ? 'clamp(20px, 5vw, 32px)' : 'clamp(6px, 2vw, 8px)',
+                  height: 'clamp(6px, 2vw, 8px)',
+                  borderRadius: 'clamp(3px, 1vw, 4px)',
                   background: currentIndex === index ? colors.bronze : '#d1d5db',
+                  boxShadow: currentIndex === index ? `0 2px 6px ${colors.bronze}30` : 'none'
                 }}
                 aria-label={`Aller au groupe de témoignages ${index + 1}`}
               />

@@ -132,71 +132,70 @@ export default function ChateauPage() {
         {/* Gradient subtil en bas */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
 
-        {/* Contenu à gauche avec badge au-dessus */}
-        <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: '48px' }}>
-          {/* Badge lieu au-dessus du conteneur */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="flex justify-center"
-            style={{ maxWidth: '480px', width: '100%', marginBottom: '20px' }}
-          >
-            <Badge variant="glass" size="md">
-              <div
-                className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{
-                  background: colors.bronze,
-                  filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
-                }}
-              />
-              <div
-                className="italic font-semibold"
-                style={{
-                  fontSize: theme.typography.fontSize.xs,
-                  color: colors.white,
-                  fontFamily: theme.typography.fonts.heading,
-                }}
-              >
-                {chateau.nom}
-              </div>
-              <div style={{ color: colors.bronze }}>·</div>
-              <div
-                className="font-medium"
-                style={{
-                  fontSize: theme.typography.fontSize.xs,
-                  color: theme.colors.neutral.gray300,
-                }}
-              >
-                {chateau.region}
-              </div>
-            </Badge>
-          </motion.div>
+        {/* Contenu - centré sur mobile, à gauche sur desktop */}
+        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-5 sm:px-8 md:px-12">
+          <div className="flex flex-col items-center md:items-start w-full" style={{ maxWidth: '520px' }}>
+            {/* Badge lieu au-dessus du conteneur */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="flex justify-center w-full mb-5"
+            >
+              <Badge variant="glass" size="md">
+                <div
+                  className="w-1.5 h-1.5 rounded-full animate-pulse"
+                  style={{
+                    background: colors.bronze,
+                    filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
+                  }}
+                />
+                <div
+                  className="italic font-semibold"
+                  style={{
+                    fontSize: 'clamp(0.75rem, 2vw, 0.8125rem)',
+                    color: colors.white,
+                    fontFamily: theme.typography.fonts.heading,
+                  }}
+                >
+                  {chateau.nom}
+                </div>
+                <div style={{ color: colors.bronze }}>·</div>
+                <div
+                  className="font-medium"
+                  style={{
+                    fontSize: 'clamp(0.75rem, 2vw, 0.8125rem)',
+                    color: theme.colors.neutral.gray300,
+                  }}
+                >
+                  {chateau.region}
+                </div>
+              </Badge>
+            </motion.div>
 
-          {/* Conteneur principal */}
-          <div
-            className="text-left rounded-2xl w-full"
-            style={{
-              maxWidth: '480px',
-              background: 'rgba(255, 255, 255, 0.85)',
-              backdropFilter: 'blur(12px)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-              padding: '24px 20px',
-            }}
-          >
+            {/* Conteneur principal */}
+            <div
+              className="text-center md:text-left rounded-2xl w-full"
+              style={{
+                background: 'rgba(255, 255, 255, 0.90)',
+                backdropFilter: 'blur(14px)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+                padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
+              }}
+            >
             {/* Titre SEO optimisé */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
               style={{
-                fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)',
+                fontSize: 'clamp(1.375rem, 3vw, 2rem)',
                 fontWeight: theme.typography.fontWeight.light,
                 fontStyle: 'italic',
                 fontFamily: theme.typography.fonts.heading,
-                lineHeight: theme.typography.lineHeight.tight,
+                lineHeight: 1.25,
                 color: theme.colors.text.primary,
-                marginBottom: spacing.sm,
+                marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
               }}
             >
               {chateau.seoH1}
@@ -208,11 +207,11 @@ export default function ChateauPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
               style={{
-                fontSize: theme.typography.fontSize.sm,
+                fontSize: 'clamp(0.9375rem, 2.2vw, 1rem)',
                 color: theme.colors.text.secondary,
                 fontWeight: theme.typography.fontWeight.normal,
-                lineHeight: theme.typography.lineHeight.relaxed,
-                marginBottom: spacing.lg,
+                lineHeight: 1.6,
+                marginBottom: 'clamp(1.25rem, 3vw, 1.5rem)',
               }}
             >
               {chateau.accrocheHero}
@@ -223,18 +222,18 @@ export default function ChateauPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-              className="inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2 mx-auto md:mx-0"
               style={{
                 background: `${colors.bronze}10`,
                 border: `2px solid ${colors.bronze}`,
-                padding: spacing.md,
+                padding: 'clamp(0.625rem, 2vw, 0.875rem) clamp(1rem, 2.5vw, 1.25rem)',
                 borderRadius: theme.effects.borderRadius.full,
               }}
             >
               <Users className="w-4 h-4" style={{ color: colors.bronze }} />
               <div
                 style={{
-                  fontSize: theme.typography.fontSize.xs,
+                  fontSize: 'clamp(0.75rem, 1.8vw, 0.8125rem)',
                   color: colors.bronze,
                   textTransform: "uppercase",
                   letterSpacing: theme.typography.letterSpacing.wider,
@@ -246,6 +245,7 @@ export default function ChateauPage() {
               </div>
             </motion.div>
           </div>
+        </div>
         </div>
 
         {/* Scroll indicator */}

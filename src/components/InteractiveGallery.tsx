@@ -25,12 +25,12 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
   return (
     <div className="w-full">
       {/* Image principale */}
-      <div className="relative w-full" style={{ marginBottom: '60px' }}>
+      <div className="relative w-full" style={{ marginBottom: 'clamp(2rem, 5vw, 3.75rem)' }}>
         <div
-          className="relative w-full rounded-3xl overflow-hidden bg-gray-100"
+          className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden bg-gray-100"
           style={{
-            height: 'clamp(400px, 60vh, 700px)',
-            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)'
+            height: 'clamp(300px, 50vh, 700px)',
+            boxShadow: '0 12px 40px rgba(0, 0, 0, 0.12)'
           }}
         >
           <AnimatePresence mode="wait">
@@ -55,15 +55,15 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
           </AnimatePresence>
 
           {/* Compteur */}
-          <div className="absolute top-4 right-4 md:top-6 md:right-6 z-10">
+          <div className="absolute top-3 right-3 md:top-5 md:right-5 z-10">
             <div
-              className="px-4 py-2 rounded-full backdrop-blur-md"
+              className="px-3 py-1.5 md:px-4 md:py-2 rounded-full backdrop-blur-md"
               style={{
-                background: 'rgba(0, 0, 0, 0.5)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                background: 'rgba(0, 0, 0, 0.6)',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
               }}
             >
-              <span className="text-white text-sm font-medium">
+              <span className="text-white font-medium" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}>
                 {currentIndex + 1} / {images.length}
               </span>
             </div>
@@ -72,43 +72,53 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
           {/* Boutons Navigation */}
           <button
             onClick={handlePrevious}
-            className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 group z-10"
+            className="absolute left-2 sm:left-3 md:left-5 top-1/2 -translate-y-1/2 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group z-10"
             style={{
-              background: 'rgba(255, 255, 255, 0.9)',
+              width: 'clamp(2.5rem, 10vw, 3.5rem)',
+              height: 'clamp(2.5rem, 10vw, 3.5rem)',
+              background: 'rgba(255, 255, 255, 0.95)',
               border: `2px solid ${colors.bronze}`,
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)'
+              boxShadow: '0 6px 20px rgba(0, 0, 0, 0.12)'
             }}
             aria-label="Image précédente"
           >
             <ChevronLeft
-              className="w-6 h-6 md:w-7 md:h-7 group-hover:scale-110 transition-transform"
-              style={{ color: colors.bronze }}
+              style={{
+                color: colors.bronze,
+                width: 'clamp(1.25rem, 5vw, 1.75rem)',
+                height: 'clamp(1.25rem, 5vw, 1.75rem)'
+              }}
             />
           </button>
 
           <button
             onClick={handleNext}
-            className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 group z-10"
+            className="absolute right-2 sm:right-3 md:right-5 top-1/2 -translate-y-1/2 rounded-full backdrop-blur-md flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group z-10"
             style={{
-              background: 'rgba(255, 255, 255, 0.9)',
+              width: 'clamp(2.5rem, 10vw, 3.5rem)',
+              height: 'clamp(2.5rem, 10vw, 3.5rem)',
+              background: 'rgba(255, 255, 255, 0.95)',
               border: `2px solid ${colors.bronze}`,
-              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)'
+              boxShadow: '0 6px 20px rgba(0, 0, 0, 0.12)'
             }}
             aria-label="Image suivante"
           >
             <ChevronRight
-              className="w-6 h-6 md:w-7 md:h-7 group-hover:scale-110 transition-transform"
-              style={{ color: colors.bronze }}
+              style={{
+                color: colors.bronze,
+                width: 'clamp(1.25rem, 5vw, 1.75rem)',
+                height: 'clamp(1.25rem, 5vw, 1.75rem)'
+              }}
             />
           </button>
         </div>
       </div>
 
       {/* Thumbnails */}
-      <div className="relative">
+      <div className="relative hidden sm:block">
         {/* Gradient fade gauche */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-12 md:w-20 z-10 pointer-events-none"
+          className="absolute left-0 top-0 bottom-0 w-8 md:w-16 z-10 pointer-events-none"
           style={{
             background: 'linear-gradient(to right, white, transparent)'
           }}
@@ -116,7 +126,7 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
 
         {/* Gradient fade droite */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-12 md:w-20 z-10 pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 w-8 md:w-16 z-10 pointer-events-none"
           style={{
             background: 'linear-gradient(to left, white, transparent)'
           }}
@@ -124,19 +134,19 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
 
         {/* Grid thumbnails avec scroll horizontal */}
         <div className="overflow-x-auto pb-2 scrollbar-hide">
-          <div className="flex gap-3 md:gap-4 px-1">
+          <div className="flex gap-2.5 md:gap-3.5 px-0.5">
             {images.map((image, index) => (
               <motion.button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`relative flex-shrink-0 rounded-2xl overflow-hidden transition-all duration-300 ${
+                className={`relative flex-shrink-0 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 ${
                   index === currentIndex
-                    ? 'ring-4 ring-offset-2 scale-105'
-                    : 'opacity-60 hover:opacity-100 hover:scale-105'
+                    ? 'ring-3 md:ring-4 ring-offset-2 scale-105'
+                    : 'opacity-70 hover:opacity-100 hover:scale-105'
                 }`}
                 style={{
-                  width: 'clamp(100px, 15vw, 160px)',
-                  height: 'clamp(80px, 12vw, 120px)',
+                  width: 'clamp(90px, 14vw, 150px)',
+                  height: 'clamp(70px, 11vw, 110px)',
                   ...(index === currentIndex && { '--tw-ring-color': colors.bronze } as any),
                 }}
                 whileHover={{ scale: 1.05 }}
@@ -147,39 +157,26 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
                   alt={`Thumbnail ${index + 1}`}
                   fill
                   className="object-cover"
-                  sizes="160px"
+                  sizes="150px"
                 />
-
-                {/* Overlay numéro */}
-                <div
-                  className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-                    index === currentIndex ? 'opacity-0' : 'opacity-0 group-hover:opacity-100'
-                  }`}
-                  style={{
-                    background: 'rgba(0, 0, 0, 0.5)'
-                  }}
-                >
-                  <span className="text-white text-xs font-medium">
-                    {index + 1}
-                  </span>
-                </div>
               </motion.button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Points de navigation mobile (optionnel) */}
-      <div className="flex justify-center gap-2 md:hidden" style={{ marginTop: '32px' }}>
+      {/* Points de navigation mobile */}
+      <div className="flex justify-center gap-2 sm:hidden" style={{ marginTop: 'clamp(1.5rem, 4vw, 2rem)' }}>
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'w-8' : 'w-2'
+            className={`rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'w-8 h-2.5' : 'w-2.5 h-2.5'
             }`}
             style={{
-              backgroundColor: index === currentIndex ? colors.bronze : '#d1d5db'
+              backgroundColor: index === currentIndex ? colors.bronze : '#d1d5db',
+              boxShadow: index === currentIndex ? `0 2px 8px ${colors.bronze}40` : 'none'
             }}
             aria-label={`Aller à l'image ${index + 1}`}
           />
