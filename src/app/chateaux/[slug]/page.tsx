@@ -76,7 +76,7 @@ export default function ChateauPage() {
       "name": item.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": item.reponse
+        "text": item.answer
       }
     }))
   };
