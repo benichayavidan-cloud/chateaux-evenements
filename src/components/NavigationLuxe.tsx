@@ -79,12 +79,12 @@ export function NavigationLuxe() {
                 className="flex items-center"
               >
                 <img
-                  src="/logo.png"
+                  src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
                   alt="Select Chateaux"
                   style={{
-                    height: 'clamp(2.5rem, 5vw, 5rem)',
+                    height: 'clamp(3.5rem, 6vw, 6rem)',
                     width: 'auto',
-                    maxWidth: 'clamp(160px, 50vw, 280px)',
+                    maxWidth: 'clamp(220px, 60vw, 360px)',
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.08))'
                   }}
                   className="object-contain"

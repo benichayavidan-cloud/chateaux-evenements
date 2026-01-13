@@ -36,12 +36,12 @@ export function FooterLuxe() {
           <div style={{ paddingLeft: '8px' }}>
             <div style={{ marginBottom: spacing.lg, display: 'block' }}>
               <img
-                src="/logo.png"
+                src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
                 alt="Select Chateaux"
                 className="w-auto object-contain"
                 style={{
-                  height: 'clamp(2.5rem, 5vw, 4rem)',
-                  maxWidth: 'clamp(140px, 45vw, 240px)',
+                  height: 'clamp(3.5rem, 6vw, 5rem)',
+                  maxWidth: 'clamp(200px, 55vw, 320px)',
                   filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))',
                   display: 'block'
                 }}

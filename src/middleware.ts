@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// Simple rate limiting (en mémoire - pour production utiliser Redis)
+// Simple rate limiting (en mémoire - pour production utiliser Redis ou Vercel KV)
+// LIMITATION: Cette solution ne fonctionne qu'avec une seule instance. Pour un déploiement
+// multi-instance sur Vercel, migrer vers @vercel/kv ou Redis.
+// TODO: Migrer vers une solution distribuée pour production (Vercel KV recommandé)
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
 
-const RATE_LIMIT = 100; // Requêtes max par fenêtre
+const RATE_LIMIT = 200; // Requêtes max par fenêtre (augmenté pour éviter les faux positifs)
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 
 function getRateLimitKey(req: NextRequest): string {
@@ -48,24 +51,33 @@ export function middleware(request: NextRequest) {
     });
   }
 
+  // Générer un nonce unique pour cette requête
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
+
   // Ajouter des headers de sécurité supplémentaires
   const response = NextResponse.next();
 
-  // Content Security Policy
-  response.headers.set(
-    'Content-Security-Policy',
-    [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-eval' 'unsafe-inline'", // Next.js nécessite unsafe-inline pour HMR
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: https: blob:",
-      "font-src 'self' data:",
-      "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
-      "frame-ancestors 'self'",
-      "base-uri 'self'",
-      "form-action 'self'",
-    ].join('; ')
-  );
+  // Content Security Policy avec nonce et strict-dynamic
+  // Note: En dev mode, Next.js nécessite unsafe-eval pour HMR
+  const isDev = process.env.NODE_ENV === 'development';
+
+  const cspDirectives = [
+    "default-src 'self'",
+    isDev
+      ? `script-src 'self' 'nonce-${nonce}' 'unsafe-eval'`
+      : `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
+    "style-src 'self' 'unsafe-inline'", // Tailwind CSS inline styles nécessaires
+    "img-src 'self' data: https: blob:",
+    "font-src 'self' data:",
+    "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+    "frame-ancestors 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "upgrade-insecure-requests"
+  ];
+
+  response.headers.set('Content-Security-Policy', cspDirectives.join('; '));
+  response.headers.set('X-Content-Security-Policy-Nonce', nonce);
 
   return response;
 }
