@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Users, Target, Zap, Heart, Trophy, Star, Sparkles, TrendingUp, Shield, Lightbulb, Rocket } from "lucide-react";
 import { useRef } from "react";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function TeamBuildingPage() {
   const heroRef = useRef(null);
@@ -20,6 +21,10 @@ export default function TeamBuildingPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Breadcrumbs */}
+      <div className="container mx-auto px-4 pt-24">
+        <Breadcrumbs items={[{ label: "Team Building" }]} />
+      </div>
       {/* Hero Section avec Parallax */}
       <div ref={heroRef} className="hero-section">
         <motion.div style={{ y }} className="absolute inset-0">

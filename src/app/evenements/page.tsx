@@ -8,10 +8,15 @@ import { ArrowRight, Check, Sparkles, Calendar, Users, Trophy } from "lucide-rea
 import { typesEvenements } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function EvenementsPage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Breadcrumbs */}
+      <div className="container mx-auto px-4 pt-24">
+        <Breadcrumbs items={[{ label: "Événements" }]} />
+      </div>
       {/* Hero Section */}
       <div className="hero-section">
         <Image

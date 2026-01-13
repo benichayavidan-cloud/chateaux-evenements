@@ -3,7 +3,7 @@ import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
 
 export const metadata: Metadata = {
-  title: "Politique de Confidentialité | Châteaux Événements",
+  title: "Politique de Confidentialité | Select Châteaux",
   description: "Politique de confidentialité et protection des données personnelles",
 };
 
@@ -67,7 +67,7 @@ export default function ConfidentialitePage() {
                 <li>Droit d'opposition</li>
               </ul>
               <p className="mt-4">
-                Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@chateauxprestige.fr" className="text-primary-bronze hover:underline">contact@chateauxprestige.fr</a>
+                Pour exercer ces droits, contactez-nous à : <a href="mailto:seminaires@selectchateaux.com" className="text-primary-bronze hover:underline">seminaires@selectchateaux.com</a>
               </p>
             </section>
 
@@ -93,7 +93,7 @@ export default function ConfidentialitePage() {
                 Pour toute question concernant cette politique de confidentialité :
               </p>
               <p className="mt-2">
-                Email : <a href="mailto:contact@chateauxprestige.fr" className="text-primary-bronze hover:underline">contact@chateauxprestige.fr</a><br/>
+                Email : <a href="mailto:seminaires@selectchateaux.com" className="text-primary-bronze hover:underline">seminaires@selectchateaux.com</a><br/>
                 Téléphone : 01 XX XX XX XX
               </p>
             </section>

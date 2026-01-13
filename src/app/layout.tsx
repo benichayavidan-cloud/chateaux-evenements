@@ -19,9 +19,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Select Châteaux | Lieux de Séminaire Luxe & Confidentiels (Paris / Île-de-France)",
+  title: "Châteaux Séminaire Île-de-France | Select Châteaux",
   description:
-    "Accédez à notre collection privée de châteaux pour séminaires, CODIR et soirées d'entreprise. Lieux confidentiels dans le 60, 78 et 92. Vérifiez les disponibilités.",
+    "Découvrez 3 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines. Devis 24h.",
   keywords: [
     "séminaire chateau ile de france",
     "location chateau seminaire",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     shortcut: '/icon.png',
     apple: '/apple-icon.png',
   },
-  metadataBase: new URL('https://selectchateaux.vercel.app'),
+  metadataBase: new URL('https://www.selectchateaux.com'),
   alternates: {
     canonical: '/',
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Select Châteaux - La Collection Confidentielle",
     description:
       "3 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.",
-    url: "https://selectchateaux.vercel.app/",
+    url: "https://www.selectchateaux.com/",
     siteName: "Select Châteaux",
     locale: "fr_FR",
     images: [
@@ -64,6 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Select Châteaux | Lieux Secrets pour Séminaires",
     description: "Découvrez nos domaines privés pour vos événements d'entreprise.",
+    images: ["/og-image.jpg"]
   },
 };
 
@@ -77,10 +78,10 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://selectchateaux.vercel.app/#organization",
+        "@id": "https://www.selectchateaux.com/#organization",
         "name": "Select Châteaux",
-        "url": "https://selectchateaux.vercel.app/",
-        "logo": "https://selectchateaux.vercel.app/logo.png",
+        "url": "https://www.selectchateaux.com/",
+        "logo": "https://www.selectchateaux.com/logo.png",
         "description": "Agence spécialisée dans la location de lieux confidentiels et de châteaux pour séminaires d'entreprise en Île-de-France.",
         "areaServed": "Île-de-France",
         "contactPoint": {
@@ -95,7 +96,7 @@ export default function RootLayout({
         "@type": "Service",
         "name": "Organisation de Séminaires d'Entreprise",
         "provider": {
-          "@id": "https://selectchateaux.vercel.app/#organization"
+          "@id": "https://www.selectchateaux.com/#organization"
         },
         "areaServed": {
           "@type": "State",

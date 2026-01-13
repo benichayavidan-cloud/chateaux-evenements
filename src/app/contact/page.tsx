@@ -5,10 +5,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, Sparkles } from "lucide-react";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
+      {/* Breadcrumbs */}
+      <div className="container mx-auto px-4 pt-24">
+        <Breadcrumbs items={[{ label: "Contact" }]} />
+      </div>
       {/* Hero Section avec image château et jardin */}
       <div style={{ height: '75vh' }} className="relative overflow-hidden">
         <Image

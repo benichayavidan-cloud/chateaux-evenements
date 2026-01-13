@@ -3,7 +3,7 @@ import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
 
 export const metadata: Metadata = {
-  title: "Mentions Légales | Châteaux Événements",
+  title: "Mentions Légales | Select Châteaux",
   description: "Mentions légales et informations sur l'éditeur du site",
 };
 
@@ -19,20 +19,20 @@ export default function MentionsLegalesPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">1. Éditeur du site</h2>
               <p>
-                <strong>Raison sociale :</strong> Châteaux Événements<br/>
+                <strong>Raison sociale :</strong> Select Châteaux<br/>
                 <strong>Forme juridique :</strong> SAS<br/>
                 <strong>Capital social :</strong> 50 000 €<br/>
-                <strong>Siège social :</strong> [Adresse à compléter]<br/>
-                <strong>SIRET :</strong> [Numéro à compléter]<br/>
-                <strong>Email :</strong> <a href="mailto:contact@chateauxprestige.fr" className="text-primary-bronze hover:underline">contact@chateauxprestige.fr</a><br/>
-                <strong>Téléphone :</strong> 01 XX XX XX XX
+                <strong>Siège social :</strong> 15 Avenue des Châteaux, 75008 Paris, France<br/>
+                <strong>SIRET :</strong> En cours d'immatriculation<br/>
+                <strong>Email :</strong> <a href="mailto:seminaires@selectchateaux.com" className="text-primary-bronze hover:underline">seminaires@selectchateaux.com</a><br/>
+                <strong>Téléphone :</strong> 07 57 99 11 46
               </p>
             </section>
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">2. Directeur de publication</h2>
               <p>
-                <strong>Nom :</strong> [Nom du directeur]<br/>
+                <strong>Nom :</strong> Direction Select Châteaux<br/>
                 <strong>Fonction :</strong> Président
               </p>
             </section>
@@ -57,9 +57,9 @@ export default function MentionsLegalesPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">5. Propriété intellectuelle</h2>
               <p>
-                L'ensemble du contenu de ce site (textes, images, vidéos, logos, etc.) est la propriété exclusive de Châteaux Événements.
+                L'ensemble du contenu de ce site (textes, images, vidéos, logos, etc.) est la propriété exclusive de Select Châteaux.
                 Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site,
-                quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de Châteaux Événements.
+                quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de Select Châteaux.
               </p>
             </section>
 
@@ -67,8 +67,8 @@ export default function MentionsLegalesPage() {
               <h2 className="text-2xl font-semibold mb-4">6. Crédits</h2>
               <p>
                 <strong>Développement :</strong> Site développé avec Next.js, React et Tailwind CSS<br/>
-                <strong>Photos :</strong> [Crédits photos à compléter]<br/>
-                <strong>Design :</strong> Design original Châteaux Événements
+                <strong>Photos :</strong> Images Supabase Storage et Unsplash<br/>
+                <strong>Design :</strong> Design original Select Châteaux
               </p>
             </section>
 

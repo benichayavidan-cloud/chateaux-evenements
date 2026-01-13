@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "location chateau 280 personnes",
     "chateau monument historique seminaire",
   ],
-  metadataBase: new URL('https://selectchateaux.vercel.app'),
+  metadataBase: new URL('https://www.selectchateaux.com'),
   alternates: {
     canonical: '/chateaux',
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "3 Châteaux d'Exception pour Séminaires | Île-de-France",
     description:
       "Découvrez notre sélection exclusive : Manoir de Chantilly (280 pers), Refuge Historique Paris 92, Abbaye Vallée de Chevreuse. Réservation sous 48h.",
-    url: "https://selectchateaux.vercel.app/chateaux",
+    url: "https://www.selectchateaux.com/chateaux",
     siteName: "Select Châteaux",
     locale: "fr_FR",
     images: [
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "3 Châteaux d'Exception | Séminaires Île-de-France",
     description: "Manoir Chantilly, Refuge Paris 92, Abbaye Chevreuse. Réservation express.",
+    images: ["/og-image.jpg"]
   },
 };
 
@@ -87,7 +88,7 @@ export default function ChateauxLayout({
               "value": true
             }
           ],
-          "url": "https://selectchateaux.vercel.app/chateaux/domaine-grands-bois-chantilly",
+          "url": "https://www.selectchateaux.com/chateaux/manoir-anglo-normand-chantilly",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
@@ -132,7 +133,7 @@ export default function ChateauxLayout({
               "value": true
             }
           ],
-          "url": "https://selectchateaux.vercel.app/chateaux/domaine-hauts-de-seine",
+          "url": "https://www.selectchateaux.com/chateaux/hotel-historique-seminaire-paris-92",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
@@ -173,7 +174,7 @@ export default function ChateauxLayout({
               "value": true
             }
           ],
-          "url": "https://selectchateaux.vercel.app/chateaux/monastere-vallee-chevreuse",
+          "url": "https://www.selectchateaux.com/chateaux/abbaye-millenaire-vallee-chevreuse",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",

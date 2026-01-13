@@ -67,12 +67,32 @@ export default function ChateauPage() {
     }
   };
 
+  // Schema JSON-LD FAQPage
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": chateau.faq.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.reponse
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Schema JSON-LD */}
+      {/* Schema JSON-LD Place */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
+      {/* Schema JSON-LD FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
 
       {/* Breadcrumbs */}

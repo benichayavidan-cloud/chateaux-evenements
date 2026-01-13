@@ -68,24 +68,29 @@ export function NavigationLuxe() {
     >
       {/* Container avec grille responsive */}
       <div className="w-full px-4 sm:px-8 md:px-40 lg:px-48">
-        <div className="h-16 sm:h-20 w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0">
+        <div className="w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0" style={{ height: '5rem', overflow: 'visible' }}>
 
           {/* Colonne 1 : Logo */}
-          <div className="flex items-center justify-start">
-            <Link href="/" className="relative group">
+          <div className="flex items-center justify-start" style={{ alignSelf: 'center', height: '100%' }}>
+            <Link href="/" className="relative group" style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 className="flex items-center"
+                style={{ display: 'flex', alignItems: 'center' }}
               >
                 <img
                   src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
                   alt="Select Chateaux"
                   style={{
-                    height: 'clamp(3.5rem, 6vw, 6rem)',
+                    height: '5.5rem',
                     width: 'auto',
-                    maxWidth: 'clamp(220px, 60vw, 360px)',
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.08))'
+                    maxWidth: '400px',
+                    filter: 'drop-shadow(0 4px 12px rgba(163, 126, 44, 0.3))',
+                    position: 'relative',
+                    zIndex: 10,
+                    marginTop: '-0.25rem',
+                    marginBottom: '-0.25rem'
                   }}
                   className="object-contain"
                 />
@@ -448,7 +453,7 @@ export function NavigationLuxe() {
           </nav>
 
           {/* Colonne 3 : CTA + Mobile */}
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-end" style={{ paddingRight: '8px' }}>
             {/* CTA Desktop */}
             {!isOnDevisPage && (
               <Button

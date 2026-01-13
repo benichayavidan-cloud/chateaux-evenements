@@ -1,16 +1,21 @@
 import { Metadata } from "next";
 import { DevisForm } from "@/components/DevisForm";
 import { theme } from "@/config/theme";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Demande de Devis | ChâteauxPrestige",
+  title: "Demande de Devis | Select Châteaux",
   description:
-    "Obtenez un devis personnalisé pour votre événement d'entreprise dans l'un de nos 3 châteaux d'exception en France.",
+    "Obtenez un devis personnalisé pour votre événement d'entreprise dans l'un de nos 3 châteaux d'exception en Île-de-France.",
 };
 
 export default function DevisPage() {
   return (
     <div style={{ minHeight: "100vh", background: theme.colors.neutral.gray50, paddingTop: "64px" }}>
+      {/* Breadcrumbs */}
+      <div className="container mx-auto px-4 pt-4">
+        <Breadcrumbs items={[{ label: "Demander un Devis" }]} />
+      </div>
       {/* Hero */}
       <div style={{
         background: theme.colors.primary.bronze,

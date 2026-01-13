@@ -3,7 +3,7 @@ import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
 
 export const metadata: Metadata = {
-  title: "Conditions Générales de Vente | Châteaux Événements",
+  title: "Conditions Générales de Vente | Select Châteaux",
   description: "Conditions générales de vente et d'utilisation",
 };
 
@@ -24,7 +24,7 @@ export default function CGVPage() {
               <h2 className="text-2xl font-semibold mb-4">1. Objet</h2>
               <p>
                 Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles
-                entre Châteaux Événements et ses clients dans le cadre de l'organisation d'événements professionnels
+                entre Select Châteaux et ses clients dans le cadre de l'organisation d'événements professionnels
                 dans nos domaines.
               </p>
             </section>
@@ -119,7 +119,7 @@ export default function CGVPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">7. Responsabilités</h2>
               <p>
-                Châteaux Événements ne peut être tenu responsable :
+                Select Châteaux ne peut être tenu responsable :
               </p>
               <ul>
                 <li>Des dommages causés par les participants</li>
@@ -155,7 +155,7 @@ export default function CGVPage() {
                 Pour toute question concernant nos CGV :
               </p>
               <p className="mt-2">
-                Email : <a href="mailto:contact@chateauxprestige.fr" className="text-primary-bronze hover:underline">contact@chateauxprestige.fr</a><br/>
+                Email : <a href="mailto:seminaires@selectchateaux.com" className="text-primary-bronze hover:underline">seminaires@selectchateaux.com</a><br/>
                 Téléphone : 01 XX XX XX XX
               </p>
             </section>

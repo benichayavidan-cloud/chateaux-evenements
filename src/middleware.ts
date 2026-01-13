@@ -51,33 +51,47 @@ export function middleware(request: NextRequest) {
     });
   }
 
-  // Générer un nonce unique pour cette requête
-  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
-
   // Ajouter des headers de sécurité supplémentaires
   const response = NextResponse.next();
 
-  // Content Security Policy avec nonce et strict-dynamic
-  // Note: En dev mode, Next.js nécessite unsafe-eval pour HMR
+  // Content Security Policy compatible Next.js
+  // Note: Next.js nécessite unsafe-eval en dev (HMR) et unsafe-inline pour certains scripts
   const isDev = process.env.NODE_ENV === 'development';
 
-  const cspDirectives = [
-    "default-src 'self'",
-    isDev
-      ? `script-src 'self' 'nonce-${nonce}' 'unsafe-eval'`
-      : `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
-    "style-src 'self' 'unsafe-inline'", // Tailwind CSS inline styles nécessaires
-    "img-src 'self' data: https: blob:",
-    "font-src 'self' data:",
-    "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
-    "frame-ancestors 'self'",
-    "base-uri 'self'",
-    "form-action 'self'",
-    "upgrade-insecure-requests"
-  ];
-
-  response.headers.set('Content-Security-Policy', cspDirectives.join('; '));
-  response.headers.set('X-Content-Security-Policy-Nonce', nonce);
+  if (isDev) {
+    // Mode développement : CSP permissif pour Next.js HMR
+    response.headers.set(
+      'Content-Security-Policy',
+      [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-eval' 'unsafe-inline'", // Next.js HMR nécessite unsafe-eval
+        "style-src 'self' 'unsafe-inline'",
+        "img-src 'self' data: https: blob:",
+        "font-src 'self' data:",
+        "connect-src 'self' https://*.supabase.co wss://*.supabase.co ws://localhost:* http://localhost:*", // WebSocket dev
+        "frame-ancestors 'self'",
+        "base-uri 'self'",
+        "form-action 'self'",
+      ].join('; ')
+    );
+  } else {
+    // Mode production : CSP plus strict mais compatible Next.js
+    response.headers.set(
+      'Content-Security-Policy',
+      [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline'", // Next.js génère des scripts inline
+        "style-src 'self' 'unsafe-inline'",
+        "img-src 'self' data: https: blob:",
+        "font-src 'self' data:",
+        "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+        "frame-ancestors 'self'",
+        "base-uri 'self'",
+        "form-action 'self'",
+        "upgrade-insecure-requests"
+      ].join('; ')
+    );
+  }
 
   return response;
 }
