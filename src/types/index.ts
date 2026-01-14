@@ -27,6 +27,11 @@ export interface Chateau {
     question: string;
     answer: string;
   }>;
+  // Hébergement
+  roomsTotal: number;
+  roomsTwin: number | null; // null = "Modulables"
+  bedroomText: string;
+  meetingText: string;
 }
 
 export interface TypeEvenement {

@@ -7,7 +7,7 @@ import { ChevronRight, Home, HelpCircle, Plus, Minus } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MapPin, Users, Check, Sparkles, Calendar, Award } from "lucide-react";
+import { MapPin, Users, Check, Sparkles, Calendar, Award, Bed, Building2 } from "lucide-react";
 import { chateaux as chateauxData } from "@/data/chateaux";
 import { Chateau } from "@/types";
 import { theme } from "@/config/theme";
@@ -200,33 +200,64 @@ export default function ChateauPage() {
               {chateau.accrocheHero}
             </motion.p>
 
-            {/* Badge capacité */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-              className="inline-flex items-center gap-2 mx-auto md:mx-0"
-              style={{
-                background: `${colors.bronze}10`,
-                border: `2px solid ${colors.bronze}`,
-                padding: 'clamp(0.625rem, 2vw, 0.875rem) clamp(1rem, 2.5vw, 1.25rem)',
-                borderRadius: theme.effects.borderRadius.full,
-              }}
-            >
-              <Users className="w-4 h-4" style={{ color: colors.bronze }} />
-              <div
+            {/* Badges capacité et chambres */}
+            <div className="flex flex-nowrap gap-2 justify-center md:justify-start">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
+                className="inline-flex items-center gap-1.5"
                 style={{
-                  fontSize: 'clamp(0.75rem, 1.8vw, 0.8125rem)',
-                  color: colors.bronze,
-                  textTransform: "uppercase",
-                  letterSpacing: theme.typography.letterSpacing.wider,
-                  fontWeight: theme.typography.fontWeight.medium,
-                  whiteSpace: "nowrap",
+                  background: `${colors.bronze}10`,
+                  border: `2px solid ${colors.bronze}`,
+                  padding: 'clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px)',
+                  borderRadius: theme.effects.borderRadius.full,
                 }}
               >
-                {chateau.capacite.min}-{chateau.capacite.max} personnes
-              </div>
-            </motion.div>
+                <Users className="w-3.5 h-3.5" style={{ color: colors.bronze }} />
+                <div
+                  style={{
+                    fontSize: 'clamp(10px, 1.6vw, 11px)',
+                    color: colors.bronze,
+                    textTransform: "uppercase",
+                    letterSpacing: '0.5px',
+                    fontWeight: theme.typography.fontWeight.medium,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {chateau.capacite.min}-{chateau.capacite.max} pers.
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
+                className="inline-flex items-center gap-1.5"
+                style={{
+                  background: `${colors.bronze}10`,
+                  border: `2px solid ${colors.bronze}`,
+                  padding: 'clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px)',
+                  borderRadius: theme.effects.borderRadius.full,
+                }}
+              >
+                <Bed className="w-3.5 h-3.5" style={{ color: colors.bronze }} />
+                <div
+                  style={{
+                    fontSize: 'clamp(10px, 1.6vw, 11px)',
+                    color: colors.bronze,
+                    textTransform: "uppercase",
+                    letterSpacing: '0.5px',
+                    fontWeight: theme.typography.fontWeight.medium,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {chateau.roomsTotal} Chambres
+                  {chateau.roomsTwin && ` (${chateau.roomsTwin} Twins)`}
+                  {!chateau.roomsTwin && " Mod."}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
         </div>
@@ -299,6 +330,166 @@ export default function ChateauPage() {
             >
               {chateau.descriptionLongue}
             </motion.p>
+          </div>
+        </div>
+
+        {/* Section Hébergement - Zig-Zag (Texte Gauche / Image Droite) */}
+        <div className="section-white" style={{ padding: 'clamp(4rem, 10vw, 6rem) 0' }}>
+          <div className="section-container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Texte à gauche */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="order-2 lg:order-1"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <Bed className="w-7 h-7" style={{ color: colors.bronze }} />
+                  <h2
+                    className="heading-lg"
+                    style={{
+                      fontFamily: theme.typography.fonts.heading,
+                      fontStyle: "italic",
+                      color: theme.colors.neutral.gray900
+                    }}
+                  >
+                    Hébergement
+                  </h2>
+                </div>
+                <p
+                  className="text-body-xl text-gray-600 leading-relaxed mb-6"
+                  style={{ lineHeight: "1.8" }}
+                >
+                  {chateau.bedroomText}
+                </p>
+                <div
+                  className="inline-flex items-center gap-2"
+                  style={{
+                    padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
+                    background: `${colors.bronze}10`,
+                    borderRadius: theme.effects.borderRadius.full,
+                    border: `2px solid ${colors.bronze}40`,
+                  }}
+                >
+                  <Check className="w-5 h-5" style={{ color: colors.bronze }} />
+                  <span style={{
+                    fontSize: theme.typography.fontSize.sm,
+                    fontWeight: theme.typography.fontWeight.semibold,
+                    color: colors.bronze
+                  }}>
+                    {chateau.roomsTotal} Chambres disponibles
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* Image à droite */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="order-1 lg:order-2"
+              >
+                <div
+                  className="relative overflow-hidden"
+                  style={{
+                    height: 'clamp(20rem, 50vw, 28rem)',
+                    borderRadius: theme.effects.borderRadius.lg,
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                  }}
+                >
+                  <Image
+                    src={chateau.images.galerie[1] || chateau.images.hero[2]}
+                    alt={`Chambres ${chateau.nom}`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Salles de Réunion - Zig-Zag (Image Gauche / Texte Droite) */}
+        <div className="section-gray" style={{ padding: 'clamp(4rem, 10vw, 6rem) 0' }}>
+          <div className="section-container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Image à gauche */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="order-1"
+              >
+                <div
+                  className="relative overflow-hidden"
+                  style={{
+                    height: 'clamp(20rem, 50vw, 28rem)',
+                    borderRadius: theme.effects.borderRadius.lg,
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                  }}
+                >
+                  <Image
+                    src={chateau.images.galerie[2] || chateau.images.hero[1]}
+                    alt={`Salles de réunion ${chateau.nom}`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Texte à droite */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="order-2"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <Building2 className="w-7 h-7" style={{ color: colors.bronze }} />
+                  <h2
+                    className="heading-lg"
+                    style={{
+                      fontFamily: theme.typography.fonts.heading,
+                      fontStyle: "italic",
+                      color: theme.colors.neutral.gray900
+                    }}
+                  >
+                    Salles de Réunion
+                  </h2>
+                </div>
+                <p
+                  className="text-body-xl text-gray-600 leading-relaxed mb-6"
+                  style={{ lineHeight: "1.8" }}
+                >
+                  {chateau.meetingText}
+                </p>
+                <div
+                  className="inline-flex items-center gap-2"
+                  style={{
+                    padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
+                    background: `${colors.bronze}10`,
+                    borderRadius: theme.effects.borderRadius.full,
+                    border: `2px solid ${colors.bronze}40`,
+                  }}
+                >
+                  <Check className="w-5 h-5" style={{ color: colors.bronze }} />
+                  <span style={{
+                    fontSize: theme.typography.fontSize.sm,
+                    fontWeight: theme.typography.fontWeight.semibold,
+                    color: colors.bronze
+                  }}>
+                    Équipements audiovisuels complets
+                  </span>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
 

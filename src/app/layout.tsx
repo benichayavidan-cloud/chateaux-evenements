@@ -21,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Châteaux Séminaire Île-de-France | Select Châteaux",
   description:
-    "Découvrez 3 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines. Devis 24h.",
+    "Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
   keywords: [
     "séminaire chateau ile de france",
     "location chateau seminaire",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Select Châteaux - La Collection Confidentielle",
     description:
-      "3 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.",
+      "4 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.",
     url: "https://www.selectchateaux.com/",
     siteName: "Select Châteaux",
     locale: "fr_FR",

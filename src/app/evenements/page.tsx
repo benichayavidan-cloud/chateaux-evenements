@@ -87,7 +87,7 @@ export default function EvenementsPage() {
       <LogoCarousel />
 
       {/* Types d'événements */}
-      <div className="section-padding-sm">
+      <div>
         {typesEvenements.map((evenement, index) => (
           <div
             key={evenement.id}

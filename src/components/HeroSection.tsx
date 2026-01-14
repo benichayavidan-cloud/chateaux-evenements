@@ -153,7 +153,7 @@ export function HeroSection() {
               marginBottom: spacing.xl,
             }}
           >
-            L'accès exclusif aux 3 domaines les plus convoités pour vos CODIR et événements d'entreprise. Chantilly · Vallée de Chevreuse · Portes de Paris.
+            L'accès exclusif aux 4 domaines les plus convoités pour vos CODIR et événements d'entreprise. 2 Palais Chantilly · Vallée de Chevreuse · Portes de Paris.
           </motion.p>
 
           {/* Trust Badges Luxe - Stats Section */}
@@ -180,7 +180,7 @@ export function HeroSection() {
             {/* Statistique 3 */}
             <StatBadge
               icon={<Building className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" style={{ color: colors.gold }} />}
-              value="3"
+              value="4"
               label="Châteaux"
             />
           </motion.div>

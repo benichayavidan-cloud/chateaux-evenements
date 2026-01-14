@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nos 3 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92",
+  title: "Nos 4 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92",
   description:
     "Location château séminaire Île-de-France : Manoir 280 pers Chantilly (60), Refuge 5★ accessible métro (92), Abbaye étang Chevreuse (78). Réponse 48h • Visite gratuite",
   keywords: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "3 Châteaux d'Exception pour Séminaires | Île-de-France",
+    title: "4 Châteaux d'Exception pour Séminaires | Île-de-France",
     description:
       "Découvrez notre sélection exclusive : Manoir de Chantilly (280 pers), Refuge Historique Paris 92, Abbaye Vallée de Chevreuse. Réservation sous 48h.",
     url: "https://www.selectchateaux.com/chateaux",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "3 Châteaux d'Exception | Séminaires Île-de-France",
+    title: "4 Châteaux d'Exception | Séminaires Île-de-France",
     description: "Manoir Chantilly, Refuge Paris 92, Abbaye Chevreuse. Réservation express.",
     images: ["/og-image.jpg"]
   },
@@ -54,8 +54,8 @@ export default function ChateauxLayout({
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Châteaux pour Séminaires en Île-de-France",
-    "description": "Notre collection de 3 châteaux d'exception pour vos événements d'entreprise en Île-de-France",
-    "numberOfItems": 3,
+    "description": "Notre collection de 4 châteaux d'exception pour vos événements d'entreprise en Île-de-France",
+    "numberOfItems": 4,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -175,6 +175,56 @@ export default function ChateauxLayout({
             }
           ],
           "url": "https://www.selectchateaux.com/chateaux/abbaye-millenaire-vallee-chevreuse",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "120",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Place",
+          "name": "Le Palais Royal de la Forêt (Chantilly)",
+          "description": "Le Versailles de l'Oise. Un palais royal style Louis XV au cœur d'une forêt de 500 hectares. Lustres de cristal, moulures dorées et spa haut de gamme pour vos événements les plus prestigieux.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Oise",
+            "postalCode": "60",
+            "addressCountry": "FR"
+          },
+          "maximumAttendeeCapacity": 350,
+          "starRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "amenityFeature": [
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Style Louis XV",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Ballrooms & Lustres de Cristal",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Spa Prestige 1500m²",
+              "value": true
+            },
+            {
+              "@type": "LocationFeatureSpecification",
+              "name": "Forêt 500 hectares",
+              "value": true
+            }
+          ],
+          "url": "https://www.selectchateaux.com/chateaux/palais-royal-foret-chantilly",
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",

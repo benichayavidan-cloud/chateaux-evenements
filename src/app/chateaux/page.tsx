@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Users, ArrowRight, Check, Sparkles, Award, Star, Phone, Calendar, Shield, TrendingUp, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, Users, ArrowRight, Check, Sparkles, Award, Star, Phone, Calendar, Shield, TrendingUp, Clock, ChevronLeft, ChevronRight, Bed } from "lucide-react";
 import { chateaux } from "@/data/chateaux";
 import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
@@ -351,36 +351,67 @@ export default function ChateauxPage() {
                         marginBottom: spacing.lg,
                       }}
                     >
-                      3 Domaines d'exception, privatisables pour vos événements d'entreprise. Oise (60) · Yvelines (78) · Hauts-de-Seine (92).
+                      4 Domaines d'exception, privatisables pour vos événements d'entreprise. Oise (60) · Yvelines (78) · Hauts-de-Seine (92).
                     </motion.h2>
 
-                    {/* Badge capacité - texte personnalisé par château */}
+                    {/* Badges info - capacité & chambres */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-                      className="inline-flex items-center gap-2"
-                      style={{
-                        background: `${colors.bronze}10`,
-                        border: `2px solid ${colors.bronze}`,
-                        padding: spacing.md,
-                        borderRadius: theme.effects.borderRadius.full,
-                      }}
+                      className="flex flex-nowrap items-center gap-2"
                     >
-                      <Users className="w-4 h-4" style={{ color: colors.bronze }} />
+                      {/* Badge capacité - texte personnalisé par château */}
                       <div
+                        className="inline-flex items-center gap-1.5"
                         style={{
-                          fontSize: theme.typography.fontSize.xs,
-                          color: colors.bronze,
-                          textTransform: "uppercase",
-                          letterSpacing: theme.typography.letterSpacing.wider,
-                          fontWeight: theme.typography.fontWeight.medium,
-                          whiteSpace: "nowrap",
+                          background: `${colors.bronze}10`,
+                          border: `2px solid ${colors.bronze}`,
+                          padding: '6px 10px',
+                          borderRadius: theme.effects.borderRadius.full,
                         }}
                       >
-                        {chateau.id === "1" && "Jusqu'à 280 pers. en résidentiel"}
-                        {chateau.id === "2" && "Jusqu'à 180 pers. accessible métro"}
-                        {chateau.id === "3" && "Jusqu'à 150 pers. site classé"}
+                        <Users className="w-3.5 h-3.5" style={{ color: colors.bronze }} />
+                        <div
+                          style={{
+                            fontSize: '10px',
+                            color: colors.bronze,
+                            textTransform: "uppercase",
+                            letterSpacing: '0.5px',
+                            fontWeight: theme.typography.fontWeight.medium,
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {chateau.id === "1" && "Jusqu'à 280 pers. résidentiel"}
+                          {chateau.id === "2" && "Jusqu'à 180 pers. métro"}
+                          {chateau.id === "3" && "Jusqu'à 150 pers. classé"}
+                          {chateau.id === "4" && "Jusqu'à 350 pers. palace"}
+                        </div>
+                      </div>
+
+                      {/* Badge chambres */}
+                      <div
+                        className="inline-flex items-center gap-1.5"
+                        style={{
+                          background: `${colors.bronze}10`,
+                          border: `2px solid ${colors.bronze}`,
+                          padding: '6px 10px',
+                          borderRadius: theme.effects.borderRadius.full,
+                        }}
+                      >
+                        <Bed className="w-3.5 h-3.5" style={{ color: colors.bronze }} />
+                        <div
+                          style={{
+                            fontSize: '10px',
+                            color: colors.bronze,
+                            textTransform: "uppercase",
+                            letterSpacing: '0.5px',
+                            fontWeight: theme.typography.fontWeight.medium,
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          {chateau.roomsTotal} Chambres
+                        </div>
                       </div>
                     </motion.div>
                   </div>
@@ -432,7 +463,7 @@ export default function ChateauxPage() {
             {
               icon: <Award className="w-8 h-8" />,
               title: "Lieux Classés & Protégés",
-              description: "3 domaines classés Monuments Historiques ou Sites Remarquables"
+              description: "4 domaines classés Monuments Historiques ou Sites Remarquables"
             },
             {
               icon: <Clock className="w-8 h-8" />,
@@ -518,7 +549,7 @@ export default function ChateauxPage() {
               </span>
             </>
           }
-          title="3 Châteaux d'Exception"
+          title="4 Châteaux d'Exception"
         />
 
         {/* Liste des châteaux */}
@@ -587,34 +618,75 @@ export default function ChateauxPage() {
                     {chateau.description}
                   </p>
 
-                  {/* Badges (Localisation + Capacité) - Même hauteur */}
-                  <div className="flex flex-wrap items-center gap-4 mb-8">
-                    <Badge variant="outline" size="md" icon={<MapPin className="w-4 h-4" />}>
-                      {chateau.region}
-                    </Badge>
+                  {/* Badges (Localisation + Capacité + Chambres) */}
+                  <div className="flex flex-wrap items-center gap-3 mb-8">
+                    <div
+                      className="inline-flex items-center gap-2"
+                      style={{
+                        background: theme.colors.neutral.white,
+                        border: `1px solid ${theme.colors.neutral.gray300}`,
+                        padding: '8px 12px',
+                        borderRadius: theme.effects.borderRadius.full,
+                      }}
+                    >
+                      <MapPin className="w-4 h-4" style={{ color: colors.bronze }} />
+                      <div
+                        style={{
+                          fontSize: '11px',
+                          color: theme.colors.text.primary,
+                          fontWeight: theme.typography.fontWeight.medium,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {chateau.region}
+                      </div>
+                    </div>
 
                     <div
-                      className="inline-flex items-center gap-3"
+                      className="inline-flex items-center gap-2"
                       style={{
                         background: `${colors.bronze}10`,
                         border: `2px solid ${colors.bronze}`,
-                        padding: spacing.lg,
+                        padding: '8px 12px',
                         borderRadius: theme.effects.borderRadius.full,
-                        height: "fit-content",
                       }}
                     >
-                      <Users className="w-5 h-5" style={{ color: colors.bronze }} />
+                      <Users className="w-4 h-4" style={{ color: colors.bronze }} />
                       <div
                         style={{
-                          fontSize: theme.typography.fontSize.xs,
+                          fontSize: '11px',
                           color: colors.bronze,
                           textTransform: "uppercase",
-                          letterSpacing: theme.typography.letterSpacing.wider,
+                          letterSpacing: '0.5px',
                           fontWeight: theme.typography.fontWeight.medium,
                           whiteSpace: "nowrap",
                         }}
                       >
                         {chateau.capacite.min}-{chateau.capacite.max} personnes
+                      </div>
+                    </div>
+
+                    <div
+                      className="inline-flex items-center gap-2"
+                      style={{
+                        background: `${colors.bronze}10`,
+                        border: `2px solid ${colors.bronze}`,
+                        padding: '8px 12px',
+                        borderRadius: theme.effects.borderRadius.full,
+                      }}
+                    >
+                      <Bed className="w-4 h-4" style={{ color: colors.bronze }} />
+                      <div
+                        style={{
+                          fontSize: '11px',
+                          color: colors.bronze,
+                          textTransform: "uppercase",
+                          letterSpacing: '0.5px',
+                          fontWeight: theme.typography.fontWeight.medium,
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {chateau.roomsTotal} Chambres
                       </div>
                     </div>
                   </div>

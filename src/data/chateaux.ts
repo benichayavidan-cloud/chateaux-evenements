@@ -41,6 +41,10 @@ export const chateaux: Chateau[] = [
     seoTitle: "Château Séminaire Chantilly (60) | Manoir & Amphithéâtre 280 pers",
     accrocheHero: "Le Géant de la Forêt : Amphithéâtre & Spa à 35 min de Paris",
     descriptionLongue: "Le Géant de la Forêt. Ce manoir anglo-normand de 100 chambres, niché dans une forêt privée, est l'unique lieu de l'Oise capable d'accueillir 280 personnes en résidentiel. Avec son amphithéâtre privé et son Spa Nuxe de 800m², c'est la référence pour les conventions d'envergure.",
+    roomsTotal: 120,
+    roomsTwin: 103,
+    bedroomText: "120 chambres au décor contemporain ou traditionnel, dont 103 en configuration Twin. Vue apaisante sur la forêt ou le parc privé.",
+    meetingText: "18 salles de réunion éclairées à la lumière du jour, dont un amphithéâtre historique de 280 places pour vos plénières.",
     faq: [
       {
         question: "Capacité de l'amphithéâtre ?",
@@ -110,6 +114,10 @@ export const chateaux: Chateau[] = [
     seoTitle: "Hôtel Séminaire Luxe 92 | Château Historique Accessible Métro Paris",
     accrocheHero: "Le Secret des Hauts-de-Seine : Un Jardin Suspendu aux portes de Paris",
     descriptionLongue: "Le Secret le mieux gardé des Hauts-de-Seine. Une bâtisse du XVIIe siècle classée Monument Historique, transformée en hôtel 5 étoiles. Le seul 'château' accessible en métro, offrant un jardin suspendu avec vue sur Paris. Idéal pour les CODIRs stratégiques.",
+    roomsTotal: 83,
+    roomsTwin: 16,
+    bedroomText: "83 chambres et suites cocon dessinées par Jean-Michel Wilmotte. Calme absolu aux portes de Paris.",
+    meetingText: "Des espaces de travail modulables ouverts sur le jardin, alliant technologie de pointe et cadre monacal propice à la réflexion.",
     faq: [
       {
         question: "Accès transport ?",
@@ -181,6 +189,10 @@ export const chateaux: Chateau[] = [
     seoTitle: "Abbaye Séminaire 78 | Lieu Événementiel Vallée de Chevreuse & Étang",
     accrocheHero: "L'Effet Wow : Abbaye Millénaire & Étang de 70 Hectares",
     descriptionLongue: "L'Effet Wow garanti. Une abbaye cistercienne du XIIe siècle au cœur d'un domaine de 70 hectares avec étang privé. Ruines romantiques et salles voûtées pour des soirées de gala inoubliables. Déconnexion totale pour vos équipes.",
+    roomsTotal: 147,
+    roomsTwin: null,
+    bedroomText: "147 chambres réparties entre l'Abbaye historique et le domaine. Une décoration 'campagne chic' signée Cordélia de Castellane.",
+    meetingText: "Des salons historiques voutés pour vos plénières grandioses et des sous-commissions inspirantes au bord de l'étang.",
     faq: [
       {
         question: "Soirées festives ?",
@@ -205,6 +217,77 @@ export const chateaux: Chateau[] = [
       {
         question: "À quelle distance de Paris se situe l'abbaye ?",
         answer: "L'abbaye est située à environ 40 kilomètres au sud-ouest de Paris dans les Yvelines (78), soit environ 45 minutes en voiture. Un service de navettes privées peut être organisé depuis Paris ou les gares RER pour faciliter l'accès de vos participants."
+      }
+    ],
+  },
+  {
+    id: "4",
+    nom: "Le Palais Royal de la Forêt (Chantilly)",
+    region: "Oise (60)",
+    capacite: {
+      min: 100,
+      max: 350,
+    },
+    styleArchitectural: "Palais style Louis XV",
+    description:
+      "Le Versailles de l'Oise. Un palais royal style Louis XV au cœur d'une forêt de 500 hectares. Lustres de cristal, moulures dorées et spa haut de gamme pour vos événements les plus prestigieux.",
+    atouts: [
+      "Style Louis XV",
+      "Ballrooms & Lustres",
+      "Spa Prestige",
+      "Forêt 500 hectares",
+    ],
+    images: {
+      hero: [
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-ballroom-lustre-cristal-parquet-miroir.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-facade-colonnes-architecture-classique.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-chambre-luxe-velours-lit-king-size.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-spa-piscine-interieure-colonnes.webp",
+      ],
+      openGraph: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-ballroom-lustre-cristal-parquet-miroir.webp",
+      card: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-facade-colonnes-architecture-classique.webp",
+      galerie: [
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-ballroom-lustre-cristal-parquet-miroir.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-facade-colonnes-architecture-classique.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-chambre-luxe-velours-lit-king-size.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-restaurant-gastronomique-verriere-tables-rondes.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-spa-piscine-interieure-colonnes.webp",
+        "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/mont-royal/palais-royal-chantilly-oise-60-salle-reunion-boiseries-table-conference.webp",
+      ],
+    },
+    slug: "palais-royal-foret-chantilly",
+    seoH1: "Château Luxe Chantilly : Palais Royal 350 pers & Spa Prestige",
+    seoTitle: "Château Séminaire Luxe Chantilly (60) | Palais Royal Forêt 350 pers",
+    accrocheHero: "Le Versailles de l'Oise : Lustres de Cristal & Ballrooms dans la Forêt",
+    descriptionLongue: "Le Versailles de l'Oise. Un palais royal style Louis XV niché au cœur d'une forêt domaniale de 500 hectares. Avec ses lustres de cristal monumentaux, ses moulures dorées à la feuille d'or et son spa prestige de 1500m², c'est le lieu ultime pour vos événements les plus prestigieux. Les ballrooms historiques peuvent accueillir jusqu'à 350 personnes dans un décor digne de la cour royale. Le domaine dispose de 183 chambres et suites décorées dans le respect du patrimoine classique français. La table gastronomique étoilée propose une cuisine raffinée inspirée des recettes du Grand Siècle. Pour vos moments de détente, le spa olympique offre une piscine intérieure de 25 mètres, un parcours aquatique avec jets massants, des cabines de soins haut de gamme et un espace fitness ultra-moderne. La forêt environnante permet d'organiser des activités team-building exceptionnelles : chasse au trésor équestre, rallye 4x4, parcours d'orientation, initiation à la fauconnerie. Ce lieu d'exception a accueilli les plus grandes conventions internationales et galas de prestige. L'infrastructure technique est de niveau international avec wifi très haut débit, visioconférence HD et support technique permanent. Un chef de projet dédié coordonne chaque aspect de votre événement pour une exécution parfaite.",
+    roomsTotal: 108,
+    roomsTwin: 48,
+    bedroomText: "108 chambres et suites au style classique français (moulures, tissus soyeux). 48 Twins pour le confort de vos équipes.",
+    meetingText: "12 salons de conférence baignés de lumière, dont une salle de bal transformable pour vos lancements de produits.",
+    faq: [
+      {
+        question: "Quelle est la capacité maximale du domaine ?",
+        answer: "Le Palais Royal peut accueillir jusqu'à 350 personnes en résidentiel avec 183 chambres et suites. Le grand ballroom historique dispose de lustres monumentaux et peut recevoir 350 convives assis pour vos galas et conventions."
+      },
+      {
+        question: "Quels sont les équipements du spa prestige ?",
+        answer: "Le spa de 1500m² comprend une piscine olympique de 25 mètres, un parcours aquatique avec jets massants, sauna finlandais, hammam oriental, cabines de soins Cinq Mondes, et un fitness center équipé Technogym. Entièrement privatisable."
+      },
+      {
+        question: "Le style architectural est-il vraiment Louis XV ?",
+        answer: "Oui, le palais a été construit dans le pur style Louis XV avec moulures dorées à la feuille d'or, parquets Versailles, lustres de cristal de Baccarat et tapisseries d'époque. Une restauration minutieuse a préservé l'authenticité du lieu tout en intégrant les technologies modernes."
+      },
+      {
+        question: "Quelle est la taille de la forêt et quelles activités proposez-vous ?",
+        answer: "Le domaine est situé au cœur d'une forêt domaniale de 500 hectares. Nous proposons chasse au trésor équestre, rallye 4x4, parcours d'orientation, initiation à la fauconnerie, VTT électrique, course d'orientation nocturne et olympiades forestières avec coordinateur expert."
+      },
+      {
+        question: "Proposez-vous une table gastronomique ?",
+        answer: "Notre chef étoilé propose une cuisine gastronomique inspirée des recettes du Grand Siècle revisitées avec des techniques contemporaines. Cave exceptionnelle de 15000 bouteilles. Menus personnalisables et régimes spéciaux accommodés."
+      },
+      {
+        question: "À quelle distance de Paris et des aéroports ?",
+        answer: "Situé à 40 minutes de Paris par l'autoroute A1 et à 30 minutes de l'aéroport Roissy Charles de Gaulle. Service de navettes privées disponible depuis Paris, les gares et aéroports. Héliport à proximité pour arrivées VIP."
       }
     ],
   },
@@ -407,7 +490,7 @@ export const chiffresCles: ChiffreCle[] = [
     suffix: "ans",
   },
   {
-    valeur: 3,
+    valeur: 4,
     label: "Châteaux d'exception",
   },
   {

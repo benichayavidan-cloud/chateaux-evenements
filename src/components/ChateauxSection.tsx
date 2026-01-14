@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { MapPin, Users, ArrowRight, Sparkles } from "lucide-react";
+import { MapPin, Users, ArrowRight, Sparkles, Bed } from "lucide-react";
 import { chateaux } from "@/data/chateaux";
 import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
@@ -64,7 +64,7 @@ export function ChateauxSection() {
             maxWidth: theme.dimensions.maxWidth.lg,
             lineHeight: theme.typography.lineHeight.relaxed
           }}>
-            Découvrez nos 3 châteaux soigneusement sélectionnés à travers la
+            Découvrez nos 4 châteaux soigneusement sélectionnés à travers la
             France, chacun offrant un cadre unique pour vos événements
             d'entreprise.
           </p>
@@ -134,30 +134,6 @@ export function ChateauxSection() {
                         {chateau.description}
                       </p>
 
-                      {/* Informations clés */}
-                      <div className="flex items-center translate-y-4 group-hover:translate-y-0" style={{
-                        gap: 'clamp(1rem, 3vw, 2rem)',
-                        marginBottom: 'clamp(0.875rem, 2.5vw, 1.25rem)',
-                        transition: `transform ${theme.effects.transitions.slower} 100ms`
-                      }}>
-                        <div className="flex items-center" style={{
-                          gap: spacing.sm,
-                          color: theme.colors.neutral.gray800
-                        }}>
-                          <MapPin className="w-5 h-5" style={{ color: colors.bronze }} />
-                          <span style={{ fontSize: theme.typography.fontSize.sm }}>{chateau.region}</span>
-                        </div>
-                        <div className="flex items-center" style={{
-                          gap: spacing.sm,
-                          color: theme.colors.neutral.gray800
-                        }}>
-                          <Users className="w-5 h-5" style={{ color: colors.bronze }} />
-                          <span style={{ fontSize: theme.typography.fontSize.sm }}>
-                            {chateau.capacite.min}-{chateau.capacite.max} personnes
-                          </span>
-                        </div>
-                      </div>
-
                       {/* Atouts principaux */}
                       <ul className="translate-y-4 group-hover:translate-y-0" style={{
                         marginBottom: 'clamp(0.875rem, 2.5vw, 1.25rem)',
@@ -187,6 +163,41 @@ export function ChateauxSection() {
                         ))}
                       </ul>
 
+                      {/* Informations de localisation - en bas */}
+                      <div className="flex items-center flex-wrap translate-y-4 group-hover:translate-y-0" style={{
+                        gap: 'clamp(0.75rem, 2vw, 1.5rem)',
+                        marginBottom: 'clamp(0.875rem, 2.5vw, 1.25rem)',
+                        transition: `transform ${theme.effects.transitions.slower} 150ms`,
+                        paddingTop: 'clamp(0.5rem, 1.5vw, 0.75rem)',
+                        borderTop: `1px solid ${theme.colors.neutral.gray300}`
+                      }}>
+                        <div className="flex items-center" style={{
+                          gap: spacing.sm,
+                          color: theme.colors.neutral.gray800
+                        }}>
+                          <MapPin className="w-5 h-5" style={{ color: colors.bronze }} />
+                          <span style={{ fontSize: theme.typography.fontSize.sm, fontWeight: theme.typography.fontWeight.medium }}>{chateau.region}</span>
+                        </div>
+                        <div className="flex items-center" style={{
+                          gap: spacing.sm,
+                          color: theme.colors.neutral.gray800
+                        }}>
+                          <Users className="w-5 h-5" style={{ color: colors.bronze }} />
+                          <span style={{ fontSize: theme.typography.fontSize.sm }}>
+                            {chateau.capacite.min}-{chateau.capacite.max} pers.
+                          </span>
+                        </div>
+                        <div className="flex items-center" style={{
+                          gap: spacing.sm,
+                          color: theme.colors.neutral.gray800
+                        }}>
+                          <Bed className="w-5 h-5" style={{ color: colors.bronze }} />
+                          <span style={{ fontSize: theme.typography.fontSize.sm }}>
+                            {chateau.roomsTotal} Chambres
+                          </span>
+                        </div>
+                      </div>
+
                       {/* CTA */}
                       <div className="inline-flex items-center translate-y-4 group-hover:translate-y-0" style={{
                         color: colors.bronze,
@@ -206,12 +217,16 @@ export function ChateauxSection() {
                     </div>
                   </div>
 
-                  {/* Badge région - toujours visible en haut */}
+                  {/* Badge région - masqué au hover */}
                   <Badge
                     variant="default"
                     size="md"
-                    className="absolute z-10"
-                    style={{ top: 'clamp(1rem, 3vw, 2rem)', right: 'clamp(1rem, 3vw, 2rem)' }}
+                    className="absolute z-10 group-hover:opacity-0"
+                    style={{
+                      top: 'clamp(1rem, 3vw, 2rem)',
+                      right: 'clamp(1rem, 3vw, 2rem)',
+                      transition: `opacity ${theme.effects.transitions.ultra} ease-out`
+                    }}
                   >
                     {chateau.region}
                   </Badge>
