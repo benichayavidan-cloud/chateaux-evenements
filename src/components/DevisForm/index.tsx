@@ -242,12 +242,13 @@ export function DevisForm() {
           </AnimatePresence>
 
           {/* Navigation buttons */}
-          <div className="flex justify-between mt-6 lg:mt-8 pt-4 lg:pt-6 border-t border-gray-200 gap-4 flex-wrap">
+          <div className="flex justify-between gap-4 flex-wrap border-t border-gray-200" style={{ marginTop: "clamp(1.5rem, 3vw, 2rem)", paddingTop: "clamp(1rem, 2vw, 1.5rem)" }}>
             {currentStep > 1 ? (
               <button
                 type="button"
                 onClick={prevStep}
-                className="flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-3 bg-gray-200 text-gray-800 font-semibold rounded-full border-none cursor-pointer transition-all hover:bg-gray-300 text-sm lg:text-base"
+                style={{ padding: "clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem)" }}
+                className="flex items-center gap-2 bg-gray-200 text-gray-800 font-semibold rounded-full border-none cursor-pointer transition-all hover:bg-gray-300 text-sm lg:text-base"
               >
                 <ArrowLeft className="w-5 h-5" />
                 Précédent
@@ -260,7 +261,8 @@ export function DevisForm() {
               <button
                 type="button"
                 onClick={nextStep}
-                className="flex items-center gap-2 px-4 lg:px-6 py-2 lg:py-3 bg-[#a37e2c] text-white font-semibold rounded-full border-none cursor-pointer transition-all shadow-lg hover:bg-[#8d6a24] text-sm lg:text-base"
+                style={{ padding: "clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem)" }}
+                className="flex items-center gap-2 bg-[#a37e2c] text-white font-semibold rounded-full border-none cursor-pointer transition-all shadow-lg hover:bg-[#8d6a24] text-sm lg:text-base"
               >
                 Suivant
                 <ArrowRight className="w-5 h-5" />
@@ -268,7 +270,8 @@ export function DevisForm() {
             ) : (
               <button
                 type="submit"
-                className="flex items-center gap-2 px-5 lg:px-8 py-2 lg:py-3 bg-[#a37e2c] text-white font-semibold rounded-full border-none cursor-pointer transition-all shadow-lg hover:bg-[#8d6a24] text-sm lg:text-base"
+                style={{ padding: "clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem)" }}
+                className="flex items-center gap-2 bg-[#a37e2c] text-white font-semibold rounded-full border-none cursor-pointer transition-all shadow-lg hover:bg-[#8d6a24] text-sm lg:text-base"
               >
                 Envoyer ma demande
                 <Check className="w-5 h-5" />

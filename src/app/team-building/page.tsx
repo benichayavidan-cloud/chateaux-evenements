@@ -7,7 +7,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Users, Target, Zap, Heart, Trophy, Star, Sparkles, TrendingUp, Shield, Lightbulb, Rocket } from "lucide-react";
 import { useRef } from "react";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function TeamBuildingPage() {
   const heroRef = useRef(null);
@@ -21,16 +20,12 @@ export default function TeamBuildingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Breadcrumbs */}
-      <div className="container mx-auto px-4 pt-24">
-        <Breadcrumbs items={[{ label: "Team Building" }]} />
-      </div>
       {/* Hero Section avec Parallax */}
       <div ref={heroRef} className="hero-section">
         <motion.div style={{ y }} className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=1920&q=90"
-            alt="Team Building d'exception"
+            src="/images/team-building-chateau-seminaire-cohesion-equipe-hero.jpg"
+            alt="Team Building d'exception dans un château"
             fill
             className="object-cover"
             priority
@@ -56,7 +51,7 @@ export default function TeamBuildingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-10"
+                className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-12"
               >
                 <motion.div
                   animate={{ rotate: [0, 360] }}
@@ -74,7 +69,7 @@ export default function TeamBuildingPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="heading-display mb-5 leading-none"
+                className="heading-display mb-8 leading-none"
               >
                 Team Building
                 <br />
@@ -98,7 +93,7 @@ export default function TeamBuildingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-body-xl mb-14 max-w-3xl font-medium"
+                className="text-body-xl mb-16 max-w-3xl font-medium"
               >
                 Transformez votre équipe avec des expériences immersives dans nos châteaux d'exception
               </motion.p>
@@ -245,56 +240,56 @@ export default function TeamBuildingPage() {
                 titre: "Challenges Créatifs",
                 description: "Stimulez l'innovation avec des ateliers de créativité dans nos salons historiques",
                 color: "#D4AF37",
-                image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=85"
+                image: "/images/challenges-creatifs-team-building-chateau-activites.jpg"
               },
               {
                 icon: Target,
                 titre: "Escape Game Château",
                 description: "Résolvez des énigmes historiques en équipe dans les couloirs de nos châteaux",
                 color: "#A37E2C",
-                image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=85"
+                image: "/images/escape-game-chateau-team-building-enigmes.jpg"
               },
               {
                 icon: Heart,
                 titre: "Cohésion d'Équipe",
                 description: "Renforcez les liens avec des activités de team building dans nos jardins",
                 color: "#C09448",
-                image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=85"
+                image: "/images/cohesion-equipe-team-building-chateau-activites.jpg"
               },
               {
                 icon: Rocket,
                 titre: "Leadership Training",
                 description: "Développez les compétences de vos leaders dans un cadre inspirant",
                 color: "#8A6823",
-                image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=85"
+                image: "/images/leadership-training-chateau-formation-managers.jpg"
               },
               {
                 icon: Shield,
                 titre: "Gestion de Crise",
                 description: "Simulez des situations complexes et apprenez à gérer le stress en équipe",
                 color: "#B8860B",
-                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=85"
+                image: "/images/gestion-crise-team-building-formation-entreprise.jpg"
               },
               {
                 icon: TrendingUp,
                 titre: "Séminaires Stratégiques",
                 description: "Planifiez l'avenir de votre entreprise dans un environnement propice à la réflexion",
                 color: "#A37E2C",
-                image: "https://images.unsplash.com/photo-1560439514-4e9645039924?w=800&q=85"
+                image: "/images/seminaire-strategique-chateau-entreprise-reunion.jpg"
               },
               {
                 icon: Users,
                 titre: "Olympiades d'Entreprise",
                 description: "Compétitions sportives et ludiques pour booster l'esprit d'équipe dans nos parcs",
                 color: "#D4AF37",
-                image: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&q=85"
+                image: "/images/olympiades-entreprise-team-building-sport-chateau.jpg"
               },
               {
                 icon: Trophy,
                 titre: "Rallye Challenge",
                 description: "Parcours d'énigmes et défis à travers nos domaines pour une journée mémorable",
                 color: "#C09448",
-                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=85"
+                image: "/images/rallye-challenge-team-building-chateau-enigmes.jpg"
               },
             ].map((activite, i) => (
               <motion.div

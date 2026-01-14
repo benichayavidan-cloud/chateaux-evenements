@@ -8,20 +8,15 @@ import { ArrowRight, Check, Sparkles, Calendar, Users, Trophy } from "lucide-rea
 import { typesEvenements } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export default function EvenementsPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Breadcrumbs */}
-      <div className="container mx-auto px-4 pt-24">
-        <Breadcrumbs items={[{ label: "Événements" }]} />
-      </div>
       {/* Hero Section */}
       <div className="hero-section">
         <Image
-          src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=1920&q=90"
-          alt="Événements d'entreprise"
+          src="/images/seminaire-entreprise-chateau-evenement-hero.jpg"
+          alt="Événements d'entreprise dans un château"
           fill
           className="object-cover"
           priority

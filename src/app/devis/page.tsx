@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { DevisForm } from "@/components/DevisForm";
 import { theme } from "@/config/theme";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Demande de Devis | Select Châteaux",
@@ -11,11 +10,7 @@ export const metadata: Metadata = {
 
 export default function DevisPage() {
   return (
-    <div style={{ minHeight: "100vh", background: theme.colors.neutral.gray50, paddingTop: "64px" }}>
-      {/* Breadcrumbs */}
-      <div className="container mx-auto px-5 sm:px-6 pt-4 sm:pt-5">
-        <Breadcrumbs items={[{ label: "Demander un Devis" }]} />
-      </div>
+    <div style={{ minHeight: "100vh", background: theme.colors.neutral.gray50, paddingTop: "64px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
       {/* Hero */}
       <div style={{
         background: theme.colors.primary.bronze,

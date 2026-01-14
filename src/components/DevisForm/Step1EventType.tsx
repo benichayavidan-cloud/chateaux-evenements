@@ -74,8 +74,9 @@ export function Step1EventType({
                   }
                 }, 500);
               }}
+              style={{ padding: "clamp(1.5rem, 4vw, 2rem)" }}
               className={`
-                p-6 rounded-2xl border-2 transition-all duration-300 text-left
+                rounded-2xl border-2 transition-all duration-300 text-left
                 ${
                   isSelected
                     ? "border-[#a37e2c] bg-[#a37e2c]/5"

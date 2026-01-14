@@ -620,7 +620,7 @@ export default function ChateauxPage() {
                   </div>
 
                   {/* Points forts */}
-                  <div style={{ marginBottom: spacing["2xl"] }}>
+                  <div style={{ marginTop: spacing.xl, marginBottom: spacing["2xl"] }}>
                     <h4
                       style={{
                         fontSize: theme.typography.fontSize.base,

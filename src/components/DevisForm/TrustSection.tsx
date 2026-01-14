@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+// Force rebuild
 export function TrustSection() {
   const trustItems = [
     {
@@ -24,7 +25,8 @@ export function TrustSection() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-white p-4 lg:p-6 mb-6 lg:mb-10 rounded-2xl"
+      className="bg-white p-4 lg:p-6 rounded-2xl"
+      style={{ marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-10 text-center">
         {trustItems.map((item) => (
@@ -34,6 +36,14 @@ export function TrustSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: item.delay, ease: "easeOut" }}
             whileHover={{ scale: 1.05 }}
+            style={{
+              minHeight: "180px",
+              padding: "clamp(1.5rem, 4vw, 2rem)",
+              display: "flex",
+              flexDirection: "column" as const,
+              justifyContent: "center",
+              alignItems: "center"
+            }}
           >
             <div className="text-3xl lg:text-5xl font-bold text-[#a37e2c] mb-1 lg:mb-2">
               {item.value}

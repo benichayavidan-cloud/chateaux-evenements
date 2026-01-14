@@ -103,7 +103,7 @@ export function ChateauxSection() {
 
                   {/* Overlay informations - visible uniquement au hover */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100" style={{
-                    background: 'rgba(255, 255, 255, 0.97)',
+                    background: 'rgba(255, 255, 255, 0.87)',
                     transition: `opacity ${theme.effects.transitions.ultra} ease-out`
                   }}>
                     <div className="absolute inset-0 flex flex-col justify-end" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>

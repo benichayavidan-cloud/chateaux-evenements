@@ -95,24 +95,6 @@ export default function ChateauPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
 
-      {/* Breadcrumbs */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16 py-4">
-          <nav className="flex items-center text-sm text-gray-600" aria-label="Fil d'Ariane">
-            <Link href="/" className="hover:text-[var(--bronze-antique)] transition-colors flex items-center gap-1">
-              <Home className="w-4 h-4" />
-              <span>Accueil</span>
-            </Link>
-            <ChevronRight className="w-4 h-4 mx-2" />
-            <Link href="/chateaux" className="hover:text-[var(--bronze-antique)] transition-colors">
-              Nos Châteaux
-            </Link>
-            <ChevronRight className="w-4 h-4 mx-2" />
-            <span className="text-gray-900 font-medium">{chateau.nom}</span>
-          </nav>
-        </div>
-      </div>
-
       {/* Hero Section - Design compact */}
       <div style={{ height: '85vh', minHeight: '600px' }} className="relative overflow-hidden">
         {/* Image de fond */}
@@ -134,13 +116,13 @@ export default function ChateauPage() {
 
         {/* Contenu - centré sur mobile, à gauche sur desktop */}
         <div className="absolute inset-0 flex items-center justify-center md:justify-start px-5 sm:px-8 md:px-12">
-          <div className="flex flex-col items-center md:items-start w-full" style={{ maxWidth: '520px' }}>
+          <div className="flex flex-col items-center md:items-start w-full" style={{ maxWidth: '520px', gap: 'clamp(1rem, 2.5vw, 1.5rem)' }}>
             {/* Badge lieu au-dessus du conteneur */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
-              className="flex justify-center w-full mb-5"
+              className="flex justify-center w-full"
             >
               <Badge variant="glass" size="md">
                 <div
@@ -181,6 +163,7 @@ export default function ChateauPage() {
                 backdropFilter: 'blur(14px)',
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
                 padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
+                marginLeft: 'clamp(1rem, 2.5vw, 1.5rem)',
               }}
             >
             {/* Titre SEO optimisé */}
@@ -531,7 +514,7 @@ export default function ChateauPage() {
             </div>
 
             {/* Accordion FAQ Premium */}
-            <div className="w-full max-w-4xl px-6">
+            <div className="w-full max-w-4xl px-6" style={{ marginTop: spacing["2xl"] }}>
               {chateau.faq.map((item, index) => {
                 const isOpen = openFaqIndex === index;
 

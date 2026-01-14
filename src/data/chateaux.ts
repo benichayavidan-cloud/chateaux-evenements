@@ -273,7 +273,7 @@ export const typesEvenements: TypeEvenement[] = [
       "Parcours aventure et sports",
       "Coaching et débriefing professionnel",
     ],
-    image: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1200&q=85",
+    image: "/images/team-building-chateau-activites-entreprise.jpg",
   },
 ];
 

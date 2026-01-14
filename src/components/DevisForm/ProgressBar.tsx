@@ -6,7 +6,7 @@ interface ProgressBarProps {
 
 export function ProgressBar({ currentStep }: ProgressBarProps) {
   return (
-    <div className="mb-6 lg:mb-10">
+    <div style={{ marginBottom: "clamp(0.83rem, 1.66vw, 1.33rem)" }}>
       <div className="flex items-center">
         {[1, 2, 3, 4].map((step) => (
           <div
