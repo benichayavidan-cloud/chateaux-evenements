@@ -90,6 +90,7 @@ const styleSheet = `
 export function DevisForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [validatedSteps, setValidatedSteps] = useState<Set<number>>(new Set());
 
   const {
     register,
@@ -99,8 +100,10 @@ export function DevisForm() {
     getValues,
     formState: { errors },
     trigger,
+    clearErrors,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    mode: "onChange",
     defaultValues: {
       nombreParticipants: 50,
       nombreChambres: 10,
@@ -113,7 +116,14 @@ export function DevisForm() {
 
   const watchedValues = watch();
 
+  // Afficher les erreurs uniquement si l'étape a été validée au moins une fois
+  const shouldShowErrors = validatedSteps.has(currentStep) || isSubmitted;
+  const displayedErrors = shouldShowErrors ? errors : {};
+
   const nextStep = async () => {
+    // Marquer l'étape comme validée pour afficher les erreurs
+    setValidatedSteps((prev) => new Set(prev).add(currentStep));
+
     let isValid = false;
 
     switch (currentStep) {
@@ -138,6 +148,7 @@ export function DevisForm() {
   };
 
   const onSubmit = async (data: FormData) => {
+    setValidatedSteps(new Set([1, 2, 3, 4]));
     try {
       const response = await fetch("/api/devis", {
         method: "POST",
@@ -205,7 +216,7 @@ export function DevisForm() {
                 setValue={setValue}
                 trigger={trigger}
                 setCurrentStep={setCurrentStep}
-                errors={errors}
+                errors={displayedErrors}
               />
             )}
 
@@ -217,7 +228,7 @@ export function DevisForm() {
                 getValues={getValues}
                 setCurrentStep={setCurrentStep}
                 selectedDuree={watchedValues.duree}
-                errors={errors}
+                errors={displayedErrors}
               />
             )}
 
@@ -225,18 +236,21 @@ export function DevisForm() {
               <Step3ChateauSelection
                 selectedChateauIds={watchedValues.chateauIds}
                 setValue={setValue}
-                errors={errors}
+                errors={displayedErrors}
+                shouldValidate={shouldShowErrors}
               />
             )}
 
             {currentStep === 4 && (
               <Step4ContactForm
                 register={register}
-                errors={errors}
+                errors={displayedErrors}
                 nombreParticipants={watchedValues.nombreParticipants}
                 nombreChambres={watchedValues.nombreChambres}
                 budget={watchedValues.budget}
-                onBudgetChange={(budget) => setValue("budget", budget)}
+                onBudgetChange={(budget) => {
+                  setValue("budget", budget, { shouldValidate: shouldShowErrors });
+                }}
               />
             )}
           </AnimatePresence>
@@ -270,6 +284,7 @@ export function DevisForm() {
             ) : (
               <button
                 type="submit"
+                onClick={() => setValidatedSteps((prev) => new Set(prev).add(4))}
                 style={{ padding: "clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem)" }}
                 className="flex items-center gap-2 bg-[#a37e2c] text-white font-semibold rounded-full border-none cursor-pointer transition-all shadow-lg hover:bg-[#8d6a24] text-sm lg:text-base"
               >

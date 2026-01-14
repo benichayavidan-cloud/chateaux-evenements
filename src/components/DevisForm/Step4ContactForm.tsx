@@ -50,14 +50,15 @@ export function Step4ContactForm({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {/* Entreprise */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
             <Briefcase className="w-4 h-4 text-gray-800" />
             Entreprise *
           </label>
           <input
             type="text"
             {...register("entreprise")}
-            className="w-full p-3 border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="Nom de votre entreprise"
           />
           {errors.entreprise && (
@@ -69,14 +70,15 @@ export function Step4ContactForm({
 
         {/* Nom Prénom */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
             <User className="w-4 h-4 text-gray-800" />
             Nom Prénom *
           </label>
           <input
             type="text"
             {...register("nomPrenom")}
-            className="w-full p-3 border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="Votre nom et prénom"
           />
           {errors.nomPrenom && (
@@ -88,14 +90,15 @@ export function Step4ContactForm({
 
         {/* Email */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
             <Mail className="w-4 h-4 text-gray-800" />
             Email *
           </label>
           <input
             type="email"
             {...register("email")}
-            className="w-full p-3 border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="votre.email@entreprise.com"
           />
           {errors.email && (
@@ -105,14 +108,15 @@ export function Step4ContactForm({
 
         {/* Téléphone Mobile */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
             <Phone className="w-4 h-4 text-gray-800" />
             Téléphone Mobile *
           </label>
           <input
             type="tel"
             {...register("telephoneMobile")}
-            className="w-full p-3 border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="+33 6 12 34 56 78"
           />
           {errors.telephoneMobile && (
@@ -126,7 +130,7 @@ export function Step4ContactForm({
         <div className="col-span-1 sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Nombre de participants */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+            <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
               <Users className="w-4 h-4 text-gray-800" />
               Nombre de participants: {nombreParticipants}
             </label>
@@ -166,7 +170,7 @@ export function Step4ContactForm({
 
           {/* Nombre de chambres */}
           <div>
-            <label className="text-sm font-semibold mb-2 block text-gray-800">
+            <label className="text-sm font-semibold block text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
               Nombre de chambres: {nombreChambres}
             </label>
             <input
@@ -220,7 +224,7 @@ export function Step4ContactForm({
 
         {/* Budget */}
         <div className="col-span-1 sm:col-span-2">
-          <label className="text-sm font-semibold mb-2 block text-gray-800">
+          <label className="text-sm font-semibold block text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
             Budget estimé *
           </label>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
@@ -252,14 +256,15 @@ export function Step4ContactForm({
 
         {/* Commentaire déroulement */}
         <div className="col-span-1 sm:col-span-2">
-          <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
             <MessageSquare className="w-4 h-4 text-gray-800" />
             Commentaire sur votre déroulé d'événement (optionnel)
           </label>
           <textarea
             {...register("commentaireDeroulement")}
             rows={6}
-            className="w-full p-3 border-2 border-gray-200 rounded-xl text-base resize-vertical text-gray-800 min-h-[138px] focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-200 rounded-xl text-base resize-vertical text-gray-800 min-h-[138px] focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="Décrivez le déroulement de votre événement, les activités prévues, les besoins spécifiques..."
           />
           {errors.commentaireDeroulement && (
@@ -271,14 +276,15 @@ export function Step4ContactForm({
 
         {/* Upload fichier */}
         <div className="col-span-1 sm:col-span-2">
-          <label className="text-sm font-semibold mb-2 block text-gray-800">
+          <label className="text-sm font-semibold block text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
             Importer un fichier (PDF, Excel, Word) - Optionnel
           </label>
           <input
             type="file"
             accept=".pdf,.xlsx,.xls,.doc,.docx"
             {...register("fichier")}
-            className="w-full p-3 border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
           />
           <p className="text-xs text-gray-600 mt-1">
             Formats acceptés: PDF, Excel (.xlsx, .xls), Word (.doc, .docx)

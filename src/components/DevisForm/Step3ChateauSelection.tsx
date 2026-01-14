@@ -9,12 +9,14 @@ interface Step3ChateauSelectionProps {
   selectedChateauIds?: string[];
   setValue: UseFormSetValue<FormData>;
   errors: FieldErrors<FormData>;
+  shouldValidate?: boolean;
 }
 
 export function Step3ChateauSelection({
   selectedChateauIds,
   setValue,
   errors,
+  shouldValidate = false,
 }: Step3ChateauSelectionProps) {
   return (
     <motion.div
@@ -43,10 +45,11 @@ export function Step3ChateauSelection({
                 if (isSelected) {
                   setValue(
                     "chateauIds",
-                    currentIds.filter((id) => id !== chateau.id)
+                    currentIds.filter((id) => id !== chateau.id),
+                    { shouldValidate }
                   );
                 } else {
-                  setValue("chateauIds", [...currentIds, chateau.id]);
+                  setValue("chateauIds", [...currentIds, chateau.id], { shouldValidate });
                 }
               }}
               className={`
@@ -71,7 +74,7 @@ export function Step3ChateauSelection({
                   className="object-cover"
                 />
               </div>
-              <div className="p-4">
+              <div style={{ padding: "clamp(1rem, 2.5vw, 1.5rem)" }}>
                 <h4 className="font-bold mb-1 text-gray-800">{chateau.nom}</h4>
                 <p className="text-sm text-gray-600">
                   {chateau.region} • {chateau.capacite.min}-{chateau.capacite.max} pers.
@@ -90,20 +93,22 @@ export function Step3ChateauSelection({
             if (isSelected) {
               setValue(
                 "chateauIds",
-                currentIds.filter((id) => id !== "conseil")
+                currentIds.filter((id) => id !== "conseil"),
+                { shouldValidate }
               );
             } else {
-              setValue("chateauIds", [...currentIds, "conseil"]);
+              setValue("chateauIds", [...currentIds, "conseil"], { shouldValidate });
             }
           }}
           className={`
-            p-6 rounded-2xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center text-center relative
+            rounded-2xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center text-center relative
             ${
               selectedChateauIds?.includes("conseil")
                 ? "border-[#a37e2c] bg-[#a37e2c]/5"
                 : "border-gray-300 bg-white hover:border-[#a37e2c]/50"
             }
           `}
+          style={{ padding: "clamp(1.5rem, 3.5vw, 2rem)" }}
         >
           {selectedChateauIds?.includes("conseil") && (
             <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#a37e2c] flex items-center justify-center">

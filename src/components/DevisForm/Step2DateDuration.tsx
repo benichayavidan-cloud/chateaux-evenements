@@ -49,7 +49,7 @@ export function Step2DateDuration({
 
       {/* Dates souhaitées */}
       <div>
-        <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
           <Calendar className="w-4 h-4 text-gray-800" />
           Date souhaitée *
         </label>
@@ -66,7 +66,8 @@ export function Step2DateDuration({
               }
             }, 500);
           }}
-          className="w-full p-3 border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+          className="border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+          style={{ display: "block", width: "50%", padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
           min={new Date().toISOString().split("T")[0]}
         />
         {errors.datesSouhaitees && (
@@ -78,7 +79,7 @@ export function Step2DateDuration({
 
       {/* Durée */}
       <div>
-        <label className="flex items-center gap-2 text-sm font-semibold mb-2 text-gray-800">
+        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
           <Clock className="w-4 h-4 text-gray-800" />
           Durée de l'événement *
         </label>
