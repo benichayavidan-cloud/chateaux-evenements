@@ -1,10 +1,10 @@
 import { z } from "zod";
 
-const customErrorMap: z.ZodErrorMap = (issue, ctx) => {
+const customErrorMap = (issue: any, ctx: any): { message: string } => {
   const fieldName = issue.path[0];
 
   // Gestion des enums et valeurs invalides
-  if (issue.code === z.ZodIssueCode.invalid_enum_value || issue.code === "invalid_value" as any) {
+  if (issue.code === "invalid_value") {
     if (fieldName === "typeEvenement") {
       return { message: "Veuillez sélectionner un type d'événement" };
     }
@@ -20,7 +20,7 @@ const customErrorMap: z.ZodErrorMap = (issue, ctx) => {
   }
 
   // Gestion des types invalides
-  if (issue.code === z.ZodIssueCode.invalid_type) {
+  if (issue.code === "invalid_type") {
     if (fieldName === "budget") {
       return { message: "Veuillez sélectionner un budget" };
     }
@@ -40,7 +40,7 @@ const customErrorMap: z.ZodErrorMap = (issue, ctx) => {
   }
 
   // Gestion des erreurs de longueur minimum
-  if (issue.code === z.ZodIssueCode.too_small) {
+  if (issue.code === "too_small") {
     if (fieldName === "chateauIds") {
       return { message: "Veuillez sélectionner au moins un château" };
     }
@@ -62,7 +62,7 @@ const customErrorMap: z.ZodErrorMap = (issue, ctx) => {
   }
 
   // Gestion des emails invalides
-  if (issue.code === z.ZodIssueCode.invalid_string) {
+  if (issue.code === "invalid_string") {
     if (fieldName === "email") {
       return { message: "Email invalide" };
     }
@@ -71,7 +71,7 @@ const customErrorMap: z.ZodErrorMap = (issue, ctx) => {
   return { message: ctx?.defaultError || "Ce champ est requis" };
 };
 
-z.setErrorMap(customErrorMap);
+z.setErrorMap(customErrorMap as any);
 
 export const formSchema = z.object({
   typeEvenement: z.enum([
