@@ -326,7 +326,7 @@ export default function ChateauPage() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-body-xl text-gray-600 max-w-4xl text-center"
+              className="text-body-xl text-gray-600 max-w-6xl text-center"
             >
               {chateau.descriptionLongue}
             </motion.p>
