@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@supabase/supabase-js';
+import { sendAdminNotification, sendClientConfirmation } from '@/lib/email';
 
 // Schema Zod pour validation serveur (identique à DevisForm)
 const formSchema = z.object({
@@ -91,6 +92,28 @@ export async function POST(request: NextRequest) {
         { error: 'Erreur lors de l\'enregistrement de la demande', details: error.message },
         { status: 500 }
       );
+    }
+
+    // Envoyer les emails de notification (en parallèle, sans bloquer la réponse)
+    if (insertedData && insertedData.length > 0) {
+      const newDevis = insertedData[0];
+
+      // Envoyer les emails en arrière-plan sans bloquer la réponse
+      Promise.all([
+        sendAdminNotification(newDevis),
+        sendClientConfirmation(newDevis),
+      ])
+        .then(([adminSent, clientSent]) => {
+          console.log('📧 Résultats envoi emails:', {
+            admin: adminSent ? '✅ Envoyé' : '❌ Échec',
+            client: clientSent ? '✅ Envoyé' : '❌ Échec',
+            devisId: newDevis.id,
+          });
+        })
+        .catch((emailError) => {
+          console.error('❌ Erreur lors de l\'envoi des emails:', emailError);
+          // Ne pas fail la requête, continuer normalement
+        });
     }
 
     return NextResponse.json(

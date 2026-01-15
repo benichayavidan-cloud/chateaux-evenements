@@ -138,7 +138,7 @@ export function Step4ContactForm({
               type="range"
               min="10"
               max="500"
-              step="10"
+              step="1"
               {...register("nombreParticipants", { valueAsNumber: true })}
               className="w-full h-2 rounded-full cursor-pointer appearance-none range-slider"
               style={{

@@ -979,17 +979,20 @@ export default function ChateauPage() {
         animate={{ x: 0 }}
         style={{ opacity: floatingCardOpacity }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="fixed z-40 hidden xl:block bottom-8 right-8"
+        className="fixed z-40 hidden xl:block bottom-8 right-8 group"
       >
         <Card
           variant="glass"
           padding="lg"
           style={{
-            width: "320px",
+            width: "256px",
             background: theme.colors.overlay.white95,
             backdropFilter: `blur(${theme.effects.blur.sm})`,
             boxShadow: theme.effects.shadows["2xl"],
+            opacity: 0.25,
+            transition: "opacity 0.3s ease",
           }}
+          className="group-hover:!opacity-100"
         >
           <h3
             style={{
@@ -1073,14 +1076,16 @@ export default function ChateauPage() {
             </p>
           </div>
 
-          <Button
-            href="/devis"
-            variant="primary"
-            size="md"
-            fullWidth
-          >
-            Réserver
-          </Button>
+          <div className="flex justify-center">
+            <Button
+              href="/devis"
+              variant="primary"
+              size="md"
+              style={{ width: "80%" }}
+            >
+              Réserver
+            </Button>
+          </div>
         </Card>
       </motion.div>
 
