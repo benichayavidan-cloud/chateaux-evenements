@@ -22,27 +22,20 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary: `
-    bg-[${theme.colors.primary.bronze}]
     text-white
     border-2
     border-transparent
-    hover:bg-[${theme.colors.primary.bronzeLight}]
   `,
   secondary: `
     bg-white
     text-black
     border-2
     border-white/50
-    hover:border-[${theme.colors.primary.bronze}]
-    hover:bg-white
   `,
   outline: `
     bg-transparent
     text-gray-900
     border-2
-    border-[${theme.colors.primary.bronze}]/30
-    hover:border-[${theme.colors.primary.bronze}]
-    hover:text-[${theme.colors.primary.bronze}]
   `,
   ghost: `
     bg-transparent
@@ -50,8 +43,30 @@ const variantStyles: Record<ButtonVariant, string> = {
     border-2
     border-transparent
     hover:bg-gray-100
-    hover:text-[${theme.colors.primary.bronze}]
   `,
+};
+
+// Styles inline spécifiques pour chaque variant
+const getVariantInlineStyles = (variant: ButtonVariant): React.CSSProperties => {
+  switch (variant) {
+    case "primary":
+      return {
+        backgroundColor: theme.colors.primary.bronze,
+      };
+    case "secondary":
+      return {
+        backgroundColor: "white",
+      };
+    case "outline":
+      return {
+        backgroundColor: "transparent",
+        borderColor: `${theme.colors.primary.bronze}40`,
+      };
+    case "ghost":
+      return {
+        backgroundColor: "transparent",
+      };
+  }
 };
 
 const sizeStyles: Record<ButtonSize, { padding: string; height: string; fontSize: string }> = {
@@ -123,6 +138,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const combinedStyles = {
       ...baseStyles,
+      ...getVariantInlineStyles(variant),
       ...glowEffect,
       ...shadowEffect,
     };
@@ -146,16 +162,41 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const classes = `group ${variantStyles[variant]} ${className}`.trim();
 
+    const handleMouseEnter = (e: React.MouseEvent<HTMLElement>) => {
+      if (variant === "primary") {
+        e.currentTarget.style.backgroundColor = theme.colors.primary.bronzeLight;
+      }
+    };
+
+    const handleMouseLeave = (e: React.MouseEvent<HTMLElement>) => {
+      if (variant === "primary") {
+        e.currentTarget.style.backgroundColor = theme.colors.primary.bronze;
+      }
+    };
+
     if (href) {
       return (
-        <Link href={href} className={classes} style={combinedStyles}>
+        <Link
+          href={href}
+          className={classes}
+          style={combinedStyles}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           {content}
         </Link>
       );
     }
 
     return (
-      <button ref={ref} className={classes} style={combinedStyles} {...props}>
+      <button
+        ref={ref}
+        className={classes}
+        style={combinedStyles}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...props}
+      >
         {content}
       </button>
     );
