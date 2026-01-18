@@ -1,36 +1,27 @@
 import { MetadataRoute } from 'next'
 
+/**
+ * Fichier robots.ts - Guide les robots d'indexation
+ *
+ * ⚠️ IMPORTANT: Le blocage d'indexation réel est géré via robots metadata
+ * dans layout.tsx (robots: { index: false, follow: false }).
+ *
+ * Ce fichier reste permissif pour faciliter l'activation future de l'indexation.
+ * Il suffit de changer layout.tsx pour passer en production.
+ */
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = 'https://www.selectchateaux.com'
-
-  // MODE PRÉ-LANCEMENT : BLOQUER TOUT LE MONDE
-  // TODO: Passer en mode production après validation
 
   return {
     rules: {
       userAgent: '*',
-      disallow: '/',
+      allow: '/',
+      disallow: [
+        '/api/',           // Routes API privées
+        '/_next/',         // Assets Next.js internes
+        '/admin/',         // Panel admin (si existant)
+      ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   }
-
-  /*
-  CONFIGURATION PRODUCTION (À ACTIVER AU LANCEMENT) :
-
-  return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: [
-          '/api/',
-          '/devis?*',
-          '/_next/',
-          '/admin/',
-        ],
-      },
-    ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-  }
-  */
 }
