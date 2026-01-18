@@ -3,6 +3,70 @@
    Design magazine avec typographie Inter + Merriweather
    ============================================ */
 
+/* Force single column layout */
+.prose {
+  column-count: unset !important;
+  columns: unset !important;
+  column-width: unset !important;
+  column-gap: unset !important;
+  column-rule: unset !important;
+  display: block !important;
+}
+
+.prose > *,
+.prose > p,
+.prose > ul,
+.prose > ol,
+.prose > blockquote,
+.prose > div,
+.prose > h2,
+.prose > h3 {
+  break-inside: avoid !important;
+  column-span: all !important;
+  page-break-inside: avoid !important;
+}
+
+/* Sticky sidebars */
+.sidebar-sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 6rem !important;
+  z-index: 10;
+  height: fit-content;
+  align-self: flex-start !important;
+}
+
+/* Article padding */
+.article-padded {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+/* Content margin forcing */
+.content-centered {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.content-centered > * {
+  max-width: 100% !important;
+}
+
+.prose h2,
+.prose h3,
+.prose h4,
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose table,
+.prose div {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 /* Typography */
 .prose h2 {
   font-family: 'Inter', sans-serif;
@@ -10,7 +74,8 @@
   font-weight: 300;
   font-style: italic;
   color: #111827;
-  margin-top: 3rem;
+  margin-top: 4rem;
+  /* mt-16 - Isolation des titres */
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #d4af37;
@@ -21,7 +86,8 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: #1f2937;
-  margin-top: 2.5rem;
+  margin-top: 3rem;
+  /* mt-12 - Isolation des sous-titres */
   margin-bottom: 1rem;
 }
 
@@ -37,7 +103,13 @@
 /* Paragraphs */
 .prose p {
   margin-bottom: 1.5rem;
-  line-height: 1.9;
+  line-height: 1.75;
+  /* leading-loose pour aération maximale */
+}
+
+.prose-lg p {
+  font-size: 1.125rem;
+  line-height: 1.75;
 }
 
 .prose p.lead {
@@ -56,7 +128,8 @@
 
 .prose li {
   margin-bottom: 0.75rem;
-  line-height: 1.8;
+  line-height: 1.625;
+  /* leading-relaxed */
 }
 
 /* Links - Auto-linked */
@@ -92,12 +165,12 @@
 /* Blockquotes */
 .prose blockquote {
   border-left: 4px solid #d4af37;
-  padding-left: 1.5rem;
-  margin: 2rem 0;
+  padding-left: 2rem;
+  margin: 3rem 0;
   font-style: italic;
   color: #4b5563;
   background-color: #fafaf9;
-  padding: 1.5rem;
+  padding: 2.5rem;
   border-radius: 0.5rem;
 }
 
@@ -137,9 +210,9 @@
 
 /* Custom Components */
 .prose .alert {
-  padding: 1.5rem;
+  padding: 2.5rem;
   border-radius: 0.75rem;
-  margin: 2rem 0;
+  margin: 3rem 0;
   border-left: 4px solid;
 }
 
@@ -152,15 +225,15 @@
 .prose .price-table {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 2rem;
+  margin: 3rem 0;
 }
 
 .prose .price-card {
   background: white;
   border: 2px solid #e5e7eb;
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 3rem;
   transition: all 0.3s ease;
 }
 
@@ -212,10 +285,10 @@
 .prose .cta-box {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   color: white;
-  padding: 3rem;
+  padding: 4rem;
   border-radius: 1.5rem;
   text-align: center;
-  margin: 3rem 0;
+  margin: 4rem 0;
 }
 
 .prose .cta-box h4 {
@@ -278,10 +351,10 @@
 /* Additional custom classes for rich content */
 .prose .stat-hero {
   text-align: center;
-  padding: 3rem;
+  padding: 4rem;
   background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   border-radius: 1.5rem;
-  margin: 3rem 0;
+  margin: 4rem 0;
 }
 
 .prose .stat-big .stat-value {
@@ -310,12 +383,12 @@
 .prose .science-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 2rem;
+  margin: 3rem 0;
 }
 
 .prose .science-card {
-  padding: 2rem;
+  padding: 3rem;
   background: white;
   border: 2px solid #e5e7eb;
   border-radius: 1rem;
@@ -352,17 +425,17 @@
 .prose .benefits, .prose .tips-grid, .prose .maximize-tips {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin: 2rem 0;
+  gap: 2.5rem;
+  margin: 3rem 0;
 }
 
 .prose .benefit, .prose .tip-card {
-  padding: 2rem;
+  padding: 3rem;
   background: white;
   border: 2px solid #e5e7eb;
   border-radius: 1rem;
   position: relative;
-  padding-left: 5rem;
+  padding-left: 6rem;
 }
 
 .prose .benefit-number, .prose .pillar-number {

@@ -64,7 +64,7 @@ export function NavigationLuxe() {
         "fixed top-0 left-0 right-0 z-50 border-b",
         isScrolled
           ? "bg-white/95 shadow-lg border-gray-200"
-          : "bg-gradient-to-b from-white/80 via-white/60 to-white/40 border-white/30"
+          : "bg-white/90 border-white/30"
       )}
       style={{
         willChange: 'transform',
