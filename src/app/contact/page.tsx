@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function ContactPage() {
   // Schema JSON-LD LocalBusiness
+  // Note: Adresse exacte en cours de validation juridique
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -21,15 +22,9 @@ export default function ContactPage() {
     "email": "seminaires@selectchateaux.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "15 Avenue des Châteaux",
       "addressLocality": "Paris",
-      "postalCode": "75008",
+      "addressRegion": "Île-de-France",
       "addressCountry": "FR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 48.8566,
-      "longitude": 2.3522
     },
     "openingHoursSpecification": [
       {
@@ -39,7 +34,7 @@ export default function ContactPage() {
         "closes": "18:00"
       }
     ],
-    "priceRange": "$$$",
+    "priceRange": "$$",
     "areaServed": {
       "@type": "State",
       "name": "Île-de-France"
@@ -208,12 +203,12 @@ export default function ContactPage() {
                   </div>
                   <div className="text-center">
                     <h4 className="font-bold text-gray-900 mb-2 text-xs uppercase tracking-wider">
-                      Adresse
+                      Localisation
                     </h4>
                     <p className="text-gray-700 leading-relaxed font-medium text-sm">
-                      15 Avenue des Châteaux
+                      Select Châteaux
                       <br />
-                      75008 Paris, France
+                      Paris, Île-de-France
                     </p>
                   </div>
                 </div>
