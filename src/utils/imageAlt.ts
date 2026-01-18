@@ -1,3 +1,5 @@
+import { getGeoData } from "./geo-mapping";
+
 /**
  * Génère un alt text riche et SEO-friendly pour les images de châteaux
  */
@@ -6,10 +8,14 @@ export function generateChateauAlt(
   region: string,
   context: "hero" | "card" | "gallery" = "hero"
 ): string {
+  // Récupération du code département pour enrichissement SEO
+  const { code } = getGeoData(region);
+  const geoSuffix = code ? ` ${region} (${code})` : ` ${region}`;
+
   const contextMap = {
-    hero: `Façade et parc du ${chateauNom} - Lieu de séminaire d'exception en ${region}`,
-    card: `${chateauNom} - Château pour séminaire d'entreprise en ${region}`,
-    gallery: `Vue intérieure du ${chateauNom} - Espace séminaire en ${region}`,
+    hero: `Façade et parc du ${chateauNom} - Lieu de séminaire d'exception en${geoSuffix}`,
+    card: `${chateauNom} - Château pour séminaire d'entreprise en${geoSuffix}`,
+    gallery: `Vue intérieure du ${chateauNom} - Espace séminaire en${geoSuffix}`,
   };
 
   return contextMap[context];
@@ -67,12 +73,21 @@ export function extractDescriptionFromUrl(url: string): string {
 
 /**
  * Génère un alt text complet basé sur l'URL et le contexte
+ * Enrichi avec le code département pour le SEO local
  */
 export function generateSmartAlt(
   url: string,
   chateauNom: string,
   region: string
 ): string {
+  // Récupération du code département
+  const { code } = getGeoData(region);
   const description = extractDescriptionFromUrl(url);
-  return `${description.charAt(0).toUpperCase() + description.slice(1)} - ${chateauNom} séminaire entreprise ${region}`;
+
+  // Format: "Façade du Château - Lieu de réception séminaire 60 et Oise"
+  const geoString = code
+    ? `séminaire ${code} et ${region}`
+    : `séminaire ${region}`;
+
+  return `${description.charAt(0).toUpperCase() + description.slice(1)} - ${chateauNom} ${geoString}`;
 }
