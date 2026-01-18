@@ -36,7 +36,7 @@ export function TestimonialsSection() {
 
     const interval = setInterval(() => {
       handleNext();
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [currentIndex, isPaused, cardsPerView]);
@@ -196,7 +196,7 @@ export function TestimonialsSection() {
                         >
                           <Image
                             src={testimonial.avatar}
-                            alt={testimonial.nom}
+                            alt={`Photo de ${testimonial.nom}, ${testimonial.poste} chez ${testimonial.entreprise}`}
                             fill
                             className="object-cover"
                             sizes="48px"

@@ -9,6 +9,7 @@ import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { generateEventAlt } from "@/utils/imageAlt";
 
 const iconMap: Record<string, React.ReactNode> = {
   presentation: <Presentation className="w-6 h-6" />,
@@ -19,7 +20,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function EvenementsSection() {
   return (
-    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
+    <section className="bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden" style={{ padding: 'clamp(2rem, 4vw, 3rem) 0' }}>
       {/* Glow effects subtils */}
       <div className="absolute top-1/3 left-0 rounded-full blur-3xl" style={{
         width: "384px",
@@ -40,9 +41,9 @@ export function EvenementsSection() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           className="flex flex-col items-center justify-center text-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
-          style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}
+          style={{ marginBottom: 'clamp(1.5rem, 3vw, 2rem)' }}
         >
-          <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
+          <div className="flex items-center justify-center" style={{ marginBottom: '12px' }}>
             <div style={{
               height: "1px",
               width: "48px",
@@ -60,7 +61,7 @@ export function EvenementsSection() {
             fontWeight: theme.typography.fontWeight.light,
             fontStyle: "italic",
             color: theme.colors.neutral.gray900,
-            marginBottom: 'clamp(1rem, 3vw, 2rem)',
+            marginBottom: '16px',
             fontFamily: theme.typography.fonts.heading
           }}>
             Types d'Événements
@@ -95,10 +96,10 @@ export function EvenementsSection() {
                 style={{ background: theme.colors.overlay.white80, backdropFilter: `blur(${theme.effects.blur.sm})` }}
               >
                 {/* Image avec grayscale hover */}
-                <div className="relative overflow-hidden h-40 sm:h-48 md:h-52">
+                <div className="relative overflow-hidden h-44 sm:h-48 md:h-52">
                   <Image
                     src={evenement.image}
-                    alt={evenement.titre}
+                    alt={generateEventAlt(evenement.titre)}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover group-hover:scale-110"
@@ -130,31 +131,36 @@ export function EvenementsSection() {
                 </div>
 
                 {/* Contenu */}
-                <div className="flex-1 flex flex-col" style={{ padding: spacing.lg }}>
+                <div className="flex-1 flex flex-col" style={{ padding: '20px' }}>
                   <h3 className="group-hover:text-[var(--bronze-antique)]" style={{
                     fontSize: theme.typography.fontSize["2xl"],
                     fontWeight: theme.typography.fontWeight.light,
                     fontStyle: "italic",
                     color: theme.colors.neutral.gray900,
                     fontFamily: theme.typography.fonts.heading,
-                    marginBottom: spacing.md,
-                    transition: `colors ${theme.effects.transitions.slower}`
+                    marginBottom: '16px',
+                    transition: `colors ${theme.effects.transitions.slower}`,
+                    height: '40px',
+                    display: 'flex',
+                    alignItems: 'center'
                   }}>
                     {evenement.titre}
                   </h3>
 
-                  <p className="flex-1" style={{
+                  <p style={{
                     color: theme.colors.neutral.gray600,
                     fontSize: theme.typography.fontSize.sm,
-                    lineHeight: theme.typography.lineHeight.relaxed,
-                    marginBottom: spacing.lg
+                    lineHeight: '1.6',
+                    marginBottom: '20px',
+                    height: '115px',
+                    overflow: 'hidden'
                   }}>
                     {evenement.description}
                   </p>
 
                   {/* Services inclus */}
-                  <ul className="flex flex-col" style={{ gap: spacing.sm, marginBottom: spacing.lg }}>
-                    {evenement.servicesInclus.slice(0, 3).map((service, i) => (
+                  <ul className="flex flex-col" style={{ gap: '8px', marginBottom: '20px', height: '56px' }}>
+                    {evenement.servicesInclus.slice(0, 2).map((service, i) => (
                       <li
                         key={i}
                         className="flex items-start"
@@ -171,7 +177,7 @@ export function EvenementsSection() {
                         }}>
                           •
                         </span>
-                        <span style={{ lineHeight: theme.typography.lineHeight.relaxed }}>{service}</span>
+                        <span style={{ lineHeight: '1.4' }}>{service}</span>
                       </li>
                     ))}
                   </ul>
@@ -209,7 +215,7 @@ export function EvenementsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex items-center justify-center w-full px-4 sm:px-8 md:px-12 lg:px-16"
-          style={{ marginTop: theme.spacing.section.sm }}
+          style={{ marginTop: '32px' }}
         >
           <Button
             href="/devis"

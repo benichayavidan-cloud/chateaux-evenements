@@ -154,7 +154,7 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
               >
                 <Image
                   src={image}
-                  alt={`Thumbnail ${index + 1}`}
+                  alt={`Miniature ${index + 1} - ${altPrefix}`}
                   fill
                   className="object-cover"
                   sizes="150px"

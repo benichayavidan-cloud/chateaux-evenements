@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
+import { Breadcrumb } from "@/components/Breadcrumb";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -22,6 +23,11 @@ export const metadata: Metadata = {
   title: "Châteaux Séminaire Île-de-France | Select Châteaux",
   description:
     "Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+  },
   keywords: [
     "séminaire chateau ile de france",
     "location chateau seminaire",
@@ -146,6 +152,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <NavigationLuxe />
+        <Breadcrumb />
         <main className="min-h-screen">{children}</main>
         <FooterLuxe />
       </body>

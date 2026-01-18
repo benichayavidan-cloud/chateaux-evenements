@@ -5,10 +5,11 @@ import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { reviews, reviewsStats } from "@/data/reviewsData";
 import { useState, useEffect } from "react";
 
-// Version: 1.3 - Carrousel responsive + centrage vertical + espacements forcés
+// Version: 1.4 - Auto-scroll accéléré 3 secondes
 export function ReviewsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Responsive cards per view
   useEffect(() => {
@@ -37,6 +38,17 @@ export function ReviewsSection() {
     setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
   };
 
+  // Auto-scroll toutes les 3 secondes
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      handleNext();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, isPaused, cardsPerView]);
+
   const visibleReviews = reviews.slice(currentIndex, currentIndex + cardsPerView);
 
   return (
@@ -48,7 +60,8 @@ export function ReviewsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center"
+          style={{ marginBottom: '48px' }}
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -60,15 +73,25 @@ export function ReviewsSection() {
             <span className="text-sm font-medium text-gray-600">Avis Google</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-light italic text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-light italic text-gray-900" style={{ marginBottom: '20px' }}>
             Ce que disent nos clients
           </h2>
 
-          <div className="flex items-center justify-center gap-2 mb-2">
+          <div className="flex items-center justify-center gap-2" style={{ marginBottom: '12px' }}>
             <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-6 h-6 fill-[#FBBC04] text-[#FBBC04]" />
-              ))}
+              {[...Array(5)].map((_, i) => {
+                const rating = parseFloat(reviewsStats.averageRating);
+                const filled = i < Math.floor(rating);
+
+                return (
+                  <Star
+                    key={i}
+                    className={`w-6 h-6 ${
+                      filled ? "fill-[#FBBC04] text-[#FBBC04]" : "fill-gray-300 text-gray-300"
+                    }`}
+                  />
+                );
+              })}
             </div>
             <span className="text-2xl font-semibold text-gray-900">{reviewsStats.averageRating}</span>
           </div>
@@ -79,7 +102,11 @@ export function ReviewsSection() {
         </motion.div>
 
         {/* Carrousel */}
-        <div className="relative">
+        <div
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Cartes visibles */}
           <div className="overflow-hidden">
             <AnimatePresence mode="wait">
@@ -100,35 +127,41 @@ export function ReviewsSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full"
-                    style={{ padding: '10px' }}
+                    className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
+                    style={{ padding: '20px 24px' }}
                   >
-                    {/* Header avec avatar et infos */}
-                    <div className="flex items-start gap-4 mb-6">
-                      {/* Avatar avec initiales */}
+                    {/* SECTION 1: Header - Avatar + Nom */}
+                    <div className="flex items-center gap-3" style={{ marginBottom: '8px' }}>
+                      {/* Avatar */}
                       <div
-                        className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold text-lg"
+                        className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm"
                         style={{ backgroundColor: review.color }}
                       >
                         {review.initials}
                       </div>
 
-                      {/* Infos auteur */}
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 text-base truncate">
+                      {/* Nom + poste/entreprise */}
+                      <div className="flex-1 min-w-0" style={{ minHeight: '40px' }}>
+                        <h3 className="font-semibold text-gray-900 text-sm" style={{ marginBottom: '4px' }}>
                           {review.author}
                         </h3>
-                        <p className="text-sm text-gray-600 truncate">
-                          {review.role}
+                        <p className="text-xs text-gray-600 line-clamp-1">
+                          {review.role} • {review.company}
                         </p>
-                        <p className="text-sm font-medium text-gray-900 truncate">
-                          {review.company}
-                        </p>
+                      </div>
+
+                      {/* Menu 3 points */}
+                      <div className="flex-shrink-0 text-gray-400">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                          <circle cx="10" cy="4" r="1.5"/>
+                          <circle cx="10" cy="10" r="1.5"/>
+                          <circle cx="10" cy="16" r="1.5"/>
+                        </svg>
                       </div>
                     </div>
 
-                    {/* Étoiles et date */}
-                    <div className="flex items-center justify-between mb-3">
+                    {/* SECTION 2: Rating - Étoiles + Date */}
+                    <div className="flex items-center gap-2" style={{ marginBottom: '16px', marginLeft: '52px' }}>
                       <div className="flex gap-0.5">
                         {[...Array(5)].map((_, i) => (
                           <Star
@@ -141,25 +174,33 @@ export function ReviewsSection() {
                           />
                         ))}
                       </div>
-                      <span className="text-xs text-gray-500">{review.date}</span>
+                      <span className="text-xs text-gray-600">{review.date}</span>
                     </div>
 
-                    {/* Contenu de l'avis */}
-                    <p className="text-gray-700 text-sm leading-relaxed flex-grow">
+                    {/* SECTION 3: Contenu - Texte de l'avis */}
+                    <p
+                      className="text-gray-900 text-sm leading-relaxed line-clamp-4"
+                      style={{
+                        marginBottom: '20px',
+                        minHeight: '84px',
+                        display: '-webkit-box',
+                        WebkitLineClamp: 4,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
+                      }}
+                    >
                       {review.content}
                     </p>
 
-                    {/* Badge Google en bas */}
-                    <div className="mt-4 pt-4 border-t border-gray-100">
-                      <div className="flex items-center gap-1.5">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                        </svg>
-                        <span className="text-xs text-gray-500 font-medium">Publié sur Google</span>
-                      </div>
+                    {/* SECTION 4: Footer - Badge Google */}
+                    <div className="flex items-center gap-1.5 pt-4 border-t border-gray-100">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                      <span className="text-xs text-gray-500 font-medium">Publié sur Google</span>
                     </div>
                   </motion.div>
                 ))}

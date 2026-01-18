@@ -209,12 +209,12 @@ export default function ChateauxPage() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState<{ [key: string]: number }>({});
 
-  // Auto-play du slider
+  // Auto-play du slider - 3 secondes
   useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % chateaux.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
 

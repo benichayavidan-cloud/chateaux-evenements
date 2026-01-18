@@ -9,10 +9,11 @@ import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { generateChateauAlt } from "@/utils/imageAlt";
 
 export function ChateauxSection() {
   return (
-    <section className="bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden" style={{ padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
+    <section className="bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden" style={{ paddingTop: '40px', paddingBottom: '40px' }}>
       {/* Glow effect subtil */}
       <div className="absolute top-0 left-1/4 rounded-full blur-3xl" style={{
         width: "384px",
@@ -33,15 +34,15 @@ export function ChateauxSection() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
           className="flex flex-col items-center justify-center text-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
-          style={{ marginBottom: 'clamp(2.5rem, 6vw, 4rem)' }}
+          style={{ marginBottom: '32px' }}
         >
-          <div className="flex items-center justify-center" style={{ marginBottom: spacing.lg }}>
+          <div className="flex items-center justify-center" style={{ marginBottom: '12px' }}>
             <div style={{
               height: "1px",
               width: "48px",
               background: `linear-gradient(to right, transparent, ${colors.bronze})`
             }} />
-            <Sparkles className="w-4 h-4" style={{ color: colors.bronze, margin: `0 ${spacing.lg}` }} />
+            <Sparkles className="w-4 h-4" style={{ color: colors.bronze, margin: `0 16px` }} />
             <div style={{
               height: "1px",
               width: "48px",
@@ -53,7 +54,7 @@ export function ChateauxSection() {
             fontWeight: theme.typography.fontWeight.light,
             fontStyle: "italic",
             color: theme.colors.neutral.gray900,
-            marginBottom: 'clamp(1rem, 3vw, 2rem)',
+            marginBottom: '12px',
             fontFamily: theme.typography.fonts.heading
           }}>
             Nos Châteaux d'Exception
@@ -71,7 +72,7 @@ export function ChateauxSection() {
         </motion.div>
 
         {/* Grille de cartes châteaux */}
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full px-4 sm:px-8 md:px-12 lg:px-16" style={{ gap: 'clamp(1rem, 3vw, 2rem)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full px-4 sm:px-8 md:px-12 lg:px-16" style={{ gap: '24px' }}>
           {chateaux.map((chateau, index) => (
             <motion.div
               key={chateau.id}
@@ -91,7 +92,7 @@ export function ChateauxSection() {
                 <div className="relative overflow-hidden" style={{ height: 'clamp(18rem, 45vw, 28rem)' }}>
                   <Image
                     src={chateau.images.card}
-                    alt={chateau.nom}
+                    alt={generateChateauAlt(chateau.nom, chateau.region, "card")}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover group-hover:scale-105"
@@ -257,7 +258,7 @@ export function ChateauxSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex items-center justify-center w-full"
-          style={{ marginTop: 'clamp(2.5rem, 6vw, 4rem)', padding: `0 clamp(1rem, 3vw, 1.25rem)` }}
+          style={{ marginTop: '32px', padding: `0 clamp(1rem, 3vw, 1.25rem)` }}
         >
           <Link
             href="/chateaux"

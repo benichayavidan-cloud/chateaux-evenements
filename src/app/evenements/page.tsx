@@ -10,8 +10,61 @@ import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
 export default function EvenementsPage() {
+  // Schema JSON-LD Service
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.selectchateaux.com/evenements#service",
+    "name": "Organisation d'Événements d'Entreprise en Château",
+    "description": "Service complet d'organisation d'événements professionnels (séminaires, team building, soirées d'entreprise) dans des châteaux d'exception en Île-de-France",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://www.selectchateaux.com/#organization",
+      "name": "Select Châteaux"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Île-de-France"
+    },
+    "serviceType": "Organisation d'événements professionnels",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Entreprises"
+    },
+    "serviceOutput": [
+      {
+        "@type": "Thing",
+        "name": "Séminaire d'entreprise"
+      },
+      {
+        "@type": "Thing",
+        "name": "Team building"
+      },
+      {
+        "@type": "Thing",
+        "name": "Événement corporate"
+      },
+      {
+        "@type": "Thing",
+        "name": "CODIR"
+      }
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "EUR",
+      "priceRange": "$$$"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Schema JSON-LD Service */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+
       {/* Hero Section */}
       <div className="hero-section">
         <Image

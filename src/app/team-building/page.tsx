@@ -18,8 +18,72 @@ export default function TeamBuildingPage() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
 
+  // Schema JSON-LD Service
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.selectchateaux.com/team-building#service",
+    "name": "Team Building d'Exception en Château",
+    "description": "Organisation d'activités de team building sur-mesure dans des châteaux d'exception en Île-de-France : escape game, challenges créatifs, cohésion d'équipe, leadership training",
+    "provider": {
+      "@type": "Organization",
+      "@id": "https://www.selectchateaux.com/#organization",
+      "name": "Select Châteaux"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Île-de-France"
+    },
+    "serviceType": "Team Building et Cohésion d'Équipe",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Entreprises et équipes professionnelles"
+    },
+    "serviceOutput": [
+      {
+        "@type": "Thing",
+        "name": "Challenges Créatifs"
+      },
+      {
+        "@type": "Thing",
+        "name": "Escape Game Château"
+      },
+      {
+        "@type": "Thing",
+        "name": "Cohésion d'Équipe"
+      },
+      {
+        "@type": "Thing",
+        "name": "Leadership Training"
+      },
+      {
+        "@type": "Thing",
+        "name": "Olympiades d'Entreprise"
+      }
+    ],
+    "offers": {
+      "@type": "AggregateOffer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "EUR",
+      "priceRange": "$$$"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "500",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Schema JSON-LD Service */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+
       {/* Hero Section avec Parallax */}
       <div ref={heroRef} className="hero-section">
         <motion.div style={{ y }} className="absolute inset-0">

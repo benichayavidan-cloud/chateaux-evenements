@@ -7,8 +7,64 @@ import { Mail, Phone, MapPin, Clock, Send, Sparkles } from "lucide-react";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function ContactPage() {
+  // Schema JSON-LD LocalBusiness
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://www.selectchateaux.com/#organization",
+    "name": "Select Châteaux",
+    "description": "Agence spécialisée dans l'organisation de séminaires d'entreprise et événements professionnels dans des châteaux d'exception en Île-de-France",
+    "url": "https://www.selectchateaux.com/",
+    "logo": "https://www.selectchateaux.com/logo.png",
+    "image": "https://www.selectchateaux.com/og-image.jpg",
+    "telephone": "+33757991146",
+    "email": "seminaires@selectchateaux.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "15 Avenue des Châteaux",
+      "addressLocality": "Paris",
+      "postalCode": "75008",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.8566,
+      "longitude": 2.3522
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "priceRange": "$$$",
+    "areaServed": {
+      "@type": "State",
+      "name": "Île-de-France"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "120",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/select-chateaux",
+      "https://www.instagram.com/selectchateaux"
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      {/* Schema JSON-LD LocalBusiness */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+
       {/* Hero Section avec image château et jardin */}
       <div style={{ height: '75vh' }} className="relative overflow-hidden">
         <Image

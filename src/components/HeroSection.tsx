@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
+import { generateSmartAlt } from "@/utils/imageAlt";
 
 const heroSlides = chateaux.map((chateau) => ({
   image: chateau.images.hero[0],
@@ -23,7 +24,7 @@ export function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(timer);
   }, []);
@@ -52,7 +53,11 @@ export function HeroSection() {
         >
           <Image
             src={heroSlides[currentSlide].image}
-            alt={heroSlides[currentSlide].title}
+            alt={generateSmartAlt(
+              heroSlides[currentSlide].image,
+              heroSlides[currentSlide].title,
+              heroSlides[currentSlide].region
+            )}
             fill
             sizes="100vw"
             className="object-cover"
@@ -263,14 +268,15 @@ function StatBadge({ icon, value, label }: { icon: React.ReactNode; value: strin
       >
         {icon}
       </div>
-      <div>
+      <div className="flex flex-col justify-center">
         <div
-          className="leading-none mb-0.5"
+          className="leading-none"
           style={{
             fontFamily: theme.typography.fonts.heading,
             fontSize: theme.typography.fontSize.lg,
             fontWeight: theme.typography.fontWeight.medium,
             color: theme.colors.text.primary,
+            marginBottom: '2px',
           }}
         >
           {value}

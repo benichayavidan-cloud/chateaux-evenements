@@ -402,7 +402,7 @@ export default function ChateauPage() {
                 >
                   <Image
                     src={chateau.images.galerie[1] || chateau.images.hero[2]}
-                    alt={`Chambres ${chateau.nom}`}
+                    alt={`Chambres et hébergement du ${chateau.nom} - Séminaire résidentiel en ${chateau.region}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
@@ -435,7 +435,7 @@ export default function ChateauPage() {
                 >
                   <Image
                     src={chateau.images.galerie[2] || chateau.images.hero[1]}
-                    alt={`Salles de réunion ${chateau.nom}`}
+                    alt={`Salles de réunion et espaces séminaire du ${chateau.nom} - Équipement professionnel en ${chateau.region}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
