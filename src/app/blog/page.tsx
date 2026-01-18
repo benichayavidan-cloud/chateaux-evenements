@@ -42,7 +42,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-40 pb-32 px-6 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -58,7 +58,7 @@ export default function BlogPage() {
             className="text-center max-w-4xl mx-auto"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--bronze-antique)]/10 to-amber-600/10 backdrop-blur-sm px-6 py-3 rounded-full border border-[var(--bronze-antique)]/20 mb-8">
+            <div className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[var(--bronze-antique)]/10 to-amber-600/10 backdrop-blur-sm px-6 py-3 rounded-full border border-[var(--bronze-antique)]/20 mb-10">
               <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
               <span className="text-sm font-medium text-gray-900 tracking-wide">
                 Magazine Digital
@@ -89,13 +89,13 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 pb-20">
+      <div className="max-w-7xl mx-auto px-6 py-24">
         {/* Filtres Catégories */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-16"
+          className="flex flex-wrap items-center justify-center gap-4 mb-20"
         >
           <div className="flex items-center gap-2 text-gray-600 mr-4">
             <Filter className="w-4 h-4" />
@@ -105,7 +105,7 @@ export default function BlogPage() {
             <button
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
-              className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
+              className={`inline-flex items-center justify-center px-8 py-4 rounded-full font-medium text-sm transition-all duration-300 min-h-[48px] ${
                 selectedCategory === cat.value
                   ? "bg-[var(--bronze-antique)] text-white shadow-lg scale-105"
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-[var(--bronze-antique)] hover:text-[var(--bronze-antique)]"
@@ -127,7 +127,7 @@ export default function BlogPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mb-20"
+            className="mb-32"
           >
             <Link href={`/blog/${featuredPost.slug}`}>
               <div className="group relative overflow-hidden rounded-3xl bg-white shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
@@ -148,7 +148,7 @@ export default function BlogPage() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-10 md:p-12 flex flex-col justify-center">
+                  <div className="p-12 md:p-16 flex flex-col justify-center">
                     {/* Category */}
                     <div className="inline-flex items-center gap-2 text-sm font-medium text-[var(--bronze-antique)] mb-4">
                       <span className="w-2 h-2 bg-[var(--bronze-antique)] rounded-full" />
@@ -195,7 +195,7 @@ export default function BlogPage() {
 
         {/* Articles Grid */}
         {filteredPosts.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {filteredPosts.map((post, index) => (
               <motion.div
                 key={post.id}
@@ -219,7 +219,7 @@ export default function BlogPage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
+                    <div className="p-8">
                       {/* Category */}
                       <div className="inline-flex items-center gap-2 text-xs font-medium text-[var(--bronze-antique)] mb-3">
                         <span className="w-1.5 h-1.5 bg-[var(--bronze-antique)] rounded-full" />
@@ -269,7 +269,7 @@ export default function BlogPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-6">
+      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -286,7 +286,7 @@ export default function BlogPage() {
             </p>
             <Link
               href="/devis"
-              className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white px-10 py-5 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl min-h-[64px]"
             >
               <span>Demander un Devis Gratuit</span>
               <ArrowRight className="w-5 h-5" />

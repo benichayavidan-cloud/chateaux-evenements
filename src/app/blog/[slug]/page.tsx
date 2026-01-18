@@ -100,7 +100,7 @@ export default function BlogArticlePage() {
         {/* Back Button */}
         <Link
           href="/blog"
-          className="absolute top-8 left-8 z-20 flex items-center gap-2 text-white bg-white/10 backdrop-blur-md px-4 py-2 rounded-full hover:bg-white/20 transition-all duration-300"
+          className="absolute top-8 left-8 z-20 inline-flex items-center justify-center gap-2 text-white bg-white/10 backdrop-blur-md px-6 py-4 rounded-full hover:bg-white/20 transition-all duration-300 min-h-[48px]"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Retour au blog</span>
@@ -115,7 +115,7 @@ export default function BlogArticlePage() {
               transition={{ duration: 0.8 }}
             >
               {/* Category Badge */}
-              <div className="inline-flex items-center gap-2 bg-[var(--bronze-antique)] text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="inline-flex items-center justify-center gap-2 bg-[var(--bronze-antique)] text-white px-6 py-3 rounded-full text-sm font-medium mb-8 min-h-[40px]">
                 <span className="w-1.5 h-1.5 bg-white rounded-full" />
                 {article.category === "organisation" && "Organisation"}
                 {article.category === "lieux" && "Lieux & Géographie"}
@@ -156,8 +156,8 @@ export default function BlogArticlePage() {
       </div>
 
       {/* Main Content avec Sidebar */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr_300px] gap-12">
+      <div className="max-w-7xl mx-auto px-6 py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr_300px] gap-16">
           {/* Sticky Table of Contents (Left) */}
           <aside className="hidden lg:block">
             <div className="sticky top-24">
@@ -249,7 +249,7 @@ export default function BlogArticlePage() {
               </div>
 
               {/* CTA Card */}
-              <div className="p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl text-white shadow-2xl">
+              <div className="p-10 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl text-white shadow-2xl">
                 <Sparkles className="w-10 h-10 text-[var(--bronze-antique)] mb-4" />
                 <h3 className="text-2xl font-light italic mb-3">
                   Séduit ?
@@ -259,7 +259,7 @@ export default function BlogArticlePage() {
                 </p>
                 <Link
                   href="/devis"
-                  className="w-full flex items-center justify-center gap-2 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 min-h-[56px]"
                 >
                   <span>Devis Gratuit</span>
                   <ArrowRight className="w-4 h-4" />
@@ -291,12 +291,12 @@ export default function BlogArticlePage() {
 
       {/* Related Articles */}
       {relatedPosts.length > 0 && (
-        <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
+        <section className="bg-gradient-to-b from-gray-50 to-white py-32 px-6">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-4xl font-light italic text-gray-900 mb-12 text-center">
               À Lire Aussi
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-10">
               {relatedPosts.map((post) => (
                 <Link key={post.id} href={`/blog/${post.slug}`}>
                   <article className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full">
@@ -309,7 +309,7 @@ export default function BlogArticlePage() {
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     </div>
-                    <div className="p-6">
+                    <div className="p-8">
                       <div className="inline-flex items-center gap-2 text-xs font-medium text-[var(--bronze-antique)] mb-3">
                         <span className="w-1.5 h-1.5 bg-[var(--bronze-antique)] rounded-full" />
                         {post.category === "organisation" && "Organisation"}
@@ -333,7 +333,7 @@ export default function BlogArticlePage() {
       )}
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20 px-6">
+      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <Sparkles className="w-12 h-12 text-[var(--bronze-antique)] mx-auto mb-6" />
           <h2 className="text-4xl font-light italic mb-6">
@@ -344,7 +344,7 @@ export default function BlogArticlePage() {
           </p>
           <Link
             href="/devis"
-            className="inline-flex items-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white px-10 py-5 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl min-h-[64px]"
           >
             <span>Obtenir mon Devis Gratuit</span>
             <ArrowRight className="w-5 h-5" />
