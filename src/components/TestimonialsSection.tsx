@@ -251,16 +251,16 @@ export function TestimonialsSection() {
           </div>
 
           {/* Indicateurs de pagination */}
-          <div className="flex justify-center items-center" style={{ marginTop: 'clamp(2.5rem, 6vw, 3.75rem)', gap: 'clamp(0.5rem, 2vw, 0.75rem)' }}>
+          <div className="flex justify-center items-center overflow-x-auto" style={{ marginTop: 'clamp(2.5rem, 6vw, 3.75rem)', gap: '4px' }}>
             {Array.from({ length: maxIndex + 1 }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className="transition-all duration-300"
+                className="transition-all duration-300 flex-shrink-0"
                 style={{
-                  width: currentIndex === index ? 'clamp(20px, 5vw, 32px)' : 'clamp(6px, 2vw, 8px)',
-                  height: 'clamp(6px, 2vw, 8px)',
-                  borderRadius: 'clamp(3px, 1vw, 4px)',
+                  width: currentIndex === index ? '10px' : '3px',
+                  height: '3px',
+                  borderRadius: '50%',
                   background: currentIndex === index ? colors.bronze : '#d1d5db',
                   boxShadow: currentIndex === index ? `0 2px 6px ${colors.bronze}30` : 'none'
                 }}

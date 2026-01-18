@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Check, Sparkles, Calendar, Users, Trophy } from "lucide-react";
 import { typesEvenements } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export default function EvenementsPage() {
   return (
@@ -272,7 +272,7 @@ export default function EvenementsPage() {
       </div>
 
       {/* Section Témoignages */}
-      <TestimonialsSection />
+      <ReviewsSection />
     </div>
   );
 }

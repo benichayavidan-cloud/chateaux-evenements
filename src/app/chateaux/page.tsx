@@ -9,7 +9,7 @@ import { colors, spacing } from "@/config/themeHelpers";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ReviewsSection } from "@/components/ReviewsSection";
 import { useState, useEffect } from "react";
 
 // ============================================
@@ -426,16 +426,16 @@ export default function ChateauxPage() {
           <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
             <div className="flex items-center justify-center">
               {/* Indicateurs */}
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 {chateaux.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}
-                    className="transition-all"
+                    className="transition-all flex-shrink-0"
                     style={{
-                      width: currentSlide === index ? "48px" : "12px",
-                      height: "12px",
-                      borderRadius: theme.effects.borderRadius.full,
+                      width: currentSlide === index ? "10px" : "3px",
+                      height: "3px",
+                      borderRadius: "50%",
                       background: currentSlide === index ? colors.gold : theme.colors.overlay.white30,
                       backdropFilter: `blur(${theme.effects.blur.sm})`,
                     }}
@@ -777,7 +777,7 @@ export default function ChateauxPage() {
       {/* ============================================ */}
       {/* SECTION 4: TÉMOIGNAGES CLIENTS */}
       {/* ============================================ */}
-      <TestimonialsSection />
+      <ReviewsSection />
 
       {/* ============================================ */}
       {/* SECTION 5: CTA FINALE - MODULABLE */}

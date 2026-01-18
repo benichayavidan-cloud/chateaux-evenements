@@ -735,3 +735,14 @@ h1, h2, h3, h4, h5, h6 {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* ============================================
+   MOBILE PADDING - 7px sur tous les côtés
+   ============================================ */
+
+@media (max-width: 767px) {
+  main {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+}
