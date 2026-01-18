@@ -73,7 +73,8 @@ export default function EvenementsPage() {
           fill
           className="object-cover"
           priority
-          quality={90}
+          sizes="100vw"
+          quality={80}
         />
         {/* Overlay CLAIR */}
         <div className="hero-overlay-light" />
@@ -163,6 +164,8 @@ export default function EvenementsPage() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="50vw"
+                      loading="lazy"
+                      quality={75}
                     />
                   </div>
                 </motion.div>

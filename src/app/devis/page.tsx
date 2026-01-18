@@ -81,6 +81,8 @@ export default function DevisPage() {
               fill
               className="object-cover"
               priority
+              sizes="100vw"
+              quality={80}
             />
           </div>
 

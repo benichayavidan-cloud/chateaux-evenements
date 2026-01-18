@@ -63,12 +63,13 @@ export default function ContactPage() {
       {/* Hero Section avec image château et jardin */}
       <div style={{ height: '75vh' }} className="relative overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=90"
+          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80"
           alt="Contact - Château et jardins"
           fill
           className="object-cover"
           priority
-          quality={90}
+          sizes="100vw"
+          quality={80}
         />
         {/* Overlay CLAIR - Style lumineux */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/25 to-white/50" />

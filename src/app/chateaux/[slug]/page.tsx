@@ -105,7 +105,7 @@ export default function ChateauPage() {
             fill
             className="object-cover"
             priority
-            quality={95}
+            quality={85}
             sizes="100vw"
             style={{ filter: 'saturate(1.2) contrast(1.1) brightness(1.05)' }}
           />
@@ -406,6 +406,8 @@ export default function ChateauPage() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
+                    loading="lazy"
+                    quality={80}
                   />
                 </div>
               </motion.div>
@@ -439,6 +441,8 @@ export default function ChateauPage() {
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
+                    loading="lazy"
+                    quality={80}
                   />
                 </div>
               </motion.div>

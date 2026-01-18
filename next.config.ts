@@ -1,107 +1,134 @@
 import type { NextConfig } from "next";
 
+/**
+ * Configuration Next.js optimisée pour Core Web Vitals
+ * Objectif: 100/100 sur PageSpeed Insights
+ */
 const nextConfig: NextConfig = {
   images: {
+    // 1. Formats modernes (AVIF prioritaire, puis WebP fallback)
+    formats: ["image/avif", "image/webp"],
+
+    // 2. Remote patterns - Autorisation stricte des domaines externes
     remotePatterns: [
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "picsum.photos",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "cdn.simpleicons.org",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "logo.clearbit.com",
-        port: "",
-        pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "jmeiepmtgidqtmxfnlwf.supabase.co",
-        port: "",
-        pathname: "/storage/v1/object/public/**",
+        hostname: "*.supabase.co", // Wildcard pour tous les projets Supabase
       },
     ],
-    unoptimized: process.env.NODE_ENV === 'development',
-    formats: ["image/avif", "image/webp"],
+
+    // 3. Désactiver l'optimisation en dev pour vitesse de build
+    unoptimized: process.env.NODE_ENV === "development",
+
+    // 4. Breakpoints responsive (basés sur les devices réels)
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+
+    // 5. Cache agressif (1 an)
     minimumCacheTTL: 31536000,
-    qualities: [75, 85, 90, 95],
+
+    // 6. Qualité par défaut (compromise perf/qualité)
+    // Note: Peut être overridé par composant avec prop quality
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+
+  // Compression Gzip/Brotli activée
   compress: true,
+
+  // Mode strict React
   reactStrictMode: true,
+
+  // Retirer l'en-tête X-Powered-By (sécurité)
   poweredByHeader: false,
+
+  // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
-  // Headers de sécurité pour la production
+
+  // Headers de sécurité et performance
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: [
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
           },
           {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
           },
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
           },
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
           },
           {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
           },
           {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+          },
+        ],
+      },
+      // Cache agressif pour les assets statiques
+      {
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },
     ];
   },
-  // Redirections 301 des anciens slugs vers les nouveaux (SEO)
+
+  // Redirections 301 (SEO)
   async redirects() {
     return [
       {
-        source: '/chateaux/domaine-grands-bois-chantilly',
-        destination: '/chateaux/manoir-anglo-normand-chantilly',
-        permanent: true, // 301 redirect
+        source: "/chateaux/domaine-grands-bois-chantilly",
+        destination: "/chateaux/manoir-anglo-normand-chantilly",
+        permanent: true,
       },
       {
-        source: '/chateaux/domaine-hauts-de-seine',
-        destination: '/chateaux/hotel-historique-seminaire-paris-92',
-        permanent: true, // 301 redirect
+        source: "/chateaux/domaine-hauts-de-seine",
+        destination: "/chateaux/hotel-historique-seminaire-paris-92",
+        permanent: true,
       },
       {
-        source: '/chateaux/monastere-vallee-chevreuse',
-        destination: '/chateaux/abbaye-millenaire-vallee-chevreuse',
-        permanent: true, // 301 redirect
+        source: "/chateaux/monastere-vallee-chevreuse",
+        destination: "/chateaux/abbaye-millenaire-vallee-chevreuse",
+        permanent: true,
       },
     ];
   },
