@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { chateaux } from '@/data/chateaux'
+import { blogPosts } from '@/data/blog-posts'
 
 /**
  * Sitemap.ts - Génération dynamique du sitemap XML
@@ -7,13 +8,17 @@ import { chateaux } from '@/data/chateaux'
  * Structure:
  * - Pages statiques (/, /devis, /contact, etc.)
  * - Pages dynamiques des châteaux (/chateaux/[slug])
+ * - Pages blog (/blog, /blog/[slug]) - 30 articles
  *
  * Priorités:
  * - 1.0 : Homepage + /devis (money page)
  * - 0.9 : /chateaux (page listing)
- * - 0.8 : Pages châteaux individuelles + pages principales
- * - 0.7 : Contact
+ * - 0.8 : Pages châteaux individuelles + pages principales + /blog
+ * - 0.7 : Contact + articles blog
  * - 0.3 : Pages légales
+ *
+ * NOTE: Le site est en mode pré-prod avec robots: { index: false }.
+ * Ce sitemap est préparé pour le jour de l'activation.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.selectchateaux.com'
@@ -89,6 +94,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8, // Priorité importante pour les pages produits
   }))
 
-  // 4. Retour du sitemap complet
-  return [...staticPages, ...chateauxPages, ...legalPages]
+  // 4. Page listing blog
+  const blogListingPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8, // Priorité importante pour le contenu SEO
+    }
+  ]
+
+  // 5. Pages articles blog (30 articles)
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7, // Contenu régulièrement mis à jour
+  }))
+
+  // 6. Retour du sitemap complet (prêt pour l'indexation future)
+  return [
+    ...staticPages,
+    ...chateauxPages,
+    ...blogListingPage,
+    ...blogPages,
+    ...legalPages
+  ]
 }

@@ -54,6 +54,89 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BlogArticleLayout({ children }: Props) {
-  return <>{children}</>;
+export default async function BlogArticleLayout({ children, params }: Props) {
+  const { slug } = await params;
+  const article = getBlogPostBySlug(slug);
+
+  // Si l'article n'existe pas, retourner sans schemas
+  if (!article) {
+    return <>{children}</>;
+  }
+
+  // Schema JSON-LD Article (BlogPosting)
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": article.title,
+    "description": article.excerpt,
+    "image": `https://www.selectchateaux.com${article.image}`,
+    "datePublished": article.publishedAt,
+    "dateModified": article.publishedAt,
+    "author": {
+      "@type": "Person",
+      "name": article.author.name,
+      "jobTitle": article.author.role
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://www.selectchateaux.com/#organization",
+      "name": "Select Châteaux",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.selectchateaux.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.selectchateaux.com/blog/${article.slug}`
+    },
+    "keywords": article.keywords.join(", "),
+    "articleSection": article.category,
+    "wordCount": Math.floor(article.content.length / 6), // Estimation
+    "inLanguage": "fr-FR"
+  };
+
+  // Schema JSON-LD Breadcrumb
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://www.selectchateaux.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://www.selectchateaux.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": article.title,
+        "item": `https://www.selectchateaux.com/blog/${article.slug}`
+      }
+    ]
+  };
+
+  return (
+    <>
+      {/* Schema JSON-LD Article - Invisible pour l'utilisateur, crucial pour SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
+      {/* Schema JSON-LD Breadcrumb - Pour rich snippets Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
+      {children}
+    </>
+  );
 }
