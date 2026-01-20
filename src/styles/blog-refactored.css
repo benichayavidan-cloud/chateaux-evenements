@@ -1,0 +1,351 @@
+/* ============================================
+   BLOG & MARKDOWN STYLES - REFACTORED
+   Clean CSS with Tailwind-first approach
+   ============================================ */
+
+/* Force single column layout */
+.prose {
+  column-count: unset;
+  columns: unset;
+  column-width: unset;
+  column-gap: unset;
+  column-rule: unset;
+  display: block;
+}
+
+.prose > * {
+  break-inside: avoid;
+  column-span: all;
+  page-break-inside: avoid;
+}
+
+/* Sticky sidebars */
+.sidebar-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6rem;
+  z-index: 10;
+  height: fit-content;
+  align-self: flex-start;
+}
+
+/* Article content container with responsive padding */
+.article-content {
+  @apply px-4 md:px-10 lg:px-10;
+}
+
+.prose-container {
+  @apply w-full;
+}
+
+/* Typography - using @apply for consistency */
+.prose h2 {
+  @apply font-sans text-3xl font-light italic text-gray-900;
+  @apply mt-16 mb-6 pb-2;
+  @apply border-b-2 border-[#d4af37];
+}
+
+.prose h3 {
+  @apply font-sans text-2xl font-semibold text-gray-800;
+  @apply mt-12 mb-4;
+}
+
+.prose h4 {
+  @apply font-sans text-xl font-semibold text-gray-700;
+  @apply mt-8 mb-3;
+}
+
+/* Paragraphs */
+.prose p {
+  @apply mb-6 leading-loose;
+}
+
+.prose-lg p {
+  @apply text-lg leading-loose;
+}
+
+.prose p.lead {
+  @apply text-xl font-normal text-gray-600;
+  @apply mb-8 leading-relaxed;
+}
+
+/* Lists */
+.prose ul,
+.prose ol {
+  @apply ml-6 mb-6;
+}
+
+.prose li {
+  @apply mb-3 leading-relaxed;
+}
+
+/* Links - Auto-linked */
+.prose .auto-link {
+  @apply text-[#d4af37] underline decoration-[#d4af37]/30;
+  @apply underline-offset-4 transition-all duration-300;
+  @apply font-medium;
+}
+
+.prose .auto-link:hover {
+  @apply text-[#b8941f] decoration-[#d4af37];
+  @apply bg-[#d4af37]/5 px-1 rounded;
+}
+
+/* Regular links */
+.prose a:not(.auto-link) {
+  @apply text-blue-600 no-underline;
+  @apply border-b border-blue-600/30;
+  @apply transition-colors duration-300;
+}
+
+.prose a:not(.auto-link):hover {
+  @apply border-blue-600;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-l-4 border-[#d4af37];
+  @apply pl-8 my-12 italic text-gray-600;
+  @apply bg-stone-50 p-10 rounded-lg;
+}
+
+.prose blockquote cite {
+  @apply block mt-4 text-sm not-italic text-gray-500;
+}
+
+/* Tables */
+.prose table {
+  @apply w-full border-collapse my-8 text-sm;
+}
+
+.prose th {
+  @apply bg-gray-50 p-4 text-left font-semibold text-gray-900;
+  @apply border-b-2 border-gray-200;
+}
+
+.prose td {
+  @apply p-4 border-b border-gray-200;
+}
+
+.prose tr:hover {
+  @apply bg-stone-50;
+}
+
+/* Custom Components */
+.prose .alert {
+  @apply p-10 rounded-xl my-12 border-l-4;
+}
+
+.prose .alert-info {
+  @apply bg-blue-50 border-blue-500 text-blue-900;
+}
+
+.prose .price-table {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  @apply gap-8 my-12;
+}
+
+.prose .price-card {
+  @apply bg-white border-2 border-gray-200 rounded-2xl;
+  @apply p-12 transition-all duration-300;
+}
+
+.prose .price-card:hover {
+  @apply border-[#d4af37] shadow-[0_10px_40px_rgba(212,175,55,0.1)];
+  @apply -translate-y-1;
+}
+
+.prose .price-card.featured {
+  @apply border-[#d4af37];
+  @apply bg-gradient-to-br from-amber-50 to-white;
+  @apply shadow-[0_10px_40px_rgba(212,175,55,0.15)];
+}
+
+.prose .price-card h4 {
+  @apply m-0 mb-4 text-xl;
+}
+
+.prose .price-card .price {
+  @apply text-3xl font-bold text-[#d4af37] mb-6;
+}
+
+.prose .price-card ul {
+  @apply list-none p-0 m-0 mb-6;
+}
+
+.prose .price-card li {
+  @apply pl-6 relative mb-3;
+}
+
+.prose .price-card li::before {
+  content: "✓";
+  @apply absolute left-0 text-green-500 font-bold;
+}
+
+/* CTA Box */
+.prose .cta-box {
+  @apply bg-gradient-to-br from-slate-800 to-slate-900;
+  @apply text-white p-16 rounded-3xl text-center my-16;
+}
+
+.prose .cta-box h4 {
+  @apply text-white mt-0;
+}
+
+.prose .cta-box p {
+  @apply text-slate-300;
+}
+
+.prose .btn-primary {
+  @apply inline-block bg-[#d4af37] text-white;
+  @apply py-4 px-8 rounded-full font-semibold;
+  @apply no-underline transition-all duration-300 border-0;
+}
+
+.prose .btn-primary:hover {
+  @apply bg-[#b8941f] -translate-y-0.5;
+  @apply shadow-[0_10px_30px_rgba(212,175,55,0.3)];
+}
+
+.prose .guarantee {
+  @apply text-sm text-slate-400 mt-4;
+}
+
+/* Images */
+.prose img {
+  @apply rounded-2xl my-8;
+}
+
+/* Code */
+.prose code {
+  @apply bg-slate-100 px-1.5 py-0.5 rounded text-sm;
+  @apply text-slate-900;
+}
+
+.prose pre {
+  @apply bg-slate-800 text-slate-200;
+  @apply p-6 rounded-xl overflow-x-auto my-8;
+}
+
+/* Stats and Cards */
+.prose .stat-hero {
+  @apply text-center p-16;
+  @apply bg-gradient-to-br from-amber-50 to-amber-100;
+  @apply rounded-3xl my-16;
+}
+
+.prose .stat-big .stat-value {
+  @apply block text-6xl font-bold text-[#d4af37] mb-2;
+}
+
+.prose .stat-big .stat-label {
+  @apply block text-xl text-gray-700 mb-2;
+}
+
+.prose .stat-big .stat-source {
+  @apply block text-sm text-gray-500 italic;
+}
+
+/* Science Cards */
+.prose .science-cards {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  @apply gap-8 my-12;
+}
+
+.prose .science-card {
+  @apply p-12 bg-white border-2 border-gray-200 rounded-2xl;
+  @apply text-center transition-all duration-300;
+}
+
+.prose .science-card:hover {
+  @apply border-[#d4af37] shadow-[0_10px_40px_rgba(212,175,55,0.1)];
+  @apply -translate-y-1;
+}
+
+.prose .science-icon {
+  @apply text-4xl block mb-4;
+}
+
+.prose .science-stat {
+  @apply text-4xl font-bold text-[#d4af37] my-4;
+}
+
+.prose .science-impact {
+  @apply text-sm text-gray-500 mt-4;
+}
+
+/* Benefits & Tips */
+.prose .benefits,
+.prose .tips-grid,
+.prose .maximize-tips {
+  @apply flex flex-col gap-10 my-12;
+}
+
+.prose .benefit,
+.prose .tip-card {
+  @apply p-12 bg-white border-2 border-gray-200 rounded-2xl;
+  @apply relative pl-24;
+}
+
+.prose .benefit-number,
+.prose .pillar-number {
+  @apply absolute left-6 top-6;
+  @apply w-12 h-12 bg-[#d4af37] text-white rounded-full;
+  @apply flex items-center justify-center text-2xl font-bold;
+}
+
+/* Timeline */
+.prose .timeline {
+  @apply relative pl-8 my-8;
+}
+
+.prose .timeline::before {
+  content: "";
+  @apply absolute left-0 top-0 bottom-0 w-0.5;
+  @apply bg-gradient-to-b from-[#d4af37] to-gray-200;
+}
+
+.prose .timeline-item {
+  @apply relative mb-8 pl-8;
+}
+
+.prose .timeline-marker {
+  @apply absolute -left-10 bg-[#d4af37] text-white;
+  @apply py-2 px-4 rounded-full text-sm font-semibold;
+  @apply whitespace-nowrap;
+}
+
+/* Comparison Table */
+.prose .comparison-table {
+  @apply w-full border-collapse my-8 text-sm;
+}
+
+.prose .comparison-table .positive {
+  @apply text-green-500 font-semibold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .prose h2 {
+    @apply text-2xl;
+  }
+
+  .prose h3 {
+    @apply text-xl;
+  }
+
+  .prose .price-table,
+  .prose .science-cards {
+    @apply grid-cols-1;
+  }
+
+  .prose .benefit,
+  .prose .tip-card {
+    @apply pl-8;
+  }
+
+  .prose .benefit-number,
+  .prose .pillar-number {
+    @apply static mb-4;
+  }
+}

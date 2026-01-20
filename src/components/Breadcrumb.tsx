@@ -94,6 +94,7 @@ export function Breadcrumb({ items, customSchema = false }: BreadcrumbProps) {
           padding: "1rem clamp(1rem, 4vw, 2rem)",
           background: "#fafafa",
           borderBottom: "1px solid #e5e7eb",
+          marginTop: "80px",
         }}
       >
         <ol

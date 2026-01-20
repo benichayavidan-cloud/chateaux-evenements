@@ -46,8 +46,8 @@ const article1: BlogPost = {
   },
   publishedAt: "2026-01-15",
   readingTime: 8,
-  image: "/images/seminaire-strategique-chateau-entreprise-reunion.jpg",
-  imageAlt: "Séminaire en château - Budget et coûts réels 2026",
+  image: "/images/combien-coute-seminaire-chateau-2026-tarifs-budget.jpg",
+  imageAlt: "Combien coûte un séminaire en château 2026 - Tarifs et budget détaillés",
   keywords: [
     "prix séminaire château",
     "budget événement entreprise",
@@ -308,8 +308,8 @@ const article2: BlogPost = {
   },
   publishedAt: "2026-01-12",
   readingTime: 10,
-  image: "/images/seminaire-entreprise-chateau-evenement-hero.jpg",
-  imageAlt: "Check-list organisation séminaire entreprise - Guide complet",
+  image: "/images/reunion-entreprise-chateau-elegant.jpg",
+  imageAlt: "Checklist complète pour organiser un séminaire en château",
   keywords: [
     "checklist séminaire",
     "organiser séminaire entreprise",
@@ -665,8 +665,8 @@ const article3: BlogPost = {
   },
   publishedAt: "2026-01-10",
   readingTime: 12,
-  image: "/images/team-building-chateau-seminaire-cohesion-equipe-hero.jpg",
-  imageAlt: "Séminaire en pleine nature - Impact productivité et bien-être",
+  image: "/images/activites-team-building-chateau-groupe.jpg",
+  imageAlt: "Séminaire au vert en château pour booster la productivité",
   keywords: [
     "séminaire nature",
     "productivité équipe",
@@ -991,8 +991,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "/avatars/jeanmarc.jpg" },
     publishedAt: "2026-01-08",
     readingTime: 9,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "CODIR confidentiel en château - Sécurité et discrétion",
+    image: "/images/generated-image-january-20-2026-10-19pm-chateau.png",
+    imageAlt: "Comment organiser un CODIR confidentiel - Critères de sécurité château",
     keywords: ["codir confidentiel", "séminaire direction", "sécurité événement", "château privé"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -1180,8 +1180,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
     publishedAt: "2026-01-06",
     readingTime: 7,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Comparaison séminaire résidentiel vs journée d'étude",
+    image: "/images/seminaire-residentiel-vs-journee-comparatif.jpg",
+    imageAlt: "Séminaire résidentiel vs séminaire d'une journée - Que choisir",
     keywords: ["séminaire résidentiel", "journée d'étude", "format séminaire", "choix durée"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -1467,8 +1467,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Amélie Rousseau", role: "Consultante RSE", avatar: "/avatars/amelie.jpg" },
     publishedAt: "2026-01-04",
     readingTime: 11,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Séminaire éco-responsable RSE en château - Guide complet",
+    image: "/images/seminaire-eco-responsable-rse-chateau-vert.jpg",
+    imageAlt: "Séminaire éco-responsable et RSE en château au vert",
     keywords: ["séminaire rse", "événement éco-responsable", "green meeting", "compensation carbone"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -1893,8 +1893,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
     publishedAt: "2026-01-02",
     readingTime: 6,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Solutions transport groupe pour séminaire Île-de-France",
+    image: "/images/transport-50-collaborateurs-ile-de-france-chateau.jpg",
+    imageAlt: "Transport de 50 collaborateurs vers château en Île-de-France",
     keywords: ["transport séminaire", "bus privatisé", "navette entreprise", "covoiturage organisé"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -2329,8 +2329,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
     publishedAt: "2025-12-30",
     readingTime: 8,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Arguments ROI pour budget séminaire entreprise",
+    image: "/images/seminaire-strategique-chateau-entreprise-reunion.jpg",
+    imageAlt: "Convaincre la direction d'investir dans un séminaire château",
     keywords: ["budget séminaire", "roi événement", "convaincre direction", "investissement team building"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -2795,8 +2795,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "/avatars/antoine.jpg" },
     publishedAt: "2025-12-28",
     readingTime: 7,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Tendances traiteur séminaire 2026 - Restauration entreprise",
+    image: "/images/repas-seminaire-traiteur-tendances-gastronomie-2026.jpg",
+    imageAlt: "Repas de séminaire en château - Tendances traiteur et gastronomie 2026",
     keywords: ["traiteur séminaire", "restauration événement", "menu entreprise", "tendances food 2026"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -3381,8 +3381,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
     publishedAt: "2025-12-26",
     readingTime: 9,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Planning type séminaire 2 jours - Template événement",
+    image: "/images/planning-ideal-seminaire-residentiel-2-jours-chateau.jpg",
+    imageAlt: "Planning idéal pour séminaire résidentiel 2 jours en château d'entreprise",
     keywords: ["planning séminaire", "programme 2 jours", "organisation timing", "agenda événement"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -3496,8 +3496,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "/avatars/laurent.jpg" },
     publishedAt: "2025-12-24",
     readingTime: 12,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Meilleurs châteaux séminaire Oise (60) - Sélection 2026",
+    image: "/images/top-chateaux-oise-60-seminaire-entreprise.jpg",
+    imageAlt: "Top 7 des châteaux pour séminaire dans l'Oise 60 à 1h de Paris",
     keywords: ["château oise", "séminaire 60", "château chantilly", "lieu événement oise"],
     featured: true,
     content: `
@@ -4144,8 +4144,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Claire Dubois", role: "Journaliste Tourisme d'Affaires", avatar: "/avatars/claire.jpg" },
     publishedAt: "2025-12-22",
     readingTime: 8,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Vexin destination séminaire - Parc Naturel Régional",
+    image: "/images/team-building-chateau-seminaire-cohesion-equipe-hero.jpg",
+    imageAlt: "Vexin nouvelle destination séminaire nature et patrimoine",
     keywords: ["vexin séminaire", "parc naturel régional", "destination tendance", "séminaire nature"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -4521,8 +4521,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "/avatars/laurent.jpg" },
     publishedAt: "2025-12-20",
     readingTime: 10,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Séminaire Chantilly - Destination prestige événement entreprise",
+    image: "/images/chantilly-destination-royale-seminaire-luxe.jpg",
+    imageAlt: "Chantilly destination royale pour séminaire luxe près de Paris",
     keywords: ["séminaire chantilly", "château chantilly", "événement prestige", "oise tourisme affaires"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -4929,8 +4929,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "/avatars/marc.jpg" },
     publishedAt: "2025-12-18",
     readingTime: 9,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Fontainebleau team building nature - Forêt activités outdoor",
+    image: "/images/team-building-exterieur-chateau-parc.jpg",
+    imageAlt: "Fontainebleau team building nature en forêt et château",
     keywords: ["fontainebleau séminaire", "team building nature", "activités outdoor", "forêt 77"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -5451,8 +5451,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "/avatars/laurent.jpg" },
     publishedAt: "2025-12-16",
     readingTime: 11,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Châteaux séminaire Yvelines (78) - Luxe et proximité Paris",
+    image: "/images/seminaire-yvelines-78-chateau-luxe-proximite-paris.jpg",
+    imageAlt: "Séminaire dans les Yvelines 78 - Châteaux de luxe à proximité de Paris",
     keywords: ["château yvelines", "séminaire 78", "versailles événement", "vallée chevreuse"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -5906,8 +5906,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
     publishedAt: "2025-12-14",
     readingTime: 8,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Lieux atypiques séminaire - Manoir forteresse médiévale",
+    image: "/images/salle-reception-chateau-moderne.jpg",
+    imageAlt: "Salle Reception Chateau Moderne - Séminaire château entreprise",
     keywords: ["lieu atypique séminaire", "manoir événement", "forteresse médiévale", "abbaye séminaire"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -6468,8 +6468,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
     publishedAt: "2025-12-12",
     readingTime: 10,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Château grande capacité 100+ personnes - Séminaire grand groupe",
+    image: "/images/seminaire-entreprise-chateau-evenement-hero.jpg",
+    imageAlt: "Organiser un séminaire pour grands groupes 100+ personnes en château",
     keywords: ["château grande capacité", "séminaire 100 personnes", "hébergement groupe", "château convention"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -6995,8 +6995,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "/avatars/jeanmarc.jpg" },
     publishedAt: "2025-12-10",
     readingTime: 7,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Château intimiste petit comité - CODIR board direction",
+    image: "/images/petits-comites-board-meeting-chateau-luxe.jpg",
+    imageAlt: "Petits comités et board meetings en château intime et luxueux",
     keywords: ["château petit comité", "codir intimiste", "board restreint", "salon privé"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -7487,8 +7487,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Camille Forestier", role: "Paysagiste Événementiel", avatar: "/avatars/camille.jpg" },
     publishedAt: "2025-12-08",
     readingTime: 9,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Parcs châteaux garden party - Jardins événement extérieur",
+    image: "/images/cohesion-equipe-seminaire-chateau.jpg",
+    imageAlt: "Plus beaux parcs de châteaux pour garden party entreprise",
     keywords: ["garden party château", "parc jardin événement", "cocktail extérieur", "terrasse château"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -8056,8 +8056,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Dr. Claire Fontaine", role: "Psychologue du Travail", avatar: "/avatars/claire.jpg" },
     publishedAt: "2025-12-06",
     readingTime: 8,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Château spa piscine bien-être - Séminaire wellness",
+    image: "/images/chateaux-piscine-spa-bien-etre-seminaire.jpg",
+    imageAlt: "Châteaux avec piscine et spa pour séminaire bien-être entreprise",
     keywords: ["château spa", "piscine château", "séminaire bien-être", "wellness retreat"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -8738,8 +8738,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "/avatars/ludovic.jpg" },
     publishedAt: "2025-12-04",
     readingTime: 10,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Murder party château - Activité team building immersive",
+    image: "/images/murder-party-chateau-activite-immersive-team-building.jpg",
+    imageAlt: "Murder party en château - Activité team building immersive n°1",
     keywords: ["murder party château", "enquête policière entreprise", "team building immersif", "jeu de rôle séminaire"],
     featured: true,
     content: `
@@ -9697,8 +9697,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "/avatars/marc.jpg" },
     publishedAt: "2025-12-02",
     readingTime: 11,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Olympiades entreprise château - Épreuves team building sportif",
+    image: "/images/olympiades-entreprise-team-building-sport-chateau.jpg",
+    imageAlt: "Olympiades entreprise 10 épreuves team building château",
     keywords: ["olympiades entreprise", "team building sportif", "jeux de plein air", "challenges équipe"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -10536,8 +10536,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "/avatars/ludovic.jpg" },
     publishedAt: "2025-11-30",
     readingTime: 9,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Escape game château géant - Team building énigmes collaboratives",
+    image: "/images/escape-game-chateau-team-building-enigmes.jpg",
+    imageAlt: "Escape game géant en château pour team building immersif",
     keywords: ["escape game château", "escape game géant", "team building énigmes", "jeu de piste entreprise"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -11128,8 +11128,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Amélie Rousseau", role: "Consultante RSE", avatar: "/avatars/amelie.jpg" },
     publishedAt: "2025-11-28",
     readingTime: 8,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Team building RSE nature - Plantation arbres ruches solidaire",
+    image: "/images/simulation-crise-formation-chateau.jpg",
+    imageAlt: "Team building RSE et nature en château éco-responsable",
     keywords: ["team building rse", "activité solidaire", "plantation arbres entreprise", "construction ruches"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -11945,8 +11945,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "/avatars/antoine.jpg" },
     publishedAt: "2025-11-26",
     readingTime: 7,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Atelier cuisine chef team building - Cours gastronomie entreprise",
+    image: "/images/atelier-cuisine-chef-gastronomie-team-building.jpg",
+    imageAlt: "Atelier cuisine avec chef étoilé - Team building gastronomie château",
     keywords: ["atelier cuisine entreprise", "cours de cuisine chef", "team building gastronomie", "challenge top chef"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -12687,8 +12687,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
     publishedAt: "2025-11-24",
     readingTime: 6,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Ice breakers réunion - Activités brise-glace séminaire",
+    image: "/images/es-meilleurs-ice-breakers-pour-debuter-un-chateau.png",
+    imageAlt: "Es Meilleurs Ice Breakers Pour Debuter Un Chateau",
     keywords: ["ice breaker", "brise glace réunion", "activité lancement séminaire", "jeu présentation"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -13261,8 +13261,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
     publishedAt: "2025-11-22",
     readingTime: 10,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Soirée thématique entreprise - Casino Gatsby médiévale château",
+    image: "/images/soiree-entreprise-casino-gatsby-medievale-chateau.jpg",
+    imageAlt: "Soirée entreprise thématique Casino Gatsby ou médiévale en château",
     keywords: ["soirée thématique entreprise", "soirée casino", "soirée gatsby", "banquet médiéval"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -13721,8 +13721,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Dr. Claire Fontaine", role: "Psychologue du Travail", avatar: "/avatars/claire.jpg" },
     publishedAt: "2025-11-20",
     readingTime: 8,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Yoga méditation séminaire - Bien-être pleine conscience entreprise",
+    image: "/images/yoga-meditation-bien-etre-seminaire-chateau.jpg",
+    imageAlt: "Yoga et méditation bien-être lors d'un séminaire en château",
     keywords: ["yoga entreprise", "méditation pleine conscience", "bien-être séminaire", "sophrologie travail"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -14295,8 +14295,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Alexandre Tech", role: "Expert Innovation Événementielle", avatar: "/avatars/alexandre.jpg" },
     publishedAt: "2025-11-18",
     readingTime: 9,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Team building high-tech drones VR château - Innovation technologique",
+    image: "/images/high-techdrones-et-vr-dans-un-cadre-chateau.png",
+    imageAlt: "High Techdrones Et Vr Dans Un Cadre Chateau",
     keywords: ["team building high-tech", "drones entreprise", "réalité virtuelle", "escape game vr"],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -14950,8 +14950,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Camille Forestier", role: "Experte Cadeaux Entreprise", avatar: "/avatars/camille.jpg" },
     publishedAt: "2025-11-16",
     readingTime: 7,
-    image: "/images/team-building-chateau-activites-entreprise.jpg",
-    imageAlt: "Cadeaux invités made in France - Idées cadeaux séminaire entreprise",
+    image: "/images/cadeaux-invites-chateau.png",
+    imageAlt: "Cadeaux Invites Chateau",
     keywords: ["cadeaux invités", "goodies entreprise", "made in france", "cadeaux séminaire"],
     content: `
     <div class="prose prose-lg max-w-none">

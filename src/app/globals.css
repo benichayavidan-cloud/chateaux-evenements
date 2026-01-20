@@ -80,10 +80,10 @@
      BUTTON & BADGE PADDING
      ============================================ */
 
-  --btn-padding-md: 16px 32px;
-  --btn-padding-lg: 18px 40px;
-  --badge-padding-md: 10px 24px;
-  --badge-padding-lg: 14px 28px;
+  --btn-padding-md: 20px 40px;
+  --btn-padding-lg: 24px 48px;
+  --badge-padding-md: 16px 32px;
+  --badge-padding-lg: 20px 40px;
 }
 
 @theme inline {
@@ -99,7 +99,7 @@
 
 html {
   scroll-behavior: auto; /* Désactivé car Lenis gère le smooth scroll */
-  overflow-x: hidden;
+  overflow-x: clip; /* clip au lieu de hidden pour permettre sticky */
   max-width: 100vw;
 }
 
@@ -108,7 +108,7 @@ html.lenis {
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip; /* clip au lieu de hidden pour permettre sticky */
   max-width: 100vw;
 }
 
@@ -121,7 +121,7 @@ body {
 }
 
 .lenis.lenis-stopped {
-  overflow: hidden;
+  /* overflow retiré pour ne pas bloquer sticky */
 }
 
 .lenis.lenis-scrolling iframe {
@@ -136,7 +136,7 @@ body {
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* overflow-x retiré - déjà défini ligne 111 */
 }
 
 /* Typographie Premium */
@@ -674,11 +674,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   /* Buttons with text padding adjustment */
+  /* DÉSACTIVÉ - laisse les classes Tailwind gérer le padding
   button:not(.icon-only),
   .btn-primary,
   .btn-secondary {
-    padding: clamp(10px, 2.5vw, 14px) clamp(16px, 4vw, 24px);
+    padding: clamp(20px, 4vw, 32px) clamp(60px, 8vw, 96px);
   }
+  */
 
   /* Form inputs - minimum 16px to prevent iOS zoom */
   input,

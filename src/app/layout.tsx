@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import "../styles/blog.css";
+import "../styles/brakt-blog.css";
 import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -17,6 +18,20 @@ const cormorant = Cormorant_Garamond({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const roboto = Roboto({
+  variable: "--font-roboto",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -144,7 +159,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${roboto.variable}`}>
       <head>
         <script
           type="application/ld+json"
