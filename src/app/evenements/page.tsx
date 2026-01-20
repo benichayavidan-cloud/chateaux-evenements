@@ -68,7 +68,7 @@ export default function EvenementsPage() {
       {/* Hero Section */}
       <div className="hero-section">
         <Image
-          src="/images/seminaire-entreprise-chateau-evenement-hero.jpg"
+          src="/images/seminaire-entreprise-chateau-evenement-hero.webp"
           alt="Événements d'entreprise dans un château"
           fill
           className="object-cover"

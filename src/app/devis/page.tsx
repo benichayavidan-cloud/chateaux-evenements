@@ -76,7 +76,7 @@ export default function DevisPage() {
             zIndex: 0
           }}>
             <Image
-              src="/images/accueil/hero/chateau-1.jpg"
+              src="/images/accueil/hero/chateau-1.webp"
               alt="Devis location château séminaire Île-de-France - Salle de réunion lumineuse"
               fill
               className="object-cover"

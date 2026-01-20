@@ -45,5 +45,5 @@ next-env.d.ts
 # Large archive files
 *.tar.gz
 archives-developpement/
-backup/site_complet_*/
-backup/images_supabase/
+backup/
+public/images-backup/

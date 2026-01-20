@@ -88,7 +88,7 @@ export default function TeamBuildingPage() {
       <div ref={heroRef} className="hero-section">
         <motion.div style={{ y }} className="absolute inset-0">
           <Image
-            src="/images/team-building-chateau-seminaire-cohesion-equipe-hero.jpg"
+            src="/images/team-building-chateau-seminaire-cohesion-equipe-hero.webp"
             alt="Team Building d'exception dans un château"
             fill
             className="object-cover"
@@ -305,56 +305,56 @@ export default function TeamBuildingPage() {
                 titre: "Challenges Créatifs",
                 description: "Stimulez l'innovation avec des ateliers de créativité dans nos salons historiques",
                 color: "#D4AF37",
-                image: "/images/challenges-creatifs-team-building-chateau-activites.jpg"
+                image: "/images/challenges-creatifs-team-building-chateau-activites.webp"
               },
               {
                 icon: Target,
                 titre: "Escape Game Château",
                 description: "Résolvez des énigmes historiques en équipe dans les couloirs de nos châteaux",
                 color: "#A37E2C",
-                image: "/images/escape-game-chateau-team-building-enigmes.jpg"
+                image: "/images/escape-game-chateau-team-building-enigmes.webp"
               },
               {
                 icon: Heart,
                 titre: "Cohésion d'Équipe",
                 description: "Renforcez les liens avec des activités de team building dans nos jardins",
                 color: "#C09448",
-                image: "/images/cohesion-equipe-team-building-chateau-activites.jpg"
+                image: "/images/cohesion-equipe-team-building-chateau-activites.webp"
               },
               {
                 icon: Rocket,
                 titre: "Leadership Training",
                 description: "Développez les compétences de vos leaders dans un cadre inspirant",
                 color: "#8A6823",
-                image: "/images/leadership-training-chateau-formation-managers.jpg"
+                image: "/images/leadership-training-chateau-formation-managers.webp"
               },
               {
                 icon: Shield,
                 titre: "Gestion de Crise",
                 description: "Simulez des situations complexes et apprenez à gérer le stress en équipe",
                 color: "#B8860B",
-                image: "/images/gestion-crise-team-building-formation-entreprise.jpg"
+                image: "/images/gestion-crise-team-building-formation-entreprise.webp"
               },
               {
                 icon: TrendingUp,
                 titre: "Séminaires Stratégiques",
                 description: "Planifiez l'avenir de votre entreprise dans un environnement propice à la réflexion",
                 color: "#A37E2C",
-                image: "/images/seminaire-strategique-chateau-entreprise-reunion.jpg"
+                image: "/images/seminaire-strategique-chateau-entreprise-reunion.webp"
               },
               {
                 icon: Users,
                 titre: "Olympiades d'Entreprise",
                 description: "Compétitions sportives et ludiques pour booster l'esprit d'équipe dans nos parcs",
                 color: "#D4AF37",
-                image: "/images/olympiades-entreprise-team-building-sport-chateau.jpg"
+                image: "/images/olympiades-entreprise-team-building-sport-chateau.webp"
               },
               {
                 icon: Trophy,
                 titre: "Rallye Challenge",
                 description: "Parcours d'énigmes et défis à travers nos domaines pour une journée mémorable",
                 color: "#C09448",
-                image: "/images/rallye-challenge-team-building-chateau-enigmes.jpg"
+                image: "/images/rallye-challenge-team-building-chateau-enigmes.webp"
               },
             ].map((activite, i) => (
               <motion.div
