@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, ArrowRight } from "lucide-react";
-import { getBlogPostBySlug, getLatestPosts } from "@/data/blog-posts";
+import { getBlogPostBySlug, getSmartRelatedPosts } from "@/data/blog-posts";
 import { ArticleClientLogic } from "./ArticleClientLogic";
 
 type Props = {
@@ -18,8 +18,8 @@ export default async function BlogArticlePage({ params }: Props) {
     notFound();
   }
 
-  // Articles similaires (calculés côté serveur)
-  const relatedPosts = getLatestPosts(4).filter(p => p.id !== article.id).slice(0, 3);
+  // Articles similaires avec Topic Clustering (calculés côté serveur)
+  const relatedPosts = getSmartRelatedPosts(article, 3);
 
   return (
     <div className="brakt-blog min-h-screen bg-white w-full">

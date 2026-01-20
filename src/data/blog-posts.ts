@@ -15488,3 +15488,56 @@ export function getLatestPosts(limit: number = 6): BlogPost[] {
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .slice(0, limit);
 }
+
+/**
+ * Get related posts using intelligent topic clustering algorithm
+ *
+ * Scoring system:
+ * - +10 points if same category (topic cluster)
+ * - +3 points per common keyword
+ *
+ * Sorted by score descending, with tie-breaker by most recent publishedAt
+ *
+ * @param currentArticle - The current article to find related posts for
+ * @param limit - Maximum number of related posts to return (default: 3)
+ * @returns Array of related BlogPost objects
+ */
+export function getSmartRelatedPosts(
+  currentArticle: BlogPost,
+  limit: number = 3
+): BlogPost[] {
+  // Create scored list of all posts except current one
+  const scoredPosts = blogPosts
+    .filter(post => post.id !== currentArticle.id)
+    .map(post => {
+      let score = 0;
+
+      // +10 points for same category (topic cluster)
+      if (post.category === currentArticle.category) {
+        score += 10;
+      }
+
+      // +3 points per common keyword
+      const commonKeywords = post.keywords.filter(keyword =>
+        currentArticle.keywords.includes(keyword)
+      );
+      score += commonKeywords.length * 3;
+
+      return { post, score };
+    })
+    // Sort by score descending
+    .sort((a, b) => {
+      // Primary sort: score descending
+      if (b.score !== a.score) {
+        return b.score - a.score;
+      }
+      // Tie-breaker: most recent first
+      return new Date(b.post.publishedAt).getTime() - new Date(a.post.publishedAt).getTime();
+    })
+    // Take only requested number of posts
+    .slice(0, limit)
+    // Extract just the post objects
+    .map(item => item.post);
+
+  return scoredPosts;
+}
