@@ -232,7 +232,7 @@
   align-items: center;
   gap: 8px;
   position: relative;
-  padding: 10px 30px;
+  padding: 12px 28px;
   font-size: 13px;
   font-weight: 500;
   font-family: var(--brakt-font-secondary);
@@ -390,7 +390,7 @@
 
   /* Boutons mobile avec padding suffisant */
   .read-more a {
-    padding: 11px 22px;
+    padding: 12px 22px;
     font-size: 13px;
   }
 }

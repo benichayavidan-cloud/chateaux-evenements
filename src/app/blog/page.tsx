@@ -42,7 +42,7 @@ export default function BlogPage() {
   return (
     <main className="brakt-blog min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center w-full">
       {/* Hero Section */}
-      <section className="w-full relative min-h-[50vh] overflow-hidden flex items-center justify-center py-16 sm:py-20 md:py-32">
+      <section className="w-full relative min-h-[50vh] overflow-hidden flex items-center justify-center" style={{ padding: '12px 0' }}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -59,7 +59,8 @@ export default function BlogPage() {
           >
             {/* Badge */}
             <div
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--bronze-antique)]/20 to-amber-600/20 backdrop-blur-sm rounded-full border-2 border-[var(--bronze-antique)]/50 self-center shadow-md px-5 py-2"
+              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--bronze-antique)]/20 to-amber-600/20 backdrop-blur-sm rounded-full border-2 border-[var(--bronze-antique)]/50 self-center shadow-md"
+              style={{ padding: '12px 24px' }}
             >
               <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
               <span className="text-sm font-medium text-gray-900 tracking-wide">
@@ -84,7 +85,8 @@ export default function BlogPage() {
                 placeholder="Rechercher un article..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-5 sm:px-6 py-3 pr-14 rounded-2xl border-2 border-gray-200 focus:border-[var(--bronze-antique)] focus:ring-4 focus:ring-[var(--bronze-antique)]/10 outline-none transition-all duration-300 text-base shadow-lg"
+                style={{ padding: '16px 56px 16px 20px' }}
+                className="w-full rounded-2xl border-2 border-gray-200 focus:border-[var(--bronze-antique)] focus:ring-4 focus:ring-[var(--bronze-antique)]/10 outline-none transition-all duration-300 text-base shadow-lg"
               />
             </div>
           </motion.div>
@@ -92,7 +94,7 @@ export default function BlogPage() {
       </section>
 
       {/* Main Content Container */}
-      <div className="w-full flex justify-center items-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-32">
+      <div className="w-full flex justify-center items-center" style={{ padding: '12px 20px' }}>
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-12 sm:gap-16 md:gap-20">
           {/* Filtres Catégories */}
           <motion.div
@@ -109,7 +111,8 @@ export default function BlogPage() {
             <button
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
-              className={`inline-flex items-center justify-center rounded-full font-medium text-xs sm:text-sm transition-all duration-300 leading-none px-4 sm:px-5 py-2.5 sm:py-3 ${
+              style={{ padding: '10px 20px' }}
+              className={`inline-flex items-center justify-center rounded-full font-medium text-xs sm:text-sm transition-all duration-300 leading-none ${
                 selectedCategory === cat.value
                   ? "bg-[var(--bronze-antique)] text-white shadow-lg scale-105"
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-[var(--bronze-antique)] hover:text-[var(--bronze-antique)]"
@@ -143,10 +146,14 @@ export default function BlogPage() {
                     alt={featuredPost.imageAlt}
                     fill
                     className="object-cover"
+                    style={{ objectPosition: 'center' }}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   {/* Featured Badge */}
-                  <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 bg-[var(--bronze-antique)] text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg z-10">
+                  <div
+                    className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 bg-[var(--bronze-antique)] text-white rounded-full text-xs sm:text-sm font-semibold shadow-lg z-10"
+                    style={{ padding: '10px 20px' }}
+                  >
                     ⭐ À la Une
                   </div>
                 </Link>
@@ -219,6 +226,7 @@ export default function BlogPage() {
                       alt={post.imageAlt}
                       fill
                       className="object-cover"
+                      style={{ objectPosition: 'center' }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </Link>
@@ -289,7 +297,7 @@ export default function BlogPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white flex justify-center items-center py-16 sm:py-20 md:py-24 lg:py-32">
+      <section className="w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white flex justify-center items-center" style={{ padding: '12px 0' }}>
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 md:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -307,7 +315,8 @@ export default function BlogPage() {
             </p>
             <Link
               href="/devis"
-              className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-4 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
+              style={{ padding: '12px 32px' }}
+              className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-4 text-sm sm:text-base"
             >
               <span>Demander un Devis Gratuit</span>
               <ArrowRight className="w-5 h-5" />

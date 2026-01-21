@@ -96,9 +96,9 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
       <ArticleHero article={article} />
 
       {/* Main Content avec Sidebar */}
-      <div className="w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 flex justify-center items-start">
-        <div className="max-w-[1350px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(250px,280px)_1fr_minmax(280px,320px)] xl:grid-cols-[300px_1fr_320px] gap-6 sm:gap-8 xl:gap-12 max-w-fit mx-auto py-4 sm:py-6 md:py-8">
+      <div className="w-full flex justify-center items-start" style={{ padding: '12px 0' }}>
+        <div className="max-w-[1350px] w-full" style={{ padding: '0 20px' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(250px,280px)_1fr_minmax(280px,320px)] xl:grid-cols-[300px_1fr_320px] gap-6 sm:gap-8 xl:gap-12 max-w-fit mx-auto" style={{ padding: '12px 0' }}>
             {/* Sticky Table of Contents (Left) - Hidden on mobile */}
             <div className="hidden lg:block">
               <TableOfContents items={tableOfContents} activeSection={activeSection} />
@@ -106,7 +106,7 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
 
             {/* Article Content (Center) */}
             <article ref={articleRef} className="w-full min-w-0">
-              <div className="max-w-[750px] mx-auto space-y-8 sm:space-y-10 md:space-y-12 px-4 sm:px-6">
+              <div className="max-w-[750px] mx-auto space-y-8 sm:space-y-10 md:space-y-12" style={{ padding: '0 20px' }}>
                 {/* Excerpt */}
                 <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed pb-4 sm:pb-6 border-b-2 border-gray-100 mb-4 sm:mb-6">
                   {article.excerpt}
@@ -124,7 +124,8 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
                     {article.keywords.map((keyword) => (
                       <span
                         key={keyword}
-                        className="inline-flex items-center justify-center bg-gray-100 text-gray-700 rounded-full text-xs hover:bg-gradient-to-l hover:from-amber-600 hover:to-[#d4af37] hover:text-white transition-all duration-300 cursor-pointer leading-none font-medium px-3 py-2 sm:px-4 sm:py-2.5"
+                        style={{ padding: '8px 16px' }}
+                        className="inline-flex items-center justify-center bg-gray-100 text-gray-700 rounded-full text-xs hover:bg-gradient-to-l hover:from-amber-600 hover:to-[#d4af37] hover:text-white transition-all duration-300 cursor-pointer leading-none font-medium"
                       >
                         #{keyword}
                       </span>

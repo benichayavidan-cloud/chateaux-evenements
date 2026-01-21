@@ -11,7 +11,7 @@
   column-gap: unset;
   column-rule: unset;
   display: block;
-  @apply px-4 sm:px-0;
+  padding: 0;
 }
 
 .prose > * {

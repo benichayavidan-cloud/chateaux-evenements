@@ -18,12 +18,13 @@ const CATEGORY_LABELS = {
 
 export function ArticleHero({ article }: ArticleHeroProps) {
   return (
-    <div className="relative w-full min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] overflow-hidden flex items-center justify-center">
+    <div className="relative w-full min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] overflow-hidden flex items-center justify-center" style={{ padding: '12px 0' }}>
       <Image
         src={article.image}
         alt={article.imageAlt}
         fill
         className="object-cover"
+        style={{ objectPosition: 'center' }}
         priority
         sizes="100vw"
         quality={85}
@@ -50,7 +51,10 @@ export function ArticleHero({ article }: ArticleHeroProps) {
             className="space-y-5 sm:space-y-6 md:space-y-8"
           >
             {/* Category Badge */}
-            <div className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full text-xs font-medium uppercase tracking-wider px-4 py-2 sm:px-5 sm:py-2.5">
+            <div
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full text-xs font-medium uppercase tracking-wider"
+              style={{ padding: '10px 20px' }}
+            >
               <span className="w-1.5 h-1.5 bg-white rounded-full" />
               {CATEGORY_LABELS[article.category]}
             </div>
