@@ -336,6 +336,8 @@
 
   .post-outer {
     margin-bottom: 30px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 
   .post-thumb {
@@ -366,6 +368,11 @@
   /* Mobile très petit - padding encore plus généreux */
   .brakt-container {
     padding: 0 16px;
+  }
+
+  .post-outer {
+    margin-left: 4px;
+    margin-right: 4px;
   }
 
   .post-thumb {
