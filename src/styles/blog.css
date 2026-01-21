@@ -479,28 +479,204 @@
 }
 
 /* Responsive */
+@media (max-width: 1023px) {
+  .sidebar-sticky {
+    position: static;
+  }
+}
+
 @media (max-width: 768px) {
+  /* Typography mobile - respiration maximale */
   .prose h2 {
     font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
   }
 
   .prose h3 {
     font-size: 1.25rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose h4 {
+    font-size: 1.125rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Paragraphs mobile - confort de lecture */
+  .prose p {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .prose-lg p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Lists mobile */
+  .prose ul,
+  .prose ol {
+    margin-left: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.625rem;
+    font-size: 1rem;
+  }
+
+  /* Blockquotes mobile */
+  .prose blockquote {
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Tables mobile - scroll horizontal */
+  .prose table {
+    font-size: 0.875rem;
+    display: block;
+    overflow-x: auto;
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.625rem;
+    font-size: 0.875rem;
+  }
+
+  /* Custom components mobile */
+  .prose .alert {
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.9375rem;
   }
 
   .prose .price-table,
   .prose .science-cards {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .prose .price-card {
+    padding: 2rem;
+  }
+
+  .prose .price-card .price {
+    font-size: 1.75rem;
   }
 
   .prose .benefit,
   .prose .tip-card {
-    padding-left: 2rem;
+    padding: 1.5rem;
+    padding-left: 1.5rem;
   }
 
   .prose .benefit-number,
   .prose .pillar-number {
     position: static;
+    margin-bottom: 0.75rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+  }
+
+  /* CTA Box mobile */
+  .prose .cta-box {
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border-radius: 1.25rem;
+  }
+
+  .prose .btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  /* Images mobile */
+  .prose img {
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  /* Stats mobile */
+  .prose .stat-hero {
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border-radius: 1.25rem;
+  }
+
+  .prose .stat-big .stat-value {
+    font-size: 2.5rem;
+  }
+
+  .prose .stat-big .stat-label {
+    font-size: 1.125rem;
+  }
+
+  .prose .science-card {
+    padding: 2rem;
+  }
+
+  .prose .science-stat {
+    font-size: 2rem;
+  }
+
+  .prose .science-icon {
+    font-size: 2rem;
+  }
+
+  /* Timeline mobile */
+  .prose .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .prose .timeline-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose .timeline-marker {
+    left: -2rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile très petit (< 640px) */
+@media (max-width: 639px) {
+  .prose h2 {
+    font-size: 1.375rem;
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
+  }
+
+  .prose h3 {
+    font-size: 1.125rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose p {
+    font-size: 0.9375rem;
+  }
+
+  .prose blockquote {
+    padding-left: 1rem;
+    padding: 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .prose .cta-box {
+    padding: 1.5rem;
+  }
+
+  .prose .stat-hero {
+    padding: 1.5rem;
   }
 }

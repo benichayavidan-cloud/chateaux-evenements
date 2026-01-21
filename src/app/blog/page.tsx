@@ -42,7 +42,7 @@ export default function BlogPage() {
   return (
     <main className="brakt-blog min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center w-full">
       {/* Hero Section */}
-      <section className="w-full relative min-h-[50vh] overflow-hidden flex items-center justify-center py-20 md:py-32">
+      <section className="w-full relative min-h-[50vh] overflow-hidden flex items-center justify-center py-16 sm:py-20 md:py-32">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -50,17 +50,16 @@ export default function BlogPage() {
           }}/>
         </div>
 
-        <div className="w-full max-w-4xl px-8 relative z-10">
+        <div className="w-full max-w-4xl px-6 sm:px-8 md:px-12 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center flex flex-col gap-6 w-full items-center justify-center space-y-6"
+            className="text-center flex flex-col gap-5 sm:gap-6 w-full items-center justify-center"
           >
             {/* Badge */}
             <div
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--bronze-antique)]/20 to-amber-600/20 backdrop-blur-sm rounded-full border-2 border-[var(--bronze-antique)]/50 self-center shadow-md"
-              style={{ padding: '8px' }}
+              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[var(--bronze-antique)]/20 to-amber-600/20 backdrop-blur-sm rounded-full border-2 border-[var(--bronze-antique)]/50 self-center shadow-md px-5 py-2"
             >
               <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
               <span className="text-sm font-medium text-gray-900 tracking-wide">
@@ -69,24 +68,23 @@ export default function BlogPage() {
             </div>
 
             {/* H1 */}
-            <h1 className="text-6xl md:text-7xl font-light italic text-gray-900 leading-tight text-center whitespace-nowrap">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light italic text-gray-900 leading-tight text-center px-4">
               L'Inspiration Événementiel
             </h1>
 
-            <p className="text-xl text-gray-600 leading-relaxed text-center max-w-none mx-auto whitespace-nowrap">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-2xl mx-auto px-4">
               Guides, études de cas, et tendances pour organiser des séminaires d'exception.
             </p>
 
             {/* Search Bar */}
-            <div className="relative w-[450px] mx-auto flex items-center justify-center mt-8">
-              <Search className="absolute right-6 text-gray-400 w-5 h-5 pointer-events-none z-10" />
+            <div className="relative w-full max-w-md mx-auto flex items-center justify-center mt-4 sm:mt-6 px-4">
+              <Search className="absolute right-8 text-gray-400 w-5 h-5 pointer-events-none z-10" />
               <input
                 type="text"
                 placeholder="Rechercher un article..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-6 pr-14 rounded-2xl border-2 border-gray-200 focus:border-[var(--bronze-antique)] focus:ring-4 focus:ring-[var(--bronze-antique)]/10 outline-none transition-all duration-300 text-base shadow-lg"
-                style={{ padding: '8px' }}
+                className="w-full px-5 sm:px-6 py-3 pr-14 rounded-2xl border-2 border-gray-200 focus:border-[var(--bronze-antique)] focus:ring-4 focus:ring-[var(--bronze-antique)]/10 outline-none transition-all duration-300 text-base shadow-lg"
               />
             </div>
           </motion.div>
@@ -94,29 +92,28 @@ export default function BlogPage() {
       </section>
 
       {/* Main Content Container */}
-      <div className="w-full flex justify-center items-center px-8 py-20 md:py-32">
-        <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-20">
+      <div className="w-full flex justify-center items-center px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-32">
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-12 sm:gap-16 md:gap-20">
           {/* Filtres Catégories */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center gap-5"
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5"
           >
-          <div className="inline-flex items-center gap-4 text-gray-600 mr-8">
-            <Filter className="w-6 h-6" />
-            <span className="text-base font-medium leading-none">Filtrer par :</span>
+          <div className="inline-flex items-center gap-3 text-gray-600 mb-2 sm:mb-0 sm:mr-6 md:mr-8 w-full sm:w-auto justify-center">
+            <Filter className="w-5 h-5 sm:w-6 sm:h-6" />
+            <span className="text-sm sm:text-base font-medium leading-none">Filtrer par :</span>
           </div>
           {CATEGORIES.map((cat) => (
             <button
               key={cat.value}
               onClick={() => setSelectedCategory(cat.value)}
-              className={`inline-flex items-center justify-center rounded-full font-medium text-sm transition-all duration-300 leading-none ${
+              className={`inline-flex items-center justify-center rounded-full font-medium text-xs sm:text-sm transition-all duration-300 leading-none px-4 sm:px-5 py-2.5 sm:py-3 ${
                 selectedCategory === cat.value
                   ? "bg-[var(--bronze-antique)] text-white shadow-lg scale-105"
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-[var(--bronze-antique)] hover:text-[var(--bronze-antique)]"
               }`}
-              style={{ padding: '8px' }}
             >
               <span className="flex items-center gap-2">
                 {cat.label}
@@ -136,12 +133,11 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="post-outer featured-post w-full"
-              style={{ padding: '15px' }}
+              className="post-outer featured-post w-full p-0 sm:p-2 md:p-4"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
                 {/* Image */}
-                <Link href={`/blog/${featuredPost.slug}`} className="post-thumb" style={{ height: '600px' }}>
+                <Link href={`/blog/${featuredPost.slug}`} className="post-thumb h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
                   <Image
                     src={featuredPost.image}
                     alt={featuredPost.imageAlt}
@@ -150,68 +146,35 @@ export default function BlogPage() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   {/* Featured Badge */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '30px',
-                    left: '30px',
-                    background: 'var(--bronze-antique)',
-                    color: '#fff',
-                    padding: '10px 20px',
-                    borderRadius: '50px',
-                    fontSize: '12px',
-                    fontWeight: '600',
-                    boxShadow: '0 5px 10px rgba(0,0,0,0.2)',
-                    zIndex: 10
-                  }}>
+                  <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 bg-[var(--bronze-antique)] text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg z-10">
                     ⭐ À la Une
                   </div>
                 </Link>
 
                 {/* Content */}
-                <div className="post-info" style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  gap: '25px',
-                  textAlign: 'left'
-                }}>
+                <div className="post-info flex flex-col justify-center gap-5 sm:gap-6 md:gap-7 text-left p-6 sm:p-8 md:p-10 lg:p-12">
                   {/* Category */}
-                  <div className="post-labels" style={{ marginBottom: 0 }}>
-                    <Link href={`/blog?category=${featuredPost.category}`} style={{
-                      color: 'var(--bronze-antique)',
-                      textDecoration: 'none'
-                    }}>
+                  <div className="post-labels mb-0">
+                    <Link href={`/blog?category=${featuredPost.category}`} className="text-[var(--bronze-antique)] no-underline text-sm sm:text-base">
                       {CATEGORIES.find(c => c.value === featuredPost.category)?.label}
                     </Link>
                   </div>
 
                   {/* Title */}
-                  <h2 className="post-title" style={{
-                    fontSize: '32px',
-                    lineHeight: '1.3',
-                    marginBottom: 0,
-                    textAlign: 'left'
-                  }}>
-                    <Link href={`/blog/${featuredPost.slug}`} style={{ color: 'var(--brakt-text)', textDecoration: 'none' }}>
+                  <h2 className="post-title text-2xl sm:text-3xl md:text-4xl leading-tight mb-0 text-left">
+                    <Link href={`/blog/${featuredPost.slug}`} className="text-[var(--brakt-text)] no-underline">
                       {featuredPost.title}
                     </Link>
                   </h2>
 
                   {/* Excerpt */}
-                  <div className="post-snippet" style={{
-                    fontSize: '15px',
-                    lineHeight: '1.8',
-                    marginBottom: 0
-                  }}>
+                  <div className="post-snippet text-sm sm:text-base md:text-lg leading-relaxed mb-0">
                     {featuredPost.excerpt}
                   </div>
 
                   {/* Meta */}
-                  <div className="post-meta" style={{
-                    justifyContent: 'flex-start',
-                    marginBottom: 0
-                  }}>
-                    <div className="post-meta-item">
+                  <div className="post-meta flex-wrap justify-start mb-0 gap-3 sm:gap-4">
+                    <div className="post-meta-item text-xs sm:text-sm">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{new Date(featuredPost.publishedAt).toLocaleDateString('fr-FR', {
                         day: 'numeric',
@@ -219,21 +182,17 @@ export default function BlogPage() {
                         year: 'numeric'
                       })}</span>
                     </div>
-                    <div className="post-meta-item">
+                    <div className="post-meta-item text-xs sm:text-sm">
                       <Clock className="w-3.5 h-3.5" />
                       <span>{featuredPost.readingTime} min</span>
                     </div>
                   </div>
 
                   {/* Read More Button */}
-                  <div className="read-more" style={{ marginTop: '10px' }}>
-                    <Link href={`/blog/${featuredPost.slug}`}>
+                  <div className="read-more mt-2">
+                    <Link href={`/blog/${featuredPost.slug}`} className="inline-flex items-center gap-2">
                       <span>Lire l'article</span>
-                      <ArrowRight className="w-4 h-4" style={{
-                        display: 'inline-block',
-                        marginLeft: '8px',
-                        verticalAlign: 'middle'
-                      }} />
+                      <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                 </div>
@@ -243,14 +202,14 @@ export default function BlogPage() {
 
           {/* Articles Grid - Brakt Style */}
           {filteredPosts.length > 0 ? (
-            <div className="brakt-main-content grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full mx-auto">
+            <div className="brakt-main-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 w-full mx-auto">
             {filteredPosts.map((post, index) => (
               <motion.article
                 key={post.id}
                 className="post-outer"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: Math.min(index * 0.1, 0.5) }}
               >
                 {/* Image */}
                 <div className="post-thumb">
@@ -330,31 +289,30 @@ export default function BlogPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white flex justify-center items-center" style={{ paddingTop: '10px', paddingBottom: '10px' }}>
-        <div className="w-full max-w-4xl mx-auto px-8 text-center">
+      <section className="w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white flex justify-center items-center py-16 sm:py-20 md:py-24 lg:py-32">
+        <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 md:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center gap-6 space-y-6"
+            className="flex flex-col items-center gap-5 sm:gap-6 md:gap-8"
           >
-            <Sparkles className="w-14 h-14 text-[var(--bronze-antique)] mx-auto" />
-            <h2 className="text-5xl font-light italic text-center">
+            <Sparkles className="w-12 h-12 sm:w-14 sm:h-14 text-[var(--bronze-antique)] mx-auto" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-center px-4">
               Inspiré par nos articles ?
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto text-center">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto text-center px-4">
               Transformez l'inspiration en réalité. Obtenez un devis personnalisé pour votre prochain séminaire en château.
             </p>
             <Link
               href="/devis"
-              className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-8"
-              style={{ padding: '10px' }}
+              className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-4 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base"
             >
               <span>Demander un Devis Gratuit</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="text-sm text-gray-400">
+            <p className="text-xs sm:text-sm text-gray-400 px-4">
               ✓ Réponse sous 24h • ✓ Sans engagement • ✓ Conseils d'experts inclus
             </p>
           </motion.div>

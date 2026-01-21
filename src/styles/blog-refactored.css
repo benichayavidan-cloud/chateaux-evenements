@@ -325,27 +325,167 @@
 }
 
 /* Responsive */
+@media (max-width: 1023px) {
+  .sidebar-sticky {
+    @apply static;
+  }
+}
+
 @media (max-width: 768px) {
+  /* Typography mobile - respiration maximale */
   .prose h2 {
-    @apply text-2xl;
+    @apply text-xl sm:text-2xl;
+    @apply mt-12 mb-5;
   }
 
   .prose h3 {
-    @apply text-xl;
+    @apply text-lg sm:text-xl;
+    @apply mt-10 mb-4;
+  }
+
+  .prose h4 {
+    @apply text-base sm:text-lg;
+    @apply mt-8 mb-3;
+  }
+
+  /* Paragraphs mobile - confort de lecture */
+  .prose p {
+    @apply mb-5 text-base leading-relaxed;
+  }
+
+  .prose-lg p {
+    @apply text-base leading-relaxed;
+  }
+
+  /* Lists mobile */
+  .prose ul,
+  .prose ol {
+    @apply ml-5 mb-5;
+  }
+
+  .prose li {
+    @apply mb-2.5 text-base;
+  }
+
+  /* Blockquotes mobile */
+  .prose blockquote {
+    @apply pl-6 my-8 p-6 text-base;
+  }
+
+  /* Tables mobile - scroll horizontal */
+  .prose table {
+    @apply text-xs block overflow-x-auto;
+  }
+
+  .prose th,
+  .prose td {
+    @apply p-2.5 text-xs;
+  }
+
+  /* Custom components mobile */
+  .prose .alert {
+    @apply p-6 my-8 text-sm;
   }
 
   .prose .price-table,
   .prose .science-cards {
-    @apply grid-cols-1;
+    @apply grid-cols-1 gap-5;
+  }
+
+  .prose .price-card {
+    @apply p-8;
+  }
+
+  .prose .price-card .price {
+    @apply text-2xl;
   }
 
   .prose .benefit,
   .prose .tip-card {
-    @apply pl-8;
+    @apply p-6 pl-6;
   }
 
   .prose .benefit-number,
   .prose .pillar-number {
-    @apply static mb-4;
+    @apply static mb-3 w-10 h-10 text-xl;
+  }
+
+  /* CTA Box mobile */
+  .prose .cta-box {
+    @apply p-8 my-10 rounded-2xl text-sm;
+  }
+
+  .prose .btn-primary {
+    @apply py-3 px-6 text-sm;
+  }
+
+  /* Images mobile */
+  .prose img {
+    @apply rounded-lg my-6;
+  }
+
+  /* Stats mobile */
+  .prose .stat-hero {
+    @apply p-8 my-10 rounded-2xl;
+  }
+
+  .prose .stat-big .stat-value {
+    @apply text-4xl;
+  }
+
+  .prose .stat-big .stat-label {
+    @apply text-lg;
+  }
+
+  .prose .science-card {
+    @apply p-8;
+  }
+
+  .prose .science-stat {
+    @apply text-3xl;
+  }
+
+  .prose .science-icon {
+    @apply text-3xl;
+  }
+
+  /* Timeline mobile */
+  .prose .timeline {
+    @apply pl-6;
+  }
+
+  .prose .timeline-item {
+    @apply mb-6 pl-6;
+  }
+
+  .prose .timeline-marker {
+    @apply -left-8 py-1.5 px-3 text-xs;
+  }
+}
+
+/* Mobile très petit (< 640px) */
+@media (max-width: 639px) {
+  .prose h2 {
+    @apply text-xl mt-10 mb-4;
+  }
+
+  .prose h3 {
+    @apply text-lg mt-8 mb-3;
+  }
+
+  .prose p {
+    @apply text-[15px];
+  }
+
+  .prose blockquote {
+    @apply pl-4 p-5 text-[15px];
+  }
+
+  .prose .cta-box {
+    @apply p-6;
+  }
+
+  .prose .stat-hero {
+    @apply p-6;
   }
 }

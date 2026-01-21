@@ -96,17 +96,19 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
       <ArticleHero article={article} />
 
       {/* Main Content avec Sidebar */}
-      <div className="w-full py-12 md:py-20 lg:py-24 flex justify-center items-start">
-        <div className="max-w-[1350px] px-4 sm:px-6 lg:px-12 xl:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(250px,280px)_1fr_minmax(280px,320px)] xl:grid-cols-[300px_1fr_320px] gap-8 xl:gap-12 max-w-fit mx-auto" style={{ paddingTop: '15px', paddingBottom: '15px' }}>
-            {/* Sticky Table of Contents (Left) */}
-            <TableOfContents items={tableOfContents} activeSection={activeSection} />
+      <div className="w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 flex justify-center items-start">
+        <div className="max-w-[1350px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(250px,280px)_1fr_minmax(280px,320px)] xl:grid-cols-[300px_1fr_320px] gap-6 sm:gap-8 xl:gap-12 max-w-fit mx-auto py-4 sm:py-6 md:py-8">
+            {/* Sticky Table of Contents (Left) - Hidden on mobile */}
+            <div className="hidden lg:block">
+              <TableOfContents items={tableOfContents} activeSection={activeSection} />
+            </div>
 
             {/* Article Content (Center) */}
-            <article ref={articleRef} className="w-full">
-              <div className="max-w-[750px] mx-auto space-y-12 px-4 sm:px-6">
+            <article ref={articleRef} className="w-full min-w-0">
+              <div className="max-w-[750px] mx-auto space-y-8 sm:space-y-10 md:space-y-12 px-4 sm:px-6">
                 {/* Excerpt */}
-                <p className="text-xl text-gray-600 leading-relaxed pb-6 border-b-2 border-gray-100" style={{ marginBottom: '10px' }}>
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed pb-4 sm:pb-6 border-b-2 border-gray-100 mb-4 sm:mb-6">
                   {article.excerpt}
                 </p>
 
@@ -114,16 +116,15 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
                 <MarkdownRenderer content={article.content} className="prose-lg" />
 
                 {/* Keywords */}
-                <div className="mt-16 pt-6 border-t border-gray-200">
-                  <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider" style={{ marginBottom: '5px' }}>
+                <div className="mt-10 sm:mt-12 md:mt-16 pt-4 sm:pt-6 border-t border-gray-200">
+                  <h3 className="text-xs sm:text-sm font-bold text-gray-900 uppercase tracking-wider mb-3 sm:mb-4">
                     Mots-clés
                   </h3>
-                  <div className="flex flex-wrap items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     {article.keywords.map((keyword) => (
                       <span
                         key={keyword}
-                        className="inline-flex items-center justify-center bg-gray-100 text-gray-700 rounded-full text-xs hover:bg-gradient-to-l hover:from-amber-600 hover:to-[#d4af37] hover:text-white transition-all duration-300 cursor-pointer leading-none font-medium"
-                        style={{ padding: '8px' }}
+                        className="inline-flex items-center justify-center bg-gray-100 text-gray-700 rounded-full text-xs hover:bg-gradient-to-l hover:from-amber-600 hover:to-[#d4af37] hover:text-white transition-all duration-300 cursor-pointer leading-none font-medium px-3 py-2 sm:px-4 sm:py-2.5"
                       >
                         #{keyword}
                       </span>
@@ -133,8 +134,10 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
               </div>
             </article>
 
-            {/* Sticky CTA (Right) */}
-            <ArticleSidebar readingProgress={readingProgress} />
+            {/* Sticky CTA (Right) - Hidden on mobile */}
+            <div className="hidden lg:block">
+              <ArticleSidebar readingProgress={readingProgress} />
+            </div>
           </div>
         </div>
       </div>
