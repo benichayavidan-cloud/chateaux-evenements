@@ -11,6 +11,7 @@
   column-gap: unset;
   column-rule: unset;
   display: block;
+  @apply px-4 sm:px-0;
 }
 
 .prose > * {
@@ -31,11 +32,11 @@
 
 /* Article content container with responsive padding */
 .article-content {
-  @apply px-4 md:px-10 lg:px-10;
+  @apply px-6 sm:px-8 md:px-10 lg:px-10;
 }
 
 .prose-container {
-  @apply w-full;
+  @apply w-full px-5 sm:px-6;
 }
 
 /* Typography - using @apply for consistency */

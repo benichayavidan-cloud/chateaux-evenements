@@ -308,7 +308,7 @@ const article2: BlogPost = {
   },
   publishedAt: "2026-01-12",
   readingTime: 10,
-  image: "/images/reunion-entreprise-chateau-elegant.webp",
+  image: "/images/reunion-entreprise-chateau-elegant.jpg",
   imageAlt: "Checklist complète pour organiser un séminaire en château",
   keywords: [
     "checklist séminaire",
@@ -665,7 +665,7 @@ const article3: BlogPost = {
   },
   publishedAt: "2026-01-10",
   readingTime: 12,
-  image: "/images/activites-team-building-chateau-groupe.webp",
+  image: "/images/activites-team-building-chateau-groupe.jpg",
   imageAlt: "Séminaire au vert en château pour booster la productivité",
   keywords: [
     "séminaire nature",

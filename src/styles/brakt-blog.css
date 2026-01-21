@@ -329,6 +329,11 @@
 }
 
 @media (max-width: 768px) {
+  /* Conteneurs avec padding généreux */
+  .brakt-container {
+    padding: 0 20px;
+  }
+
   .post-outer {
     margin-bottom: 30px;
   }
@@ -338,7 +343,7 @@
   }
 
   .post-info {
-    padding: 20px;
+    padding: 24px 20px;
   }
 
   .post-title a {
@@ -346,28 +351,40 @@
     line-height: 22px;
   }
 
+  /* Boutons avec padding généreux */
+  .read-more a {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
   .brakt-blog.grid-style .post-thumb {
     height: 250px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  /* Mobile très petit - padding encore plus généreux */
+  .brakt-container {
+    padding: 0 16px;
+  }
+
   .post-thumb {
-    height: 200px;
+    height: 220px;
   }
 
   .post-info {
-    padding: 15px;
+    padding: 20px 16px;
   }
 
   .post-title a {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 17px;
+    line-height: 21px;
   }
 
+  /* Boutons mobile avec padding suffisant */
   .read-more a {
-    padding: 8px 20px;
-    font-size: 12px;
+    padding: 11px 22px;
+    font-size: 13px;
   }
 }
 
