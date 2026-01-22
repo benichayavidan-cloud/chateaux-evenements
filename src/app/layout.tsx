@@ -106,6 +106,14 @@ export default function RootLayout({
         "logo": "https://www.selectchateaux.com/logo.png",
         "description": "Agence spécialisée dans la location de lieux confidentiels et de châteaux pour séminaires d'entreprise en Île-de-France.",
         "areaServed": "Île-de-France",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "60 Rue François 1er",
+          "addressLocality": "Paris",
+          "postalCode": "75008",
+          "addressRegion": "Île-de-France",
+          "addressCountry": "FR"
+        },
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+33757991146",

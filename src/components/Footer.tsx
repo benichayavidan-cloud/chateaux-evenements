@@ -139,19 +139,19 @@ export function Footer() {
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[var(--gold)] flex-shrink-0" />
                 <a
-                  href="tel:+33123456789"
+                  href="tel:+33757991146"
                   className="text-gray-300 hover:text-[var(--gold)] transition-colors"
                 >
-                  +33 1 23 45 67 89
+                  07 57 99 11 46
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[var(--gold)] flex-shrink-0" />
                 <a
-                  href="mailto:contact@selectchateaux.com"
+                  href="mailto:seminaires@selectchateaux.com"
                   className="text-gray-300 hover:text-[var(--gold)] transition-colors"
                 >
-                  contact@selectchateaux.com
+                  seminaires@selectchateaux.com
                 </a>
               </li>
             </ul>

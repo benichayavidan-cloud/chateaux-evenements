@@ -22,7 +22,9 @@ export default function ContactPage() {
     "email": "seminaires@selectchateaux.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "60 Rue François 1er",
       "addressLocality": "Paris",
+      "postalCode": "75008",
       "addressRegion": "Île-de-France",
       "addressCountry": "FR"
     },
@@ -204,12 +206,12 @@ export default function ContactPage() {
                   </div>
                   <div className="text-center">
                     <h4 className="font-bold text-gray-900 mb-2 text-xs uppercase tracking-wider">
-                      Localisation
+                      Adresse
                     </h4>
                     <p className="text-gray-700 leading-relaxed font-medium text-sm">
-                      Select Châteaux
+                      60 Rue François 1er
                       <br />
-                      Paris, Île-de-France
+                      75008 Paris, France
                     </p>
                   </div>
                 </div>
