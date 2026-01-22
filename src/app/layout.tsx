@@ -40,9 +40,8 @@ export const metadata: Metadata = {
   description:
     "Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
   robots: {
-    index: false,
-    follow: false,
-    nocache: true,
+    index: true,
+    follow: true,
   },
   keywords: [
     "séminaire chateau ile de france",

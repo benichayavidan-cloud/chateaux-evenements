@@ -4,7 +4,6 @@ import { LegalPageLayout, LegalSection, LegalContent, LegalList, LegalLink } fro
 export const metadata: Metadata = {
   title: "Conditions Générales de Vente | Select Châteaux",
   description: "Conditions générales de vente et d'utilisation de Select Châteaux",
-  robots: "noindex",
 };
 
 export default function CGVPage() {
