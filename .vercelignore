@@ -1,0 +1,15 @@
+# Backups et archives (trop volumineux)
+backup/
+archives-developpement/
+*.tar.gz
+*.zip
+
+# Fichiers de développement
+.env.backup
+VERIFICATION-TRANSFERT.md
+LIVRAISON-FINALE.md
+README-MAINTENANCE.md
+
+# Logs et caches
+*.log
+.DS_Store

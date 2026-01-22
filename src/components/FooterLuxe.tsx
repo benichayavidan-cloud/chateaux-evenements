@@ -167,7 +167,7 @@ export function FooterLuxe() {
                   fontSize: 'clamp(0.875rem, 2vw, 0.9375rem)',
                   lineHeight: theme.typography.lineHeight.relaxed
                 }}>
-                  15 Avenue des Châteaux<br />
+                  60 Rue François 1er<br />
                   75008 Paris, France
                 </span>
               </li>

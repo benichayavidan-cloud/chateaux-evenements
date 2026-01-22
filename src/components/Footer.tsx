@@ -131,7 +131,7 @@ export function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[var(--gold)] flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300">
-                  15 Avenue des Châteaux
+                  60 Rue François 1er
                   <br />
                   75008 Paris, France
                 </span>

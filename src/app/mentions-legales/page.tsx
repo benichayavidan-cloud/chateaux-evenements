@@ -1,104 +1,90 @@
 import { Metadata } from "next";
-import { NavigationLuxe } from "@/components/NavigationLuxe";
-import { FooterLuxe } from "@/components/FooterLuxe";
+import { LegalPageLayout, LegalSection, LegalContent, LegalLink } from "@/components/legal";
 
 export const metadata: Metadata = {
   title: "Mentions Légales | Select Châteaux",
-  description: "Mentions légales et informations sur l'éditeur du site",
+  description: "Mentions légales et informations sur l'éditeur du site Select Châteaux",
+  robots: "noindex",
 };
 
 export default function MentionsLegalesPage() {
   return (
-    <>
-      <NavigationLuxe />
-      <main className="min-h-screen bg-white pt-20">
-        <div className="container mx-auto px-4 py-16 max-w-4xl">
-          <h1 className="text-4xl font-bold mb-8">Mentions Légales</h1>
+    <LegalPageLayout title="Mentions Légales">
+      <LegalSection title="A. Éditeur du Site">
+        <LegalContent>
+          <p className="mb-2">
+            <strong>Select Chateaux</strong>, Société par Actions Simplifiée (SAS).
+          </p>
+          <p className="mb-2">
+            <strong>Siège social :</strong> 60 Rue François 1er, 75008 Paris, France
+          </p>
+          <p className="mb-2">
+            <strong>Activité :</strong> Organisation de séminaires d'entreprises et d'événements professionnels (Prestation de service B2B).
+          </p>
+          <p className="mb-2">
+            <strong>Email de contact :</strong>{" "}
+            <LegalLink href="mailto:seminaires@selectchateaux.com">
+              seminaires@selectchateaux.com
+            </LegalLink>
+          </p>
+        </LegalContent>
+      </LegalSection>
 
-          <div className="prose prose-lg max-w-none">
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">1. Éditeur du site</h2>
-              <p>
-                <strong>Raison sociale :</strong> Select Châteaux<br/>
-                <strong>Forme juridique :</strong> SAS<br/>
-                <strong>Capital social :</strong> 50 000 €<br/>
-                <strong>Siège social :</strong> 15 Avenue des Châteaux, 75008 Paris, France<br/>
-                <strong>SIRET :</strong> En cours d'immatriculation<br/>
-                <strong>Email :</strong> <a href="mailto:seminaires@selectchateaux.com" className="text-primary-bronze hover:underline">seminaires@selectchateaux.com</a><br/>
-                <strong>Téléphone :</strong> 07 57 99 11 46
-              </p>
-            </section>
+      <LegalSection title="B. Hébergeur">
+        <LegalContent>
+          <p>
+            <strong>Vercel Inc.</strong>, 340 S Lemon Ave #4133 Walnut, CA 91789, USA.
+          </p>
+        </LegalContent>
+      </LegalSection>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">2. Directeur de publication</h2>
-              <p>
-                <strong>Nom :</strong> Direction Select Châteaux<br/>
-                <strong>Fonction :</strong> Président
-              </p>
-            </section>
+      <LegalSection title="C. Propriété Intellectuelle & Activité">
+        <LegalContent spaced>
+          <p>
+            Le site Select Chateaux a pour objet exclusif la présentation de lieux de réception
+            et la logistique de réunion pour une clientèle professionnelle.
+          </p>
+          <p>
+            L'entreprise agit en qualité d'organisateur ensemblier pour des événements d'entreprise
+            (séminaires, off-sites, journées d'étude). Elle ne propose pas de prestations touristiques
+            de loisirs destinées aux particuliers.
+          </p>
+        </LegalContent>
+      </LegalSection>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">3. Hébergement</h2>
-              <p>
-                <strong>Hébergeur :</strong> Vercel Inc.<br/>
-                <strong>Adresse :</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, USA<br/>
-                <strong>Site web :</strong> <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-primary-bronze hover:underline">vercel.com</a>
-              </p>
-            </section>
+      <LegalSection title="D. Données Personnelles (RGPD B2B)">
+        <LegalContent spaced>
+          <p>
+            Les données collectées ont pour unique finalité la gestion opérationnelle de l'événement
+            (listes de participants / rooming list) et la facturation.
+          </p>
+          <p>
+            Elles sont transmises aux lieux d'accueil partenaires uniquement pour les nécessités
+            logistiques de l'événement. Aucune donnée n'est commercialisée à des tiers.
+          </p>
+        </LegalContent>
+      </LegalSection>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">4. Base de données</h2>
-              <p>
-                <strong>Fournisseur :</strong> Supabase Inc.<br/>
-                <strong>Site web :</strong> <a href="https://supabase.com" target="_blank" rel="noopener noreferrer" className="text-primary-bronze hover:underline">supabase.com</a>
-              </p>
-            </section>
+      <LegalSection title="Propriété Intellectuelle">
+        <LegalContent>
+          <p>
+            L'ensemble du contenu de ce site (textes, images, vidéos, logos, etc.) est la propriété
+            exclusive de Select Châteaux. Toute reproduction, représentation, modification, publication
+            ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé
+            utilisé, est interdite sans l'autorisation écrite préalable de Select Châteaux.
+          </p>
+        </LegalContent>
+      </LegalSection>
 
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">5. Propriété intellectuelle</h2>
-              <p>
-                L'ensemble du contenu de ce site (textes, images, vidéos, logos, etc.) est la propriété exclusive de Select Châteaux.
-                Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site,
-                quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de Select Châteaux.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">6. Crédits</h2>
-              <p>
-                <strong>Développement :</strong> Site développé avec Next.js, React et Tailwind CSS<br/>
-                <strong>Photos :</strong> Images Supabase Storage et Unsplash<br/>
-                <strong>Design :</strong> Design original Select Châteaux
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">7. Données personnelles</h2>
-              <p>
-                Pour toute information concernant la collecte et le traitement de vos données personnelles,
-                veuillez consulter notre <a href="/confidentialite" className="text-primary-bronze hover:underline">politique de confidentialité</a>.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">8. Cookies</h2>
-              <p>
-                Ce site utilise uniquement des cookies techniques nécessaires à son fonctionnement.
-                Aucun cookie de tracking ou publicitaire n'est utilisé.
-              </p>
-            </section>
-
-            <section className="mb-8">
-              <h2 className="text-2xl font-semibold mb-4">9. Droit applicable</h2>
-              <p>
-                Le présent site et ses conditions d'utilisation sont régis par le droit français.
-                Tout litige relatif à l'utilisation de ce site sera soumis à la compétence exclusive des tribunaux français.
-              </p>
-            </section>
-          </div>
-        </div>
-      </main>
-      <FooterLuxe />
-    </>
+      <LegalSection title="Droit Applicable">
+        <LegalContent>
+          <p>
+            Le présent site et ses conditions d'utilisation sont régis par le droit français.
+            Tout litige relatif à l'utilisation de ce site sera soumis à la compétence exclusive
+            des tribunaux français.
+          </p>
+        </LegalContent>
+      </LegalSection>
+    </LegalPageLayout>
   );
 }

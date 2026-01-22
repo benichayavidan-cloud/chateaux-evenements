@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:cgv": "node scripts/generate-cgv-pdf.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -34,6 +35,7 @@
     "dotenv": "^17.2.3",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "puppeteer": "^24.35.0",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"
