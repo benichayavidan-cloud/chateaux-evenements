@@ -32,7 +32,7 @@ export function LegalPageLayout({ title, subtitle, children }: LegalPageLayoutPr
               {subtitle && (
                 <p
                   className="mt-4 text-xs"
-                  style={{ color: theme.colors.neutral.gray500 }}
+                  style={{ color: theme.colors.neutral.gray600 }}
                 >
                   {subtitle}
                 </p>
