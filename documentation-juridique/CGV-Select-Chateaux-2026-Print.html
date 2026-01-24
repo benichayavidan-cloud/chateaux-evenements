@@ -2,11 +2,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conditions Générales de Vente - Select Châteaux</title>
     <style>
         @page {
             size: A4;
-            margin: 1.5cm 2cm 3.5cm 2cm;
+            margin: 2cm;
         }
 
         * {
@@ -16,89 +17,85 @@
         }
 
         body {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 8.5pt;
-            line-height: 1.35;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 10pt;
+            line-height: 1.5;
             color: #1a1a1a;
             background: white;
-            padding-bottom: 2.5cm;
+            max-width: 21cm;
+            margin: 0 auto;
+            padding: 1cm;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 18px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #A37E2C;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #A37E2C;
         }
 
         .logo-text {
-            font-size: 18pt;
+            font-size: 24pt;
             font-weight: bold;
             color: #050505;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
             font-style: italic;
-            letter-spacing: 1px;
         }
 
         .logo-subtitle {
-            font-size: 7pt;
+            font-size: 9pt;
             color: #666;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
 
         h1 {
-            font-size: 14pt;
+            font-size: 20pt;
             font-weight: bold;
             color: #050505;
             text-align: center;
-            margin: 15px 0 5px 0;
+            margin: 25px 0;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .date {
             text-align: center;
-            font-size: 7pt;
+            font-size: 8pt;
             color: #666;
-            margin-bottom: 18px;
-            font-style: italic;
+            margin-bottom: 30px;
         }
 
         h2 {
-            font-size: 10pt;
+            font-size: 12pt;
             font-weight: bold;
             color: #A37E2C;
-            margin-top: 14px;
-            margin-bottom: 6px;
-            padding-bottom: 3px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
             border-bottom: 1px solid #A37E2C;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
         }
 
         h3 {
-            font-size: 8.5pt;
+            font-size: 10pt;
             font-weight: bold;
             color: #050505;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            margin-top: 15px;
+            margin-bottom: 8px;
         }
 
         p {
-            margin-bottom: 6px;
+            margin-bottom: 10px;
             text-align: justify;
         }
 
         ul {
-            margin-left: 15px;
-            margin-bottom: 6px;
-            padding-left: 5px;
+            margin-left: 20px;
+            margin-bottom: 10px;
         }
 
         li {
-            margin-bottom: 3px;
-            text-align: justify;
+            margin-bottom: 5px;
         }
 
         strong {
@@ -107,49 +104,46 @@
         }
 
         .section {
-            margin-bottom: 12px;
+            margin-bottom: 20px;
+            page-break-inside: avoid;
         }
 
         .highlight {
             background-color: #FFF9E6;
-            padding: 8px;
-            border-left: 2px solid #A37E2C;
-            margin: 8px 0;
+            padding: 10px;
+            border-left: 3px solid #A37E2C;
+            margin: 15px 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #A37E2C;
+            text-align: center;
+            font-size: 8pt;
+            color: #666;
         }
 
         .contact-box {
-            background-color: #F8F8F8;
-            padding: 10px;
-            border: 1px solid #A37E2C;
-            margin-top: 15px;
+            background-color: #F5F5F5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
             text-align: center;
         }
 
         .contact-box p {
-            margin: 3px 0;
-            font-size: 7.5pt;
+            margin: 5px 0;
+            font-size: 9pt;
         }
 
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2cm;
-            background: white;
-            border-top: 1px solid #A37E2C;
-            padding: 8px 2cm;
-            font-size: 6.5pt;
-            color: #666;
-            text-align: center;
-        }
-
-        .footer-line {
-            margin: 2px 0;
-        }
-
-        .page-number:after {
-            content: counter(page);
+        @media print {
+            body {
+                padding: 0;
+            }
+            .no-print {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -163,14 +157,23 @@
     <div class="date">Version en vigueur : Janvier 2026</div>
 
     <div class="section">
-        <h2>Article 1 - Objet et Champ d'Application</h2>
-        <p>Les présentes Conditions Générales de Vente (ci-après "CGV") régissent les relations contractuelles entre <strong>Select Châteaux</strong>, Société par Actions Simplifiée au capital de 10 000 euros, immatriculée au RCS de Paris sous le numéro B 123 456 789, dont le siège social est situé 60 Rue François 1er, 75008 Paris, France (ci-après "le Prestataire"), et toute personne morale (ci-après "le Commanditaire") souhaitant bénéficier de prestations de services d'organisation et de logistique événementielle.</p>
+        <h2>ARTICLE 1 - OBJET ET CHAMP D'APPLICATION</h2>
+        <p>Les présentes Conditions Générales de Vente (ci-après "CGV") régissent les relations contractuelles entre <strong>Select Châteaux</strong>, Société par Actions Simplifiée au capital de [●] euros, immatriculée au RCS de Paris sous le numéro [●], dont le siège social est situé 60 Rue François 1er, 75008 Paris (ci-après "le Prestataire"), et toute personne morale (ci-après "le Commanditaire") souhaitant bénéficier de prestations de services d'organisation et de logistique événementielle.</p>
 
         <h3>1.1 - Nature de l'Activité</h3>
-        <p><strong>Select Châteaux</strong> agit en qualité d'<strong>organisateur ensemblier</strong> selon un modèle d'achat-revente (Merchant Model). Le Prestataire achète auprès de ses partenaires (lieux de réception, prestataires de restauration, d'hébergement et d'activités) des prestations qu'il revend sous la forme d'un <strong>forfait global</strong> au Commanditaire. Le forfait comprend : la location d'espaces dans des domaines et châteaux partenaires, la logistique d'hébergement des participants, les prestations de restauration (petit-déjeuner, déjeuner, dîner, pauses), les équipements techniques (vidéoprojecteur, sonorisation, wifi, etc.) et les activités éventuelles (team-building, œnologie, visites, etc.).</p>
+        <p><strong>Select Châteaux</strong> agit en qualité d'<strong>organisateur ensemblier</strong> selon un modèle d'achat-revente (Merchant Model). Le Prestataire achète auprès de ses partenaires (lieux de réception, prestataires de restauration, d'hébergement et d'activités) des prestations qu'il revend sous la forme d'un <strong>forfait global</strong> au Commanditaire.</p>
+
+        <p>Le forfait comprend :</p>
+        <ul>
+            <li>La location d'espaces dans des domaines et châteaux partenaires</li>
+            <li>La logistique d'hébergement des participants</li>
+            <li>Les prestations de restauration (petit-déjeuner, déjeuner, dîner, pauses)</li>
+            <li>Les équipements techniques (vidéoprojecteur, sonorisation, wifi, etc.)</li>
+            <li>Les activités éventuelles (team-building, œnologie, visites, etc.)</li>
+        </ul>
 
         <div class="highlight">
-            <strong>EXCLUSION EXPRESSE :</strong> Select Châteaux n'opère pas en qualité d'agence de voyage au sens de l'article L211-1 du Code du Tourisme. Les prestations fournies ne constituent pas des forfaits touristiques de loisirs mais des services B2B exclusivement destinés aux entreprises dans le cadre de séminaires, journées d'étude, conventions ou team-building professionnels.
+            <strong>EXCLUSION EXPRESSE :</strong> Select Châteaux n'opère pas en qualité d'agence de voyage au sens de l'article L211-1 du Code du Tourisme. Les prestations fournies ne constituent pas des forfaits touristiques de loisirs mais des <strong>services B2B exclusivement destinés aux entreprises</strong> dans le cadre de séminaires, journées d'étude, conventions ou team-building professionnels.
         </div>
 
         <h3>1.2 - Acceptation des CGV</h3>
@@ -178,9 +181,17 @@
     </div>
 
     <div class="section">
-        <h2>Article 2 - Prix et Facturation</h2>
+        <h2>ARTICLE 2 - PRIX ET FACTURATION</h2>
         <h3>2.1 - Prix</h3>
-        <p>Les prix sont indiqués en <strong>euros TTC</strong> (TVA applicable : 20%). Ils comprennent l'intégralité des prestations décrites dans le devis personnalisé remis au Commanditaire. Les prix peuvent varier en fonction de : la période de l'année (haute/basse saison), le nombre de participants, la durée de l'événement (1 jour, 2 jours, séjour résidentiel) et les prestations optionnelles demandées (activités, animations, privatisation exclusive).</p>
+        <p>Les prix sont indiqués en <strong>euros TTC</strong> (TVA applicable : 20%). Ils comprennent l'intégralité des prestations décrites dans le devis personnalisé remis au Commanditaire.</p>
+
+        <p>Les prix peuvent varier en fonction de :</p>
+        <ul>
+            <li>La période de l'année (haute/basse saison)</li>
+            <li>Le nombre de participants</li>
+            <li>La durée de l'événement (1 jour, 2 jours, séjour résidentiel)</li>
+            <li>Les prestations optionnelles demandées (activités, animations, privatisation exclusive)</li>
+        </ul>
 
         <h3>2.2 - Facturation</h3>
         <p>Une <strong>facture unique</strong> est émise par Select Châteaux au nom du Commanditaire. Le Commanditaire ne recevra aucune facture directe des lieux partenaires, prestataires de restauration ou d'activités, ces derniers étant sous-traitants du Prestataire.</p>
@@ -190,117 +201,242 @@
     </div>
 
     <div class="section">
-        <h2>Article 3 - Modalités de Réservation et de Paiement</h2>
+        <h2>ARTICLE 3 - MODALITÉS DE RÉSERVATION ET DE PAIEMENT</h2>
         <h3>3.1 - Réservation Ferme et Définitive</h3>
-        <p>La réservation devient <strong>ferme et définitive</strong> uniquement après réception par le Prestataire des éléments suivants : acceptation écrite du devis (signature manuscrite ou électronique), versement de l'acompte de <strong>50% du montant total TTC</strong> et retour du contrat d'organisation signé.</p>
+        <p>La réservation devient <strong>ferme et définitive</strong> uniquement après réception par le Prestataire des éléments suivants :</p>
+        <ul>
+            <li>Acceptation écrite du devis (signature manuscrite ou électronique)</li>
+            <li>Versement de l'acompte de <strong>50% du montant total TTC</strong></li>
+            <li>Retour du contrat d'organisation signé</li>
+        </ul>
 
         <h3>3.2 - Échéancier de Paiement</h3>
-        <p><strong>Acompte :</strong> 50% du montant total TTC à la signature du contrat. <strong>Solde :</strong> 50% du montant total TTC à <strong>J-30 jours</strong> avant la date de l'événement. Le non-paiement du solde à J-30 entraîne de plein droit l'annulation de la réservation et l'application des pénalités prévues à l'Article 4.</p>
+        <ul>
+            <li><strong>Acompte :</strong> 50% du montant total TTC à la signature du contrat</li>
+            <li><strong>Solde :</strong> 50% du montant total TTC à <strong>J-30 jours</strong> avant la date de l'événement</li>
+        </ul>
+
+        <p>Le non-paiement du solde à J-30 entraîne de plein droit l'annulation de la réservation et l'application des pénalités prévues à l'Article 4.</p>
 
         <h3>3.3 - Modes de Paiement</h3>
         <p>Modes de paiement acceptés : virement bancaire, chèque bancaire à l'ordre de "Select Châteaux". Les paiements par carte bancaire ne sont pas acceptés pour les montants supérieurs à 3 000€.</p>
 
         <h3>3.4 - Retard de Paiement</h3>
-        <p>Tout retard de paiement par rapport aux échéances fixées entraîne automatiquement et sans mise en demeure préalable : l'application de pénalités de retard calculées au taux légal en vigueur (actuellement : 3 fois le taux d'intérêt légal), une indemnité forfaitaire de 40€ pour frais de recouvrement (article L441-6 du Code de Commerce) et la suspension de l'exécution des prestations jusqu'à régularisation complète.</p>
+        <p>Tout retard de paiement par rapport aux échéances fixées entraîne automatiquement et sans mise en demeure préalable :</p>
+        <ul>
+            <li>L'application de pénalités de retard calculées au taux légal en vigueur (actuellement : 3 fois le taux d'intérêt légal)</li>
+            <li>Une indemnité forfaitaire de 40€ pour frais de recouvrement (article L441-6 du Code de Commerce)</li>
+            <li>La suspension de l'exécution des prestations jusqu'à régularisation complète</li>
+        </ul>
     </div>
 
     <div class="section">
-        <h2>Article 4 - Conditions d'Annulation</h2>
+        <h2>ARTICLE 4 - CONDITIONS D'ANNULATION</h2>
         <h3>4.1 - Annulation par le Commanditaire</h3>
         <p>Toute annulation doit être notifiée par écrit (lettre recommandée avec accusé de réception ou email avec confirmation de réception). La date de réception de la notification par le Prestataire fait foi.</p>
 
         <div class="highlight">
-            <strong>BARÈME DES PÉNALITÉS D'ANNULATION :</strong> Plus de 90 jours avant l'événement : Remboursement de l'acompte moins 500€ HT de frais de dossier. Entre 90 et 60 jours : Retenue de 30% du montant total TTC. Entre 60 et 30 jours : Retenue de 50% du montant total TTC. Moins de 30 jours : Retenue de 100% du montant total TTC.
+            <strong>BARÈME DES PÉNALITÉS D'ANNULATION :</strong>
+            <ul>
+                <li><strong>Plus de 90 jours avant l'événement :</strong> Remboursement de l'acompte moins 500€ HT de frais de dossier</li>
+                <li><strong>Entre 90 et 60 jours :</strong> Retenue de 30% du montant total TTC</li>
+                <li><strong>Entre 60 et 30 jours :</strong> Retenue de 50% du montant total TTC</li>
+                <li><strong>Moins de 30 jours :</strong> Retenue de <strong>100% du montant total TTC</strong></li>
+            </ul>
         </div>
 
         <h3>4.2 - Absence ou Annulation Partielle</h3>
         <p>Toute prestation réservée et non consommée (participant absent, repas non pris, chambre non occupée) reste due intégralement et ne fait l'objet d'aucun remboursement, y compris en cas de force majeure affectant un participant individuel (maladie, accident).</p>
+
+        <h3>4.3 - Annulation par le Prestataire</h3>
+        <p>Le Prestataire se réserve le droit d'annuler la prestation en cas de force majeure (voir Article 6.1). Dans ce cas, les sommes versées sont intégralement remboursées ou converties en avoir (voir Article 6.1).</p>
     </div>
 
     <div class="section">
-        <h2>Article 5 - Report et Modification des Prestations</h2>
+        <h2>ARTICLE 5 - REPORT ET MODIFICATION DES PRESTATIONS</h2>
         <h3>5.1 - Report à la Demande du Commanditaire</h3>
-        <p>Plus de 60 jours avant : Report possible sans frais supplémentaires, sous réserve de disponibilité du lieu partenaire et de validation par Select Châteaux. Un seul report est autorisé par réservation. Moins de 60 jours avant : Tout report est considéré comme une annulation et soumis au barème des pénalités de l'Article 4.</p>
+        <p>Le Commanditaire peut demander le report de l'événement selon les conditions suivantes :</p>
+        <ul>
+            <li><strong>Plus de 60 jours avant :</strong> Report possible <strong>sans frais supplémentaires</strong>, sous réserve de disponibilité du lieu partenaire et de validation par Select Châteaux. Un seul report est autorisé par réservation.</li>
+            <li><strong>Moins de 60 jours avant :</strong> Tout report est considéré comme une annulation et soumis au barème des pénalités de l'Article 4.</li>
+        </ul>
 
         <h3>5.2 - Modification du Nombre de Participants</h3>
-        <p>Le nombre définitif de participants doit être confirmé à J-30. Jusqu'à J-30 : Ajustement possible sans frais si variation < 10%. Entre J-30 et J-7 : Toute diminution > 10% entraîne facturation intégrale des prestations initialement réservées. Moins de J-7 : Aucune modification n'est acceptée. Le nombre confirmé à J-30 reste facturé intégralement.</p>
+        <p>Le nombre définitif de participants doit être confirmé à <strong>J-30</strong>. Les ajustements suivants s'appliquent :</p>
+        <ul>
+            <li><strong>Jusqu'à J-30 :</strong> Ajustement possible sans frais si variation < 10%</li>
+            <li><strong>Entre J-30 et J-7 :</strong> Toute diminution > 10% entraîne facturation intégrale des prestations initialement réservées</li>
+            <li><strong>Moins de J-7 :</strong> Aucune modification n'est acceptée. Le nombre confirmé à J-30 reste facturé intégralement</li>
+        </ul>
 
         <h3>5.3 - Modification des Prestations</h3>
-        <p>Toute modification substantielle du contrat (changement de dates, d'activités, de menu, d'hébergement) doit être demandée par écrit et reste soumise à l'acceptation du Prestataire et à la disponibilité des lieux partenaires. Des frais administratifs de 150€ HT peuvent s'appliquer pour toute modification intervenant moins de 60 jours avant l'événement.</p>
+        <p>Toute modification substantielle du contrat (changement de dates, d'activités, de menu, d'hébergement) doit être demandée par écrit et reste soumise à l'acceptation du Prestataire et à la disponibilité des lieux partenaires.</p>
+        <p>Des <strong>frais administratifs de 150€ HT</strong> peuvent s'appliquer pour toute modification intervenant moins de 60 jours avant l'événement.</p>
     </div>
 
     <div class="section">
-        <h2>Article 6 - Force Majeure, Intempéries et Défaillance du Lieu</h2>
+        <h2>ARTICLE 6 - FORCE MAJEURE, INTEMPÉRIES ET DÉFAILLANCE DU LIEU</h2>
         <h3>6.1 - Définition Étendue de la Force Majeure</h3>
-        <p>Conformément à l'article 1218 du Code Civil, constitue un cas de force majeure tout événement échappant au contrôle raisonnable des parties, imprévisible lors de la conclusion du contrat et insurmontable, rendant impossible l'exécution du contrat. Sont notamment considérés comme cas de force majeure : fermeture administrative du lieu par décision préfectorale, ministérielle ou gouvernementale ; interdiction de rassemblement édictée par les autorités publiques (ex : crise sanitaire de type COVID-19, état d'urgence) ; catastrophe naturelle faisant l'objet d'un Arrêté Préfectoral de Catastrophe Naturelle ; grèves générales des transports nationaux (SNCF, aérien) rendant l'accès au site objectivement impossible pour la majorité des participants ; blocage des réseaux routiers majeurs (autoroutes, routes nationales) par décision administrative ou manifestation empêchant l'accès au site.</p>
+        <p>Conformément à l'article 1218 du Code Civil, constitue un cas de <strong>force majeure</strong> tout événement échappant au contrôle raisonnable des parties, imprévisible lors de la conclusion du contrat et insurmontable, rendant impossible l'exécution du contrat.</p>
+
+        <p><strong>Sont notamment considérés comme cas de force majeure :</strong></p>
+        <ul>
+            <li>Fermeture administrative du lieu par décision préfectorale, ministérielle ou gouvernementale</li>
+            <li>Interdiction de rassemblement édictée par les autorités publiques (ex : crise sanitaire de type COVID-19, état d'urgence)</li>
+            <li>Catastrophe naturelle faisant l'objet d'un Arrêté Préfectoral de Catastrophe Naturelle</li>
+            <li>Grèves générales des transports nationaux (SNCF, aérien) rendant l'accès au site objectivement impossible pour la majorité des participants</li>
+            <li>Blocage des réseaux routiers majeurs (autoroutes, routes nationales) par décision administrative ou manifestation empêchant l'accès au site</li>
+        </ul>
 
         <div class="highlight">
-            <strong>CONSÉQUENCES :</strong> En cas de force majeure avérée, l'événement est automatiquement REPORTÉ. Select Châteaux émet un Avoir d'une validité de 18 mois permettant d'organiser l'événement à une date ultérieure convenue d'un commun accord. Le remboursement intégral des sommes versées n'est possible que si le report s'avère définitivement impossible (fermeture définitive du lieu, liquidation judiciaire du Prestataire ou du lieu partenaire).
+            <strong>CONSÉQUENCES DE LA FORCE MAJEURE :</strong>
+            <p>En cas de force majeure avérée, l'événement est automatiquement <strong>REPORTÉ</strong>. Select Châteaux émet un <strong>Avoir d'une validité de 18 mois</strong> permettant d'organiser l'événement à une date ultérieure convenue d'un commun accord.</p>
+            <p>Le remboursement intégral des sommes versées n'est possible que si le report s'avère définitivement impossible (fermeture définitive du lieu, liquidation judiciaire du Prestataire ou du lieu partenaire).</p>
         </div>
 
         <h3>6.2 - Conditions Météorologiques</h3>
-        <p>Les conditions météorologiques défavorables (pluie, vent, chaleur, froid, brouillard) NE CONSTITUENT PAS un cas de force majeure et ne justifient ni annulation ni remboursement, sauf dans les situations exceptionnelles suivantes : Arrêté Préfectoral de Catastrophe Naturelle en vigueur sur la zone géographique du lieu, Vigilance Météo Rouge émise par Météo France rendant le site inaccessible ou dangereux, ou fermeture administrative du site par les autorités compétentes (préfecture, mairie). Dans ces cas exceptionnels uniquement, les dispositions de l'article 6.1 (Force Majeure) s'appliquent.</p>
+        <p>Les conditions météorologiques défavorables (pluie, vent, chaleur, froid, brouillard) <strong>NE CONSTITUENT PAS un cas de force majeure</strong> et ne justifient ni annulation ni remboursement, sauf dans les situations exceptionnelles suivantes :</p>
+        <ul>
+            <li><strong>Arrêté Préfectoral de Catastrophe Naturelle</strong> en vigueur sur la zone géographique du lieu</li>
+            <li><strong>Vigilance Météo Rouge</strong> émise par Météo France rendant le site inaccessible ou dangereux</li>
+            <li>Fermeture administrative du site par les autorités compétentes (préfecture, mairie)</li>
+        </ul>
+
+        <p>Dans ces cas exceptionnels uniquement, les dispositions de l'article 6.1 (Force Majeure) s'appliquent.</p>
 
         <h3>6.3 - Défaillance du Lieu Partenaire</h3>
-        <p>Si le lieu initialement réservé devient indisponible pour des raisons indépendantes de la volonté du Prestataire (incendie, dégât des eaux, faillite du propriétaire, travaux d'urgence, réquisition), Select Châteaux s'engage à : proposer un lieu de remplacement de catégorie équivalente ou supérieure dans un délai de 15 jours ouvrés, maintenir les mêmes conditions tarifaires si le Commanditaire accepte le lieu de substitution, rembourser intégralement les sommes versées si aucune solution de remplacement acceptable n'est trouvée dans un délai de 30 jours.</p>
+        <p>Si le lieu initialement réservé devient indisponible pour des raisons indépendantes de la volonté du Prestataire (incendie, dégât des eaux, faillite du propriétaire, travaux d'urgence, réquisition), Select Châteaux s'engage à :</p>
+        <ul>
+            <li>Proposer un <strong>lieu de remplacement de catégorie équivalente ou supérieure</strong> dans un délai de 15 jours ouvrés</li>
+            <li>Maintenir les mêmes conditions tarifaires si le Commanditaire accepte le lieu de substitution</li>
+            <li>Rembourser intégralement les sommes versées si aucune solution de remplacement acceptable n'est trouvée dans un délai de 30 jours</li>
+        </ul>
 
         <div class="highlight">
-            <strong>LIMITATION DE RESPONSABILITÉ :</strong> En cas d'impossibilité de fournir un lieu de remplacement acceptable, la responsabilité de Select Châteaux est strictement limitée au remboursement des sommes effectivement versées, à l'exclusion de toute autre indemnité, dommages-intérêts ou réparation de préjudice indirect (perte d'exploitation, frais annexes engagés par le Commanditaire, préjudice commercial ou d'image).
+            <strong>LIMITATION DE RESPONSABILITÉ :</strong>
+            En cas d'impossibilité de fournir un lieu de remplacement acceptable, la responsabilité de Select Châteaux est <strong>strictement limitée au remboursement des sommes effectivement versées</strong>, à l'exclusion de toute autre indemnité, dommages-intérêts ou réparation de préjudice indirect (perte d'exploitation, frais annexes engagés par le Commanditaire, préjudice commercial ou d'image).
         </div>
     </div>
 
     <div class="section">
-        <h2>Article 7 - Obligations du Commanditaire</h2>
-        <p>Le Commanditaire s'engage formellement à : respecter le règlement intérieur du domaine qui lui sera communiqué au plus tard 15 jours avant l'événement ; veiller au bon comportement de ses participants et collaborateurs, ainsi qu'à leur sécurité ; restituer les lieux dans l'état initial de propreté et de conservation (toute dégradation, casse ou perte d'équipement sera facturée au Commanditaire sur présentation de devis de remise en état) ; souscrire une assurance responsabilité civile événementielle couvrant l'ensemble des participants et les dommages matériels ou corporels potentiels (une attestation d'assurance pourra être exigée avant la tenue de l'événement) ; respecter les normes de sécurité incendie et ERP, les horaires convenus et les capacités d'accueil maximales du lieu ; communiquer la liste nominative des participants à J-7 minimum pour permettre la préparation des prestations (rooming list, badges, régimes alimentaires, allergies) ; informer le Prestataire de tout régime alimentaire spécifique, allergie ou handicap nécessitant une adaptation des prestations, au plus tard à J-15.</p>
+        <h2>ARTICLE 7 - OBLIGATIONS DU COMMANDITAIRE</h2>
+        <p>Le Commanditaire s'engage formellement à :</p>
+        <ul>
+            <li>Respecter le règlement intérieur du domaine qui lui sera communiqué au plus tard 15 jours avant l'événement</li>
+            <li>Veiller au bon comportement de ses participants et collaborateurs, ainsi qu'à leur sécurité</li>
+            <li>Restituer les lieux dans l'état initial de propreté et de conservation. Toute dégradation, casse ou perte d'équipement sera facturée au Commanditaire sur présentation de devis de remise en état</li>
+            <li>Souscrire une <strong>assurance responsabilité civile événementielle</strong> couvrant l'ensemble des participants et les dommages matériels ou corporels potentiels. Une attestation d'assurance pourra être exigée avant la tenue de l'événement</li>
+            <li>Respecter les normes de sécurité incendie et ERP, les horaires convenus et les capacités d'accueil maximales du lieu</li>
+            <li>Communiquer la liste nominative des participants à <strong>J-7 minimum</strong> pour permettre la préparation des prestations (rooming list, badges, régimes alimentaires, allergies)</li>
+            <li>Informer le Prestataire de tout régime alimentaire spécifique, allergie ou handicap nécessitant une adaptation des prestations, au plus tard à J-15</li>
+        </ul>
+
+        <h3>7.1 - Responsabilité pour Dégradations</h3>
+        <p>Le Commanditaire est entièrement responsable de tout dommage causé aux équipements, mobiliers, œuvres d'art ou locaux du lieu partenaire, que ces dégradations soient intentionnelles ou accidentelles. Une facturation complémentaire sera établie sur présentation de devis de réparation ou de remplacement.</p>
+
+        <h3>7.2 - Sanctions en Cas de Non-Respect</h3>
+        <p>Tout manquement grave aux obligations ci-dessus (comportement inapproprié, dégradations, non-respect des horaires, dépassement de capacité) peut entraîner l'interruption immédiate de l'événement sans remboursement.</p>
     </div>
 
     <div class="section">
-        <h2>Article 8 - Responsabilités et Assurance</h2>
+        <h2>ARTICLE 8 - RESPONSABILITÉS ET ASSURANCE</h2>
         <h3>8.1 - Responsabilité de Select Châteaux</h3>
-        <p>Select Châteaux met en œuvre tous les moyens nécessaires pour assurer la bonne exécution des prestations. Toutefois, le Prestataire ne peut être tenu responsable : des dommages causés par les participants entre eux ou envers des tiers ; du vol, de la perte, de la détérioration ou de la destruction d'objets personnels (bagages, ordinateurs, téléphones, objets de valeur) ; des annulations ou perturbations dues à des cas de force majeure définis à l'Article 6.1 ; des préjudices liés à des prestataires extérieurs non mandatés par Select Châteaux (transport des participants organisé directement par le Commanditaire, intervenants externes, etc.) ; de l'inadéquation des prestations aux attentes subjectives du Commanditaire si le devis validé a été scrupuleusement respecté.</p>
+        <p>Select Châteaux met en œuvre tous les moyens nécessaires pour assurer la bonne exécution des prestations. Toutefois, le Prestataire ne peut être tenu responsable :</p>
+        <ul>
+            <li>Des dommages causés par les participants entre eux ou envers des tiers</li>
+            <li>Du vol, de la perte, de la détérioration ou de la destruction d'objets personnels (bagages, ordinateurs, téléphones, objets de valeur)</li>
+            <li>Des annulations ou perturbations dues à des cas de force majeure définis à l'Article 6.1</li>
+            <li>Des préjudices liés à des prestataires extérieurs non mandatés par Select Châteaux (transport des participants organisé directement par le Commanditaire, intervenants externes, etc.)</li>
+            <li>De l'inadéquation des prestations aux attentes subjectives du Commanditaire si le devis validé a été scrupuleusement respecté</li>
+        </ul>
 
         <div class="highlight">
-            <strong>LIMITATION GLOBALE :</strong> En toute hypothèse, la responsabilité totale de Select Châteaux, tous préjudices confondus, est strictement limitée au montant total des prestations effectivement facturées pour l'événement concerné. Sont expressément exclus tous dommages indirects (perte d'exploitation, perte de chance, préjudice commercial, atteinte à l'image).
+            <strong>LIMITATION GLOBALE DE RESPONSABILITÉ :</strong>
+            En toute hypothèse, la responsabilité totale de Select Châteaux, tous préjudices confondus, est strictement limitée au <strong>montant total des prestations effectivement facturées</strong> pour l'événement concerné. Sont expressément exclus tous dommages indirects (perte d'exploitation, perte de chance, préjudice commercial, atteinte à l'image).
         </div>
 
         <h3>8.2 - Assurance</h3>
-        <p>Select Châteaux dispose d'une assurance responsabilité civile professionnelle couvrant son activité d'organisateur de séminaires. Une attestation peut être fournie sur demande. Le Commanditaire doit justifier d'une assurance responsabilité civile événementielle couvrant les participants et les dommages potentiels causés au lieu d'accueil. Une attestation d'assurance en cours de validité pourra être exigée avant la tenue de l'événement.</p>
+        <p>Select Châteaux dispose d'une assurance responsabilité civile professionnelle couvrant son activité d'organisateur de séminaires. Une attestation peut être fournie sur demande.</p>
+        <p>Le Commanditaire doit justifier d'une <strong>assurance responsabilité civile événementielle</strong> couvrant les participants et les dommages potentiels causés au lieu d'accueil. Une attestation d'assurance en cours de validité pourra être exigée avant la tenue de l'événement.</p>
     </div>
 
     <div class="section">
-        <h2>Article 9 - Données Personnelles et RGPD</h2>
-        <p>Les données personnelles collectées auprès du Commanditaire et des participants (nom, prénom, fonction, coordonnées, régimes alimentaires, allergies) sont traitées conformément au Règlement Général sur la Protection des Données (RGPD - Règlement UE 2016/679). Les données sont utilisées exclusivement pour : la gestion opérationnelle de l'événement (rooming list, préparation des repas, badges), la transmission aux lieux partenaires pour nécessités logistiques (hébergement, restauration) et la facturation et la comptabilité. Aucune donnée n'est commercialisée à des tiers. Les participants disposent d'un droit d'accès, de rectification, d'effacement, de limitation du traitement et de portabilité de leurs données personnelles. Ces droits peuvent être exercés en écrivant à : seminaires@selectchateaux.com. Les données sont conservées pendant la durée nécessaire à l'exécution du contrat, puis archivées pendant 5 ans conformément aux obligations comptables et fiscales.</p>
+        <h2>ARTICLE 9 - DONNÉES PERSONNELLES ET RGPD</h2>
+        <p>Les données personnelles collectées auprès du Commanditaire et des participants (nom, prénom, fonction, coordonnées, régimes alimentaires, allergies) sont traitées conformément au Règlement Général sur la Protection des Données (RGPD - Règlement UE 2016/679).</p>
+
+        <h3>9.1 - Finalités du Traitement</h3>
+        <p>Les données sont utilisées exclusivement pour :</p>
+        <ul>
+            <li>La gestion opérationnelle de l'événement (rooming list, préparation des repas, badges)</li>
+            <li>La transmission aux lieux partenaires pour nécessités logistiques (hébergement, restauration)</li>
+            <li>La facturation et la comptabilité</li>
+        </ul>
+
+        <h3>9.2 - Droits des Personnes Concernées</h3>
+        <p>Aucune donnée n'est commercialisée à des tiers. Les participants disposent d'un droit d'accès, de rectification, d'effacement, de limitation du traitement et de portabilité de leurs données personnelles. Ces droits peuvent être exercés en écrivant à : <strong>seminaires@selectchateaux.com</strong></p>
+
+        <h3>9.3 - Durée de Conservation</h3>
+        <p>Les données sont conservées pendant la durée nécessaire à l'exécution du contrat, puis archivées pendant 5 ans conformément aux obligations comptables et fiscales.</p>
     </div>
 
     <div class="section">
-        <h2>Article 10 - Litiges et Droit Applicable</h2>
+        <h2>ARTICLE 10 - LITIGES ET DROIT APPLICABLE</h2>
         <h3>10.1 - Droit Applicable</h3>
-        <p>Les présentes Conditions Générales de Vente sont régies par le droit français.</p>
+        <p>Les présentes Conditions Générales de Vente sont régies par le <strong>droit français</strong>.</p>
 
         <h3>10.2 - Règlement Amiable</h3>
-        <p>En cas de litige relatif à l'interprétation ou à l'exécution des présentes CGV, les parties s'engagent à rechercher une solution amiable préalablement à toute action judiciaire. Une période de négociation de 30 jours est observée à compter de la notification du litige par lettre recommandée avec AR.</p>
+        <p>En cas de litige relatif à l'interprétation ou à l'exécution des présentes CGV, les parties s'engagent à rechercher une solution amiable préalablement à toute action judiciaire. Une période de négociation de <strong>30 jours</strong> est observée à compter de la notification du litige par lettre recommandée avec AR.</p>
 
         <h3>10.3 - Compétence Juridictionnelle</h3>
-        <p>À défaut d'accord amiable dans le délai imparti, le litige sera porté devant les <strong>tribunaux compétents du siège social de Select Châteaux</strong> (Paris, France), auxquels les parties attribuent expressément compétence territoriale exclusive, nonobstant pluralité de défendeurs ou appel en garantie, même en cas de référé ou de procédure d'urgence.</p>
+        <p>À défaut d'accord amiable dans le délai imparti, le litige sera porté devant les <strong>tribunaux compétents du siège social de Select Châteaux</strong> (Paris, France), auxquels les parties attribuent expressément compétence territoriale exclusive, <strong>nonobstant pluralité de défendeurs ou appel en garantie</strong>, même en cas de référé ou de procédure d'urgence.</p>
+
+        <h3>10.4 - Clause de Médiation (Volontaire)</h3>
+        <p>Bien que les présentes CGV régissent des relations B2B, Select Châteaux s'engage volontairement à accepter une procédure de médiation. Le Commanditaire peut, préalablement à toute action judiciaire, saisir un médiateur de la consommation agréé.</p>
     </div>
 
     <div class="section">
-        <h2>Article 11 - Dispositions Générales</h2>
-        <p>Si une ou plusieurs stipulations des présentes CGV sont tenues pour non valides ou déclarées telles par une décision de justice, les autres stipulations conservent leur force et leur portée. Les présentes CGV sont rédigées en langue française. En cas de traduction, seule la version française fait foi. Select Châteaux se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de signature du devis par le Commanditaire.</p>
+        <h2>ARTICLE 11 - DISPOSITIONS GÉNÉRALES</h2>
+        <h3>11.1 - Nullité Partielle</h3>
+        <p>Si une ou plusieurs stipulations des présentes CGV sont tenues pour non valides ou déclarées telles par une décision de justice, les autres stipulations conservent leur force et leur portée.</p>
+
+        <h3>11.2 - Langue du Contrat</h3>
+        <p>Les présentes CGV sont rédigées en langue française. En cas de traduction, seule la version française fait foi.</p>
+
+        <h3>11.3 - Modification des CGV</h3>
+        <p>Select Châteaux se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de signature du devis par le Commanditaire.</p>
+    </div>
+
+    <div class="section">
+        <h2>ARTICLE 12 - PROPRIÉTÉ INTELLECTUELLE ET VISUELS</h2>
+        <h3>12.1 - Alias des Lieux</h3>
+        <p>Pour des raisons de <strong>confidentialité et d'exclusivité commerciale</strong>, les noms des domaines et châteaux présentés sur le site internet de Select Châteaux peuvent être des <strong>alias</strong>. Le nom réel du lieu sera communiqué au Commanditaire lors de la signature du devis personnalisé, garantissant ainsi la transparence contractuelle tout en préservant la confidentialité des partenariats.</p>
+
+        <h3>12.2 - Visuels et Illustrations d'Ambiance</h3>
+        <p>Les photographies et visuels présents sur le site internet de Select Châteaux sont des <strong>illustrations d'ambiance à caractère non contractuel</strong>. Ces images ont pu faire l'objet de modifications par <strong>intelligence artificielle (IA)</strong> dans un but d'amélioration de l'immersion et de mise en scène (ajout de personnages, modification de l'éclairage, embellissement visuel, optimisation de la composition).</p>
+        <p>Les visuels présentés ont pour unique vocation d'illustrer l'atmosphère générale et le standing des lieux partenaires, sans constituer une représentation contractuelle exacte de l'état des lieux à la date de l'événement.</p>
+
+        <h3>12.3 - Responsabilité liée aux Visuels</h3>
+        <p>Conformément à l'<strong>Article 8.1</strong> des présentes CGV, Select Châteaux ne peut être tenu responsable d'une différence de perception subjective entre les visuels d'ambiance présentés sur le site et la réalité du lieu, dès lors que les <strong>prestations techniques décrites dans le devis validé sont scrupuleusement respectées</strong>.</p>
+        <p>Les éléments contractuels opposables sont exclusivement ceux mentionnés dans le <strong>devis personnalisé signé par le Commanditaire</strong> (capacité d'accueil, équipements techniques, prestations de restauration, hébergement, activités). Toute réclamation portant sur une différence esthétique ou subjective entre les illustrations d'ambiance et la réalité du lieu ne saurait engager la responsabilité de Select Châteaux, sauf manquement avéré aux prestations contractuellement prévues.</p>
     </div>
 
     <div class="contact-box">
-        <h3 style="margin-bottom: 6px; color: #A37E2C; font-size: 9pt;">CONTACT</h3>
-        <p><strong>Select Châteaux</strong> - SAS au capital de 10 000 euros</p>
+        <h3 style="margin-bottom: 10px; color: #A37E2C;">CONTACT</h3>
+        <p><strong>Select Châteaux</strong></p>
         <p>60 Rue François 1er, 75008 Paris, France</p>
-        <p>RCS Paris B 123 456 789 - SIRET : 123 456 789 00010</p>
-        <p><strong>Email :</strong> seminaires@selectchateaux.com | <strong>Tél :</strong> 07 57 99 11 46</p>
+        <p><strong>Email :</strong> seminaires@selectchateaux.com</p>
+        <p><strong>Téléphone :</strong> 07 57 99 11 46</p>
     </div>
 
     <div class="footer">
-        <div class="footer-line"><strong>Select Châteaux</strong> - SAS au capital de 10 000€ - RCS Paris B 123 456 789 - SIRET : 123 456 789 00010</div>
-        <div class="footer-line">60 Rue François 1er, 75008 Paris, France - seminaires@selectchateaux.com - 07 57 99 11 46</div>
-        <div class="footer-line" style="margin-top: 3px;">© 2026 Select Châteaux - Tous droits réservés - Document confidentiel - Page <span class="page-number"></span></div>
+        <p>Select Châteaux - SAS au capital de [●] euros - RCS Paris [●]</p>
+        <p>Siège social : 60 Rue François 1er, 75008 Paris, France</p>
+        <p style="margin-top: 10px;">Document confidentiel - Tous droits réservés © 2026 Select Châteaux</p>
+    </div>
+
+    <div class="no-print" style="margin-top: 30px; padding: 20px; background-color: #FFF9E6; border-left: 3px solid #A37E2C; text-align: center;">
+        <p><strong>Pour imprimer ce document en PDF :</strong></p>
+        <p>Utilisez la fonction "Imprimer" de votre navigateur (Ctrl+P ou Cmd+P) et sélectionnez "Enregistrer au format PDF"</p>
     </div>
 </body>
 </html>

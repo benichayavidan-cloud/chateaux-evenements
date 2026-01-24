@@ -293,7 +293,72 @@ export default function CGVPage() {
         </LegalContent>
       </LegalSection>
 
-      <LegalSection title="Article 11 - Contact">
+      <LegalSection title="Article 11 - Dispositions Générales">
+        <LegalContent>
+          <p className="mb-3">
+            Si une ou plusieurs stipulations des présentes CGV sont tenues pour non valides ou
+            déclarées telles par une décision de justice, les autres stipulations conservent leur
+            force et leur portée.
+          </p>
+          <p className="mb-3">
+            Les présentes CGV sont rédigées en langue française. En cas de traduction, seule la
+            version française fait foi.
+          </p>
+          <p>
+            Select Châteaux se réserve le droit de modifier les présentes CGV à tout moment. Les
+            CGV applicables sont celles en vigueur à la date de signature du devis par le Commanditaire.
+          </p>
+        </LegalContent>
+      </LegalSection>
+
+      <LegalSection title="Article 12 - Propriété Intellectuelle et Visuels">
+        <LegalContent spaced>
+          <div>
+            <p className="mb-2"><strong>12.1 - Alias des Lieux</strong></p>
+            <p className="mb-3">
+              Pour des raisons de <strong>confidentialité et d'exclusivité commerciale</strong>, les
+              noms des domaines et châteaux présentés sur le site internet de Select Châteaux peuvent
+              être des <strong>alias</strong>. Le nom réel du lieu sera communiqué au Commanditaire
+              lors de la signature du devis personnalisé, garantissant ainsi la transparence contractuelle
+              tout en préservant la confidentialité des partenariats.
+            </p>
+          </div>
+          <div>
+            <p className="mb-2 mt-4"><strong>12.2 - Visuels et Illustrations d'Ambiance</strong></p>
+            <p className="mb-3">
+              Les photographies et visuels présents sur le site internet de Select Châteaux sont des{" "}
+              <strong>illustrations d'ambiance à caractère non contractuel</strong>. Ces images ont pu
+              faire l'objet de modifications par <strong>intelligence artificielle (IA)</strong> dans un
+              but d'amélioration de l'immersion et de mise en scène (ajout de personnages, modification
+              de l'éclairage, embellissement visuel, optimisation de la composition).
+            </p>
+            <p>
+              Les visuels présentés ont pour unique vocation d'illustrer l'atmosphère générale et le
+              standing des lieux partenaires, sans constituer une représentation contractuelle exacte
+              de l'état des lieux à la date de l'événement.
+            </p>
+          </div>
+          <div>
+            <p className="mb-2 mt-4"><strong>12.3 - Responsabilité liée aux Visuels</strong></p>
+            <p className="mb-3">
+              Conformément à l'<strong>Article 8.1</strong> des présentes CGV, Select Châteaux ne peut
+              être tenu responsable d'une différence de perception subjective entre les visuels d'ambiance
+              présentés sur le site et la réalité du lieu, dès lors que les <strong>prestations techniques
+              décrites dans le devis validé sont scrupuleusement respectées</strong>.
+            </p>
+            <p>
+              Les éléments contractuels opposables sont exclusivement ceux mentionnés dans le{" "}
+              <strong>devis personnalisé signé par le Commanditaire</strong> (capacité d'accueil,
+              équipements techniques, prestations de restauration, hébergement, activités). Toute
+              réclamation portant sur une différence esthétique ou subjective entre les illustrations
+              d'ambiance et la réalité du lieu ne saurait engager la responsabilité de Select Châteaux,
+              sauf manquement avéré aux prestations contractuellement prévues.
+            </p>
+          </div>
+        </LegalContent>
+      </LegalSection>
+
+      <LegalSection title="Article 13 - Contact">
         <LegalContent>
           <p className="mb-2">
             Pour toute question concernant nos Conditions Générales de Vente :
