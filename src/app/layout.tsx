@@ -6,7 +6,7 @@ import "../styles/brakt-blog.css";
 import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { CookieBanner } from "@/components/CookieBanner";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -210,7 +210,9 @@ export default function RootLayout({
         <Breadcrumb />
         <main className="min-h-screen">{children}</main>
         <FooterLuxe />
-        <CookieBanner />
+
+        {/* Cookie Consent - 3 variants disponibles: "default" | "small" | "mini" */}
+        <CookieConsent variant="mini" />
       </body>
     </html>
   );
