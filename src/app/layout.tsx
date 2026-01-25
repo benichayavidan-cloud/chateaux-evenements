@@ -6,6 +6,7 @@ import "../styles/brakt-blog.css";
 import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { FooterLuxe } from "@/components/FooterLuxe";
 import { Breadcrumb } from "@/components/Breadcrumb";
+import { CookieBanner } from "@/components/CookieBanner";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -174,6 +175,31 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${roboto.variable}`}>
       <head>
+        {/* Google Consent Mode v2 - DOIT être chargé AVANT tous les autres scripts Google */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+
+              // Consent Mode v2 - Mode Advanced (envoie des pings anonymes même en "denied")
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'functionality_storage': 'granted',
+                'personalization_storage': 'denied',
+                'security_storage': 'granted',
+                'region': ['FR', 'BE', 'CH', 'LU', 'CA'],
+                'wait_for_update': 500
+              });
+
+              console.log('✅ Google Consent Mode v2 initialisé (Advanced mode)');
+            `,
+          }}
+        />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -184,6 +210,7 @@ export default function RootLayout({
         <Breadcrumb />
         <main className="min-h-screen">{children}</main>
         <FooterLuxe />
+        <CookieBanner />
       </body>
     </html>
   );
