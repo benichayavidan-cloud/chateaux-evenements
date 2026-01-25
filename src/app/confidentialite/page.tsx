@@ -224,7 +224,7 @@ export default function ConfidentialitePage() {
           <p>
             <strong>Réclamation auprès de la CNIL :</strong> Si vous estimez que vos droits ne sont pas respectés,
             vous pouvez introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) :
-            <LegalLink href="https://www.cnil.fr/" target="_blank" rel="noopener noreferrer"> www.cnil.fr</LegalLink>
+            <a href="https://www.cnil.fr/" target="_blank" rel="noopener noreferrer" className="text-[var(--gold)] hover:text-[var(--bronze-antique)] underline transition-colors"> www.cnil.fr</a>
           </p>
         </LegalContent>
       </LegalSection>
