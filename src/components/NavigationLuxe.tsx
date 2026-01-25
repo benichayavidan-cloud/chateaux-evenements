@@ -584,7 +584,7 @@ export function NavigationLuxe() {
                 gap: spacing.md
               }}>
                 <a
-                  href="tel:+33123456789"
+                  href="tel:+33757991146"
                   className="flex items-center hover:text-[var(--bronze-antique)]"
                   style={{
                     gap: spacing.md,
@@ -594,10 +594,10 @@ export function NavigationLuxe() {
                   }}
                 >
                   <Phone className="w-4 h-4" />
-                  <span>+33 1 23 45 67 89</span>
+                  <span>07 57 99 11 46</span>
                 </a>
                 <a
-                  href="mailto:contact@selectchateaux.com"
+                  href="mailto:seminaires@selectchateaux.com"
                   className="flex items-center hover:text-[var(--bronze-antique)]"
                   style={{
                     gap: spacing.md,
@@ -607,7 +607,7 @@ export function NavigationLuxe() {
                   }}
                 >
                   <Mail className="w-4 h-4" />
-                  <span>contact@selectchateaux.com</span>
+                  <span>seminaires@selectchateaux.com</span>
                 </a>
               </div>
             </nav>

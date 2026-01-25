@@ -1,34 +1,35 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Fond doré -->
+  <!-- Fond doré élégant -->
   <rect width="64" height="64" rx="12" fill="#a37e2c"/>
 
-  <!-- Château stylisé en blanc -->
-  <!-- Tour gauche -->
-  <rect x="12" y="28" width="8" height="24" fill="white"/>
-  <rect x="10" y="24" width="12" height="4" fill="white"/>
-  <polygon points="12,24 16,20 20,24" fill="white"/>
+  <!-- Bordure subtile -->
+  <rect x="2" y="2" width="60" height="60" rx="10" stroke="#d4af37" stroke-width="0.5" fill="none" opacity="0.4"/>
 
-  <!-- Tour centrale (plus haute) -->
-  <rect x="24" y="22" width="16" height="30" fill="white"/>
-  <rect x="22" y="18" width="20" height="4" fill="white"/>
-  <polygon points="26,18 32,12 38,18" fill="white"/>
+  <!-- Lettre S -->
+  <path d="M 18 22 Q 18 18 22 18 L 28 18 Q 32 18 32 22 Q 32 26 28 26 L 22 26 Q 18 26 18 30 Q 18 34 22 34 L 28 34 Q 32 34 32 30"
+        stroke="white"
+        stroke-width="3.5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
 
-  <!-- Tour droite -->
-  <rect x="44" y="28" width="8" height="24" fill="white"/>
-  <rect x="42" y="24" width="12" height="4" fill="white"/>
-  <polygon points="44,24 48,20 52,24" fill="white"/>
+  <!-- Lettre C -->
+  <path d="M 50 18 Q 42 18 42 26 Q 42 34 50 34"
+        stroke="white"
+        stroke-width="3.5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
 
-  <!-- Porte d'entrée -->
-  <rect x="28" y="42" width="8" height="10" rx="4" fill="#a37e2c"/>
+  <!-- Ligne décorative sous les lettres -->
+  <line x1="16" y1="42" x2="52" y2="42" stroke="white" stroke-width="1.5" opacity="0.6"/>
 
-  <!-- Fenêtres -->
-  <rect x="28" y="30" width="3" height="4" fill="#a37e2c"/>
-  <rect x="33" y="30" width="3" height="4" fill="#a37e2c"/>
-  <rect x="15" y="36" width="3" height="4" fill="#a37e2c"/>
-  <rect x="46" y="36" width="3" height="4" fill="#a37e2c"/>
-
-  <!-- Créneaux décoratifs -->
-  <rect x="24" y="22" width="2" height="2" fill="#a37e2c" opacity="0.5"/>
-  <rect x="30" y="22" width="2" height="2" fill="#a37e2c" opacity="0.5"/>
-  <rect x="36" y="22" width="2" height="2" fill="#a37e2c" opacity="0.5"/>
+  <!-- Texte "SELECT CHÂTEAUX" très petit en bas -->
+  <text x="32" y="52"
+        font-family="serif"
+        font-size="6"
+        fill="white"
+        text-anchor="middle"
+        opacity="0.7"
+        letter-spacing="0.5">SELECT CHÂTEAUX</text>
 </svg>

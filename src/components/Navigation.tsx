@@ -132,18 +132,18 @@ export function Navigation() {
               </Link>
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
                 <a
-                  href="tel:+33123456789"
+                  href="tel:+33757991146"
                   className="flex items-center space-x-2 text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>+33 1 23 45 67 89</span>
+                  <span>07 57 99 11 46</span>
                 </a>
                 <a
-                  href="mailto:contact@selectchateaux.com"
+                  href="mailto:seminaires@selectchateaux.com"
                   className="flex items-center space-x-2 text-[var(--text-secondary)] hover:text-[var(--gold)] transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  <span>contact@selectchateaux.com</span>
+                  <span>seminaires@selectchateaux.com</span>
                 </a>
               </div>
             </nav>
