@@ -51,16 +51,16 @@ export function CookieBanner() {
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-end justify-center p-4 sm:p-6 pointer-events-none">
-      <div className="pointer-events-auto w-full max-w-4xl bg-white border-2 border-[var(--gold)] shadow-2xl rounded-lg overflow-hidden">
-        {/* Header avec couleur gold */}
-        <div className="bg-gradient-to-r from-[var(--gold)] to-[var(--bronze-antique)] px-6 py-3">
+      <div className="pointer-events-auto w-full max-w-4xl bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-200">
+        {/* Header élégant */}
+        <div className="bg-[var(--gold)] px-8 py-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-white font-semibold text-lg">
-              🍪 Consentement aux cookies
+            <h3 className="text-gray-900 font-bold text-lg tracking-tight">
+              🍪 Gestion des cookies
             </h3>
             <button
               onClick={handleReject}
-              className="text-white hover:text-gray-200 transition-colors"
+              className="text-gray-900 hover:text-gray-700 transition-colors p-1"
               aria-label="Fermer"
             >
               <X className="w-5 h-5" />
@@ -68,60 +68,52 @@ export function CookieBanner() {
           </div>
         </div>
 
-        {/* Contenu */}
-        <div className="px-6 py-5">
-          <p className="text-gray-700 text-sm leading-relaxed mb-4">
+        {/* Contenu avec marges internes */}
+        <div className="px-8 py-6">
+          <p className="text-gray-800 text-base leading-relaxed mb-4">
             Nous utilisons des <strong>cookies et technologies similaires</strong> pour améliorer votre expérience,
-            analyser notre trafic et mesurer l'efficacité de nos campagnes Google Ads.
+            analyser notre trafic et mesurer l'efficacité de nos campagnes publicitaires.
             Vos données sont traitées de manière <strong>anonyme et sécurisée</strong>.
           </p>
 
-          <p className="text-gray-600 text-xs mb-6">
+          <p className="text-gray-600 text-sm mb-6 leading-relaxed">
             En acceptant, vous nous aidez à optimiser nos services pour mieux répondre à vos besoins
             en séminaires d'entreprise. Vous pouvez modifier vos préférences à tout moment.
           </p>
 
-          {/* Boutons d'action */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          {/* Boutons d'action avec padding correct */}
+          <div className="flex flex-col sm:flex-row gap-4">
             {/* Bouton ACCEPTER - mis en avant */}
             <button
               onClick={handleAccept}
-              className="flex-1 bg-gradient-to-r from-[var(--gold)] to-[var(--bronze-antique)] text-white font-semibold py-3 px-6 rounded-md hover:shadow-lg hover:scale-105 transform transition-all duration-200 text-sm"
+              className="flex-1 bg-gradient-to-r from-[var(--gold)] to-[var(--bronze-antique)] text-gray-900 font-bold py-4 px-8 rounded-lg hover:shadow-xl transition-shadow duration-200 text-base"
             >
               ✓ Accepter tous les cookies
             </button>
 
-            {/* Bouton REFUSER - discret */}
+            {/* Bouton REFUSER - avec padding interne */}
             <button
               onClick={handleReject}
-              className="flex-1 sm:flex-initial bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-md hover:bg-gray-200 transition-colors text-sm border border-gray-300"
+              className="flex-1 bg-gray-100 text-gray-700 font-semibold py-4 px-8 rounded-lg hover:bg-gray-200 transition-colors text-base border border-gray-300"
             >
               Refuser
-            </button>
-
-            {/* Bouton PERSONNALISER - discret */}
-            <button
-              onClick={handleCustomize}
-              className="flex-1 sm:flex-initial text-gray-600 font-medium py-3 px-6 rounded-md hover:bg-gray-50 transition-colors text-sm underline"
-            >
-              Personnaliser
             </button>
           </div>
 
           {/* Footer avec lien vers politique */}
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <p className="text-xs text-gray-500">
+          <div className="mt-6 pt-5 border-t border-gray-200">
+            <p className="text-sm text-gray-500 leading-relaxed">
               Pour en savoir plus, consultez notre{" "}
               <a
                 href="/confidentialite"
-                className="text-[var(--gold)] hover:underline font-medium"
+                className="text-[var(--gold)] hover:underline font-semibold"
               >
                 Politique de confidentialité
               </a>
               {" "}et nos{" "}
               <a
                 href="/cgv"
-                className="text-[var(--gold)] hover:underline font-medium"
+                className="text-[var(--gold)] hover:underline font-semibold"
               >
                 CGV
               </a>
