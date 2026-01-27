@@ -20,10 +20,16 @@ const heroSlides = chateaux.map((chateau) => ({
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<Set<number>>(new Set([0])); // Précharger seulement la première
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setCurrentSlide((prev) => {
+        const next = (prev + 1) % heroSlides.length;
+        // Précharger l'image suivante juste avant de l'afficher
+        setImagesLoaded(prev => new Set(prev).add(next));
+        return next;
+      });
     }, 3000);
 
     return () => clearInterval(timer);
@@ -59,12 +65,14 @@ export function HeroSection() {
               heroSlides[currentSlide].region
             )}
             fill
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
             className="object-cover"
             style={{ filter: 'saturate(1.2) contrast(1.1) brightness(1.05)' }}
             priority={currentSlide === 0}
             loading={currentSlide === 0 ? "eager" : "lazy"}
-            quality={85}
+            quality={80}
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmM2Y0ZjYiLz48L3N2Zz4="
           />
           {/* Gradient subtil en bas pour les boutons */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
