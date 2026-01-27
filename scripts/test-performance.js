@@ -16,8 +16,8 @@ const TEST_URL = process.env.TEST_URL || 'http://localhost:3000';
 const PAGES_TO_TEST = [
   { name: 'Accueil', path: '/' },
   { name: 'Châteaux', path: '/chateaux' },
-  { name: 'Contact', path: '/contact' },
-  { name: 'À propos', path: '/a-propos' }
+  { name: 'Événements', path: '/evenements' },
+  { name: 'Contact', path: '/contact' }
 ];
 
 async function measurePagePerformance(page, url) {

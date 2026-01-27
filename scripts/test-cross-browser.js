@@ -52,10 +52,11 @@ const BROWSER_CONFIGS = [
   }
 ];
 
-// Pages à tester
+// Pages à tester (pages réelles du site)
 const PAGES_TO_TEST = [
   { name: 'Accueil', path: '/' },
   { name: 'Châteaux', path: '/chateaux' },
+  { name: 'Événements', path: '/evenements' },
   { name: 'Contact', path: '/contact' }
 ];
 
