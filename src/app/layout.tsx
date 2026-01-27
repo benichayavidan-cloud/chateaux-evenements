@@ -146,24 +146,32 @@ export default function RootLayout({
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Le Domaine des Grands Bois de Chantilly",
-                "description": "Château-hôtel style anglo-normand pour grands séminaires avec spa et parc forestier."
+                "name": "Le Manoir Anglo-Normand & Son Parc (Chantilly)",
+                "description": "Le plus vaste Château-Hôtel de la région. Un manoir style anglo-normand niché au cœur d'une forêt privée, à 35 min de Paris. Idéal pour les grands groupes avec amphithéâtre et spa."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Le Domaine des Hauts de Seine",
-                "description": "Refuge historique et jardin suspendu aux portes de Paris pour CODIR exclusif."
+                "name": "Le Refuge Historique Suspendu (Portes de Paris)",
+                "description": "Un secret gardé aux portes de Paris (92). Bâtisse du XVIIe siècle en hôtel 5 étoiles, calme monacal et vue imprenable. Idéal pour CODIR stratégique accessible en métro."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Le Monastère de la Vallée de Chevreuse",
-                "description": "Abbaye cistercienne et étang privé pour événements grandioses."
+                "name": "L'Abbaye Millénaire & Son Étang (78)",
+                "description": "Déconnexion radicale en Vallée de Chevreuse. Une abbaye cistercienne monumentale, ruines romantiques et étang privé. Le lieu ultime pour l'effet 'Wow'."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Le Palais Royal de la Forêt (Chantilly)",
+                "description": "Le Versailles de l'Oise. Un palais royal style Louis XV au cœur d'une forêt de 500 hectares. Lustres de cristal, moulures dorées et spa haut de gamme pour vos événements les plus prestigieux."
               }
             }
           ]
