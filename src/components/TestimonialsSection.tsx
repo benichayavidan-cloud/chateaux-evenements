@@ -60,7 +60,7 @@ export function TestimonialsSection() {
     <section
       style={{
         background: 'linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%)',
-        padding: 'clamp(3rem, 8vw, 5rem) clamp(1.25rem, 4vw, 2rem)',
+        padding: 'clamp(3.375rem, 8vw, 5.375rem) clamp(1.25rem, 4vw, 2rem)',
         position: 'relative',
         overflow: 'hidden'
       }}
@@ -99,7 +99,7 @@ export function TestimonialsSection() {
             <h2
               className="heading-lg"
               style={{
-                marginBottom: '20px',
+                marginBottom: '32px',
                 fontSize: 'clamp(2rem, 4vw, 3rem)',
                 lineHeight: '1.2'
               }}

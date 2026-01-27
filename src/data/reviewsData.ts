@@ -48,17 +48,6 @@ export const reviews: Review[] = [
     content: "Super lieu pour notre comité de direction. L'hôtel dans le 92 est vraiment pratique, accessible en métro direct. Le jardin suspendu est magnifique. Petit bémol : il a plu pendant tout le séjour donc on n'a pas pu en profiter autant qu'espéré, mais les salons intérieurs sont très confortables. Service impeccable."
   },
   {
-    id: "4",
-    author: "Lucas Martin",
-    initials: "LM",
-    color: "#66BB6A",
-    role: "Responsable communication interne",
-    company: "Renault Group",
-    rating: 5,
-    date: "Il y a 5 jours",
-    content: "On cherchait un lieu avec du cachet pour notre convention. Le palais royal à Chantilly a carrément dépassé nos attentes. Les lustres, les moulures, tout est classe. Le spa est un vrai plus pour les pauses détente. Nos 180 participants sont repartis enchantés. Prix un peu élevé mais ça vaut vraiment le coup pour un événement important."
-  },
-  {
     id: "5",
     author: "Sophie Fontaine",
     initials: "SF",

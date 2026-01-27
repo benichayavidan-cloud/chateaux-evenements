@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Blog - SELECT CHATEAUX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #27ae60 0%, #27ae60dd 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h1 { font-size: 42px; color: #2c3e50; margin-bottom: 10px; }
+    .score {
+      font-size: 72px;
+      font-weight: bold;
+      color: #27ae60;
+      margin: 20px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 30px 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .stat-value {
+      font-size: 42px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: #7f8c8d;
+      margin-top: 8px;
+    }
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .section-title {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #27ae60;
+    }
+    .alert {
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .alert-warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      color: #856404;
+    }
+    .alert-success {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      color: #155724;
+    }
+    .alert h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .alert ul {
+      margin-left: 20px;
+    }
+    .alert li {
+      margin: 8px 0;
+    }
+    .article-card {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 15px 0;
+    }
+    .article-title {
+      font-size: 18px;
+      color: #2c3e50;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .metric {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+    .metric-label {
+      font-size: 12px;
+      color: #7f8c8d;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📝 Audit Blog</h1>
+      <p style="font-size: 18px; color: #7f8c8d; margin: 10px 0;">SELECT CHATEAUX</p>
+      <div class="score">98/100</div>
+      <p style="color: #7f8c8d;">Score global</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">95</div>
+        <div class="stat-label">SEO</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">100</div>
+        <div class="stat-label">Performance</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Articles audités</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">1.92s</div>
+        <div class="stat-label">Temps chargement index</div>
+      </div>
+    </div>
+
+    
+    <div class="alert alert-warning">
+      <h3>⚠️ Recommandations (1)</h3>
+      <ul>
+        <li>Blog index: Description 171 caractères (optimal: 120-160)</li>
+      </ul>
+    </div>
+
+    
+    <div class="alert alert-success">
+      <h3>✅ Points Forts (7)</h3>
+      <ul>
+        <li>Blog index: Chargement rapide (1.92s)</li><li>combien-coute-seminaire-chateau-2026: Contenu riche (855 mots)</li><li>combien-coute-seminaire-chateau-2026: Chargement rapide (1.10s)</li><li>checklist-organiser-seminaire: Contenu riche (1076 mots)</li><li>checklist-organiser-seminaire: Chargement rapide (0.67s)</li><li>seminaire-au-vert-productivite: Contenu riche (1208 mots)</li><li>seminaire-au-vert-productivite: Chargement rapide (0.57s)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">📄 Page Index Blog</h2>
+      <div class="metric-row">
+        <div class="metric">
+          <div class="metric-value">1.92s</div>
+          <div class="metric-label">Temps chargement</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">57</div>
+          <div class="metric-label">Caractères title</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">1</div>
+          <div class="metric-label">H1</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">270</div>
+          <div class="metric-label">Articles affichés</div>
+        </div>
+      </div>
+      <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 6px;">
+        <strong>Title:</strong> Blog & Magazine Événementiel | Guides Séminaires Châteaux<br/>
+        <strong>Description:</strong> Guides complets, études de cas, et tendances pour organiser des séminaires d'exception en château : organisation, lieux, team building. Conseils d'experts Select Châteaux.<br/>
+        <strong>Robots:</strong> index, follow
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">📖 Articles Audités</h2>
+      
+        <div class="article-card">
+          <div class="article-title">📄 combien-coute-seminaire-chateau-2026</div>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="metric-value">1.10s</div>
+              <div class="metric-label">Chargement</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">855</div>
+              <div class="metric-label">Mots</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">4 min</div>
+              <div class="metric-label">Lecture</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">3</div>
+              <div class="metric-label">H2</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">6</div>
+              <div class="metric-label">Images</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">37</div>
+              <div class="metric-label">Liens internes</div>
+            </div>
+          </div>
+          <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 6px;">
+            <strong>Qualité contenu:</strong> Moyen (855 mots)<br/>
+            <strong>Structured Data:</strong> ✅ Oui<br/>
+            <strong>Images avec alt:</strong> 6/6
+          </div>
+        </div>
+      
+        <div class="article-card">
+          <div class="article-title">📄 checklist-organiser-seminaire</div>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="metric-value">0.67s</div>
+              <div class="metric-label">Chargement</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">1076</div>
+              <div class="metric-label">Mots</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">5 min</div>
+              <div class="metric-label">Lecture</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">3</div>
+              <div class="metric-label">H2</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">6</div>
+              <div class="metric-label">Images</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">40</div>
+              <div class="metric-label">Liens internes</div>
+            </div>
+          </div>
+          <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 6px;">
+            <strong>Qualité contenu:</strong> Optimal (1076 mots)<br/>
+            <strong>Structured Data:</strong> ✅ Oui<br/>
+            <strong>Images avec alt:</strong> 6/6
+          </div>
+        </div>
+      
+        <div class="article-card">
+          <div class="article-title">📄 seminaire-au-vert-productivite</div>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="metric-value">0.57s</div>
+              <div class="metric-label">Chargement</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">1208</div>
+              <div class="metric-label">Mots</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">5 min</div>
+              <div class="metric-label">Lecture</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">3</div>
+              <div class="metric-label">H2</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">6</div>
+              <div class="metric-label">Images</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">39</div>
+              <div class="metric-label">Liens internes</div>
+            </div>
+          </div>
+          <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 6px;">
+            <strong>Qualité contenu:</strong> Optimal (1208 mots)<br/>
+            <strong>Structured Data:</strong> ✅ Oui<br/>
+            <strong>Images avec alt:</strong> 6/6
+          </div>
+        </div>
+      
+    </div>
+
+    <footer style="text-align: center; color: white; margin-top: 40px; padding: 20px;">
+      <p>📅 27 janvier 2026</p>
+      <p style="margin-top: 10px;">🌐 https://www.selectchateaux.com/blog</p>
+    </footer>
+  </div>
+</body>
+</html>

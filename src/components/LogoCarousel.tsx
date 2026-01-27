@@ -10,8 +10,8 @@ export function LogoCarousel() {
   const duplicatedLogos = [...clientLogos, ...clientLogos];
 
   return (
-    <section className="overflow-hidden" style={{ background: theme.colors.neutral.white, paddingTop: 'clamp(1rem, 2.5vw, 1.5rem)', paddingBottom: '0' }}>
-      <div className="w-full text-center px-5" style={{ marginBottom: 'clamp(0.5rem, 1.5vw, 0.75rem)' }}>
+    <section className="overflow-hidden" style={{ background: theme.colors.neutral.white, paddingTop: 'clamp(1.375rem, 2.5vw, 1.875rem)', paddingBottom: '6px' }}>
+      <div className="w-full text-center px-5" style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
         <p
           style={{
             fontSize: theme.typography.fontSize.sm,

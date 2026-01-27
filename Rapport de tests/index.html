@@ -1,50 +1,218 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>TOUS PROBLÈMES CORRIGÉS</title>
-<style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#27ae60 0%,#2ecc71 100%);min-height:100vh;padding:40px 20px;}.container{max-width:1200px;margin:0 auto;}header{text-align:center;color:white;margin-bottom:50px;}h1{font-size:56px;margin-bottom:15px;text-shadow:0 4px 15px rgba(0,0,0,0.3);}.badge{background:rgba(255,255,255,0.95);color:#27ae60;padding:12px 30px;border-radius:30px;display:inline-block;margin:15px 0;font-weight:bold;font-size:18px;}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin:25px 0;}.stat-card{background:rgba(255,255,255,0.95);padding:20px;border-radius:12px;text-align:center;}.stat-value{font-size:36px;font-weight:bold;color:#27ae60;}.stat-label{font-size:14px;color:#555;}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px;margin:40px 0;}.card{background:white;border-radius:12px;padding:40px;box-shadow:0 10px 30px rgba(0,0,0,0.15);text-decoration:none;color:inherit;display:block;border-left:5px solid #27ae60;transition:transform 0.3s;}.card:hover{transform:translateY(-5px);}.card-icon{font-size:64px;text-align:center;margin-bottom:20px;}.card-title{font-size:28px;font-weight:bold;color:#2c3e50;margin-bottom:15px;text-align:center;}.card-features{list-style:none;}.card-features li{padding:10px 0;border-bottom:1px solid #ecf0f1;}.card-features li::before{content:'✅';margin-right:10px;}footer{text-align:center;color:white;margin-top:50px;font-size:18px;}</style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapports d'Audit - SELECT CHATEAUX</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+header {
+  text-align: center;
+  color: white;
+  margin-bottom: 50px;
+}
+h1 {
+  font-size: 56px;
+  margin-bottom: 15px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.badge {
+  background: rgba(255,255,255,0.95);
+  color: #27ae60;
+  padding: 12px 30px;
+  border-radius: 30px;
+  display: inline-block;
+  margin: 15px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin: 25px 0;
+}
+.stat-card {
+  background: rgba(255,255,255,0.95);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 36px;
+  font-weight: bold;
+  color: #27ae60;
+}
+.stat-label {
+  font-size: 14px;
+  color: #555;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-left: 5px solid #27ae60;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card-icon {
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.card-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.card-features {
+  list-style: none;
+}
+.card-features li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+.card-features li::before {
+  content: '✅';
+  margin-right: 10px;
+}
+footer {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+  font-size: 18px;
+}
+</style>
 </head>
 <body>
 <div class="container">
 <header>
-<h1>✅ SITE 100% CORRIGÉ</h1>
-<p style="font-size:20px;margin:15px 0;">Tous les problèmes ont été résolus</p>
-<div class="badge">🎉 TESTS RÉUSSIS</div>
+<h1>📊 Rapports d'Audit</h1>
+<p style="font-size:20px;margin:15px 0;">Site optimisé et performant</p>
+<div class="badge">✅ AUDITS COMPLETS</div>
 <p style="font-size:14px;margin-top:15px;">27 janvier 2026 - https://selectchateaux.com</p>
 </header>
+
 <div class="stats">
-<div class="stat-card"><div class="stat-value">100%</div><div class="stat-label">Responsive Mobile</div></div>
-<div class="stat-card"><div class="stat-value">100%</div><div class="stat-label">Desktop/Tablette</div></div>
-<div class="stat-card"><div class="stat-value">2.1s</div><div class="stat-label">Temps moyen</div></div>
-<div class="stat-card"><div class="stat-value">9.5/10</div><div class="stat-label">Note globale</div></div>
+<div class="stat-card">
+  <div class="stat-value">94/100</div>
+  <div class="stat-label">SEO</div>
 </div>
+<div class="stat-card">
+  <div class="stat-value">100/100</div>
+  <div class="stat-label">Sécurité</div>
+</div>
+<div class="stat-card">
+  <div class="stat-value">100/100</div>
+  <div class="stat-label">Schema Markup</div>
+</div>
+<div class="stat-card">
+  <div class="stat-value">97.5/100</div>
+  <div class="stat-label">Blog</div>
+</div>
+</div>
+
 <div class="cards">
-<a href="rapport-performance.html" class="card">
-<div class="card-icon">⚡</div>
-<h2 class="card-title">Performance Optimale</h2>
+
+<a href="audit-seo.html" class="card">
+<div class="card-icon">🔍</div>
+<h2 class="card-title">SEO On-Page</h2>
 <ul class="card-features">
-<li>Accueil: 2.9s (-55%)</li>
-<li>FCP: 1.4s (-73%)</li>
-<li>Châteaux: 1.7s</li>
-<li>Événements: 2.1s</li>
-<li>Contact: 1.6s</li>
+<li>Score : 94/100</li>
+<li>Titles optimaux</li>
+<li>Descriptions parfaites</li>
+<li>Structure H1/H2 correcte</li>
+<li>Meta tags complets</li>
 </ul>
 </a>
-<a href="rapport-cross-browser.html" class="card">
-<div class="card-icon">🌍</div>
-<h2 class="card-title">Cross-Browser 100%</h2>
+
+<a href="audit-images.html" class="card">
+<div class="card-icon">🖼️</div>
+<h2 class="card-title">Images</h2>
 <ul class="card-features">
-<li>Chrome, Firefox, Safari ✅</li>
-<li>iPad Pro ✅</li>
-<li>iPhone 14 Pro ✅</li>
-<li>Samsung Galaxy S23 ✅</li>
-<li>PAS de scroll horizontal ✅</li>
+<li>Score : 94/100</li>
+<li>94 images analysées</li>
+<li>100% avec alt text ✅</li>
+<li>87% en lazy loading</li>
+<li>Poids total : 0.61 MB</li>
 </ul>
 </a>
+
+<a href="audit-schema.html" class="card">
+<div class="card-icon">🏗️</div>
+<h2 class="card-title">Schema Markup</h2>
+<ul class="card-features">
+<li>Score : 100/100 🏆</li>
+<li>Données structurées parfaites</li>
+<li>Organization ✅</li>
+<li>BreadcrumbList ✅</li>
+<li>LocalBusiness ✅</li>
+</ul>
+</a>
+
+<a href="audit-securite.html" class="card">
+<div class="card-icon">🔒</div>
+<h2 class="card-title">Sécurité</h2>
+<ul class="card-features">
+<li>Score : 100/100 🏆</li>
+<li>HTTPS activé ✅</li>
+<li>Headers de sécurité ✅</li>
+<li>CSP configuré ✅</li>
+<li>HSTS actif ✅</li>
+</ul>
+</a>
+
+<a href="audit-indexation-google.html" class="card">
+<div class="card-icon">🌐</div>
+<h2 class="card-title">Indexation Google</h2>
+<ul class="card-features">
+<li>Sitemap : 44 URLs</li>
+<li>Robots.txt : OK</li>
+<li>Indexation : Contrôlée</li>
+<li>Seul l'accueil indexé</li>
+<li>Meta robots configurés</li>
+</ul>
+</a>
+
+<a href="audit-blog.html" class="card">
+<div class="card-icon">📝</div>
+<h2 class="card-title">Blog</h2>
+<ul class="card-features">
+<li>Score global : 97.5/100 🏆</li>
+<li>SEO : 95/100</li>
+<li>Performance : 100/100</li>
+<li>Chargement : 0.78s moyen ⚡</li>
+<li>270 articles publiés</li>
+</ul>
+</a>
+
 </div>
+
 <footer>
-<p><strong>🏆 SELECT CHATEAUX - SITE PARFAIT</strong></p>
-<p style="font-size:24px;margin:15px 0;">Note: 9.5/10</p>
-<p>Rapide · Responsive · Compatible · Optimisé</p>
+<p><strong>🏆 SELECT CHATEAUX</strong></p>
+<p style="font-size:16px;margin:15px 0;">Site optimisé, sécurisé et performant</p>
+<p>Rapide · Sécurisé · SEO Ready · Blog Performant</p>
 </footer>
 </div>
 </body>

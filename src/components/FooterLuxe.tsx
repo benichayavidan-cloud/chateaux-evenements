@@ -3,10 +3,7 @@ import {
   Mail,
   Phone,
   MapPin,
-  Facebook,
-  Instagram,
   Linkedin,
-  Twitter,
 } from "lucide-react";
 import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
@@ -59,24 +56,23 @@ export function FooterLuxe() {
               L'excellence événementielle dans des châteaux d'exception à travers la France.
             </p>
             <div className="flex justify-center md:justify-start w-full" style={{ gap: spacing.sm }}>
-              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  className="flex items-center justify-center hover:text-[var(--bronze-antique)] hover:border-[var(--bronze-antique)] hover:shadow-lg"
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: theme.effects.borderRadius.full,
-                    border: `1px solid ${theme.colors.neutral.gray200}`,
-                    color: theme.colors.neutral.gray600,
-                    transition: `all ${theme.effects.transitions.smooth}`
-                  }}
-                  aria-label="Social media"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+              <a
+                href="https://www.linkedin.com/company/select-chateaux/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center hover:text-[var(--bronze-antique)] hover:border-[var(--bronze-antique)] hover:shadow-lg"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: theme.effects.borderRadius.full,
+                  border: `1px solid ${theme.colors.neutral.gray200}`,
+                  color: theme.colors.neutral.gray600,
+                  transition: `all ${theme.effects.transitions.smooth}`
+                }}
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
             </div>
           </div>
 

@@ -462,16 +462,6 @@ export const testimonials: Testimonial[] = [
     note: 5,
   },
   {
-    id: "11",
-    nom: "Fatima Zahra Amrani",
-    entreprise: "Renault Group",
-    poste: "Directrice de la Communication Externe",
-    contenu:
-      "Une décision stratégique payante pour notre conférence de presse. Le cadre exceptionnel a impressionné les journalistes internationaux et l'amphithéâtre privé était parfait.",
-    avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&auto=format&fit=crop&q=80",
-    note: 5,
-  },
-  {
     id: "12",
     nom: "Laurent Deschamps",
     entreprise: "Danone Groupe",
@@ -513,9 +503,7 @@ export const clientLogos = [
   { nom: "Mercedes-Benz", url: "/logos/mercedes-benz.svg" },
   { nom: "Airbus", url: "/logos/airbus.svg" },
   { nom: "L'Oréal", url: "/logos/loreal.svg" },
-  { nom: "Accor", url: "/logos/accor.svg" },
   { nom: "Orange", url: "/logos/orange.svg" },
-  { nom: "Renault", url: "/logos/renault.svg" },
   { nom: "BNP Paribas", url: "/logos/bnp-paribas.svg" },
   { nom: "LVMH", url: "/logos/lvmh.svg" },
   { nom: "Danone", url: "/logos/danone.svg" },

@@ -74,7 +74,7 @@ export default function EvenementsPage() {
           className="object-cover"
           priority
           sizes="100vw"
-          quality={80}
+          quality={75}
         />
         {/* Overlay CLAIR */}
         <div className="hero-overlay-light" />
@@ -113,7 +113,7 @@ export default function EvenementsPage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
