@@ -1,0 +1,1026 @@
+{
+  "testDate": "2026-01-27T11:58:05.905Z",
+  "testUrl": "https://selectchateaux.com",
+  "browsers": [
+    {
+      "config": "Desktop Chrome (1920x1080)",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "isMobile": false,
+      "pages": [
+        {
+          "name": "Accueil",
+          "path": "/",
+          "url": "https://selectchateaux.com/",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "7 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "31/35 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 1155ms, DOM Ready: 747ms"
+            }
+          ],
+          "screenshot": "Desktop-Chrome--1920x1080--Accueil.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Châteaux",
+          "path": "/chateaux",
+          "url": "https://selectchateaux.com/chateaux",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "8/23 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 368ms, DOM Ready: 253ms"
+            }
+          ],
+          "screenshot": "Desktop-Chrome--1920x1080--Ch-teaux.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Événements",
+          "path": "/evenements",
+          "url": "https://selectchateaux.com/evenements",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "28/31 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": false,
+              "details": "1 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 667ms, DOM Ready: 413ms"
+            }
+          ],
+          "screenshot": "Desktop-Chrome--1920x1080---v-nements.png",
+          "passed": 3,
+          "total": 6
+        },
+        {
+          "name": "Contact",
+          "path": "/contact",
+          "url": "https://selectchateaux.com/contact",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/6 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": true,
+              "details": "1 formulaire(s), 6 champ(s), 6 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 317ms, DOM Ready: 221ms"
+            }
+          ],
+          "screenshot": "Desktop-Chrome--1920x1080--Contact.png",
+          "passed": 5,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "config": "Desktop Firefox (1920x1080)",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "isMobile": false,
+      "pages": [
+        {
+          "name": "Accueil",
+          "path": "/",
+          "url": "https://selectchateaux.com/",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "7 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "32/36 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 355ms, DOM Ready: 258ms"
+            }
+          ],
+          "screenshot": "Desktop-Firefox--1920x1080--Accueil.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Châteaux",
+          "path": "/chateaux",
+          "url": "https://selectchateaux.com/chateaux",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "8/23 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 342ms, DOM Ready: 239ms"
+            }
+          ],
+          "screenshot": "Desktop-Firefox--1920x1080--Ch-teaux.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Événements",
+          "path": "/evenements",
+          "url": "https://selectchateaux.com/evenements",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "28/31 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": false,
+              "details": "1 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 384ms, DOM Ready: 275ms"
+            }
+          ],
+          "screenshot": "Desktop-Firefox--1920x1080---v-nements.png",
+          "passed": 3,
+          "total": 6
+        },
+        {
+          "name": "Contact",
+          "path": "/contact",
+          "url": "https://selectchateaux.com/contact",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/6 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": true,
+              "details": "1 formulaire(s), 6 champ(s), 6 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 308ms, DOM Ready: 257ms"
+            }
+          ],
+          "screenshot": "Desktop-Firefox--1920x1080--Contact.png",
+          "passed": 5,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "config": "Desktop Safari (1920x1080)",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "isMobile": false,
+      "pages": [
+        {
+          "name": "Accueil",
+          "path": "/",
+          "url": "https://selectchateaux.com/",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "7 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "32/36 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 395ms, DOM Ready: 249ms"
+            }
+          ],
+          "screenshot": "Desktop-Safari--1920x1080--Accueil.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Châteaux",
+          "path": "/chateaux",
+          "url": "https://selectchateaux.com/chateaux",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "8/23 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 359ms, DOM Ready: 231ms"
+            }
+          ],
+          "screenshot": "Desktop-Safari--1920x1080--Ch-teaux.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Événements",
+          "path": "/evenements",
+          "url": "https://selectchateaux.com/evenements",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "28/31 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": false,
+              "details": "1 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 335ms, DOM Ready: 227ms"
+            }
+          ],
+          "screenshot": "Desktop-Safari--1920x1080---v-nements.png",
+          "passed": 3,
+          "total": 6
+        },
+        {
+          "name": "Contact",
+          "path": "/contact",
+          "url": "https://selectchateaux.com/contact",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/6 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": true,
+              "details": "1 formulaire(s), 6 champ(s), 6 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 308ms, DOM Ready: 272ms"
+            }
+          ],
+          "screenshot": "Desktop-Safari--1920x1080--Contact.png",
+          "passed": 5,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "config": "iPad Pro (1024x1366)",
+      "viewport": {
+        "width": 1024,
+        "height": 1366
+      },
+      "isMobile": true,
+      "pages": [
+        {
+          "name": "Accueil",
+          "path": "/",
+          "url": "https://selectchateaux.com/",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "7 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "32/36 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 460ms, DOM Ready: 237ms"
+            }
+          ],
+          "screenshot": "iPad-Pro--1024x1366--Accueil.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Châteaux",
+          "path": "/chateaux",
+          "url": "https://selectchateaux.com/chateaux",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "8/23 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 389ms, DOM Ready: 243ms"
+            }
+          ],
+          "screenshot": "iPad-Pro--1024x1366--Ch-teaux.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Événements",
+          "path": "/evenements",
+          "url": "https://selectchateaux.com/evenements",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "28/31 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": false,
+              "details": "1 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 472ms, DOM Ready: 278ms"
+            }
+          ],
+          "screenshot": "iPad-Pro--1024x1366---v-nements.png",
+          "passed": 3,
+          "total": 6
+        },
+        {
+          "name": "Contact",
+          "path": "/contact",
+          "url": "https://selectchateaux.com/contact",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/6 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": true,
+              "details": "1 formulaire(s), 6 champ(s), 6 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 344ms, DOM Ready: 228ms"
+            }
+          ],
+          "screenshot": "iPad-Pro--1024x1366--Contact.png",
+          "passed": 5,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "config": "iPhone 14 Pro (393x852)",
+      "viewport": {
+        "width": 393,
+        "height": 852
+      },
+      "isMobile": true,
+      "pages": [
+        {
+          "name": "Accueil",
+          "path": "/",
+          "url": "https://selectchateaux.com/",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "7 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "24/36 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 362ms, DOM Ready: 314ms"
+            }
+          ],
+          "screenshot": "iPhone-14-Pro--393x852--Accueil.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Châteaux",
+          "path": "/chateaux",
+          "url": "https://selectchateaux.com/chateaux",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/23 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 332ms, DOM Ready: 296ms"
+            }
+          ],
+          "screenshot": "iPhone-14-Pro--393x852--Ch-teaux.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Événements",
+          "path": "/evenements",
+          "url": "https://selectchateaux.com/evenements",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "21/31 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": false,
+              "details": "1 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 446ms, DOM Ready: 295ms"
+            }
+          ],
+          "screenshot": "iPhone-14-Pro--393x852---v-nements.png",
+          "passed": 3,
+          "total": 6
+        },
+        {
+          "name": "Contact",
+          "path": "/contact",
+          "url": "https://selectchateaux.com/contact",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/4 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": true,
+              "details": "1 formulaire(s), 6 champ(s), 6 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 311ms, DOM Ready: 216ms"
+            }
+          ],
+          "screenshot": "iPhone-14-Pro--393x852--Contact.png",
+          "passed": 5,
+          "total": 6
+        }
+      ]
+    },
+    {
+      "config": "Samsung Galaxy S23 (360x800)",
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "isMobile": true,
+      "pages": [
+        {
+          "name": "Accueil",
+          "path": "/",
+          "url": "https://selectchateaux.com/",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "7 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "20/35 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 361ms, DOM Ready: 312ms"
+            }
+          ],
+          "screenshot": "Samsung-Galaxy-S23--360x800--Accueil.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Châteaux",
+          "path": "/chateaux",
+          "url": "https://selectchateaux.com/chateaux",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/23 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 315ms, DOM Ready: 220ms"
+            }
+          ],
+          "screenshot": "Samsung-Galaxy-S23--360x800--Ch-teaux.png",
+          "passed": 4,
+          "total": 6
+        },
+        {
+          "name": "Événements",
+          "path": "/evenements",
+          "url": "https://selectchateaux.com/evenements",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "19/31 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": false,
+              "details": "0 formulaire(s), 0 champ(s), 0 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": false,
+              "details": "1 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 460ms, DOM Ready: 229ms"
+            }
+          ],
+          "screenshot": "Samsung-Galaxy-S23--360x800---v-nements.png",
+          "passed": 3,
+          "total": 6
+        },
+        {
+          "name": "Contact",
+          "path": "/contact",
+          "url": "https://selectchateaux.com/contact",
+          "tests": [
+            {
+              "name": "Navigation fonctionnelle",
+              "success": true,
+              "details": "8 liens de navigation trouvés"
+            },
+            {
+              "name": "Images chargées",
+              "success": false,
+              "details": "3/4 images chargées, 0 sans attribut alt"
+            },
+            {
+              "name": "Formulaires accessibles",
+              "success": true,
+              "details": "1 formulaire(s), 6 champ(s), 6 label(s)"
+            },
+            {
+              "name": "Responsive design",
+              "success": true,
+              "details": "✅ Pas de scroll horizontal"
+            },
+            {
+              "name": "Aucune erreur console",
+              "success": true,
+              "details": "0 erreur(s), 0 warning(s)"
+            },
+            {
+              "name": "Performance acceptable",
+              "success": true,
+              "details": "Load: 343ms, DOM Ready: 238ms"
+            }
+          ],
+          "screenshot": "Samsung-Galaxy-S23--360x800--Contact.png",
+          "passed": 5,
+          "total": 6
+        }
+      ]
+    }
+  ]
+}

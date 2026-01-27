@@ -4,6 +4,10 @@ export const metadata: Metadata = {
   title: "Nos 4 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92",
   description:
     "Location château séminaire Île-de-France : Manoir 280 pers Chantilly (60), Refuge 5★ accessible métro (92), Abbaye étang Chevreuse (78). Réponse 48h • Visite gratuite",
+  robots: {
+    index: false,
+    follow: false,
+  },
   keywords: [
     "location chateau seminaire ile de france",
     "chateau seminaire chantilly",

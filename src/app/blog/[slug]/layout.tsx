@@ -21,6 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${article.title} | Blog Select Châteaux`,
     description: article.excerpt,
+    robots: {
+      index: false,
+      follow: false,
+    },
     keywords: article.keywords,
     authors: [{ name: article.author.name }],
     metadataBase: new URL("https://www.selectchateaux.com"),

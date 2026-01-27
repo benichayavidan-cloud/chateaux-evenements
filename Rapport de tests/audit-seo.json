@@ -1,0 +1,204 @@
+{
+  "results": [
+    {
+      "page": "/",
+      "url": "https://selectchateaux.com/",
+      "seo": {
+        "title": "Châteaux Séminaire Île-de-France | Select Châteaux",
+        "titleLength": 50,
+        "description": "Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
+        "descriptionLength": 155,
+        "keywords": "séminaire chateau ile de france,location chateau seminaire,lieu événementiel confidentiel,organisation codir luxe,chateau chantilly seminaire,abbaye vaux de cernay seminaire,château événement entreprise,séminaire résidentiel,team building château",
+        "ogTitle": "Select Châteaux - La Collection Confidentielle",
+        "ogDescription": "4 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.",
+        "ogImage": "https://www.selectchateaux.com/opengraph-image?4041440918db2181",
+        "ogType": "website",
+        "ogUrl": "https://www.selectchateaux.com",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Select Châteaux | Lieux Secrets pour Séminaires",
+        "twitterDescription": "Découvrez nos domaines privés pour vos événements d'entreprise.",
+        "twitterImage": "https://www.selectchateaux.com/og-image.jpg",
+        "canonical": "https://www.selectchateaux.com",
+        "h1Count": 1,
+        "h1": [
+          "Séminaires & Châteaux Privés : La Collection Confidentielle (Paris / Île-de-France)"
+        ],
+        "h2Count": 3,
+        "h2": [
+          "Nos Châteaux d'Exception",
+          "Types d'Événements",
+          "Ce que disent nos clients"
+        ],
+        "h3Count": 13,
+        "internalLinksCount": 26,
+        "externalLinksCount": 0,
+        "wordCount": 1300,
+        "lang": "fr",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow"
+      },
+      "performance": {
+        "loadTime": 1.45289999999851,
+        "domContentLoaded": 0.8740999999940395
+      }
+    },
+    {
+      "page": "/chateaux",
+      "url": "https://selectchateaux.com/chateaux",
+      "seo": {
+        "title": "Nos 4 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92",
+        "titleLength": 79,
+        "description": "Location château séminaire Île-de-France : Manoir 280 pers Chantilly (60), Refuge 5★ accessible métro (92), Abbaye étang Chevreuse (78). Réponse 48h • Visite gratuite",
+        "descriptionLength": 166,
+        "keywords": "location chateau seminaire ile de france,chateau seminaire chantilly,chateau seminaire oise 60,location chateau hauts de seine 92,abbaye seminaire yvelines 78,chateau vallée chevreuse,chateau accessible metro paris,manoir anglo normand chantilly,location chateau 280 personnes,chateau monument historique seminaire",
+        "ogTitle": "4 Châteaux d'Exception pour Séminaires | Île-de-France",
+        "ogDescription": "Découvrez notre sélection exclusive : Manoir de Chantilly (280 pers), Refuge Historique Paris 92, Abbaye Vallée de Chevreuse. Réservation sous 48h.",
+        "ogImage": "https://www.selectchateaux.com/og-image.jpg",
+        "ogType": "website",
+        "ogUrl": "https://www.selectchateaux.com/chateaux",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "4 Châteaux d'Exception | Séminaires Île-de-France",
+        "twitterDescription": "Manoir Chantilly, Refuge Paris 92, Abbaye Chevreuse. Réservation express.",
+        "twitterImage": "https://www.selectchateaux.com/og-image.jpg",
+        "canonical": "https://www.selectchateaux.com/chateaux",
+        "h1Count": 1,
+        "h1": [
+          "Location de Châteaux pour Séminaires : La Collection Île-de-France"
+        ],
+        "h2Count": 5,
+        "h2": [
+          "4 Domaines d'exception, privatisables pour vos événements d'entreprise. Oise (60) · Yvelines (78) · Hauts-de-Seine (92).",
+          "Pourquoi Choisir Nos Châteaux ?",
+          "4 Châteaux d'Exception",
+          "Ce que disent nos clients",
+          "Prêt à Organiser Votre Événement ?"
+        ],
+        "h3Count": 13,
+        "internalLinksCount": 27,
+        "externalLinksCount": 0,
+        "wordCount": 1648,
+        "lang": "fr",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow"
+      },
+      "performance": {
+        "loadTime": 0.8248999999985099,
+        "domContentLoaded": 0.1881000000014901
+      }
+    },
+    {
+      "page": "/evenements",
+      "url": "https://selectchateaux.com/evenements",
+      "seo": {
+        "title": "Événements Professionnels en Châteaux | Select Châteaux",
+        "titleLength": 55,
+        "description": "Séminaires résidentiels, journées d'étude, soirées d'entreprise, team building. Solutions clé en main dans nos domaines de prestige en Île-de-France.",
+        "descriptionLength": 149,
+        "keywords": "événements entreprise château,séminaire résidentiel,soirée entreprise,journée d'étude,CODIR château,convention entreprise",
+        "ogTitle": "Événements d'Entreprise d'Exception",
+        "ogDescription": "Séminaires, CODIR, team building dans nos châteaux d'Île-de-France",
+        "ogImage": "https://www.selectchateaux.com/og-image.jpg",
+        "ogType": "website",
+        "ogUrl": "https://www.selectchateaux.com/evenements",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Événements Professionnels en Châteaux",
+        "twitterDescription": "Séminaires, CODIR, team building dans nos châteaux d'exception",
+        "twitterImage": "https://www.selectchateaux.com/og-image.jpg",
+        "canonical": "https://www.selectchateaux.com/evenements",
+        "h1Count": 1,
+        "h1": [
+          "Vos Événementsd'Exception"
+        ],
+        "h2Count": 7,
+        "h2": [
+          "Séminaire Résidentiel",
+          "Journée d'Étude",
+          "Soirée d'Entreprise",
+          "Team Building",
+          "Notre processus"
+        ],
+        "h3Count": 14,
+        "internalLinksCount": 24,
+        "externalLinksCount": 0,
+        "wordCount": 1188,
+        "lang": "fr",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow"
+      },
+      "performance": {
+        "loadTime": 0.41490000000596045,
+        "domContentLoaded": 0.14220000000298022
+      }
+    },
+    {
+      "page": "/contact",
+      "url": "https://selectchateaux.com/contact",
+      "seo": {
+        "title": "Contact Select Châteaux | Demande de Devis Séminaire",
+        "titleLength": 52,
+        "description": "Contactez nos experts à Paris. Tél. 07 57 99 11 46. Email seminaires@selectchateaux.com. Réponse sous 2h pour votre événement d'entreprise.",
+        "descriptionLength": 139,
+        "keywords": "contact select châteaux,devis séminaire,réservation château,événement entreprise,contact Paris",
+        "ogTitle": "Contactez Select Châteaux",
+        "ogDescription": "Notre équipe répond sous 2h. Tél. 07 57 99 11 46",
+        "ogImage": "https://www.selectchateaux.com/og-image.jpg",
+        "ogType": "website",
+        "ogUrl": "https://www.selectchateaux.com/contact",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Contact Select Châteaux",
+        "twitterDescription": "07 57 99 11 46 - seminaires@selectchateaux.com",
+        "twitterImage": "https://www.selectchateaux.com/og-image.jpg",
+        "canonical": "https://www.selectchateaux.com/contact",
+        "h1Count": 1,
+        "h1": [
+          "Parlons devotre projet"
+        ],
+        "h2Count": 3,
+        "h2": [
+          "Recevez vite votre devis",
+          "FAQ",
+          "Ils nous font confiance"
+        ],
+        "h3Count": 7,
+        "internalLinksCount": 17,
+        "externalLinksCount": 0,
+        "wordCount": 1005,
+        "lang": "fr",
+        "viewport": "width=device-width, initial-scale=1",
+        "robots": "index, follow"
+      },
+      "performance": {
+        "loadTime": 0.4785,
+        "domContentLoaded": 0.15129999999701976
+      }
+    }
+  ],
+  "analysis": {
+    "globalScore": 94,
+    "issues": [],
+    "warnings": [
+      "chateaux: Title 79 caractères (optimal: 30-60)",
+      "chateaux: Description 166 caractères (optimal: 120-160)"
+    ],
+    "successes": [
+      "Accueil: Title optimal (50 caractères)",
+      "Accueil: Description optimale (155 caractères)",
+      "Accueil: 1 H1 unique",
+      "Accueil: Open Graph complet",
+      "Accueil: Contenu suffisant (1300 mots)",
+      "chateaux: 1 H1 unique",
+      "chateaux: Open Graph complet",
+      "chateaux: Contenu suffisant (1648 mots)",
+      "evenements: Title optimal (55 caractères)",
+      "evenements: Description optimale (149 caractères)",
+      "evenements: 1 H1 unique",
+      "evenements: Open Graph complet",
+      "evenements: Contenu suffisant (1188 mots)",
+      "contact: Title optimal (52 caractères)",
+      "contact: Description optimale (139 caractères)",
+      "contact: 1 H1 unique",
+      "contact: Open Graph complet",
+      "contact: Contenu suffisant (1005 mots)"
+    ]
+  }
+}

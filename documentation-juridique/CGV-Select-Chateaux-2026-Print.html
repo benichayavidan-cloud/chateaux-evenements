@@ -74,6 +74,7 @@
             margin-bottom: 10px;
             padding-bottom: 5px;
             border-bottom: 1px solid #A37E2C;
+            page-break-after: avoid;
         }
 
         h3 {
@@ -82,11 +83,14 @@
             color: #050505;
             margin-top: 15px;
             margin-bottom: 8px;
+            page-break-after: avoid;
         }
 
         p {
             margin-bottom: 10px;
             text-align: justify;
+            orphans: 3;
+            widows: 3;
         }
 
         ul {
@@ -108,11 +112,21 @@
             page-break-inside: avoid;
         }
 
+        /* Sections spécifiques pour optimiser la pagination */
+        #article-6 {
+            page-break-before: auto;
+        }
+
+        #article-12 {
+            page-break-before: always;
+        }
+
         .highlight {
             background-color: #FFF9E6;
             padding: 10px;
             border-left: 3px solid #A37E2C;
             margin: 15px 0;
+            page-break-inside: avoid;
         }
 
         .footer {
@@ -130,6 +144,7 @@
             border-radius: 5px;
             margin-top: 20px;
             text-align: center;
+            page-break-inside: avoid;
         }
 
         .contact-box p {
@@ -274,7 +289,7 @@
         <p>Des <strong>frais administratifs de 150€ HT</strong> peuvent s'appliquer pour toute modification intervenant moins de 60 jours avant l'événement.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="article-6">
         <h2>ARTICLE 6 - FORCE MAJEURE, INTEMPÉRIES ET DÉFAILLANCE DU LIEU</h2>
         <h3>6.1 - Définition Étendue de la Force Majeure</h3>
         <p>Conformément à l'article 1218 du Code Civil, constitue un cas de <strong>force majeure</strong> tout événement échappant au contrôle raisonnable des parties, imprévisible lors de la conclusion du contrat et insurmontable, rendant impossible l'exécution du contrat.</p>
@@ -406,7 +421,7 @@
         <p>Select Châteaux se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de signature du devis par le Commanditaire.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="article-12">
         <h2>ARTICLE 12 - PROPRIÉTÉ INTELLECTUELLE ET VISUELS</h2>
         <h3>12.1 - Alias des Lieux</h3>
         <p>Pour des raisons de <strong>confidentialité et d'exclusivité commerciale</strong>, les noms des domaines et châteaux présentés sur le site internet de Select Châteaux peuvent être des <strong>alias</strong>. Le nom réel du lieu sera communiqué au Commanditaire lors de la signature du devis personnalisé, garantissant ainsi la transparence contractuelle tout en préservant la confidentialité des partenariats.</p>
@@ -432,11 +447,6 @@
         <p>Select Châteaux - SAS au capital de [●] euros - RCS Paris [●]</p>
         <p>Siège social : 60 Rue François 1er, 75008 Paris, France</p>
         <p style="margin-top: 10px;">Document confidentiel - Tous droits réservés © 2026 Select Châteaux</p>
-    </div>
-
-    <div class="no-print" style="margin-top: 30px; padding: 20px; background-color: #FFF9E6; border-left: 3px solid #A37E2C; text-align: center;">
-        <p><strong>Pour imprimer ce document en PDF :</strong></p>
-        <p>Utilisez la fonction "Imprimer" de votre navigateur (Ctrl+P ou Cmd+P) et sélectionnez "Enregistrer au format PDF"</p>
     </div>
 </body>
 </html>

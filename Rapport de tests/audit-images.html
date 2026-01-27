@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Images - SELECT CHATEAUX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #27ae60 0%, #27ae60dd 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h1 { font-size: 42px; color: #2c3e50; margin-bottom: 10px; }
+    .score {
+      font-size: 72px;
+      font-weight: bold;
+      color: #27ae60;
+      margin: 20px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .stat-value {
+      font-size: 48px;
+      font-weight: bold;
+      color: #27ae60;
+      margin-bottom: 10px;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: #7f8c8d;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .page-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .page-title {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #27ae60;
+    }
+    .images-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .images-table th,
+    .images-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    .images-table th {
+      background: #f8f9fa;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .badge {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .badge-success { background: #d4edda; color: #155724; }
+    .badge-danger { background: #f8d7da; color: #721c24; }
+    .badge-warning { background: #fff3cd; color: #856404; }
+    .recommendations {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .recommendations h3 {
+      color: #856404;
+      margin-bottom: 15px;
+    }
+    .recommendations ul {
+      margin-left: 20px;
+    }
+    .recommendations li {
+      margin: 10px 0;
+      color: #856404;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🖼️ Audit des Images</h1>
+      <p style="font-size: 18px; color: #7f8c8d; margin: 10px 0;">SELECT CHATEAUX</p>
+      <div class="score">100/100</div>
+      <p style="color: #7f8c8d;">Score d'optimisation des images</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">94</div>
+        <div class="stat-label">Images totales</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">100.0%</div>
+        <div class="stat-label">Avec Alt Text</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">87.2%</div>
+        <div class="stat-label">Lazy Loading</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">0.6 MB</div>
+        <div class="stat-label">Poids Total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">6.7 KB</div>
+        <div class="stat-label">Poids Moyen</div>
+      </div>
+    </div>
+
+    
+
+    
+
+    
+      <div class="page-section">
+        <h2 class="page-title">Accueil</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">35</div>
+            <div class="stat-label">Images</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #27ae60;">35</div>
+            <div class="stat-label">Avec Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #e74c3c;">0</div>
+            <div class="stat-label">Sans Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">0.13 MB</div>
+            <div class="stat-label">Poids Page</div>
+          </div>
+        </div>
+
+        <table class="images-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Dimensions</th>
+              <th>Alt Text</th>
+              <th>Lazy Load</th>
+              <th>Poids</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp&w=3840&q=75
+                </td>
+                <td>800×536</td>
+                <td>
+                  <span class="badge badge-success">✓ Salle de réunion espace sémina...</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Microsoft</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Famazon.svg&w=256&q=75">
+                  image?url=%2Flogos%2Famazon.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Amazon</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fapple.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fapple.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Apple</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Mercedes-Benz</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fairbus.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fairbus.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Airbus</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Floreal.svg&w=256&q=75">
+                  image?url=%2Flogos%2Floreal.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo L'Oréal</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Faccor.svg&w=256&q=75">
+                  image?url=%2Flogos%2Faccor.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Accor</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Forange.svg&w=256&q=75">
+                  image?url=%2Flogos%2Forange.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Orange</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Frenault.svg&w=256&q=75">
+                  image?url=%2Flogos%2Frenault.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Renault</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo BNP Paribas</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Flvmh.svg&w=256&q=75">
+                  image?url=%2Flogos%2Flvmh.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo LVMH</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fdanone.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fdanone.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Danone</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Microsoft</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Famazon.svg&w=256&q=75">
+                  image?url=%2Flogos%2Famazon.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Amazon</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fapple.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fapple.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Apple</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Mercedes-Benz</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fairbus.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fairbus.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Airbus</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Floreal.svg&w=256&q=75">
+                  image?url=%2Flogos%2Floreal.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo L'Oréal</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Faccor.svg&w=256&q=75">
+                  image?url=%2Flogos%2Faccor.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Accor</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Forange.svg&w=256&q=75">
+                  image?url=%2Flogos%2Forange.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Orange</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Frenault.svg&w=256&q=75">
+                  image?url=%2Flogos%2Frenault.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Renault</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo BNP Paribas</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Flvmh.svg&w=256&q=75">
+                  image?url=%2Flogos%2Flvmh.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo LVMH</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fdanone.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fdanone.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Danone</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Manoir Anglo-Normand & Son ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-jardin-suspendu-vue-aerienne-reception.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-jardin-suspendu-vue-aerienne-reception.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Refuge Historique Suspendu ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-vue-aerienne-domaine-etang-parc.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-vue-aerienne-domaine-etang-parc.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ L'Abbaye Millénaire & Son Étan...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-evenement-exterieur-jardin-reception.jpeg&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-evenement-exterieur-jardin-reception.jpeg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Palais Royal de la Forêt (C...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Séminaire Résidentiel d'entrep...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Journée d'Étude d'entreprise e...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Soirée d'Entreprise d'entrepri...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Fimages%2Fteam-building-chateau-activites-entreprise.jpg&w=3840&q=75">
+                  image?url=%2Fimages%2Fteam-building-chateau-activites-entreprise.jpg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Team Building d'entreprise en ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">chateaux</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">23</div>
+            <div class="stat-label">Images</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #27ae60;">23</div>
+            <div class="stat-label">Avec Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #e74c3c;">0</div>
+            <div class="stat-label">Sans Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">0.24 MB</div>
+            <div class="stat-label">Poids Page</div>
+          </div>
+        </div>
+
+        <table class="images-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Dimensions</th>
+              <th>Alt Text</th>
+              <th>Lazy Load</th>
+              <th>Poids</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-salle-reunion-seminaire-tables-u.webp&w=3840&q=75
+                </td>
+                <td>800×536</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Manoir Anglo-Normand & Son ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp&w=3840&q=75
+                </td>
+                <td>800×441</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Manoir Anglo-Normand & Son ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-dejeuner-exterieur-parc-foret.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Manoir Anglo-Normand & Son ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-facade-terrasse-pierre-cocktail-reception.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Manoir Anglo-Normand & Son ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Manoir Anglo-Normand & Son ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-restaurant-escalier-monumental-sol-damier.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-restaurant-escalier-monumental-sol-damier.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Manoir Anglo-Normand & Son ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Refuge Historique Suspendu ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-espace-spa-accueil-moderne.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Refuge Historique Suspendu ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-chambre-luxe-mur-bleu-citation.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-chambre-luxe-mur-bleu-citation.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Refuge Historique Suspendu ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-espace-coworking-lumineux-moderne.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-espace-coworking-lumineux-moderne.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Refuge Historique Suspendu ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-salle-reunion-bois-hauteur-plafond.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-salle-reunion-bois-hauteur-plafond.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Refuge Historique Suspendu ...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ L'Abbaye Millénaire & Son Étan...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-chaises-napoleon.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ L'Abbaye Millénaire & Son Étan...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-voutee-banquet-arches-pierre.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-voutee-banquet-arches-pierre.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ L'Abbaye Millénaire & Son Étan...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-terrasse-bord-lac-parasols-oranges.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-terrasse-bord-lac-parasols-oranges.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ L'Abbaye Millénaire & Son Étan...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-bain-luxe-baignoire-miroirs-dores.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-bain-luxe-baignoire-miroirs-dores.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ L'Abbaye Millénaire & Son Étan...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-restaurant-bibliotheque-cheminee.jpeg&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-restaurant-bibliotheque-cheminee.jpeg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Palais Royal de la Forêt (C...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-restaurant-bibliotheque-cheminee.jpeg&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-restaurant-bibliotheque-cheminee.jpeg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Palais Royal de la Forêt (C...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-chambre-elegante-vue-balcon.jpeg&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-chambre-elegante-vue-balcon.jpeg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Palais Royal de la Forêt (C...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-salle-reunion-conseil-administration.jpeg&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-salle-reunion-conseil-administration.jpeg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Palais Royal de la Forêt (C...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-restaurant-voute-dejeuner-affaires.jpeg&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fmont-royal%2Fpalais-royal-foret-chantilly-60-restaurant-voute-dejeuner-affaires.jpeg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Le Palais Royal de la Forêt (C...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">evenements</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">31</div>
+            <div class="stat-label">Images</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #27ae60;">31</div>
+            <div class="stat-label">Avec Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #e74c3c;">0</div>
+            <div class="stat-label">Sans Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">0.10 MB</div>
+            <div class="stat-label">Poids Page</div>
+          </div>
+        </div>
+
+        <table class="images-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Dimensions</th>
+              <th>Alt Text</th>
+              <th>Lazy Load</th>
+              <th>Poids</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Fimages%2Fseminaire-entreprise-chateau-evenement-hero.webp&w=3840&q=75">
+                  image?url=%2Fimages%2Fseminaire-entreprise-chateau-evenement-hero.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Événements d'entreprise dans u...</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Microsoft</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Famazon.svg&w=256&q=75">
+                  image?url=%2Flogos%2Famazon.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Amazon</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fapple.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fapple.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Apple</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Mercedes-Benz</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fairbus.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fairbus.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Airbus</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Floreal.svg&w=256&q=75">
+                  image?url=%2Flogos%2Floreal.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo L'Oréal</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Faccor.svg&w=256&q=75">
+                  image?url=%2Flogos%2Faccor.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Accor</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Forange.svg&w=256&q=75">
+                  image?url=%2Flogos%2Forange.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Orange</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Frenault.svg&w=256&q=75">
+                  image?url=%2Flogos%2Frenault.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Renault</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo BNP Paribas</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Flvmh.svg&w=256&q=75">
+                  image?url=%2Flogos%2Flvmh.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo LVMH</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fdanone.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fdanone.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Danone</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmicrosoft.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Microsoft</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Famazon.svg&w=256&q=75">
+                  image?url=%2Flogos%2Famazon.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Amazon</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fapple.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fapple.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Apple</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fmercedes-benz.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Mercedes-Benz</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fairbus.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fairbus.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Airbus</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Floreal.svg&w=256&q=75">
+                  image?url=%2Flogos%2Floreal.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo L'Oréal</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Faccor.svg&w=256&q=75">
+                  image?url=%2Flogos%2Faccor.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Accor</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Forange.svg&w=256&q=75">
+                  image?url=%2Flogos%2Forange.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Orange</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Frenault.svg&w=256&q=75">
+                  image?url=%2Flogos%2Frenault.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Renault</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fbnp-paribas.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo BNP Paribas</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Flvmh.svg&w=256&q=75">
+                  image?url=%2Flogos%2Flvmh.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo LVMH</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Flogos%2Fdanone.svg&w=256&q=75">
+                  image?url=%2Flogos%2Fdanone.svg&w=256&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Logo Danone</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchantilly%2Fmanoir-anglo-normand-chantilly-oise-60-chambre-luxe-lit-double-stores-bois.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Séminaire Résidentiel</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fchevreuse%2Fabbaye-vaux-cernay-chevreuse-yvelines-78-salle-conference-verriere-chaises-dore.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Journée d'Étude</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp&w=3840&q=75">
+                  image?url=https%3A%2F%2Fjmeiepmtgidqtmxfnlwf.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fchateaux-images%2Fhauts-de-seine%2Fhotel-historique-paris-hauts-de-seine-92-facade-cour-honneur-soiree-cocktail.webp&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Soirée d'Entreprise</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=%2Fimages%2Fteam-building-chateau-activites-entreprise.jpg&w=3840&q=75">
+                  image?url=%2Fimages%2Fteam-building-chateau-activites-entreprise.jpg&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Team Building</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">contact</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">5</div>
+            <div class="stat-label">Images</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #27ae60;">5</div>
+            <div class="stat-label">Avec Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px; color: #e74c3c;">0</div>
+            <div class="stat-label">Sans Alt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" style="font-size: 36px;">0.14 MB</div>
+            <div class="stat-label">Poids Page</div>
+          </div>
+        </div>
+
+        <table class="images-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Dimensions</th>
+              <th>Alt Text</th>
+              <th>Lazy Load</th>
+              <th>Poids</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1464366400600-7168b8af9bc3%3Fw%3D1920%26q%3D80&w=3840&q=75">
+                  image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1464366400600-7168b8af9bc3%3Fw%3D1920%26q%3D80&w=3840&q=75
+                </td>
+                <td>800×534</td>
+                <td>
+                  <span class="badge badge-success">✓ Contact - Château et jardins</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1494790108377-be9c29b29330%3Fw%3D300%26auto%3Dformat%26fit%3Dcrop%26q%3D80&w=3840&q=75">
+                  image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1494790108377-be9c29b29330%3Fw%3D300%26auto%3Dformat%26fit%3Dcrop%26q%3D80&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Photo de Sophie Moreau, Direct...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://www.selectchateaux.com/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1506794778202-cad84cf45f1d%3Fw%3D300%26auto%3Dformat%26fit%3Dcrop%26q%3D80&w=3840&q=75">
+                  image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1506794778202-cad84cf45f1d%3Fw%3D300%26auto%3Dformat%26fit%3Dcrop%26q%3D80&w=3840&q=75
+                </td>
+                <td>0×0</td>
+                <td>
+                  <span class="badge badge-success">✓ Photo de Mamadou Diallo, Direc...</span>
+                </td>
+                <td>
+                  <span class="badge badge-success">✓ Lazy</span>
+                </td>
+                <td>N/A</td>
+              </tr>
+            
+              <tr>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png">
+                  logo.png
+                </td>
+                <td>677×369</td>
+                <td>
+                  <span class="badge badge-success">✓ Select Chateaux</span>
+                </td>
+                <td>
+                  <span class="badge badge-warning">Eager</span>
+                </td>
+                <td>97.09 KB</td>
+              </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    
+
+    <footer style="text-align: center; color: white; margin-top: 40px; padding: 20px;">
+      <p>📅 27 janvier 2026</p>
+      <p style="margin-top: 10px;">🌐 https://selectchateaux.com</p>
+    </footer>
+  </div>
+</body>
+</html>

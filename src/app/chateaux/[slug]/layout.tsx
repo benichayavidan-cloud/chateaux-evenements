@@ -37,6 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${enrichedTitle} | Select Châteaux`,
     description: enrichedDescription,
+    robots: {
+      index: false,
+      follow: false,
+    },
     keywords: [
       `chateau ${chateau.region.toLowerCase()}`,
       `seminaire ${chateau.region.toLowerCase()}`,

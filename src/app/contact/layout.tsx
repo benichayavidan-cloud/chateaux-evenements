@@ -3,6 +3,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Select Châteaux | Demande de Devis Séminaire",
   description: "Contactez nos experts à Paris. Tél. 07 57 99 11 46. Email seminaires@selectchateaux.com. Réponse sous 2h pour votre événement d'entreprise.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   keywords: [
     "contact select châteaux",
     "devis séminaire",

@@ -3,6 +3,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Team Building Château | Activités d'Équipe Select Châteaux",
   description: "Renforcez la cohésion de vos équipes avec nos 8 activités immersives dans nos châteaux d'exception. Challenges, escape games, olympiades en Île-de-France.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   keywords: [
     "team building château",
     "activités d'équipe",

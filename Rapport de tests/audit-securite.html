@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Sécurité - SELECT CHATEAUX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #27ae60 0%, #27ae60dd 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h1 { font-size: 42px; color: #2c3e50; margin-bottom: 10px; }
+    .score {
+      font-size: 72px;
+      font-weight: bold;
+      color: #27ae60;
+      margin: 20px 0;
+    }
+    .alert {
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .alert-danger {
+      background: #f8d7da;
+      border-left: 4px solid #dc3545;
+      color: #721c24;
+    }
+    .alert-warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      color: #856404;
+    }
+    .alert-success {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      color: #155724;
+    }
+    .alert h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .alert ul {
+      margin-left: 20px;
+    }
+    .alert li {
+      margin: 8px 0;
+    }
+    .page-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .page-title {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #27ae60;
+    }
+    .security-item {
+      margin: 15px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    .security-item h4 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .badge {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .badge-success { background: #d4edda; color: #155724; }
+    .badge-danger { background: #f8d7da; color: #721c24; }
+    .badge-warning { background: #fff3cd; color: #856404; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    th {
+      background: #f8f9fa;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .code {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔒 Audit de Sécurité</h1>
+      <p style="font-size: 18px; color: #7f8c8d; margin: 10px 0;">SELECT CHATEAUX</p>
+      <div class="score">100/100</div>
+      <p style="color: #7f8c8d;">Score de sécurité</p>
+    </header>
+
+    
+
+    
+
+    
+    <div class="alert alert-success">
+      <h3>✅ Bonnes Pratiques (8)</h3>
+      <ul>
+        <li>✅ Toutes les pages utilisent HTTPS</li><li>✅ Pas de contenu mixte</li><li>✅ HSTS configuré</li><li>✅ CSP configuré</li><li>✅ X-Content-Type-Options configuré</li><li>✅ X-Frame-Options configuré</li><li>✅ Referrer-Policy configuré</li><li>✅ Toutes les requêtes sont en HTTPS</li>
+      </ul>
+    </div>
+
+    <div class="page-section">
+      <h2 class="page-title">🛡️ Headers de Sécurité (Domaine)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Header</th>
+            <th>Valeur</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td><strong>Strict-Transport-Security</strong></td>
+              <td style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">
+                <span class="code">max-age=63072000; includeSubDomains; preload</span>
+              </td>
+              <td>
+                <span class="badge badge-success">✓ Présent</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td><strong>Content-Security-Policy</strong></td>
+              <td style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">
+                <span class="code">default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests</span>
+              </td>
+              <td>
+                <span class="badge badge-success">✓ Présent</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td><strong>X-Content-Type-Options</strong></td>
+              <td style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">
+                <span class="code">nosniff</span>
+              </td>
+              <td>
+                <span class="badge badge-success">✓ Présent</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td><strong>X-Frame-Options</strong></td>
+              <td style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">
+                <span class="code">SAMEORIGIN</span>
+              </td>
+              <td>
+                <span class="badge badge-success">✓ Présent</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td><strong>X-XSS-Protection</strong></td>
+              <td style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">
+                <span class="code">1; mode=block</span>
+              </td>
+              <td>
+                <span class="badge badge-success">✓ Présent</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td><strong>Referrer-Policy</strong></td>
+              <td style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">
+                <span class="code">strict-origin-when-cross-origin</span>
+              </td>
+              <td>
+                <span class="badge badge-success">✓ Présent</span>
+              </td>
+            </tr>
+          
+            <tr>
+              <td><strong>Permissions-Policy</strong></td>
+              <td style="max-width: 400px; overflow: hidden; text-overflow: ellipsis;">
+                <span class="code">camera=(), microphone=(), geolocation=(), interest-cohort=()</span>
+              </td>
+              <td>
+                <span class="badge badge-success">✓ Présent</span>
+              </td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    
+      <div class="page-section">
+        <h2 class="page-title">Accueil</h2>
+
+        <div class="security-item">
+          <h4>🔐 Protocole HTTPS
+            <span class="badge badge-success">✓ Sécurisé</span>
+          </h4>
+          <p>Protocole: HTTPS</p>
+        </div>
+
+        
+
+        <div class="security-item">
+          <h4>📜 Scripts Externes (19)</h4>
+          
+            <ul style="margin-top: 10px; font-size: 13px;">
+              <li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js</li>
+              <li><em>... et 16 autres</em></li>
+            </ul>
+          
+        </div>
+
+        
+        <div class="security-item">
+          <h4>📝 Scripts Inline (23)
+            <span class="badge badge-success">✓ OK</span>
+          </h4>
+          <p>Scripts avec eval: 0</p>
+          <p>Scripts avec document.write: 0</p>
+          <p>Scripts avec innerHTML: 0</p>
+        </div>
+
+        
+
+        
+
+        <div class="security-item">
+          <h4>🍪 Stockage Local</h4>
+          <p>Cookies: Aucun</p>
+          <p>LocalStorage items: 0</p>
+          <p>SessionStorage items: 0</p>
+        </div>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">chateaux</h2>
+
+        <div class="security-item">
+          <h4>🔐 Protocole HTTPS
+            <span class="badge badge-success">✓ Sécurisé</span>
+          </h4>
+          <p>Protocole: HTTPS</p>
+        </div>
+
+        
+
+        <div class="security-item">
+          <h4>📜 Scripts Externes (19)</h4>
+          
+            <ul style="margin-top: 10px; font-size: 13px;">
+              <li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js</li>
+              <li><em>... et 16 autres</em></li>
+            </ul>
+          
+        </div>
+
+        
+        <div class="security-item">
+          <h4>📝 Scripts Inline (24)
+            <span class="badge badge-success">✓ OK</span>
+          </h4>
+          <p>Scripts avec eval: 0</p>
+          <p>Scripts avec document.write: 0</p>
+          <p>Scripts avec innerHTML: 0</p>
+        </div>
+
+        
+
+        
+
+        <div class="security-item">
+          <h4>🍪 Stockage Local</h4>
+          <p>Cookies: Aucun</p>
+          <p>LocalStorage items: 0</p>
+          <p>SessionStorage items: 0</p>
+        </div>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">evenements</h2>
+
+        <div class="security-item">
+          <h4>🔐 Protocole HTTPS
+            <span class="badge badge-success">✓ Sécurisé</span>
+          </h4>
+          <p>Protocole: HTTPS</p>
+        </div>
+
+        
+
+        <div class="security-item">
+          <h4>📜 Scripts Externes (19)</h4>
+          
+            <ul style="margin-top: 10px; font-size: 13px;">
+              <li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js</li>
+              <li><em>... et 16 autres</em></li>
+            </ul>
+          
+        </div>
+
+        
+        <div class="security-item">
+          <h4>📝 Scripts Inline (21)
+            <span class="badge badge-success">✓ OK</span>
+          </h4>
+          <p>Scripts avec eval: 0</p>
+          <p>Scripts avec document.write: 0</p>
+          <p>Scripts avec innerHTML: 0</p>
+        </div>
+
+        
+
+        
+
+        <div class="security-item">
+          <h4>🍪 Stockage Local</h4>
+          <p>Cookies: Aucun</p>
+          <p>LocalStorage items: 0</p>
+          <p>SessionStorage items: 0</p>
+        </div>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">contact</h2>
+
+        <div class="security-item">
+          <h4>🔐 Protocole HTTPS
+            <span class="badge badge-success">✓ Sécurisé</span>
+          </h4>
+          <p>Protocole: HTTPS</p>
+        </div>
+
+        
+
+        <div class="security-item">
+          <h4>📜 Scripts Externes (19)</h4>
+          
+            <ul style="margin-top: 10px; font-size: 13px;">
+              <li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js</li><li style="word-break: break-all;">https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js</li>
+              <li><em>... et 16 autres</em></li>
+            </ul>
+          
+        </div>
+
+        
+        <div class="security-item">
+          <h4>📝 Scripts Inline (21)
+            <span class="badge badge-success">✓ OK</span>
+          </h4>
+          <p>Scripts avec eval: 0</p>
+          <p>Scripts avec document.write: 0</p>
+          <p>Scripts avec innerHTML: 0</p>
+        </div>
+
+        
+        <div class="security-item">
+          <h4>📋 Formulaires (1)
+            <span class="badge badge-success">✓ Tous sécurisés</span>
+          </h4>
+          
+            <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 6px;">
+              <p><strong>Formulaire 1</strong></p>
+              <p>Action: https://www.selectchateaux.com/contact</p>
+              <p>Méthode: GET</p>
+              <p>HTTPS: ✓ Oui</p>
+            </div>
+          
+        </div>
+
+        
+
+        <div class="security-item">
+          <h4>🍪 Stockage Local</h4>
+          <p>Cookies: Aucun</p>
+          <p>LocalStorage items: 0</p>
+          <p>SessionStorage items: 0</p>
+        </div>
+      </div>
+    
+
+    <div class="page-section">
+      <h3 style="color: #2c3e50; margin-bottom: 15px;">💡 Recommandations de Sécurité</h3>
+      <ul style="line-height: 2; color: #555;">
+        <li>🔒 <strong>HSTS:</strong> Configurer Strict-Transport-Security avec max-age de 1 an minimum</li>
+        <li>🛡️ <strong>CSP:</strong> Implémenter une Content-Security-Policy stricte</li>
+        <li>🚫 <strong>X-Frame-Options:</strong> Définir sur DENY ou SAMEORIGIN pour prévenir le clickjacking</li>
+        <li>📦 <strong>X-Content-Type-Options:</strong> Définir sur nosniff</li>
+        <li>🔐 <strong>Referrer-Policy:</strong> Utiliser no-referrer-when-downgrade ou strict-origin</li>
+        <li>🍪 <strong>Cookies:</strong> Utiliser les flags Secure, HttpOnly et SameSite</li>
+        <li>🔑 <strong>Subresource Integrity:</strong> Ajouter SRI pour les scripts/styles externes</li>
+        <li>📜 <strong>Éviter eval():</strong> Supprimer eval() et document.write des scripts</li>
+      </ul>
+    </div>
+
+    <footer style="text-align: center; color: white; margin-top: 40px; padding: 20px;">
+      <p>📅 27 janvier 2026</p>
+      <p style="margin-top: 10px;">🌐 https://selectchateaux.com</p>
+    </footer>
+  </div>
+</body>
+</html>

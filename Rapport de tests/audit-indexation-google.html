@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Indexation Google - SELECT CHATEAUX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #27ae60 0%, #27ae60dd 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h1 { font-size: 42px; color: #2c3e50; margin-bottom: 10px; }
+    .score {
+      font-size: 72px;
+      font-weight: bold;
+      color: #27ae60;
+      margin: 20px 0;
+    }
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .section-title {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #27ae60;
+    }
+    .badge {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 5px;
+    }
+    .badge-success { background: #d4edda; color: #155724; }
+    .badge-danger { background: #f8d7da; color: #721c24; }
+    .badge-warning { background: #fff3cd; color: #856404; }
+    .item {
+      padding: 15px;
+      margin: 10px 0;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #27ae60;
+    }
+    .item strong { color: #2c3e50; }
+    pre {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    th {
+      background: #f8f9fa;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 42px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: #7f8c8d;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🌐 Audit Indexation Google</h1>
+      <p style="font-size: 18px; color: #7f8c8d; margin: 10px 0;">SELECT CHATEAUX</p>
+      <div class="score">100%</div>
+      <p style="color: #7f8c8d;">Taux d'indexation</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">0</div>
+        <div class="stat-label">Pages indexées Google</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">44</div>
+        <div class="stat-label">URLs dans Sitemap</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">4/4</div>
+        <div class="stat-label">Pages testées indexées</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">📄 Sitemap.xml</h2>
+      <div class="item">
+        <strong>Status:</strong>
+        <span class="badge badge-success">✓ Accessible</span>
+      </div>
+      <div class="item">
+        <strong>URL:</strong> <a href="https://www.selectchateaux.com/sitemap.xml" target="_blank">https://www.selectchateaux.com/sitemap.xml</a>
+      </div>
+      <div class="item">
+        <strong>Nombre d'URLs:</strong> 44
+      </div>
+      <div class="item">
+        <strong>Format valide:</strong> ✓ Oui
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">🤖 Robots.txt</h2>
+      <div class="item">
+        <strong>Status:</strong>
+        <span class="badge badge-success">✓ Accessible</span>
+      </div>
+      <div class="item">
+        <strong>URL:</strong> <a href="https://www.selectchateaux.com/robots.txt" target="_blank">https://www.selectchateaux.com/robots.txt</a>
+      </div>
+      <div class="item">
+        <strong>Référence Sitemap:</strong> ✓ Oui
+      </div>
+      <div class="item">
+        <strong>Autorise indexation:</strong> ⚠️ Partielle
+      </div>
+      <pre>User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://www.selectchateaux.com/sitemap.xml
+</pre>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">🔎 Indexation Google</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+              <tr>
+                <td><strong>Accueil</strong></td>
+                <td>
+                  <span class="badge badge-warning">⚠ À vérifier</span>
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>chateaux</strong></td>
+                <td>
+                  <span class="badge badge-warning">⚠ À vérifier</span>
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>evenements</strong></td>
+                <td>
+                  <span class="badge badge-warning">⚠ À vérifier</span>
+                </td>
+              </tr>
+            
+              <tr>
+                <td><strong>contact</strong></td>
+                <td>
+                  <span class="badge badge-warning">⚠ À vérifier</span>
+                </td>
+              </tr>
+            
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">📋 Meta Tags SEO</h2>
+      
+        <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+          <h3 style="color: #2c3e50; margin-bottom: 15px;">Accueil</h3>
+          <div class="item">
+            <strong>Title:</strong> Châteaux Séminaire Île-de-France | Select Châteaux
+            <span style="color: #7f8c8d; font-size: 12px;">(50 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Description:</strong> Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.
+            <span style="color: #7f8c8d; font-size: 12px;">(155 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Canonical:</strong> https://www.selectchateaux.com/
+          </div>
+          <div class="item">
+            <strong>Robots:</strong> index, follow
+          </div>
+          <div class="item">
+            <strong>Lang:</strong> fr
+          </div>
+          <div class="item">
+            <strong>Schema JSON-LD:</strong> 1 schema(s)
+          </div>
+        </div>
+      
+        <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+          <h3 style="color: #2c3e50; margin-bottom: 15px;">chateaux</h3>
+          <div class="item">
+            <strong>Title:</strong> Nos 4 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92
+            <span style="color: #7f8c8d; font-size: 12px;">(79 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Description:</strong> Location château séminaire Île-de-France : Manoir 280 pers Chantilly (60), Refuge 5★ accessible métro (92), Abbaye étang Chevreuse (78). Réponse 48h • Visite gratuite
+            <span style="color: #7f8c8d; font-size: 12px;">(166 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Canonical:</strong> https://www.selectchateaux.com/chateaux
+          </div>
+          <div class="item">
+            <strong>Robots:</strong> index, follow
+          </div>
+          <div class="item">
+            <strong>Lang:</strong> fr
+          </div>
+          <div class="item">
+            <strong>Schema JSON-LD:</strong> 3 schema(s)
+          </div>
+        </div>
+      
+        <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+          <h3 style="color: #2c3e50; margin-bottom: 15px;">evenements</h3>
+          <div class="item">
+            <strong>Title:</strong> Événements Professionnels en Châteaux | Select Châteaux
+            <span style="color: #7f8c8d; font-size: 12px;">(55 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Description:</strong> Séminaires résidentiels, journées d'étude, soirées d'entreprise, team building. Solutions clé en main dans nos domaines de prestige en Île-de-France.
+            <span style="color: #7f8c8d; font-size: 12px;">(149 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Canonical:</strong> https://www.selectchateaux.com/evenements
+          </div>
+          <div class="item">
+            <strong>Robots:</strong> index, follow
+          </div>
+          <div class="item">
+            <strong>Lang:</strong> fr
+          </div>
+          <div class="item">
+            <strong>Schema JSON-LD:</strong> 3 schema(s)
+          </div>
+        </div>
+      
+        <div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+          <h3 style="color: #2c3e50; margin-bottom: 15px;">contact</h3>
+          <div class="item">
+            <strong>Title:</strong> Contact Select Châteaux | Demande de Devis Séminaire
+            <span style="color: #7f8c8d; font-size: 12px;">(52 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Description:</strong> Contactez nos experts à Paris. Tél. 07 57 99 11 46. Email seminaires@selectchateaux.com. Réponse sous 2h pour votre événement d'entreprise.
+            <span style="color: #7f8c8d; font-size: 12px;">(139 car.)</span>
+          </div>
+          <div class="item">
+            <strong>Canonical:</strong> https://www.selectchateaux.com/contact
+          </div>
+          <div class="item">
+            <strong>Robots:</strong> index, follow
+          </div>
+          <div class="item">
+            <strong>Lang:</strong> fr
+          </div>
+          <div class="item">
+            <strong>Schema JSON-LD:</strong> 3 schema(s)
+          </div>
+        </div>
+      
+    </div>
+
+    <div class="section">
+      <h3 style="color: #2c3e50; margin-bottom: 15px;">💡 Recommandations</h3>
+      <ul style="line-height: 2; color: #555;">
+        <li>✅ <strong>Sitemap:</strong> Soumettre à Google Search Console pour accélérer l'indexation</li>
+        <li>📊 <strong>Google Search Console:</strong> Vérifier les erreurs d'indexation et la couverture</li>
+        <li>🔗 <strong>Backlinks:</strong> Créer des liens entrants de qualité pour améliorer l'autorité</li>
+        <li>📱 <strong>Mobile-First:</strong> Google indexe en priorité la version mobile (déjà optimisé ✓)</li>
+        <li>⚡ <strong>Core Web Vitals:</strong> Continuer à maintenir les excellentes performances</li>
+        <li>🎯 <strong>Contenu:</strong> Publier régulièrement du contenu de qualité pour améliorer le ranking</li>
+      </ul>
+    </div>
+
+    <footer style="text-align: center; color: white; margin-top: 40px; padding: 20px;">
+      <p>📅 27 janvier 2026</p>
+      <p style="margin-top: 10px;">🌐 https://www.selectchateaux.com</p>
+    </footer>
+  </div>
+</body>
+</html>

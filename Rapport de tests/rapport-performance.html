@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapport de Performance - SELECT CHATEAUX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+    .meta {
+      color: #7f8c8d;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    .summary {
+      background: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .summary h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .summary-item {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .summary-item .label {
+      font-size: 12px;
+      color: #7f8c8d;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .summary-item .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .summary-item .value.good { color: #27ae60; }
+    .summary-item .value.warning { color: #f39c12; }
+    .summary-item .value.bad { color: #e74c3c; }
+    .page-result {
+      margin-bottom: 40px;
+      border: 1px solid #ecf0f1;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .page-header {
+      background: #3498db;
+      color: white;
+      padding: 15px 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .page-content {
+      padding: 20px;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .metric-card {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 4px solid #3498db;
+    }
+    .metric-card h3 {
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-bottom: 8px;
+    }
+    .metric-card .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .screenshot {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .screenshot img {
+      max-width: 100%;
+      border: 1px solid #ecf0f1;
+      border-radius: 6px;
+    }
+    .resources-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .resources-table th,
+    .resources-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    .resources-table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #7f8c8d;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Rapport de Performance</h1>
+    <div class="meta">
+      <strong>SELECT CHATEAUX</strong> |
+      Généré le 27/01/2026 13:57:49 |
+      URL testée: https://selectchateaux.com
+    </div>
+
+    <div class="summary">
+      <h2>Résumé Global</h2>
+      <div class="summary-grid">
+        
+    <div class="summary-item">
+      <div class="label">Temps de chargement moyen</div>
+      <div class="value bad">3151ms</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">FCP Moyen</div>
+      <div class="value good">1203ms</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Total Ressources</div>
+      <div class="value">242</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Taille Totale</div>
+      <div class="value">1215.73 KB</div>
+    </div>
+  
+      </div>
+    </div>
+
+    
+      <div class="page-result">
+        <div class="page-header">
+          Accueil - /
+        </div>
+        <div class="page-content">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <h3>⏱️ Temps de chargement total</h3>
+              <div class="value bad">6128ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 First Contentful Paint</h3>
+              <div class="value warning">2744ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>📦 Ressources chargées</h3>
+              <div class="value">70</div>
+            </div>
+            <div class="metric-card">
+              <h3>💾 Taille totale</h3>
+              <div class="value">913.88 KB</div>
+            </div>
+            <div class="metric-card">
+              <h3>📜 Scripts JS</h3>
+              <div class="value">18</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 Feuilles CSS</h3>
+              <div class="value">1</div>
+            </div>
+            <div class="metric-card">
+              <h3>🖼️ Images</h3>
+              <div class="value">19</div>
+            </div>
+            <div class="metric-card">
+              <h3>🔤 Polices</h3>
+              <div class="value">8</div>
+            </div>
+          </div>
+
+          <h3>⏱️ Détails de chargement</h3>
+          <table class="resources-table">
+            <thead>
+              <tr>
+                <th>Métrique</th>
+                <th>Valeur</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>DNS Lookup</td><td>1024ms</td></tr>
+              <tr><td>TCP Connection</td><td>251ms</td></tr>
+              <tr><td>Request Time</td><td>78ms</td></tr>
+              <tr><td>Response Time</td><td>471ms</td></tr>
+              <tr><td>DOM Processing</td><td>652ms</td></tr>
+              <tr><td>DOM Content Loaded</td><td>2651ms</td></tr>
+              <tr><td>Load Complete</td><td>3002ms</td></tr>
+            </tbody>
+          </table>
+
+          <div class="screenshot">
+            <h3>📸 Capture d'écran</h3>
+            <img src="screenshot-accueil.png" alt="Screenshot Accueil">
+          </div>
+        </div>
+      </div>
+    
+      <div class="page-result">
+        <div class="page-header">
+          Châteaux - /chateaux
+        </div>
+        <div class="page-content">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <h3>⏱️ Temps de chargement total</h3>
+              <div class="value warning">2252ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 First Contentful Paint</h3>
+              <div class="value good">736ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>📦 Ressources chargées</h3>
+              <div class="value">54</div>
+            </div>
+            <div class="metric-card">
+              <h3>💾 Taille totale</h3>
+              <div class="value">141.75 KB</div>
+            </div>
+            <div class="metric-card">
+              <h3>📜 Scripts JS</h3>
+              <div class="value">18</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 Feuilles CSS</h3>
+              <div class="value">1</div>
+            </div>
+            <div class="metric-card">
+              <h3>🖼️ Images</h3>
+              <div class="value">3</div>
+            </div>
+            <div class="metric-card">
+              <h3>🔤 Polices</h3>
+              <div class="value">8</div>
+            </div>
+          </div>
+
+          <h3>⏱️ Détails de chargement</h3>
+          <table class="resources-table">
+            <thead>
+              <tr>
+                <th>Métrique</th>
+                <th>Valeur</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>DNS Lookup</td><td>0ms</td></tr>
+              <tr><td>TCP Connection</td><td>0ms</td></tr>
+              <tr><td>Request Time</td><td>78ms</td></tr>
+              <tr><td>Response Time</td><td>436ms</td></tr>
+              <tr><td>DOM Processing</td><td>188ms</td></tr>
+              <tr><td>DOM Content Loaded</td><td>717ms</td></tr>
+              <tr><td>Load Complete</td><td>796ms</td></tr>
+            </tbody>
+          </table>
+
+          <div class="screenshot">
+            <h3>📸 Capture d'écran</h3>
+            <img src="screenshot-châteaux.png" alt="Screenshot Châteaux">
+          </div>
+        </div>
+      </div>
+    
+      <div class="page-result">
+        <div class="page-header">
+          Événements - /evenements
+        </div>
+        <div class="page-content">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <h3>⏱️ Temps de chargement total</h3>
+              <div class="value warning">2115ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 First Contentful Paint</h3>
+              <div class="value good">656ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>📦 Ressources chargées</h3>
+              <div class="value">65</div>
+            </div>
+            <div class="metric-card">
+              <h3>💾 Taille totale</h3>
+              <div class="value">82.29 KB</div>
+            </div>
+            <div class="metric-card">
+              <h3>📜 Scripts JS</h3>
+              <div class="value">18</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 Feuilles CSS</h3>
+              <div class="value">1</div>
+            </div>
+            <div class="metric-card">
+              <h3>🖼️ Images</h3>
+              <div class="value">14</div>
+            </div>
+            <div class="metric-card">
+              <h3>🔤 Polices</h3>
+              <div class="value">8</div>
+            </div>
+          </div>
+
+          <h3>⏱️ Détails de chargement</h3>
+          <table class="resources-table">
+            <thead>
+              <tr>
+                <th>Métrique</th>
+                <th>Valeur</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>DNS Lookup</td><td>0ms</td></tr>
+              <tr><td>TCP Connection</td><td>0ms</td></tr>
+              <tr><td>Request Time</td><td>67ms</td></tr>
+              <tr><td>Response Time</td><td>373ms</td></tr>
+              <tr><td>DOM Processing</td><td>382ms</td></tr>
+              <tr><td>DOM Content Loaded</td><td>583ms</td></tr>
+              <tr><td>Load Complete</td><td>916ms</td></tr>
+            </tbody>
+          </table>
+
+          <div class="screenshot">
+            <h3>📸 Capture d'écran</h3>
+            <img src="screenshot-événements.png" alt="Screenshot Événements">
+          </div>
+        </div>
+      </div>
+    
+      <div class="page-result">
+        <div class="page-header">
+          Contact - /contact
+        </div>
+        <div class="page-content">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <h3>⏱️ Temps de chargement total</h3>
+              <div class="value warning">2107ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 First Contentful Paint</h3>
+              <div class="value good">676ms</div>
+            </div>
+            <div class="metric-card">
+              <h3>📦 Ressources chargées</h3>
+              <div class="value">53</div>
+            </div>
+            <div class="metric-card">
+              <h3>💾 Taille totale</h3>
+              <div class="value">77.81 KB</div>
+            </div>
+            <div class="metric-card">
+              <h3>📜 Scripts JS</h3>
+              <div class="value">18</div>
+            </div>
+            <div class="metric-card">
+              <h3>🎨 Feuilles CSS</h3>
+              <div class="value">1</div>
+            </div>
+            <div class="metric-card">
+              <h3>🖼️ Images</h3>
+              <div class="value">1</div>
+            </div>
+            <div class="metric-card">
+              <h3>🔤 Polices</h3>
+              <div class="value">8</div>
+            </div>
+          </div>
+
+          <h3>⏱️ Détails de chargement</h3>
+          <table class="resources-table">
+            <thead>
+              <tr>
+                <th>Métrique</th>
+                <th>Valeur</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>DNS Lookup</td><td>0ms</td></tr>
+              <tr><td>TCP Connection</td><td>0ms</td></tr>
+              <tr><td>Request Time</td><td>77ms</td></tr>
+              <tr><td>Response Time</td><td>392ms</td></tr>
+              <tr><td>DOM Processing</td><td>213ms</td></tr>
+              <tr><td>DOM Content Loaded</td><td>590ms</td></tr>
+              <tr><td>Load Complete</td><td>757ms</td></tr>
+            </tbody>
+          </table>
+
+          <div class="screenshot">
+            <h3>📸 Capture d'écran</h3>
+            <img src="screenshot-contact.png" alt="Screenshot Contact">
+          </div>
+        </div>
+      </div>
+    
+
+    <footer>
+      <p>📊 Rapport généré automatiquement pour SELECT CHATEAUX</p>
+      <p>Tests effectués avec Puppeteer et connexion 3G Fast simulée</p>
+    </footer>
+  </div>
+
+  <script>
+    function getLoadTimeClass(time) {
+      if (time < 1000) return 'good';
+      if (time < 3000) return 'warning';
+      return 'bad';
+    }
+    function getFCPClass(time) {
+      if (time < 1800) return 'good';
+      if (time < 3000) return 'warning';
+      return 'bad';
+    }
+  </script>
+</body>
+</html>

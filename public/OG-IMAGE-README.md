@@ -20,7 +20,7 @@ L'image doit contenir :
 2. **Photo d'un château** (arrière-plan subtil)
 3. **Texte:**
    - "Select Châteaux"
-   - "3 Châteaux d'Exception en Île-de-France"
+   - "4 Châteaux d'Exception en Île-de-France"
    - "www.selectchateaux.com"
 4. **Couleurs:** Or (#a37e2c), gris élégant
 5. **Style:** Luxe, épuré, professionnel

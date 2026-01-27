@@ -1,0 +1,804 @@
+{
+  "results": [
+    {
+      "page": "/",
+      "url": "https://www.selectchateaux.com/",
+      "security": {
+        "https": true,
+        "mixedContent": [],
+        "externalScripts": [
+          "https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js",
+          "https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js",
+          "https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/turbopack-2e010ff5242f0a29.js",
+          "https://www.selectchateaux.com/_next/static/chunks/4e6a86f5c271883a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/75305f2102238826.js",
+          "https://www.selectchateaux.com/_next/static/chunks/361749aa32c7f2ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/276814d94f08f0dd.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ff1a16fafef87110.js",
+          "https://www.selectchateaux.com/_next/static/chunks/7340adf74ff47ec0.js",
+          "https://www.selectchateaux.com/_next/static/chunks/49d7751acdb119f1.js",
+          "https://www.selectchateaux.com/_next/static/chunks/a6dad97d9634a72d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/72a57d7767537b95.js",
+          "https://www.selectchateaux.com/_next/static/chunks/0d31b48b8522fc4d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/868bca8c8f1e3e0b.js",
+          "https://www.selectchateaux.com/_next/static/chunks/2c0ed90a2297079a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ec6502ee852ced0d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/97e92cffc29f7d8f.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ace29d5656a3a8a0.js"
+        ],
+        "inlineScripts": [
+          {
+            "length": 793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1593,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 57,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 845,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 16,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 16,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 43,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1122,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 2511,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 2489,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1646,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 4955,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1310,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1255,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1835,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 938,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 3649,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1635,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 897,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 178,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 153,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 3343,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          }
+        ],
+        "forms": [],
+        "cookies": "",
+        "localStorage": 0,
+        "sessionStorage": 0,
+        "iframes": []
+      },
+      "headers": {
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "1; mode=block",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+      },
+      "httpRequests": 0,
+      "totalRequests": 72
+    },
+    {
+      "page": "/chateaux",
+      "url": "https://www.selectchateaux.com/chateaux",
+      "security": {
+        "https": true,
+        "mixedContent": [],
+        "externalScripts": [
+          "https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js",
+          "https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js",
+          "https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/turbopack-2e010ff5242f0a29.js",
+          "https://www.selectchateaux.com/_next/static/chunks/4e6a86f5c271883a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/75305f2102238826.js",
+          "https://www.selectchateaux.com/_next/static/chunks/361749aa32c7f2ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/276814d94f08f0dd.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ff1a16fafef87110.js",
+          "https://www.selectchateaux.com/_next/static/chunks/7340adf74ff47ec0.js",
+          "https://www.selectchateaux.com/_next/static/chunks/97e92cffc29f7d8f.js",
+          "https://www.selectchateaux.com/_next/static/chunks/a6dad97d9634a72d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/49d7751acdb119f1.js",
+          "https://www.selectchateaux.com/_next/static/chunks/72a57d7767537b95.js",
+          "https://www.selectchateaux.com/_next/static/chunks/0d31b48b8522fc4d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/868bca8c8f1e3e0b.js",
+          "https://www.selectchateaux.com/_next/static/chunks/2c0ed90a2297079a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ec6502ee852ced0d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ace29d5656a3a8a0.js"
+        ],
+        "inlineScripts": [
+          {
+            "length": 793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1593,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 275,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 4028,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 43,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1122,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 2591,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1835,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1646,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 4956,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 82,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 4511,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 940,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1256,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1835,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 938,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 3649,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1635,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 371,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 95,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 178,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 153,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 3453,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          }
+        ],
+        "forms": [],
+        "cookies": "",
+        "localStorage": 0,
+        "sessionStorage": 0,
+        "iframes": []
+      },
+      "headers": {
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "1; mode=block",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+      },
+      "httpRequests": 0,
+      "totalRequests": 55
+    },
+    {
+      "page": "/evenements",
+      "url": "https://www.selectchateaux.com/evenements",
+      "security": {
+        "https": true,
+        "mixedContent": [],
+        "externalScripts": [
+          "https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js",
+          "https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js",
+          "https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/turbopack-2e010ff5242f0a29.js",
+          "https://www.selectchateaux.com/_next/static/chunks/4e6a86f5c271883a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/75305f2102238826.js",
+          "https://www.selectchateaux.com/_next/static/chunks/361749aa32c7f2ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/276814d94f08f0dd.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ff1a16fafef87110.js",
+          "https://www.selectchateaux.com/_next/static/chunks/7340adf74ff47ec0.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ec6502ee852ced0d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/a6dad97d9634a72d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/72a57d7767537b95.js",
+          "https://www.selectchateaux.com/_next/static/chunks/0d31b48b8522fc4d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/49d7751acdb119f1.js",
+          "https://www.selectchateaux.com/_next/static/chunks/868bca8c8f1e3e0b.js",
+          "https://www.selectchateaux.com/_next/static/chunks/2c0ed90a2297079a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/97e92cffc29f7d8f.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ace29d5656a3a8a0.js"
+        ],
+        "inlineScripts": [
+          {
+            "length": 793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1593,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 275,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 936,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 43,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1122,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 2595,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1835,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1646,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 4956,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1210,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1256,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1835,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 938,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 3649,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1635,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 95,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 178,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 153,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 3082,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          }
+        ],
+        "forms": [],
+        "cookies": "",
+        "localStorage": 0,
+        "sessionStorage": 0,
+        "iframes": []
+      },
+      "headers": {
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "1; mode=block",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+      },
+      "httpRequests": 0,
+      "totalRequests": 66
+    },
+    {
+      "page": "/contact",
+      "url": "https://www.selectchateaux.com/contact",
+      "security": {
+        "https": true,
+        "mixedContent": [],
+        "externalScripts": [
+          "https://www.selectchateaux.com/_next/static/chunks/5cedbe3d28acc407.js",
+          "https://www.selectchateaux.com/_next/static/chunks/e68022dcb7402a70.js",
+          "https://www.selectchateaux.com/_next/static/chunks/30ea11065999f7ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/turbopack-2e010ff5242f0a29.js",
+          "https://www.selectchateaux.com/_next/static/chunks/4e6a86f5c271883a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/75305f2102238826.js",
+          "https://www.selectchateaux.com/_next/static/chunks/361749aa32c7f2ac.js",
+          "https://www.selectchateaux.com/_next/static/chunks/276814d94f08f0dd.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ff1a16fafef87110.js",
+          "https://www.selectchateaux.com/_next/static/chunks/7340adf74ff47ec0.js",
+          "https://www.selectchateaux.com/_next/static/chunks/868bca8c8f1e3e0b.js",
+          "https://www.selectchateaux.com/_next/static/chunks/a6dad97d9634a72d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/49d7751acdb119f1.js",
+          "https://www.selectchateaux.com/_next/static/chunks/72a57d7767537b95.js",
+          "https://www.selectchateaux.com/_next/static/chunks/0d31b48b8522fc4d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/2c0ed90a2297079a.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ec6502ee852ced0d.js",
+          "https://www.selectchateaux.com/_next/static/chunks/97e92cffc29f7d8f.js",
+          "https://www.selectchateaux.com/_next/static/chunks/ace29d5656a3a8a0.js"
+        ],
+        "inlineScripts": [
+          {
+            "length": 793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1593,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 269,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1142,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 43,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1122,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1793,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 2589,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1835,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1646,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 4956,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1210,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1256,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1835,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 938,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 3649,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 1635,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 95,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 178,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 153,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          },
+          {
+            "length": 2960,
+            "hasInnerHTML": false,
+            "hasEval": false,
+            "hasDangerousInsertions": false
+          }
+        ],
+        "forms": [
+          {
+            "action": "https://www.selectchateaux.com/contact",
+            "method": "get",
+            "hasHttps": true,
+            "inputs": [
+              {
+                "type": "text",
+                "name": "",
+                "hasAutocomplete": false
+              },
+              {
+                "type": "text",
+                "name": "",
+                "hasAutocomplete": false
+              },
+              {
+                "type": "email",
+                "name": "",
+                "hasAutocomplete": false
+              },
+              {
+                "type": "tel",
+                "name": "",
+                "hasAutocomplete": false
+              },
+              {
+                "type": "text",
+                "name": "",
+                "hasAutocomplete": false
+              }
+            ]
+          }
+        ],
+        "cookies": "",
+        "localStorage": 0,
+        "sessionStorage": 0,
+        "iframes": []
+      },
+      "headers": {
+        "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "1; mode=block",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "permissions-policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+      },
+      "httpRequests": 0,
+      "totalRequests": 54
+    }
+  ],
+  "domainHeaders": {
+    "statusCode": 200,
+    "headers": {
+      "accept-ranges": "bytes",
+      "access-control-allow-origin": "*",
+      "age": "2851",
+      "cache-control": "public, max-age=0, must-revalidate",
+      "content-disposition": "inline",
+      "content-length": "183884",
+      "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests",
+      "content-type": "text/html; charset=utf-8",
+      "date": "Tue, 27 Jan 2026 12:45:26 GMT",
+      "etag": "\"0df76396ea8ff5063138b7717463b1a7\"",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "server": "Vercel",
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "x-content-type-options": "nosniff",
+      "x-dns-prefetch-control": "on",
+      "x-frame-options": "SAMEORIGIN",
+      "x-matched-path": "/",
+      "x-nextjs-prerender": "1",
+      "x-nextjs-stale-time": "300",
+      "x-vercel-cache": "HIT",
+      "x-vercel-enable-rewrite-caching": "1",
+      "x-vercel-id": "fra1::p98nq-1769517926789-6bca00be2f8c",
+      "x-xss-protection": "1; mode=block"
+    }
+  },
+  "analysis": {
+    "globalScore": 100,
+    "criticalIssues": [],
+    "warnings": [],
+    "goodPractices": [
+      "✅ Toutes les pages utilisent HTTPS",
+      "✅ Pas de contenu mixte",
+      "✅ HSTS configuré",
+      "✅ CSP configuré",
+      "✅ X-Content-Type-Options configuré",
+      "✅ X-Frame-Options configuré",
+      "✅ Referrer-Policy configuré",
+      "✅ Toutes les requêtes sont en HTTPS"
+    ]
+  }
+}

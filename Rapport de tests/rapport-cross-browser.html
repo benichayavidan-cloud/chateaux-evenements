@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapport Cross-Browser - SELECT CHATEAUX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+    .meta {
+      color: #7f8c8d;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    .summary {
+      background: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .summary h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .summary-item {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .summary-item .label {
+      font-size: 12px;
+      color: #7f8c8d;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .summary-item .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .summary-item .value.good { color: #27ae60; }
+    .summary-item .value.warning { color: #f39c12; }
+    .summary-item .value.bad { color: #e74c3c; }
+    .browser-section {
+      margin-bottom: 40px;
+      border: 1px solid #ecf0f1;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .browser-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .browser-header h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+    .browser-header .info {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    .page-result {
+      border-bottom: 1px solid #ecf0f1;
+    }
+    .page-result:last-child {
+      border-bottom: none;
+    }
+    .page-header {
+      background: #f8f9fa;
+      padding: 15px 20px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .page-score {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .score-badge {
+      background: #3498db;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .score-badge.good { background: #27ae60; }
+    .score-badge.warning { background: #f39c12; }
+    .score-badge.bad { background: #e74c3c; }
+    .tests-list {
+      padding: 20px;
+    }
+    .test-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    .test-item:last-child {
+      border-bottom: none;
+    }
+    .test-name {
+      font-weight: 500;
+      color: #2c3e50;
+    }
+    .test-result {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+    .test-icon {
+      font-size: 20px;
+    }
+    .screenshots {
+      padding: 20px;
+      background: #f8f9fa;
+    }
+    .screenshots h3 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    .screenshot-item img {
+      width: 100%;
+      border: 1px solid #ecf0f1;
+      border-radius: 6px;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #7f8c8d;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌍 Rapport Cross-Browser</h1>
+    <div class="meta">
+      <strong>SELECT CHATEAUX</strong> |
+      Généré le 27/01/2026 13:58:05 |
+      URL testée: https://selectchateaux.com
+    </div>
+
+    <div class="summary">
+      <h2>Résumé Global</h2>
+      <div class="summary-grid">
+        
+    <div class="summary-item">
+      <div class="label">Navigateurs testés</div>
+      <div class="value">6</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Pages testées</div>
+      <div class="value">4</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Tests réussis</div>
+      <div class="value bad">96/144</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Taux de réussite</div>
+      <div class="value bad">67%</div>
+    </div>
+  
+      </div>
+    </div>
+
+    
+      <div class="browser-section">
+        <div class="browser-header">
+          <h2>💻 Desktop Chrome (1920x1080)</h2>
+          <div class="info">1920x1080</div>
+        </div>
+
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Accueil - /</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">7 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">31/35 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 1155ms, DOM Ready: 747ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Chrome--1920x1080--Accueil.png" alt="Screenshot Desktop Chrome (1920x1080) - Accueil" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Châteaux - /chateaux</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">8/23 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 368ms, DOM Ready: 253ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Chrome--1920x1080--Ch-teaux.png" alt="Screenshot Desktop Chrome (1920x1080) - Châteaux" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Événements - /evenements</span>
+              <div class="page-score">
+                <span class="score-badge bad">3/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">28/31 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Aucune erreur console</span>
+                    <span class="test-result">1 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 667ms, DOM Ready: 413ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Chrome--1920x1080---v-nements.png" alt="Screenshot Desktop Chrome (1920x1080) - Événements" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Contact - /contact</span>
+              <div class="page-score">
+                <span class="score-badge warning">5/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/6 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Formulaires accessibles</span>
+                    <span class="test-result">1 formulaire(s), 6 champ(s), 6 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 317ms, DOM Ready: 221ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Chrome--1920x1080--Contact.png" alt="Screenshot Desktop Chrome (1920x1080) - Contact" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+      </div>
+    
+      <div class="browser-section">
+        <div class="browser-header">
+          <h2>💻 Desktop Firefox (1920x1080)</h2>
+          <div class="info">1920x1080</div>
+        </div>
+
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Accueil - /</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">7 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">32/36 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 355ms, DOM Ready: 258ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Firefox--1920x1080--Accueil.png" alt="Screenshot Desktop Firefox (1920x1080) - Accueil" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Châteaux - /chateaux</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">8/23 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 342ms, DOM Ready: 239ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Firefox--1920x1080--Ch-teaux.png" alt="Screenshot Desktop Firefox (1920x1080) - Châteaux" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Événements - /evenements</span>
+              <div class="page-score">
+                <span class="score-badge bad">3/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">28/31 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Aucune erreur console</span>
+                    <span class="test-result">1 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 384ms, DOM Ready: 275ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Firefox--1920x1080---v-nements.png" alt="Screenshot Desktop Firefox (1920x1080) - Événements" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Contact - /contact</span>
+              <div class="page-score">
+                <span class="score-badge warning">5/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/6 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Formulaires accessibles</span>
+                    <span class="test-result">1 formulaire(s), 6 champ(s), 6 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 308ms, DOM Ready: 257ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Firefox--1920x1080--Contact.png" alt="Screenshot Desktop Firefox (1920x1080) - Contact" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+      </div>
+    
+      <div class="browser-section">
+        <div class="browser-header">
+          <h2>💻 Desktop Safari (1920x1080)</h2>
+          <div class="info">1920x1080</div>
+        </div>
+
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Accueil - /</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">7 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">32/36 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 395ms, DOM Ready: 249ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Safari--1920x1080--Accueil.png" alt="Screenshot Desktop Safari (1920x1080) - Accueil" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Châteaux - /chateaux</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">8/23 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 359ms, DOM Ready: 231ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Safari--1920x1080--Ch-teaux.png" alt="Screenshot Desktop Safari (1920x1080) - Châteaux" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Événements - /evenements</span>
+              <div class="page-score">
+                <span class="score-badge bad">3/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">28/31 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Aucune erreur console</span>
+                    <span class="test-result">1 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 335ms, DOM Ready: 227ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Safari--1920x1080---v-nements.png" alt="Screenshot Desktop Safari (1920x1080) - Événements" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Contact - /contact</span>
+              <div class="page-score">
+                <span class="score-badge warning">5/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/6 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Formulaires accessibles</span>
+                    <span class="test-result">1 formulaire(s), 6 champ(s), 6 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 308ms, DOM Ready: 272ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Desktop-Safari--1920x1080--Contact.png" alt="Screenshot Desktop Safari (1920x1080) - Contact" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+      </div>
+    
+      <div class="browser-section">
+        <div class="browser-header">
+          <h2>📱 iPad Pro (1024x1366)</h2>
+          <div class="info">1024x1366</div>
+        </div>
+
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Accueil - /</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">7 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">32/36 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 460ms, DOM Ready: 237ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPad-Pro--1024x1366--Accueil.png" alt="Screenshot iPad Pro (1024x1366) - Accueil" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Châteaux - /chateaux</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">8/23 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 389ms, DOM Ready: 243ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPad-Pro--1024x1366--Ch-teaux.png" alt="Screenshot iPad Pro (1024x1366) - Châteaux" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Événements - /evenements</span>
+              <div class="page-score">
+                <span class="score-badge bad">3/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">28/31 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Aucune erreur console</span>
+                    <span class="test-result">1 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 472ms, DOM Ready: 278ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPad-Pro--1024x1366---v-nements.png" alt="Screenshot iPad Pro (1024x1366) - Événements" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Contact - /contact</span>
+              <div class="page-score">
+                <span class="score-badge warning">5/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/6 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Formulaires accessibles</span>
+                    <span class="test-result">1 formulaire(s), 6 champ(s), 6 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 344ms, DOM Ready: 228ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPad-Pro--1024x1366--Contact.png" alt="Screenshot iPad Pro (1024x1366) - Contact" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+      </div>
+    
+      <div class="browser-section">
+        <div class="browser-header">
+          <h2>📱 iPhone 14 Pro (393x852)</h2>
+          <div class="info">393x852</div>
+        </div>
+
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Accueil - /</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">7 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">24/36 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 362ms, DOM Ready: 314ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPhone-14-Pro--393x852--Accueil.png" alt="Screenshot iPhone 14 Pro (393x852) - Accueil" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Châteaux - /chateaux</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/23 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 332ms, DOM Ready: 296ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPhone-14-Pro--393x852--Ch-teaux.png" alt="Screenshot iPhone 14 Pro (393x852) - Châteaux" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Événements - /evenements</span>
+              <div class="page-score">
+                <span class="score-badge bad">3/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">21/31 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Aucune erreur console</span>
+                    <span class="test-result">1 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 446ms, DOM Ready: 295ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPhone-14-Pro--393x852---v-nements.png" alt="Screenshot iPhone 14 Pro (393x852) - Événements" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Contact - /contact</span>
+              <div class="page-score">
+                <span class="score-badge warning">5/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/4 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Formulaires accessibles</span>
+                    <span class="test-result">1 formulaire(s), 6 champ(s), 6 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 311ms, DOM Ready: 216ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="iPhone-14-Pro--393x852--Contact.png" alt="Screenshot iPhone 14 Pro (393x852) - Contact" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+      </div>
+    
+      <div class="browser-section">
+        <div class="browser-header">
+          <h2>📱 Samsung Galaxy S23 (360x800)</h2>
+          <div class="info">360x800</div>
+        </div>
+
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Accueil - /</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">7 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">20/35 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 361ms, DOM Ready: 312ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Samsung-Galaxy-S23--360x800--Accueil.png" alt="Screenshot Samsung Galaxy S23 (360x800) - Accueil" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Châteaux - /chateaux</span>
+              <div class="page-score">
+                <span class="score-badge bad">4/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/23 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 315ms, DOM Ready: 220ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Samsung-Galaxy-S23--360x800--Ch-teaux.png" alt="Screenshot Samsung Galaxy S23 (360x800) - Châteaux" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Événements - /evenements</span>
+              <div class="page-score">
+                <span class="score-badge bad">3/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">19/31 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Formulaires accessibles</span>
+                    <span class="test-result">0 formulaire(s), 0 champ(s), 0 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Aucune erreur console</span>
+                    <span class="test-result">1 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 460ms, DOM Ready: 229ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Samsung-Galaxy-S23--360x800---v-nements.png" alt="Screenshot Samsung Galaxy S23 (360x800) - Événements" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+          <div class="page-result">
+            <div class="page-header">
+              <span>Contact - /contact</span>
+              <div class="page-score">
+                <span class="score-badge warning">5/6 tests réussis</span>
+              </div>
+            </div>
+
+            
+              <div class="tests-list">
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Navigation fonctionnelle</span>
+                    <span class="test-result">8 liens de navigation trouvés</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">❌ Images chargées</span>
+                    <span class="test-result">3/4 images chargées, 0 sans attribut alt</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Formulaires accessibles</span>
+                    <span class="test-result">1 formulaire(s), 6 champ(s), 6 label(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Responsive design</span>
+                    <span class="test-result">✅ Pas de scroll horizontal</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Aucune erreur console</span>
+                    <span class="test-result">0 erreur(s), 0 warning(s)</span>
+                  </div>
+                
+                  <div class="test-item">
+                    <span class="test-name">✅ Performance acceptable</span>
+                    <span class="test-result">Load: 343ms, DOM Ready: 238ms</span>
+                  </div>
+                
+              </div>
+
+              
+                <div class="screenshots">
+                  <h3>📸 Capture d'écran</h3>
+                  <div class="screenshot-item">
+                    <img src="Samsung-Galaxy-S23--360x800--Contact.png" alt="Screenshot Samsung Galaxy S23 (360x800) - Contact" loading="lazy">
+                  </div>
+                </div>
+              
+            
+          </div>
+        
+      </div>
+    
+
+    <footer>
+      <p>🌍 Rapport généré automatiquement pour SELECT CHATEAUX</p>
+      <p>Tests effectués avec Puppeteer sur 6 configurations différentes</p>
+    </footer>
+  </div>
+</body>
+</html>

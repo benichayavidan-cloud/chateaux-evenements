@@ -3,6 +3,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Événements Professionnels en Châteaux | Select Châteaux",
   description: "Séminaires résidentiels, journées d'étude, soirées d'entreprise, team building. Solutions clé en main dans nos domaines de prestige en Île-de-France.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   keywords: [
     "événements entreprise château",
     "séminaire résidentiel",

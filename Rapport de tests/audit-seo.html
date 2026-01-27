@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit SEO - SELECT CHATEAUX</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #27ae60 0%, #27ae60dd 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h1 { font-size: 42px; color: #2c3e50; margin-bottom: 10px; }
+    .score {
+      font-size: 72px;
+      font-weight: bold;
+      color: #27ae60;
+      margin: 20px 0;
+    }
+    .alert {
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .alert-danger {
+      background: #f8d7da;
+      border-left: 4px solid #dc3545;
+      color: #721c24;
+    }
+    .alert-warning {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      color: #856404;
+    }
+    .alert-success {
+      background: #d4edda;
+      border-left: 4px solid #28a745;
+      color: #155724;
+    }
+    .alert h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .alert ul {
+      margin-left: 20px;
+    }
+    .alert li {
+      margin: 8px 0;
+    }
+    .page-section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .page-title {
+      font-size: 24px;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid #27ae60;
+    }
+    .seo-item {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    .seo-item h4 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .seo-item p {
+      color: #555;
+      line-height: 1.6;
+    }
+    .badge {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .badge-success { background: #d4edda; color: #155724; }
+    .badge-danger { background: #f8d7da; color: #721c24; }
+    .badge-warning { background: #fff3cd; color: #856404; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 32px;
+      font-weight: bold;
+      color: #27ae60;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: #7f8c8d;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 Audit SEO On-Page</h1>
+      <p style="font-size: 18px; color: #7f8c8d; margin: 10px 0;">SELECT CHATEAUX</p>
+      <div class="score">94/100</div>
+      <p style="color: #7f8c8d;">Score d'optimisation SEO</p>
+    </header>
+
+    
+
+    
+    <div class="alert alert-warning">
+      <h3>⚠️ Avertissements (2)</h3>
+      <ul>
+        <li>chateaux: Title 79 caractères (optimal: 30-60)</li><li>chateaux: Description 166 caractères (optimal: 120-160)</li>
+      </ul>
+    </div>
+
+    
+    <div class="alert alert-success">
+      <h3>✅ Points Forts (18)</h3>
+      <ul>
+        <li>Accueil: Title optimal (50 caractères)</li><li>Accueil: Description optimale (155 caractères)</li><li>Accueil: 1 H1 unique</li><li>Accueil: Open Graph complet</li><li>Accueil: Contenu suffisant (1300 mots)</li><li>chateaux: 1 H1 unique</li><li>chateaux: Open Graph complet</li><li>chateaux: Contenu suffisant (1648 mots)</li><li>evenements: Title optimal (55 caractères)</li><li>evenements: Description optimale (149 caractères)</li><li>evenements: 1 H1 unique</li><li>evenements: Open Graph complet</li><li>evenements: Contenu suffisant (1188 mots)</li><li>contact: Title optimal (52 caractères)</li><li>contact: Description optimale (139 caractères)</li><li>contact: 1 H1 unique</li><li>contact: Open Graph complet</li><li>contact: Contenu suffisant (1005 mots)</li>
+      </ul>
+    </div>
+
+    
+      <div class="page-section">
+        <h2 class="page-title">Accueil</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">50</div>
+            <div class="stat-label">Caractères Title</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">155</div>
+            <div class="stat-label">Caractères Description</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">H1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1300</div>
+            <div class="stat-label">Mots</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">26</div>
+            <div class="stat-label">Liens Internes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1.45s</div>
+            <div class="stat-label">Temps Chargement</div>
+          </div>
+        </div>
+
+        <div class="seo-item">
+          <h4>📋 Title
+            <span class="badge badge-success">✓ Optimal</span>
+          </h4>
+          <p>Châteaux Séminaire Île-de-France | Select Châteaux</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">50 caractères (optimal: 30-60)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>📝 Meta Description
+            <span class="badge badge-success">✓ Optimal</span>
+          </h4>
+          <p>Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">155 caractères (optimal: 120-160)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🏷️ H1 Heading
+            <span class="badge badge-success">✓ Parfait</span>
+          </h4>
+          <p>• Séminaires & Châteaux Privés : La Collection Confidentielle (Paris / Île-de-France)</p>
+        </div>
+
+        
+        <div class="seo-item">
+          <h4>📑 H2 Headings (3)</h4>
+          <p>• Nos Châteaux d'Exception</p><p>• Types d'Événements</p><p>• Ce que disent nos clients</p>
+          
+        </div>
+
+        <div class="seo-item">
+          <h4>🌍 Open Graph
+            <span class="badge badge-success">✓ Complet</span>
+          </h4>
+          <p><strong>og:title:</strong> Select Châteaux - La Collection Confidentielle</p>
+          <p><strong>og:description:</strong> 4 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.</p>
+          <p><strong>og:image:</strong> https://www.selectchateaux.com/opengraph-image?4041440918db2181</p>
+          <p><strong>og:type:</strong> website</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🐦 Twitter Card
+            <span class="badge badge-success">✓ Présent</span>
+          </h4>
+          <p><strong>twitter:card:</strong> summary_large_image</p>
+          <p><strong>twitter:title:</strong> Select Châteaux | Lieux Secrets pour Séminaires</p>
+          <p><strong>twitter:description:</strong> Découvrez nos domaines privés pour vos événements d'entreprise.</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🔗 Canonical URL
+            <span class="badge badge-success">✓ Défini</span>
+          </h4>
+          <p>https://www.selectchateaux.com</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🌐 Attributs Techniques</h4>
+          <p><strong>Lang:</strong> fr</p>
+          <p><strong>Viewport:</strong> width=device-width, initial-scale=1</p>
+          <p><strong>Robots:</strong> index, follow</p>
+        </div>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">chateaux</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">79</div>
+            <div class="stat-label">Caractères Title</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">166</div>
+            <div class="stat-label">Caractères Description</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">H1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1648</div>
+            <div class="stat-label">Mots</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">27</div>
+            <div class="stat-label">Liens Internes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">0.82s</div>
+            <div class="stat-label">Temps Chargement</div>
+          </div>
+        </div>
+
+        <div class="seo-item">
+          <h4>📋 Title
+            <span class="badge badge-warning">⚠ À optimiser</span>
+          </h4>
+          <p>Nos 4 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">79 caractères (optimal: 30-60)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>📝 Meta Description
+            <span class="badge badge-warning">⚠ À optimiser</span>
+          </h4>
+          <p>Location château séminaire Île-de-France : Manoir 280 pers Chantilly (60), Refuge 5★ accessible métro (92), Abbaye étang Chevreuse (78). Réponse 48h • Visite gratuite</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">166 caractères (optimal: 120-160)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🏷️ H1 Heading
+            <span class="badge badge-success">✓ Parfait</span>
+          </h4>
+          <p>• Location de Châteaux pour Séminaires : La Collection Île-de-France</p>
+        </div>
+
+        
+        <div class="seo-item">
+          <h4>📑 H2 Headings (5)</h4>
+          <p>• 4 Domaines d'exception, privatisables pour vos événements d'entreprise. Oise (60) · Yvelines (78) · Hauts-de-Seine (92).</p><p>• Pourquoi Choisir Nos Châteaux ?</p><p>• 4 Châteaux d'Exception</p><p>• Ce que disent nos clients</p><p>• Prêt à Organiser Votre Événement ?</p>
+          
+        </div>
+
+        <div class="seo-item">
+          <h4>🌍 Open Graph
+            <span class="badge badge-success">✓ Complet</span>
+          </h4>
+          <p><strong>og:title:</strong> 4 Châteaux d'Exception pour Séminaires | Île-de-France</p>
+          <p><strong>og:description:</strong> Découvrez notre sélection exclusive : Manoir de Chantilly (280 pers), Refuge Historique Paris 92, Abbaye Vallée de Chevreuse. Réservation sous 48h.</p>
+          <p><strong>og:image:</strong> https://www.selectchateaux.com/og-image.jpg</p>
+          <p><strong>og:type:</strong> website</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🐦 Twitter Card
+            <span class="badge badge-success">✓ Présent</span>
+          </h4>
+          <p><strong>twitter:card:</strong> summary_large_image</p>
+          <p><strong>twitter:title:</strong> 4 Châteaux d'Exception | Séminaires Île-de-France</p>
+          <p><strong>twitter:description:</strong> Manoir Chantilly, Refuge Paris 92, Abbaye Chevreuse. Réservation express.</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🔗 Canonical URL
+            <span class="badge badge-success">✓ Défini</span>
+          </h4>
+          <p>https://www.selectchateaux.com/chateaux</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🌐 Attributs Techniques</h4>
+          <p><strong>Lang:</strong> fr</p>
+          <p><strong>Viewport:</strong> width=device-width, initial-scale=1</p>
+          <p><strong>Robots:</strong> index, follow</p>
+        </div>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">evenements</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">55</div>
+            <div class="stat-label">Caractères Title</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">149</div>
+            <div class="stat-label">Caractères Description</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">H1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1188</div>
+            <div class="stat-label">Mots</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">24</div>
+            <div class="stat-label">Liens Internes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">0.41s</div>
+            <div class="stat-label">Temps Chargement</div>
+          </div>
+        </div>
+
+        <div class="seo-item">
+          <h4>📋 Title
+            <span class="badge badge-success">✓ Optimal</span>
+          </h4>
+          <p>Événements Professionnels en Châteaux | Select Châteaux</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">55 caractères (optimal: 30-60)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>📝 Meta Description
+            <span class="badge badge-success">✓ Optimal</span>
+          </h4>
+          <p>Séminaires résidentiels, journées d'étude, soirées d'entreprise, team building. Solutions clé en main dans nos domaines de prestige en Île-de-France.</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">149 caractères (optimal: 120-160)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🏷️ H1 Heading
+            <span class="badge badge-success">✓ Parfait</span>
+          </h4>
+          <p>• Vos Événementsd'Exception</p>
+        </div>
+
+        
+        <div class="seo-item">
+          <h4>📑 H2 Headings (7)</h4>
+          <p>• Séminaire Résidentiel</p><p>• Journée d'Étude</p><p>• Soirée d'Entreprise</p><p>• Team Building</p><p>• Notre processus</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 10px;">+ 2 autres H2...</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🌍 Open Graph
+            <span class="badge badge-success">✓ Complet</span>
+          </h4>
+          <p><strong>og:title:</strong> Événements d'Entreprise d'Exception</p>
+          <p><strong>og:description:</strong> Séminaires, CODIR, team building dans nos châteaux d'Île-de-France</p>
+          <p><strong>og:image:</strong> https://www.selectchateaux.com/og-image.jpg</p>
+          <p><strong>og:type:</strong> website</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🐦 Twitter Card
+            <span class="badge badge-success">✓ Présent</span>
+          </h4>
+          <p><strong>twitter:card:</strong> summary_large_image</p>
+          <p><strong>twitter:title:</strong> Événements Professionnels en Châteaux</p>
+          <p><strong>twitter:description:</strong> Séminaires, CODIR, team building dans nos châteaux d'exception</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🔗 Canonical URL
+            <span class="badge badge-success">✓ Défini</span>
+          </h4>
+          <p>https://www.selectchateaux.com/evenements</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🌐 Attributs Techniques</h4>
+          <p><strong>Lang:</strong> fr</p>
+          <p><strong>Viewport:</strong> width=device-width, initial-scale=1</p>
+          <p><strong>Robots:</strong> index, follow</p>
+        </div>
+      </div>
+    
+      <div class="page-section">
+        <h2 class="page-title">contact</h2>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">52</div>
+            <div class="stat-label">Caractères Title</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">139</div>
+            <div class="stat-label">Caractères Description</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1</div>
+            <div class="stat-label">H1</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1005</div>
+            <div class="stat-label">Mots</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">17</div>
+            <div class="stat-label">Liens Internes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">0.48s</div>
+            <div class="stat-label">Temps Chargement</div>
+          </div>
+        </div>
+
+        <div class="seo-item">
+          <h4>📋 Title
+            <span class="badge badge-success">✓ Optimal</span>
+          </h4>
+          <p>Contact Select Châteaux | Demande de Devis Séminaire</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">52 caractères (optimal: 30-60)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>📝 Meta Description
+            <span class="badge badge-success">✓ Optimal</span>
+          </h4>
+          <p>Contactez nos experts à Paris. Tél. 07 57 99 11 46. Email seminaires@selectchateaux.com. Réponse sous 2h pour votre événement d'entreprise.</p>
+          <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">139 caractères (optimal: 120-160)</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🏷️ H1 Heading
+            <span class="badge badge-success">✓ Parfait</span>
+          </h4>
+          <p>• Parlons devotre projet</p>
+        </div>
+
+        
+        <div class="seo-item">
+          <h4>📑 H2 Headings (3)</h4>
+          <p>• Recevez vite votre devis</p><p>• FAQ</p><p>• Ils nous font confiance</p>
+          
+        </div>
+
+        <div class="seo-item">
+          <h4>🌍 Open Graph
+            <span class="badge badge-success">✓ Complet</span>
+          </h4>
+          <p><strong>og:title:</strong> Contactez Select Châteaux</p>
+          <p><strong>og:description:</strong> Notre équipe répond sous 2h. Tél. 07 57 99 11 46</p>
+          <p><strong>og:image:</strong> https://www.selectchateaux.com/og-image.jpg</p>
+          <p><strong>og:type:</strong> website</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🐦 Twitter Card
+            <span class="badge badge-success">✓ Présent</span>
+          </h4>
+          <p><strong>twitter:card:</strong> summary_large_image</p>
+          <p><strong>twitter:title:</strong> Contact Select Châteaux</p>
+          <p><strong>twitter:description:</strong> 07 57 99 11 46 - seminaires@selectchateaux.com</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🔗 Canonical URL
+            <span class="badge badge-success">✓ Défini</span>
+          </h4>
+          <p>https://www.selectchateaux.com/contact</p>
+        </div>
+
+        <div class="seo-item">
+          <h4>🌐 Attributs Techniques</h4>
+          <p><strong>Lang:</strong> fr</p>
+          <p><strong>Viewport:</strong> width=device-width, initial-scale=1</p>
+          <p><strong>Robots:</strong> index, follow</p>
+        </div>
+      </div>
+    
+
+    <footer style="text-align: center; color: white; margin-top: 40px; padding: 20px;">
+      <p>📅 27 janvier 2026</p>
+      <p style="margin-top: 10px;">🌐 https://selectchateaux.com</p>
+    </footer>
+  </div>
+</body>
+</html>
