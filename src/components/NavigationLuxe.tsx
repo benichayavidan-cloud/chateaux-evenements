@@ -30,6 +30,7 @@ export function NavigationLuxe() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isChateauxOpen, setIsChateauxOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Utiliser les données locales au lieu de Supabase
   const chateaux: Chateau[] = chateauxData.map(c => ({
@@ -45,8 +46,18 @@ export function NavigationLuxe() {
       setIsScrolled(window.scrollY > 50);
     };
 
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   // Fermer le menu mobile lors du changement de route
@@ -89,14 +100,15 @@ export function NavigationLuxe() {
                   src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
                   alt="Select Chateaux"
                   style={{
-                    height: '5.5rem',
+                    height: isMobile ? '3.75rem' : '5.5rem',
                     width: 'auto',
-                    maxWidth: '400px',
+                    maxWidth: isMobile ? '280px' : '400px',
                     filter: 'drop-shadow(0 4px 12px rgba(163, 126, 44, 0.3))',
                     position: 'relative',
                     zIndex: 10,
                     marginTop: '-0.25rem',
-                    marginBottom: '-0.25rem'
+                    marginBottom: '-0.25rem',
+                    transition: 'all 0.3s ease'
                   }}
                   className="object-contain"
                 />

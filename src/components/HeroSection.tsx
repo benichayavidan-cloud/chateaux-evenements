@@ -5,18 +5,36 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Award, Users, Building } from "lucide-react";
-import { chateaux } from "@/data/chateaux";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { theme } from "@/config/theme";
 import { colors, spacing } from "@/config/themeHelpers";
 import { generateSmartAlt } from "@/utils/imageAlt";
 
-const heroSlides = chateaux.map((chateau) => ({
-  image: chateau.images.hero[0],
-  title: chateau.nom,
-  region: chateau.region,
-}));
+const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
+
+const heroSlides = [
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Abbaye des Veaux de cernay/abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-vue-aerienne-domaine-parc-etang-jardins.webp`)}`,
+    title: "Abbaye Millénaire",
+    region: "Vallée de Chevreuse",
+  },
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau Mont Royal/chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp`)}`,
+    title: "Palais Royal",
+    region: "Forêt de Chantilly",
+  },
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau de Montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-automne-lierre-rouge-arc-en-ciel.webp`)}`,
+    title: "Château de Montvillargene",
+    region: "Oise",
+  },
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Domaine Reine Margot/domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp`)}`,
+    title: "Refuge Historique",
+    region: "Hauts-de-Seine",
+  },
+];
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -166,7 +184,7 @@ export function HeroSection() {
               marginBottom: spacing.xl,
             }}
           >
-            L'accès exclusif aux 4 domaines les plus convoités pour vos CODIR et événements d'entreprise. 2 Palais Chantilly · Vallée de Chevreuse · Portes de Paris.
+            Accès confidentiel aux domaines les plus convoités pour vos CODIR. 4 Lieux d'Exception · Île-de-France · Oise.
           </motion.p>
 
           {/* Trust Badges Luxe - Stats Section */}

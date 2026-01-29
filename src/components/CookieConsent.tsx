@@ -18,6 +18,7 @@ export function CookieConsent({
 }: CookieConsentProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [hide, setHide] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
 
   const handleAccept = React.useCallback(() => {
     // Google Consent Mode v2
@@ -67,6 +68,16 @@ export function CookieConsent({
     } catch (error) {
       console.warn("Cookie consent error:", error);
     }
+  }, []);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   if (hide) return null;
@@ -190,22 +201,51 @@ export function CookieConsent({
 
   // VARIANT MINI - Version minimale inline pour notifications subtiles
   if (variant === "mini") {
+    const cookieText = isMobile
+      ? "Nous utilisons des cookies pour améliorer votre expérience."
+      : "Nous utilisons des cookies pour améliorer votre expérience et mesurer l'efficacité de nos campagnes.";
+
     return (
       <div
-        className={`${containerClasses} left-0 right-0 sm:left-4 bottom-4 w-full sm:max-w-3xl`}
+        className={`${containerClasses} left-0 right-0 sm:left-4 w-full sm:max-w-3xl`}
+        style={{
+          bottom: isMobile ? '8px' : '16px'
+        }}
       >
-        <Card variant="default" padding="sm" className="mx-3 shadow-xl">
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-            <p className="text-xs sm:text-sm text-gray-700 flex-1">
-              Nous utilisons des cookies pour améliorer votre expérience et
-              mesurer l'efficacité de nos campagnes.
+        <div
+          style={{
+            margin: isMobile ? '0 12px' : '0 12px',
+            padding: isMobile ? '10px 14px' : '12px 16px',
+            background: 'rgba(255, 255, 255, 0.98)',
+            backdropFilter: 'blur(12px)',
+            borderRadius: isMobile ? '12px' : '16px',
+            border: '1px solid rgba(163, 126, 44, 0.1)',
+            boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.15)',
+          }}
+        >
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <p
+              style={{
+                fontSize: isMobile ? '11px' : '13px',
+                lineHeight: isMobile ? '1.4' : '1.5',
+                color: '#374151',
+                flex: 1,
+                textAlign: isMobile ? 'center' : 'left',
+              }}
+            >
+              {cookieText}
             </p>
-            <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="flex items-center gap-2 flex-shrink-0" style={{ width: isMobile ? '100%' : 'auto' }}>
               <Button
                 onClick={handleDecline}
                 variant="secondary"
                 size="sm"
-                className="text-xs h-8 px-3"
+                style={{
+                  fontSize: '11px',
+                  height: isMobile ? '32px' : '36px',
+                  padding: '0 12px',
+                  flex: isMobile ? 1 : 'none',
+                }}
               >
                 Refuser
               </Button>
@@ -213,13 +253,18 @@ export function CookieConsent({
                 onClick={handleAccept}
                 variant="primary"
                 size="sm"
-                className="text-xs h-8 px-3"
+                style={{
+                  fontSize: '11px',
+                  height: isMobile ? '32px' : '36px',
+                  padding: '0 12px',
+                  flex: isMobile ? 1 : 'none',
+                }}
               >
                 Accepter
               </Button>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     );
   }

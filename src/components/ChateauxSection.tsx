@@ -108,6 +108,22 @@ export function ChateauxSection() {
                     transition: `opacity ${theme.effects.transitions.ultra} ease-out`
                   }}>
                     <div className="absolute inset-0 flex flex-col justify-end" style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}>
+                      {/* Référence Confidentielle */}
+                      <div
+                        className="translate-y-4 group-hover:translate-y-0"
+                        style={{
+                          fontSize: 'clamp(0.625rem, 1.5vw, 0.6875rem)',
+                          fontWeight: theme.typography.fontWeight.semibold,
+                          color: theme.colors.neutral.gray500,
+                          letterSpacing: theme.typography.letterSpacing.widest,
+                          textTransform: 'uppercase',
+                          marginBottom: 'clamp(0.5rem, 1.5vw, 0.625rem)',
+                          transition: `transform ${theme.effects.transitions.slower}`
+                        }}
+                      >
+                        Réf : {chateau.ref}
+                      </div>
+
                       {/* Titre */}
                       <motion.h3
                         className="translate-y-4 group-hover:translate-y-0"

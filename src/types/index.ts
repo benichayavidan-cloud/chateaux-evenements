@@ -7,6 +7,7 @@ export interface ChateauImages {
 
 export interface Chateau {
   id: string;
+  ref: string; // Référence visible (ex: #60-CHANTILLY)
   nom: string;
   region: string;
   capacite: {

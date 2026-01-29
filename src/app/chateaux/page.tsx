@@ -202,6 +202,38 @@ const ImageGallery = ({
 );
 
 // ============================================
+// HERO SLIDES - Mêmes images que la home page
+// ============================================
+const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
+
+const heroSlides = [
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Abbaye des Veaux de cernay/abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-vue-aerienne-domaine-parc-etang-jardins.webp`)}`,
+    title: "Abbaye Millénaire",
+    region: "Vallée de Chevreuse",
+    chateau: chateaux[2], // L'Abbaye Millénaire
+  },
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau Mont Royal/chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp`)}`,
+    title: "Palais Royal",
+    region: "Forêt de Chantilly",
+    chateau: chateaux[3], // Le Palais Royal
+  },
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau de Montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp`)}`,
+    title: "Château de Montvillargene",
+    region: "Oise",
+    chateau: chateaux[0], // Le Manoir (on réutilise ses données)
+  },
+  {
+    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Domaine Reine Margot/domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp`)}`,
+    title: "Refuge Historique",
+    region: "Hauts-de-Seine",
+    chateau: chateaux[1], // Le Refuge Historique
+  },
+];
+
+// ============================================
 // COMPOSANT PRINCIPAL
 // ============================================
 export default function ChateauxPage() {
@@ -213,19 +245,19 @@ export default function ChateauxPage() {
   useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % chateaux.length);
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 3000);
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
 
   const nextSlide = () => {
     setIsAutoPlaying(false);
-    setCurrentSlide((prev) => (prev + 1) % chateaux.length);
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   };
 
   const prevSlide = () => {
     setIsAutoPlaying(false);
-    setCurrentSlide((prev) => (prev - 1 + chateaux.length) % chateaux.length);
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
   const goToSlide = (index: number) => {
@@ -241,10 +273,10 @@ export default function ChateauxPage() {
       {/* ============================================ */}
       <section style={{ height: SECTION_STYLES.hero.height, minHeight: SECTION_STYLES.hero.minHeight }} className="relative overflow-hidden">
         <AnimatePresence mode="wait">
-          {chateaux.map((chateau, index) => (
+          {heroSlides.map((slide, index) => (
             index === currentSlide && (
               <motion.div
-                key={chateau.id}
+                key={index}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -254,8 +286,8 @@ export default function ChateauxPage() {
                 {/* Image de fond */}
                 <div className="absolute inset-0">
                   <Image
-                    src={chateau.images.hero[0]}
-                    alt={chateau.nom}
+                    src={slide.image}
+                    alt={slide.title}
                     fill
                     className="object-cover"
                     priority={index === 0}
@@ -294,7 +326,7 @@ export default function ChateauxPage() {
                           fontFamily: theme.typography.fonts.heading,
                         }}
                       >
-                        {chateau.nom}
+                        {slide.title}
                       </div>
                       <div style={{ color: colors.bronze }}>·</div>
                       <div
@@ -304,7 +336,7 @@ export default function ChateauxPage() {
                           color: theme.colors.neutral.gray300,
                         }}
                       >
-                        {chateau.region}
+                        {slide.region}
                       </div>
                     </Badge>
                   </motion.div>
@@ -382,10 +414,10 @@ export default function ChateauxPage() {
                             whiteSpace: "nowrap",
                           }}
                         >
-                          {chateau.id === "1" && "Jusqu'à 280 pers. résidentiel"}
-                          {chateau.id === "2" && "Jusqu'à 180 pers. métro"}
-                          {chateau.id === "3" && "Jusqu'à 150 pers. classé"}
-                          {chateau.id === "4" && "Jusqu'à 350 pers. palace"}
+                          {slide.chateau.id === "1" && "Jusqu'à 280 pers. résidentiel"}
+                          {slide.chateau.id === "2" && "Jusqu'à 180 pers. métro"}
+                          {slide.chateau.id === "3" && "Jusqu'à 150 pers. classé"}
+                          {slide.chateau.id === "4" && "Jusqu'à 350 pers. palace"}
                         </div>
                       </div>
 
@@ -410,7 +442,7 @@ export default function ChateauxPage() {
                             whiteSpace: "nowrap",
                           }}
                         >
-                          {chateau.roomsTotal} Chambres
+                          {slide.chateau.roomsTotal} Chambres
                         </div>
                       </div>
                     </motion.div>
@@ -427,7 +459,7 @@ export default function ChateauxPage() {
             <div className="flex items-center justify-center">
               {/* Indicateurs */}
               <div className="flex gap-2">
-                {chateaux.map((_, index) => (
+                {heroSlides.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToSlide(index)}

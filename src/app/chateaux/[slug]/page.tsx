@@ -38,6 +38,28 @@ export default function ChateauPage() {
     notFound();
   }
 
+  // Helper pour obtenir l'index de l'image d'hébergement selon le château
+  const getBedroomImageIndex = (chateauId: string): number => {
+    const mapping: Record<string, number> = {
+      "1": 2, // Montvillargene - chambre moderne
+      "2": 0, // Reine Margot - chambre luxe terrasse
+      "3": 0, // Abbaye - chambre luxe combles
+      "4": 1, // Mont Royal - chambre double king
+    };
+    return mapping[chateauId] ?? 0;
+  };
+
+  // Helper pour obtenir l'index de l'image de salle de réunion selon le château
+  const getMeetingRoomImageIndex = (chateauId: string): number => {
+    const mapping: Record<string, number> = {
+      "1": 1, // Montvillargene - auditorium conference
+      "2": 5, // Reine Margot - salle reunion board bleue
+      "3": 6, // Abbaye - salle seminaire verriere
+      "4": 3, // Mont Royal - salle reunion board u
+    };
+    return mapping[chateauId] ?? 1;
+  };
+
   // Schema JSON-LD "Place" avec URL canonique
   const canonicalUrl = `https://www.selectchateaux.com/chateaux/${chateau.slug}`;
 
@@ -122,7 +144,7 @@ export default function ChateauPage() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.8 }}
-              className="flex justify-center w-full"
+              className="flex justify-center md:justify-start w-full"
             >
               <Badge variant="glass" size="md">
                 <div
@@ -163,9 +185,46 @@ export default function ChateauPage() {
                 backdropFilter: 'blur(14px)',
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
                 padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
-                marginLeft: 'clamp(1rem, 2.5vw, 1.5rem)',
               }}
             >
+            {/* Badge Référence Confidentielle */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.05 }}
+              className="inline-flex items-center gap-2"
+              style={{
+                padding: 'clamp(0.375rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1rem)',
+                background: `linear-gradient(135deg, ${colors.bronze}12, ${colors.gold}08)`,
+                border: `1px solid ${colors.bronze}40`,
+                borderRadius: theme.effects.borderRadius.full,
+                marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 'clamp(0.5625rem, 1.3vw, 0.625rem)',
+                  fontWeight: theme.typography.fontWeight.bold,
+                  color: colors.bronze,
+                  letterSpacing: theme.typography.letterSpacing.widest,
+                  textTransform: 'uppercase',
+                }}
+              >
+                Référence Confidentielle
+              </div>
+              <div
+                style={{
+                  fontSize: 'clamp(0.625rem, 1.5vw, 0.6875rem)',
+                  fontWeight: theme.typography.fontWeight.semibold,
+                  color: colors.bronzeDark,
+                  letterSpacing: theme.typography.letterSpacing.wide,
+                  fontFamily: theme.typography.fonts.mono || 'monospace',
+                }}
+              >
+                {chateau.ref}
+              </div>
+            </motion.div>
+
             {/* Titre SEO optimisé */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -401,7 +460,7 @@ export default function ChateauPage() {
                   }}
                 >
                   <Image
-                    src={chateau.images.galerie[1] || chateau.images.hero[2]}
+                    src={chateau.images.galerie[getBedroomImageIndex(chateau.id)] || chateau.images.hero[2]}
                     alt={`Chambres et hébergement du ${chateau.nom} - Séminaire résidentiel en ${chateau.region}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -436,7 +495,7 @@ export default function ChateauPage() {
                   }}
                 >
                   <Image
-                    src={chateau.images.galerie[2] || chateau.images.hero[1]}
+                    src={chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1]}
                     alt={`Salles de réunion et espaces séminaire du ${chateau.nom} - Équipement professionnel en ${chateau.region}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
