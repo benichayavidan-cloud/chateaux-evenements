@@ -113,7 +113,7 @@ export default function EvenementsPage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 z-10" style={{ bottom: '0.5rem' }}>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}

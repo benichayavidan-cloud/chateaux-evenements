@@ -259,7 +259,8 @@ export function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-8 z-10"
+        className="absolute left-1/2 -translate-x-1/2 z-10"
+        style={{ bottom: '1.25rem' }}
       >
         <div className="flex flex-col items-center gap-3">
           <span
