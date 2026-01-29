@@ -23,6 +23,9 @@ export default function ChateauPage() {
   const slug = params.slug as string;
   const { scrollY } = useScroll();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [editMode, setEditMode] = useState(false);
+  const [tempPosition, setTempPosition] = useState<string | null>(null);
+  const isDev = process.env.NODE_ENV === 'development';
 
   // Parallax effect pour le hero
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
@@ -58,6 +61,64 @@ export default function ChateauPage() {
       "4": 3, // Mont Royal - salle reunion board u
     };
     return mapping[chateauId] ?? 1;
+  };
+
+  // Fonctions pour le mode édition du focus
+  const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!editMode) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    const position = `${Math.round(x)}% ${Math.round(y)}%`;
+    setTempPosition(position);
+  };
+
+  const adjustPosition = (dx: number, dy: number) => {
+    const current = tempPosition || "50% 50%"; // Par défaut au centre
+    const parts = current.split(' ');
+
+    // Si la valeur actuelle n'a pas le bon format, initialiser à 50% 50%
+    if (parts.length !== 2 || !parts[0].includes('%') || !parts[1].includes('%')) {
+      const newX = 50 + dx;
+      const newY = 50 + dy;
+      setTempPosition(`${Math.max(0, Math.min(100, newX))}% ${Math.max(0, Math.min(100, newY))}%`);
+      return;
+    }
+
+    const x = parseInt(parts[0]) + dx;
+    const y = parseInt(parts[1]) + dy;
+    const newPosition = `${Math.max(0, Math.min(100, x))}% ${Math.max(0, Math.min(100, y))}%`;
+    setTempPosition(newPosition);
+  };
+
+  const copyPosition = async () => {
+    if (tempPosition) {
+      navigator.clipboard.writeText(tempPosition);
+
+      // Enregistrer dans un fichier pour Claude
+      try {
+        await fetch('/api/save-position', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            page: `chateau-${chateau.slug}`,
+            slide: 1,
+            title: chateau.seoH1,
+            position: tempPosition,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+      } catch (error) {
+        console.log('Erreur sauvegarde:', error);
+      }
+
+      alert(`Position copiée: ${tempPosition}\nChâteau: ${chateau.seoH1}`);
+    }
+  };
+
+  const resetPosition = () => {
+    setTempPosition(null);
   };
 
   // Schema JSON-LD "Place" avec URL canonique
@@ -118,9 +179,13 @@ export default function ChateauPage() {
       />
 
       {/* Hero Section - Design compact */}
-      <div style={{ height: '85vh', minHeight: '600px' }} className="relative overflow-hidden">
+      <div style={{ height: '92vh', minHeight: '700px' }} className="relative overflow-hidden">
         {/* Image de fond */}
-        <div className="absolute inset-0">
+        <div
+          className="absolute inset-0"
+          onClick={handleImageClick}
+          style={{ cursor: editMode ? 'crosshair' : 'default' }}
+        >
           <Image
             src={chateau.images.hero[0]}
             alt={`${chateau.seoH1} - Vue principale`}
@@ -129,12 +194,28 @@ export default function ChateauPage() {
             priority
             quality={85}
             sizes="100vw"
-            style={{ filter: 'saturate(1.2) contrast(1.1) brightness(1.05)' }}
+            style={{
+              filter: 'saturate(1.2) contrast(1.1) brightness(1.05)',
+              objectPosition: tempPosition || "center"
+            }}
           />
         </div>
 
         {/* Gradient subtil en bas */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
+
+        {/* Point focal visuel en mode édition */}
+        {editMode && tempPosition && (
+          <div
+            className="absolute w-4 h-4 rounded-full border-4 border-white shadow-lg transform -translate-x-1/2 -translate-y-1/2 z-20"
+            style={{
+              left: tempPosition.split(' ')[0],
+              top: tempPosition.split(' ')[1],
+              background: colors.bronze,
+              boxShadow: '0 0 0 2px rgba(0,0,0,0.3), 0 0 20px rgba(163, 126, 44, 0.8)',
+            }}
+          />
+        )}
 
         {/* Contenu - centré sur mobile, à gauche sur desktop */}
         <div className="absolute inset-0 flex items-center justify-center md:justify-start px-5 sm:px-8 md:px-12">
@@ -354,6 +435,118 @@ export default function ChateauPage() {
             </div>
           </motion.div>
         </div>
+
+        {/* Mode Édition - DEV ONLY */}
+        {isDev && (
+          <div className="absolute top-4 right-4 z-50 flex flex-col gap-2">
+            <button
+              onClick={() => {
+                setEditMode(!editMode);
+                setTempPosition(null);
+              }}
+              className="px-4 py-2 rounded-lg font-semibold text-sm shadow-lg transition-all"
+              style={{
+                background: editMode ? colors.bronze : 'rgba(255, 255, 255, 0.9)',
+                color: editMode ? 'white' : theme.colors.text.primary,
+                border: `2px solid ${editMode ? colors.bronzeDark : colors.bronze}`,
+              }}
+            >
+              {editMode ? '✓ Mode Édition' : '✏️ Éditer Focus'}
+            </button>
+
+            {editMode && (
+              <div
+                className="px-4 py-3 rounded-lg shadow-lg"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.95)',
+                  backdropFilter: 'blur(8px)',
+                  minWidth: '240px',
+                }}
+              >
+                <div className="text-xs font-semibold mb-2" style={{ color: theme.colors.text.primary }}>
+                  {chateau.seoH1}
+                </div>
+                <div className="text-xs mb-2" style={{ color: theme.colors.text.secondary }}>
+                  Actuel: <span className="font-mono font-bold">center</span>
+                </div>
+                {tempPosition && (
+                  <>
+                    <div className="text-xs mb-3" style={{ color: colors.bronzeDark }}>
+                      Nouveau: <span className="font-mono font-bold">{tempPosition}</span>
+                    </div>
+
+                    {/* Contrôles directionnels */}
+                    <div className="mb-3">
+                      <div className="text-xs font-semibold mb-2" style={{ color: theme.colors.text.primary }}>
+                        Ajustement fin:
+                      </div>
+                      <div className="grid grid-cols-3 gap-1">
+                        <div />
+                        <button
+                          onClick={() => adjustPosition(0, -5)}
+                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
+                          style={{ background: colors.bronze, color: 'white' }}
+                          title="Haut"
+                        >
+                          ↑
+                        </button>
+                        <div />
+                        <button
+                          onClick={() => adjustPosition(-5, 0)}
+                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
+                          style={{ background: colors.bronze, color: 'white' }}
+                          title="Gauche"
+                        >
+                          ←
+                        </button>
+                        <button
+                          onClick={resetPosition}
+                          className="px-2 py-1.5 rounded text-xs font-bold transition-all"
+                          style={{ background: theme.colors.neutral.gray300, color: 'white' }}
+                          title="Réinitialiser"
+                        >
+                          ⟲
+                        </button>
+                        <button
+                          onClick={() => adjustPosition(5, 0)}
+                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
+                          style={{ background: colors.bronze, color: 'white' }}
+                          title="Droite"
+                        >
+                          →
+                        </button>
+                        <div />
+                        <button
+                          onClick={() => adjustPosition(0, 5)}
+                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
+                          style={{ background: colors.bronze, color: 'white' }}
+                          title="Bas"
+                        >
+                          ↓
+                        </button>
+                        <div />
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={copyPosition}
+                      className="w-full px-3 py-2 rounded text-xs font-semibold transition-all hover:opacity-90"
+                      style={{
+                        background: colors.bronzeDark,
+                        color: 'white',
+                      }}
+                    >
+                      📋 Copier la position
+                    </button>
+                  </>
+                )}
+                <div className="text-xs mt-2 opacity-70" style={{ color: theme.colors.text.secondary }}>
+                  Cliquez sur l'image pour définir le point focal
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Contenu principal */}

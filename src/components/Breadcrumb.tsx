@@ -104,7 +104,7 @@ export function Breadcrumb({ items, customSchema = false }: BreadcrumbProps) {
       <nav
         aria-label="Fil d'Ariane"
         style={{
-          padding: isMobile ? "0.75rem 1rem" : "1rem clamp(1rem, 4vw, 2rem)",
+          padding: isMobile ? "0.5rem 1rem" : "0.625rem clamp(1rem, 4vw, 2rem)",
           background: "#fafafa",
           borderBottom: "1px solid #e5e7eb",
           marginTop: "80px",
@@ -131,7 +131,7 @@ export function Breadcrumb({ items, customSchema = false }: BreadcrumbProps) {
                 alignItems: "center",
                 gap: "0.375rem",
                 color: "#6b7280",
-                fontSize: isMobile ? "0.8125rem" : "0.875rem",
+                fontSize: isMobile ? "0.75rem" : "0.8125rem",
                 textDecoration: "none",
                 transition: "color 0.2s",
               }}
@@ -161,7 +161,7 @@ export function Breadcrumb({ items, customSchema = false }: BreadcrumbProps) {
                   <span
                     style={{
                       color: "#111827",
-                      fontSize: isMobile ? "0.8125rem" : "0.875rem",
+                      fontSize: isMobile ? "0.75rem" : "0.8125rem",
                       fontWeight: 600,
                       maxWidth: isMobile ? "180px" : "none",
                       overflow: "hidden",
@@ -178,7 +178,7 @@ export function Breadcrumb({ items, customSchema = false }: BreadcrumbProps) {
                       href={crumb.href}
                       style={{
                         color: "#6b7280",
-                        fontSize: isMobile ? "0.8125rem" : "0.875rem",
+                        fontSize: isMobile ? "0.75rem" : "0.8125rem",
                         textDecoration: "none",
                         transition: "color 0.2s",
                         maxWidth: isMobile ? "120px" : "none",
