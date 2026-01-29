@@ -12,25 +12,33 @@ import { colors, spacing } from "@/config/themeHelpers";
 import { generateSmartAlt } from "@/utils/imageAlt";
 
 const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
+const SUPABASE_URL = "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images";
+
+const getImageUrl = (folder: string, filename: string) => {
+  if (typeof window === 'undefined' && process.env.NODE_ENV === 'production') {
+    return `${SUPABASE_URL}/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
+  }
+  return `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
+};
 
 const heroSlides = [
   {
-    image: "",  // Désactivé pour production
+    image: getImageUrl("Abbaye des Veaux de cernay", "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-vue-aerienne-domaine-parc-etang-jardins.webp"),
     title: "Abbaye Millénaire",
     region: "Vallée de Chevreuse",
   },
   {
-    image: "",  // Désactivé pour production
+    image: getImageUrl("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp"),
     title: "Palais Royal",
     region: "Forêt de Chantilly",
   },
   {
-    image: "",  // Désactivé pour production
+    image: getImageUrl("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-automne-lierre-rouge-arc-en-ciel.webp"),
     title: "Château de Montvillargene",
     region: "Oise",
   },
   {
-    image: "",  // Désactivé pour production
+    image: getImageUrl("Domaine Reine Margot", "domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp"),
     title: "Refuge Historique",
     region: "Hauts-de-Seine",
   },

@@ -1,9 +1,17 @@
 import { Chateau, TypeEvenement, Testimonial, ChiffreCle } from "@/types";
 
-// Chemins locaux des images - désactivé pour le build production
+// URLs des images - Supabase en production, local en dev
 const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
-// const imgPath = (folder: string, filename: string) => `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
-const imgPath = (folder: string, filename: string) => ""; // Temporairement désactivé pour production
+const SUPABASE_URL = "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images";
+
+const imgPath = (folder: string, filename: string) => {
+  // En production (ou si process.env.USE_SUPABASE est true), utiliser Supabase
+  if (process.env.NODE_ENV === 'production' || process.env.USE_SUPABASE === 'true') {
+    return `${SUPABASE_URL}/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
+  }
+  // En développement, utiliser les images locales
+  return `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
+};
 
 export const chateaux: Chateau[] = [
   {
@@ -313,7 +321,7 @@ export const typesEvenements: TypeEvenement[] = [
       "Animations team-building sur mesure",
       "Service de conciergerie dédié",
     ],
-    image: "",  // Désactivé pour production
+    image: imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-j&f-4-copie.webp"),
   },
   {
     id: "journee-etude",
@@ -329,7 +337,7 @@ export const typesEvenements: TypeEvenement[] = [
       "Support technique permanent",
       "Parking privé sécurisé",
     ],
-    image: "",  // Désactivé pour production
+    image: imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-salle-reunion-board-u-rectangulaire-chaises-beiges-ecran.webp"),
   },
   {
     id: "soiree-entreprise",
@@ -345,7 +353,7 @@ export const typesEvenements: TypeEvenement[] = [
       "Service traiteur étoilé",
       "Photographe professionnel",
     ],
-    image: "",  // Désactivé pour production
+    image: imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-auditorium-conference-led-bleu-ecran-geant.webp"),
   },
   {
     id: "team-building",
