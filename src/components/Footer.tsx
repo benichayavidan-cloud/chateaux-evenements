@@ -56,7 +56,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/evenements"
+                  href="/seminaires-soirees-entreprise"
                   className="text-gray-300 hover:text-[var(--gold)] transition-colors"
                 >
                   Types d'Événements

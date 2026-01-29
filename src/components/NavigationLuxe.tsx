@@ -15,7 +15,7 @@ import { Badge } from "@/components/ui/Badge";
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/chateaux", label: "Châteaux", hasSubmenu: true },
-  { href: "/evenements", label: "Événements" },
+  { href: "/seminaires-soirees-entreprise", label: "Événements" },
   { href: "/team-building", label: "Team Building" },
   { href: "/contact", label: "Contact" },
 ];

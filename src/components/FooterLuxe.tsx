@@ -91,7 +91,7 @@ export function FooterLuxe() {
             <ul className="flex flex-col items-center md:items-start" style={{ gap: 'clamp(0.5rem, 2vw, 0.625rem)' }}>
               {[
                 { label: "Nos Châteaux", href: "/chateaux" },
-                { label: "Événements", href: "/evenements" },
+                { label: "Événements", href: "/seminaires-soirees-entreprise" },
                 { label: "Demander un Devis", href: "/devis" },
                 { label: "Contact", href: "/contact" },
               ].map((link) => (

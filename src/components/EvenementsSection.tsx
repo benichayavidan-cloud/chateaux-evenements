@@ -184,7 +184,7 @@ export function EvenementsSection() {
 
                   {/* CTA */}
                   <Link
-                    href={`/evenements#${evenement.id}`}
+                    href={`/seminaires-soirees-entreprise#${evenement.id}`}
                     className="flex items-center group/link hover:text-[var(--bronze-antique)]"
                     style={{
                       color: `${colors.bronze}CC`,

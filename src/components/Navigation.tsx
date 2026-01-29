@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/chateaux", label: "Nos Châteaux" },
-  { href: "/evenements", label: "Événements" },
+  { href: "/seminaires-soirees-entreprise", label: "Événements" },
   { href: "/contact", label: "Contact" },
 ];
 
