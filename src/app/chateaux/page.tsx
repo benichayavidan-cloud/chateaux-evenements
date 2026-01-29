@@ -262,18 +262,15 @@ export default function ChateauxPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState<{ [key: string]: number }>({});
-  const [editMode, setEditMode] = useState(false);
-  const [tempPosition, setTempPosition] = useState<string | null>(null);
-  const isDev = process.env.NODE_ENV === 'development';
 
   // Auto-play du slider - 3 secondes
   useEffect(() => {
-    if (!isAutoPlaying || editMode) return; // Pause en mode édition
+    if (!isAutoPlaying) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 3000);
     return () => clearInterval(timer);
-  }, [isAutoPlaying, editMode]);
+  }, [isAutoPlaying]);
 
   const nextSlide = () => {
     setIsAutoPlaying(false);
@@ -288,54 +285,6 @@ export default function ChateauxPage() {
   const goToSlide = (index: number) => {
     setIsAutoPlaying(false);
     setCurrentSlide(index);
-  };
-
-  const handleImageClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!editMode) return;
-
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    const position = `${Math.round(x)}% ${Math.round(y)}%`;
-    setTempPosition(position);
-  };
-
-  const adjustPosition = (dx: number, dy: number) => {
-    const current = tempPosition || heroSlides[currentSlide].objectPosition;
-    const parts = current.split(' ');
-    const x = parseInt(parts[0]) + dx;
-    const y = parseInt(parts[1]) + dy;
-    const newPosition = `${Math.max(0, Math.min(100, x))}% ${Math.max(0, Math.min(100, y))}%`;
-    setTempPosition(newPosition);
-  };
-
-  const copyPosition = async () => {
-    if (tempPosition) {
-      navigator.clipboard.writeText(tempPosition);
-
-      // Enregistrer dans un fichier pour Claude
-      try {
-        await fetch('/api/save-position', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            page: 'chateaux',
-            slide: currentSlide + 1,
-            title: heroSlides[currentSlide].title,
-            position: tempPosition,
-            timestamp: new Date().toISOString(),
-          }),
-        });
-      } catch (error) {
-        console.log('Erreur sauvegarde:', error);
-      }
-
-      alert(`Position copiée: ${tempPosition}\nSlide ${currentSlide + 1}: ${heroSlides[currentSlide].title}`);
-    }
-  };
-
-  const resetPosition = () => {
-    setTempPosition(null);
   };
 
   return (
@@ -357,11 +306,7 @@ export default function ChateauxPage() {
                 className="absolute inset-0"
               >
                 {/* Image de fond */}
-                <div
-                  className="absolute inset-0"
-                  onClick={handleImageClick}
-                  style={{ cursor: editMode ? 'crosshair' : 'default' }}
-                >
+                <div className="absolute inset-0">
                   <Image
                     src={slide.image}
                     alt={slide.title}
@@ -372,26 +317,13 @@ export default function ChateauxPage() {
                     sizes="100vw"
                     style={{
                       filter: 'saturate(1.2) contrast(1.1) brightness(1.05)',
-                      objectPosition: tempPosition || slide.objectPosition
+                      objectPosition: slide.objectPosition
                     }}
                   />
                 </div>
 
                 {/* Gradient subtil en bas */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
-
-                {/* Point focal visuel en mode édition */}
-                {editMode && tempPosition && (
-                  <div
-                    className="absolute w-4 h-4 rounded-full border-4 border-white shadow-lg transform -translate-x-1/2 -translate-y-1/2 z-20"
-                    style={{
-                      left: tempPosition.split(' ')[0],
-                      top: tempPosition.split(' ')[1],
-                      background: colors.bronze,
-                      boxShadow: '0 0 0 2px rgba(0,0,0,0.3), 0 0 20px rgba(163, 126, 44, 0.8)',
-                    }}
-                  />
-                )}
 
                 {/* Contenu à gauche avec badge au-dessus */}
                 <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: 'clamp(0.75rem, 4vw, 3rem)' }}>
@@ -571,118 +503,6 @@ export default function ChateauxPage() {
             </div>
           </div>
         </div>
-
-        {/* Mode Édition - DEV ONLY */}
-        {isDev && (
-          <div className="absolute top-4 right-4 z-50 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setEditMode(!editMode);
-                setTempPosition(null);
-              }}
-              className="px-4 py-2 rounded-lg font-semibold text-sm shadow-lg transition-all"
-              style={{
-                background: editMode ? colors.bronze : 'rgba(255, 255, 255, 0.9)',
-                color: editMode ? 'white' : theme.colors.text.primary,
-                border: `2px solid ${editMode ? colors.bronzeDark : colors.bronze}`,
-              }}
-            >
-              {editMode ? '✓ Mode Édition' : '✏️ Éditer Focus'}
-            </button>
-
-            {editMode && (
-              <div
-                className="px-4 py-3 rounded-lg shadow-lg"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.95)',
-                  backdropFilter: 'blur(8px)',
-                  minWidth: '240px',
-                }}
-              >
-                <div className="text-xs font-semibold mb-2" style={{ color: theme.colors.text.primary }}>
-                  Slide {currentSlide + 1}: {heroSlides[currentSlide].title}
-                </div>
-                <div className="text-xs mb-2" style={{ color: theme.colors.text.secondary }}>
-                  Actuel: <span className="font-mono font-bold">{heroSlides[currentSlide].objectPosition}</span>
-                </div>
-                {tempPosition && (
-                  <>
-                    <div className="text-xs mb-3" style={{ color: colors.bronzeDark }}>
-                      Nouveau: <span className="font-mono font-bold">{tempPosition}</span>
-                    </div>
-
-                    {/* Contrôles directionnels */}
-                    <div className="mb-3">
-                      <div className="text-xs font-semibold mb-2" style={{ color: theme.colors.text.primary }}>
-                        Ajustement fin:
-                      </div>
-                      <div className="grid grid-cols-3 gap-1">
-                        <div />
-                        <button
-                          onClick={() => adjustPosition(0, -5)}
-                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
-                          style={{ background: colors.bronze, color: 'white' }}
-                          title="Haut"
-                        >
-                          ↑
-                        </button>
-                        <div />
-                        <button
-                          onClick={() => adjustPosition(-5, 0)}
-                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
-                          style={{ background: colors.bronze, color: 'white' }}
-                          title="Gauche"
-                        >
-                          ←
-                        </button>
-                        <button
-                          onClick={resetPosition}
-                          className="px-2 py-1.5 rounded text-xs font-bold transition-all"
-                          style={{ background: theme.colors.neutral.gray300, color: 'white' }}
-                          title="Réinitialiser"
-                        >
-                          ⟲
-                        </button>
-                        <button
-                          onClick={() => adjustPosition(5, 0)}
-                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
-                          style={{ background: colors.bronze, color: 'white' }}
-                          title="Droite"
-                        >
-                          →
-                        </button>
-                        <div />
-                        <button
-                          onClick={() => adjustPosition(0, 5)}
-                          className="px-2 py-1.5 rounded text-sm font-bold transition-all hover:scale-110"
-                          style={{ background: colors.bronze, color: 'white' }}
-                          title="Bas"
-                        >
-                          ↓
-                        </button>
-                        <div />
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={copyPosition}
-                      className="w-full px-3 py-2 rounded text-xs font-semibold transition-all hover:opacity-90"
-                      style={{
-                        background: colors.bronzeDark,
-                        color: 'white',
-                      }}
-                    >
-                      📋 Copier la position
-                    </button>
-                  </>
-                )}
-                <div className="text-xs mt-2 opacity-70" style={{ color: theme.colors.text.secondary }}>
-                  Cliquez sur l'image pour définir le point focal
-                </div>
-              </div>
-            )}
-          </div>
-        )}
       </section>
 
       {/* ============================================ */}
