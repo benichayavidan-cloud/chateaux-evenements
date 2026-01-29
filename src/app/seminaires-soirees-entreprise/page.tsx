@@ -14,7 +14,7 @@ export default function EvenementsPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://www.selectchateaux.com/evenements#service",
+    "@id": "https://www.selectchateaux.com/seminaires-soirees-entreprise#service",
     "name": "Organisation d'Événements d'Entreprise en Château",
     "description": "Service complet d'organisation d'événements professionnels (séminaires, team building, soirées d'entreprise) dans des châteaux d'exception en Île-de-France",
     "provider": {
@@ -68,13 +68,13 @@ export default function EvenementsPage() {
       {/* Hero Section */}
       <div className="hero-section">
         <Image
-          src="/images/seminaire-entreprise-chateau-evenement-hero.webp"
-          alt="Événements d'entreprise dans un château"
+          src="/images/seminaires-soirees-entreprise-hero.webp"
+          alt="Séminaire d'entreprise et déjeuner corporate dans un château en Île-de-France - Organisation événements professionnels"
           fill
           className="object-cover"
           priority
           sizes="100vw"
-          quality={75}
+          quality={85}
         />
         {/* Overlay CLAIR */}
         <div className="hero-overlay-light" />
@@ -113,7 +113,7 @@ export default function EvenementsPage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}

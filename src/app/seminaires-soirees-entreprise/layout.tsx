@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Événements d'Entreprise d'Exception",
     description: "Séminaires, CODIR, team building dans nos châteaux d'Île-de-France",
-    url: "https://www.selectchateaux.com/evenements",
+    url: "https://www.selectchateaux.com/seminaires-soirees-entreprise",
     siteName: "Select Châteaux",
     locale: "fr_FR",
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"]
   },
   alternates: {
-    canonical: "/evenements"
+    canonical: "/seminaires-soirees-entreprise"
   }
 };
 
