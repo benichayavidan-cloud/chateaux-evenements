@@ -525,12 +525,12 @@ export default function ChateauxPage() {
             {
               icon: <Clock className="w-8 h-8" />,
               title: "Réservation Express",
-              description: "Confirmation sous 48h • Visite virtuelle gratuite sur demande"
+              description: "Confirmation sous 48h • Visite préalable sur demande"
             },
             {
               icon: <Shield className="w-8 h-8" />,
-              title: "Paiement Sécurisé",
-              description: "Règlement en 3 fois sans frais • Annulation flexible jusqu'à 30 jours"
+              title: "Team Building Inclus",
+              description: "Activités sur place • Coordination événement • Accompagnement personnalisé"
             },
             {
               icon: <TrendingUp className="w-8 h-8" />,
@@ -931,7 +931,7 @@ export default function ChateauxPage() {
             >
               {[
                 { icon: <Phone />, text: "Réponse sous 2h" },
-                { icon: <Calendar />, text: "Visite virtuelle gratuite" },
+                { icon: <Calendar />, text: "Visite préalable gratuite" },
                 { icon: <Shield />, text: "Garantie satisfaction" },
               ].map((item, index) => (
                 <div
