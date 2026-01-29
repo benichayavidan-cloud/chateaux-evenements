@@ -158,17 +158,6 @@ export default function ChateauPage() {
                   }}
                 />
                 <div
-                  className="italic font-semibold"
-                  style={{
-                    fontSize: 'clamp(0.75rem, 2vw, 0.8125rem)',
-                    color: colors.white,
-                    fontFamily: theme.typography.fonts.heading,
-                  }}
-                >
-                  {chateau.nom}
-                </div>
-                <div style={{ color: colors.bronze }}>·</div>
-                <div
                   className="font-medium"
                   style={{
                     fontSize: 'clamp(0.75rem, 2vw, 0.8125rem)',

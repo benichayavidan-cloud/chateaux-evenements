@@ -344,17 +344,6 @@ export default function ChateauxPage() {
                         }}
                       />
                       <div
-                        className="italic font-semibold"
-                        style={{
-                          fontSize: theme.typography.fontSize.xs,
-                          color: colors.white,
-                          fontFamily: theme.typography.fonts.heading,
-                        }}
-                      >
-                        {slide.title}
-                      </div>
-                      <div style={{ color: colors.bronze }}>·</div>
-                      <div
                         className="font-medium"
                         style={{
                           fontSize: theme.typography.fontSize.xs,
