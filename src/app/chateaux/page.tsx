@@ -215,10 +215,12 @@ const FOLDER_MAPPING: Record<string, string> = {
 };
 
 const getImageUrl = (folder: string, filename: string) => {
-  if (typeof window === 'undefined' && process.env.NODE_ENV === 'production') {
+  // Utiliser Supabase en production (serveur ET client)
+  if (process.env.NODE_ENV === 'production') {
     const supabaseFolder = FOLDER_MAPPING[folder] || folder;
     return `${SUPABASE_URL}/${supabaseFolder}/${encodeURIComponent(filename)}`;
   }
+  // En développement, utiliser les images locales
   return `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
 };
 
