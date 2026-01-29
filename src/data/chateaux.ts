@@ -4,10 +4,19 @@ import { Chateau, TypeEvenement, Testimonial, ChiffreCle } from "@/types";
 const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
 const SUPABASE_URL = "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images";
 
+// Mapping des dossiers locaux vers Supabase
+const FOLDER_MAPPING: Record<string, string> = {
+  "Abbaye des Veaux de cernay": "chevreuse",
+  "Chateau de Montvillargene": "montvillargene",
+  "Domaine Reine Margot": "hauts-de-seine",
+  "Chateau Mont Royal": "mont-royal",
+};
+
 const imgPath = (folder: string, filename: string) => {
   // En production (ou si process.env.USE_SUPABASE est true), utiliser Supabase
   if (process.env.NODE_ENV === 'production' || process.env.USE_SUPABASE === 'true') {
-    return `${SUPABASE_URL}/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
+    const supabaseFolder = FOLDER_MAPPING[folder] || folder;
+    return `${SUPABASE_URL}/${supabaseFolder}/${encodeURIComponent(filename)}`;
   }
   // En développement, utiliser les images locales
   return `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;

@@ -14,9 +14,17 @@ import { generateSmartAlt } from "@/utils/imageAlt";
 const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
 const SUPABASE_URL = "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images";
 
+const FOLDER_MAPPING: Record<string, string> = {
+  "Abbaye des Veaux de cernay": "chevreuse",
+  "Chateau de Montvillargene": "montvillargene",
+  "Domaine Reine Margot": "hauts-de-seine",
+  "Chateau Mont Royal": "mont-royal",
+};
+
 const getImageUrl = (folder: string, filename: string) => {
   if (typeof window === 'undefined' && process.env.NODE_ENV === 'production') {
-    return `${SUPABASE_URL}/${encodeURIComponent(folder)}/${encodeURIComponent(filename)}`;
+    const supabaseFolder = FOLDER_MAPPING[folder] || folder;
+    return `${SUPABASE_URL}/${supabaseFolder}/${encodeURIComponent(filename)}`;
   }
   return `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
 };
