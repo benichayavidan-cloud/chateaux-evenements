@@ -19,7 +19,7 @@ import { useState, useEffect } from "react";
 const SECTION_STYLES = {
   // Hero Section
   hero: {
-    height: '85vh',
+    height: '75vh',
     minHeight: '600px',
     overlay: "linear-gradient(to right, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.30) 100%)",
     padding: { left: '24px', right: '24px' }
