@@ -114,7 +114,7 @@ export function ChateauxSection() {
                         style={{
                           fontSize: 'clamp(0.625rem, 1.5vw, 0.6875rem)',
                           fontWeight: theme.typography.fontWeight.semibold,
-                          color: theme.colors.neutral.gray500,
+                          color: theme.colors.neutral.gray600,
                           letterSpacing: theme.typography.letterSpacing.widest,
                           textTransform: 'uppercase',
                           marginBottom: 'clamp(0.5rem, 1.5vw, 0.625rem)',

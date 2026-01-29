@@ -15,22 +15,22 @@ const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes proj
 
 const heroSlides = [
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Abbaye des Veaux de cernay/abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-vue-aerienne-domaine-parc-etang-jardins.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Abbaye Millénaire",
     region: "Vallée de Chevreuse",
   },
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau Mont Royal/chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Palais Royal",
     region: "Forêt de Chantilly",
   },
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau de Montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-automne-lierre-rouge-arc-en-ciel.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Château de Montvillargene",
     region: "Oise",
   },
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Domaine Reine Margot/domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Refuge Historique",
     region: "Hauts-de-Seine",
   },

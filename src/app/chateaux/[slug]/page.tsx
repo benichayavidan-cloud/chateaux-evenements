@@ -218,7 +218,7 @@ export default function ChateauPage() {
                   fontWeight: theme.typography.fontWeight.semibold,
                   color: colors.bronzeDark,
                   letterSpacing: theme.typography.letterSpacing.wide,
-                  fontFamily: theme.typography.fonts.mono || 'monospace',
+                  fontFamily: 'monospace',
                 }}
               >
                 {chateau.ref}

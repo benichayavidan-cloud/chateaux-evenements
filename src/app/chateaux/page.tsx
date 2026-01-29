@@ -202,31 +202,31 @@ const ImageGallery = ({
 );
 
 // ============================================
-// HERO SLIDES - Mêmes images que la home page
+// HERO SLIDES - Temporairement désactivé pour production
 // ============================================
 const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
 
 const heroSlides = [
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Abbaye des Veaux de cernay/abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-vue-aerienne-domaine-parc-etang-jardins.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Abbaye Millénaire",
     region: "Vallée de Chevreuse",
     chateau: chateaux[2], // L'Abbaye Millénaire
   },
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau Mont Royal/chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Palais Royal",
     region: "Forêt de Chantilly",
     chateau: chateaux[3], // Le Palais Royal
   },
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Chateau de Montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Château de Montvillargene",
     region: "Oise",
     chateau: chateaux[0], // Le Manoir (on réutilise ses données)
   },
   {
-    image: `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/Domaine Reine Margot/domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp`)}`,
+    image: "",  // Désactivé pour production
     title: "Refuge Historique",
     region: "Hauts-de-Seine",
     chateau: chateaux[1], // Le Refuge Historique

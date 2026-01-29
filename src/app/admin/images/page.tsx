@@ -145,7 +145,7 @@ export default function AdminImagesPage() {
         (currentSelection[selectedSection] as string[]) = [...currentList, imageUrl];
       }
     } else {
-      currentSelection[selectedSection] = imageUrl;
+      (currentSelection[selectedSection] as string) = imageUrl;
     }
 
     newSelections[selectedChateau.slug] = currentSelection;

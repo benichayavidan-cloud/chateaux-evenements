@@ -1,8 +1,9 @@
 import { Chateau, TypeEvenement, Testimonial, ChiffreCle } from "@/types";
 
-// Chemins locaux des images
+// Chemins locaux des images - désactivé pour le build production
 const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
-const imgPath = (folder: string, filename: string) => `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
+// const imgPath = (folder: string, filename: string) => `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
+const imgPath = (folder: string, filename: string) => ""; // Temporairement désactivé pour production
 
 export const chateaux: Chateau[] = [
   {
@@ -312,7 +313,7 @@ export const typesEvenements: TypeEvenement[] = [
       "Animations team-building sur mesure",
       "Service de conciergerie dédié",
     ],
-    image: "/api/images/preview?path=" + encodeURIComponent("/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES/Chateau de Montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-j&f-4-copie.webp"),
+    image: "",  // Désactivé pour production
   },
   {
     id: "journee-etude",
@@ -328,7 +329,7 @@ export const typesEvenements: TypeEvenement[] = [
       "Support technique permanent",
       "Parking privé sécurisé",
     ],
-    image: "/api/images/preview?path=" + encodeURIComponent("/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES/Chateau Mont Royal/chateau-mont-royal-60-oise-chantilly-salle-reunion-board-u-rectangulaire-chaises-beiges-ecran.webp"),
+    image: "",  // Désactivé pour production
   },
   {
     id: "soiree-entreprise",
@@ -344,7 +345,7 @@ export const typesEvenements: TypeEvenement[] = [
       "Service traiteur étoilé",
       "Photographe professionnel",
     ],
-    image: "/api/images/preview?path=" + encodeURIComponent("/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES/Chateau de Montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-auditorium-conference-led-bleu-ecran-geant.webp"),
+    image: "",  // Désactivé pour production
   },
   {
     id: "team-building",
