@@ -1,37 +1,56 @@
-"use client";
+/**
+ * PAGE CHÂTEAU INDIVIDUEL - Détail d'un château
+ * Migré avec le nouveau design system v2
+ */
+
+'use client';
 
 import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronRight, Home, HelpCircle, Plus, Minus } from "lucide-react";
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { MapPin, Users, Check, Sparkles, Calendar, Award, Bed, Building2 } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { MapPin, Users, Check, Sparkles, Calendar, Award, Bed, Building2, Plus, Minus, HelpCircle } from "lucide-react";
 import { chateaux as chateauxData } from "@/data/chateaux";
-import { Chateau } from "@/types";
-import { theme } from "@/config/theme";
-import { colors, spacing } from "@/config/themeHelpers";
-import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
-import { Card } from "@/components/ui/Card";
-import { InteractiveGallery } from "@/components/InteractiveGallery";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Navigation, Footer } from '@/components/sections-v2';
+import { Section, Container } from '@/components/layout-v2';
+import { Text, Badge, Button } from '@/components/ui-v2';
+import { theme } from '@/design-system/tokens';
+import { useState } from "react";
+
+// Navigation & Footer
+const navLinks = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Nos Châteaux', href: '/chateaux' },
+  { label: 'Événements', href: '/evenements' },
+  { label: 'Team Building', href: '/team-building' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const footerSections = [
+  {
+    title: 'Navigation',
+    links: [
+      { label: 'Nos Châteaux', href: '/chateaux' },
+      { label: 'Événements', href: '/evenements' },
+      { label: 'Team Building', href: '/team-building' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Nos Services',
+    links: [
+      { label: 'Séminaires Résidentiels', href: '/evenements/seminaires' },
+      { label: 'Journées d\'Étude', href: '/evenements/journees-etude' },
+      { label: 'Conventions', href: '/evenements/conventions' },
+      { label: 'Team Building', href: '/team-building' },
+    ],
+  },
+];
 
 export default function ChateauPage() {
   const params = useParams();
   const slug = params.slug as string;
-  const { scrollY } = useScroll();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
-  // Parallax effect pour le hero
-  const heroY = useTransform(scrollY, [0, 500], [0, 150]);
-  const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
-
-  // Floating card visibility - cache sur le hero, affiche après scroll
-  const floatingCardOpacity = useTransform(scrollY, [300, 500], [0, 1]);
-
-  // Utiliser les données locales au lieu de Supabase
   const chateau = chateauxData.find(c => c.slug === slug);
 
   if (!chateau) {
@@ -41,10 +60,13 @@ export default function ChateauPage() {
   // Helper pour obtenir l'index de l'image d'hébergement selon le château
   const getBedroomImageIndex = (chateauId: string): number => {
     const mapping: Record<string, number> = {
-      "1": 2, // Montvillargene - chambre moderne
-      "2": 0, // Reine Margot - chambre luxe terrasse
-      "3": 0, // Abbaye - chambre luxe combles
-      "4": 1, // Mont Royal - chambre double king
+      "1": 2,
+      "2": 0,
+      "3": 0,
+      "4": 1,
+      "5": 0,
+      "6": 0,
+      "7": 0,
     };
     return mapping[chateauId] ?? 0;
   };
@@ -52,74 +74,95 @@ export default function ChateauPage() {
   // Helper pour obtenir l'index de l'image de salle de réunion selon le château
   const getMeetingRoomImageIndex = (chateauId: string): number => {
     const mapping: Record<string, number> = {
-      "1": 1, // Montvillargene - auditorium conference
-      "2": 5, // Reine Margot - salle reunion board bleue
-      "3": 6, // Abbaye - salle seminaire verriere
-      "4": 3, // Mont Royal - salle reunion board u
+      "1": 1,
+      "2": 5,
+      "3": 6,
+      "4": 3,
+      "5": 1,
+      "6": 1,
+      "7": 1,
     };
     return mapping[chateauId] ?? 1;
   };
 
-  // Schema JSON-LD "Place" avec URL canonique
-  const canonicalUrl = `https://www.selectchateaux.com/chateaux/${chateau.slug}`;
-
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Place",
-    "name": chateau.seoH1,
-    "description": chateau.descriptionLongue,
-    "url": canonicalUrl,
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": chateau.region,
-      "addressCountry": "FR"
-    },
-    "image": [...chateau.images.hero, ...chateau.images.galerie],
-    "amenityFeature": chateau.atouts.map((atout) => ({
-      "@type": "LocationFeatureSpecification",
-      "name": atout,
-      "value": true
-    })),
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "120",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
-  };
-
-  // Schema JSON-LD FAQPage
-  const faqStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": chateau.faq.map((item) => ({
-      "@type": "Question",
-      "name": item.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": item.answer
-      }
-    }))
-  };
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Schema JSON-LD Place */}
+    <>
+      {/* Schema JSON-LD pour SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Place",
+            "name": chateau.seoH1,
+            "description": chateau.descriptionLongue,
+            "url": `https://www.selectchateaux.com/chateaux/${chateau.slug}`,
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": chateau.region,
+              "addressCountry": "FR"
+            },
+            "image": [...chateau.images.hero, ...chateau.images.galerie],
+            "amenityFeature": chateau.atouts.map((atout) => ({
+              "@type": "LocationFeatureSpecification",
+              "name": atout,
+              "value": true
+            })),
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "120",
+              "bestRating": "5",
+              "worstRating": "1"
+            }
+          })
+        }}
       />
 
       {/* Schema JSON-LD FAQPage */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": chateau.faq.map((item) => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          })
+        }}
       />
 
-      {/* Hero Section - Design compact */}
+      {/* Navigation */}
+      <Navigation
+        logo={
+          <Text
+            variant="h4"
+            style={{
+              fontFamily: theme.typography.fonts.heading,
+              fontStyle: 'italic',
+              color: theme.colors.primary.bronze,
+            }}
+          >
+            SelectChâteaux
+          </Text>
+        }
+        links={navLinks}
+        cta={{
+          label: 'Devis Gratuit',
+          href: '/devis',
+        }}
+        sticky
+        transparent
+      />
+
+      {/* Hero Section */}
       <div style={{ height: '75vh', minHeight: '600px' }} className="relative overflow-hidden">
-        {/* Image de fond */}
         <div className="absolute inset-0">
           <Image
             src={chateau.images.hero[0]}
@@ -136,13 +179,10 @@ export default function ChateauPage() {
           />
         </div>
 
-        {/* Gradient subtil en bas */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
 
-        {/* Contenu - centré sur mobile, à gauche sur desktop */}
         <div className="absolute inset-0 flex items-center justify-center md:justify-start px-5 sm:px-8 md:px-12">
           <div className="flex flex-col items-center md:items-start w-full" style={{ maxWidth: '520px', gap: 'clamp(1rem, 2.5vw, 1.5rem)' }}>
-            {/* Badge lieu au-dessus du conteneur */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -153,7 +193,7 @@ export default function ChateauPage() {
                 <div
                   className="w-1.5 h-1.5 rounded-full animate-pulse"
                   style={{
-                    background: colors.bronze,
+                    background: theme.colors.primary.bronze,
                     filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
                   }}
                 />
@@ -169,7 +209,6 @@ export default function ChateauPage() {
               </Badge>
             </motion.div>
 
-            {/* Conteneur principal */}
             <div
               className="text-center md:text-left rounded-2xl w-full"
               style={{
@@ -179,138 +218,134 @@ export default function ChateauPage() {
                 padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
               }}
             >
-            {/* Badge Référence Confidentielle */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.05 }}
-              className="inline-flex items-center gap-2"
-              style={{
-                padding: 'clamp(0.375rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1rem)',
-                background: `linear-gradient(135deg, ${colors.bronze}12, ${colors.gold}08)`,
-                border: `1px solid ${colors.bronze}40`,
-                borderRadius: theme.effects.borderRadius.full,
-                marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 'clamp(0.5625rem, 1.3vw, 0.625rem)',
-                  fontWeight: theme.typography.fontWeight.bold,
-                  color: colors.bronze,
-                  letterSpacing: theme.typography.letterSpacing.widest,
-                  textTransform: 'uppercase',
-                }}
-              >
-                Référence Confidentielle
-              </div>
-              <div
-                style={{
-                  fontSize: 'clamp(0.625rem, 1.5vw, 0.6875rem)',
-                  fontWeight: theme.typography.fontWeight.semibold,
-                  color: colors.bronzeDark,
-                  letterSpacing: theme.typography.letterSpacing.wide,
-                  fontFamily: 'monospace',
-                }}
-              >
-                {chateau.ref}
-              </div>
-            </motion.div>
-
-            {/* Titre SEO optimisé */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
-              style={{
-                fontSize: 'clamp(1.375rem, 3vw, 2rem)',
-                fontWeight: theme.typography.fontWeight.light,
-                fontStyle: 'italic',
-                fontFamily: theme.typography.fonts.heading,
-                lineHeight: 1.25,
-                color: theme.colors.text.primary,
-                marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
-              }}
-            >
-              {chateau.seoH1}
-            </motion.h1>
-
-            {/* Accroche Hero */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-              style={{
-                fontSize: 'clamp(0.9375rem, 2.2vw, 1rem)',
-                color: theme.colors.text.secondary,
-                fontWeight: theme.typography.fontWeight.normal,
-                lineHeight: 1.6,
-                marginBottom: 'clamp(1.25rem, 3vw, 1.5rem)',
-              }}
-            >
-              {chateau.accrocheHero}
-            </motion.p>
-
-            {/* Badges capacité et chambres */}
-            <div className="flex flex-nowrap gap-2 justify-center md:justify-start">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-                className="inline-flex items-center gap-1.5"
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.05 }}
+                className="inline-flex items-center gap-2"
                 style={{
-                  background: `${colors.bronze}10`,
-                  border: `2px solid ${colors.bronze}`,
-                  padding: 'clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px)',
+                  padding: 'clamp(0.375rem, 1vw, 0.5rem) clamp(0.75rem, 2vw, 1rem)',
+                  background: `linear-gradient(135deg, ${theme.colors.primary.bronze}12, ${theme.colors.primary.gold}08)`,
+                  border: `1px solid ${theme.colors.primary.bronze}40`,
                   borderRadius: theme.effects.borderRadius.full,
+                  marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
                 }}
               >
-                <Users className="w-3.5 h-3.5" style={{ color: colors.bronze }} />
                 <div
                   style={{
-                    fontSize: 'clamp(10px, 1.6vw, 11px)',
-                    color: colors.bronze,
-                    textTransform: "uppercase",
-                    letterSpacing: '0.5px',
-                    fontWeight: theme.typography.fontWeight.medium,
-                    whiteSpace: "nowrap",
+                    fontSize: 'clamp(0.5625rem, 1.3vw, 0.625rem)',
+                    fontWeight: theme.typography.fontWeight.bold,
+                    color: theme.colors.primary.bronze,
+                    letterSpacing: theme.typography.letterSpacing.widest,
+                    textTransform: 'uppercase',
                   }}
                 >
-                  {chateau.capacite.min}-{chateau.capacite.max} pers.
+                  Référence Confidentielle
+                </div>
+                <div
+                  style={{
+                    fontSize: 'clamp(0.625rem, 1.5vw, 0.6875rem)',
+                    fontWeight: theme.typography.fontWeight.semibold,
+                    color: theme.colors.primary.bronzeDark,
+                    letterSpacing: theme.typography.letterSpacing.wide,
+                    fontFamily: 'monospace',
+                  }}
+                >
+                  {chateau.ref}
                 </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
-                className="inline-flex items-center gap-1.5"
+                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
                 style={{
-                  background: `${colors.bronze}10`,
-                  border: `2px solid ${colors.bronze}`,
-                  padding: 'clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px)',
-                  borderRadius: theme.effects.borderRadius.full,
+                  fontSize: 'clamp(1.375rem, 3vw, 2rem)',
+                  fontWeight: theme.typography.fontWeight.light,
+                  fontStyle: 'italic',
+                  fontFamily: theme.typography.fonts.heading,
+                  lineHeight: 1.25,
+                  color: theme.colors.neutral.gray900,
+                  marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
                 }}
               >
-                <Bed className="w-3.5 h-3.5" style={{ color: colors.bronze }} />
-                <div
+                {chateau.seoH1}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+                style={{
+                  fontSize: 'clamp(0.9375rem, 2.2vw, 1rem)',
+                  color: theme.colors.neutral.gray600,
+                  fontWeight: theme.typography.fontWeight.normal,
+                  lineHeight: 1.6,
+                  marginBottom: 'clamp(1.25rem, 3vw, 1.5rem)',
+                }}
+              >
+                {chateau.accrocheHero}
+              </motion.p>
+
+              <div className="flex flex-nowrap gap-2 justify-center md:justify-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
+                  className="inline-flex items-center gap-1.5"
                   style={{
-                    fontSize: 'clamp(10px, 1.6vw, 11px)',
-                    color: colors.bronze,
-                    textTransform: "uppercase",
-                    letterSpacing: '0.5px',
-                    fontWeight: theme.typography.fontWeight.medium,
-                    whiteSpace: "nowrap",
+                    background: `${theme.colors.primary.bronze}10`,
+                    border: `2px solid ${theme.colors.primary.bronze}`,
+                    padding: 'clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px)',
+                    borderRadius: theme.effects.borderRadius.full,
                   }}
                 >
-                  {chateau.roomsTotal} Chambres
-                  {chateau.roomsTwin && ` (${chateau.roomsTwin} Twins)`}
-                  {!chateau.roomsTwin && " Mod."}
-                </div>
-              </motion.div>
+                  <Users className="w-3.5 h-3.5" style={{ color: theme.colors.primary.bronze }} />
+                  <div
+                    style={{
+                      fontSize: 'clamp(10px, 1.6vw, 11px)',
+                      color: theme.colors.primary.bronze,
+                      textTransform: "uppercase",
+                      letterSpacing: '0.5px',
+                      fontWeight: theme.typography.fontWeight.medium,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {chateau.capacite.min}-{chateau.capacite.max} pers.
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.4 }}
+                  className="inline-flex items-center gap-1.5"
+                  style={{
+                    background: `${theme.colors.primary.bronze}10`,
+                    border: `2px solid ${theme.colors.primary.bronze}`,
+                    padding: 'clamp(6px, 1.5vw, 10px) clamp(10px, 2vw, 14px)',
+                    borderRadius: theme.effects.borderRadius.full,
+                  }}
+                >
+                  <Bed className="w-3.5 h-3.5" style={{ color: theme.colors.primary.bronze }} />
+                  <div
+                    style={{
+                      fontSize: 'clamp(10px, 1.6vw, 11px)',
+                      color: theme.colors.primary.bronze,
+                      textTransform: "uppercase",
+                      letterSpacing: '0.5px',
+                      fontWeight: theme.typography.fontWeight.medium,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {chateau.roomsTotal} Chambres
+                    {chateau.roomsTwin && ` (${chateau.roomsTwin} Twins)`}
+                    {!chateau.roomsTwin && " Mod."}
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
 
         {/* Scroll indicator */}
@@ -341,811 +376,617 @@ export default function ChateauPage() {
             >
               <div
                 className="w-1 h-2 rounded-full"
-                style={{ background: colors.bronze }}
+                style={{ background: theme.colors.primary.bronze }}
               />
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Contenu principal */}
-      <div className="relative bg-white">
-        {/* Section À propos - CENTRÉE */}
-        <div className="section-white section-padding-sm">
-          <div className="section-container flex-col-center">
+      {/* À propos - CENTRÉ */}
+      <Section spacing="lg" background="white">
+        <Container size="lg">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['2xl'] }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-8"
             >
-              <div className="flex flex-col items-center gap-2 mb-6">
-                <Sparkles className="w-6 h-6 text-[var(--bronze-antique)]" />
-                <h2 className="text-label text-[var(--bronze-antique)]">
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: theme.spacing.sm, marginBottom: theme.spacing.lg }}>
+                <Sparkles className="w-6 h-6" style={{ color: theme.colors.primary.bronze }} />
+                <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.bold }}>
                   À propos
-                </h2>
+                </Text>
               </div>
-              <h3 className="heading-xl">
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
                 Une expérience d'exception
-              </h3>
+              </Text>
             </motion.div>
 
-            {/* Contenu centré - Description longue */}
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-body-xl text-gray-600 max-w-6xl text-center"
             >
-              {chateau.descriptionLongue}
-            </motion.p>
-          </div>
-        </div>
-
-        {/* Section Hébergement - Zig-Zag (Texte Gauche / Image Droite) */}
-        <div className="section-white" style={{ padding: 'clamp(4rem, 10vw, 6rem) 0' }}>
-          <div className="section-container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Texte à gauche */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="order-2 lg:order-1"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <Bed className="w-7 h-7" style={{ color: colors.bronze }} />
-                  <h2
-                    className="heading-lg"
-                    style={{
-                      fontFamily: theme.typography.fonts.heading,
-                      fontStyle: "italic",
-                      color: theme.colors.neutral.gray900
-                    }}
-                  >
-                    Hébergement
-                  </h2>
-                </div>
-                <p
-                  className="text-body-xl text-gray-600 leading-relaxed mb-6"
-                  style={{ lineHeight: "1.8" }}
-                >
-                  {chateau.bedroomText}
-                </p>
-                <div
-                  className="inline-flex items-center gap-2"
-                  style={{
-                    padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
-                    background: `${colors.bronze}10`,
-                    borderRadius: theme.effects.borderRadius.full,
-                    border: `2px solid ${colors.bronze}40`,
-                  }}
-                >
-                  <Check className="w-5 h-5" style={{ color: colors.bronze }} />
-                  <span style={{
-                    fontSize: theme.typography.fontSize.sm,
-                    fontWeight: theme.typography.fontWeight.semibold,
-                    color: colors.bronze
-                  }}>
-                    {chateau.roomsTotal} Chambres disponibles
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Image à droite */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="order-1 lg:order-2"
-              >
-                <div
-                  className="relative overflow-hidden"
-                  style={{
-                    height: 'clamp(20rem, 50vw, 28rem)',
-                    borderRadius: theme.effects.borderRadius.lg,
-                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
-                  }}
-                >
-                  <Image
-                    src={chateau.images.galerie[getBedroomImageIndex(chateau.id)] || chateau.images.hero[2]}
-                    alt={`Chambres et hébergement du ${chateau.nom} - Séminaire résidentiel en ${chateau.region}`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                    loading="lazy"
-                    quality={80}
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* Section Salles de Réunion - Zig-Zag (Image Gauche / Texte Droite) */}
-        <div className="section-gray" style={{ padding: 'clamp(4rem, 10vw, 6rem) 0' }}>
-          <div className="section-container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              {/* Image à gauche */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="order-1"
-              >
-                <div
-                  className="relative overflow-hidden"
-                  style={{
-                    height: 'clamp(20rem, 50vw, 28rem)',
-                    borderRadius: theme.effects.borderRadius.lg,
-                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
-                  }}
-                >
-                  <Image
-                    src={chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1]}
-                    alt={`Salles de réunion et espaces séminaire du ${chateau.nom} - Équipement professionnel en ${chateau.region}`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                    loading="lazy"
-                    quality={80}
-                  />
-                </div>
-              </motion.div>
-
-              {/* Texte à droite */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="order-2"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <Building2 className="w-7 h-7" style={{ color: colors.bronze }} />
-                  <h2
-                    className="heading-lg"
-                    style={{
-                      fontFamily: theme.typography.fonts.heading,
-                      fontStyle: "italic",
-                      color: theme.colors.neutral.gray900
-                    }}
-                  >
-                    Salles de Réunion
-                  </h2>
-                </div>
-                <p
-                  className="text-body-xl text-gray-600 leading-relaxed mb-6"
-                  style={{ lineHeight: "1.8" }}
-                >
-                  {chateau.meetingText}
-                </p>
-                <div
-                  className="inline-flex items-center gap-2"
-                  style={{
-                    padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
-                    background: `${colors.bronze}10`,
-                    borderRadius: theme.effects.borderRadius.full,
-                    border: `2px solid ${colors.bronze}40`,
-                  }}
-                >
-                  <Check className="w-5 h-5" style={{ color: colors.bronze }} />
-                  <span style={{
-                    fontSize: theme.typography.fontSize.sm,
-                    fontWeight: theme.typography.fontWeight.semibold,
-                    color: colors.bronze
-                  }}>
-                    Équipements audiovisuels complets
-                  </span>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-
-        {/* Points forts - Bento Grid */}
-        <div className="section-gray section-padding-sm">
-          <div className="section-container">
-            {/* Titre et sous-titre centrés */}
-            <div className="text-center mb-12">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="heading-lg mb-md">
-                  Points forts
-                </h2>
-                <p className="text-body-xl text-gray-600 mb-xl">
-                  Ce qui rend ce lieu unique
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Grille */}
-            <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-                  {chateau.atouts.map((atout: string, index: number) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      style={{ height: "100%" }}
-                    >
-                      <Card
-                        variant="hover"
-                        padding="none"
-                        className="group"
-                        style={{ height: "100%", minHeight: "160px", display: "flex", alignItems: "center", justifyContent: "center" }}
-                      >
-                        <div className="flex flex-col items-center justify-center text-center" style={{ gap: spacing.lg, padding: "24px", width: "100%" }}>
-                          <div
-                            className="flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0"
-                            style={{
-                              width: "48px",
-                              height: "48px",
-                              borderRadius: theme.effects.borderRadius.full,
-                              background: `${colors.bronze}10`,
-                            }}
-                          >
-                            <Check className="w-6 h-6" style={{ color: colors.bronze }} />
-                          </div>
-                          <p
-                            style={{
-                              fontSize: theme.typography.fontSize.lg,
-                              fontWeight: theme.typography.fontWeight.medium,
-                              color: theme.colors.text.primary,
-                              lineHeight: theme.typography.lineHeight.relaxed,
-                              textAlign: "center",
-                              width: "100%",
-                            }}
-                          >
-                            {atout}
-                          </p>
-                        </div>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Galerie Interactive */}
-        <div className="section-white section-padding-sm">
-          <div className="section-container">
-            {/* Titre et sous-titre centrés */}
-            <div className="text-center mb-12">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="heading-lg mb-md">
-                  Galerie
-                </h2>
-                <p className="text-body-xl text-gray-600 mb-xl">
-                  Découvrez les espaces du château
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Galerie Interactive */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="max-w-7xl mx-auto"
-            >
-              <InteractiveGallery
-                images={chateau.images.galerie}
-                altPrefix={chateau.seoH1}
-              />
+              <Text variant="bodyLarge" color="muted" style={{ maxWidth: '800px', margin: '0 auto', lineHeight: theme.typography.lineHeight.relaxed }}>
+                {chateau.descriptionLongue}
+              </Text>
             </motion.div>
           </div>
-        </div>
+        </Container>
+      </Section>
 
-        {/* Section FAQ - Design Premium */}
-        <div
-          className="relative overflow-hidden"
-          style={{
-            background: 'linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f8f8f8 100%)',
-            paddingTop: '120px',
-            paddingBottom: '120px',
-          }}
-        >
-          {/* Pattern décoratif subtil */}
-          <div
-            className="absolute inset-0 opacity-[0.03]"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, ${colors.bronze} 1px, transparent 0)`,
-              backgroundSize: '40px 40px',
-            }}
-          />
-
-          <div className="w-full relative z-10 flex flex-col items-center">
-            {/* Titre avec ornement */}
-            <div className="text-center mb-24 w-full">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center"
+      {/* Section Hébergement - Zig-Zag */}
+      <Section spacing="xl" background="white">
+        <Container size="lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="order-2 lg:order-1"
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.md, marginBottom: theme.spacing.lg }}>
+                <Bed className="w-7 h-7" style={{ color: theme.colors.primary.bronze }} />
+                <Text variant="h3" style={{ fontFamily: theme.typography.fonts.heading, fontStyle: "italic" }}>
+                  Hébergement
+                </Text>
+              </div>
+              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.lg, lineHeight: 1.8 }}>
+                {chateau.bedroomText}
+              </Text>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: theme.spacing.sm,
+                  padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
+                  background: `${theme.colors.primary.bronze}10`,
+                  borderRadius: theme.effects.borderRadius.full,
+                  border: `2px solid ${theme.colors.primary.bronze}40`,
+                }}
               >
-                {/* Badge supérieur */}
+                <Check className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
+                <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
+                  {chateau.roomsTotal} Chambres disponibles
+                </Text>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2"
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  height: 'clamp(20rem, 50vw, 28rem)',
+                  borderRadius: theme.effects.borderRadius.lg,
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                }}
+              >
+                <Image
+                  src={chateau.images.galerie[getBedroomImageIndex(chateau.id)] || chateau.images.hero[2]}
+                  alt={`Chambres et hébergement du ${chateau.nom} - Séminaire résidentiel en ${chateau.region}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  loading="lazy"
+                  quality={80}
+                />
+              </div>
+            </motion.div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Section Salles de Réunion - Zig-Zag inverse */}
+      <Section spacing="xl" background="gradient">
+        <Container size="lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="order-1"
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  height: 'clamp(20rem, 50vw, 28rem)',
+                  borderRadius: theme.effects.borderRadius.lg,
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                }}
+              >
+                <Image
+                  src={chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1]}
+                  alt={`Salles de réunion et espaces séminaire du ${chateau.nom} - Équipement professionnel en ${chateau.region}`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  loading="lazy"
+                  quality={80}
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="order-2"
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.md, marginBottom: theme.spacing.lg }}>
+                <Building2 className="w-7 h-7" style={{ color: theme.colors.primary.bronze }} />
+                <Text variant="h3" style={{ fontFamily: theme.typography.fonts.heading, fontStyle: "italic" }}>
+                  Salles de Réunion
+                </Text>
+              </div>
+              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.lg, lineHeight: 1.8 }}>
+                {chateau.meetingText}
+              </Text>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: theme.spacing.sm,
+                  padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
+                  background: `${theme.colors.primary.bronze}10`,
+                  borderRadius: theme.effects.borderRadius.full,
+                  border: `2px solid ${theme.colors.primary.bronze}40`,
+                }}
+              >
+                <Check className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
+                <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
+                  Équipements audiovisuels complets
+                </Text>
+              </div>
+            </motion.div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Points forts - Grid */}
+      <Section spacing="lg" background="white">
+        <Container size="xl">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+                Points forts
+              </Text>
+              <Text variant="bodyLarge" color="muted">
+                Ce qui rend ce lieu unique
+              </Text>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
+            {chateau.atouts.map((atout: string, index: number) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
                 <div
-                  className="inline-flex items-center gap-2 mb-6 rounded-full"
                   style={{
-                    background: `linear-gradient(135deg, ${colors.bronze}15, ${colors.gold}10)`,
-                    border: `1px solid ${colors.bronze}30`,
-                    padding: '12px 20px',
+                    padding: theme.spacing.xl,
+                    background: theme.colors.neutral.white,
+                    borderRadius: theme.effects.borderRadius.xl,
+                    border: `1px solid ${theme.colors.neutral.gray200}`,
+                    textAlign: 'center',
+                    height: '100%',
+                    minHeight: '160px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: theme.spacing.lg,
                   }}
+                  className="hover:shadow-lg transition-shadow group"
                 >
-                  <HelpCircle
-                    className="w-4 h-4"
-                    style={{ color: colors.bronze }}
-                  />
-                  <span
+                  <div
                     style={{
-                      fontSize: theme.typography.fontSize.xs,
-                      fontWeight: theme.typography.fontWeight.semibold,
-                      textTransform: 'uppercase',
-                      letterSpacing: theme.typography.letterSpacing.wider,
-                      color: colors.bronze,
+                      width: '48px',
+                      height: '48px',
+                      borderRadius: theme.effects.borderRadius.full,
+                      background: `${theme.colors.primary.bronze}10`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                     }}
+                    className="group-hover:scale-110 transition-transform"
                   >
-                    Questions & Réponses
-                  </span>
+                    <Check className="w-6 h-6" style={{ color: theme.colors.primary.bronze }} />
+                  </div>
+                  <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium, lineHeight: theme.typography.lineHeight.relaxed }}>
+                    {atout}
+                  </Text>
                 </div>
-
-                {/* Titre principal */}
-                <h2
-                  className="mb-4"
-                  style={{
-                    fontSize: 'clamp(2rem, 4vw, 3rem)',
-                    fontWeight: theme.typography.fontWeight.light,
-                    fontStyle: 'italic',
-                    fontFamily: theme.typography.fonts.heading,
-                    color: theme.colors.text.primary,
-                    lineHeight: theme.typography.lineHeight.tight,
-                  }}
-                >
-                  Tout ce que vous devez savoir
-                </h2>
-
-                {/* Ligne décorative */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    style={{
-                      width: '40px',
-                      height: '1px',
-                      background: `linear-gradient(to right, transparent, ${colors.bronze})`,
-                    }}
-                  />
-                  <Sparkles
-                    className="w-4 h-4"
-                    style={{ color: colors.bronze }}
-                  />
-                  <div
-                    style={{
-                      width: '40px',
-                      height: '1px',
-                      background: `linear-gradient(to left, transparent, ${colors.bronze})`,
-                    }}
-                  />
-                </div>
-
-                <p
-                  className="max-w-2xl"
-                  style={{
-                    fontSize: theme.typography.fontSize.lg,
-                    color: theme.colors.text.secondary,
-                    lineHeight: theme.typography.lineHeight.relaxed,
-                  }}
-                >
-                  Des réponses claires à vos questions essentielles sur ce lieu d'exception
-                </p>
               </motion.div>
-            </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
-            {/* Accordion FAQ Premium */}
-            <div className="w-full max-w-4xl px-6" style={{ marginTop: spacing["2xl"] }}>
-              {chateau.faq.map((item, index) => {
-                const isOpen = openFaqIndex === index;
+      {/* Galerie - Simple grid */}
+      <Section spacing="lg" background="gradient">
+        <Container size="xl">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+                Galerie
+              </Text>
+              <Text variant="bodyLarge" color="muted">
+                Découvrez les espaces du château
+              </Text>
+            </motion.div>
+          </div>
 
-                return (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto"
+          >
+            {chateau.images.galerie.slice(0, 6).map((image, index) => (
+              <div
+                key={index}
+                style={{
+                  position: 'relative',
+                  height: '300px',
+                  borderRadius: theme.effects.borderRadius.lg,
+                  overflow: 'hidden',
+                }}
+                className="hover:scale-105 transition-transform"
+              >
+                <Image
+                  src={image}
+                  alt={`${chateau.nom} - Image ${index + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                  loading="lazy"
+                  quality={80}
+                />
+              </div>
+            ))}
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* Section FAQ */}
+      <Section spacing="xl" background="white">
+        <Container size="lg">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: theme.spacing.sm,
+                  marginBottom: theme.spacing.lg,
+                  padding: '12px 20px',
+                  background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
+                  border: `1px solid ${theme.colors.primary.bronze}30`,
+                  borderRadius: theme.effects.borderRadius.full,
+                }}
+              >
+                <HelpCircle className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.semibold }}>
+                  Questions & Réponses
+                </Text>
+              </div>
+
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+                Tout ce que vous devez savoir
+              </Text>
+
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: theme.spacing.md, marginBottom: theme.spacing.md }}>
+                <div style={{ width: '40px', height: '1px', background: `linear-gradient(to right, transparent, ${theme.colors.primary.bronze})` }} />
+                <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                <div style={{ width: '40px', height: '1px', background: `linear-gradient(to left, transparent, ${theme.colors.primary.bronze})` }} />
+              </div>
+
+              <Text variant="body" color="muted" style={{ maxWidth: '700px', margin: '0 auto' }}>
+                Des réponses claires à vos questions essentielles sur ce lieu d'exception
+              </Text>
+            </motion.div>
+          </div>
+
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            {chateau.faq.map((item, index) => {
+              const isOpen = openFaqIndex === index;
+
+              return (
+                <div
+                  key={index}
+                  className="group"
+                  style={{ marginBottom: index < chateau.faq.length - 1 ? '32px' : '48px' }}
+                >
                   <div
-                    key={index}
-                    className="group w-full"
                     style={{
-                      marginBottom: index < chateau.faq.length - 1 ? '48px' : '64px'
+                      background: isOpen
+                        ? `linear-gradient(135deg, ${theme.colors.neutral.white} 0%, ${theme.colors.primary.bronze}05 100%)`
+                        : theme.colors.neutral.white,
+                      borderRadius: theme.effects.borderRadius['2xl'],
+                      border: `1px solid ${isOpen ? theme.colors.primary.bronze : theme.colors.neutral.gray200}`,
+                      boxShadow: isOpen
+                        ? `0 8px 32px ${theme.colors.primary.bronze}15, 0 2px 8px ${theme.colors.primary.bronze}08`
+                        : '0 2px 8px rgba(0, 0, 0, 0.04)',
+                      transition: 'all 0.3s ease',
+                      padding: '8px',
                     }}
+                    className="hover:shadow-xl"
                   >
-                    <div
+                    <button
+                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                      className="w-full text-left"
                       style={{
-                        background: isOpen
-                          ? `linear-gradient(135deg, ${theme.colors.neutral.white} 0%, ${colors.bronze}05 100%)`
-                          : theme.colors.neutral.white,
-                        borderRadius: theme.effects.borderRadius['2xl'],
-                        border: `1px solid ${isOpen ? colors.bronze : theme.colors.neutral.gray200}`,
-                        boxShadow: isOpen
-                          ? `0 8px 32px ${colors.bronze}15, 0 2px 8px ${colors.bronze}08`
-                          : '0 2px 8px rgba(0, 0, 0, 0.04)',
-                        transition: 'background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease',
-                        padding: '8px',
-                        willChange: 'background, border, box-shadow',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '24px',
+                        padding: '24px 32px',
                       }}
-                      className="hover:shadow-xl"
                     >
-                      {/* Button Question */}
-                      <button
-                        onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                        className="w-full text-left"
+                      <div
                         style={{
+                          width: '48px',
+                          height: '48px',
+                          borderRadius: theme.effects.borderRadius.full,
+                          background: isOpen
+                            ? `linear-gradient(135deg, ${theme.colors.primary.bronze}, ${theme.colors.primary.bronzeDark})`
+                            : `${theme.colors.primary.bronze}10`,
                           display: 'flex',
                           alignItems: 'center',
-                          gap: '28px',
-                          padding: '32px 40px',
+                          justifyContent: 'center',
+                          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                          boxShadow: isOpen ? `0 4px 16px ${theme.colors.primary.bronze}40` : 'none',
+                          flexShrink: 0,
                         }}
+                        className="group-hover:scale-110"
                       >
-                        {/* Numéro avec cercle décoratif */}
-                        <div className="flex-shrink-0">
+                        <span
+                          style={{
+                            fontSize: theme.typography.fontSize.lg,
+                            fontWeight: theme.typography.fontWeight.bold,
+                            color: isOpen ? theme.colors.neutral.white : theme.colors.primary.bronze,
+                            fontFamily: theme.typography.fonts.heading,
+                            transition: 'color 0.4s ease',
+                          }}
+                        >
+                          {String(index + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <Text
+                          variant="h5"
+                          style={{
+                            lineHeight: theme.typography.lineHeight.snug,
+                            transition: 'color 0.3s ease',
+                          }}
+                          className="group-hover:text-[var(--bronze-antique)]"
+                        >
+                          {item.question}
+                        </Text>
+                      </div>
+
+                      <div
+                        style={{
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: theme.effects.borderRadius.full,
+                          background: isOpen
+                            ? `${theme.colors.primary.bronze}15`
+                            : `${theme.colors.neutral.gray200}80`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                          flexShrink: 0,
+                        }}
+                        className="group-hover:bg-[var(--bronze-antique)] group-hover:bg-opacity-20"
+                      >
+                        {isOpen ? (
+                          <Minus className="w-5 h-5 transition-all duration-400" style={{ color: theme.colors.primary.bronze }} />
+                        ) : (
+                          <Plus className="w-5 h-5 transition-all duration-400" style={{ color: isOpen ? theme.colors.primary.bronze : theme.colors.neutral.gray600 }} />
+                        )}
+                      </div>
+                    </button>
+
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{
+                            height: 'auto',
+                            opacity: 1,
+                            transition: {
+                              height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+                              opacity: { duration: 0.3, delay: 0.1 }
+                            }
+                          }}
+                          exit={{
+                            height: 0,
+                            opacity: 0,
+                            transition: {
+                              height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+                              opacity: { duration: 0.2 }
+                            }
+                          }}
+                          style={{ overflow: 'hidden' }}
+                        >
                           <div
                             style={{
-                              width: '56px',
-                              height: '56px',
-                              borderRadius: theme.effects.borderRadius.full,
-                              background: isOpen
-                                ? `linear-gradient(135deg, ${colors.bronze}, ${colors.bronzeDark})`
-                                : `${colors.bronze}10`,
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                              boxShadow: isOpen
-                                ? `0 4px 16px ${colors.bronze}40`
-                                : 'none',
+                              paddingLeft: '32px',
+                              paddingRight: '32px',
+                              paddingBottom: '32px',
+                              paddingTop: '16px',
                             }}
-                            className="group-hover:scale-110"
-                          >
-                            <span
-                              style={{
-                                fontSize: theme.typography.fontSize.xl,
-                                fontWeight: theme.typography.fontWeight.bold,
-                                color: isOpen ? theme.colors.neutral.white : colors.bronze,
-                                fontFamily: theme.typography.fonts.heading,
-                                transition: 'color 0.4s ease',
-                              }}
-                            >
-                              {String(index + 1).padStart(2, '0')}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Question */}
-                        <div className="flex-1 min-w-0">
-                          <h3
-                            style={{
-                              fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
-                              fontWeight: theme.typography.fontWeight.semibold,
-                              color: theme.colors.text.primary,
-                              lineHeight: theme.typography.lineHeight.snug,
-                              transition: 'color 0.3s ease',
-                            }}
-                            className="group-hover:text-[var(--bronze-antique)]"
-                          >
-                            {item.question}
-                          </h3>
-                        </div>
-
-                        {/* Icon Toggle */}
-                        <div className="flex-shrink-0">
-                          <div
-                            style={{
-                              width: '48px',
-                              height: '48px',
-                              borderRadius: theme.effects.borderRadius.full,
-                              background: isOpen
-                                ? `${colors.bronze}15`
-                                : `${theme.colors.neutral.gray200}80`,
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                            }}
-                            className="group-hover:bg-[var(--bronze-antique)] group-hover:bg-opacity-20"
-                          >
-                            {isOpen ? (
-                              <Minus
-                                className="w-6 h-6 transition-all duration-400"
-                                style={{ color: colors.bronze }}
-                              />
-                            ) : (
-                              <Plus
-                                className="w-6 h-6 transition-all duration-400"
-                                style={{ color: isOpen ? colors.bronze : theme.colors.neutral.gray600 }}
-                              />
-                            )}
-                          </div>
-                        </div>
-                      </button>
-
-                      {/* Answer avec AnimatePresence */}
-                      <AnimatePresence>
-                        {isOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{
-                              height: 'auto',
-                              opacity: 1,
-                              transition: {
-                                height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-                                opacity: { duration: 0.3, delay: 0.1 }
-                              }
-                            }}
-                            exit={{
-                              height: 0,
-                              opacity: 0,
-                              transition: {
-                                height: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
-                                opacity: { duration: 0.2 }
-                              }
-                            }}
-                            style={{ overflow: 'hidden' }}
                           >
                             <div
                               style={{
-                                paddingLeft: '40px',
-                                paddingRight: '40px',
-                                paddingBottom: '40px',
-                                paddingTop: '24px',
+                                paddingTop: '16px',
+                                paddingBottom: '8px',
+                                paddingLeft: 'calc(48px + 24px)',
+                                paddingRight: 'calc(40px + 24px)',
+                                borderTop: `1px solid ${theme.colors.primary.bronze}20`,
                               }}
                             >
-                              <div
-                                style={{
-                                  paddingTop: '24px',
-                                  paddingBottom: '8px',
-                                  paddingLeft: 'calc(56px + 28px)', // Align with question text
-                                  paddingRight: 'calc(48px + 28px)', // Align with icon
-                                  borderTop: `1px solid ${colors.bronze}20`,
-                                }}
-                              >
-                                <p
-                                  style={{
-                                    fontSize: theme.typography.fontSize.base,
-                                    color: theme.colors.text.secondary,
-                                    lineHeight: theme.typography.lineHeight.relaxed,
-                                  }}
-                                >
-                                  {item.answer}
-                                </p>
-                              </div>
+                              <Text variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed }}>
+                                {item.answer}
+                              </Text>
                             </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                );
-              })}
-            </div>
-
-            {/* CTA Contact en bas de FAQ */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-center mt-20"
-            >
-              <div
-                className="inline-flex flex-col items-center gap-6 rounded-2xl"
-                style={{
-                  background: `linear-gradient(135deg, ${colors.bronze}08, ${colors.gold}05)`,
-                  border: `1px solid ${colors.bronze}20`,
-                  padding: '10px',
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: theme.typography.fontSize.lg,
-                    color: theme.colors.text.primary,
-                    fontWeight: theme.typography.fontWeight.medium,
-                    textAlign: 'center',
-                  }}
-                >
-                  Une autre question ? Notre équipe est à votre écoute
-                </p>
-                <Button
-                  href="/contact"
-                  variant="primary"
-                  size="md"
-                  icon={<HelpCircle className="w-5 h-5" />}
-                >
-                  Nous Contacter
-                </Button>
-              </div>
-            </motion.div>
+                </div>
+              );
+            })}
           </div>
-        </div>
 
-        {/* CTA Section finale */}
-        <div className="section-gray section-padding-sm" style={{ paddingBottom: '80px' }}>
-          <div className="section-container">
-            {/* Titre et sous-titre centrés */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginTop: theme.spacing['4xl'] }}
+          >
+            <div
+              style={{
+                display: 'inline-flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: theme.spacing.lg,
+                padding: theme.spacing.xl,
+                background: `linear-gradient(135deg, ${theme.colors.primary.bronze}08, ${theme.colors.primary.gold}05)`,
+                border: `1px solid ${theme.colors.primary.bronze}20`,
+                borderRadius: theme.effects.borderRadius['2xl'],
+              }}
+            >
+              <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium }}>
+                Une autre question ? Notre équipe est à votre écoute
+              </Text>
+              <Button variant="primary" size="md">
+                Nous Contacter
+              </Button>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
+
+      {/* CTA finale */}
+      <Section spacing="lg" background="gradient">
+        <Container size="lg">
+          <div className="section-header" style={{ textAlign: 'center' }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center"
-              style={{ marginBottom: '40px' }}
             >
-              <h2 className="heading-xl mb-3">
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
                 Prêt à organiser votre événement ?
-              </h2>
-              <p className="text-body-xl text-gray-600">
+              </Text>
+              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.xl, maxWidth: '600px', margin: `0 auto ${theme.spacing.xl}` }}>
                 Contactez-nous pour recevoir une proposition personnalisée
-              </p>
+              </Text>
             </motion.div>
 
-            {/* Boutons centrés */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap' }}
             >
-                <Button
-                  href="/devis"
-                  variant="primary"
-                  size="lg"
-                  icon={<Calendar className="w-5 h-5" />}
-                >
-                  Demander un Devis
-                </Button>
-                <Button
-                  href="/chateaux"
-                  variant="outline"
-                  size="lg"
-                >
-                  Voir d'autres châteaux
-                </Button>
+              <Button variant="primary" size="lg">
+                Demander un Devis
+              </Button>
+              <Button variant="outline" size="lg">
+                Voir d'autres châteaux
+              </Button>
             </motion.div>
           </div>
-        </div>
-      </div>
+        </Container>
+      </Section>
 
-      {/* Floating Info Card - Sticky - Utilisant Card component */}
-      <motion.div
-        initial={{ x: 100 }}
-        animate={{ x: 0 }}
-        style={{ opacity: floatingCardOpacity }}
-        transition={{ duration: 0.6, delay: 1 }}
-        className="fixed z-40 hidden xl:block bottom-8 right-8 group"
-      >
-        <Card
-          variant="glass"
-          padding="lg"
-          style={{
-            width: "256px",
-            background: theme.colors.overlay.white95,
-            backdropFilter: `blur(${theme.effects.blur.sm})`,
-            boxShadow: theme.effects.shadows["2xl"],
-            opacity: 0.25,
-            transition: "opacity 0.3s ease",
-          }}
-          className="group-hover:!opacity-100"
-        >
-          <h3
+      {/* Footer */}
+      <Footer
+        logo={
+          <Text
+            variant="h5"
             style={{
-              fontSize: theme.typography.fontSize.xl,
-              fontWeight: theme.typography.fontWeight.semibold,
-              color: theme.colors.text.primary,
               fontFamily: theme.typography.fonts.heading,
-              fontStyle: "italic",
-              marginBottom: spacing["2xl"],
+              fontStyle: 'italic',
+              color: theme.colors.primary.bronze,
             }}
           >
-            Informations
-          </h3>
+            SelectChâteaux
+          </Text>
+        }
+        description="L'excellence événementielle dans des châteaux d'exception à travers la France."
+        sections={footerSections}
+        contact={{
+          address: '60 Rue François 1er, 75008 Paris, France',
+          phone: '07 57 99 11 46',
+          email: 'seminaires@selectchateaux.com',
+        }}
+        social={{
+          linkedin: 'https://linkedin.com/company/select-chateaux',
+        }}
+        legalLinks={[
+          { label: 'Mentions Légales', href: '/mentions-legales' },
+          { label: 'Confidentialité', href: '/confidentialite' },
+          { label: 'CGV', href: '/cgv' },
+        ]}
+      />
 
-          <div className="mb-6">
-            <p
-              style={{
-                fontSize: theme.typography.fontSize.xs,
-                color: theme.colors.text.light,
-                textTransform: "uppercase",
-                letterSpacing: theme.typography.letterSpacing.wider,
-                fontWeight: theme.typography.fontWeight.bold,
-              }}
-              className="mb-2"
-            >
-              Style
-            </p>
-            <p
-              style={{
-                color: theme.colors.text.primary,
-                fontWeight: theme.typography.fontWeight.medium,
-              }}
-            >
-              {chateau.styleArchitectural}
-            </p>
-          </div>
-
-          <div className="mb-6">
-            <p
-              style={{
-                fontSize: theme.typography.fontSize.xs,
-                color: theme.colors.text.light,
-                textTransform: "uppercase",
-                letterSpacing: theme.typography.letterSpacing.wider,
-                fontWeight: theme.typography.fontWeight.bold,
-              }}
-              className="mb-2"
-            >
-              Capacité
-            </p>
-            <p
-              style={{
-                color: theme.colors.text.primary,
-                fontWeight: theme.typography.fontWeight.medium,
-              }}
-            >
-              {chateau.capacite.min} à {chateau.capacite.max} personnes
-            </p>
-          </div>
-
-          <div style={{ marginBottom: spacing["3xl"] }}>
-            <p
-              style={{
-                fontSize: theme.typography.fontSize.xs,
-                color: theme.colors.text.light,
-                textTransform: "uppercase",
-                letterSpacing: theme.typography.letterSpacing.wider,
-                fontWeight: theme.typography.fontWeight.bold,
-              }}
-              className="mb-2"
-            >
-              Région
-            </p>
-            <p
-              style={{
-                color: theme.colors.text.primary,
-                fontWeight: theme.typography.fontWeight.medium,
-              }}
-            >
-              {chateau.region}
-            </p>
-          </div>
-
-          <div className="flex justify-center">
-            <Button
-              href="/devis"
-              variant="primary"
-              size="md"
-              style={{ width: "80%" }}
-            >
-              Réserver
-            </Button>
-          </div>
-        </Card>
-      </motion.div>
-
-      {/* Section Témoignages */}
-      <TestimonialsSection />
-    </div>
+      <style jsx global>{`
+        .section-header {
+          text-align: center !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+        .section-header * {
+          text-align: center !important;
+        }
+      `}</style>
+    </>
   );
 }
