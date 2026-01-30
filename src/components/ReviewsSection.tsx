@@ -210,17 +210,18 @@ export function ReviewsSection() {
         </div>
 
         {/* Indicateurs de pagination */}
-        <div className="flex justify-center items-center gap-2 overflow-x-auto" style={{ marginTop: '24px', maxWidth: '100%' }}>
+        <div className="flex justify-center items-center gap-1.5 overflow-x-auto" style={{ marginTop: '24px', maxWidth: '100%' }}>
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
               className="transition-all duration-300 flex-shrink-0"
               style={{
-                width: currentIndex === index ? '24px' : '6px',
-                height: '6px',
-                borderRadius: '3px',
+                width: currentIndex === index ? '20px' : '4px',
+                height: '4px',
+                borderRadius: '2px',
                 background: currentIndex === index ? '#A37E2C' : '#d1d5db',
+                opacity: currentIndex === index ? 1 : 0.6,
               }}
               aria-label={`Aller au groupe d'avis ${index + 1}`}
             />

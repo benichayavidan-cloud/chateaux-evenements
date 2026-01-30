@@ -380,7 +380,8 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 
 .hero-section {
-  height: 75vh;
+  min-height: 100vh;
+  height: 100vh;
   position: relative;
   overflow: hidden;
   background: white;
@@ -520,7 +521,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Mobile (< 640px) */
 @media (max-width: 639px) {
   .hero-section {
-    height: 80vh;
+    min-height: 100vh;
+    height: 100vh;
   }
 
   /* Mobile padding already defined above, no override needed */

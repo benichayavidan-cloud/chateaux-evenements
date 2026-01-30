@@ -89,14 +89,19 @@ export function ChateauxSection() {
                 className="group block relative overflow-hidden"
               >
                 {/* Image avec effet grayscale → couleur */}
-                <div className="relative overflow-hidden" style={{ height: 'clamp(18rem, 45vw, 28rem)' }}>
+                <div className="relative overflow-hidden" style={{ height: 'clamp(20rem, 50vw, 32rem)' }}>
                   <Image
                     src={chateau.images.card}
                     alt={generateChateauAlt(chateau.nom, chateau.region, "card")}
                     fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
                     className="object-cover group-hover:scale-105"
-                    style={{ transition: `all ${theme.effects.transitions.ultra} ease-out` }}
+                    style={{
+                      transition: `all ${theme.effects.transitions.ultra} ease-out`,
+                      objectFit: 'cover',
+                      width: '100%',
+                      height: '100%'
+                    }}
                   />
 
                   {/* Overlay gradient permanent subtil */}

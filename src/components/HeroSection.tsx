@@ -123,8 +123,8 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Contenu à gauche avec badge au-dessus */}
-      <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: 'clamp(0.75rem, 4vw, 3rem)' }}>
+      {/* Contenu centré avec badge au-dessus */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ padding: 'clamp(0.75rem, 4vw, 1.5rem)' }}>
 
         {/* Badge lieu au-dessus du conteneur */}
         <motion.div
@@ -236,17 +236,18 @@ export function HeroSection() {
 
       {/* Navigation du slider - Indicateurs uniquement */}
       <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center z-10">
-        <div className="flex gap-2">
+        <div className="flex gap-1.5">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className="rounded-full transition-all duration-300 shadow-md hover:opacity-80"
+              className="transition-all duration-300"
               style={{
-                width: index === currentSlide ? '24px' : '6px',
-                height: '6px',
-                borderRadius: '3px',
-                backgroundColor: index === currentSlide ? colors.bronze : "rgba(31, 41, 55, 0.7)",
+                width: index === currentSlide ? '20px' : '4px',
+                height: '4px',
+                borderRadius: '2px',
+                backgroundColor: index === currentSlide ? colors.bronze : "rgba(255, 255, 255, 0.5)",
+                opacity: index === currentSlide ? 1 : 0.6,
               }}
               aria-label={`Aller à l'image ${index + 1}`}
             />
