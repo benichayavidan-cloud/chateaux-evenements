@@ -36,25 +36,25 @@ const heroSlides = [
     image: getImageUrl("Abbaye des Veaux de cernay", "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-vue-aerienne-domaine-parc-etang-jardins.webp"),
     title: "Abbaye Millénaire",
     region: "Vallée de Chevreuse",
-    objectPosition: "52% 100%", // Options: center, top, bottom, left, right, top left, top right, bottom left, bottom right, ou "50% 30%" (custom)
+    objectPosition: "52% 50%", // Centré verticalement pour mobile
   },
   {
     image: getImageUrl("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp"),
     title: "Palais Royal",
     region: "Forêt de Chantilly",
-    objectPosition: "53% 100%",
+    objectPosition: "53% 50%",
   },
   {
     image: getImageUrl("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-automne-lierre-rouge-arc-en-ciel.webp"),
     title: "Château de Montvillargene",
     region: "Oise",
-    objectPosition: "50% 100%",
+    objectPosition: "50% 50%",
   },
   {
     image: getImageUrl("Domaine Reine Margot", "domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp"),
     title: "Refuge Historique",
     region: "Hauts-de-Seine",
-    objectPosition: "50% 100%",
+    objectPosition: "50% 50%",
   },
 ];
 
@@ -105,15 +105,16 @@ export function HeroSection() {
               heroSlides[currentSlide].region
             )}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            sizes="(max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 100vw"
             className="object-cover"
             style={{
               filter: 'saturate(1.2) contrast(1.1) brightness(1.05)',
-              objectPosition: heroSlides[currentSlide].objectPosition
+              objectPosition: heroSlides[currentSlide].objectPosition,
+              objectFit: 'cover'
             }}
             priority={currentSlide === 0}
             loading={currentSlide === 0 ? "eager" : "lazy"}
-            quality={80}
+            quality={85}
             placeholder="blur"
             blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiNmM2Y0ZjYiLz48L3N2Zz4="
           />
@@ -235,17 +236,16 @@ export function HeroSection() {
 
       {/* Navigation du slider - Indicateurs uniquement */}
       <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center z-10">
-        <div className="flex space-x-2">
+        <div className="flex gap-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-[3px] rounded-full transition-all duration-300 shadow-md ${
-                index === currentSlide
-                  ? "w-12"
-                  : "w-8 hover:bg-gray-700/80"
-              }`}
+              className="rounded-full transition-all duration-300 shadow-md hover:opacity-80"
               style={{
+                width: index === currentSlide ? '24px' : '6px',
+                height: '6px',
+                borderRadius: '3px',
                 backgroundColor: index === currentSlide ? colors.bronze : "rgba(31, 41, 55, 0.7)",
               }}
               aria-label={`Aller à l'image ${index + 1}`}
