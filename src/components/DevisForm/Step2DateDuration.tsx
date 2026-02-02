@@ -66,8 +66,17 @@ export function Step2DateDuration({
               }
             }, 500);
           }}
-          className="border-2 border-gray-300 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
-          style={{ display: "block", width: "50%", padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
+          className="rounded-xl focus:border-[#a37e2c] focus:outline-none"
+          style={{
+            display: "block",
+            width: "50%",
+            padding: "clamp(0.75rem, 2vw, 1rem)",
+            background: "white",
+            border: "2px solid #9CA3AF",
+            fontSize: "1rem",
+            color: "#1F2937",
+            colorScheme: "light"
+          }}
           min={new Date().toISOString().split("T")[0]}
         />
         {errors.datesSouhaitees && (
@@ -105,7 +114,7 @@ export function Step2DateDuration({
                   ${
                     isSelected
                       ? "border-[#a37e2c] bg-[#a37e2c]/5"
-                      : "border-gray-300 bg-white hover:border-[#a37e2c]/50"
+                      : "border-gray-400 bg-white hover:border-[#a37e2c]/50"
                   }
                 `}
               >

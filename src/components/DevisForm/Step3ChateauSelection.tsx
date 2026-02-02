@@ -33,7 +33,7 @@ export function Step3ChateauSelection({
         Vous pouvez sélectionner plusieurs châteaux pour comparer les offres
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 min-[500px]:grid-cols-2 gap-4">
         {chateaux.map((chateau) => {
           const isSelected = selectedChateauIds?.includes(chateau.id);
           return (
@@ -52,13 +52,13 @@ export function Step3ChateauSelection({
                   setValue("chateauIds", [...currentIds, chateau.id], { shouldValidate });
                 }
               }}
-              style={{ minHeight: "180px" }}
+              style={{ minHeight: "280px" }}
               className={`
-                text-left rounded-2xl border-2 transition-all duration-300 bg-white overflow-hidden relative
+                text-left rounded-2xl border-2 transition-all duration-300 overflow-hidden relative
                 ${
                   isSelected
                     ? "border-[#a37e2c]"
-                    : "border-gray-300 hover:border-[#a37e2c]/50"
+                    : "border-gray-400 hover:border-[#a37e2c]/50"
                 }
               `}
             >
@@ -67,19 +67,22 @@ export function Step3ChateauSelection({
                   <Check className="w-4 h-4 text-white" />
                 </div>
               )}
-              <div className="relative h-28">
+              <div className="relative w-full h-full">
                 <Image
                   src={chateau.images.card}
                   alt={chateau.nom}
                   fill
                   className="object-cover"
                 />
-              </div>
-              <div style={{ padding: "0.75rem" }}>
-                <h4 className="font-semibold mb-1 text-gray-800 text-sm">{chateau.nom}</h4>
-                <p className="text-xs text-gray-600">
-                  {chateau.region} • {chateau.capacite.min}-{chateau.capacite.max} pers.
-                </p>
+                {/* Overlay sombre pour rendre le texte lisible */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+                {/* Texte par-dessus l'overlay */}
+                <div className="absolute bottom-0 left-0 right-0 z-10" style={{ padding: "2rem 1rem 1rem" }}>
+                  <h4 className="font-bold mb-1 text-base" style={{ color: "#FFFFFF", filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))" }}>{chateau.nom}</h4>
+                  <p className="text-sm font-medium" style={{ color: "#FFFFFF", filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5))" }}>
+                    {chateau.region} • {chateau.capacite.min}-{chateau.capacite.max} pers.
+                  </p>
+                </div>
               </div>
             </button>
           );
@@ -106,7 +109,7 @@ export function Step3ChateauSelection({
             ${
               selectedChateauIds?.includes("conseil")
                 ? "border-[#a37e2c] bg-[#a37e2c]/5"
-                : "border-gray-300 bg-white hover:border-[#a37e2c]/50"
+                : "border-gray-400 bg-white hover:border-[#a37e2c]/50"
             }
           `}
           style={{ padding: "1rem" }}

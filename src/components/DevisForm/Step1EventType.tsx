@@ -80,7 +80,7 @@ export function Step1EventType({
                 ${
                   isSelected
                     ? "border-[#a37e2c] bg-[#a37e2c]/5"
-                    : "border-gray-300 bg-white hover:border-[#a37e2c]/50"
+                    : "border-gray-400 bg-white hover:border-[#a37e2c]/50"
                 }
               `}
             >

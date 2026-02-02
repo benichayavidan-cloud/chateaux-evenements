@@ -57,8 +57,8 @@ export function Step4ContactForm({
           <input
             type="text"
             {...register("entreprise")}
-            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
-            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
+            className="w-full rounded-xl text-base placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white", border: "2px solid #9CA3AF", color: "#1F2937" }}
             placeholder="Nom de votre entreprise"
           />
           {errors.entreprise && (
@@ -77,8 +77,8 @@ export function Step4ContactForm({
           <input
             type="text"
             {...register("nomPrenom")}
-            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
-            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
+            className="w-full rounded-xl text-base placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white", border: "2px solid #9CA3AF", color: "#1F2937" }}
             placeholder="Votre nom et prénom"
           />
           {errors.nomPrenom && (
@@ -97,8 +97,8 @@ export function Step4ContactForm({
           <input
             type="email"
             {...register("email")}
-            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
-            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
+            className="w-full rounded-xl text-base placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white", border: "2px solid #9CA3AF", color: "#1F2937" }}
             placeholder="votre.email@entreprise.com"
           />
           {errors.email && (
@@ -115,8 +115,8 @@ export function Step4ContactForm({
           <input
             type="tel"
             {...register("telephoneMobile")}
-            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
-            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
+            className="w-full rounded-xl text-base placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white", border: "2px solid #9CA3AF", color: "#1F2937" }}
             placeholder="+33 6 12 34 56 78"
           />
           {errors.telephoneMobile && (
@@ -240,7 +240,7 @@ export function Step4ContactForm({
                     ${
                       isSelected
                         ? "border-[#a37e2c] bg-[#a37e2c]/10 font-semibold text-[#a37e2c]"
-                        : "border-gray-300 bg-white text-gray-800 font-medium hover:border-[#a37e2c]/50"
+                        : "border-gray-400 bg-white text-gray-800 font-medium hover:border-[#a37e2c]/50"
                     }
                   `}
                 >
@@ -263,8 +263,8 @@ export function Step4ContactForm({
           <textarea
             {...register("commentaireDeroulement")}
             rows={6}
-            className="w-full border-2 border-gray-300 rounded-xl text-base resize-vertical text-gray-800 placeholder:text-gray-500 min-h-[138px] focus:border-[#a37e2c] focus:outline-none"
-            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
+            className="w-full rounded-xl text-base resize-vertical placeholder:text-gray-500 min-h-[138px] focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white", border: "2px solid #9CA3AF", color: "#1F2937" }}
             placeholder="Décrivez le déroulement de votre événement, les activités prévues, les besoins spécifiques..."
           />
           {errors.commentaireDeroulement && (
@@ -283,8 +283,8 @@ export function Step4ContactForm({
             type="file"
             accept=".pdf,.xlsx,.xls,.doc,.docx"
             {...register("fichier")}
-            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
-            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
+            className="w-full rounded-xl text-base focus:border-[#a37e2c] focus:outline-none"
+            style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white", border: "2px solid #9CA3AF", color: "#1F2937" }}
           />
           <p className="text-xs text-gray-600 mt-1">
             Formats acceptés: PDF, Excel (.xlsx, .xls), Word (.doc, .docx)
