@@ -297,7 +297,7 @@ export default function BlogPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white flex justify-center items-center" style={{ padding: '12px 0' }}>
+      <section className="w-full bg-gradient-to-br from-amber-50 to-orange-50 flex justify-center items-center" style={{ padding: '60px 20px' }}>
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 md:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -307,21 +307,21 @@ export default function BlogPage() {
             className="flex flex-col items-center gap-5 sm:gap-6 md:gap-8"
           >
             <Sparkles className="w-12 h-12 sm:w-14 sm:h-14 text-[var(--bronze-antique)] mx-auto" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-center px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-gray-900 text-center px-4">
               Inspiré par nos articles ?
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto text-center px-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto text-center px-4">
               Transformez l'inspiration en réalité. Obtenez un devis personnalisé pour votre prochain séminaire en château.
             </p>
             <Link
               href="/devis"
-              style={{ padding: '12px 32px' }}
-              className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-4 text-sm sm:text-base"
+              style={{ padding: '16px 40px' }}
+              className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-4 text-base shadow-lg"
             >
               <span>Demander un Devis Gratuit</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="text-xs sm:text-sm text-gray-400 px-4">
+            <p className="text-xs sm:text-sm text-gray-600 px-4 font-medium">
               ✓ Réponse sous 24h • ✓ Sans engagement • ✓ Conseils d'experts inclus
             </p>
           </motion.div>
