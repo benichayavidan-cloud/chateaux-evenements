@@ -94,33 +94,47 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Envoyer les emails de notification (en parallèle, sans bloquer la réponse)
+    // Envoyer les emails de notification (AVEC await pour debug)
+    let emailResults = { admin: false, client: false, errors: [] as string[] };
+
     if (insertedData && insertedData.length > 0) {
       const newDevis = insertedData[0];
 
-      // Envoyer les emails en arrière-plan sans bloquer la réponse
-      Promise.all([
-        sendAdminNotification(newDevis),
-        sendClientConfirmation(newDevis),
-      ])
-        .then(([adminSent, clientSent]) => {
-          console.log('📧 Résultats envoi emails:', {
-            admin: adminSent ? '✅ Envoyé' : '❌ Échec',
-            client: clientSent ? '✅ Envoyé' : '❌ Échec',
-            devisId: newDevis.id,
-          });
-        })
-        .catch((emailError) => {
-          console.error('❌ Erreur lors de l\'envoi des emails:', emailError);
-          // Ne pas fail la requête, continuer normalement
-        });
+      console.log('📧 Tentative envoi emails pour devis:', {
+        id: newDevis.id,
+        email: newDevis.email,
+        entreprise: newDevis.entreprise,
+      });
+
+      try {
+        // Envoyer email admin
+        console.log('📧 Envoi email admin...');
+        const adminSent = await sendAdminNotification(newDevis);
+        emailResults.admin = adminSent;
+        console.log('📧 Email admin:', adminSent ? '✅ Envoyé' : '❌ Échec');
+      } catch (error) {
+        console.error('❌ Erreur email admin:', error);
+        emailResults.errors.push(`Admin: ${error instanceof Error ? error.message : 'Unknown'}`);
+      }
+
+      try {
+        // Envoyer email client
+        console.log('📧 Envoi email client...');
+        const clientSent = await sendClientConfirmation(newDevis);
+        emailResults.client = clientSent;
+        console.log('📧 Email client:', clientSent ? '✅ Envoyé' : '❌ Échec');
+      } catch (error) {
+        console.error('❌ Erreur email client:', error);
+        emailResults.errors.push(`Client: ${error instanceof Error ? error.message : 'Unknown'}`);
+      }
     }
 
     return NextResponse.json(
       {
         success: true,
         message: 'Demande de devis enregistrée avec succès',
-        data: insertedData
+        data: insertedData,
+        emailResults, // Retourner les résultats d'envoi pour debug
       },
       { status: 201 }
     );
