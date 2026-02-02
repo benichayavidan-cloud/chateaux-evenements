@@ -58,7 +58,7 @@ export function Step3ChateauSelection({
                 ${
                   isSelected
                     ? "border-[#a37e2c]"
-                    : "border-gray-200 hover:border-[#a37e2c]/50"
+                    : "border-gray-300 hover:border-[#a37e2c]/50"
                 }
               `}
             >

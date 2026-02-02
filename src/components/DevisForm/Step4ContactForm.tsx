@@ -57,7 +57,7 @@ export function Step4ContactForm({
           <input
             type="text"
             {...register("entreprise")}
-            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
             style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="Nom de votre entreprise"
           />
@@ -77,7 +77,7 @@ export function Step4ContactForm({
           <input
             type="text"
             {...register("nomPrenom")}
-            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
             style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="Votre nom et prénom"
           />
@@ -97,7 +97,7 @@ export function Step4ContactForm({
           <input
             type="email"
             {...register("email")}
-            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
             style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="votre.email@entreprise.com"
           />
@@ -115,7 +115,7 @@ export function Step4ContactForm({
           <input
             type="tel"
             {...register("telephoneMobile")}
-            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 placeholder:text-gray-500 focus:border-[#a37e2c] focus:outline-none"
             style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="+33 6 12 34 56 78"
           />
@@ -210,13 +210,13 @@ export function Step4ContactForm({
 
         {/* Chambres Twin */}
         <div className="col-span-1 sm:col-span-2">
-          <label className="flex items-center gap-3 cursor-pointer">
+          <label className="flex items-center gap-2 cursor-pointer">
             <input
               type="checkbox"
               {...register("chambresTwin")}
-              className="w-5 h-5 cursor-pointer"
+              className="w-[18px] h-[18px] cursor-pointer"
             />
-            <span className="text-sm font-semibold text-gray-800">
+            <span className="text-xs text-gray-800">
               Possibilité de chambres twin
             </span>
           </label>
@@ -240,7 +240,7 @@ export function Step4ContactForm({
                     ${
                       isSelected
                         ? "border-[#a37e2c] bg-[#a37e2c]/10 font-semibold text-[#a37e2c]"
-                        : "border-gray-200 bg-white text-gray-800 font-medium hover:border-[#a37e2c]/50"
+                        : "border-gray-300 bg-white text-gray-800 font-medium hover:border-[#a37e2c]/50"
                     }
                   `}
                 >
@@ -263,7 +263,7 @@ export function Step4ContactForm({
           <textarea
             {...register("commentaireDeroulement")}
             rows={6}
-            className="w-full border-2 border-gray-200 rounded-xl text-base resize-vertical text-gray-800 min-h-[138px] focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-300 rounded-xl text-base resize-vertical text-gray-800 placeholder:text-gray-500 min-h-[138px] focus:border-[#a37e2c] focus:outline-none"
             style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
             placeholder="Décrivez le déroulement de votre événement, les activités prévues, les besoins spécifiques..."
           />
@@ -283,7 +283,7 @@ export function Step4ContactForm({
             type="file"
             accept=".pdf,.xlsx,.xls,.doc,.docx"
             {...register("fichier")}
-            className="w-full border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+            className="w-full border-2 border-gray-300 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
             style={{ padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
           />
           <p className="text-xs text-gray-600 mt-1">

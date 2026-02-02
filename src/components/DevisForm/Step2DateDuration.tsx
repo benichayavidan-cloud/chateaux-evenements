@@ -66,7 +66,7 @@ export function Step2DateDuration({
               }
             }, 500);
           }}
-          className="border-2 border-gray-200 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
+          className="border-2 border-gray-300 rounded-xl text-base text-gray-800 focus:border-[#a37e2c] focus:outline-none"
           style={{ display: "block", width: "50%", padding: "clamp(0.75rem, 2vw, 1rem)", background: "white" }}
           min={new Date().toISOString().split("T")[0]}
         />
@@ -105,7 +105,7 @@ export function Step2DateDuration({
                   ${
                     isSelected
                       ? "border-[#a37e2c] bg-[#a37e2c]/5"
-                      : "border-gray-200 bg-white hover:border-[#a37e2c]/50"
+                      : "border-gray-300 bg-white hover:border-[#a37e2c]/50"
                   }
                 `}
               >
