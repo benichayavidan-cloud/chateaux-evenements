@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
@@ -207,6 +208,7 @@ const fireConfetti = () => {
 };
 
 export function DevisForm() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [validatedSteps, setValidatedSteps] = useState<Set<number>>(new Set());
@@ -314,9 +316,11 @@ export function DevisForm() {
         return;
       }
 
-      // Grand spectacle de confettis pour la soumission !
-      fireConfetti();
-      setIsSubmitted(true);
+      // Générer un numéro de référence unique
+      const ref = Math.random().toString(36).substr(2, 9).toUpperCase();
+
+      // Rediriger vers la page de succès avec tracking automatique
+      router.push(`/devis/merci?ref=${ref}`);
     } catch (error) {
       alert("Une erreur inattendue est survenue. Veuillez réessayer.");
     }
