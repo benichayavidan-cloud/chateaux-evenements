@@ -96,23 +96,23 @@ export default async function BlogArticlePage({ params }: Props) {
         )}
 
         {/* CTA Final (Server-rendered) */}
-        <section className="w-full bg-gradient-to-br from-gray-900 to-gray-800 text-white flex justify-center" style={{ padding: '12px 0' }}>
+        <section className="w-full bg-gradient-to-br from-amber-50 to-orange-50 flex justify-center" style={{ padding: '60px 20px' }}>
           <div className="max-w-4xl px-6 sm:px-8 md:px-12 text-center space-y-6 sm:space-y-8">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-gray-900 px-4">
               Prêt à Passer à l'Action ?
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto px-4">
               Transformez ces insights en un séminaire d'exception pour vos équipes.
             </p>
             <Link
               href="/devis"
-              style={{ padding: '12px 32px' }}
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-2xl text-sm sm:text-base"
+              style={{ padding: '16px 40px' }}
+              className="inline-flex items-center justify-center gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl text-base shadow-lg"
             >
               <span>Obtenir mon Devis Gratuit</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <p className="text-xs sm:text-sm text-gray-400 px-4">
+            <p className="text-xs sm:text-sm text-gray-600 px-4 font-medium">
               ✓ Réponse sous 24h • ✓ Sans engagement • ✓ Conseils personnalisés
             </p>
           </div>

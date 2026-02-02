@@ -73,7 +73,7 @@ export default function BlogPage() {
               L'Inspiration Événementiel
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed text-center max-w-2xl mx-auto px-4">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed text-center max-w-2xl mx-auto px-4" style={{ color: "#1F2937" }}>
               Guides, études de cas, et tendances pour organiser des séminaires d'exception.
             </p>
 
@@ -85,8 +85,8 @@ export default function BlogPage() {
                 placeholder="Rechercher un article..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                style={{ padding: '16px 56px 16px 20px' }}
-                className="w-full rounded-2xl border-2 border-gray-200 focus:border-[var(--bronze-antique)] focus:ring-4 focus:ring-[var(--bronze-antique)]/10 outline-none transition-all duration-300 text-base shadow-lg"
+                style={{ padding: '16px 56px 16px 20px', color: "#1F2937" }}
+                className="w-full rounded-2xl border-2 border-gray-200 focus:border-[var(--bronze-antique)] focus:ring-4 focus:ring-[var(--bronze-antique)]/10 outline-none transition-all duration-300 text-base shadow-lg placeholder:text-gray-500"
               />
             </div>
           </motion.div>
@@ -136,11 +136,11 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="post-outer featured-post w-full p-0 sm:p-2 md:p-4"
+              className="post-outer featured-post w-full max-w-5xl mx-auto p-0"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
                 {/* Image */}
-                <Link href={`/blog/${featuredPost.slug}`} className="post-thumb h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+                <Link href={`/blog/${featuredPost.slug}`} className="post-thumb h-[200px] sm:h-[220px] md:h-[260px]">
                   <Image
                     src={featuredPost.image}
                     alt={featuredPost.imageAlt}
@@ -209,7 +209,7 @@ export default function BlogPage() {
 
           {/* Articles Grid - Brakt Style */}
           {filteredPosts.length > 0 ? (
-            <div className="brakt-main-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8 w-full mx-auto">
+            <div className="brakt-main-content grid !grid-cols-1 sm:!grid-cols-2 md:!grid-cols-3 lg:!grid-cols-4 gap-4 sm:gap-5 md:gap-6 w-full mx-auto">
             {filteredPosts.map((post, index) => (
               <motion.article
                 key={post.id}
