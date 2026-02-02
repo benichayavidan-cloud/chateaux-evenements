@@ -80,14 +80,15 @@ export function middleware(request: NextRequest) {
       'Content-Security-Policy',
       [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline'", // Next.js génère des scripts inline
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com", // Next.js + Google Analytics
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: https: blob:",
         "font-src 'self' data:",
-        "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+        "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://www.googletagmanager.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",
         "form-action 'self'",
+        "worker-src 'self' blob:",
         "upgrade-insecure-requests"
       ].join('; ')
     );

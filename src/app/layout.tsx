@@ -240,7 +240,7 @@ export default function RootLayout({
           }}
           legalLinks={[
             { label: "Mentions légales", href: "/mentions-legales" },
-            { label: "Politique de confidentialité", href: "/politique-confidentialite" },
+            { label: "Politique de confidentialité", href: "/confidentialite" },
             { label: "CGV", href: "/cgv" },
           ]}
           copyright={`© ${new Date().getFullYear()} Select Châteaux. Tous droits réservés.`}
