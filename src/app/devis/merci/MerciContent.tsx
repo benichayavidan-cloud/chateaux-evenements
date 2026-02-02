@@ -5,40 +5,12 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check, Sparkles, PartyPopper, Zap, ArrowLeft } from "lucide-react";
-import confetti from "canvas-confetti";
-
-// Fonction pour lancer des confettis
-const fireConfetti = () => {
-  const count = 200;
-  const defaults = {
-    origin: { y: 0.7 },
-    zIndex: 9999,
-  };
-
-  function fire(particleRatio: number, opts: any) {
-    confetti({
-      ...defaults,
-      ...opts,
-      particleCount: Math.floor(count * particleRatio),
-      colors: ["#A37E2C", "#D4AF37", "#C09448", "#8A6823", "#B8860B"],
-    });
-  }
-
-  fire(0.25, { spread: 26, startVelocity: 55 });
-  fire(0.2, { spread: 60 });
-  fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
-  fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
-  fire(0.1, { spread: 120, startVelocity: 45 });
-};
 
 export default function MerciContent() {
   const searchParams = useSearchParams();
   const ref = searchParams.get("ref") || Math.random().toString(36).substr(2, 9).toUpperCase();
 
   useEffect(() => {
-    // Confettis au chargement
-    fireConfetti();
-
     // Track conversion dans Google Analytics
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "conversion", {
@@ -110,38 +82,6 @@ export default function MerciContent() {
             >
               <Check style={{ width: "64px", height: "64px", color: "#FFFFFF" }} strokeWidth={3} />
             </div>
-
-            {/* Particules brillantes */}
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0"
-            >
-              {[...Array(8)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [0, 1, 0] }}
-                  transition={{
-                    delay: 0.5 + i * 0.1,
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 1,
-                  }}
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    width: "8px",
-                    height: "8px",
-                    borderRadius: "50%",
-                    background: "#D4AF37",
-                    transform: `rotate(${i * 45}deg) translateX(70px)`,
-                    boxShadow: "0 0 10px #D4AF37",
-                  }}
-                />
-              ))}
-            </motion.div>
           </motion.div>
 
           <motion.h1

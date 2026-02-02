@@ -59,7 +59,7 @@ const formatDate = (dateString: string): string => {
   }
 };
 
-// Fonction utilitaire pour obtenir les noms des châteaux sélectionnés
+// Fonction utilitaire pour obtenir les noms des châteaux sélectionnés avec département
 const getChateauxNoms = (chateauIds: string): string => {
   if (chateauIds === 'conseil') {
     return 'Laissez-nous vous conseiller';
@@ -69,7 +69,13 @@ const getChateauxNoms = (chateauIds: string): string => {
   const noms = ids
     .map(id => {
       const chateau = chateaux.find(c => c.id === id);
-      return chateau ? chateau.nom : null;
+      if (!chateau) return null;
+
+      // Extraire le département depuis le ref (format "#60-CHANTILLY")
+      const deptMatch = chateau.ref.match(/#(\d+)-/);
+      const dept = deptMatch ? deptMatch[1] : '';
+
+      return dept ? `${chateau.nom} (${dept})` : chateau.nom;
     })
     .filter(Boolean);
 
@@ -227,18 +233,6 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
                 </tr>
               </table>
               ` : ''}
-
-              <!-- Bouton CTA -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0;">
-                <tr>
-                  <td align="center">
-                    <a href="https://supabase.com/dashboard/project/jmeiepmtgidqtmxfnlwf/editor"
-                       style="display: inline-block; padding: 16px 40px; background-color: #3b82f6; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 16px; font-weight: 600;">
-                      Voir dans Supabase
-                    </a>
-                  </td>
-                </tr>
-              </table>
 
             </td>
           </tr>
