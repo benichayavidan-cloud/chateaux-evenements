@@ -1,413 +1,309 @@
 /**
- * PAGE CHÂTEAUX - Liste complète des châteaux
- * Migré avec le nouveau design system v2
+ * PAGE CHÂTEAUX - Liste des châteaux avec design moderne
  */
 
 'use client';
 
-import { Navigation, Footer } from '@/components/sections-v2';
-import { Section, Container, Hero } from '@/components/layout-v2';
-import { Text, Card, Badge, Button } from '@/components/ui-v2';
-import { MapPin, Users, Bed, Award, Sparkles, Calendar, ArrowRight, Phone, Shield, Star } from 'lucide-react';
+import { Section, Container } from '@/components/layout-v2';
+import { Text, Card, Button } from '@/components/ui-v2';
+import { Users, Bed, Sparkles, Calendar, ArrowRight, Shield, Award, MapPin, Clock, CheckCircle, Phone, Check } from 'lucide-react';
 import { theme } from '@/design-system/tokens';
 import { chateaux } from "@/data/chateaux";
-import { AnimatePresence, motion } from 'framer-motion';
-import { useState, useEffect } from "react";
+import { motion } from 'framer-motion';
 import Image from "next/image";
-
-// URLs des images
-const IMAGES_BASE = "/Users/avidanbenichay/Documents/Mes Projets d'apps/Mes projets/SELECT CHATEAUX/SITE-WEB/IMAGES";
-const SUPABASE_URL = "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images";
-
-const FOLDER_MAPPING: Record<string, string> = {
-  "Abbaye des Veaux de cernay": "chevreuse",
-  "Chateau de Montvillargene": "montvillargene",
-  "Domaine Reine Margot": "hauts-de-seine",
-  "Chateau Mont Royal": "mont-royal",
-};
-
-const getImageUrl = (folder: string, filename: string) => {
-  if (process.env.NODE_ENV === 'production') {
-    const supabaseFolder = FOLDER_MAPPING[folder] || folder;
-    return `${SUPABASE_URL}/${supabaseFolder}/${encodeURIComponent(filename)}`;
-  }
-  return `/api/images/preview?path=${encodeURIComponent(`${IMAGES_BASE}/${folder}/${filename}`)}`;
-};
-
-// Slides pour le hero
-const heroSlides = [
-  {
-    image: getImageUrl("Abbaye des Veaux de cernay", "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-vue-aerienne-domaine-parc-etang-jardins.webp"),
-    title: "Abbaye Millénaire",
-    region: "Vallée de Chevreuse",
-    chateau: chateaux[2],
-    objectPosition: "52% 100%",
-  },
-  {
-    image: getImageUrl("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp"),
-    title: "Palais Royal",
-    region: "Forêt de Chantilly",
-    chateau: chateaux[3],
-    objectPosition: "53% 100%",
-  },
-  {
-    image: getImageUrl("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp"),
-    title: "Château de Montvillargene",
-    region: "Oise",
-    chateau: chateaux[0],
-    objectPosition: "50% 100%",
-  },
-  {
-    image: getImageUrl("Domaine Reine Margot", "domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp"),
-    title: "Refuge Historique",
-    region: "Hauts-de-Seine",
-    chateau: chateaux[1],
-    objectPosition: "50% 100%",
-  },
-];
-
-// Navigation
-const navLinks = [
-  { label: 'Accueil', href: '/' },
-  { label: 'Nos Châteaux', href: '/chateaux' },
-  { label: 'Événements', href: '/evenements' },
-  { label: 'Team Building', href: '/team-building' },
-  { label: 'Contact', href: '/contact' },
-];
-
-// Footer
-const footerSections = [
-  {
-    title: 'Navigation',
-    links: [
-      { label: 'Nos Châteaux', href: '/chateaux' },
-      { label: 'Événements', href: '/evenements' },
-      { label: 'Team Building', href: '/team-building' },
-      { label: 'Contact', href: '/contact' },
-    ],
-  },
-  {
-    title: 'Nos Services',
-    links: [
-      { label: 'Séminaires Résidentiels', href: '/evenements/seminaires' },
-      { label: 'Journées d\'Étude', href: '/evenements/journees-etude' },
-      { label: 'Conventions', href: '/evenements/conventions' },
-      { label: 'Team Building', href: '/team-building' },
-    ],
-  },
-];
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 export default function ChateauxPage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const searchParams = useSearchParams();
+  const dept = searchParams?.get('dept');
 
-  // Auto-play du slider
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [isAutoPlaying]);
+  // Filtrer les châteaux selon le département (extrait du ref: #60-CHANTILLY -> 60)
+  const filteredChateaux = dept
+    ? chateaux.filter(c => c.ref.startsWith(`#${dept}-`))
+    : chateaux;
 
-  const goToSlide = (index: number) => {
-    setIsAutoPlaying(false);
-    setCurrentSlide(index);
+  // Titre dynamique selon le filtre
+  const getTitle = () => {
+    if (dept === '60') return 'Châteaux Oise (60)';
+    if (dept === '78') return 'Châteaux Yvelines (78)';
+    if (dept === '92') return 'Châteaux Hauts-de-Seine (92)';
+    return 'Nos Châteaux pour Séminaires';
+  };
+
+  const getDescription = () => {
+    if (dept === '60') return 'Découvrez nos châteaux d\'exception dans l\'Oise pour vos séminaires et événements d\'entreprise';
+    if (dept === '78') return 'Découvrez nos châteaux d\'exception dans les Yvelines pour vos séminaires et événements d\'entreprise';
+    if (dept === '92') return 'Découvrez nos domaines d\'exception dans les Hauts-de-Seine pour vos séminaires et événements d\'entreprise';
+    return 'Collection exclusive de domaines privatisables en Île-de-France et Oise';
   };
 
   return (
     <>
-      {/* Navigation */}
-      <Navigation
-        logo={
-          <Text
-            variant="h4"
+      {/* Hero Section - Style château individuel */}
+      <div style={{ height: '75vh', minHeight: '600px' }} className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/seminaires-soirees-entreprise-hero.webp"
+            alt="Châteaux pour séminaires en Île-de-France"
+            fill
+            className="object-cover"
+            priority
+            quality={85}
+            sizes="100vw"
             style={{
-              fontFamily: theme.typography.fonts.heading,
-              fontStyle: 'italic',
-              color: theme.colors.primary.bronze,
+              filter: 'saturate(1.2) contrast(1.1) brightness(1.05)',
+              objectPosition: "center"
             }}
-          >
-            SelectChâteaux
-          </Text>
-        }
-        links={navLinks}
-        cta={{
-          label: 'Devis Gratuit',
-          href: '/devis',
-        }}
-        sticky
-        transparent
-      />
+          />
+        </div>
 
-      {/* Hero Slider */}
-      <section style={{ height: '75vh', minHeight: '600px' }} className="relative overflow-hidden">
-        <AnimatePresence mode="wait">
-          {heroSlides.map((slide, index) => (
-            index === currentSlide && (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.7 }}
-                className="absolute inset-0"
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
+
+        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-5 sm:px-8 md:px-12">
+          <div className="flex flex-col items-center md:items-start w-full" style={{ maxWidth: '520px', gap: 'clamp(1rem, 2.5vw, 1.5rem)' }}>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="flex justify-center md:justify-start w-full"
+            >
+              <div
+                className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg"
+                style={{
+                  padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
+                  borderRadius: theme.effects.borderRadius.full,
+                }}
               >
-                <div className="absolute inset-0">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    className="object-cover"
-                    priority={index === 0}
-                    quality={95}
-                    sizes="100vw"
-                    style={{
-                      filter: 'saturate(1.2) contrast(1.1) brightness(1.05)',
-                      objectPosition: slide.objectPosition
-                    }}
-                  />
-                </div>
-
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
-
-                <div className="absolute left-0 top-0 h-full flex flex-col justify-center" style={{ paddingLeft: 'clamp(0.75rem, 4vw, 3rem)' }}>
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                    className="flex justify-center"
-                    style={{ maxWidth: 'min(480px, 95vw)', width: '100%', marginBottom: 'clamp(0.75rem, 2vw, 1.25rem)' }}
-                  >
-                    <Badge variant="glass" size="md">
-                      <div
-                        className="w-1.5 h-1.5 rounded-full animate-pulse"
-                        style={{
-                          background: theme.colors.primary.bronze,
-                          filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
-                        }}
-                      />
-                      <div
-                        className="font-medium"
-                        style={{
-                          fontSize: theme.typography.fontSize.xs,
-                          color: theme.colors.neutral.gray300,
-                        }}
-                      >
-                        {slide.region}
-                      </div>
-                    </Badge>
-                  </motion.div>
-
-                  <div
-                    className="text-left rounded-2xl w-full"
-                    style={{
-                      maxWidth: 'min(480px, 95vw)',
-                      background: 'rgba(255, 255, 255, 0.85)',
-                      backdropFilter: 'blur(12px)',
-                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-                      padding: 'clamp(0.75rem, 3vw, 1.75rem) clamp(0.75rem, 2vw, 1.5rem)',
-                    }}
-                  >
-                    <motion.h1
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
-                      style={{
-                        fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
-                        fontWeight: theme.typography.fontWeight.light,
-                        fontStyle: 'italic',
-                        fontFamily: theme.typography.fonts.heading,
-                        lineHeight: theme.typography.lineHeight.tight,
-                        color: theme.colors.neutral.gray900,
-                        marginBottom: theme.spacing.xs,
-                      }}
-                    >
-                      Location de Châteaux pour Séminaires : La Collection Île-de-France
-                    </motion.h1>
-
-                    <motion.h2
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.15 }}
-                      style={{
-                        fontSize: theme.typography.fontSize.sm,
-                        fontWeight: theme.typography.fontWeight.normal,
-                        color: theme.colors.neutral.gray600,
-                        lineHeight: theme.typography.lineHeight.relaxed,
-                        marginBottom: theme.spacing.lg,
-                      }}
-                    >
-                      4 Domaines d'exception, privatisables pour vos événements d'entreprise. Oise (60) · Yvelines (78) · Hauts-de-Seine (92).
-                    </motion.h2>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
-                      className="flex flex-nowrap items-center gap-2"
-                    >
-                      <div
-                        className="inline-flex items-center gap-1.5"
-                        style={{
-                          background: `${theme.colors.primary.bronze}10`,
-                          border: `2px solid ${theme.colors.primary.bronze}`,
-                          padding: '6px 10px',
-                          borderRadius: theme.effects.borderRadius.full,
-                        }}
-                      >
-                        <Users className="w-3.5 h-3.5" style={{ color: theme.colors.primary.bronze }} />
-                        <div
-                          style={{
-                            fontSize: '10px',
-                            color: theme.colors.primary.bronze,
-                            textTransform: "uppercase",
-                            letterSpacing: '0.5px',
-                            fontWeight: theme.typography.fontWeight.medium,
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {slide.chateau.id === "1" && "Jusqu'à 280 pers. résidentiel"}
-                          {slide.chateau.id === "2" && "Jusqu'à 180 pers. métro"}
-                          {slide.chateau.id === "3" && "Jusqu'à 150 pers. classé"}
-                          {slide.chateau.id === "4" && "Jusqu'à 200 pers. palace"}
-                        </div>
-                      </div>
-
-                      <div
-                        className="inline-flex items-center gap-1.5"
-                        style={{
-                          background: `${theme.colors.primary.bronze}10`,
-                          border: `2px solid ${theme.colors.primary.bronze}`,
-                          padding: '6px 10px',
-                          borderRadius: theme.effects.borderRadius.full,
-                        }}
-                      >
-                        <Bed className="w-3.5 h-3.5" style={{ color: theme.colors.primary.bronze }} />
-                        <div
-                          style={{
-                            fontSize: '10px',
-                            color: theme.colors.primary.bronze,
-                            textTransform: "uppercase",
-                            letterSpacing: '0.5px',
-                            fontWeight: theme.typography.fontWeight.medium,
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {slide.chateau.roomsTotal} Chambres
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          ))}
-        </AnimatePresence>
-
-        {/* Indicateurs */}
-        <div className="absolute bottom-8 left-0 right-0 z-20">
-          <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
-            <div className="flex items-center justify-center">
-              <div className="flex gap-2">
-                {heroSlides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className="transition-all flex-shrink-0"
-                    style={{
-                      width: currentSlide === index ? "10px" : "3px",
-                      height: "3px",
-                      borderRadius: "50%",
-                      background: currentSlide === index ? theme.colors.primary.gold : theme.colors.neutral.gray400,
-                      backdropFilter: `blur(${theme.effects.blur.sm})`,
-                    }}
-                    aria-label={`Aller au château ${index + 1}`}
-                  />
-                ))}
+                <div
+                  className="w-1.5 h-1.5 rounded-full animate-pulse"
+                  style={{
+                    background: theme.colors.primary.gold,
+                    filter: "drop-shadow(0 0 4px rgba(212, 175, 55, 0.8))",
+                  }}
+                />
+                <span
+                  className="font-semibold"
+                  style={{
+                    fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)',
+                    color: theme.colors.primary.gold,
+                  }}
+                >
+                  {filteredChateaux.length} {filteredChateaux.length > 1 ? 'Domaines' : 'Domaine'} d'Exception
+                </span>
               </div>
+            </motion.div>
+
+            <div
+              className="text-center md:text-left rounded-2xl w-full"
+              style={{
+                background: 'rgba(255, 255, 255, 0.90)',
+                backdropFilter: 'blur(14px)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+                padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
+              }}
+            >
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+                style={{
+                  fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
+                  fontWeight: theme.typography.fontWeight.light,
+                  fontStyle: 'italic',
+                  fontFamily: theme.typography.fonts.heading,
+                  lineHeight: 1.25,
+                  color: theme.colors.neutral.gray900,
+                  marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
+                }}
+              >
+                {getTitle()}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+                style={{
+                  fontSize: 'clamp(0.9375rem, 2.2vw, 1rem)',
+                  color: theme.colors.neutral.gray600,
+                  fontWeight: theme.typography.fontWeight.normal,
+                  lineHeight: 1.6,
+                }}
+              >
+                {getDescription()}
+              </motion.p>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Section Pourquoi Choisir */}
-      <Section spacing="xl" background="gradient">
+        {/* Scroll indicator */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-8 z-10">
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-3"
+          >
+            <span
+              style={{
+                color: 'white',
+                fontSize: theme.typography.fontSize.xs,
+                textTransform: "uppercase",
+                letterSpacing: theme.typography.letterSpacing.widest,
+                fontWeight: theme.typography.fontWeight.bold,
+                textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 1px rgba(0,0,0,0.9)'
+              }}
+            >
+              Découvrez
+            </span>
+            <div
+              className="w-6 h-10 rounded-full border-2 flex items-start justify-center p-2 shadow-xl"
+              style={{
+                borderColor: 'rgba(255, 255, 255, 0.9)',
+                background: 'rgba(255, 255, 255, 0.95)',
+              }}
+            >
+              <div
+                className="w-1 h-2 rounded-full"
+                style={{ background: theme.colors.primary.bronze }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Pourquoi Nos Châteaux - Style Points Forts */}
+      <Section background="gray" style={{ padding: '60px 0' }}>
         <Container size="xl">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
-            <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
-              Pourquoi Choisir Nos Châteaux ?
-            </Text>
-            <Text variant="bodyLarge" color="muted" style={{ maxWidth: '800px', margin: '0 auto' }}>
-              Une expérience premium clé en main pour vos événements d'entreprise
-            </Text>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
+                Pourquoi Choisir Nos Châteaux
+              </Text>
+              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
+                L'excellence au service de vos événements
+              </Text>
+            </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            maxWidth: '100%',
+            margin: '0 auto',
+            overflowX: 'visible',
+            justifyContent: 'center',
+            padding: '3rem 1rem',
+            minHeight: '380px',
+            flexWrap: 'wrap',
+          }}>
             {[
               {
-                icon: <Award className="w-8 h-8" />,
-                title: "Lieux Classés & Protégés",
-                description: "4 domaines classés Monuments Historiques ou Sites Remarquables"
+                icon: Shield,
+                title: 'Privatisation Totale',
+                description: 'Domaines entièrement privatisables pour garantir confidentialité et exclusivité'
               },
               {
-                icon: <Calendar className="w-8 h-8" />,
-                title: "Réservation Express",
-                description: "Confirmation sous 48h • Visite préalable sur demande"
+                icon: MapPin,
+                title: 'Accès Privilégié',
+                description: 'Lieux d\'exception habituellement fermés au public. Collection confidentielle'
               },
               {
-                icon: <Shield className="w-8 h-8" />,
-                title: "Team Building Inclus",
-                description: "Activités sur place • Coordination événement • Accompagnement personnalisé"
+                icon: Award,
+                title: 'Service Premium',
+                description: 'Accompagnement personnalisé de A à Z par nos experts événementiels'
               },
               {
-                icon: <Star className="w-8 h-8" />,
-                title: "97% Recommandent",
-                description: "Plus de 450 événements organisés avec succès depuis 2010"
-              },
-            ].map((usp, index) => (
+                icon: Clock,
+                title: 'Proximité Paris',
+                description: '30-60 min de Paris. Dépaysement total sans contraintes logistiques'
+              }
+            ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{
+                  opacity: 0,
+                  scale: 0.5,
+                  rotateY: -180,
+                  rotateZ: -10,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  rotateY: 0,
+                  rotateZ: 0,
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.15,
+                  ease: [0.34, 1.56, 0.64, 1],
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
                 viewport={{ once: true }}
+                style={{
+                  perspective: '1000px',
+                  transformStyle: 'preserve-3d',
+                }}
               >
                 <div
                   style={{
-                    padding: theme.spacing.xl,
-                    background: theme.colors.neutral.white,
+                    padding: 'clamp(2rem, 3vw, 2.5rem)',
+                    background: 'white',
                     borderRadius: theme.effects.borderRadius.xl,
                     border: `1px solid ${theme.colors.neutral.gray200}`,
                     textAlign: 'center',
                     height: '100%',
+                    minHeight: '280px',
+                    minWidth: '260px',
+                    maxWidth: '300px',
+                    flex: '0 0 auto',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    gap: theme.spacing.lg,
+                    position: 'relative',
+                    overflow: 'hidden',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                    transition: 'all 0.3s ease',
                   }}
-                  className="hover:shadow-lg transition-shadow"
+                  className="hover:shadow-lg"
                 >
                   <div
                     style={{
-                      width: '64px',
-                      height: '64px',
+                      width: '72px',
+                      height: '72px',
                       borderRadius: theme.effects.borderRadius.full,
-                      background: `${theme.colors.primary.bronze}15`,
-                      color: theme.colors.primary.bronze,
+                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      marginBottom: theme.spacing.md,
+                      border: `2px solid ${theme.colors.primary.bronze}30`,
+                      flexShrink: 0,
                     }}
                   >
-                    {usp.icon}
+                    <item.icon className="w-8 h-8" style={{ color: theme.colors.primary.bronze }} />
                   </div>
-                  <Text variant="h5" style={{ marginBottom: theme.spacing.sm }}>
-                    {usp.title}
-                  </Text>
-                  <Text variant="body" color="muted">
-                    {usp.description}
-                  </Text>
+                  <div>
+                    <Text variant="h5" style={{ fontWeight: theme.typography.fontWeight.semibold, marginBottom: theme.spacing.sm, textAlign: 'center' }}>
+                      {item.title}
+                    </Text>
+                    <Text variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed, textAlign: 'center', fontSize: '0.9rem' }}>
+                      {item.description}
+                    </Text>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -416,28 +312,52 @@ export default function ChateauxPage() {
       </Section>
 
       {/* Section Châteaux */}
-      <Section spacing="xl" background="white">
-        <Container size="xl">
+      <Section spacing="xl" background="white" style={{ padding: '60px 0' }}>
+        <Container size="lg">
           <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: theme.spacing.sm, marginBottom: theme.spacing.md }}>
-              <Sparkles className="w-6 h-6" style={{ color: theme.colors.primary.bronze }} />
-              <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.bold }}>
-                Notre Sélection Exclusive
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: theme.spacing.sm, marginBottom: theme.spacing.md }}>
+                <Sparkles className="w-6 h-6" style={{ color: theme.colors.primary.bronze }} />
+                <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.bold }}>
+                  Notre Sélection Exclusive
+                </Text>
+              </div>
+              <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'center' }}>
+                {filteredChateaux.length} {filteredChateaux.length > 1 ? 'Châteaux' : 'Château'} d'Exception
               </Text>
-            </div>
-            <Text variant="h2">
-              4 Châteaux d'Exception
-            </Text>
+              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
+                Chaque domaine a été sélectionné pour son caractère unique et ses infrastructures d'exception
+              </Text>
+            </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-            {chateaux.map((chateau, index) => (
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            maxWidth: '100%',
+            margin: '0 auto',
+            overflowX: 'visible',
+            justifyContent: 'center',
+            padding: '2rem 1rem',
+            flexWrap: 'wrap',
+          }}>
+            {filteredChateaux.map((chateau, index) => (
               <motion.div
                 key={chateau.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                style={{
+                  flex: '0 0 auto',
+                  minWidth: 'clamp(320px, 35vw, 450px)',
+                  maxWidth: '450px',
+                }}
               >
                 <Card
                   image={chateau.images.card}
@@ -447,7 +367,8 @@ export default function ChateauxPage() {
                   features={chateau.atouts.slice(0, 3)}
                   href={`/chateaux/${chateau.slug}`}
                   variant="hover-overlay"
-                  imageHeight="400px"
+                  imageHeight="450px"
+                  ctaLabel="Découvrir ce château"
                   footer={
                     <div style={{ display: 'flex', gap: theme.spacing.lg, flexWrap: 'wrap', justifyContent: 'space-between' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
@@ -467,153 +388,151 @@ export default function ChateauxPage() {
         </Container>
       </Section>
 
-      {/* CTA */}
-      <section
-        style={{
-          background: `linear-gradient(135deg, ${theme.colors.primary.bronze} 0%, ${theme.colors.primary.bronzeDark} 100%)`,
-          padding: `${theme.spacing['4xl']} 0`,
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        <div className="absolute inset-0 opacity-10">
-          <div style={{
-            backgroundImage: `radial-gradient(circle, ${theme.colors.neutral.white} 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-            width: "100%",
-            height: "100%",
-          }} />
-        </div>
+      {/* Comment ça marche - Version simplifiée */}
+      <Section background="gray" style={{ padding: '60px 0' }}>
         <Container size="lg">
-          <div className="section-header" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
-            <Sparkles className="w-12 h-12" style={{ color: theme.colors.neutral.white, marginBottom: theme.spacing.lg, marginLeft: 'auto', marginRight: 'auto' }} />
-            <Text
-              variant="h2"
-              style={{
-                color: theme.colors.neutral.white,
-                marginBottom: theme.spacing.md,
-              }}
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
-              Prêt à Organiser Votre Événement ?
-            </Text>
-            <Text
-              variant="bodyLarge"
-              style={{
-                color: theme.colors.neutral.white,
-                maxWidth: '700px',
-                margin: `0 auto ${theme.spacing.xl}`,
-                opacity: 0.9,
-              }}
-            >
-              Nos experts vous accompagnent gratuitement dans le choix du château idéal.
-              Réponse sous 2h et devis personnalisé sous 24h.
-            </Text>
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+                Comment ça marche
+              </Text>
+              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
+                Un processus simple en 3 étapes
+              </Text>
+            </motion.div>
+          </div>
 
-            <div style={{ display: 'flex', gap: theme.spacing.md, marginBottom: theme.spacing.xl, flexWrap: 'wrap', justifyContent: 'center' }}>
-              {[
-                { icon: <Phone />, text: "Réponse sous 2h" },
-                { icon: <Calendar />, text: "Visite préalable gratuite" },
-                { icon: <Shield />, text: "Garantie satisfaction" },
-              ].map((item, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                step: '1',
+                title: 'Demande de Devis',
+                description: 'Formulaire rapide pour nous partager vos besoins',
+                icon: Calendar
+              },
+              {
+                step: '2',
+                title: 'Sélection sur-mesure',
+                description: 'Nous vous proposons les châteaux adaptés',
+                icon: Award
+              },
+              {
+                step: '3',
+                title: 'Organisation',
+                description: 'Nous gérons tout de A à Z pour vous',
+                icon: CheckCircle
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
                 <div
-                  key={index}
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: theme.spacing.sm,
-                    padding: theme.spacing.lg,
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    borderRadius: theme.effects.borderRadius.full,
-                    color: theme.colors.neutral.white,
+                    padding: theme.spacing.xl,
+                    background: 'white',
+                    borderRadius: theme.effects.borderRadius.xl,
+                    border: `1px solid ${theme.colors.neutral.gray200}`,
+                    textAlign: 'center',
+                    height: '100%',
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
+                    transition: 'all 0.3s ease',
                   }}
+                  className="hover:shadow-lg"
                 >
-                  <div style={{ width: '16px', height: '16px' }}>
-                    {item.icon}
+                  <div
+                    style={{
+                      width: '64px',
+                      height: '64px',
+                      margin: '0 auto',
+                      marginBottom: theme.spacing.lg,
+                      borderRadius: theme.effects.borderRadius.full,
+                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      border: `2px solid ${theme.colors.primary.bronze}30`,
+                    }}
+                  >
+                    <item.icon className="w-8 h-8" style={{ color: theme.colors.primary.bronze }} />
                   </div>
-                  <Text variant="caption" style={{ color: theme.colors.neutral.white, fontWeight: theme.typography.fontWeight.medium }}>
-                    {item.text}
+
+                  <div
+                    style={{
+                      fontSize: theme.typography.fontSize.sm,
+                      fontWeight: theme.typography.fontWeight.bold,
+                      color: theme.colors.primary.bronze,
+                      letterSpacing: theme.typography.letterSpacing.wider,
+                      marginBottom: theme.spacing.sm,
+                    }}
+                  >
+                    ÉTAPE {item.step}
+                  </div>
+
+                  <Text variant="h4" style={{ marginBottom: theme.spacing.sm }}>
+                    {item.title}
+                  </Text>
+
+                  <Text variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed }}>
+                    {item.description}
                   </Text>
                 </div>
-              ))}
-            </div>
-
-            <div style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Button variant="secondary" size="lg">
-                Obtenir Mon Devis Gratuit
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                style={{
-                  borderColor: 'rgba(255, 255, 255, 0.5)',
-                  color: theme.colors.neutral.white,
-                }}
-              >
-                Appeler un Expert
-              </Button>
-            </div>
-
-            <Text
-              variant="caption"
-              style={{
-                color: theme.colors.neutral.white,
-                marginTop: theme.spacing.lg,
-                opacity: 0.7,
-              }}
-            >
-              ⚡ Places limitées : Réservez dès maintenant pour garantir vos dates
-            </Text>
+              </motion.div>
+            ))}
           </div>
         </Container>
-      </section>
+      </Section>
 
-      {/* Footer */}
-      <Footer
-        logo={
-          <Text
-            variant="h5"
-            style={{
-              fontFamily: theme.typography.fonts.heading,
-              fontStyle: 'italic',
-              color: theme.colors.primary.bronze,
-            }}
-          >
-            SelectChâteaux
-          </Text>
-        }
-        description="L'excellence événementielle dans des châteaux d'exception à travers la France."
-        sections={footerSections}
-        contact={{
-          address: '60 Rue François 1er, 75008 Paris, France',
-          phone: '07 57 99 11 46',
-          email: 'seminaires@selectchateaux.com',
-        }}
-        social={{
-          linkedin: 'https://linkedin.com/company/select-chateaux',
-        }}
-        legalLinks={[
-          { label: 'Mentions Légales', href: '/mentions-legales' },
-          { label: 'Confidentialité', href: '/confidentialite' },
-          { label: 'CGV', href: '/cgv' },
-        ]}
-      />
+      {/* CTA finale */}
+      <Section background="gradient" style={{ padding: '60px 0' }}>
+        <Container size="lg">
+          <div className="section-header" style={{ textAlign: 'center' }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'center' }}>
+                Prêt à organiser votre événement d'exception ?
+              </Text>
+              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.xl, textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
+                Nos experts vous accompagnent dans le choix du château idéal. Devis gratuit sous 24h.
+              </Text>
+            </motion.div>
 
-      <style jsx global>{`
-        .section-header {
-          text-align: center !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: center !important;
-          justify-content: center !important;
-        }
-        .section-header * {
-          text-align: center !important;
-        }
-      `}</style>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', marginTop: theme.spacing.xl }}
+            >
+              <Link href="/devis">
+                <Button variant="primary" size="lg">
+                  Demander un Devis Gratuit
+                </Button>
+              </Link>
+              <a href="tel:+33757991146">
+                <Button variant="outline" size="lg">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Phone className="w-5 h-5" />
+                    <span>07 57 99 11 46</span>
+                  </div>
+                </Button>
+              </a>
+            </motion.div>
+          </div>
+        </Container>
+      </Section>
     </>
   );
 }

@@ -201,50 +201,59 @@ export function CookieConsent({
 
   // VARIANT MINI - Version minimale inline pour notifications subtiles
   if (variant === "mini") {
-    const cookieText = isMobile
-      ? "Nous utilisons des cookies pour améliorer votre expérience."
-      : "Nous utilisons des cookies pour améliorer votre expérience et mesurer l'efficacité de nos campagnes.";
+    const cookieText = "Nous utilisons des cookies pour améliorer votre expérience et mesurer l'efficacité de nos campagnes.";
 
     return (
       <div
-        className={`${containerClasses} left-0 right-0 sm:left-4 w-full sm:max-w-3xl`}
+        className={containerClasses}
         style={{
-          bottom: isMobile ? '8px' : '16px'
+          bottom: '16px',
+          left: '50%',
+          transform: !isOpen ? 'translateX(-50%) translateY(100%)' : 'translateX(-50%) translateY(0)',
+          width: 'auto',
         }}
       >
         <div
           style={{
-            margin: isMobile ? '0 12px' : '0 12px',
-            padding: isMobile ? '10px 14px' : '12px 16px',
+            padding: '8px 12px',
             background: 'rgba(255, 255, 255, 0.98)',
             backdropFilter: 'blur(12px)',
-            borderRadius: isMobile ? '12px' : '16px',
+            borderRadius: '10px',
             border: '1px solid rgba(163, 126, 44, 0.1)',
             boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.15)',
+            width: 'max-content',
+            maxWidth: 'calc(100vw - 24px)',
+            display: 'flex',
+            alignItems: 'center',
           }}
         >
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+          <div className="flex flex-row items-center gap-3">
             <p
               style={{
-                fontSize: isMobile ? '11px' : '13px',
-                lineHeight: isMobile ? '1.4' : '1.5',
+                fontSize: '11px',
+                lineHeight: '1',
                 color: '#374151',
-                flex: 1,
-                textAlign: isMobile ? 'center' : 'left',
+                whiteSpace: 'nowrap',
+                margin: 0,
+                padding: 0,
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
               {cookieText}
             </p>
-            <div className="flex items-center gap-2 flex-shrink-0" style={{ width: isMobile ? '100%' : 'auto' }}>
+            <div className="flex items-center gap-2 flex-shrink-0">
               <Button
                 onClick={handleDecline}
                 variant="secondary"
                 size="sm"
                 style={{
-                  fontSize: '11px',
-                  height: isMobile ? '32px' : '36px',
-                  padding: '0 12px',
-                  flex: isMobile ? 1 : 'none',
+                  fontSize: '10px',
+                  height: '28px',
+                  padding: '0 10px',
+                  whiteSpace: 'nowrap',
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
               >
                 Refuser
@@ -254,10 +263,12 @@ export function CookieConsent({
                 variant="primary"
                 size="sm"
                 style={{
-                  fontSize: '11px',
-                  height: isMobile ? '32px' : '36px',
-                  padding: '0 12px',
-                  flex: isMobile ? 1 : 'none',
+                  fontSize: '10px',
+                  height: '28px',
+                  padding: '0 10px',
+                  whiteSpace: 'nowrap',
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
               >
                 Accepter

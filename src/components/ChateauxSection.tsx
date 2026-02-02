@@ -71,11 +71,12 @@ export function ChateauxSection() {
           </p>
         </motion.div>
 
-        {/* Grille de cartes châteaux */}
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto w-full px-4 sm:px-8 md:px-12 lg:px-16" style={{ gap: '24px' }}>
+        {/* Grille de cartes châteaux - LuxuryHotel pattern */}
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16">
+          <div className="row" style={{ rowGap: '24px' }}>
           {chateaux.map((chateau, index) => (
+            <div key={chateau.id} className="col-lg-6 col-md-6 mb-4">
             <motion.div
-              key={chateau.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -269,7 +270,9 @@ export function ChateauxSection() {
                 </div>
               </Card>
             </motion.div>
+            </div>
           ))}
+          </div>
         </div>
 
         {/* CTA global */}

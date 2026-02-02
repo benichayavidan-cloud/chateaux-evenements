@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { NavigationLuxe } from "@/components/NavigationLuxe";
 import { theme } from "@/config/theme";
 
 interface LegalPageLayoutProps {
@@ -11,7 +10,6 @@ interface LegalPageLayoutProps {
 export function LegalPageLayout({ title, subtitle, children }: LegalPageLayoutProps) {
   return (
     <>
-      <NavigationLuxe />
       <main className="min-h-screen bg-white pt-20">
         <div className="mx-auto py-8 md:py-12 px-4" style={{ maxWidth: '1200px' }}>
           {/* En-tête - Centré sur toute la largeur de la page */}

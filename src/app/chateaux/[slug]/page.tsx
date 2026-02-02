@@ -8,12 +8,13 @@
 import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { MapPin, Users, Check, Sparkles, Calendar, Award, Bed, Building2, Plus, Minus, HelpCircle } from "lucide-react";
+import { MapPin, Users, Check, Sparkles, Calendar, Award, Bed, Building2, Plus, Minus, HelpCircle, Home } from "lucide-react";
 import { chateaux as chateauxData } from "@/data/chateaux";
-import { Navigation, Footer } from '@/components/sections-v2';
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Badge, Button } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
+import { StructuredData } from '@/components/StructuredData';
+import { generatePlaceSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/utils/seo/structured-data';
 import { useState } from "react";
 
 // Navigation & Footer
@@ -50,6 +51,8 @@ export default function ChateauPage() {
   const params = useParams();
   const slug = params.slug as string;
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<'overview' | 'accommodation' | 'spaces'>('overview');
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const chateau = chateauxData.find(c => c.slug === slug);
 
@@ -85,9 +88,23 @@ export default function ChateauPage() {
     return mapping[chateauId] ?? 1;
   };
 
+  // Structured Data amélioré pour SEO 2026
+  const structuredData = [
+    generatePlaceSchema(chateau),
+    generateFAQSchema(chateau.faq),
+    generateBreadcrumbSchema([
+      { name: "Accueil", url: "/" },
+      { name: "Nos Châteaux", url: "/chateaux" },
+      { name: chateau.nom, url: `/chateaux/${chateau.slug}` },
+    ]),
+  ];
+
   return (
     <>
-      {/* Schema JSON-LD pour SEO */}
+      {/* Structured Data - Schema.org */}
+      <StructuredData data={structuredData} />
+
+      {/* Legacy schema - À supprimer après vérification */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -138,29 +155,6 @@ export default function ChateauPage() {
         }}
       />
 
-      {/* Navigation */}
-      <Navigation
-        logo={
-          <Text
-            variant="h4"
-            style={{
-              fontFamily: theme.typography.fonts.heading,
-              fontStyle: 'italic',
-              color: theme.colors.primary.bronze,
-            }}
-          >
-            SelectChâteaux
-          </Text>
-        }
-        links={navLinks}
-        cta={{
-          label: 'Devis Gratuit',
-          href: '/devis',
-        }}
-        sticky
-        transparent
-      />
-
       {/* Hero Section */}
       <div style={{ height: '75vh', minHeight: '600px' }} className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -189,23 +183,32 @@ export default function ChateauPage() {
               transition={{ delay: 1, duration: 0.8 }}
               className="flex justify-center md:justify-start w-full"
             >
-              <Badge variant="glass" size="md">
-                <div
-                  className="w-1.5 h-1.5 rounded-full animate-pulse"
+              <Badge
+                variant="glass"
+                size="lg"
+                leftIcon={
+                  <div
+                    className="w-1.5 h-1.5 rounded-full animate-pulse"
+                    style={{
+                      background: theme.colors.primary.gold,
+                      filter: "drop-shadow(0 0 4px rgba(212, 175, 55, 0.8))",
+                    }}
+                  />
+                }
+                style={{
+                  paddingLeft: 'clamp(1.25rem, 3vw, 1.5rem)',
+                  paddingRight: 'clamp(1.25rem, 3vw, 1.5rem)',
+                }}
+              >
+                <span
+                  className="font-semibold"
                   style={{
-                    background: theme.colors.primary.bronze,
-                    filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
-                  }}
-                />
-                <div
-                  className="font-medium"
-                  style={{
-                    fontSize: 'clamp(0.75rem, 2vw, 0.8125rem)',
-                    color: theme.colors.neutral.gray300,
+                    fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)',
+                    color: theme.colors.primary.gold,
                   }}
                 >
                   {chateau.region}
-                </div>
+                </span>
               </Badge>
             </motion.div>
 
@@ -383,239 +386,358 @@ export default function ChateauPage() {
         </div>
       </div>
 
-      {/* À propos - CENTRÉ */}
-      <Section spacing="lg" background="white">
+      {/* Section Onglets */}
+      <Section spacing="lg" background="white" style={{ padding: '30px 0' }}>
         <Container size="lg">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['2xl'] }}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+          {/* Boutons d'onglets */}
+          <div style={{
+            display: 'flex',
+            gap: theme.spacing.md,
+            justifyContent: 'center',
+            marginBottom: theme.spacing.xl,
+            borderBottom: `1px solid ${theme.colors.neutral.gray200}`
+          }}>
+            <button
+              onClick={() => setActiveTab('overview')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: theme.spacing.sm,
+                padding: `${theme.spacing.md} ${theme.spacing.lg}`,
+                background: 'transparent',
+                border: 'none',
+                borderBottom: activeTab === 'overview' ? `3px solid ${theme.colors.primary.bronze}` : '3px solid transparent',
+                color: activeTab === 'overview' ? theme.colors.primary.bronze : theme.colors.neutral.gray500,
+                fontWeight: theme.typography.fontWeight.semibold,
+                fontSize: theme.typography.fontSize.base,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                marginBottom: '-1px'
+              }}
             >
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: theme.spacing.sm, marginBottom: theme.spacing.lg }}>
-                <Sparkles className="w-6 h-6" style={{ color: theme.colors.primary.bronze }} />
-                <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.bold }}>
-                  À propos
-                </Text>
-              </div>
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
-                Une expérience d'exception
-              </Text>
-            </motion.div>
+              <Home className="w-5 h-5" />
+              <span>Vue d'ensemble</span>
+            </button>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
+            <button
+              onClick={() => setActiveTab('accommodation')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: theme.spacing.sm,
+                padding: `${theme.spacing.md} ${theme.spacing.lg}`,
+                background: 'transparent',
+                border: 'none',
+                borderBottom: activeTab === 'accommodation' ? `3px solid ${theme.colors.primary.bronze}` : '3px solid transparent',
+                color: activeTab === 'accommodation' ? theme.colors.primary.bronze : theme.colors.neutral.gray500,
+                fontWeight: theme.typography.fontWeight.semibold,
+                fontSize: theme.typography.fontSize.base,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                marginBottom: '-1px'
+              }}
             >
-              <Text variant="bodyLarge" color="muted" style={{ maxWidth: '800px', margin: '0 auto', lineHeight: theme.typography.lineHeight.relaxed }}>
-                {chateau.descriptionLongue}
-              </Text>
-            </motion.div>
+              <Bed className="w-5 h-5" />
+              <span>Hébergement</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('spaces')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: theme.spacing.sm,
+                padding: `${theme.spacing.md} ${theme.spacing.lg}`,
+                background: 'transparent',
+                border: 'none',
+                borderBottom: activeTab === 'spaces' ? `3px solid ${theme.colors.primary.bronze}` : '3px solid transparent',
+                color: activeTab === 'spaces' ? theme.colors.primary.bronze : theme.colors.neutral.gray500,
+                fontWeight: theme.typography.fontWeight.semibold,
+                fontSize: theme.typography.fontSize.base,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                marginBottom: '-1px'
+              }}
+            >
+              <Building2 className="w-5 h-5" />
+              <span>Espaces</span>
+            </button>
           </div>
-        </Container>
-      </Section>
 
-      {/* Section Hébergement - Zig-Zag */}
-      <Section spacing="xl" background="white">
-        <Container size="lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="order-2 lg:order-1"
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.md, marginBottom: theme.spacing.lg }}>
-                <Bed className="w-7 h-7" style={{ color: theme.colors.primary.bronze }} />
-                <Text variant="h3" style={{ fontFamily: theme.typography.fonts.heading, fontStyle: "italic" }}>
-                  Hébergement
-                </Text>
-              </div>
-              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.lg, lineHeight: 1.8 }}>
-                {chateau.bedroomText}
-              </Text>
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: theme.spacing.sm,
-                  padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
-                  background: `${theme.colors.primary.bronze}10`,
-                  borderRadius: theme.effects.borderRadius.full,
-                  border: `2px solid ${theme.colors.primary.bronze}40`,
-                }}
+          {/* Contenu des onglets */}
+          <AnimatePresence mode="wait">
+            {activeTab === 'overview' && (
+              <motion.div
+                key="overview"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                style={{ textAlign: 'center' }}
               >
-                <Check className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
-                <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
-                  {chateau.roomsTotal} Chambres disponibles
-                </Text>
-              </div>
-            </motion.div>
+                <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+                  <Sparkles className="w-8 h-8" style={{ color: theme.colors.primary.bronze, marginLeft: 'auto', marginRight: 'auto', marginTop: 0, marginBottom: theme.spacing.md }} />
+                  <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'center' }}>
+                    Une expérience d'exception
+                  </Text>
+                  <Text variant="bodyLarge" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed, textAlign: 'center' }}>
+                    {chateau.descriptionLongue}
+                  </Text>
+                </div>
+              </motion.div>
+            )}
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="order-1 lg:order-2"
-            >
-              <div
-                style={{
-                  position: 'relative',
-                  height: 'clamp(20rem, 50vw, 28rem)',
-                  borderRadius: theme.effects.borderRadius.lg,
-                  overflow: 'hidden',
-                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
-                }}
+            {activeTab === 'accommodation' && (
+              <motion.div
+                key="accommodation"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                style={{ textAlign: 'center' }}
               >
-                <Image
-                  src={chateau.images.galerie[getBedroomImageIndex(chateau.id)] || chateau.images.hero[2]}
-                  alt={`Chambres et hébergement du ${chateau.nom} - Séminaire résidentiel en ${chateau.region}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  loading="lazy"
-                  quality={80}
-                />
-              </div>
-            </motion.div>
-          </div>
-        </Container>
-      </Section>
+                <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                  <Bed className="w-8 h-8" style={{ color: theme.colors.primary.bronze, marginLeft: 'auto', marginRight: 'auto', marginTop: 0, marginBottom: theme.spacing.md }} />
+                  <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'center' }}>
+                    Hébergement
+                  </Text>
+                  <div
+                    style={{
+                      position: 'relative',
+                      height: 'clamp(20rem, 50vw, 28rem)',
+                      borderRadius: theme.effects.borderRadius.lg,
+                      overflow: 'hidden',
+                      boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                      marginBottom: theme.spacing.xl
+                    }}
+                  >
+                    <Image
+                      src={chateau.images.galerie[getBedroomImageIndex(chateau.id)] || chateau.images.hero[2]}
+                      alt={`Chambres et hébergement du ${chateau.nom} - Séminaire résidentiel en ${chateau.region}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 900px"
+                      className="object-cover"
+                      loading="lazy"
+                      quality={80}
+                    />
+                  </div>
+                  <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.lg, lineHeight: 1.8, textAlign: 'center' }}>
+                    {chateau.bedroomText}
+                  </Text>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: theme.spacing.sm,
+                      padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
+                      background: `${theme.colors.primary.bronze}10`,
+                      borderRadius: theme.effects.borderRadius.full,
+                      border: `2px solid ${theme.colors.primary.bronze}40`,
+                    }}
+                  >
+                    <Check className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
+                    <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
+                      {chateau.roomsTotal} Chambres disponibles
+                    </Text>
+                  </div>
+                </div>
+              </motion.div>
+            )}
 
-      {/* Section Salles de Réunion - Zig-Zag inverse */}
-      <Section spacing="xl" background="gradient">
-        <Container size="lg">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="order-1"
-            >
-              <div
-                style={{
-                  position: 'relative',
-                  height: 'clamp(20rem, 50vw, 28rem)',
-                  borderRadius: theme.effects.borderRadius.lg,
-                  overflow: 'hidden',
-                  boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
-                }}
+            {activeTab === 'spaces' && (
+              <motion.div
+                key="spaces"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                style={{ textAlign: 'center' }}
               >
-                <Image
-                  src={chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1]}
-                  alt={`Salles de réunion et espaces séminaire du ${chateau.nom} - Équipement professionnel en ${chateau.region}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  loading="lazy"
-                  quality={80}
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="order-2"
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.md, marginBottom: theme.spacing.lg }}>
-                <Building2 className="w-7 h-7" style={{ color: theme.colors.primary.bronze }} />
-                <Text variant="h3" style={{ fontFamily: theme.typography.fonts.heading, fontStyle: "italic" }}>
-                  Salles de Réunion
-                </Text>
-              </div>
-              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.lg, lineHeight: 1.8 }}>
-                {chateau.meetingText}
-              </Text>
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: theme.spacing.sm,
-                  padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
-                  background: `${theme.colors.primary.bronze}10`,
-                  borderRadius: theme.effects.borderRadius.full,
-                  border: `2px solid ${theme.colors.primary.bronze}40`,
-                }}
-              >
-                <Check className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
-                <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
-                  Équipements audiovisuels complets
-                </Text>
-              </div>
-            </motion.div>
-          </div>
+                <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+                  <Building2 className="w-8 h-8" style={{ color: theme.colors.primary.bronze, marginLeft: 'auto', marginRight: 'auto', marginTop: 0, marginBottom: theme.spacing.md }} />
+                  <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'center' }}>
+                    Espaces de Réunion
+                  </Text>
+                  <div
+                    style={{
+                      position: 'relative',
+                      height: 'clamp(20rem, 50vw, 28rem)',
+                      borderRadius: theme.effects.borderRadius.lg,
+                      overflow: 'hidden',
+                      boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                      marginBottom: theme.spacing.xl
+                    }}
+                  >
+                    <Image
+                      src={chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1]}
+                      alt={`Salles de réunion et espaces séminaire du ${chateau.nom} - Équipement professionnel en ${chateau.region}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 900px"
+                      className="object-cover"
+                      loading="lazy"
+                      quality={80}
+                    />
+                  </div>
+                  <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.lg, lineHeight: 1.8, textAlign: 'center' }}>
+                    {chateau.meetingText}
+                  </Text>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: theme.spacing.sm,
+                      padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
+                      background: `${theme.colors.primary.bronze}10`,
+                      borderRadius: theme.effects.borderRadius.full,
+                      border: `2px solid ${theme.colors.primary.bronze}40`,
+                    }}
+                  >
+                    <Check className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
+                    <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
+                      Équipements audiovisuels complets
+                    </Text>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Container>
       </Section>
 
       {/* Points forts - Grid */}
-      <Section spacing="lg" background="white">
+      <Section background="gray" style={{ padding: '20px 0' }}>
         <Container size="xl">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
                 Points forts
               </Text>
-              <Text variant="bodyLarge" color="muted">
+              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
                 Ce qui rend ce lieu unique
               </Text>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
+          <div style={{
+            display: 'flex',
+            gap: 'clamp(1rem, 2vw, 2rem)',
+            maxWidth: '1400px',
+            margin: '0 auto',
+            overflowX: 'auto',
+            justifyContent: 'center',
+            padding: '3rem 0',
+            minHeight: '380px',
+          }}>
             {chateau.atouts.map((atout: string, index: number) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{
+                  opacity: 0,
+                  scale: 0.5,
+                  rotateY: -180,
+                  rotateZ: -10,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  rotateY: 0,
+                  rotateZ: 0,
+                }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.15,
+                  ease: [0.34, 1.56, 0.64, 1],
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 5,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
                 viewport={{ once: true }}
+                style={{
+                  perspective: '1000px',
+                  transformStyle: 'preserve-3d',
+                }}
               >
                 <div
                   style={{
-                    padding: theme.spacing.xl,
-                    background: theme.colors.neutral.white,
+                    padding: 'clamp(1.5rem, 3vw, 2rem)',
+                    background: `linear-gradient(135deg, ${theme.colors.neutral.white} 0%, rgba(163, 126, 44, 0.03) 100%)`,
                     borderRadius: theme.effects.borderRadius.xl,
-                    border: `1px solid ${theme.colors.neutral.gray200}`,
+                    border: `2px solid ${theme.colors.neutral.gray200}`,
                     textAlign: 'center',
                     height: '100%',
-                    minHeight: '160px',
+                    minHeight: '260px',
+                    minWidth: '250px',
+                    flex: '1 0 auto',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     gap: theme.spacing.lg,
+                    position: 'relative',
+                    overflow: 'hidden',
+                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
+                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                   }}
-                  className="hover:shadow-lg transition-shadow group"
+                  className="group"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.border = `2px solid ${theme.colors.primary.bronze}`;
+                    e.currentTarget.style.boxShadow = `0 20px 60px rgba(163, 126, 44, 0.25)`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.border = `2px solid ${theme.colors.neutral.gray200}`;
+                    e.currentTarget.style.boxShadow = '0 10px 40px rgba(0, 0, 0, 0.08)';
+                  }}
                 >
+                  {/* Gradient animé pendant l'animation d'entrée */}
+                  <motion.div
+                    initial={{ x: '-100%', opacity: 0.6 }}
+                    animate={{ x: '200%', opacity: 0 }}
+                    transition={{
+                      duration: 1.5,
+                      delay: index * 0.15,
+                      ease: "easeInOut",
+                    }}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: `linear-gradient(90deg,
+                        transparent 0%,
+                        rgba(163, 126, 44, 0.15) 30%,
+                        rgba(212, 175, 55, 0.25) 50%,
+                        rgba(163, 126, 44, 0.15) 70%,
+                        transparent 100%
+                      )`,
+                      pointerEvents: 'none',
+                      zIndex: 1,
+                    }}
+                  />
                   <div
                     style={{
-                      width: '48px',
-                      height: '48px',
+                      width: '56px',
+                      height: '56px',
                       borderRadius: theme.effects.borderRadius.full,
-                      background: `${theme.colors.primary.bronze}10`,
+                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
+                      position: 'relative',
+                      zIndex: 2,
                     }}
                     className="group-hover:scale-110 transition-transform"
                   >
                     <Check className="w-6 h-6" style={{ color: theme.colors.primary.bronze }} />
                   </div>
-                  <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium, lineHeight: theme.typography.lineHeight.relaxed }}>
+                  <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium, lineHeight: theme.typography.lineHeight.relaxed, textAlign: 'center', position: 'relative', zIndex: 2 }}>
                     {atout}
                   </Text>
                 </div>
@@ -625,42 +747,56 @@ export default function ChateauPage() {
         </Container>
       </Section>
 
-      {/* Galerie - Simple grid */}
-      <Section spacing="lg" background="gradient">
+      {/* Galerie - Ultra Modern */}
+      <Section background="gradient" style={{ padding: '30px 0' }}>
         <Container size="xl">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
                 Galerie
               </Text>
-              <Text variant="bodyLarge" color="muted">
+              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
                 Découvrez les espaces du château
               </Text>
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto"
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: 'clamp(1rem, 2vw, 1.5rem)',
+              maxWidth: '1400px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
           >
             {chateau.images.galerie.slice(0, 6).map((image, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.03, y: -8 }}
+                onClick={() => setLightboxImage(image)}
                 style={{
                   position: 'relative',
-                  height: '300px',
-                  borderRadius: theme.effects.borderRadius.lg,
+                  height: 'clamp(250px, 35vw, 350px)',
+                  borderRadius: theme.effects.borderRadius.xl,
                   overflow: 'hidden',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
                 }}
-                className="hover:scale-105 transition-transform"
               >
                 <Image
                   src={image}
@@ -669,18 +805,65 @@ export default function ChateauPage() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover"
                   loading="lazy"
-                  quality={80}
+                  quality={85}
+                  style={{
+                    transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
                 />
-              </div>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: `linear-gradient(135deg, ${theme.colors.primary.bronze}95, ${theme.colors.primary.bronzeDark}85)`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backdropFilter: 'blur(2px)',
+                  }}
+                >
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileHover={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      borderRadius: '50%',
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke={theme.colors.primary.bronze}
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                      <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </Container>
       </Section>
 
       {/* Section FAQ */}
-      <Section spacing="xl" background="white">
+      <Section background="gray" style={{ padding: '20px 0', background: '#f6f9fc' }}>
         <Container size="lg">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -705,7 +888,7 @@ export default function ChateauPage() {
                 </Text>
               </div>
 
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
                 Tout ce que vous devez savoir
               </Text>
 
@@ -715,7 +898,7 @@ export default function ChateauPage() {
                 <div style={{ width: '40px', height: '1px', background: `linear-gradient(to left, transparent, ${theme.colors.primary.bronze})` }} />
               </div>
 
-              <Text variant="body" color="muted" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              <Text variant="body" color="muted" style={{ maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto', marginTop: 0, marginBottom: 0, textAlign: 'center' }}>
                 Des réponses claires à vos questions essentielles sur ce lieu d'exception
               </Text>
             </motion.div>
@@ -862,7 +1045,7 @@ export default function ChateauPage() {
                                 borderTop: `1px solid ${theme.colors.primary.bronze}20`,
                               }}
                             >
-                              <Text variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed }}>
+                              <Text variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed, textAlign: 'center' }}>
                                 {item.answer}
                               </Text>
                             </div>
@@ -895,7 +1078,7 @@ export default function ChateauPage() {
                 borderRadius: theme.effects.borderRadius['2xl'],
               }}
             >
-              <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium }}>
+              <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium, textAlign: 'center' }}>
                 Une autre question ? Notre équipe est à votre écoute
               </Text>
               <Button variant="primary" size="md">
@@ -907,7 +1090,7 @@ export default function ChateauPage() {
       </Section>
 
       {/* CTA finale */}
-      <Section spacing="lg" background="gradient">
+      <Section background="gradient" style={{ padding: '30px 0' }}>
         <Container size="lg">
           <div className="section-header" style={{ textAlign: 'center' }}>
             <motion.div
@@ -916,11 +1099,8 @@ export default function ChateauPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
                 Prêt à organiser votre événement ?
-              </Text>
-              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.xl, maxWidth: '600px', margin: `0 auto ${theme.spacing.xl}` }}>
-                Contactez-nous pour recevoir une proposition personnalisée
               </Text>
             </motion.div>
 
@@ -942,51 +1122,80 @@ export default function ChateauPage() {
         </Container>
       </Section>
 
-      {/* Footer */}
-      <Footer
-        logo={
-          <Text
-            variant="h5"
+      {/* Lightbox pour la galerie */}
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setLightboxImage(null)}
             style={{
-              fontFamily: theme.typography.fonts.heading,
-              fontStyle: 'italic',
-              color: theme.colors.primary.bronze,
+              position: 'fixed',
+              inset: 0,
+              background: 'rgba(0, 0, 0, 0.95)',
+              zIndex: 9999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '2rem',
+              cursor: 'zoom-out',
             }}
           >
-            SelectChâteaux
-          </Text>
-        }
-        description="L'excellence événementielle dans des châteaux d'exception à travers la France."
-        sections={footerSections}
-        contact={{
-          address: '60 Rue François 1er, 75008 Paris, France',
-          phone: '07 57 99 11 46',
-          email: 'seminaires@selectchateaux.com',
-        }}
-        social={{
-          linkedin: 'https://linkedin.com/company/select-chateaux',
-        }}
-        legalLinks={[
-          { label: 'Mentions Légales', href: '/mentions-legales' },
-          { label: 'Confidentialité', href: '/confidentialite' },
-          { label: 'CGV', href: '/cgv' },
-        ]}
-      />
-
-      <style jsx global>{`
-        .section-header {
-          text-align: center !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          display: flex !important;
-          flex-direction: column !important;
-          align-items: center !important;
-          justify-content: center !important;
-        }
-        .section-header * {
-          text-align: center !important;
-        }
-      `}</style>
+            <button
+              onClick={() => setLightboxImage(null)}
+              style={{
+                position: 'absolute',
+                top: '1.5rem',
+                right: '1.5rem',
+                width: '48px',
+                height: '48px',
+                borderRadius: '50%',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                fontSize: '24px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s ease',
+                backdropFilter: 'blur(10px)',
+                zIndex: 10000,
+              }}
+              aria-label="Fermer"
+            >
+              ✕
+            </button>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                maxWidth: '1400px',
+                maxHeight: '90vh',
+                cursor: 'default',
+              }}
+            >
+              <Image
+                src={lightboxImage}
+                alt="Image agrandie"
+                fill
+                sizes="100vw"
+                className="object-contain"
+                quality={95}
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

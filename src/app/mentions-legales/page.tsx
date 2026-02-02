@@ -1,10 +1,4 @@
-import { Metadata } from "next";
 import { LegalPageLayout, LegalSection, LegalContent, LegalLink } from "@/components/legal";
-
-export const metadata: Metadata = {
-  title: "Mentions Légales | Select Châteaux",
-  description: "Mentions légales et informations sur l'éditeur du site Select Châteaux",
-};
 
 export default function MentionsLegalesPage() {
   return (

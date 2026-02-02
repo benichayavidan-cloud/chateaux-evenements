@@ -10,7 +10,6 @@ const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/chateaux", label: "Nos Châteaux" },
   { href: "/seminaires-soirees-entreprise", label: "Événements" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function Navigation() {
@@ -58,8 +57,13 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                style={{
+                  fontSize: "0.9375rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.01em",
+                }}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-[var(--gold)]",
+                  "transition-colors hover:text-[#D4AF37]",
                   isScrolled ? "text-[var(--text-primary)]" : "text-white"
                 )}
               >
@@ -72,7 +76,11 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/devis"
-              className="px-6 py-2 bg-[var(--gold)] text-white font-semibold rounded-full hover:bg-[var(--accent)] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              style={{
+                fontSize: "0.9375rem",
+                fontWeight: 600,
+              }}
+              className="px-6 py-2.5 bg-[#A37E2C] text-white rounded-full hover:bg-[#8B6A24] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               Obtenir un Devis
             </Link>
@@ -126,7 +134,7 @@ export function Navigation() {
               <Link
                 href="/devis"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-6 py-3 bg-[var(--gold)] text-white font-semibold rounded-full hover:bg-[var(--accent)] transition-colors text-center"
+                className="px-6 py-3 bg-[#A37E2C] text-white font-semibold rounded-full hover:bg-[#8B6A24] hover:text-white transition-colors text-center"
               >
                 Obtenir un Devis
               </Link>

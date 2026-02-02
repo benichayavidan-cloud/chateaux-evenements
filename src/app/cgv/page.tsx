@@ -1,10 +1,4 @@
-import { Metadata } from "next";
 import { LegalPageLayout, LegalSection, LegalContent, LegalList, LegalLink } from "@/components/legal";
-
-export const metadata: Metadata = {
-  title: "Conditions Générales de Vente | Select Châteaux",
-  description: "Conditions générales de vente et d'utilisation de Select Châteaux",
-};
 
 export default function CGVPage() {
   return (

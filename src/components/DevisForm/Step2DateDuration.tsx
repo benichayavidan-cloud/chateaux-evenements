@@ -83,7 +83,7 @@ export function Step2DateDuration({
           <Clock className="w-4 h-4 text-gray-800" />
           Durée de l'événement *
         </label>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
           {dureeOptions.map((option) => {
             const isSelected = selectedDuree === option.value;
             return (

@@ -11,15 +11,15 @@ export function ReviewsSection() {
   const [cardsPerView, setCardsPerView] = useState(3);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Responsive cards per view
+  // Responsive cards per view - Bootstrap breakpoints
   useEffect(() => {
     const updateCardsPerView = () => {
       if (window.innerWidth < 768) {
-        setCardsPerView(1); // Mobile
-      } else if (window.innerWidth < 1024) {
-        setCardsPerView(2); // Tablette
+        setCardsPerView(1); // Mobile (< md)
+      } else if (window.innerWidth < 992) {
+        setCardsPerView(2); // Tablette (md, < lg)
       } else {
-        setCardsPerView(3); // Desktop
+        setCardsPerView(3); // Desktop (>= lg)
       }
     };
 
@@ -52,8 +52,8 @@ export function ReviewsSection() {
   const visibleReviews = reviews.slice(currentIndex, currentIndex + cardsPerView);
 
   return (
-    <section className="px-6 bg-gradient-to-b from-white to-gray-50 flex items-center justify-center" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="flex items-center justify-center" style={{ padding: '20px 0', background: '#f6f9fc', marginTop: '30px' }}>
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
         {/* En-tête */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ export function ReviewsSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center"
-          style={{ marginBottom: '48px' }}
+          style={{ marginBottom: '24px' }}
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -73,11 +73,11 @@ export function ReviewsSection() {
             <span className="text-sm font-medium text-gray-600">Avis Google</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-light italic text-gray-900" style={{ marginBottom: '20px' }}>
+          <h2 className="text-4xl md:text-5xl font-light italic" style={{ marginBottom: '16px', color: '#111827' }}>
             Ce que disent nos clients
           </h2>
 
-          <div className="flex items-center justify-center gap-2" style={{ marginBottom: '12px' }}>
+          <div className="flex items-center justify-center gap-2" style={{ marginBottom: '8px' }}>
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => {
                 const rating = parseFloat(reviewsStats.averageRating);
@@ -93,10 +93,10 @@ export function ReviewsSection() {
                 );
               })}
             </div>
-            <span className="text-2xl font-semibold text-gray-900">{reviewsStats.averageRating}</span>
+            <span className="text-2xl font-semibold" style={{ color: '#111827' }}>{reviewsStats.averageRating}</span>
           </div>
 
-          <p className="text-gray-600">
+          <p style={{ color: '#6b7c93' }}>
             Basé sur {reviewsStats.total} avis vérifiés
           </p>
         </motion.div>
@@ -116,9 +116,10 @@ export function ReviewsSection() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.5 }}
-                className="grid gap-6"
                 style={{
-                  gridTemplateColumns: `repeat(${cardsPerView}, 1fr)`
+                  display: 'grid',
+                  gridTemplateColumns: cardsPerView === 1 ? '1fr' : cardsPerView === 2 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
+                  gap: '24px'
                 }}
               >
                 {visibleReviews.map((review, index) => (
@@ -131,7 +132,7 @@ export function ReviewsSection() {
                     style={{ padding: '20px 24px' }}
                   >
                     {/* SECTION 1: Header - Avatar + Nom */}
-                    <div className="flex items-center gap-3" style={{ marginBottom: '8px' }}>
+                    <div className="flex items-center gap-3" style={{ marginBottom: '2px' }}>
                       {/* Avatar */}
                       <div
                         className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm"
@@ -141,11 +142,11 @@ export function ReviewsSection() {
                       </div>
 
                       {/* Nom + poste/entreprise */}
-                      <div className="flex-1 min-w-0" style={{ minHeight: '40px' }}>
-                        <h3 className="font-semibold text-gray-900 text-sm" style={{ marginBottom: '4px' }}>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold" style={{ marginBottom: '4px', fontSize: '11px', color: '#111827' }}>
                           {review.author}
                         </h3>
-                        <p className="text-xs text-gray-600 line-clamp-1">
+                        <p className="text-xs line-clamp-1" style={{ color: '#4B5563' }}>
                           {review.role} • {review.company}
                         </p>
                       </div>
@@ -161,7 +162,7 @@ export function ReviewsSection() {
                     </div>
 
                     {/* SECTION 2: Rating - Étoiles + Date */}
-                    <div className="flex items-center gap-2" style={{ marginBottom: '16px', marginLeft: '52px' }}>
+                    <div className="flex items-center gap-2" style={{ marginBottom: '8px', marginLeft: '52px' }}>
                       <div className="flex gap-0.5">
                         {[...Array(5)].map((_, i) => (
                           <Star
@@ -179,14 +180,11 @@ export function ReviewsSection() {
 
                     {/* SECTION 3: Contenu - Texte de l'avis */}
                     <p
-                      className="text-gray-900 text-sm leading-relaxed line-clamp-4"
+                      className="leading-relaxed line-clamp-4"
                       style={{
-                        marginBottom: '20px',
-                        minHeight: '84px',
-                        display: '-webkit-box',
-                        WebkitLineClamp: 4,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden'
+                        marginBottom: '12px',
+                        fontSize: '14px',
+                        color: '#111827'
                       }}
                     >
                       {review.content}
@@ -210,18 +208,18 @@ export function ReviewsSection() {
         </div>
 
         {/* Indicateurs de pagination */}
-        <div className="flex justify-center items-center gap-1.5 overflow-x-auto" style={{ marginTop: '24px', maxWidth: '100%' }}>
+        <div className="flex justify-center items-center gap-1 overflow-x-auto" style={{ marginTop: '24px', maxWidth: '100%' }}>
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
               className="transition-all duration-300 flex-shrink-0"
               style={{
-                width: currentIndex === index ? '20px' : '4px',
-                height: '4px',
-                borderRadius: '2px',
+                width: currentIndex === index ? '16px' : '3px',
+                height: '3px',
+                borderRadius: '1.5px',
                 background: currentIndex === index ? '#A37E2C' : '#d1d5db',
-                opacity: currentIndex === index ? 1 : 0.6,
+                opacity: currentIndex === index ? 1 : 0.5,
               }}
               aria-label={`Aller au groupe d'avis ${index + 1}`}
             />
@@ -235,15 +233,15 @@ export function ReviewsSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
           className="text-center"
-          style={{ marginTop: '40px' }}
+          style={{ marginTop: '24px' }}
         >
-          <p className="text-gray-600" style={{ marginBottom: '20px' }}>
+          <p style={{ marginBottom: '20px', color: '#6b7c93' }}>
             Rejoignez les {reviewsStats.fiveStars}+ entreprises qui nous font confiance
           </p>
           <a
             href="/devis"
-            className="inline-flex items-center gap-2 bg-[#A37E2C] text-white rounded-full font-medium hover:bg-[#8B6A24] transition-colors duration-300"
-            style={{ padding: '16px 40px' }}
+            className="inline-flex items-center gap-2 bg-[#A37E2C] rounded-full font-medium hover:bg-[#8B6A24] transition-colors duration-300"
+            style={{ padding: '16px 40px', color: '#ffffff' }}
           >
             Demander un devis gratuit
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">

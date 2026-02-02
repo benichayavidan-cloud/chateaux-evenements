@@ -70,14 +70,6 @@ export function Footer() {
                   Demander un Devis
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-[var(--gold)] transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -88,9 +80,30 @@ export function Footer() {
               <li className="text-gray-300">Séminaires Résidentiels</li>
               <li className="text-gray-300">Journées d'Étude</li>
               <li className="text-gray-300">Soirées d'Entreprise</li>
-              <li className="text-gray-300">Team Building</li>
-              <li className="text-gray-300">Conventions</li>
-              <li className="text-gray-300">Événements Sur-Mesure</li>
+              <li>
+                <Link
+                  href="/seminaires-soirees-entreprise"
+                  className="text-gray-300 hover:text-[var(--gold)] transition-colors"
+                >
+                  Team Building
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/seminaires-soirees-entreprise"
+                  className="text-gray-300 hover:text-[var(--gold)] transition-colors"
+                >
+                  Conventions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/seminaires-soirees-entreprise"
+                  className="text-gray-300 hover:text-[var(--gold)] transition-colors"
+                >
+                  Événements Sur-Mesure
+                </Link>
+              </li>
             </ul>
           </div>
 

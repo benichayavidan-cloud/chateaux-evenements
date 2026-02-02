@@ -58,11 +58,11 @@ export function ArticleSidebar({ readingProgress }: ArticleSidebarProps) {
             Nos experts sont disponibles pour vous conseiller.
           </p>
           <Link
-            href="/contact"
+            href="/devis"
             className="w-full flex items-center justify-center gap-2 bg-white border-2 border-gray-200 hover:border-[#d4af37] text-gray-900 rounded-full font-medium transition-all duration-300"
             style={{ padding: '8px' }}
           >
-            <span>Nous Contacter</span>
+            <span>Demander un Devis</span>
           </Link>
         </div>
       </div>

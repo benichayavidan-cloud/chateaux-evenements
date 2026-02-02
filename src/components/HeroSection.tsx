@@ -123,61 +123,67 @@ export function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Contenu centré avec badge au-dessus */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center" style={{ padding: 'clamp(0.75rem, 4vw, 1.5rem)' }}>
+      {/* Contenu centré - Pattern LuxuryHotel col-lg-10 */}
+      <div className="absolute inset-0 flex items-center justify-center" style={{ padding: 'clamp(1rem, 4vw, 2rem)' }}>
+        <div className="w-full" style={{ maxWidth: '1200px' }}>
+          <div className="flex justify-center">
+            <div className="w-full" style={{ maxWidth: '83.333%' }}> {/* col-lg-10 = 83.333% */}
 
-        {/* Badge lieu au-dessus du conteneur */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="flex justify-center"
-          style={{ maxWidth: 'min(480px, 95vw)', width: '100%', marginBottom: 'clamp(0.75rem, 2vw, 1.25rem)' }}
-        >
-          <Badge variant="glass" size="md">
-            <div
-              className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{
-                background: colors.bronze,
-                filter: "drop-shadow(0 0 4px rgba(163, 126, 44, 0.8))",
-              }}
-            />
-            <div
-              className="font-medium"
-              style={{
-                fontSize: theme.typography.fontSize.xs,
-                color: theme.colors.neutral.gray300,
-              }}
-            >
-              {heroSlides[currentSlide].region}
-            </div>
-          </Badge>
-        </motion.div>
+              {/* Badge lieu au-dessus */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                className="flex justify-center"
+                style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}
+              >
+                <Badge
+                  variant="glass"
+                  size="lg"
+                  icon={
+                    <div
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
+                      style={{
+                        background: colors.gold,
+                        filter: "drop-shadow(0 0 4px rgba(212, 175, 55, 0.8))",
+                      }}
+                    />
+                  }
+                  style={{
+                    color: colors.gold,
+                    paddingLeft: 'clamp(1.25rem, 3vw, 1.5rem)',
+                    paddingRight: 'clamp(1.25rem, 3vw, 1.5rem)',
+                  }}
+                >
+                  <span className="font-semibold" style={{ fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)' }}>
+                    {heroSlides[currentSlide].region}
+                  </span>
+                </Badge>
+              </motion.div>
 
-        {/* Conteneur principal */}
-        <div
-          className="text-left rounded-2xl w-full"
-          style={{
-            maxWidth: 'min(480px, 95vw)',
-            background: 'rgba(255, 255, 255, 0.85)',
-            backdropFilter: 'blur(12px)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            padding: 'clamp(1rem, 3vw, 1.5rem)',
-          }}
-        >
-          {/* Titre principal */}
+              {/* Conteneur principal - LuxuryHotel style */}
+              <div
+                className="text-center rounded-2xl w-full"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(16px)',
+                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                  padding: 'clamp(1.5rem, 4vw, 2.5rem)',
+                }}
+              >
+          {/* Titre principal - LuxuryHotel typography scale */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
             style={{
-              fontSize: 'clamp(1.125rem, 4vw, 2.25rem)',
+              fontSize: 'clamp(2rem, 5vw, 3rem)',  // LuxuryHotel: 2.5rem → 3.5rem (adapté)
               fontWeight: theme.typography.fontWeight.light,
               fontStyle: 'italic',
               fontFamily: theme.typography.fonts.heading,
-              lineHeight: theme.typography.lineHeight.tight,
+              lineHeight: 1.2,  // LuxuryHotel standard
               color: theme.colors.text.primary,
-              marginBottom: 'clamp(0.5rem, 2vw, 1rem)',
+              marginBottom: 'clamp(1rem, 2vw, 1.5rem)',
             }}
           >
             Séminaires & Châteaux Privés :{" "}
@@ -186,28 +192,32 @@ export function HeroSection() {
             </span>
           </motion.h1>
 
-          {/* Sous-titre */}
+          {/* Sous-titre - LuxuryHotel style */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
             style={{
-              fontSize: theme.typography.fontSize.sm,
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)',  // LuxuryHotel: 1.1rem → 1.25rem
               color: theme.colors.text.secondary,
               fontWeight: theme.typography.fontWeight.normal,
-              lineHeight: theme.typography.lineHeight.relaxed,
-              marginBottom: spacing.xl,
+              lineHeight: 1.6,
+              marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
           >
             Accès confidentiel aux domaines les plus convoités pour vos CODIR. 4 Lieux d'Exception · Île-de-France · Oise.
           </motion.p>
 
-          {/* Trust Badges Luxe - Stats Section */}
+          {/* Trust Badges Luxe - Stats Section - LuxuryHotel pattern */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.3 }}
-            className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 justify-start"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 justify-center"
+            style={{ marginBottom: 'clamp(1rem, 2vw, 2rem)' }}
           >
             {/* Statistique 1 */}
             <StatBadge
@@ -232,24 +242,35 @@ export function HeroSection() {
           </motion.div>
 
         </div>
-      </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      {/* Navigation du slider - Indicateurs uniquement */}
+      {/* Navigation du slider - MICRO INDICATEURS */}
       <div className="absolute bottom-8 left-0 right-0 flex items-center justify-center z-10">
-        <div className="flex gap-1.5">
+        <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
           {heroSlides.map((_, index) => (
-            <button
+            <div
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className="transition-all duration-300"
               style={{
-                width: index === currentSlide ? '20px' : '4px',
-                height: '4px',
-                borderRadius: '2px',
-                backgroundColor: index === currentSlide ? colors.bronze : "rgba(255, 255, 255, 0.5)",
-                opacity: index === currentSlide ? 1 : 0.6,
+                width: index === currentSlide ? '16px' : '3px',
+                height: '3px',
+                minWidth: index === currentSlide ? '16px' : '3px',
+                minHeight: '3px',
+                maxWidth: index === currentSlide ? '16px' : '3px',
+                maxHeight: '3px',
+                borderRadius: '1.5px',
+                backgroundColor: index === currentSlide ? '#A37E2C' : 'rgba(255, 255, 255, 0.4)',
+                opacity: index === currentSlide ? 1 : 0.5,
+                transition: 'all 0.3s ease',
+                cursor: 'pointer',
+                flexShrink: 0,
               }}
+              role="button"
               aria-label={`Aller à l'image ${index + 1}`}
+              tabIndex={0}
             />
           ))}
         </div>

@@ -57,7 +57,7 @@ export function Step1EventType({
         Quel type d'événement souhaitez-vous organiser ?
       </h3>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {eventTypes.map((type) => {
           const Icon = type.icon;
           const isSelected = selectedType === type.id;
@@ -74,9 +74,9 @@ export function Step1EventType({
                   }
                 }, 500);
               }}
-              style={{ padding: "clamp(1.5rem, 4vw, 2rem)" }}
+              style={{ padding: "clamp(1.5rem, 4vw, 2rem)", minHeight: "120px" }}
               className={`
-                rounded-2xl border-2 transition-all duration-300 text-left
+                rounded-2xl border-2 transition-all duration-300 text-left flex flex-col justify-center
                 ${
                   isSelected
                     ? "border-[#a37e2c] bg-[#a37e2c]/5"

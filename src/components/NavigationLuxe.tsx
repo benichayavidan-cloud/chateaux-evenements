@@ -17,7 +17,6 @@ const navLinks = [
   { href: "/chateaux", label: "Châteaux", hasSubmenu: true },
   { href: "/seminaires-soirees-entreprise", label: "Événements" },
   { href: "/team-building", label: "Team Building" },
-  { href: "/contact", label: "Contact" },
 ];
 
 type Chateau = {
@@ -83,8 +82,8 @@ export function NavigationLuxe() {
         backdropFilter: `blur(${theme.effects.blur.sm})`
       }}
     >
-      {/* Container avec grille responsive */}
-      <div className="w-full px-4 sm:px-8 md:px-40 lg:px-48">
+      {/* Container responsive - Pattern LuxuryHotel */}
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
         <div className="w-full flex md:grid md:grid-cols-3 items-center justify-between md:gap-0" style={{ height: '5rem', overflow: 'visible' }}>
 
           {/* Colonne 1 : Logo */}
@@ -546,7 +545,7 @@ export function NavigationLuxe() {
                             key={chateau.slug}
                             href={`/chateaux/${chateau.slug}`}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="hover:text-[var(--bronze-antique)] hover:bg-gray-50 font-medium"
+                            className="hover:text-[var(--bronze-antique)] hover:bg-[#f6f9fc] font-medium"
                             style={{
                               fontSize: theme.typography.fontSize.sm,
                               color: theme.colors.neutral.gray600,

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: "Nos 4 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92",
@@ -247,7 +248,9 @@ export default function ChateauxLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      {children}
+      <Suspense fallback={null}>
+        {children}
+      </Suspense>
     </>
   );
 }

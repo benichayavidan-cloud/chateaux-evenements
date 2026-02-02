@@ -1,14 +1,4 @@
-import { Metadata } from "next";
 import { LegalPageLayout, LegalSection, LegalContent, LegalLink } from "@/components/legal";
-
-export const metadata: Metadata = {
-  title: "Politique de Confidentialité | Select Châteaux",
-  description: "Politique de confidentialité et protection des données personnelles - RGPD",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
 
 export default function ConfidentialitePage() {
   return (

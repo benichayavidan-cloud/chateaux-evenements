@@ -33,7 +33,7 @@ export function Step3ChateauSelection({
         Vous pouvez sélectionner plusieurs châteaux pour comparer les offres
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {chateaux.map((chateau) => {
           const isSelected = selectedChateauIds?.includes(chateau.id);
           return (
@@ -52,6 +52,7 @@ export function Step3ChateauSelection({
                   setValue("chateauIds", [...currentIds, chateau.id], { shouldValidate });
                 }
               }}
+              style={{ minHeight: "180px" }}
               className={`
                 text-left rounded-2xl border-2 transition-all duration-300 bg-white overflow-hidden relative
                 ${
@@ -62,11 +63,11 @@ export function Step3ChateauSelection({
               `}
             >
               {isSelected && (
-                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#a37e2c] flex items-center justify-center z-10">
-                  <Check className="w-5 h-5 text-white" />
+                <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-[#a37e2c] flex items-center justify-center z-10">
+                  <Check className="w-4 h-4 text-white" />
                 </div>
               )}
-              <div className="relative h-40">
+              <div className="relative h-28">
                 <Image
                   src={chateau.images.card}
                   alt={chateau.nom}
@@ -74,9 +75,9 @@ export function Step3ChateauSelection({
                   className="object-cover"
                 />
               </div>
-              <div style={{ padding: "clamp(1rem, 2.5vw, 1.5rem)" }}>
-                <h4 className="font-bold mb-1 text-gray-800">{chateau.nom}</h4>
-                <p className="text-sm text-gray-600">
+              <div style={{ padding: "0.75rem" }}>
+                <h4 className="font-semibold mb-1 text-gray-800 text-sm">{chateau.nom}</h4>
+                <p className="text-xs text-gray-600">
                   {chateau.region} • {chateau.capacite.min}-{chateau.capacite.max} pers.
                 </p>
               </div>
@@ -108,18 +109,18 @@ export function Step3ChateauSelection({
                 : "border-gray-300 bg-white hover:border-[#a37e2c]/50"
             }
           `}
-          style={{ padding: "clamp(1.5rem, 3.5vw, 2rem)" }}
+          style={{ padding: "1rem" }}
         >
           {selectedChateauIds?.includes("conseil") && (
-            <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#a37e2c] flex items-center justify-center">
-              <Check className="w-5 h-5 text-white" />
+            <div className="absolute top-2 right-2 w-6 h-6 rounded-full bg-[#a37e2c] flex items-center justify-center">
+              <Check className="w-4 h-4 text-white" />
             </div>
           )}
-          <Building className="w-12 h-12 text-[#a37e2c] mb-3" />
-          <div className="font-semibold mb-2 text-gray-800">
+          <Building className="w-8 h-8 text-[#a37e2c] mb-2" />
+          <div className="font-semibold mb-1 text-gray-800 text-sm">
             Laissez-nous vous conseiller
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-xs text-gray-600">
             Nos experts choisiront le château idéal pour votre événement
           </p>
         </button>

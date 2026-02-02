@@ -27,11 +27,13 @@ export function FooterLuxe() {
         background: `linear-gradient(to right, transparent, ${colors.bronze}, transparent)`
       }} />
 
-      <div className="w-full px-4 sm:px-6 md:px-40 lg:px-48">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-8 md:gap-10 lg:gap-14" style={{
-          marginBottom: 'clamp(2rem, 5vw, 2.5rem)'
+      <div className="w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
+        <div className="row" style={{
+          marginBottom: 'clamp(2rem, 5vw, 2.5rem)',
+          rowGap: 'clamp(2rem, 4vw, 3rem)'
         }}>
           {/* Colonne 1 - À propos */}
+          <div className="col-lg-3 col-md-6 mb-4">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <div style={{ marginBottom: spacing.lg, display: 'block', width: '100%' }}>
               <img
@@ -75,8 +77,10 @@ export function FooterLuxe() {
               </a>
             </div>
           </div>
+          </div>
 
           {/* Colonne 2 - Navigation */}
+          <div className="col-lg-3 col-md-6 mb-4">
           <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
@@ -93,7 +97,6 @@ export function FooterLuxe() {
                 { label: "Nos Châteaux", href: "/chateaux" },
                 { label: "Événements", href: "/seminaires-soirees-entreprise" },
                 { label: "Demander un Devis", href: "/devis" },
-                { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -111,8 +114,10 @@ export function FooterLuxe() {
               ))}
             </ul>
           </div>
+          </div>
 
           {/* Colonne 3 - Services */}
+          <div className="col-lg-3 col-md-6 mb-4">
           <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
@@ -132,13 +137,48 @@ export function FooterLuxe() {
               <li>Séminaires Résidentiels</li>
               <li>Journées d'Étude</li>
               <li>Soirées d'Entreprise</li>
-              <li>Team Building</li>
-              <li>Conventions</li>
-              <li>Événements Sur-Mesure</li>
+              <li>
+                <Link
+                  href="/seminaires-soirees-entreprise"
+                  className="hover:text-[var(--bronze-antique)]"
+                  style={{
+                    color: theme.colors.neutral.gray600,
+                    transition: `colors ${theme.effects.transitions.smooth}`
+                  }}
+                >
+                  Team Building
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/seminaires-soirees-entreprise"
+                  className="hover:text-[var(--bronze-antique)]"
+                  style={{
+                    color: theme.colors.neutral.gray600,
+                    transition: `colors ${theme.effects.transitions.smooth}`
+                  }}
+                >
+                  Conventions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/seminaires-soirees-entreprise"
+                  className="hover:text-[var(--bronze-antique)]"
+                  style={{
+                    color: theme.colors.neutral.gray600,
+                    transition: `colors ${theme.effects.transitions.smooth}`
+                  }}
+                >
+                  Événements Sur-Mesure
+                </Link>
+              </li>
             </ul>
+          </div>
           </div>
 
           {/* Colonne 4 - Contact */}
+          <div className="col-lg-3 col-md-6 mb-4">
           <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
@@ -205,6 +245,7 @@ export function FooterLuxe() {
                 </a>
               </li>
             </ul>
+          </div>
           </div>
         </div>
 

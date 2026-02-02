@@ -96,11 +96,11 @@ export default function EvenementsPage() {
                 </span>
               </div>
 
-              <h1 className="heading-display mb-5 leading-none">
-                Vos Événements<br />d'Exception
+              <h1 className="heading-display mb-3 leading-none">
+                Vos Événements d'Exception
               </h1>
 
-              <p className="text-body-xl mb-14 max-w-3xl font-medium text-gray-700">
+              <p className="text-body-xl mb-8 max-w-3xl font-medium text-gray-700">
                 Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables.
               </p>
 
@@ -113,7 +113,7 @@ export default function EvenementsPage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute left-1/2 -translate-x-1/2 z-10" style={{ bottom: '0.5rem' }}>
+        <div className="absolute left-1/2 -translate-x-1/2 z-10" style={{ bottom: '2rem' }}>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
@@ -140,117 +140,99 @@ export default function EvenementsPage() {
       {/* Section Logos Clients */}
       <LogoCarousel />
 
-      {/* Types d'événements */}
-      <div>
-        {typesEvenements.map((evenement, index) => (
-          <div
-            key={evenement.id}
-            className={`section-padding-lg ${index % 2 === 0 ? 'section-white' : 'section-gray'}`}
-          >
-            <div className="section-container">
-              <div className="grid-2-cols">
-                {/* Image */}
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  style={{ order: index % 2 === 0 ? 1 : 2 }}
-                >
-                  <div className="card-image group">
-                    <Image
-                      src={evenement.image}
-                      alt={evenement.titre}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      sizes="50vw"
-                      loading="lazy"
-                      quality={75}
-                    />
-                  </div>
-                </motion.div>
-
-                {/* Contenu */}
-                <motion.div
-                  initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  style={{ order: index % 2 === 0 ? 2 : 1 }}
-                  className="flex-col-center"
-                >
-                  {/* Badge */}
-                  <div className="badge inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 mb-lg">
-                    <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
-                    <span className="text-label text-[var(--bronze-antique)]">
-                      Événement Premium
-                    </span>
-                  </div>
-
-                  <h2 className="heading-xl mb-md">
-                    {evenement.titre}
-                  </h2>
-
-                  <p className="text-body-xl mb-xl">
-                    {evenement.description}
-                  </p>
-
-                  {/* Services inclus */}
-                  <div className="mb-4xl w-full flex-col-center">
-                    <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-md">
-                      Services inclus
-                    </h3>
-                    <div className="flex flex-col gap-md">
-                      {evenement.servicesInclus.map((service, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-md"
-                        >
-                          <div className="w-7 h-7 rounded-full bg-[var(--bronze-antique)]/10 flex-center flex-shrink-0">
-                            <Check className="w-5 h-5 text-[var(--bronze-antique)]" />
-                          </div>
-                          <span className="text-gray-700 font-medium leading-relaxed text-left">{service}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Link href="/devis" className="btn-primary group">
-                    <span>Organiser cet événement</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Processus */}
-      <div className="section-gray section-padding-sm">
+      {/* Types d'événements - Style Stripe Parallax */}
+      <div className="section-white" style={{ padding: '40px 20px', background: '#f6f9fc' }}>
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="w-full text-center mb-lg"
+            className="section-header"
           >
-            <div className="flex-center gap-md mb-2xl">
+            <h2 className="heading-xl mb-md" style={{ color: '#1a1f36' }}>
+              Nos Services
+            </h2>
+            <p className="text-body-xl mb-xl max-w-3xl mx-auto" style={{ color: '#6b7c93' }}>
+              Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables
+            </p>
+          </motion.div>
+
+          <div className="stripe-events-grid">
+            {typesEvenements.map((evenement, index) => (
+              <motion.div
+                key={evenement.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="stripe-card group"
+              >
+                {/* Image Container avec Parallax */}
+                <div className="stripe-card-image-container">
+                  <span className="stripe-card-badge">Premium</span>
+                  <Image
+                    src={evenement.image}
+                    alt={evenement.titre}
+                    fill
+                    className="stripe-card-image"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+
+                {/* Card Content */}
+                <div className="stripe-card-content">
+                  <h3 className="stripe-card-title">{evenement.titre}</h3>
+                  <p className="stripe-card-description">{evenement.description}</p>
+
+                  {/* Features Grid */}
+                  <div className="stripe-card-features">
+                    {evenement.servicesInclus.slice(0, 4).map((service, i) => (
+                      <div key={i} className="stripe-feature-item">
+                        <span className="stripe-feature-icon">✓</span>
+                        <span>{service}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link href="/devis" className="stripe-button group/btn">
+                    <span>En savoir plus</span>
+                    <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Processus */}
+      <div style={{ paddingTop: '40px', paddingBottom: '40px', background: '#ffffff' }}>
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="w-full text-center mb-md"
+          >
+            <div className="flex-center gap-md mb-md">
               <Trophy className="w-7 h-7 text-[var(--bronze-antique)]" />
-              <h2 className="text-label text-[var(--bronze-antique)]">
+              <h2 className="text-label" style={{ color: '#A37E2C' }}>
                 Notre processus
               </h2>
             </div>
-            <h3 className="heading-xl mb-4">
+            <h3 className="heading-xl mb-3" style={{ color: '#1a1f36' }}>
               Comment ça marche ?
             </h3>
-            <p className="text-body-xl mb-xl">
+            <p className="text-body-xl mb-md" style={{ color: '#6b7c93' }}>
               Un processus simple et personnalisé pour organiser votre événement parfait
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap gap-3xl max-w-[var(--max-width-content)] mx-auto justify-center">
+          <div className="flex flex-row gap-6 max-w-[var(--max-width-content)] mx-auto justify-center items-start">
             {[
               {
                 step: "1",
@@ -275,19 +257,30 @@ export default function EvenementsPage() {
             ].map((item, i) => (
               <motion.div
                 key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                initial={{ opacity: 0, y: 30, scale: 0.8 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: i * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
                 viewport={{ once: true }}
-                className="w-[250px] flex-col-center"
+                className="flex flex-col items-center text-center"
+                style={{ width: '250px' }}
               >
-                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-2xl" style={{ width: 'var(--height-icon-lg)', height: 'var(--height-icon-lg)' }}>
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-md"
+                  style={{ width: '90px', height: '90px' }}
+                >
                   {item.step}
-                </div>
-                <h3 className="heading-md mb-md">
+                </motion.div>
+                <h3 className="text-xl font-semibold mb-2" style={{ color: '#1a1f36', minHeight: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {item.titre}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-lg">{item.description}</p>
+                <p className="leading-relaxed" style={{ color: '#6b7c93', fontSize: '14px' }}>{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -295,7 +288,7 @@ export default function EvenementsPage() {
       </div>
 
       {/* CTA Final */}
-      <div className="section-white section-padding-sm" style={{ paddingBottom: 'clamp(3rem, 8vw, 5rem)' }}>
+      <div className="section-padding-sm" style={{ paddingBottom: 'clamp(3rem, 8vw, 5rem)', background: '#f6f9fc' }}>
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -316,11 +309,6 @@ export default function EvenementsPage() {
                 <Calendar className="w-5 h-5" />
                 <span>Demander un Devis</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-
-              <Link href="/contact" className="btn-secondary">
-                <Users className="w-5 h-5" />
-                <span>Parler à un Expert</span>
               </Link>
             </div>
           </motion.div>

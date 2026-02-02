@@ -512,7 +512,7 @@ export const chiffresCles: ChiffreCle[] = [
   },
   {
     valeur: 98,
-    unite: "%",
+    suffix: "%",
     label: "Clients satisfaits",
   },
 ];

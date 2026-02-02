@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
+import "../styles/design-system.css";
 import "../styles/blog.css";
 import "../styles/brakt-blog.css";
-import { NavigationLuxe } from "@/components/NavigationLuxe";
-import { FooterLuxe } from "@/components/FooterLuxe";
-import { Breadcrumb } from "@/components/Breadcrumb";
 import { CookieConsent } from "@/components/CookieConsent";
+import { Navigation, Footer } from "@/components/sections-v2";
+import { GoogleAnalytics, GoogleTagManager } from "@/components/Analytics";
+import { StructuredData } from "@/components/StructuredData";
+import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema } from "@/utils/seo/structured-data";
+import Image from "next/image";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -102,83 +105,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Structured Data amélioré pour SEO 2026
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.selectchateaux.com/#organization",
-        "name": "Select Châteaux",
-        "url": "https://www.selectchateaux.com/",
-        "logo": "https://www.selectchateaux.com/logo.png",
-        "description": "Agence spécialisée dans la location de lieux confidentiels et de châteaux pour séminaires d'entreprise en Île-de-France.",
-        "areaServed": "Île-de-France",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "60 Rue François 1er",
-          "addressLocality": "Paris",
-          "postalCode": "75008",
-          "addressRegion": "Île-de-France",
-          "addressCountry": "FR"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+33757991146",
-          "contactType": "sales",
-          "email": "seminaires@selectchateaux.com",
-          "availableLanguage": ["French", "English"]
-        }
-      },
-      {
-        "@type": "Service",
-        "name": "Organisation de Séminaires d'Entreprise",
-        "provider": {
-          "@id": "https://www.selectchateaux.com/#organization"
-        },
-        "areaServed": {
-          "@type": "State",
-          "name": "Île-de-France"
-        },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Lieux de Séminaire",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Le Manoir Anglo-Normand & Son Parc (Chantilly)",
-                "description": "Le plus vaste Château-Hôtel de la région. Un manoir style anglo-normand niché au cœur d'une forêt privée, à 35 min de Paris. Idéal pour les grands groupes avec amphithéâtre et spa."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Le Refuge Historique Suspendu (Portes de Paris)",
-                "description": "Un secret gardé aux portes de Paris (92). Bâtisse du XVIIe siècle en hôtel 5 étoiles, calme monacal et vue imprenable. Idéal pour CODIR stratégique accessible en métro."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "L'Abbaye Millénaire & Son Étang (78)",
-                "description": "Déconnexion radicale en Vallée de Chevreuse. Une abbaye cistercienne monumentale, ruines romantiques et étang privé. Le lieu ultime pour l'effet 'Wow'."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Le Palais Royal de la Forêt (Chantilly)",
-                "description": "Le Versailles de l'Oise. Un palais royal style Louis XV au cœur d'une forêt de 500 hectares. Lustres de cristal, moulures dorées et spa haut de gamme pour vos événements les plus prestigieux."
-              }
-            }
-          ]
-        }
-      }
-    ]
+      generateOrganizationSchema(),
+      generateWebSiteSchema(),
+      generateServiceSchema(),
+    ],
   };
 
   return (
@@ -209,16 +143,108 @@ export default function RootLayout({
           }}
         />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        {/* Structured Data - Schema.org */}
+        <StructuredData data={structuredData} />
+
+        {/* Google Analytics & Tag Manager */}
+        <GoogleAnalytics />
+        <GoogleTagManager />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <NavigationLuxe />
-        <Breadcrumb />
+        <Navigation
+          logo={
+            <Image
+              src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
+              alt="Select Châteaux"
+              width={180}
+              height={60}
+              priority
+              style={{
+                objectFit: 'contain',
+                display: 'block',
+                margin: 0,
+                padding: 0,
+              }}
+            />
+          }
+          links={[
+            { label: "Accueil", href: "/" },
+            {
+              label: "Nos Châteaux",
+              href: "/chateaux",
+              children: [
+                { label: "Tous nos domaines", href: "/chateaux" },
+                { label: "Manoir Anglo-Normand Chantilly", href: "/chateaux/manoir-anglo-normand-chantilly" },
+                { label: "Domaine Historique Paris 92", href: "/chateaux/hotel-historique-seminaire-paris-92" },
+                { label: "Abbaye Vallée de Chevreuse", href: "/chateaux/abbaye-millenaire-vallee-chevreuse" },
+                { label: "Palais Royal Forêt Chantilly", href: "/chateaux/palais-royal-foret-chantilly" },
+              ],
+            },
+            { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
+            { label: "À propos", href: "/a-propos" },
+          ]}
+          cta={{
+            label: "Demander un devis",
+            href: "/devis",
+          }}
+          sticky
+        />
         <main className="min-h-screen">{children}</main>
-        <FooterLuxe />
+
+        <Footer
+          logo={
+            <Image
+              src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
+              alt="Select Châteaux"
+              width={180}
+              height={60}
+              style={{ objectFit: 'contain' }}
+            />
+          }
+          description="L'excellence événementielle dans des châteaux d'exception. Accès confidentiel aux domaines les plus convoités d'Île-de-France."
+          sections={[
+            {
+              title: "Nos Châteaux",
+              links: [
+                { label: "Tous nos domaines", href: "/chateaux" },
+                { label: "Châteaux Oise (60)", href: "/chateaux?dept=60" },
+                { label: "Châteaux Yvelines (78)", href: "/chateaux?dept=78" },
+                { label: "Châteaux Hauts-de-Seine (92)", href: "/chateaux?dept=92" },
+              ],
+            },
+            {
+              title: "Soirées d'entreprise",
+              links: [
+                { label: "Séminaires & Soirées", href: "/seminaires-soirees-entreprise" },
+                { label: "Team Building", href: "/seminaires-soirees-entreprise" },
+                { label: "Conventions", href: "/seminaires-soirees-entreprise" },
+                { label: "Sur-mesure", href: "/seminaires-soirees-entreprise" },
+              ],
+            },
+            {
+              title: "À propos",
+              links: [
+                { label: "Notre histoire", href: "/a-propos" },
+                { label: "Notre équipe", href: "/a-propos#equipe" },
+                { label: "Nos valeurs", href: "/a-propos#valeurs" },
+              ],
+            },
+          ]}
+          contact={{
+            address: "Paris, Île-de-France",
+            phone: "+33 7 57 99 11 46",
+            email: "seminaires@selectchateaux.com",
+          }}
+          social={{
+            linkedin: "https://www.linkedin.com/company/select-chateaux/about/",
+          }}
+          legalLinks={[
+            { label: "Mentions légales", href: "/mentions-legales" },
+            { label: "Politique de confidentialité", href: "/politique-confidentialite" },
+            { label: "CGV", href: "/cgv" },
+          ]}
+          copyright={`© ${new Date().getFullYear()} Select Châteaux. Tous droits réservés.`}
+        />
 
         {/* Cookie Consent - 3 variants disponibles: "default" | "small" | "mini" */}
         <CookieConsent variant="mini" />
