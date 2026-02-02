@@ -259,21 +259,22 @@
 
 /* CTA Box */
 .prose .cta-box {
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  color: white;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #1f2937;
   padding: 4rem;
   border-radius: 1.5rem;
   text-align: center;
   margin: 4rem 0;
+  border: 2px solid #fcd34d;
 }
 
 .prose .cta-box h4 {
-  color: white;
+  color: #1f2937;
   margin-top: 0;
 }
 
 .prose .cta-box p {
-  color: #cbd5e1;
+  color: #4b5563;
 }
 
 .prose .btn-primary {

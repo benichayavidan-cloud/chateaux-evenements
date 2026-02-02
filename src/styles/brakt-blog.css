@@ -47,8 +47,38 @@
 .brakt-blog {
   font-family: var(--brakt-font-primary);
   font-size: 14px;
-  color: var(--brakt-text);
+  color: var(--brakt-text) !important;
   line-height: 1.6;
+  background: #ffffff !important;
+}
+
+.brakt-blog * {
+  color: inherit;
+}
+
+.brakt-blog p,
+.brakt-blog h1,
+.brakt-blog h2,
+.brakt-blog h3,
+.brakt-blog h4,
+.brakt-blog h5,
+.brakt-blog h6,
+.brakt-blog span,
+.brakt-blog div {
+  color: var(--brakt-text) !important;
+}
+
+/* Exceptions pour les éléments avec fond coloré */
+.brakt-blog .text-white,
+.brakt-blog [class*="text-white"],
+.brakt-blog a.text-white,
+.brakt-blog button.text-white {
+  color: #ffffff !important;
+}
+
+.brakt-blog .text-white *,
+.brakt-blog [class*="text-white"] * {
+  color: #ffffff !important;
 }
 
 /* ============================================
@@ -226,7 +256,7 @@
 }
 
 .read-more a {
-  color: #fff;
+  color: #fff !important;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
@@ -245,9 +275,13 @@
 }
 
 .read-more a:hover {
-  color: #fff;
+  color: #fff !important;
   box-shadow: 0 5px 10px #b1b1b1;
   transform: translateY(-2px);
+}
+
+.read-more a * {
+  color: #fff !important;
 }
 
 .read-more span {
@@ -308,7 +342,7 @@
 .brakt-blog.grid-style .post-title a,
 .brakt-blog.grid-style .post-snippet,
 .brakt-blog.grid-style .post-meta {
-  color: #fff;
+  color: #444444;
 }
 
 .brakt-blog.grid-style .post-title a:hover {

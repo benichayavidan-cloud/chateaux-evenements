@@ -29,12 +29,12 @@ export function ArticleHero({ article }: ArticleHeroProps) {
         sizes="100vw"
         quality={85}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/80 to-white/40" />
 
       {/* Back Button */}
       <Link
         href="/blog"
-        className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10 z-20 inline-flex items-center justify-center gap-2 sm:gap-3 text-white bg-white/10 backdrop-blur-md rounded-full hover:bg-white/20 transition-all duration-300 px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base"
+        className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10 z-20 inline-flex items-center justify-center gap-2 sm:gap-3 text-gray-900 bg-white/80 backdrop-blur-md rounded-full hover:bg-white transition-all duration-300 px-4 py-2 sm:px-5 sm:py-2.5 text-sm sm:text-base shadow-lg"
       >
         <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         <span className="hidden sm:inline">Retour au blog</span>
@@ -52,26 +52,26 @@ export function ArticleHero({ article }: ArticleHeroProps) {
           >
             {/* Category Badge */}
             <div
-              className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full text-xs font-medium uppercase tracking-wider"
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full text-xs font-medium uppercase tracking-wider shadow-lg"
               style={{ padding: '10px 20px' }}
             >
               <span className="w-1.5 h-1.5 bg-white rounded-full" />
               {CATEGORY_LABELS[article.category]}
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light italic text-white leading-tight px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light italic text-gray-900 leading-tight px-4" style={{ textShadow: '0 2px 4px rgba(255,255,255,0.8)' }}>
               {article.title}
             </h1>
 
             {/* Meta */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-white/90 px-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-gray-700 px-4">
               <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-xs sm:text-sm font-bold">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-200 flex items-center justify-center text-xs sm:text-sm font-bold text-gray-900">
                   {article.author.name.charAt(0)}
                 </div>
                 <div className="text-left">
-                  <div className="font-medium text-sm sm:text-base">{article.author.name}</div>
-                  <div className="text-xs sm:text-sm text-white/70">{article.author.role}</div>
+                  <div className="font-medium text-sm sm:text-base text-gray-900">{article.author.name}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{article.author.role}</div>
                 </div>
               </div>
               <div className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">

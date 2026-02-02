@@ -32,7 +32,7 @@ export default async function BlogArticlePage({ params }: Props) {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-gray-900 text-center px-4">
                 À Lire Aussi
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8 w-full mx-auto">
+              <div className="grid !grid-cols-1 sm:!grid-cols-2 md:!grid-cols-3 gap-5 sm:gap-6 md:gap-8 w-full mx-auto">
                 {relatedPosts.map((post) => (
                   <article key={post.id} className="post-outer">
                     {/* Image */}
