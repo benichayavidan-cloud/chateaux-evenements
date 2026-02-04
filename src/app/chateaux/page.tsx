@@ -587,13 +587,18 @@ export default function ChateauxPage() {
               >
                 <div
                   style={{
-                    padding: '1.25rem',
+                    padding: '1.5rem 1.25rem',
                     background: 'white',
                     borderRadius: theme.effects.borderRadius.xl,
                     border: `1px solid ${theme.colors.neutral.gray200}`,
                     textAlign: 'center',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
                     transition: 'box-shadow 0.15s ease',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minHeight: '180px',
                   }}
                   className="hover:shadow-lg"
                 >
@@ -604,7 +609,7 @@ export default function ChateauxPage() {
                     style={{
                       width: '56px',
                       height: '56px',
-                      margin: '0 auto 1rem',
+                      marginBottom: '1rem',
                       borderRadius: theme.effects.borderRadius.full,
                       background: `linear-gradient(135deg, ${theme.colors.primary.bronze}, ${theme.colors.primary.gold})`,
                       display: 'flex',
@@ -622,11 +627,11 @@ export default function ChateauxPage() {
                     </span>
                   </motion.div>
 
-                  <Text variant="h5" style={{ marginBottom: '0.25rem', fontSize: '1rem' }}>
+                  <Text variant="h5" style={{ marginBottom: '0.25rem', fontSize: '1rem', textAlign: 'center' }}>
                     {item.title}
                   </Text>
 
-                  <Text variant="caption" color="muted" style={{ fontSize: '0.85rem' }}>
+                  <Text variant="caption" color="muted" style={{ fontSize: '0.85rem', textAlign: 'center' }}>
                     {item.description}
                   </Text>
                 </div>

@@ -1,0 +1,179 @@
+# ================================================
+# MOTS-CLÉS NÉGATIFS - SELECT CHÂTEAUX
+# Budget Sniper 600€/mois - Exclusions critiques
+# ================================================
+# À importer dans Google Ads au niveau COMPTE
+# pour filtrer tout le trafic non-qualifié B2B
+# ================================================
+
+# --- TOURISME & LOISIRS (Exclure visiteurs) ---
+visite
+visiter
+tourisme
+touriste
+week-end
+weekend
+romantique
+amoureux
+couple
+nuit romantique
+escapade
+balade
+promenade
+découverte
+histoire
+historique visite
+musée
+monument
+gratuit
+
+# --- MARIAGES & ÉVÉNEMENTS PRIVÉS ---
+mariage
+mariages
+se marier
+cérémonie
+réception mariage
+salle mariage
+traiteur mariage
+wedding
+fiançailles
+anniversaire
+baptême
+communion
+bar mitzvah
+fête privée
+soirée privée
+
+# --- PRIX / BUDGET SERRÉ (Hors cible premium) ---
+pas cher
+low cost
+discount
+promo
+promotion
+économique
+budget
+petit budget
+tarif réduit
+gratuit
+free
+bon plan
+bons plans
+deal
+moins cher
+prix bas
+petit prix
+abordable
+
+# --- EMPLOI & FORMATION ---
+emploi
+job
+recrutement
+stage
+alternance
+formation
+cours
+école
+université
+étudiant
+étudiants
+apprentissage
+carrière
+cv
+candidature
+offre emploi
+
+# --- IMMOBILIER & ACHAT ---
+acheter
+achat
+vendre
+vente
+à vendre
+immobilier
+investissement
+propriété
+acquérir
+acquisition
+
+# --- RESTAURATION SEULE (Sans séminaire) ---
+restaurant
+restaurants
+menu
+carte
+gastronomique seul
+brunch
+déjeuner
+dîner seul
+table
+
+# --- HÉBERGEMENT SEUL (Booking mentality) ---
+hôtel
+hotels
+booking
+réservation chambre
+nuit
+nuitée
+dormir
+hébergement seul
+chambre hôte
+gîte
+airbnb
+
+# --- CONCURRENCE DIRECTE ---
+châteauform
+chateauform
+les étangs de corot
+tiara
+tiara hotels
+relais château
+relais & château
+
+# --- GÉOGRAPHIE HORS CIBLE ---
+provence
+bordeaux
+loire
+normandie hors cible
+bretagne
+sud france
+côte azur
+montagne
+mer
+plage
+étranger
+international
+
+# --- REQUÊTES INFORMATIONNELLES ---
+qu'est-ce que
+c'est quoi
+définition
+comment
+pourquoi
+wikipedia
+wiki
+avis
+comparatif
+comparaison
+vs
+versus
+blog
+article
+guide
+conseil
+idée
+idées
+inspiration
+
+# --- DIVERS NON PERTINENTS ---
+coworking
+espace coworking
+bureau
+bureaux
+location bureau
+afterwork
+soirée afterwork
+karaoké
+escape game seul
+paintball
+laser game
+accrobranche
+quad
+karting

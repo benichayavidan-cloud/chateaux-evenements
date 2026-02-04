@@ -1,0 +1,24 @@
+# Fichier de configuration Google Ads (contient des credentials sensibles)
+google-ads.yaml
+
+# Credentials OAuth2
+client_secret*.json
+credentials.json
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environnements virtuels
+venv/
+env/
+ENV/
+
+# Logs
+*.log
+
+# Fichiers Mac
+.DS_Store
