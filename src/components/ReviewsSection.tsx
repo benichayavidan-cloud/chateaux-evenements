@@ -52,7 +52,7 @@ export function ReviewsSection() {
   const visibleReviews = reviews.slice(currentIndex, currentIndex + cardsPerView);
 
   return (
-    <section className="flex items-center justify-center" style={{ padding: '20px 0', background: '#f6f9fc', marginTop: '30px' }}>
+    <section className="flex items-center justify-center" style={{ padding: '20px 0', background: '#ffffff', marginTop: '30px' }}>
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
         {/* En-tête */}
         <motion.div
