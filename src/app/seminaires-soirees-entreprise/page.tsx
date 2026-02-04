@@ -80,8 +80,8 @@ export default function EvenementsPage() {
         <div className="hero-overlay-light" />
         <div className="hero-overlay-light-extra" />
 
-        {/* Contenu */}
-        <div className="relative h-full flex-center">
+        {/* Contenu - remonté pour laisser place au scroll */}
+        <div className="relative h-full flex items-center justify-center" style={{ paddingBottom: '120px' }}>
           <div className="hero-content">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -89,7 +89,7 @@ export default function EvenementsPage() {
               transition={{ duration: 0.8 }}
               className="flex-col-center"
             >
-              <div className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-10">
+              <div className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-8">
                 <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
                 <span className="text-label text-gray-900">
                   Événements sur mesure
@@ -100,7 +100,7 @@ export default function EvenementsPage() {
                 Séminaires et Soirées d'Entreprise en Château
               </h1>
 
-              <p className="text-body-xl mb-8 max-w-3xl font-medium text-gray-700">
+              <p className="text-body-xl mb-6 max-w-3xl font-medium text-gray-700">
                 Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables.
               </p>
 
