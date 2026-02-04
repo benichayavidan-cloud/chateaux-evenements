@@ -255,14 +255,42 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Bento Grid Premium */}
       <section
         style={{
-          background: theme.colors.neutral.white,
+          background: `linear-gradient(180deg, ${theme.colors.neutral.white} 0%, #f8f6f3 100%)`,
           padding: `${theme.spacing.section.lg} 0`,
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <Container size="xl">
+        {/* Decorative Background */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '10%',
+            right: '-5%',
+            width: '400px',
+            height: '400px',
+            background: `radial-gradient(circle, ${theme.colors.primary.bronze}15 0%, transparent 70%)`,
+            borderRadius: '50%',
+            filter: 'blur(60px)',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '10%',
+            left: '-5%',
+            width: '300px',
+            height: '300px',
+            background: `radial-gradient(circle, ${theme.colors.primary.bronze}10 0%, transparent 70%)`,
+            borderRadius: '50%',
+            filter: 'blur(40px)',
+          }}
+        />
+
+        <Container size="xl" style={{ position: 'relative', zIndex: 1 }}>
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['4xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
@@ -273,19 +301,20 @@ export default function Home() {
             </Text>
           </div>
 
-          {/* Services Grid */}
-          <Row gap="lg">
-            {typesEvenements.map((service) => (
-              <Col key={service.id} lg={3} md={6} xs={12}>
-                <ServiceCard
-                  icon={service.icon}
-                  titre={service.titre}
-                  description={service.description}
-                  servicesInclus={service.servicesInclus}
-                />
-              </Col>
+          {/* Services Bento Grid - Responsive with Tailwind */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {typesEvenements.map((service, index) => (
+              <ServiceCard
+                key={service.id}
+                icon={service.icon}
+                titre={service.titre}
+                description={service.description}
+                servicesInclus={service.servicesInclus}
+                variant={index === 0 ? 'featured' : 'default'}
+                index={index}
+              />
             ))}
-          </Row>
+          </div>
         </Container>
       </section>
 
