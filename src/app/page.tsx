@@ -255,54 +255,29 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Services Section - Bento Grid Premium */}
+      {/* Services Section - Clean & Elegant */}
       <section
         style={{
-          background: `linear-gradient(180deg, ${theme.colors.neutral.white} 0%, #f8f6f3 100%)`,
+          background: '#fafafa',
           padding: `${theme.spacing.section.lg} 0`,
-          position: 'relative',
-          overflow: 'hidden',
         }}
       >
-        {/* Decorative Background */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '10%',
-            right: '-5%',
-            width: '400px',
-            height: '400px',
-            background: `radial-gradient(circle, ${theme.colors.primary.bronze}15 0%, transparent 70%)`,
-            borderRadius: '50%',
-            filter: 'blur(60px)',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '10%',
-            left: '-5%',
-            width: '300px',
-            height: '300px',
-            background: `radial-gradient(circle, ${theme.colors.primary.bronze}10 0%, transparent 70%)`,
-            borderRadius: '50%',
-            filter: 'blur(40px)',
-          }}
-        />
-
-        <Container size="xl" style={{ position: 'relative', zIndex: 1 }}>
+        <Container size="lg">
           {/* Section Header */}
-          <div className="section-header" style={{ marginBottom: theme.spacing['4xl'] }}>
+          <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
               Nos Services d'Excellence
             </Text>
-            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '700px', margin: '0 auto' }}>
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '600px', margin: '0 auto' }}>
               Des événements clés en main dans des lieux d'exception
             </Text>
           </div>
 
-          {/* Services Bento Grid - Responsive with Tailwind */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Services Grid - 2x2 compact */}
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+            style={{ maxWidth: '900px', margin: '0 auto' }}
+          >
             {typesEvenements.map((service, index) => (
               <ServiceCard
                 key={service.id}
@@ -310,7 +285,6 @@ export default function Home() {
                 titre={service.titre}
                 description={service.description}
                 servicesInclus={service.servicesInclus}
-                variant={index === 0 ? 'featured' : 'default'}
                 index={index}
               />
             ))}
