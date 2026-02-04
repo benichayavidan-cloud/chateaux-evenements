@@ -96,7 +96,7 @@ export function Navigation({
           }}
         >
           {/* Logo */}
-          <Link href="/" variant="default" style={{
+          <Link href="/" variant="default" className="nav-logo" style={{
             display: 'flex',
             alignItems: 'center',
             lineHeight: 0,
@@ -371,15 +371,21 @@ export function Navigation({
           border-bottom-color: ${theme.colors.primary.bronzeDark};
         }
 
-        nav a[href]:not(.dropdown-link):hover {
+        nav a[href]:not(.dropdown-link):not(.nav-logo):hover {
           color: ${theme.colors.primary.bronze} !important;
           border-bottom: 2px solid ${theme.colors.primary.bronze};
           padding-bottom: 2px;
         }
 
-        nav a[href]:not(.dropdown-link):active {
+        nav a[href]:not(.dropdown-link):not(.nav-logo):active {
           color: ${theme.colors.primary.bronzeDark} !important;
           border-bottom-color: ${theme.colors.primary.bronzeDark};
+        }
+
+        /* Logo - pas d'effet underline */
+        nav .nav-logo:hover,
+        nav .nav-logo:active {
+          border-bottom: none !important;
         }
 
         nav button:hover {
