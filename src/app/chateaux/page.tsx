@@ -444,82 +444,167 @@ export default function ChateauxPage() {
         </Container>
       </Section>
 
-      {/* Section Châteaux */}
+      {/* Section Châteaux - Design Bento Grid Moderne */}
       <Section spacing="xl" background="white" style={{ padding: '60px 0' }}>
-        <Container size="lg">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+        <Container size="xl">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: theme.spacing.sm, marginBottom: theme.spacing.md }}>
-                <Sparkles className="w-6 h-6" style={{ color: theme.colors.primary.bronze }} />
-                <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.bold }}>
-                  Notre Sélection Exclusive
-                </Text>
-              </div>
               <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'center' }}>
-                {filteredChateaux.length} {filteredChateaux.length > 1 ? 'Châteaux' : 'Château'} d'Exception
+                {filteredChateaux.length} Châteaux d'Exception
               </Text>
-              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center', maxWidth: '700px', marginLeft: 'auto', marginRight: 'auto' }}>
-                Chaque domaine a été sélectionné pour son caractère unique et ses infrastructures d'exception
+              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
+                Cliquez pour découvrir chaque domaine
               </Text>
             </motion.div>
           </div>
 
+          {/* Bento Grid 2x2 */}
           <div style={{
-            display: 'flex',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
             gap: '1rem',
-            maxWidth: '100%',
+            maxWidth: '1200px',
             margin: '0 auto',
-            overflowX: 'visible',
-            justifyContent: 'center',
-            padding: '2rem 1rem',
-            flexWrap: 'wrap',
           }}>
             {filteredChateaux.map((chateau, index) => (
-              <motion.div
-                key={chateau.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                style={{
-                  flex: '0 0 auto',
-                  minWidth: 'clamp(320px, 35vw, 450px)',
-                  maxWidth: '450px',
-                }}
-              >
-                <Card
-                  image={chateau.images.card}
-                  title={chateau.nom}
-                  description={chateau.description}
-                  badge={chateau.region}
-                  features={[
-                    `${chateau.capacite.min}-${chateau.capacite.max} personnes`,
-                    `${chateau.roomsTotal} chambres`,
-                    ...chateau.atouts.slice(0, 2)
-                  ]}
-                  href={`/chateaux/${chateau.slug}`}
-                  variant="hover-overlay"
-                  imageHeight="450px"
-                  ctaLabel="Découvrir ce château"
-                  footer={
-                    <div style={{ display: 'flex', gap: theme.spacing.lg, flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
-                        <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                        <Text variant="caption">{chateau.capacite.min}-{chateau.capacite.max} pers.</Text>
+              <Link key={chateau.id} href={`/chateaux/${chateau.slug}`}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  style={{
+                    position: 'relative',
+                    height: '320px',
+                    borderRadius: '20px',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {/* Image de fond */}
+                  <Image
+                    src={chateau.images.card}
+                    alt={chateau.nom}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ transition: 'transform 0.5s ease' }}
+                  />
+
+                  {/* Overlay gradient */}
+                  <div style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.75) 100%)',
+                  }} />
+
+                  {/* Badge région en haut à droite */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: 'white',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '50px',
+                    fontWeight: 600,
+                    fontSize: '0.85rem',
+                    color: theme.colors.neutral.gray800,
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                  }}>
+                    {chateau.region}
+                  </div>
+
+                  {/* Contenu en bas */}
+                  <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: '1.5rem',
+                  }}>
+                    {/* Titre */}
+                    <h3 style={{
+                      color: 'white',
+                      fontSize: '1.35rem',
+                      fontWeight: 600,
+                      marginBottom: '0.75rem',
+                      textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                    }}>
+                      {chateau.nom}
+                    </h3>
+
+                    {/* Stats: Capacité & Chambres */}
+                    <div style={{
+                      display: 'flex',
+                      gap: '1rem',
+                      marginBottom: '0.75rem',
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        background: 'rgba(255,255,255,0.15)',
+                        backdropFilter: 'blur(8px)',
+                        padding: '0.5rem 0.75rem',
+                        borderRadius: '8px',
+                      }}>
+                        <Users className="w-4 h-4" style={{ color: 'white' }} />
+                        <span style={{ color: 'white', fontSize: '0.85rem', fontWeight: 500 }}>
+                          {chateau.capacite.max} pers.
+                        </span>
                       </div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
-                        <Bed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                        <Text variant="caption">{chateau.roomsTotal} chambres</Text>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        background: 'rgba(255,255,255,0.15)',
+                        backdropFilter: 'blur(8px)',
+                        padding: '0.5rem 0.75rem',
+                        borderRadius: '8px',
+                      }}>
+                        <Bed className="w-4 h-4" style={{ color: 'white' }} />
+                        <span style={{ color: 'white', fontSize: '0.85rem', fontWeight: 500 }}>
+                          {chateau.roomsTotal} ch.
+                        </span>
                       </div>
                     </div>
-                  }
-                />
-              </motion.div>
+
+                    {/* CTA avec flèche */}
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        color: theme.colors.primary.gold,
+                        fontWeight: 600,
+                        fontSize: '0.9rem',
+                      }}
+                    >
+                      Découvrir
+                      <ArrowRight className="w-4 h-4" />
+                    </motion.div>
+                  </div>
+
+                  {/* Hover effect overlay */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}30, ${theme.colors.primary.gold}20)`,
+                      pointerEvents: 'none',
+                    }}
+                  />
+                </motion.div>
+              </Link>
             ))}
           </div>
         </Container>
