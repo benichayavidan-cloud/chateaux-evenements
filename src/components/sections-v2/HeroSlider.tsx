@@ -159,8 +159,8 @@ export function HeroSlider({
                 </motion.div>
               )}
 
-              {/* Title */}
-              <motion.h1
+              {/* Title - H2 car le H1 SEO est dans la page parente */}
+              <motion.h2
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -180,7 +180,7 @@ export function HeroSlider({
                 }}
               >
                 {currentSlide.title}
-              </motion.h1>
+              </motion.h2>
 
               {/* Subtitle */}
               {currentSlide.subtitle && (

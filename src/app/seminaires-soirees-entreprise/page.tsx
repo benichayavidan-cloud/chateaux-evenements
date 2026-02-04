@@ -97,7 +97,7 @@ export default function EvenementsPage() {
               </div>
 
               <h1 className="heading-display mb-3 leading-none">
-                Vos Événements d'Exception
+                Séminaires et Soirées d'Entreprise en Château
               </h1>
 
               <p className="text-body-xl mb-8 max-w-3xl font-medium text-gray-700">
