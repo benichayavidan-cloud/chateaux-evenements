@@ -385,8 +385,16 @@ export default function ChateauxPage() {
                       }} />
                     </div>
 
-                    {/* Texte en bas */}
-                    <div style={{ padding: '1.25rem', textAlign: 'center' }}>
+                    {/* Texte en bas - centré */}
+                    <div style={{
+                      padding: '1.25rem',
+                      textAlign: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      minHeight: '140px',
+                    }}>
                       <Text
                         variant="body"
                         style={{
@@ -394,6 +402,7 @@ export default function ChateauxPage() {
                           color: theme.colors.neutral.gray800,
                           marginBottom: '0.5rem',
                           fontSize: '1rem',
+                          textAlign: 'center',
                         }}
                       >
                         {item.question}
@@ -405,6 +414,7 @@ export default function ChateauxPage() {
                           fontWeight: theme.typography.fontWeight.medium,
                           marginBottom: '0.25rem',
                           fontSize: '0.9rem',
+                          textAlign: 'center',
                         }}
                       >
                         {item.answer}
@@ -414,13 +424,14 @@ export default function ChateauxPage() {
                         style={{
                           color: theme.colors.neutral.gray500,
                           fontSize: '0.8rem',
+                          textAlign: 'center',
                         }}
                       >
                         {item.detail}
                       </Text>
                       <div style={{ marginTop: '0.75rem' }}>
                         <ArrowRight
-                          className="w-4 h-4 mx-auto"
+                          className="w-4 h-4"
                           style={{ color: theme.colors.primary.bronze }}
                         />
                       </div>
@@ -486,7 +497,11 @@ export default function ChateauxPage() {
                   title={chateau.nom}
                   description={chateau.description}
                   badge={chateau.region}
-                  features={chateau.atouts.slice(0, 3)}
+                  features={[
+                    `${chateau.capacite.min}-${chateau.capacite.max} personnes`,
+                    `${chateau.roomsTotal} chambres`,
+                    ...chateau.atouts.slice(0, 2)
+                  ]}
                   href={`/chateaux/${chateau.slug}`}
                   variant="hover-overlay"
                   imageHeight="450px"
