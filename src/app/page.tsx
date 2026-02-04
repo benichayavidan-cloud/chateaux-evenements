@@ -120,102 +120,31 @@ export default function Home() {
       {/* Structured Data - Schema.org */}
       <StructuredData data={structuredData} />
 
-      {/* Hero Section avec H1 VISIBLE */}
-      <div style={{ position: 'relative' }}>
-        {/* Hero Slider en arrière-plan */}
-        <HeroSlider
-          slides={heroSlides}
-          autoPlay
-          autoPlayDuration={6000}
-          height="100vh"
-        />
+      {/* H1 SEO - Invisible visuellement mais lu par Google */}
+      <h1
+        className="sr-only"
+        style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          padding: 0,
+          margin: '-1px',
+          overflow: 'hidden',
+          clip: 'rect(0, 0, 0, 0)',
+          whiteSpace: 'nowrap',
+          border: 0,
+        }}
+      >
+        Location de Châteaux pour Séminaires et Événements d'Entreprise en Île-de-France
+      </h1>
 
-        {/* Overlay avec H1 VISIBLE - Proposition de valeur claire */}
-        <div
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-            zIndex: 20,
-          }}
-        >
-          <div
-            style={{
-              textAlign: 'center',
-              padding: '0 1rem',
-              maxWidth: '900px',
-              pointerEvents: 'auto',
-            }}
-          >
-            {/* Badge */}
-            <span
-              style={{
-                display: 'inline-block',
-                textTransform: 'uppercase',
-                letterSpacing: '0.2em',
-                fontSize: '0.875rem',
-                marginBottom: '1rem',
-                color: theme.colors.primary.gold,
-                textShadow: '0 2px 10px rgba(0,0,0,0.5)',
-              }}
-            >
-              La Collection Confidentielle
-            </span>
-
-            {/* H1 VISIBLE */}
-            <h1
-              style={{
-                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                fontFamily: theme.typography.fonts.heading,
-                fontWeight: theme.typography.fontWeight.semibold,
-                color: theme.colors.neutral.white,
-                marginBottom: '1rem',
-                textShadow: '0 4px 20px rgba(0,0,0,0.5)',
-                lineHeight: 1.2,
-              }}
-            >
-              4 Châteaux d'Exception pour vos Séminaires d'Entreprise
-            </h1>
-
-            {/* Sous-titre */}
-            <p
-              style={{
-                fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
-                fontWeight: theme.typography.fontWeight.light,
-                color: theme.colors.neutral.white,
-                marginBottom: '2rem',
-                maxWidth: '600px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                textShadow: '0 2px 10px rgba(0,0,0,0.4)',
-              }}
-            >
-              Privatisation totale • 30-60 min de Paris • Devis sous 24h
-            </p>
-
-            {/* CTA Principal */}
-            <Link href="/devis">
-              <Button
-                variant="primary"
-                size="lg"
-                style={{
-                  background: theme.colors.primary.bronze,
-                  color: theme.colors.neutral.white,
-                  boxShadow: '0 4px 20px rgba(183, 135, 77, 0.4)',
-                }}
-              >
-                Demander un Devis Gratuit
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      {/* Hero Slider */}
+      <HeroSlider
+        slides={heroSlides}
+        autoPlay
+        autoPlayDuration={6000}
+        height="100vh"
+      />
 
       {/* Stats Section */}
       <section
