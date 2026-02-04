@@ -38,6 +38,48 @@ export default function ChateauxPage() {
     return 'Collection exclusive de domaines privatisables en Île-de-France et Oise';
   };
 
+  // Header Pitch dynamique selon le département
+  const getHeaderPitch = () => {
+    if (dept === '60') {
+      return (
+        <>
+          Le <strong style={{ color: theme.colors.neutral.gray800 }}>Manoir Anglo-Normand de Chantilly</strong> :
+          un domaine majestueux à 35 minutes de Paris, niché au cœur d'une forêt privée.
+          Capacité exceptionnelle de <strong style={{ color: theme.colors.neutral.gray800 }}>280 personnes</strong> avec
+          120 chambres, amphithéâtre privé et spa de prestige 800m².
+        </>
+      );
+    }
+    if (dept === '78') {
+      return (
+        <>
+          L'<strong style={{ color: theme.colors.neutral.gray800 }}>Abbaye Millénaire en Vallée de Chevreuse</strong> :
+          un monument historique cistercien du XIIe siècle. Déconnexion totale avec étang privé de 70 hectares,
+          ruines romantiques et <strong style={{ color: theme.colors.neutral.gray800 }}>147 chambres</strong> pour vos séminaires résidentiels.
+        </>
+      );
+    }
+    if (dept === '92') {
+      return (
+        <>
+          Le <strong style={{ color: theme.colors.neutral.gray800 }}>Domaine Historique aux portes de Paris</strong> :
+          un hôtel 5 étoiles dans une bâtisse du XVIIe siècle, accessible en métro (5 min à pied).
+          <strong style={{ color: theme.colors.neutral.gray800 }}>83 chambres</strong> et jardin suspendu avec vue sur Paris.
+          Idéal pour CODIR et événements confidentiels.
+        </>
+      );
+    }
+    return (
+      <>
+        Une collection exclusive de <strong style={{ color: theme.colors.neutral.gray800 }}>4 domaines historiques privatisables</strong>,
+        sélectionnés pour leur proximité avec Paris (&lt;1h) et leur excellence opérationnelle.
+        Du séminaire résidentiel de 200 personnes à Chantilly au CODIR confidentiel dans les Hauts-de-Seine,
+        chaque lieu offre une <strong style={{ color: theme.colors.neutral.gray800 }}>unité de lieu parfaite</strong> :
+        salles de réunion high-tech, restauration gastronomique et hébergement sur place.
+      </>
+    );
+  };
+
   return (
     <>
       {/* Hero Section - Style château individuel */}
@@ -172,7 +214,7 @@ export default function ChateauxPage() {
         </div>
       </div>
 
-      {/* ========== 1. HEADER PITCH - Juste après le Hero ========== */}
+      {/* ========== 1. HEADER PITCH - Dynamique selon le département ========== */}
       <Section background="white" style={{ padding: '50px 0 30px' }}>
         <Container size="md">
           <motion.p
@@ -190,11 +232,7 @@ export default function ChateauxPage() {
               fontWeight: theme.typography.fontWeight.normal,
             }}
           >
-            Une collection exclusive de <strong style={{ color: theme.colors.neutral.gray800 }}>4 domaines historiques privatisables</strong>,
-            sélectionnés pour leur proximité avec Paris (&lt;1h) et leur excellence opérationnelle.
-            Du séminaire résidentiel de 200 personnes à Chantilly au CODIR confidentiel dans les Hauts-de-Seine,
-            chaque lieu offre une <strong style={{ color: theme.colors.neutral.gray800 }}>unité de lieu parfaite</strong> :
-            salles de réunion high-tech, restauration gastronomique et hébergement sur place.
+            {getHeaderPitch()}
           </motion.p>
         </Container>
       </Section>
@@ -300,7 +338,8 @@ export default function ChateauxPage() {
         </Container>
       </Section>
 
-      {/* ========== 2. BOUSSOLE DE CHOIX - Style carte forfait avec image ========== */}
+      {/* ========== 2. BOUSSOLE DE CHOIX - Uniquement si pas de filtre département ========== */}
+      {!dept && (
       <Section background="white" style={{ padding: '50px 0' }}>
         <Container size="xl">
           <motion.div
@@ -443,6 +482,7 @@ export default function ChateauxPage() {
           </motion.div>
         </Container>
       </Section>
+      )}
 
       {/* Section Châteaux - Design Bento Grid Moderne */}
       <Section spacing="xl" background="white" style={{ padding: '60px 0' }}>
@@ -463,12 +503,12 @@ export default function ChateauxPage() {
             </motion.div>
           </div>
 
-          {/* Bento Grid 2x2 */}
+          {/* Bento Grid - Adaptatif selon nombre de châteaux */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            gridTemplateColumns: filteredChateaux.length === 1 ? '1fr' : 'repeat(2, 1fr)',
             gap: '1rem',
-            maxWidth: '1200px',
+            maxWidth: filteredChateaux.length === 1 ? '600px' : '1200px',
             margin: '0 auto',
           }}>
             {filteredChateaux.map((chateau, index) => (
