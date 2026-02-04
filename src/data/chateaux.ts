@@ -34,7 +34,7 @@ export const chateaux: Chateau[] = [
     },
     styleArchitectural: "Architecture de style anglo-normand",
     description:
-      "Le plus vaste domaine de la région. Une architecture anglo-normande majestueuse au cœur d'une forêt privée, à 35 minutes de Paris. Capacité exceptionnelle avec amphithéâtre et spa de prestige.",
+      "Le plus vaste domaine de la région pour conventions et kick-offs annuels. Architecture anglo-normande majestueuse au cœur d'une forêt privée, à 35 minutes de Paris. Capacité 280 personnes avec amphithéâtre et spa de prestige.",
     atouts: [
       "Capacité 280 pers",
       "120 Chambres",
@@ -64,7 +64,7 @@ export const chateaux: Chateau[] = [
     seoH1: "Grand Château de style Anglo-Normand à Chantilly",
     seoTitle: "Château Séminaire Chantilly (60) | Grand Domaine 280 pers",
     accrocheHero: "Architecture Majestueuse & Spa de Prestige à 35 min de Paris",
-    descriptionLongue: "Le domaine de référence pour vos conventions d'envergure. Une architecture anglo-normande exceptionnelle de 120 chambres, nichée au cœur d'une forêt privée. L'unique lieu de l'Oise capable d'accueillir 280 personnes en résidentiel, avec un amphithéâtre privé de 280 places et un spa de prestige de 800m².",
+    descriptionLongue: "Le domaine de référence pour vos conventions d'envergure et kick-offs annuels. Une architecture anglo-normande exceptionnelle de 120 chambres, nichée au cœur d'une forêt privée. L'unique lieu de l'Oise capable d'accueillir 280 personnes en résidentiel, avec un amphithéâtre privé de 280 places et un spa de prestige de 800m². Unité de lieu parfaite : travail, restauration et hébergement sur un seul site.",
     roomsTotal: 120,
     roomsTwin: 103,
     bedroomText: "120 chambres au décor contemporain ou traditionnel, dont 103 en configuration Twin. Vue apaisante sur la forêt ou le parc privé.",
@@ -180,7 +180,7 @@ export const chateaux: Chateau[] = [
     },
     styleArchitectural: "Abbaye cistercienne monumentale du XIIe siècle",
     description:
-      "Déconnexion radicale en pleine nature. Une abbaye cistercienne monumentale classée Monument Historique, avec ruines romantiques et étang privé de 70 hectares. L'effet 'Wow' garanti.",
+      "Déconnexion stratégique totale pour vos séminaires résidentiels. Abbaye cistercienne classée Monument Historique offrant un cadre de réflexion hors du temps, idéal pour retraites de direction et incentives équipes commerciales.",
     atouts: [
       "Site Classé MH",
       "Salles Voûtées",
@@ -211,7 +211,7 @@ export const chateaux: Chateau[] = [
     seoH1: "Ancienne Abbaye Cistercienne en Vallée de Chevreuse",
     seoTitle: "Abbaye Séminaire 78 | Domaine Cistercien & Étang 70ha",
     accrocheHero: "Abbaye du XIIe Siècle & Étang Privé de 70 Hectares",
-    descriptionLongue: "L'effet 'Wow' garanti pour vos événements d'exception. Cette abbaye cistercienne du XIIe siècle classée Monument Historique s'étend sur un domaine de 70 hectares avec étang privé. Ses ruines romantiques et ses salles voûtées monumentales créent un cadre spectaculaire pour vos soirées de gala et séminaires résidentiels de 60 à 150 personnes. Déconnexion totale garantie.",
+    descriptionLongue: "Déconnexion stratégique totale pour vos événements d'exception. Cette abbaye cistercienne du XIIe siècle classée Monument Historique s'étend sur un domaine de 70 hectares avec étang privé. Ses salles voûtées monumentales et son cadre hors du temps créent l'environnement idéal pour vos retraites de direction, incentives commerciaux et séminaires résidentiels de 60 à 150 personnes. Absence de réseau GSM = concentration maximale garantie.",
     roomsTotal: 147,
     roomsTwin: null,
     bedroomText: "147 chambres réparties entre l'abbaye historique et le domaine. Une décoration raffinée inspirée du patrimoine cistercien.",
@@ -254,7 +254,7 @@ export const chateaux: Chateau[] = [
     },
     styleArchitectural: "Architecture classique française de style Louis XV",
     description:
-      "Le raffinement à la française. Une architecture classique prestigieuse au cœur d'une forêt de 500 hectares. Lustres de cristal, salles de bal grandioses et spa prestige de 1500m² pour vos événements les plus prestigieux.",
+      "L'adresse de référence pour lancements produits et conventions internationales. Architecture classique prestigieuse au cœur d'une forêt de 500 hectares. Salle de bal modulable et spa prestige de 1500m² pour vos événements d'envergure.",
     atouts: [
       "Style Louis XV",
       "Salle de Bal",
@@ -281,7 +281,7 @@ export const chateaux: Chateau[] = [
     seoH1: "Château 5 Étoiles avec Vue Panoramique sur Forêt",
     seoTitle: "Château Luxe Chantilly (60) | Domaine 5★ Forêt 200 pers",
     accrocheHero: "Architecture Classique Louis XV & Spa Prestige 1500m²",
-    descriptionLongue: "Le lieu ultime pour vos événements prestigieux. Une architecture classique française grandiose au cœur d'une forêt domaniale de 500 hectares. Ce château 5 étoiles de 108 chambres allie le charme du patrimoine français à la technologie moderne. Avec son spa prestige de 1500m² et sa majestueuse salle de bal, c'est l'adresse de référence pour vos galas et conventions de 100 à 200 personnes.",
+    descriptionLongue: "L'adresse de référence pour vos lancements produits et conventions internationales. Une architecture classique française grandiose au cœur d'une forêt domaniale de 500 hectares. Ce château 5 étoiles de 108 chambres allie l'excellence du patrimoine français à la technologie moderne. Avec son spa prestige de 1500m² et sa salle de bal modulable, c'est le lieu idéal pour vos galas, conventions et événements stratégiques de 100 à 200 personnes.",
     roomsTotal: 108,
     roomsTwin: 48,
     bedroomText: "108 chambres et suites au style classique français. 48 chambres en configuration Twin pour faciliter l'organisation de vos séminaires résidentiels.",

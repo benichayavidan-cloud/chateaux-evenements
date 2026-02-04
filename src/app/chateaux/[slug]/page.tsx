@@ -7,6 +7,7 @@
 
 import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { MapPin, Users, Check, Sparkles, Calendar, Award, Bed, Building2, Plus, Minus, HelpCircle, Home } from "lucide-react";
 import { chateaux as chateauxData } from "@/data/chateaux";
@@ -1081,9 +1082,11 @@ export default function ChateauPage() {
               <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium, textAlign: 'center' }}>
                 Une autre question ? Notre équipe est à votre écoute
               </Text>
-              <Button variant="primary" size="md">
-                Nous Contacter
-              </Button>
+              <Link href="/devis">
+                <Button variant="primary" size="md">
+                  Nous Contacter
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </Container>
@@ -1111,12 +1114,16 @@ export default function ChateauPage() {
               viewport={{ once: true }}
               style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap' }}
             >
-              <Button variant="primary" size="lg">
-                Demander un Devis
-              </Button>
-              <Button variant="outline" size="lg">
-                Voir d'autres châteaux
-              </Button>
+              <Link href="/devis">
+                <Button variant="primary" size="lg">
+                  Demander un Devis
+                </Button>
+              </Link>
+              <Link href="/chateaux">
+                <Button variant="outline" size="lg">
+                  Voir d'autres châteaux
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </Container>

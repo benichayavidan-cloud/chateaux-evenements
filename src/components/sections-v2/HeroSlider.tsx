@@ -8,6 +8,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button, Badge } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
@@ -207,9 +208,11 @@ export function HeroSlider({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
-                  <Button variant="primary" size="lg">
-                    {currentSlide.cta.label}
-                  </Button>
+                  <Link href={currentSlide.cta.href}>
+                    <Button variant="primary" size="lg">
+                      {currentSlide.cta.label}
+                    </Button>
+                  </Link>
                 </motion.div>
               )}
             </div>
