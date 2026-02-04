@@ -199,17 +199,17 @@ export default function ChateauxPage() {
         </Container>
       </Section>
 
-      {/* Pourquoi Nos Châteaux - Style Points Forts */}
-      <Section background="gray" style={{ padding: '60px 0' }}>
+      {/* Pourquoi Nos Châteaux - 4 cartes sur une ligne */}
+      <Section background="gray" style={{ padding: '50px 0' }}>
         <Container size="xl">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.lg }}>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
             >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
+              <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'center' }}>
                 Pourquoi Choisir Nos Châteaux
               </Text>
               <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
@@ -219,118 +219,80 @@ export default function ChateauxPage() {
           </div>
 
           <div style={{
-            display: 'flex',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1rem',
-            maxWidth: '100%',
+            maxWidth: '1200px',
             margin: '0 auto',
-            overflowX: 'visible',
-            justifyContent: 'center',
-            padding: '3rem 1rem',
-            minHeight: '380px',
-            flexWrap: 'wrap',
+            padding: '1.5rem 1rem',
           }}>
             {[
               {
                 icon: Shield,
-                title: 'Privatisation Totale',
-                description: 'Domaines entièrement privatisables pour garantir confidentialité et exclusivité'
+                title: 'Privatisation',
+                description: 'Domaines privatisables pour confidentialité totale'
               },
               {
                 icon: MapPin,
                 title: 'Accès Privilégié',
-                description: 'Lieux d\'exception habituellement fermés au public. Collection confidentielle'
+                description: 'Lieux d\'exception habituellement fermés au public'
               },
               {
                 icon: Award,
                 title: 'Service Premium',
-                description: 'Accompagnement personnalisé de A à Z par nos experts événementiels'
+                description: 'Accompagnement de A à Z par nos experts'
               },
               {
                 icon: Clock,
-                title: 'Proximité Paris',
-                description: '30-60 min de Paris. Dépaysement total sans contraintes logistiques'
+                title: 'Proche Paris',
+                description: '30-60 min de Paris. Dépaysement garanti'
               }
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{
-                  opacity: 0,
-                  scale: 0.5,
-                  rotateY: -180,
-                  rotateZ: -10,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  scale: 1,
-                  rotateY: 0,
-                  rotateZ: 0,
-                }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.15,
-                  ease: [0.34, 1.56, 0.64, 1],
-                  type: "spring",
-                  stiffness: 100,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  rotateY: 5,
-                  y: -10,
-                  transition: { duration: 0.3 }
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.3, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                style={{
-                  perspective: '1000px',
-                  transformStyle: 'preserve-3d',
-                }}
               >
                 <div
                   style={{
-                    padding: 'clamp(2rem, 3vw, 2.5rem)',
+                    padding: '1.25rem',
                     background: 'white',
-                    borderRadius: theme.effects.borderRadius.xl,
+                    borderRadius: theme.effects.borderRadius.lg,
                     border: `1px solid ${theme.colors.neutral.gray200}`,
                     textAlign: 'center',
                     height: '100%',
-                    minHeight: '280px',
-                    minWidth: '260px',
-                    maxWidth: '300px',
-                    flex: '0 0 auto',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'flex-start',
-                    gap: theme.spacing.lg,
-                    position: 'relative',
-                    overflow: 'hidden',
+                    gap: '0.75rem',
                     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-                    transition: 'all 0.3s ease',
+                    transition: 'box-shadow 0.2s ease',
                   }}
-                  className="hover:shadow-lg"
+                  className="hover:shadow-md"
                 >
                   <div
                     style={{
-                      width: '72px',
-                      height: '72px',
+                      width: '48px',
+                      height: '48px',
                       borderRadius: theme.effects.borderRadius.full,
                       background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      border: `2px solid ${theme.colors.primary.bronze}30`,
-                      flexShrink: 0,
+                      border: `1px solid ${theme.colors.primary.bronze}25`,
                     }}
                   >
-                    <item.icon className="w-8 h-8" style={{ color: theme.colors.primary.bronze }} />
+                    <item.icon className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
                   </div>
-                  <div>
-                    <Text variant="h5" style={{ fontWeight: theme.typography.fontWeight.semibold, marginBottom: theme.spacing.sm, textAlign: 'center' }}>
-                      {item.title}
-                    </Text>
-                    <Text variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed, textAlign: 'center', fontSize: '0.9rem' }}>
-                      {item.description}
-                    </Text>
-                  </div>
+                  <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, fontSize: '0.95rem', textAlign: 'center' }}>
+                    {item.title}
+                  </Text>
+                  <Text variant="caption" color="muted" style={{ lineHeight: 1.5, textAlign: 'center', fontSize: '0.8rem' }}>
+                    {item.description}
+                  </Text>
                 </div>
               </motion.div>
             ))}
@@ -338,26 +300,20 @@ export default function ChateauxPage() {
         </Container>
       </Section>
 
-      {/* ========== 2. BOUSSOLE DE CHOIX - Avant la liste des châteaux ========== */}
-      <Section background="white" style={{ padding: '40px 0' }}>
-        <Container size="lg">
+      {/* ========== 2. BOUSSOLE DE CHOIX - Style carte forfait avec image ========== */}
+      <Section background="white" style={{ padding: '50px 0' }}>
+        <Container size="xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            style={{
-              background: theme.colors.neutral.gray50,
-              borderRadius: theme.effects.borderRadius.xl,
-              border: `1px solid ${theme.colors.neutral.gray200}`,
-              padding: 'clamp(1.5rem, 4vw, 2.5rem)',
-            }}
           >
             <Text
-              variant="h4"
+              variant="h3"
               style={{
                 textAlign: 'center',
-                marginBottom: 'clamp(1.5rem, 3vw, 2rem)',
+                marginBottom: '2rem',
                 color: theme.colors.neutral.gray800,
                 fontWeight: theme.typography.fontWeight.medium,
               }}
@@ -365,68 +321,109 @@ export default function ChateauxPage() {
               Quel château pour votre événement ?
             </Text>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '1.25rem',
+              maxWidth: '1100px',
+              margin: '0 auto',
+            }}>
               {[
                 {
-                  emoji: '🌳',
-                  question: 'Besoin de grand air ?',
-                  answer: 'Optez pour l\'Abbaye en Vallée de Chevreuse (78)',
+                  image: chateaux.find(c => c.slug === 'abbaye-millenaire-vallee-chevreuse')?.images.card || '',
+                  question: '🌳 Besoin de grand air ?',
+                  answer: 'Abbaye en Vallée de Chevreuse (78)',
+                  detail: 'Étang privé 70ha • Ruines romantiques',
                   href: '/chateaux/abbaye-millenaire-vallee-chevreuse',
                 },
                 {
-                  emoji: '🏰',
-                  question: 'Grandes équipes ?',
-                  answer: 'Le Manoir de Chantilly (60) accueille jusqu\'à 280 pers.',
+                  image: chateaux.find(c => c.slug === 'manoir-anglo-normand-chantilly')?.images.card || '',
+                  question: '🏰 Grandes équipes ?',
+                  answer: 'Manoir de Chantilly (60)',
+                  detail: 'Jusqu\'à 280 pers • 120 chambres',
                   href: '/chateaux/manoir-anglo-normand-chantilly',
                 },
                 {
-                  emoji: '🚇',
-                  question: 'Temps limité ?',
-                  answer: 'Le Domaine Historique (92) est accessible en métro.',
+                  image: chateaux.find(c => c.slug === 'hotel-historique-seminaire-paris-92')?.images.card || '',
+                  question: '🚇 Temps limité ?',
+                  answer: 'Domaine Historique (92)',
+                  detail: 'Accessible en métro • 5min à pied',
                   href: '/chateaux/hotel-historique-seminaire-paris-92',
                 },
               ].map((item, index) => (
                 <Link key={index} href={item.href}>
                   <motion.div
-                    whileHover={{ scale: 1.02, y: -4 }}
-                    transition={{ duration: 0.2 }}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -8, transition: { duration: 0.2 } }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true }}
                     style={{
                       background: 'white',
-                      borderRadius: theme.effects.borderRadius.lg,
-                      padding: 'clamp(1.25rem, 3vw, 1.5rem)',
-                      textAlign: 'center',
+                      borderRadius: theme.effects.borderRadius.xl,
+                      overflow: 'hidden',
                       cursor: 'pointer',
                       border: `1px solid ${theme.colors.neutral.gray200}`,
-                      height: '100%',
-                      transition: 'box-shadow 0.3s ease',
+                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
+                      transition: 'box-shadow 0.2s ease',
                     }}
-                    className="hover:shadow-md"
+                    className="hover:shadow-xl"
                   >
-                    <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{item.emoji}</div>
-                    <Text
-                      variant="body"
-                      style={{
-                        fontWeight: theme.typography.fontWeight.semibold,
-                        color: theme.colors.neutral.gray800,
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      {item.question}
-                    </Text>
-                    <Text
-                      variant="caption"
-                      style={{
-                        color: theme.colors.neutral.gray600,
-                        lineHeight: 1.5,
-                      }}
-                    >
-                      {item.answer}
-                    </Text>
-                    <div style={{ marginTop: '0.75rem' }}>
-                      <ArrowRight
-                        className="w-4 h-4 mx-auto"
-                        style={{ color: theme.colors.primary.bronze }}
+                    {/* Image en haut */}
+                    <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
+                      <Image
+                        src={item.image}
+                        alt={item.answer}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
+                      <div style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3) 100%)',
+                      }} />
+                    </div>
+
+                    {/* Texte en bas */}
+                    <div style={{ padding: '1.25rem', textAlign: 'center' }}>
+                      <Text
+                        variant="body"
+                        style={{
+                          fontWeight: theme.typography.fontWeight.semibold,
+                          color: theme.colors.neutral.gray800,
+                          marginBottom: '0.5rem',
+                          fontSize: '1rem',
+                        }}
+                      >
+                        {item.question}
+                      </Text>
+                      <Text
+                        variant="body"
+                        style={{
+                          color: theme.colors.primary.bronze,
+                          fontWeight: theme.typography.fontWeight.medium,
+                          marginBottom: '0.25rem',
+                          fontSize: '0.9rem',
+                        }}
+                      >
+                        {item.answer}
+                      </Text>
+                      <Text
+                        variant="caption"
+                        style={{
+                          color: theme.colors.neutral.gray500,
+                          fontSize: '0.8rem',
+                        }}
+                      >
+                        {item.detail}
+                      </Text>
+                      <div style={{ marginTop: '0.75rem' }}>
+                        <ArrowRight
+                          className="w-4 h-4 mx-auto"
+                          style={{ color: theme.colors.primary.bronze }}
+                        />
+                      </div>
                     </div>
                   </motion.div>
                 </Link>
@@ -513,17 +510,17 @@ export default function ChateauxPage() {
         </Container>
       </Section>
 
-      {/* Comment ça marche - Version simplifiée */}
-      <Section background="gray" style={{ padding: '60px 0' }}>
-        <Container size="lg">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing['4xl'] }}>
+      {/* Comment ça marche - 3 étapes sur une ligne avec animations rapides */}
+      <Section background="gray" style={{ padding: '50px 0' }}>
+        <Container size="xl">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
             >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md }}>
+              <Text variant="h2" style={{ marginBottom: '0.5rem' }}>
                 Comment ça marche
               </Text>
               <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
@@ -532,81 +529,104 @@ export default function ChateauxPage() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '1.25rem',
+            maxWidth: '1000px',
+            margin: '0 auto',
+            position: 'relative',
+          }}>
+            {/* Ligne de connexion entre les étapes */}
+            <div style={{
+              position: 'absolute',
+              top: '45px',
+              left: '20%',
+              right: '20%',
+              height: '2px',
+              background: `linear-gradient(90deg, ${theme.colors.primary.bronze}40, ${theme.colors.primary.gold}60, ${theme.colors.primary.bronze}40)`,
+              zIndex: 0,
+            }} />
+
             {[
               {
                 step: '1',
-                title: 'Demande de Devis',
-                description: 'Formulaire rapide pour nous partager vos besoins',
+                title: 'Demande',
+                description: 'Formulaire rapide',
                 icon: Calendar
               },
               {
                 step: '2',
-                title: 'Sélection sur-mesure',
-                description: 'Nous vous proposons les châteaux adaptés',
+                title: 'Sélection',
+                description: 'Châteaux sur-mesure',
                 icon: Award
               },
               {
                 step: '3',
                 title: 'Organisation',
-                description: 'Nous gérons tout de A à Z pour vous',
+                description: 'On gère tout',
                 icon: CheckCircle
               }
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.8, x: index === 0 ? -30 : index === 2 ? 30 : 0 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                whileHover={{
+                  scale: 1.05,
+                  y: -5,
+                  transition: { duration: 0.15, ease: "easeOut" }
+                }}
+                transition={{
+                  duration: 0.25,
+                  delay: index * 0.08,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
                 viewport={{ once: true }}
+                style={{ position: 'relative', zIndex: 1 }}
               >
                 <div
                   style={{
-                    padding: theme.spacing.xl,
+                    padding: '1.25rem',
                     background: 'white',
                     borderRadius: theme.effects.borderRadius.xl,
                     border: `1px solid ${theme.colors.neutral.gray200}`,
                     textAlign: 'center',
-                    height: '100%',
-                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-                    transition: 'all 0.3s ease',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
+                    transition: 'box-shadow 0.15s ease',
                   }}
                   className="hover:shadow-lg"
                 >
-                  <div
+                  {/* Numéro d'étape animé */}
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
                     style={{
-                      width: '64px',
-                      height: '64px',
-                      margin: '0 auto',
-                      marginBottom: theme.spacing.lg,
+                      width: '56px',
+                      height: '56px',
+                      margin: '0 auto 1rem',
                       borderRadius: theme.effects.borderRadius.full,
-                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
+                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}, ${theme.colors.primary.gold})`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      border: `2px solid ${theme.colors.primary.bronze}30`,
+                      boxShadow: '0 4px 12px rgba(183, 135, 77, 0.3)',
                     }}
                   >
-                    <item.icon className="w-8 h-8" style={{ color: theme.colors.primary.bronze }} />
-                  </div>
-
-                  <div
-                    style={{
-                      fontSize: theme.typography.fontSize.sm,
+                    <span style={{
+                      color: 'white',
                       fontWeight: theme.typography.fontWeight.bold,
-                      color: theme.colors.primary.bronze,
-                      letterSpacing: theme.typography.letterSpacing.wider,
-                      marginBottom: theme.spacing.sm,
-                    }}
-                  >
-                    ÉTAPE {item.step}
-                  </div>
+                      fontSize: '1.25rem',
+                    }}>
+                      {item.step}
+                    </span>
+                  </motion.div>
 
-                  <Text variant="h4" style={{ marginBottom: theme.spacing.sm }}>
+                  <Text variant="h5" style={{ marginBottom: '0.25rem', fontSize: '1rem' }}>
                     {item.title}
                   </Text>
 
-                  <Text variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed }}>
+                  <Text variant="caption" color="muted" style={{ fontSize: '0.85rem' }}>
                     {item.description}
                   </Text>
                 </div>
@@ -616,99 +636,124 @@ export default function ChateauxPage() {
         </Container>
       </Section>
 
-      {/* ========== 3. TRUST & SEO BLOCK - Avant le CTA finale ========== */}
-      <Section background="white" style={{ padding: '70px 0' }}>
-        <Container size="lg">
+      {/* ========== 3. TRUST & SEO BLOCK - Design moderne sur une ligne ========== */}
+      <Section background="white" style={{ padding: '50px 0' }}>
+        <Container size="xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
             <Text
-              variant="h2"
+              variant="h3"
               style={{
                 textAlign: 'center',
-                marginBottom: 'clamp(2rem, 5vw, 3rem)',
-                fontFamily: theme.typography.fonts.heading,
-                fontWeight: theme.typography.fontWeight.light,
-                fontStyle: 'italic',
-                color: theme.colors.neutral.gray900,
+                marginBottom: '2rem',
+                color: theme.colors.neutral.gray800,
               }}
             >
-              Pourquoi organiser votre séminaire avec Select Châteaux ?
+              Pourquoi Select Châteaux ?
             </Text>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '1rem',
+              maxWidth: '1100px',
+              margin: '0 auto',
+            }}>
               {[
                 {
-                  icon: (
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-                    </svg>
-                  ),
-                  title: 'Privatisation Totale',
-                  description: 'Sentez-vous chez vous. Nos lieux sont dédiés à votre entreprise pour garantir la confidentialité de vos échanges.',
+                  icon: Shield,
+                  title: 'Privatisation',
+                  highlight: '100%',
+                  description: 'Lieux dédiés à votre entreprise',
+                  gradient: 'linear-gradient(135deg, #B7874D 0%, #D4AF37 100%)',
                 },
                 {
-                  icon: (
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
-                    </svg>
-                  ),
-                  title: 'Tout Inclus & Transparent',
-                  description: 'Pas de mauvaise surprise. Nos forfaits journée d\'étude et résidentiels incluent la technique, la restauration et le service.',
+                  icon: Check,
+                  title: 'Tout Inclus',
+                  highlight: '0€',
+                  description: 'de frais cachés',
+                  gradient: 'linear-gradient(135deg, #1E3A5F 0%, #2E5A8F 100%)',
                 },
                 {
-                  icon: (
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                    </svg>
-                  ),
+                  icon: Award,
                   title: 'Expertise B2B',
-                  description: 'Nous ne faisons pas de mariages. Nos équipes sont formées aux exigences des entreprises (réactivité, discrétion, fluidité).',
+                  highlight: '15 ans',
+                  description: 'd\'expérience corporate',
+                  gradient: 'linear-gradient(135deg, #4A5568 0%, #718096 100%)',
                 },
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   style={{
-                    textAlign: 'center',
-                    padding: 'clamp(1.5rem, 3vw, 2rem)',
+                    background: item.gradient,
+                    borderRadius: theme.effects.borderRadius.xl,
+                    padding: '1.5rem',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
                   }}
                 >
-                  <div
-                    style={{
-                      color: theme.colors.primary.bronze,
-                      marginBottom: '1.25rem',
+                  {/* Background pattern */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '-20px',
+                    right: '-20px',
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.1)',
+                  }} />
+
+                  <div style={{ position: 'relative', zIndex: 1 }}>
+                    <div style={{
                       display: 'flex',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {item.icon}
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      marginBottom: '1rem',
+                    }}>
+                      <div style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '10px',
+                        background: 'rgba(255,255,255,0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                        <item.icon className="w-5 h-5" style={{ color: 'white' }} />
+                      </div>
+                      <Text variant="body" style={{ color: 'white', fontWeight: 600, fontSize: '0.95rem' }}>
+                        {item.title}
+                      </Text>
+                    </div>
+
+                    <div style={{
+                      fontSize: '2.25rem',
+                      fontWeight: 700,
+                      color: 'white',
+                      lineHeight: 1,
+                      marginBottom: '0.25rem',
+                    }}>
+                      {item.highlight}
+                    </div>
+
+                    <Text variant="caption" style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.85rem' }}>
+                      {item.description}
+                    </Text>
                   </div>
-                  <Text
-                    variant="h5"
-                    style={{
-                      marginBottom: '0.75rem',
-                      color: theme.colors.neutral.gray900,
-                      fontWeight: theme.typography.fontWeight.semibold,
-                    }}
-                  >
-                    {item.title}
-                  </Text>
-                  <Text
-                    variant="body"
-                    style={{
-                      color: theme.colors.neutral.gray600,
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {item.description}
-                  </Text>
                 </motion.div>
               ))}
             </div>
