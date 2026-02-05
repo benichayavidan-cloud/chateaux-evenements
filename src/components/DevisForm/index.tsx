@@ -532,6 +532,29 @@ export function DevisForm() {
   return (
     <>
       <style>{styleSheet}</style>
+      <style>{`
+        .devis-nav-buttons {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          flex-wrap: wrap;
+          position: sticky;
+          bottom: 0;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(12px);
+          padding: 1rem 0;
+          margin-top: 1.5rem;
+          border-top: 1px solid #e5e7eb;
+          z-index: 20;
+          box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+        }
+        @media (max-width: 480px) {
+          .devis-nav-buttons {
+            padding: 0.75rem 0;
+            gap: 0.75rem;
+          }
+        }
+      `}</style>
       <div className="max-w-5xl mx-auto">
         {/* Message d'encouragement flottant */}
         <AnimatePresence>
@@ -615,16 +638,12 @@ export function DevisForm() {
             )}
           </AnimatePresence>
 
-          {/* Navigation buttons avec animations */}
+          {/* Navigation buttons - sticky en bas pour toujours être visible */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex justify-between gap-4 flex-wrap border-t border-gray-200"
-            style={{
-              marginTop: "clamp(2rem, 4vw, 3rem)",
-              paddingTop: "clamp(1.5rem, 3vw, 2rem)",
-            }}
+            className="devis-nav-buttons"
           >
             {currentStep > 1 ? (
               <motion.button

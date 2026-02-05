@@ -66,6 +66,9 @@ export function Step2DateDuration({
               }
             }, 500);
           }}
+          onClick={(e) => {
+            (e.currentTarget as HTMLInputElement).showPicker?.();
+          }}
           className="rounded-xl focus:border-[#a37e2c] focus:outline-none"
           style={{
             display: "block",
@@ -75,7 +78,8 @@ export function Step2DateDuration({
             border: "2px solid #9CA3AF",
             fontSize: "1rem",
             color: "#1F2937",
-            colorScheme: "light"
+            colorScheme: "light",
+            cursor: "pointer",
           }}
           min={new Date().toISOString().split("T")[0]}
         />
