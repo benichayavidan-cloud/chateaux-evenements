@@ -137,7 +137,7 @@ export function ServiceCard({
             margin: 0,
             display: 'flex',
             flexDirection: 'column',
-            gap: '0.4rem',
+            gap: '0.5rem',
             flex: 1,
           }}
         >
@@ -212,6 +212,18 @@ export function ServiceCard({
           .service-card-split > div:first-child {
             width: 100% !important;
             height: 180px !important;
+          }
+          .service-card-split > div:last-child {
+            padding: 1.25rem !important;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .service-card-split > div:first-child {
+            height: 150px !important;
+          }
+          .service-card-split > div:last-child {
+            padding: 1rem !important;
           }
         }
       `}</style>

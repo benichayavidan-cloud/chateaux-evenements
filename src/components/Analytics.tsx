@@ -9,9 +9,10 @@ import Script from "next/script";
 import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-// Configuration - À remplacer par vos vrais IDs
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX";
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX";
+// Configuration - IDs Google
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "";
 
 /**
  * Google Analytics 4 Component - Internal
@@ -23,9 +24,16 @@ function GoogleAnalyticsInternal() {
   // Track page views on route change
   useEffect(() => {
     if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path: pathname + searchParams.toString(),
-      });
+      if (GA_MEASUREMENT_ID) {
+        window.gtag("config", GA_MEASUREMENT_ID, {
+          page_path: pathname + searchParams.toString(),
+        });
+      }
+      if (GOOGLE_ADS_ID) {
+        window.gtag("config", GOOGLE_ADS_ID, {
+          page_path: pathname + searchParams.toString(),
+        });
+      }
     }
   }, [pathname, searchParams]);
 
@@ -33,11 +41,15 @@ function GoogleAnalyticsInternal() {
     return null; // Désactivé en dev
   }
 
+  // Utiliser Google Ads ID comme fallback si pas de GA4
+  const primaryId = GA_MEASUREMENT_ID || GOOGLE_ADS_ID;
+  if (!primaryId) return null;
+
   return (
     <>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${primaryId}`}
       />
       <Script
         id="google-analytics"
@@ -47,11 +59,12 @@ function GoogleAnalyticsInternal() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
+            ${GA_MEASUREMENT_ID ? `gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
               anonymize_ip: true,
               cookie_flags: 'SameSite=None;Secure'
-            });
+            });` : ''}
+            ${GOOGLE_ADS_ID ? `gtag('config', '${GOOGLE_ADS_ID}');` : ''}
           `,
         }}
       />

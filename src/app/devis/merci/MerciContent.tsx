@@ -11,15 +11,28 @@ export default function MerciContent() {
   const ref = searchParams.get("ref") || Math.random().toString(36).substr(2, 9).toUpperCase();
 
   useEffect(() => {
-    // Track conversion dans Google Analytics
     if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "conversion", {
+      // Track conversion Google Ads (avec send_to pour attribution)
+      const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+      const convLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
+      if (adsId && convLabel) {
+        window.gtag("event", "conversion", {
+          send_to: `${adsId}/${convLabel}`,
+          value: 1.0,
+          currency: "EUR",
+          transaction_id: ref,
+        });
+      }
+
+      // Track conversion GA4
+      window.gtag("event", "generate_lead", {
         event_category: "form",
         event_label: "devis_submitted",
         value: 1,
+        currency: "EUR",
       });
     }
-  }, []);
+  }, [ref]);
 
   return (
     <div style={{ minHeight: "100vh", background: "#FFFFFF", paddingTop: "80px" }}>
