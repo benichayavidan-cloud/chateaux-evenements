@@ -105,6 +105,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
             src={image}
             alt={title}
             fill
+            quality={85}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             style={{
               objectFit: 'cover',
               transition: `transform ${theme.effects.transitions.ultra} ${theme.effects.easings.smooth}`,

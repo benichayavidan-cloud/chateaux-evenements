@@ -1,53 +1,5 @@
-import type { Metadata } from "next";
 import { Suspense } from 'react';
-
-export const metadata: Metadata = {
-  title: "Nos 4 Châteaux pour Séminaire en Île-de-France | Chantilly, Chevreuse, Paris 92",
-  description:
-    "Location château séminaire Île-de-France : Manoir 280 pers Chantilly (60), Refuge 5★ accessible métro (92), Abbaye étang Chevreuse (78). Réponse 48h • Visite gratuite",
-  robots: {
-    index: false,
-    follow: false,
-  },
-  keywords: [
-    "location chateau seminaire ile de france",
-    "chateau seminaire chantilly",
-    "chateau seminaire oise 60",
-    "location chateau hauts de seine 92",
-    "abbaye seminaire yvelines 78",
-    "chateau vallée chevreuse",
-    "chateau accessible metro paris",
-    "manoir anglo normand chantilly",
-    "location chateau 280 personnes",
-    "chateau monument historique seminaire",
-  ],
-  alternates: {
-    canonical: '/chateaux',
-  },
-  openGraph: {
-    type: "website",
-    title: "4 Châteaux d'Exception pour Séminaires | Île-de-France",
-    description:
-      "Découvrez notre sélection exclusive : Manoir de Chantilly (280 pers), Refuge Historique Paris 92, Abbaye Vallée de Chevreuse. Réservation sous 48h.",
-    url: "https://www.selectchateaux.com/chateaux",
-    siteName: "Select Châteaux",
-    locale: "fr_FR",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Châteaux pour séminaires en Île-de-France - Select Châteaux",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "4 Châteaux d'Exception | Séminaires Île-de-France",
-    description: "Manoir Chantilly, Refuge Paris 92, Abbaye Chevreuse. Réservation express.",
-    images: ["/og-image.jpg"]
-  },
-};
+export { metadata } from './metadata';
 
 export default function ChateauxLayout({
   children,

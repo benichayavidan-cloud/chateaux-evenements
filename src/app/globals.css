@@ -1493,3 +1493,19 @@ textarea::placeholder {
 .stripe-button:hover * {
   color: white !important;
 }
+
+/* === LIGHTWEIGHT CSS ANIMATIONS (replaces framer-motion on blog) === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out both;
+}

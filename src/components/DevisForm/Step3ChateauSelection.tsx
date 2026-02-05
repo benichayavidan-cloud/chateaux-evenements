@@ -70,8 +70,10 @@ export function Step3ChateauSelection({
               <div className="relative w-full h-full">
                 <Image
                   src={chateau.images.card}
-                  alt={chateau.nom}
+                  alt={`${chateau.nom} - ${chateau.region} - Château pour séminaire d'entreprise`}
                   fill
+                  quality={85}
+                  sizes="(max-width: 500px) 100vw, 50vw"
                   className="object-cover"
                 />
                 {/* Overlay léger - gradient uniquement en bas pour texte lisible */}

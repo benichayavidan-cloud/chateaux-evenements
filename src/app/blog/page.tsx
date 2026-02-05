@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Search, Calendar, Clock, ArrowRight, Sparkles, Filter } from "lucide-react";
 import { blogPosts, BlogCategory, getLatestPosts, getBlogPostsByCategory } from "@/data/blog-posts";
 
@@ -51,11 +50,8 @@ export default function BlogPage() {
         </div>
 
         <div className="w-full max-w-4xl px-6 sm:px-8 md:px-12 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center flex flex-col gap-5 sm:gap-6 w-full items-center justify-center"
+          <div
+            className="text-center flex flex-col gap-5 sm:gap-6 w-full items-center justify-center animate-fade-in"
           >
             {/* Badge */}
             <div
@@ -89,7 +85,7 @@ export default function BlogPage() {
                 className="w-full rounded-2xl border-2 border-gray-200 focus:border-[var(--bronze-antique)] focus:ring-4 focus:ring-[var(--bronze-antique)]/10 outline-none transition-all duration-300 text-base shadow-lg placeholder:text-gray-500"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -97,11 +93,8 @@ export default function BlogPage() {
       <div className="w-full flex justify-center items-center" style={{ padding: '12px 20px' }}>
         <div className="w-full max-w-7xl mx-auto flex flex-col items-center gap-12 sm:gap-16 md:gap-20">
           {/* Filtres Catégories */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5"
+          <div
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5 animate-fade-in"
           >
           <div className="inline-flex items-center gap-3 text-gray-600 mb-2 sm:mb-0 sm:mr-6 md:mr-8 w-full sm:w-auto justify-center">
             <Filter className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -128,15 +121,12 @@ export default function BlogPage() {
               </span>
             </button>
           ))}
-          </motion.div>
+          </div>
 
           {/* Featured Post - Style Brakt */}
           {!searchQuery && selectedCategory === "all" && (
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="post-outer featured-post w-full max-w-5xl mx-auto p-0"
+            <div
+              className="post-outer featured-post w-full max-w-5xl mx-auto p-0 animate-fade-in"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-stretch">
                 {/* Image */}
@@ -148,6 +138,7 @@ export default function BlogPage() {
                     className="object-cover"
                     style={{ objectPosition: 'center' }}
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
                   />
                   {/* Featured Badge */}
                   <div
@@ -204,19 +195,16 @@ export default function BlogPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           )}
 
           {/* Articles Grid - Brakt Style */}
           {filteredPosts.length > 0 ? (
             <div className="brakt-main-content grid !grid-cols-1 sm:!grid-cols-2 md:!grid-cols-3 lg:!grid-cols-4 gap-4 sm:gap-5 md:gap-6 w-full mx-auto">
-            {filteredPosts.map((post, index) => (
-              <motion.article
+            {filteredPosts.map((post) => (
+              <article
                 key={post.id}
-                className="post-outer"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: Math.min(index * 0.1, 0.5) }}
+                className="post-outer animate-fade-in"
               >
                 {/* Image */}
                 <div className="post-thumb">
@@ -277,21 +265,19 @@ export default function BlogPage() {
                     </Link>
                   </div>
                 </div>
-              </motion.article>
+              </article>
             ))}
             </div>
           ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-20 w-full flex flex-col items-center"
+            <div
+              className="text-center py-20 w-full flex flex-col items-center animate-fade-in"
             >
               <div className="text-6xl mb-4">🔍</div>
               <h3 className="text-2xl font-light text-gray-900 mb-2 text-center">Aucun article trouvé</h3>
               <p className="text-gray-600 text-center">
                 Essayez de modifier vos filtres ou votre recherche.
               </p>
-            </motion.div>
+            </div>
           )}
         </div>
       </div>
@@ -299,12 +285,8 @@ export default function BlogPage() {
       {/* CTA Section */}
       <section className="w-full bg-gradient-to-br from-amber-50 to-orange-50 flex justify-center items-center" style={{ padding: '60px 20px' }}>
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 md:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center gap-5 sm:gap-6 md:gap-8"
+          <div
+            className="flex flex-col items-center gap-5 sm:gap-6 md:gap-8 animate-fade-in"
           >
             <Sparkles className="w-12 h-12 sm:w-14 sm:h-14 text-[var(--bronze-antique)] mx-auto" />
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-gray-900 text-center px-4">
@@ -324,7 +306,7 @@ export default function BlogPage() {
             <p className="text-xs sm:text-sm text-gray-600 px-4 font-medium">
               ✓ Réponse sous 24h • ✓ Sans engagement • ✓ Conseils d'experts inclus
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>

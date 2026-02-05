@@ -30,6 +30,20 @@ const formSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    // Protection CSRF : vérifier l'origine de la requête
+    const origin = request.headers.get('origin');
+    const allowedOrigins = [
+      'https://www.selectchateaux.com',
+      'https://selectchateaux.com',
+      ...(process.env.NODE_ENV === 'development' ? ['http://localhost:3000', 'http://localhost:3001'] : []),
+    ];
+    if (!origin || !allowedOrigins.includes(origin)) {
+      return NextResponse.json(
+        { error: 'Origine non autorisée' },
+        { status: 403 }
+      );
+    }
+
     // Parser le body
     const body = await request.json();
 

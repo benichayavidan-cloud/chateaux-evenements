@@ -47,8 +47,9 @@ export function LogoCarousel({ logos }: LogoCarouselProps) {
           >
             <Image
               src={logo.url}
-              alt={logo.nom}
+              alt={`Logo ${logo.nom} - Client Select Châteaux`}
               fill
+              sizes="140px"
               style={{ objectFit: 'contain' }}
             />
           </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroSlider } from "@/components/sections-v2";
-import { Container, Row, Col } from "@/components/layout-v2";
+import { Container } from "@/components/layout-v2";
 import { Text, Card, Button, Badge } from "@/components/ui-v2";
 import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
 import { StructuredData } from "@/components/StructuredData";

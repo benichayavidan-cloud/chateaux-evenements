@@ -16,6 +16,7 @@ import { Step1EventType } from "./Step1EventType";
 import { Step2DateDuration } from "./Step2DateDuration";
 import { Step3ChateauSelection } from "./Step3ChateauSelection";
 import { Step4ContactForm } from "./Step4ContactForm";
+import { trackFormSubmit, trackDevisRequest } from "@/components/Analytics";
 
 // Styles pour les sliders et focus
 const styleSheet = `
@@ -319,6 +320,10 @@ export function DevisForm() {
         );
         return;
       }
+
+      // Tracking GA4/Ads
+      trackFormSubmit("devis");
+      trackDevisRequest(data.chateauIds);
 
       // Générer un numéro de référence unique
       const ref = Math.random().toString(36).substr(2, 9).toUpperCase();

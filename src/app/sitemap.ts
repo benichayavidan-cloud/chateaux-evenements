@@ -70,10 +70,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8, // Priorité importante pour les pages produits
   }))
 
-  // 4. Pages blog - Retirées du sitemap (noindex)
-  // À réactiver quand le blog passera en index: true
-  const blogListingPage: MetadataRoute.Sitemap = []
-  const blogPages: MetadataRoute.Sitemap = []
+  // 4. Pages blog
+  const blogListingPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.8,
+    }
+  ]
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
   // 6. Retour du sitemap complet (prêt pour l'indexation future)
   return [

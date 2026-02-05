@@ -60,9 +60,10 @@ export function LogoCarousel() {
               <div className="relative w-full h-full flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300">
                 <Image
                   src={logo.url}
-                  alt={`Logo ${logo.nom}`}
+                  alt={`Logo ${logo.nom} - Client Select Châteaux`}
                   width={100}
                   height={60}
+                  sizes="100px"
                   className="object-contain"
                   loading="lazy"
                 />

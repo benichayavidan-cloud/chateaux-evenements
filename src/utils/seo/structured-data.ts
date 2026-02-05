@@ -35,9 +35,7 @@ export function generateOrganizationSchema() {
       addressRegion: "Île-de-France",
     },
     sameAs: [
-      // Ajouter les réseaux sociaux quand disponibles
-      // "https://www.linkedin.com/company/selectchateaux",
-      // "https://www.instagram.com/selectchateaux",
+      "https://www.linkedin.com/company/select-chateaux/about/",
     ],
     foundingDate: "2009",
     slogan: "La Collection Confidentielle",

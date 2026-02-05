@@ -12,8 +12,9 @@ import { Users, Check, Sparkles, Bed, Building2, Plus, Minus, HelpCircle, Home }
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Badge, Button } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Chateau } from "@/types";
+import { trackChateauView } from "@/components/Analytics";
 
 interface ChateauPageClientProps {
   chateau: Chateau;
@@ -39,6 +40,10 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'accommodation' | 'spaces'>('overview');
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    trackChateauView(chateau.nom);
+  }, [chateau.nom]);
 
   return (
     <>

@@ -4,8 +4,8 @@ import type { NextRequest } from 'next/server';
 // Simple rate limiting (en mémoire - pour production utiliser Redis ou Vercel KV)
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
 
-const RATE_LIMIT = 200;
-const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT = 30;
+const WINDOW_MS = 60 * 1000; // 1 minute
 
 function getRateLimitKey(req: NextRequest): string {
   const forwarded = req.headers.get('x-forwarded-for');
