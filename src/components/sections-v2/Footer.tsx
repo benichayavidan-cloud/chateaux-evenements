@@ -9,6 +9,7 @@ import { Link, Text } from '@/components/ui-v2';
 import { Container, Row, Col } from '@/components/layout-v2';
 import { theme } from '@/design-system/tokens';
 import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from 'lucide-react';
+import { trackPhoneClick } from '@/components/Analytics';
 
 export interface FooterLink {
   label: string;
@@ -137,7 +138,7 @@ export function Footer({
                 <>
                   <div style={{ display: 'flex', gap: theme.spacing.xs, alignItems: 'center' }}>
                     <Phone className="w-4 h-4 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
-                    <Link href={`tel:${contact.phone.replace(/\s/g, '')}`} variant="subtle">
+                    <Link href={`tel:${contact.phone.replace(/\s/g, '')}`} variant="subtle" onClick={() => trackPhoneClick()}>
                       <Text variant="caption">{contact.phone}</Text>
                     </Link>
                   </div>

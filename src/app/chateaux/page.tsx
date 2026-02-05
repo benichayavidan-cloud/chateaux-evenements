@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import Image from "next/image";
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { trackPhoneClick } from '@/components/Analytics';
 
 export default function ChateauxPage() {
   const searchParams = useSearchParams();
@@ -936,7 +937,7 @@ export default function ChateauxPage() {
                   Demander un Devis Gratuit
                 </Button>
               </Link>
-              <a href="tel:+33757991146">
+              <a href="tel:+33757991146" onClick={() => trackPhoneClick()}>
                 <Button variant="outline" size="lg">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <Phone className="w-5 h-5" />
