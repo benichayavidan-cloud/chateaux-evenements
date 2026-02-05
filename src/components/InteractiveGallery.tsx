@@ -47,7 +47,7 @@ export function InteractiveGallery({ images, altPrefix }: InteractiveGalleryProp
                 alt={`${altPrefix} - vue ${currentIndex + 1}`}
                 fill
                 className="object-cover"
-                quality={95}
+                quality={80}
                 sizes="(min-width: 1024px) 80vw, 100vw"
                 priority={currentIndex === 0}
               />

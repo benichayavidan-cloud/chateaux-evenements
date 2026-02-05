@@ -73,9 +73,9 @@ export function ChateauxSection() {
 
         {/* Grille de cartes châteaux - LuxuryHotel pattern */}
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16">
-          <div className="row" style={{ rowGap: '24px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {chateaux.map((chateau, index) => (
-            <div key={chateau.id} className="col-lg-6 col-md-6 mb-4">
+            <div key={chateau.id}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}

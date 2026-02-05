@@ -4,7 +4,6 @@
  */
 
 /* === IMPORTS === */
-@import 'bootstrap/dist/css/bootstrap-grid.min.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -150,28 +149,6 @@ button {
   cursor: pointer;
   border: none;
   background: none;
-}
-
-/* === BOOTSTRAP GRID OVERRIDES === */
-.container,
-.container-fluid,
-.container-sm,
-.container-md,
-.container-lg,
-.container-xl,
-.container-xxl {
-  padding-left: clamp(1rem, 3vw, 1.5rem);
-  padding-right: clamp(1rem, 3vw, 1.5rem);
-}
-
-.row {
-  margin-left: -12px;
-  margin-right: -12px;
-}
-
-[class*="col-"] {
-  padding-left: 12px;
-  padding-right: 12px;
 }
 
 /* === UTILITY CLASSES === */

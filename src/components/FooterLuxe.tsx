@@ -28,12 +28,11 @@ export function FooterLuxe() {
       }} />
 
       <div className="w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
-        <div className="row" style={{
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{
           marginBottom: 'clamp(2rem, 5vw, 2.5rem)',
-          rowGap: 'clamp(2rem, 4vw, 3rem)'
         }}>
           {/* Colonne 1 - À propos */}
-          <div className="col-lg-3 col-md-6 mb-4">
+          <div>
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <div style={{ marginBottom: spacing.lg, display: 'block', width: '100%' }}>
               <img
@@ -80,7 +79,7 @@ export function FooterLuxe() {
           </div>
 
           {/* Colonne 2 - Navigation */}
-          <div className="col-lg-3 col-md-6 mb-4">
+          <div>
           <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
@@ -117,7 +116,7 @@ export function FooterLuxe() {
           </div>
 
           {/* Colonne 3 - Services */}
-          <div className="col-lg-3 col-md-6 mb-4">
+          <div>
           <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,
@@ -178,7 +177,7 @@ export function FooterLuxe() {
           </div>
 
           {/* Colonne 4 - Contact */}
-          <div className="col-lg-3 col-md-6 mb-4">
+          <div>
           <div className="text-center md:text-left">
             <h3 style={{
               color: theme.colors.neutral.gray900,

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroSlider } from "@/components/sections-v2";
 import { Container, Row, Col } from "@/components/layout-v2";
-import { ReviewsSection } from "@/components/ReviewsSection";
 import { Text, Card, Button, Badge } from "@/components/ui-v2";
+import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
 import { StructuredData } from "@/components/StructuredData";
 import { theme } from "@/design-system/tokens";
 import { chateaux, testimonials, chiffresCles, clientLogos, typesEvenements } from "@/data/chateaux";
@@ -320,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* Reviews Section */}
-      <ReviewsSection />
+      <ReviewsSectionLazy />
 
       {/* CTA Final Section */}
       <section

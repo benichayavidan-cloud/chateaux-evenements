@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import "../styles/design-system.css";
-import { CookieConsent } from "@/components/CookieConsent";
 import { Navigation, Footer } from "@/components/sections-v2";
 import { GoogleAnalytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
 import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema } from "@/utils/seo/structured-data";
 import Image from "next/image";
+import { CookieConsentLazy } from "@/components/CookieConsentLazy";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -103,6 +103,12 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
+        {/* Preconnect & DNS Prefetch - Accélère les connexions aux domaines tiers */}
+        <link rel="preconnect" href="https://jmeiepmtgidqtmxfnlwf.supabase.co" />
+        <link rel="dns-prefetch" href="https://jmeiepmtgidqtmxfnlwf.supabase.co" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
         {/* Google Consent Mode v2 - DOIT être chargé AVANT tous les autres scripts Google */}
         <script
           dangerouslySetInnerHTML={{
@@ -142,6 +148,7 @@ export default function RootLayout({
               width={180}
               height={60}
               priority
+              sizes="180px"
               style={{
                 objectFit: 'contain',
                 display: 'block',
@@ -181,6 +188,7 @@ export default function RootLayout({
               alt="Select Châteaux"
               width={180}
               height={60}
+              sizes="180px"
               style={{ objectFit: 'contain' }}
             />
           }
@@ -230,7 +238,7 @@ export default function RootLayout({
         />
 
         {/* Cookie Consent - 3 variants disponibles: "default" | "small" | "mini" */}
-        <CookieConsent variant="mini" />
+        <CookieConsentLazy variant="mini" />
       </body>
     </html>
   );

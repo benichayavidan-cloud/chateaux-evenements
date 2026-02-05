@@ -6,7 +6,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, ArrowLeft, Sparkles, PartyPopper, Zap } from "lucide-react";
-import confetti from "canvas-confetti";
+import type ConfettiType from "canvas-confetti";
+
+const getConfetti = () => import("canvas-confetti").then(mod => mod.default);
 import { formSchema, type FormData } from "./types";
 import { TrustSection } from "./TrustSection";
 import { ProgressBar } from "./ProgressBar";
@@ -162,8 +164,9 @@ const encouragingMessages = {
   ],
 };
 
-// Fonction pour lancer des confettis
-const fireConfetti = () => {
+// Fonction pour lancer des confettis (lazy-loaded)
+const fireConfetti = async () => {
+  const confetti = await getConfetti();
   const count = 200;
   const defaults = {
     origin: { y: 0.7 },
@@ -244,14 +247,15 @@ export function DevisForm() {
   const displayedErrors = shouldShowErrors ? errors : {};
 
   // Animation de célébration quand on passe à l'étape suivante
-  const showEncouragementMessage = (step: number) => {
+  const showEncouragementMessage = async (step: number) => {
     const messages = encouragingMessages[step as keyof typeof encouragingMessages];
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     setEncouragementMessage(randomMessage);
     setShowEncouragement(true);
 
-    // Petit confetti pour chaque étape complétée
+    // Petit confetti pour chaque étape complétée (lazy-loaded)
     if (step > 1) {
+      const confetti = await getConfetti();
       confetti({
         particleCount: 50,
         spread: 60,

@@ -18,19 +18,19 @@ interface ServiceCardProps {
 // Images de personnes heureuses pour chaque type de service
 const happyPeopleImages: Record<string, { src: string; alt: string }> = {
   'presentation': {
-    src: '/images/services/seminaire-residentiel-chambre-luxe-hotel-cheminee-confort.jpg',
+    src: '/images/services/seminaire-residentiel-chambre-luxe-hotel-cheminee-confort.webp',
     alt: 'Séminaire résidentiel - chambre de luxe avec cheminée pour hébergement premium en château'
   },
   'book-open': {
-    src: '/images/services/journee-etude-reunion-equipe-professionnels-collaboration.jpg',
+    src: '/images/services/journee-etude-reunion-equipe-professionnels-collaboration.webp',
     alt: 'Journée d\'étude entreprise - équipe de professionnels en réunion de travail collaborative'
   },
   'champagne': {
-    src: '/images/services/soiree-entreprise-groupe-fete-theme-gatsby-costumes.jpg',
+    src: '/images/services/soiree-entreprise-groupe-fete-theme-gatsby-costumes.webp',
     alt: 'Soirée d\'entreprise à thème - groupe de collaborateurs costumés lors d\'une fête Gatsby années folles'
   },
   'users': {
-    src: '/images/services/team-building-activite-babyfoot-humain-exterieur-parc.jpg',
+    src: '/images/services/team-building-activite-babyfoot-humain-exterieur-parc.webp',
     alt: 'Team building entreprise - activité babyfoot humain en extérieur dans un parc de château'
   },
 };

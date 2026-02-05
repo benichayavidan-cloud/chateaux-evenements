@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/chateaux-collection.jpg",
+        url: "/images/chateaux-collection.webp",
         width: 1200,
         height: 630,
         alt: "Collection de châteaux Select Châteaux",

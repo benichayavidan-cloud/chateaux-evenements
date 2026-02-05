@@ -308,7 +308,7 @@ const article2: BlogPost = {
   },
   publishedAt: "2026-01-12",
   readingTime: 10,
-  image: "/images/reunion-entreprise-chateau-elegant.jpg",
+  image: "/images/reunion-entreprise-chateau-elegant.webp",
   imageAlt: "Checklist complète pour organiser un séminaire en château",
   keywords: [
     "checklist séminaire",
@@ -665,7 +665,7 @@ const article3: BlogPost = {
   },
   publishedAt: "2026-01-10",
   readingTime: 12,
-  image: "/images/activites-team-building-chateau-groupe.jpg",
+  image: "/images/activites-team-building-chateau-groupe.webp",
   imageAlt: "Séminaire au vert en château pour booster la productivité",
   keywords: [
     "séminaire nature",
@@ -2329,7 +2329,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
     publishedAt: "2025-12-30",
     readingTime: 8,
-    image: "/images/seminaire-strategique-chateau-entreprise-reunion.jpg",
+    image: "/images/seminaire-strategique-chateau-entreprise-reunion.webp",
     imageAlt: "Convaincre la direction d'investir dans un séminaire château",
     keywords: ["budget séminaire", "roi événement", "convaincre direction", "investissement team building"],
     content: `
@@ -4144,7 +4144,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Claire Dubois", role: "Journaliste Tourisme d'Affaires", avatar: "/avatars/claire.jpg" },
     publishedAt: "2025-12-22",
     readingTime: 8,
-    image: "/images/team-building-chateau-seminaire-cohesion-equipe-hero.jpg",
+    image: "/images/team-building-chateau-seminaire-cohesion-equipe-hero.webp",
     imageAlt: "Vexin nouvelle destination séminaire nature et patrimoine",
     keywords: ["vexin séminaire", "parc naturel régional", "destination tendance", "séminaire nature"],
     content: `
@@ -4929,7 +4929,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "/avatars/marc.jpg" },
     publishedAt: "2025-12-18",
     readingTime: 9,
-    image: "/images/team-building-exterieur-chateau-parc.jpg",
+    image: "/images/team-building-exterieur-chateau-parc.webp",
     imageAlt: "Fontainebleau team building nature en forêt et château",
     keywords: ["fontainebleau séminaire", "team building nature", "activités outdoor", "forêt 77"],
     content: `
@@ -5906,7 +5906,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
     publishedAt: "2025-12-14",
     readingTime: 8,
-    image: "/images/reunion-entreprise-chateau-elegant.jpg",
+    image: "/images/reunion-entreprise-chateau-elegant.webp",
     imageAlt: "Salle Reception Chateau Moderne - Séminaire château entreprise",
     keywords: ["lieu atypique séminaire", "manoir événement", "forteresse médiévale", "abbaye séminaire"],
     content: `
@@ -6468,7 +6468,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
     publishedAt: "2025-12-12",
     readingTime: 10,
-    image: "/images/seminaire-entreprise-chateau-evenement-hero.jpg",
+    image: "/images/seminaire-entreprise-chateau-evenement-hero.webp",
     imageAlt: "Organiser un séminaire pour grands groupes 100+ personnes en château",
     keywords: ["château grande capacité", "séminaire 100 personnes", "hébergement groupe", "château convention"],
     content: `
@@ -7487,7 +7487,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Camille Forestier", role: "Paysagiste Événementiel", avatar: "/avatars/camille.jpg" },
     publishedAt: "2025-12-08",
     readingTime: 9,
-    image: "/images/cohesion-equipe-seminaire-chateau.jpg",
+    image: "/images/cohesion-equipe-seminaire-chateau.webp",
     imageAlt: "Plus beaux parcs de châteaux pour garden party entreprise",
     keywords: ["garden party château", "parc jardin événement", "cocktail extérieur", "terrasse château"],
     content: `
@@ -9697,7 +9697,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "/avatars/marc.jpg" },
     publishedAt: "2025-12-02",
     readingTime: 11,
-    image: "/images/olympiades-entreprise-team-building-sport-chateau.jpg",
+    image: "/images/olympiades-entreprise-team-building-sport-chateau.webp",
     imageAlt: "Olympiades entreprise 10 épreuves team building château",
     keywords: ["olympiades entreprise", "team building sportif", "jeux de plein air", "challenges équipe"],
     content: `
@@ -10536,7 +10536,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "/avatars/ludovic.jpg" },
     publishedAt: "2025-11-30",
     readingTime: 9,
-    image: "/images/escape-game-chateau-team-building-enigmes.jpg",
+    image: "/images/escape-game-chateau-team-building-enigmes.webp",
     imageAlt: "Escape game géant en château pour team building immersif",
     keywords: ["escape game château", "escape game géant", "team building énigmes", "jeu de piste entreprise"],
     content: `
@@ -11128,7 +11128,7 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Amélie Rousseau", role: "Consultante RSE", avatar: "/avatars/amelie.jpg" },
     publishedAt: "2025-11-28",
     readingTime: 8,
-    image: "/images/simulation-crise-formation-chateau.jpg",
+    image: "/images/simulation-crise-formation-chateau.webp",
     imageAlt: "Team building RSE et nature en château éco-responsable",
     keywords: ["team building rse", "activité solidaire", "plantation arbres entreprise", "construction ruches"],
     content: `

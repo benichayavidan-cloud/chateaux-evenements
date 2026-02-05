@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/team-building-hero.jpg",
+        url: "/images/team-building-hero.webp",
         width: 1200,
         height: 630,
         alt: "Team building en château",

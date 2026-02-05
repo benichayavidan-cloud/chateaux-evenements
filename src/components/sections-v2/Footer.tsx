@@ -6,7 +6,7 @@
 'use client';
 
 import { Link, Text } from '@/components/ui-v2';
-import { Container, Row, Col } from '@/components/layout-v2';
+import { Container } from '@/components/layout-v2';
 import { theme } from '@/design-system/tokens';
 import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram } from 'lucide-react';
 import { trackPhoneClick } from '@/components/Analytics';
@@ -74,9 +74,9 @@ export function Footer({
     >
       <Container size="xl">
         {/* Main Footer Content */}
-        <Row gap="lg" style={{ marginBottom: theme.spacing.xl, alignItems: 'flex-start' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginBottom: theme.spacing.xl, alignItems: 'flex-start' }}>
           {/* About Section */}
-          <Col lg={3} md={6} xs={12}>
+          <div>
             {/* Logo */}
             {logo && (
               <div style={{ marginBottom: theme.spacing.lg }}>
@@ -87,11 +87,11 @@ export function Footer({
             <Text variant="body" color="muted" style={{ marginTop: '-50px' }}>
               {description}
             </Text>
-          </Col>
+          </div>
 
           {/* Links Sections */}
           {sections.map((section) => (
-            <Col key={section.title} lg={3} md={6} xs={12}>
+            <div key={section.title}>
               <Text
                 variant="label"
                 style={{
@@ -108,9 +108,9 @@ export function Footer({
                   </Link>
                 ))}
               </div>
-            </Col>
+            </div>
           ))}
-        </Row>
+        </div>
 
         {/* Contact Bar */}
         {contact && (
