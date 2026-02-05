@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 // framer-motion removed — using CSS transitions instead
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from '@/components/ui-v2';
@@ -48,6 +48,22 @@ export function Navigation({
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Dropdown avec délai de fermeture (pattern pro — Amazon, Stripe, Apple)
+  const handleDropdownEnter = useCallback((href: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setActiveDropdown(href);
+  }, []);
+
+  const handleDropdownLeave = useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  }, []);
 
   // Détecter le scroll
   useEffect(() => {
@@ -57,6 +73,15 @@ export function Navigation({
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Cleanup timeout
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Fermer le menu mobile au clic sur un lien
@@ -128,28 +153,39 @@ export function Navigation({
             {links.map((link) => (
               <div key={link.href} style={{ position: 'relative' }}>
                 {link.children ? (
-                  // Dropdown
+                  // Dropdown pro avec délai de fermeture
                   <div
-                    onMouseEnter={() => setActiveDropdown(link.href)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                    onMouseEnter={() => handleDropdownEnter(link.href)}
+                    onMouseLeave={handleDropdownLeave}
+                    style={{ position: 'relative' }}
                   >
                     <button
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: theme.spacing.xs,
+                        gap: '6px',
                         background: 'none',
                         border: 'none',
-                        color: theme.colors.neutral.gray700,
+                        color: activeDropdown === link.href
+                          ? 'var(--bronze-antique, #A37E2C)'
+                          : theme.colors.neutral.gray700,
                         fontWeight: theme.typography.fontWeight.medium,
                         cursor: 'pointer',
-                        transition: `color ${theme.effects.transitions.base}`,
-                        padding: 0,
+                        transition: 'color 0.2s ease',
+                        padding: '10px 8px',
+                        margin: '-10px -8px',
                         lineHeight: 1,
+                        fontSize: 'inherit',
                       }}
                     >
                       {link.label}
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown
+                        className="w-4 h-4"
+                        style={{
+                          transform: activeDropdown === link.href ? 'rotate(180deg)' : 'rotate(0)',
+                          transition: 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                        }}
+                      />
                     </button>
 
                     <div
@@ -157,16 +193,17 @@ export function Navigation({
                       style={{
                         position: 'absolute',
                         top: '100%',
-                        left: 0,
-                        paddingTop: theme.spacing.sm,
-                        minWidth: '240px',
+                        left: '-16px',
+                        paddingTop: '12px',
+                        minWidth: '280px',
                       }}
                     >
                       <div style={{
                         background: theme.colors.neutral.white,
-                        borderRadius: theme.effects.borderRadius.lg,
-                        boxShadow: theme.effects.shadows.xl,
-                        padding: theme.spacing.sm,
+                        borderRadius: '12px',
+                        boxShadow: '0 12px 36px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.06)',
+                        padding: '6px',
+                        border: '1px solid rgba(0,0,0,0.06)',
                       }}>
                         {link.children.map((child) => (
                           <Link
@@ -174,16 +211,15 @@ export function Navigation({
                             href={child.href}
                             variant="subtle"
                             className="dropdown-link"
+                            onClick={handleLinkClick}
                             style={{
-                              display: '-webkit-box',
-                              WebkitLineClamp: 2,
-                              WebkitBoxOrient: 'vertical' as const,
-                              overflow: 'hidden',
-                              padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-                              borderRadius: theme.effects.borderRadius.md,
+                              display: 'block',
+                              padding: '10px 16px',
+                              borderRadius: '8px',
                               fontSize: theme.typography.fontSize.sm,
-                              lineHeight: theme.typography.lineHeight.relaxed,
-                              transition: `all ${theme.effects.transitions.base}`,
+                              lineHeight: '1.5',
+                              transition: 'all 0.15s ease',
+                              whiteSpace: 'nowrap',
                             }}
                           >
                             {child.label}
@@ -295,14 +331,12 @@ export function Navigation({
                               onClick={handleLinkClick}
                               className="dropdown-link"
                               style={{
-                                display: '-webkit-box',
-                                WebkitLineClamp: 2,
-                                WebkitBoxOrient: 'vertical' as const,
-                                overflow: 'hidden',
-                                padding: theme.spacing.sm,
+                                display: 'block',
+                                padding: '10px 12px',
+                                borderRadius: '8px',
                                 fontSize: theme.typography.fontSize.sm,
-                                lineHeight: theme.typography.lineHeight.relaxed,
-                                transition: `all ${theme.effects.transitions.base}`,
+                                lineHeight: '1.5',
+                                transition: 'all 0.15s ease',
                               }}
                             >
                               {child.label}

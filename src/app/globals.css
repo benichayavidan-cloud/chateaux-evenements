@@ -1662,17 +1662,18 @@ textarea::placeholder {
   transition: width 0.3s ease-out;
 }
 
-/* Navigation dropdown */
+/* Navigation dropdown — animation pro (ease-out expo) */
 .nav-dropdown {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px) scale(0.98);
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-dropdown.is-open {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
@@ -1691,37 +1692,34 @@ textarea::placeholder {
 
 /* === MIGRATED FROM STYLED-JSX (eliminates 36KB styled-jsx runtime) === */
 
-/* Navigation link hover effects */
-.dropdown-link:hover {
+/* Dropdown link hover — background highlight pro (pas de border-bottom) */
+.nav-dropdown .dropdown-link:hover {
+  background: rgba(163, 126, 44, 0.06);
   color: var(--bronze-antique) !important;
-  border-bottom: 2px solid var(--bronze-antique);
-  padding-bottom: 4px;
 }
-.dropdown-link:active {
+.nav-dropdown .dropdown-link:active {
+  background: rgba(163, 126, 44, 0.1);
   color: var(--bronze-dark) !important;
-  border-bottom-color: var(--bronze-dark);
 }
+
+/* Navigation links hover — underline subtle */
 nav a[href]:not(.dropdown-link):not(.nav-logo):hover {
   color: var(--bronze-antique) !important;
-  border-bottom: 2px solid var(--bronze-antique);
-  padding-bottom: 2px;
 }
 nav a[href]:not(.dropdown-link):not(.nav-logo):active {
   color: var(--bronze-dark) !important;
-  border-bottom-color: var(--bronze-dark);
 }
 nav .nav-logo:hover,
 nav .nav-logo:active {
   border-bottom: none !important;
 }
+
+/* Nav button hover (dropdown trigger) */
 nav button:hover {
   color: var(--bronze-antique) !important;
-  border-bottom: 2px solid var(--bronze-antique);
-  padding-bottom: 2px;
 }
 nav button:active {
   color: var(--bronze-dark) !important;
-  border-bottom-color: var(--bronze-dark);
 }
 
 /* Footer grid responsive */
