@@ -105,56 +105,6 @@ export default function ChateauPage() {
       {/* Structured Data - Schema.org */}
       <StructuredData data={structuredData} />
 
-      {/* Legacy schema - À supprimer après vérification */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Place",
-            "name": chateau.seoH1,
-            "description": chateau.descriptionLongue,
-            "url": `https://www.selectchateaux.com/chateaux/${chateau.slug}`,
-            "address": {
-              "@type": "PostalAddress",
-              "addressRegion": chateau.region,
-              "addressCountry": "FR"
-            },
-            "image": [...chateau.images.hero, ...chateau.images.galerie],
-            "amenityFeature": chateau.atouts.map((atout) => ({
-              "@type": "LocationFeatureSpecification",
-              "name": atout,
-              "value": true
-            })),
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "120",
-              "bestRating": "5",
-              "worstRating": "1"
-            }
-          })
-        }}
-      />
-
-      {/* Schema JSON-LD FAQPage */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": chateau.faq.map((item) => ({
-              "@type": "Question",
-              "name": item.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.answer
-              }
-            }))
-          })
-        }}
-      />
 
       {/* Hero Section */}
       <div style={{ height: '75vh', minHeight: '600px' }} className="relative overflow-hidden">

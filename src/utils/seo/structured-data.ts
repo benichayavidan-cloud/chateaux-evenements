@@ -28,7 +28,7 @@ export function generateOrganizationSchema() {
     image: `${BASE_URL}/og-image.jpg`,
     description:
       "Accès confidentiel aux plus beaux châteaux d'Île-de-France pour vos événements d'entreprise. Séminaires, team building, soirées corporate sur-mesure.",
-    email: "contact@selectchateaux.com",
+    email: "seminaires@selectchateaux.com",
     telephone: "+33757991146",
     address: {
       "@type": "PostalAddress",

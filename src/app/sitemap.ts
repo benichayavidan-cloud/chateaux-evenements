@@ -64,27 +64,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // 2. Pages légales (faible priorité)
-  const legalPages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/mentions-legales`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/confidentialite`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/cgv`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ]
+  // 2. Pages légales - Retirées du sitemap (noindex)
+  // À réactiver si ces pages passent en index: true
+  const legalPages: MetadataRoute.Sitemap = []
 
   // 3. Pages dynamiques des châteaux
   const chateauxPages: MetadataRoute.Sitemap = chateaux.map((chateau) => ({
@@ -94,23 +76,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8, // Priorité importante pour les pages produits
   }))
 
-  // 4. Page listing blog
-  const blogListingPage: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8, // Priorité importante pour le contenu SEO
-    }
-  ]
-
-  // 5. Pages articles blog (30 articles)
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedAt),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7, // Contenu régulièrement mis à jour
-  }))
+  // 4. Pages blog - Retirées du sitemap (noindex)
+  // À réactiver quand le blog passera en index: true
+  const blogListingPage: MetadataRoute.Sitemap = []
+  const blogPages: MetadataRoute.Sitemap = []
 
   // 6. Retour du sitemap complet (prêt pour l'indexation future)
   return [
