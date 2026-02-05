@@ -51,30 +51,13 @@ export default function Home() {
       {/* Structured Data - Schema.org */}
       <StructuredData data={structuredData} />
 
-      {/* H1 SEO - Invisible visuellement mais lu par Google */}
-      <h1
-        className="sr-only"
-        style={{
-          position: 'absolute',
-          width: '1px',
-          height: '1px',
-          padding: 0,
-          margin: '-1px',
-          overflow: 'hidden',
-          clip: 'rect(0, 0, 0, 0)',
-          whiteSpace: 'nowrap',
-          border: 0,
-        }}
-      >
-        Location de Châteaux pour Séminaires et Événements d'Entreprise en Île-de-France
-      </h1>
-
       {/* Hero Slider */}
       <HeroSlider
         slides={heroSlides}
         autoPlay
         autoPlayDuration={6000}
         height="100vh"
+        heading="Châteaux d'Exception pour Séminaires en Île-de-France"
       />
 
       {/* Stats Section - Cartes animées */}

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { BlogPost } from "@/data/blog-posts";
 
@@ -44,11 +43,8 @@ export function ArticleHero({ article }: ArticleHeroProps) {
       {/* Title */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 md:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-5 sm:space-y-6 md:space-y-8"
+          <div
+            className="space-y-5 sm:space-y-6 md:space-y-8 animate-fade-in"
           >
             {/* Category Badge */}
             <div
@@ -89,7 +85,7 @@ export function ArticleHero({ article }: ArticleHeroProps) {
                 <span>{article.readingTime} min de lecture</span>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

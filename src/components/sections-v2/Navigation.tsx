@@ -6,7 +6,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// framer-motion removed — using CSS transitions instead
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from '@/components/ui-v2';
 import { Container } from '@/components/layout-v2';
@@ -152,49 +152,42 @@ export function Navigation({
                       <ChevronDown className="w-4 h-4" />
                     </button>
 
-                    <AnimatePresence>
-                      {activeDropdown === link.href && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
+                    <div
+                      className={`nav-dropdown ${activeDropdown === link.href ? 'is-open' : ''}`}
+                      style={{
+                        position: 'absolute',
+                        top: '100%',
+                        left: 0,
+                        marginTop: theme.spacing.sm,
+                        background: theme.colors.neutral.white,
+                        borderRadius: theme.effects.borderRadius.lg,
+                        boxShadow: theme.effects.shadows.xl,
+                        padding: theme.spacing.sm,
+                        minWidth: '240px',
+                      }}
+                    >
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          variant="subtle"
+                          className="dropdown-link"
                           style={{
-                            position: 'absolute',
-                            top: '100%',
-                            left: 0,
-                            marginTop: theme.spacing.sm,
-                            background: theme.colors.neutral.white,
-                            borderRadius: theme.effects.borderRadius.lg,
-                            boxShadow: theme.effects.shadows.xl,
-                            padding: theme.spacing.sm,
-                            minWidth: '240px',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical' as const,
+                            overflow: 'hidden',
+                            padding: `${theme.spacing.xs} ${theme.spacing.md}`,
+                            borderRadius: theme.effects.borderRadius.md,
+                            fontSize: theme.typography.fontSize.sm,
+                            lineHeight: theme.typography.lineHeight.relaxed,
+                            transition: `all ${theme.effects.transitions.base}`,
                           }}
                         >
-                          {link.children.map((child) => (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              variant="subtle"
-                              className="dropdown-link"
-                              style={{
-                                display: '-webkit-box',
-                                WebkitLineClamp: 2,
-                                WebkitBoxOrient: 'vertical' as const,
-                                overflow: 'hidden',
-                                padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-                                borderRadius: theme.effects.borderRadius.md,
-                                fontSize: theme.typography.fontSize.sm,
-                                lineHeight: theme.typography.lineHeight.relaxed,
-                                transition: `all ${theme.effects.transitions.base}`,
-                              }}
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <Link href={link.href} variant="subtle" style={{
@@ -248,19 +241,13 @@ export function Navigation({
       </Container>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              overflow: 'hidden',
-              background: theme.colors.neutral.white,
-              borderTop: `1px solid ${theme.colors.neutral.gray200}`,
-            }}
-          >
+      <div
+        className={`mobile-menu ${isOpen ? 'is-open' : ''}`}
+        style={{
+          background: theme.colors.neutral.white,
+          borderTop: `1px solid ${theme.colors.neutral.gray200}`,
+        }}
+      >
             <Container size="xl">
               <div style={{ padding: `${theme.spacing.lg} 0` }}>
                 {links.map((link) => (
@@ -293,38 +280,32 @@ export function Navigation({
                             }}
                           />
                         </button>
-                        <AnimatePresence>
-                          {activeDropdown === link.href && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              style={{ paddingLeft: theme.spacing.lg }}
+                        <div
+                          className={`accordion-content ${activeDropdown === link.href ? 'is-open' : ''}`}
+                          style={{ paddingLeft: theme.spacing.lg }}
+                        >
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              variant="subtle"
+                              onClick={handleLinkClick}
+                              className="dropdown-link"
+                              style={{
+                                display: '-webkit-box',
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: 'vertical' as const,
+                                overflow: 'hidden',
+                                padding: theme.spacing.sm,
+                                fontSize: theme.typography.fontSize.sm,
+                                lineHeight: theme.typography.lineHeight.relaxed,
+                                transition: `all ${theme.effects.transitions.base}`,
+                              }}
                             >
-                              {link.children.map((child) => (
-                                <Link
-                                  key={child.href}
-                                  href={child.href}
-                                  variant="subtle"
-                                  onClick={handleLinkClick}
-                                  className="dropdown-link"
-                                  style={{
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: 2,
-                                    WebkitBoxOrient: 'vertical' as const,
-                                    overflow: 'hidden',
-                                    padding: theme.spacing.sm,
-                                    fontSize: theme.typography.fontSize.sm,
-                                    lineHeight: theme.typography.lineHeight.relaxed,
-                                    transition: `all ${theme.effects.transitions.base}`,
-                                  }}
-                                >
-                                  {child.label}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
                       </>
                     ) : (
                       <Link
@@ -359,9 +340,7 @@ export function Navigation({
                 )}
               </div>
             </Container>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>
 
       <style jsx global>{`
         .dropdown-link {

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+// framer-motion removed — CSS transitions for performance
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { reviews, reviewsStats } from "@/data/reviewsData";
 import { useState, useEffect } from "react";
@@ -55,12 +55,8 @@ export function ReviewsSection() {
     <section className="flex items-center justify-center" style={{ padding: '20px 0', background: '#ffffff', marginTop: '30px' }}>
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
         {/* En-tête */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center"
+        <div
+          className="text-center animate-fade-in"
           style={{ marginBottom: '24px' }}
         >
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -99,7 +95,7 @@ export function ReviewsSection() {
           <p style={{ color: '#6b7c93' }}>
             Basé sur {reviewsStats.total} avis vérifiés
           </p>
-        </motion.div>
+        </div>
 
         {/* Carrousel */}
         <div
@@ -109,13 +105,9 @@ export function ReviewsSection() {
         >
           {/* Cartes visibles */}
           <div className="overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.div
+              <div
                 key={currentIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
+                className="animate-slide-right"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: cardsPerView === 1 ? '1fr' : cardsPerView === 2 ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)',
@@ -123,13 +115,10 @@ export function ReviewsSection() {
                 }}
               >
                 {visibleReviews.map((review, index) => (
-                  <motion.div
+                  <div
                     key={review.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
-                    style={{ padding: '20px 24px' }}
+                    className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col animate-fade-in"
+                    style={{ padding: '20px 24px', animationDelay: `${index * 0.1}s` }}
                   >
                     {/* SECTION 1: Header - Avatar + Nom */}
                     <div className="flex items-center gap-3" style={{ marginBottom: '2px' }}>
@@ -200,10 +189,9 @@ export function ReviewsSection() {
                       </svg>
                       <span className="text-xs text-gray-500 font-medium">Publié sur Google</span>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
-            </AnimatePresence>
+              </div>
           </div>
         </div>
 
@@ -227,12 +215,8 @@ export function ReviewsSection() {
         </div>
 
         {/* CTA en bas */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center"
+        <div
+          className="text-center animate-fade-in"
           style={{ marginTop: '24px' }}
         >
           <p style={{ marginBottom: '20px', color: '#6b7c93' }}>
@@ -248,7 +232,7 @@ export function ReviewsSection() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

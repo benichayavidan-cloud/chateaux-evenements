@@ -1,12 +1,12 @@
 /**
  * HERO SLIDER COMPONENT - Slider hero professionnel
  * Hero avec slider d'images, auto-play, et navigation
+ * framer-motion removed — CSS transitions for max performance
  */
 
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -43,6 +43,9 @@ export interface HeroSliderProps {
 
   /** Afficher les indicateurs */
   showIndicators?: boolean;
+
+  /** H1 visible au-dessus du contenu du slider */
+  heading?: string;
 }
 
 export function HeroSlider({
@@ -52,21 +55,26 @@ export function HeroSlider({
   height = '100vh',
   showNavigation = true,
   showIndicators = true,
+  heading,
 }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [contentKey, setContentKey] = useState(0);
 
   // Navigation
   const goToNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
+    setContentKey((k) => k + 1);
   }, [slides.length]);
 
   const goToPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    setContentKey((k) => k + 1);
   }, [slides.length]);
 
   const goToSlide = useCallback((index: number) => {
     setCurrentIndex(index);
+    setContentKey((k) => k + 1);
   }, []);
 
   // Auto-play
@@ -91,29 +99,27 @@ export function HeroSlider({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Slides */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: 'easeInOut' }}
+      {/* Slides — all rendered, only current is visible */}
+      {slides.map((slide, index) => (
+        <div
+          key={slide.id}
           style={{
             position: 'absolute',
             inset: 0,
+            opacity: index === currentIndex ? 1 : 0,
+            transition: 'opacity 0.7s ease-in-out',
+            zIndex: index === currentIndex ? 1 : 0,
           }}
         >
-          {/* Image */}
           <Image
-            src={currentSlide.image}
-            alt={currentSlide.title}
+            src={slide.image}
+            alt={slide.title}
             fill
             style={{
               objectFit: 'cover',
               objectPosition: 'center',
             }}
-            priority={currentIndex === 0}
+            priority={index === 0}
             sizes="100vw"
             quality={75}
           />
@@ -127,99 +133,110 @@ export function HeroSlider({
               opacity: 0.6,
             }}
           />
+        </div>
+      ))}
 
-          {/* Content */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: `0 ${theme.spacing.md}`,
-            }}
-          >
-            <div
+      {/* Content — re-animated on slide change via key */}
+      <div
+        key={contentKey}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: `0 ${theme.spacing.md}`,
+          zIndex: 2,
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '1400px',
+            textAlign: 'center',
+            width: '100%',
+            transform: 'translateY(-46px)',
+          }}
+        >
+          {/* H1 - Visible main heading */}
+          {heading && (
+            <h1
+              className="animate-fade-in delay-100"
               style={{
-                maxWidth: '1400px',
-                textAlign: 'center',
-                width: '100%',
-                transform: 'translateY(-46px)',
+                fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+                fontFamily: theme.typography.fonts.body,
+                fontWeight: 500,
+                color: 'rgba(255, 255, 255, 0.85)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.2em',
+                marginBottom: theme.spacing.lg,
+                textShadow: '0 2px 8px rgba(0,0,0,0.4)',
               }}
             >
-              {/* Badge */}
-              {currentSlide.badge && (
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  style={{ marginBottom: theme.spacing.md }}
-                >
-                  <Badge variant="glass" size="md">
-                    {currentSlide.badge}
-                  </Badge>
-                </motion.div>
-              )}
+              {heading}
+            </h1>
+          )}
 
-              {/* Title - H2 car le H1 SEO est dans la page parente */}
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                style={{
-                  fontSize: theme.typography.fontSize.display.md,
-                  fontFamily: theme.typography.fonts.heading,
-                  fontWeight: theme.typography.fontWeight.light,
-                  fontStyle: 'italic',
-                  color: theme.colors.neutral.white,
-                  marginBottom: theme.spacing.md,
-                  textShadow: '0 2px 10px rgba(0,0,0,0.3)',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical' as const,
-                  overflow: 'hidden',
-                  lineHeight: '1.2',
-                }}
-              >
-                {currentSlide.title}
-              </motion.h2>
-
-              {/* Subtitle */}
-              {currentSlide.subtitle && (
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  style={{
-                    fontSize: theme.typography.fontSize.xl,
-                    color: theme.colors.neutral.white,
-                    marginBottom: theme.spacing.xl,
-                    lineHeight: theme.typography.lineHeight.relaxed,
-                    textShadow: '0 2px 8px rgba(0,0,0,0.3)',
-                  }}
-                >
-                  {currentSlide.subtitle}
-                </motion.p>
-              )}
-
-              {/* CTA */}
-              {currentSlide.cta && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                >
-                  <Link href={currentSlide.cta.href}>
-                    <Button variant="primary" size="lg">
-                      {currentSlide.cta.label}
-                    </Button>
-                  </Link>
-                </motion.div>
-              )}
+          {/* Badge */}
+          {currentSlide.badge && (
+            <div
+              className="animate-fade-in delay-200"
+              style={{ marginBottom: theme.spacing.md }}
+            >
+              <Badge variant="glass" size="md">
+                {currentSlide.badge}
+              </Badge>
             </div>
-          </div>
-        </motion.div>
-      </AnimatePresence>
+          )}
+
+          {/* Title - H2 car le H1 SEO est dans la page parente */}
+          <h2
+            className="animate-fade-in delay-300"
+            style={{
+              fontSize: theme.typography.fontSize.display.md,
+              fontFamily: theme.typography.fonts.heading,
+              fontWeight: theme.typography.fontWeight.light,
+              fontStyle: 'italic',
+              color: theme.colors.neutral.white,
+              marginBottom: theme.spacing.md,
+              textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical' as const,
+              overflow: 'hidden',
+              lineHeight: '1.2',
+            }}
+          >
+            {currentSlide.title}
+          </h2>
+
+          {/* Subtitle */}
+          {currentSlide.subtitle && (
+            <p
+              className="animate-fade-in delay-400"
+              style={{
+                fontSize: theme.typography.fontSize.xl,
+                color: theme.colors.neutral.white,
+                marginBottom: theme.spacing.xl,
+                lineHeight: theme.typography.lineHeight.relaxed,
+                textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+              }}
+            >
+              {currentSlide.subtitle}
+            </p>
+          )}
+
+          {/* CTA */}
+          {currentSlide.cta && (
+            <div className="animate-fade-in delay-500">
+              <Link href={currentSlide.cta.href}>
+                <Button variant="primary" size="lg">
+                  {currentSlide.cta.label}
+                </Button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Navigation Buttons */}
       {showNavigation && slides.length > 1 && (
@@ -279,10 +296,8 @@ export function HeroSlider({
       )}
 
       {/* Scroll Indicator - "Découvrir" */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
+      <div
+        className="animate-fade-only hero-scroll-indicator"
         style={{
           position: 'absolute',
           bottom: '5rem',
@@ -293,12 +308,11 @@ export function HeroSlider({
           flexDirection: 'column',
           alignItems: 'center',
           gap: '0.5rem',
+          animationDelay: '1.5s',
         }}
-        className="hero-scroll-indicator"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+        <div
+          className="animate-bounce-gentle"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -331,19 +345,19 @@ export function HeroSlider({
               padding: '8px 0',
             }}
           >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+            <div
+              className="animate-bounce-gentle"
               style={{
                 width: '4px',
                 height: '12px',
                 borderRadius: '9999px',
                 background: theme.colors.primary.bronze,
+                animationDuration: '1.5s',
               }}
             />
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Indicators */}
       {showIndicators && slides.length > 1 && (

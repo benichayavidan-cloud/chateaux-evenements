@@ -3,7 +3,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 import { ArrowRight, Check, Sparkles, Calendar, Users, Trophy } from "lucide-react";
 import { typesEvenements } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
@@ -57,6 +57,13 @@ export default function EvenementsPage() {
     }
   };
 
+  const heroContent = useInView();
+  const servicesHeader = useInView();
+  const servicesGrid = useInView();
+  const processHeader = useInView();
+  const processSteps = useInView();
+  const ctaFinal = useInView();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Schema JSON-LD Service */}
@@ -82,11 +89,9 @@ export default function EvenementsPage() {
         {/* Contenu - remonté pour laisser place au scroll */}
         <div className="relative h-full flex items-center justify-center" style={{ paddingBottom: '120px' }}>
           <div className="hero-content">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex-col-center"
+            <div
+              ref={heroContent.ref}
+              className={`flex-col-center animate-fade-in ${heroContent.isInView ? '' : 'opacity-0'}`}
             >
               <div className="badge-lg inline-flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 shadow-lg mb-8">
                 <Sparkles className="w-5 h-5 text-[var(--bronze-light)]" />
@@ -113,16 +118,14 @@ export default function EvenementsPage() {
                 <span>Planifier mon événement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute left-1/2 -translate-x-1/2 z-10" style={{ bottom: '2rem' }}>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="flex flex-col items-center gap-3"
+          <div
+            className="flex flex-col items-center gap-3 animate-bounce-gentle"
           >
             <span
               className="text-white text-xs uppercase tracking-widest font-bold"
@@ -138,7 +141,7 @@ export default function EvenementsPage() {
             }}>
               <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -148,12 +151,9 @@ export default function EvenementsPage() {
       {/* Types d'événements - Style Stripe Parallax */}
       <div className="section-white" style={{ padding: '40px 20px', background: '#f6f9fc' }}>
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
+          <div
+            ref={servicesHeader.ref}
+            className={`section-header animate-on-scroll ${servicesHeader.isInView ? 'is-visible' : ''}`}
           >
             <h2 className="heading-xl mb-md" style={{ color: '#1a1f36' }}>
               Nos Services
@@ -161,17 +161,14 @@ export default function EvenementsPage() {
             <p className="text-body-xl mb-xl max-w-3xl mx-auto" style={{ color: '#6b7c93' }}>
               Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables
             </p>
-          </motion.div>
+          </div>
 
-          <div className="stripe-events-grid">
+          <div ref={servicesGrid.ref} className="stripe-events-grid">
             {typesEvenements.map((evenement, index) => (
-              <motion.div
+              <div
                 key={evenement.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="stripe-card group"
+                className={`stripe-card group animate-on-scroll ${servicesGrid.isInView ? 'is-visible' : ''}`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Image Container avec Parallax */}
                 <div className="stripe-card-image-container">
@@ -207,7 +204,7 @@ export default function EvenementsPage() {
                     <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -216,12 +213,9 @@ export default function EvenementsPage() {
       {/* Processus */}
       <div style={{ paddingTop: '40px', paddingBottom: '40px', background: '#ffffff' }}>
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="w-full text-center mb-md"
+          <div
+            ref={processHeader.ref}
+            className={`w-full text-center mb-md animate-on-scroll ${processHeader.isInView ? 'is-visible' : ''}`}
           >
             <div className="flex-center gap-md mb-md">
               <Trophy className="w-7 h-7 text-[var(--bronze-antique)]" />
@@ -235,9 +229,9 @@ export default function EvenementsPage() {
             <p className="text-body-xl mb-md" style={{ color: '#6b7c93' }}>
               Un processus simple et personnalisé pour organiser votre événement parfait
             </p>
-          </motion.div>
+          </div>
 
-          <div className="flex flex-row gap-6 max-w-[var(--max-width-content)] mx-auto justify-center items-start">
+          <div ref={processSteps.ref} className="flex flex-row gap-6 max-w-[var(--max-width-content)] mx-auto justify-center items-start">
             {[
               {
                 step: "1",
@@ -260,33 +254,22 @@ export default function EvenementsPage() {
                 description: "Nous orchestrons tous les détails pour un événement réussi",
               },
             ].map((item, i) => (
-              <motion.div
+              <div
                 key={item.step}
-                initial={{ opacity: 0, y: 30, scale: 0.8 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: i * 0.15,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center text-center"
-                style={{ width: '250px' }}
+                className={`flex flex-col items-center text-center animate-on-scroll from-scale ${processSteps.isInView ? 'is-visible' : ''}`}
+                style={{ width: '250px', animationDelay: `${i * 0.15}s` }}
               >
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-md"
-                  style={{ width: '90px', height: '90px' }}
+                <div
+                  className="rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-md hover:scale-110"
+                  style={{ width: '90px', height: '90px', transition: 'transform 0.3s ease' }}
                 >
                   {item.step}
-                </motion.div>
+                </div>
                 <h3 className="text-xl font-semibold mb-2" style={{ color: '#1a1f36', minHeight: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {item.titre}
                 </h3>
                 <p className="leading-relaxed" style={{ color: '#6b7c93', fontSize: '14px' }}>{item.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -295,12 +278,9 @@ export default function EvenementsPage() {
       {/* CTA Final */}
       <div className="section-padding-sm" style={{ paddingBottom: 'clamp(3rem, 8vw, 5rem)', background: '#f6f9fc' }}>
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="w-full text-center content-padding"
+          <div
+            ref={ctaFinal.ref}
+            className={`w-full text-center content-padding animate-on-scroll ${ctaFinal.isInView ? 'is-visible' : ''}`}
           >
             <h2 className="heading-xl mb-md">
               Prêt à créer un événement mémorable ?
@@ -316,7 +296,7 @@ export default function EvenementsPage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

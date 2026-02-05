@@ -7,7 +7,7 @@
 
 import { forwardRef, ReactNode } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+// framer-motion removed — using CSS hover-lift-sm class
 import { ArrowRight } from 'lucide-react';
 import { Link, Text, Badge } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
@@ -76,10 +76,8 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     ref
   ) => {
     const content = (
-      <motion.div
+      <div
         ref={ref}
-        whileHover={{ y: -4 }}
-        transition={{ duration: 0.3 }}
         style={{
           position: 'relative',
           borderRadius: theme.components.card.borderRadius,
@@ -89,7 +87,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
           transition: theme.components.card.transition,
           cursor: href ? 'pointer' : 'default',
         }}
-        className="card-component group"
+        className="card-component group hover-lift-sm"
       >
         {/* Image Container */}
         <div
@@ -356,7 +354,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
             }}
           />
         </div>
-      </motion.div>
+      </div>
     );
 
     // Wrapper avec Link si href fourni

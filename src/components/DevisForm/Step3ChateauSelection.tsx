@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Check, Building } from "lucide-react";
 import { chateaux } from "@/data/chateaux";
@@ -19,12 +18,9 @@ export function Step3ChateauSelection({
   shouldValidate = false,
 }: Step3ChateauSelectionProps) {
   return (
-    <motion.div
+    <div
       key="step3"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -50 }}
-      className="flex flex-col gap-6"
+      className="flex flex-col gap-6 animate-slide-right"
     >
       <h3 className="text-xl lg:text-3xl font-bold mb-2 lg:mb-3 text-gray-800">
         Choisissez vos châteaux
@@ -133,6 +129,6 @@ export function Step3ChateauSelection({
       {errors.chateauIds && (
         <p className="text-red-500 text-sm">{errors.chateauIds.message}</p>
       )}
-    </motion.div>
+    </div>
   );
 }

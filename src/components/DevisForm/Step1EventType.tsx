@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Presentation,
   BookOpen,
@@ -46,12 +45,9 @@ export function Step1EventType({
   errors,
 }: Step1EventTypeProps) {
   return (
-    <motion.div
+    <div
       key="step1"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -50 }}
-      className="flex flex-col gap-6"
+      className="flex flex-col gap-6 animate-slide-right"
     >
       <h3 className="text-xl lg:text-3xl font-bold mb-2 lg:mb-3 text-gray-800">
         Quel type d'événement souhaitez-vous organiser ?
@@ -62,14 +58,9 @@ export function Step1EventType({
           const Icon = type.icon;
           const isSelected = selectedType === type.id;
           return (
-            <motion.button
+            <button
               key={type.id}
               type="button"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ y: -4, boxShadow: '0 12px 30px rgba(163, 126, 44, 0.15)' }}
-              whileTap={{ scale: 0.97 }}
               onClick={async () => {
                 setValue("typeEvenement", type.id);
                 setTimeout(async () => {
@@ -79,6 +70,7 @@ export function Step1EventType({
                   }
                 }, 500);
               }}
+              className="animate-fade-in hover-lift-sm active:scale-95"
               style={{
                 padding: "clamp(1.25rem, 3vw, 1.75rem)",
                 minHeight: "110px",
@@ -90,15 +82,16 @@ export function Step1EventType({
                 flexDirection: "column",
                 justifyContent: "center",
                 cursor: "pointer",
-                transition: "border-color 0.3s, background 0.3s",
+                transition: "border-color 0.3s, background 0.3s, transform 0.2s",
                 boxShadow: isSelected ? '0 4px 16px rgba(163, 126, 44, 0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
+                animationDelay: `${index * 0.08}s`,
               }}
             >
               <Icon style={{ width: "28px", height: "28px", color: "#a37e2c", marginBottom: "0.75rem" }} />
               <div style={{ fontWeight: 600, fontSize: "0.95rem", color: "#1f2937" }}>
                 {type.label}
               </div>
-            </motion.button>
+            </button>
           );
         })}
       </div>
@@ -119,6 +112,6 @@ export function Step1EventType({
       {errors.typeEvenement && (
         <p className="text-red-500 text-sm">{errors.typeEvenement.message}</p>
       )}
-    </motion.div>
+    </div>
   );
 }

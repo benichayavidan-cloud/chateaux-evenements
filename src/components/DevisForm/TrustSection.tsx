@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Clock, CheckCircle, Award } from "lucide-react";
 
 export function TrustSection() {
@@ -27,10 +26,8 @@ export function TrustSection() {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+    <div
+      className="animate-fade-in"
       style={{
         marginBottom: "clamp(2.5rem, 5vw, 4rem)",
         width: "100%",
@@ -48,20 +45,9 @@ export function TrustSection() {
         {trustItems.map((item, index) => {
           const IconComponent = item.icon;
           return (
-            <motion.div
+            <div
               key={item.value}
-              initial={{ opacity: 0, y: 40, rotateX: -15 }}
-              animate={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: item.delay,
-                ease: [0.19, 1, 0.22, 1],
-              }}
-              whileHover={{
-                y: -8,
-                scale: 1.02,
-                transition: { duration: 0.3 },
-              }}
+              className="animate-fade-in hover-lift"
               style={{
                 background: "linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)",
                 borderRadius: "1rem",
@@ -77,19 +63,12 @@ export function TrustSection() {
                 justifyContent: "center",
                 textAlign: "center" as const,
                 minHeight: "160px",
+                animationDelay: `${item.delay}s`,
               }}
             >
               {/* Shimmer effect background */}
-              <motion.div
-                animate={{
-                  x: ["-100%", "100%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: index * 0.5,
-                }}
+              <div
+                className="shimmer"
                 style={{
                   position: "absolute",
                   top: 0,
@@ -98,20 +77,13 @@ export function TrustSection() {
                   height: "100%",
                   background: "linear-gradient(90deg, transparent 0%, rgba(163, 126, 44, 0.05) 50%, transparent 100%)",
                   pointerEvents: "none",
+                  animationDelay: `${index * 0.5}s`,
                 }}
               />
 
-              {/* Icon animé */}
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: item.delay + 0.2,
-                  type: "spring",
-                  stiffness: 200,
-                }}
-                whileHover={{ rotate: 360 }}
+              {/* Icon */}
+              <div
+                className="animate-scale-in"
                 style={{
                   width: "50px",
                   height: "50px",
@@ -123,6 +95,8 @@ export function TrustSection() {
                   marginBottom: "0.75rem",
                   position: "relative",
                   zIndex: 1,
+                  animationDelay: `${item.delay + 0.2}s`,
+                  transition: "transform 0.6s ease",
                 }}
               >
                 <IconComponent
@@ -133,18 +107,11 @@ export function TrustSection() {
                   }}
                   strokeWidth={2.5}
                 />
-              </motion.div>
+              </div>
 
-              {/* Valeur avec animation de compteur */}
-              <motion.div
-                initial={{ scale: 0.5, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{
-                  duration: 0.6,
-                  delay: item.delay + 0.3,
-                  type: "spring",
-                  stiffness: 150,
-                }}
+              {/* Valeur */}
+              <div
+                className="animate-scale-in"
                 style={{
                   fontSize: "2rem",
                   fontWeight: 800,
@@ -156,16 +123,15 @@ export function TrustSection() {
                   lineHeight: 1,
                   position: "relative",
                   zIndex: 1,
+                  animationDelay: `${item.delay + 0.3}s`,
                 }}
               >
                 {item.value}
-              </motion.div>
+              </div>
 
               {/* Label */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: item.delay + 0.4 }}
+              <p
+                className="animate-fade-only"
                 style={{
                   fontSize: "0.875rem",
                   color: "#6B7280",
@@ -174,16 +140,15 @@ export function TrustSection() {
                   maxWidth: "280px",
                   position: "relative",
                   zIndex: 1,
+                  animationDelay: `${item.delay + 0.4}s`,
                 }}
               >
                 {item.label}
-              </motion.p>
+              </p>
 
               {/* Decorative corner */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: item.delay + 0.5 }}
+              <div
+                className="animate-scale-in"
                 style={{
                   position: "absolute",
                   top: "0.75rem",
@@ -195,6 +160,7 @@ export function TrustSection() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  animationDelay: `${item.delay + 0.5}s`,
                 }}
               >
                 <div
@@ -205,11 +171,11 @@ export function TrustSection() {
                     background: `${item.color}30`,
                   }}
                 />
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           );
         })}
       </div>
-    </motion.div>
+    </div>
   );
 }

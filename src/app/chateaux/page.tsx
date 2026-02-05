@@ -9,7 +9,7 @@ import { Text, Card, Button } from '@/components/ui-v2';
 import { Users, Bed, Sparkles, Calendar, ArrowRight, Shield, Award, MapPin, Clock, CheckCircle, Phone, Check } from 'lucide-react';
 import { theme } from '@/design-system/tokens';
 import { chateaux } from "@/data/chateaux";
-import { motion } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
 import Image from "next/image";
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
@@ -81,9 +81,21 @@ export default function ChateauxPage() {
     );
   };
 
+  const heroBadge = useInView();
+  const heroTitle = useInView();
+  const heroDesc = useInView();
+  const headerPitch = useInView();
+  const whySection = useInView();
+  const boussole = useInView();
+  const chateauxSection = useInView();
+  const commentSection = useInView();
+  const trustSection = useInView();
+  const ctaSection = useInView();
+  const ctaButtons = useInView();
+
   return (
     <>
-      {/* H1 SEO - Invisible visuellement mais lu par Google (le motion.h1 a initial opacity:0) */}
+      {/* H1 SEO - Invisible visuellement mais lu par Google */}
       <h1
         className="sr-only"
         style={{
@@ -123,11 +135,9 @@ export default function ChateauxPage() {
 
         <div className="absolute inset-0 flex items-center justify-center md:justify-start px-5 sm:px-8 md:px-12">
           <div className="flex flex-col items-center md:items-start w-full" style={{ maxWidth: '520px', gap: 'clamp(1rem, 2.5vw, 1.5rem)' }}>
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="flex justify-center md:justify-start w-full"
+            <div
+              ref={heroBadge.ref}
+              className={`flex justify-center md:justify-start w-full animate-fade-in delay-500 ${heroBadge.isInView ? '' : 'opacity-0'}`}
             >
               <div
                 className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg"
@@ -153,7 +163,7 @@ export default function ChateauxPage() {
                   {filteredChateaux.length} {filteredChateaux.length > 1 ? 'Domaines' : 'Domaine'} d'Exception
                 </span>
               </div>
-            </motion.div>
+            </div>
 
             <div
               className="text-center md:text-left rounded-2xl w-full"
@@ -164,10 +174,9 @@ export default function ChateauxPage() {
                 padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
               }}
             >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+              <div
+                ref={heroTitle.ref}
+                className={`animate-fade-in delay-100 ${heroTitle.isInView ? '' : 'opacity-0'}`}
                 aria-hidden="true"
                 style={{
                   fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
@@ -180,12 +189,11 @@ export default function ChateauxPage() {
                 }}
               >
                 {getTitle()}
-              </motion.div>
+              </div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
+              <p
+                ref={heroDesc.ref}
+                className={`animate-fade-in delay-200 ${heroDesc.isInView ? '' : 'opacity-0'}`}
                 style={{
                   fontSize: 'clamp(0.9375rem, 2.2vw, 1rem)',
                   color: theme.colors.neutral.gray600,
@@ -194,17 +202,15 @@ export default function ChateauxPage() {
                 }}
               >
                 {getDescription()}
-              </motion.p>
+              </p>
             </div>
           </div>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute left-1/2 -translate-x-1/2 bottom-8 z-10">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-3"
+          <div
+            className="flex flex-col items-center gap-3 animate-bounce-gentle"
           >
             <span
               style={{
@@ -230,18 +236,16 @@ export default function ChateauxPage() {
                 style={{ background: theme.colors.primary.bronze }}
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* ========== 1. HEADER PITCH - Dynamique selon le département ========== */}
       <Section background="white" style={{ padding: '50px 0 30px' }}>
         <Container size="md">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+          <p
+            ref={headerPitch.ref}
+            className={`animate-on-scroll ${headerPitch.isInView ? 'is-visible' : ''}`}
             style={{
               textAlign: 'center',
               maxWidth: '800px',
@@ -253,7 +257,7 @@ export default function ChateauxPage() {
             }}
           >
             {getHeaderPitch()}
-          </motion.p>
+          </p>
         </Container>
       </Section>
 
@@ -261,11 +265,9 @@ export default function ChateauxPage() {
       <Section background="gray" style={{ padding: '50px 0' }}>
         <Container size="xl">
           <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.lg }}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
+            <div
+              ref={whySection.ref}
+              className={`animate-on-scroll ${whySection.isInView ? 'is-visible' : ''}`}
             >
               <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'center' }}>
                 Pourquoi Choisir Nos Châteaux
@@ -273,7 +275,7 @@ export default function ChateauxPage() {
               <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
                 L'excellence au service de vos événements
               </Text>
-            </motion.div>
+            </div>
           </div>
 
           <div style={{
@@ -306,13 +308,10 @@ export default function ChateauxPage() {
                 description: '30-60 min de Paris. Dépaysement garanti'
               }
             ].map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.3, delay: index * 0.08 }}
-                viewport={{ once: true }}
+                className={`animate-on-scroll hover-lift ${whySection.isInView ? 'is-visible' : ''}`}
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
                 <div
                   style={{
@@ -352,7 +351,7 @@ export default function ChateauxPage() {
                     {item.description}
                   </Text>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </Container>
@@ -362,11 +361,9 @@ export default function ChateauxPage() {
       {!dept && (
       <Section background="white" style={{ padding: '50px 0' }}>
         <Container size="xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            viewport={{ once: true }}
+          <div
+            ref={boussole.ref}
+            className={`animate-on-scroll ${boussole.isInView ? 'is-visible' : ''}`}
           >
             <Text
               variant="h3"
@@ -411,12 +408,8 @@ export default function ChateauxPage() {
                 },
               ].map((item, index) => (
                 <Link key={index} href={item.href}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ y: -8, transition: { duration: 0.2 } }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    viewport={{ once: true }}
+                  <div
+                    className={`animate-on-scroll hover-lift ${boussole.isInView ? 'is-visible' : ''} hover:shadow-xl`}
                     style={{
                       background: 'white',
                       borderRadius: theme.effects.borderRadius.xl,
@@ -424,9 +417,9 @@ export default function ChateauxPage() {
                       cursor: 'pointer',
                       border: `1px solid ${theme.colors.neutral.gray200}`,
                       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
-                      transition: 'box-shadow 0.2s ease',
+                      transition: 'box-shadow 0.2s ease, transform 0.3s ease',
+                      animationDelay: `${index * 0.1}s`,
                     }}
-                    className="hover:shadow-xl"
                   >
                     {/* Image en haut */}
                     <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
@@ -495,11 +488,11 @@ export default function ChateauxPage() {
                         />
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </Link>
               ))}
             </div>
-          </motion.div>
+          </div>
         </Container>
       </Section>
       )}
@@ -508,11 +501,9 @@ export default function ChateauxPage() {
       <Section spacing="xl" background="white" style={{ padding: '60px 0' }}>
         <Container size="xl">
           <div className="section-header" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              viewport={{ once: true }}
+            <div
+              ref={chateauxSection.ref}
+              className={`animate-on-scroll ${chateauxSection.isInView ? 'is-visible' : ''}`}
             >
               <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'center' }}>
                 {filteredChateaux.length} Châteaux d'Exception
@@ -520,7 +511,7 @@ export default function ChateauxPage() {
               <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
                 Cliquez pour découvrir chaque domaine
               </Text>
-            </motion.div>
+            </div>
           </div>
 
           {/* Bento Grid - Adaptatif selon nombre de châteaux */}
@@ -533,18 +524,15 @@ export default function ChateauxPage() {
           }}>
             {filteredChateaux.map((chateau, index) => (
               <Link key={chateau.id} href={`/chateaux/${chateau.slug}`}>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                <div
+                  className={`animate-on-scroll from-scale hover-scale ${chateauxSection.isInView ? 'is-visible' : ''}`}
                   style={{
                     position: 'relative',
                     height: '320px',
                     borderRadius: '20px',
                     overflow: 'hidden',
                     cursor: 'pointer',
+                    animationDelay: `${index * 0.1}s`,
                   }}
                 >
                   {/* Image de fond */}
@@ -636,8 +624,7 @@ export default function ChateauxPage() {
                     </div>
 
                     {/* CTA avec flèche */}
-                    <motion.div
-                      whileHover={{ x: 5 }}
+                    <div
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -645,25 +632,27 @@ export default function ChateauxPage() {
                         color: theme.colors.primary.gold,
                         fontWeight: 600,
                         fontSize: '0.9rem',
+                        transition: 'transform 0.2s ease',
                       }}
                     >
                       Découvrir
                       <ArrowRight className="w-4 h-4" />
-                    </motion.div>
+                    </div>
                   </div>
 
                   {/* Hover effect overlay */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
+                  <div
                     style={{
                       position: 'absolute',
                       inset: 0,
                       background: `linear-gradient(135deg, ${theme.colors.primary.bronze}30, ${theme.colors.primary.gold}20)`,
                       pointerEvents: 'none',
+                      opacity: 0,
+                      transition: 'opacity 0.3s ease',
                     }}
+                    className="group-hover:opacity-100"
                   />
-                </motion.div>
+                </div>
               </Link>
             ))}
           </div>
@@ -674,11 +663,9 @@ export default function ChateauxPage() {
       <Section background="gray" style={{ padding: '50px 0' }}>
         <Container size="xl">
           <div className="section-header" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true }}
+            <div
+              ref={commentSection.ref}
+              className={`animate-on-scroll ${commentSection.isInView ? 'is-visible' : ''}`}
             >
               <Text variant="h2" style={{ marginBottom: '0.5rem' }}>
                 Comment ça marche
@@ -686,7 +673,7 @@ export default function ChateauxPage() {
               <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
                 Un processus simple en 3 étapes
               </Text>
-            </motion.div>
+            </div>
           </div>
 
           <div style={{
@@ -728,22 +715,10 @@ export default function ChateauxPage() {
                 icon: CheckCircle
               }
             ].map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8, x: index === 0 ? -30 : index === 2 ? 30 : 0 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.15, ease: "easeOut" }
-                }}
-                transition={{
-                  duration: 0.25,
-                  delay: index * 0.08,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }}
-                viewport={{ once: true }}
-                style={{ position: 'relative', zIndex: 1 }}
+                className={`animate-on-scroll from-scale hover-lift-sm ${commentSection.isInView ? 'is-visible' : ''}`}
+                style={{ position: 'relative', zIndex: 1, animationDelay: `${index * 0.08}s` }}
               >
                 <div
                   style={{
@@ -762,10 +737,8 @@ export default function ChateauxPage() {
                   }}
                   className="hover:shadow-lg"
                 >
-                  {/* Numéro d'étape animé */}
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  {/* Numéro d'étape */}
+                  <div
                     style={{
                       width: '56px',
                       height: '56px',
@@ -776,7 +749,9 @@ export default function ChateauxPage() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       boxShadow: '0 4px 12px rgba(183, 135, 77, 0.3)',
+                      transition: 'transform 0.4s ease',
                     }}
+                    className="hover:scale-110"
                   >
                     <span style={{
                       color: 'white',
@@ -785,7 +760,7 @@ export default function ChateauxPage() {
                     }}>
                       {item.step}
                     </span>
-                  </motion.div>
+                  </div>
 
                   <Text variant="h5" as="h3" style={{ marginBottom: '0.25rem', fontSize: '1rem', textAlign: 'center' }}>
                     {item.title}
@@ -795,7 +770,7 @@ export default function ChateauxPage() {
                     {item.description}
                   </Text>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </Container>
@@ -804,11 +779,9 @@ export default function ChateauxPage() {
       {/* ========== 3. TRUST & SEO BLOCK - Design moderne sur une ligne ========== */}
       <Section background="white" style={{ padding: '50px 0' }}>
         <Container size="xl">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
+          <div
+            ref={trustSection.ref}
+            className={`animate-on-scroll ${trustSection.isInView ? 'is-visible' : ''}`}
           >
             <Text
               variant="h3"
@@ -851,17 +824,9 @@ export default function ChateauxPage() {
                   gradient: 'linear-gradient(135deg, #4A5568 0%, #718096 100%)',
                 },
               ].map((item, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.02,
-                    transition: { duration: 0.2 }
-                  }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  className={`animate-on-scroll from-scale hover-lift ${trustSection.isInView ? 'is-visible' : ''}`}
                   style={{
                     background: item.gradient,
                     borderRadius: theme.effects.borderRadius.xl,
@@ -869,6 +834,7 @@ export default function ChateauxPage() {
                     position: 'relative',
                     overflow: 'hidden',
                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
+                    animationDelay: `${index * 0.1}s`,
                   }}
                 >
                   {/* Background pattern */}
@@ -919,10 +885,10 @@ export default function ChateauxPage() {
                       {item.description}
                     </Text>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </Container>
       </Section>
 
@@ -930,11 +896,9 @@ export default function ChateauxPage() {
       <Section background="gradient" style={{ padding: '60px 0' }}>
         <Container size="lg">
           <div className="section-header" style={{ textAlign: 'center' }}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+            <div
+              ref={ctaSection.ref}
+              className={`animate-on-scroll ${ctaSection.isInView ? 'is-visible' : ''}`}
             >
               <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'center' }}>
                 Prêt à organiser votre événement d'exception ?
@@ -942,14 +906,12 @@ export default function ChateauxPage() {
               <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.xl, textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
                 Nos experts vous accompagnent dans le choix du château idéal. Devis gratuit sous 24h.
               </Text>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', marginTop: theme.spacing.xl }}
+            <div
+              ref={ctaButtons.ref}
+              className={`animate-on-scroll ${ctaButtons.isInView ? 'is-visible' : ''}`}
+              style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', marginTop: theme.spacing.xl, animationDelay: '0.2s' }}
             >
               <Link href="/devis#formulaire">
                 <Button variant="primary" size="lg">
@@ -964,7 +926,7 @@ export default function ChateauxPage() {
                   </div>
                 </Button>
               </a>
-            </motion.div>
+            </div>
           </div>
         </Container>
       </Section>

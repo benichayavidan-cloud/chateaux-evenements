@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   User,
   Mail,
@@ -36,12 +35,9 @@ export function Step4ContactForm({
   onBudgetChange,
 }: Step4ContactFormProps) {
   return (
-    <motion.div
+    <div
       key="step4"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -50 }}
-      className="flex flex-col gap-6"
+      className="flex flex-col gap-6 animate-slide-right"
     >
       <h3 className="text-xl lg:text-3xl font-bold mb-2 lg:mb-3 text-gray-800">
         Vos coordonnées et détails
@@ -291,6 +287,6 @@ export function Step4ContactForm({
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

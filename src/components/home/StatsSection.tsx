@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
 import { useRef, useEffect, useState } from 'react';
 import { theme } from '@/design-system/tokens';
 
@@ -13,8 +13,7 @@ interface ChiffreCle {
 
 function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: number }) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const { ref, isInView } = useInView<HTMLSpanElement>();
 
   useEffect(() => {
     if (!isInView) return;
@@ -51,21 +50,11 @@ export function StatsSection({ chiffres }: { chiffres: ChiffreCle[] }) {
     >
       <div className="stats-row">
         {chiffres.map((chiffre, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{
-              delay: index * 0.15,
-              duration: 0.6,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            whileHover={{
-              y: -6,
-              boxShadow: '0 12px 40px rgba(163, 126, 44, 0.15)',
-            }}
+            className="animate-fade-in hover-lift"
             style={{
+              animationDelay: `${index * 0.15}s`,
               textAlign: 'center',
               padding: 'clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 2rem)',
               display: 'flex',
@@ -105,7 +94,7 @@ export function StatsSection({ chiffres }: { chiffres: ChiffreCle[] }) {
             >
               {chiffre.label}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 

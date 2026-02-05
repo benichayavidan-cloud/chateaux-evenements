@@ -1,4 +1,4 @@
-import { DevisForm } from "@/components/DevisForm";
+import { DevisFormLazy } from "@/components/DevisFormLazy";
 import { theme } from "@/config/theme";
 import Image from "next/image";
 import { Check, Clock, Building2, Star } from "lucide-react";
@@ -157,7 +157,7 @@ export default function DevisPage() {
           margin: "0 auto",
           padding: "clamp(2rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2.5rem) 5rem"
         }}>
-          <DevisForm />
+          <DevisFormLazy />
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useInView } from "@/hooks/useInView";
 import { ArrowRight, Heart, Award, Users, TrendingUp, Building2, Target, Sparkles } from "lucide-react";
 import { chiffresCles } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
@@ -31,6 +31,17 @@ export default function AboutPage() {
       icon: Users,
     },
   ];
+
+  const heroContent = useInView();
+  const histoireImage = useInView();
+  const histoireText = useInView();
+  const chiffresHeader = useInView();
+  const chiffresGrid = useInView();
+  const missionHeader = useInView();
+  const valeursGrid = useInView();
+  const equipeHeader = useInView();
+  const equipeGrid = useInView();
+  const ctaSection = useInView();
 
   const equipe = [
     {
@@ -70,11 +81,9 @@ export default function AboutPage() {
 
         <div className="relative h-full flex-center">
           <div className="hero-content">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex-col-center"
+            <div
+              ref={heroContent.ref}
+              className={`flex-col-center animate-fade-in ${heroContent.isInView ? '' : 'opacity-0'}`}
             >
               <div className="badge-lg inline-flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 shadow-lg mb-10">
                 <Sparkles className="w-5 h-5 text-[var(--bronze-light)]" />
@@ -101,15 +110,13 @@ export default function AboutPage() {
                 <span>Organiser mon événement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
 
         <div className="absolute left-1/2 -translate-x-1/2 z-10" style={{ bottom: '0.5rem' }}>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="flex flex-col items-center gap-3"
+          <div
+            className="flex flex-col items-center gap-3 animate-bounce-gentle"
           >
             <span className="text-white text-xs uppercase tracking-widest font-bold" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
               Découvrir
@@ -117,7 +124,7 @@ export default function AboutPage() {
             <div className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 shadow-lg" style={{ borderColor: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.15)' }}>
               <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -127,11 +134,9 @@ export default function AboutPage() {
       <div className="section-white" style={{ padding: '30px 0' }}>
         <div className="section-container">
           <div className="grid-2-cols">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+            <div
+              ref={histoireImage.ref}
+              className={`animate-on-scroll from-left ${histoireImage.isInView ? 'is-visible' : ''}`}
             >
               <div className="card-image group">
                 <Image
@@ -142,14 +147,12 @@ export default function AboutPage() {
                   sizes="50vw"
                 />
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex-col-center"
+            <div
+              ref={histoireText.ref}
+              className={`flex-col-center animate-on-scroll from-right ${histoireText.isInView ? 'is-visible' : ''}`}
+              style={{ animationDelay: '0.2s' }}
             >
               <div className="badge inline-flex items-center gap-3 bg-[var(--bronze-antique)]/10 mb-lg">
                 <Building2 className="w-5 h-5 text-[var(--bronze-antique)]" />
@@ -169,7 +172,7 @@ export default function AboutPage() {
               <p className="text-body-xl mb-xl">
                 De la PME innovante aux groupes du CAC 40, nous avons su créer des expériences mémorables qui allient l'élégance intemporelle de nos domaines à l'excellence du service contemporain.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -177,33 +180,27 @@ export default function AboutPage() {
       {/* Chiffres Clés */}
       <div className="section-gray" style={{ padding: '30px 0' }}>
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
+          <div
+            ref={chiffresHeader.ref}
+            className={`section-header animate-on-scroll ${chiffresHeader.isInView ? 'is-visible' : ''}`}
           >
             <h2 className="heading-xl mb-xl">
               Nos Chiffres Clés
             </h2>
-          </motion.div>
+          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3xl max-w-[var(--max-width-content)] mx-auto">
+          <div ref={chiffresGrid.ref} className="grid grid-cols-2 md:grid-cols-4 gap-3xl max-w-[var(--max-width-content)] mx-auto">
             {chiffresCles.map((chiffre, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex-col-center bg-white rounded-2xl border border-gray-200"
+                className={`flex-col-center bg-white rounded-2xl border border-gray-200 animate-on-scroll ${chiffresGrid.isInView ? 'is-visible' : ''}`}
                 style={{
                   padding: 'clamp(1.5rem, 3vw, 2rem)',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  animationDelay: `${index * 0.1}s`,
                 }}
               >
                 <div className="text-5xl font-bold text-[var(--bronze-antique)] mb-md">
@@ -213,7 +210,7 @@ export default function AboutPage() {
                   {chiffre.suffix || ""}
                 </div>
                 <p className="font-medium text-center" style={{ color: '#6b7c93' }}>{chiffre.label}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -222,12 +219,9 @@ export default function AboutPage() {
       {/* Mission & Valeurs */}
       <div className="section-white" style={{ padding: '20px 0' }}>
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
+          <div
+            ref={missionHeader.ref}
+            className={`section-header animate-on-scroll ${missionHeader.isInView ? 'is-visible' : ''}`}
           >
             <h2 className="heading-xl mb-md">
               Notre Mission
@@ -235,27 +229,15 @@ export default function AboutPage() {
             <p className="text-body-xl mb-4xl max-w-3xl mx-auto">
               Offrir à nos clients un accès privilégié aux plus beaux châteaux d'Île-de-France et orchestrer des événements d'entreprise qui allient prestige, authenticité et excellence opérationnelle.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="valeurs-grid">
+          <div ref={valeursGrid.ref} className="valeurs-grid">
             {valeurs.map((valeur, index) => {
               const IconComponent = valeur.icon;
               return (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.12,
-                    type: 'spring',
-                    stiffness: 120,
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{
-                    y: -8,
-                    boxShadow: '0 16px 40px rgba(163, 126, 44, 0.15), 0 4px 12px rgba(0,0,0,0.06)',
-                  }}
+                  className={`animate-on-scroll from-scale hover-lift ${valeursGrid.isInView ? 'is-visible' : ''}`}
                   style={{
                     padding: 'clamp(1.25rem, 2.5vw, 2rem)',
                     background: '#ffffff',
@@ -268,12 +250,12 @@ export default function AboutPage() {
                     textAlign: 'center',
                     cursor: 'default',
                     boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
-                    transition: 'box-shadow 0.3s ease',
+                    transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+                    animationDelay: `${index * 0.12}s`,
                   }}
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                  <div
+                    className="hover:scale-110"
                     style={{
                       width: '64px',
                       height: '64px',
@@ -283,13 +265,14 @@ export default function AboutPage() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '1rem',
+                      transition: 'transform 0.3s ease',
                     }}
                   >
                     <IconComponent style={{ width: '28px', height: '28px', color: 'var(--bronze-antique)' }} />
-                  </motion.div>
+                  </div>
                   <h3 style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', fontWeight: 600, color: '#1a1f36', marginBottom: '0.5rem' }}>{valeur.titre}</h3>
                   <p style={{ color: '#6b7c93', lineHeight: 1.6, fontSize: 'clamp(0.8rem, 1.2vw, 0.9rem)' }}>{valeur.description}</p>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -322,12 +305,9 @@ export default function AboutPage() {
       {/* Notre Équipe */}
       <div style={{ padding: '20px 0', background: '#f6f9fc' }}>
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
+          <div
+            ref={equipeHeader.ref}
+            className={`section-header animate-on-scroll ${equipeHeader.isInView ? 'is-visible' : ''}`}
           >
             <h2 className="heading-xl" style={{ marginBottom: '1rem' }}>
               Notre Équipe
@@ -335,22 +315,19 @@ export default function AboutPage() {
             <p className="text-body-xl max-w-3xl mx-auto" style={{ marginBottom: '2rem' }}>
               Des professionnels passionnés, experts de l'événementiel de luxe
             </p>
-          </motion.div>
+          </div>
 
-          <div style={{ display: 'flex', gap: '1.5rem', maxWidth: 'var(--max-width-content)', margin: '0 auto', justifyContent: 'center' }}>
+          <div ref={equipeGrid.ref} style={{ display: 'flex', gap: '1.5rem', maxWidth: 'var(--max-width-content)', margin: '0 auto', justifyContent: 'center' }}>
             {equipe.map((membre, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                className={`bg-white rounded-2xl border border-gray-200 flex flex-col items-center justify-center text-center animate-on-scroll ${equipeGrid.isInView ? 'is-visible' : ''}`}
                 style={{
                   flex: '1 1 0',
                   minWidth: '280px',
                   maxWidth: '350px',
+                  animationDelay: `${index * 0.1}s`,
                 }}
-                className="bg-white rounded-2xl border border-gray-200 flex flex-col items-center justify-center text-center"
               >
                 <div style={{ padding: '1.5rem' }} className="w-full flex flex-col items-center">
                   <div className="relative w-24 h-24" style={{ marginBottom: '1rem' }}>
@@ -367,7 +344,7 @@ export default function AboutPage() {
                   <p className="text-[var(--bronze-antique)] font-semibold text-sm uppercase tracking-wide" style={{ marginBottom: '0.5rem' }}>{membre.poste}</p>
                   <p className="text-sm leading-relaxed" style={{ color: '#6b7c93' }}>{membre.bio}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -376,12 +353,9 @@ export default function AboutPage() {
       {/* CTA */}
       <div className="section-white" style={{ padding: '30px 0' }}>
         <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="w-full text-center content-padding"
+          <div
+            ref={ctaSection.ref}
+            className={`w-full text-center content-padding animate-on-scroll ${ctaSection.isInView ? 'is-visible' : ''}`}
           >
             <h2 className="heading-xl mb-md">
               Prêt à Créer Votre Événement d'Exception ?
@@ -396,7 +370,7 @@ export default function AboutPage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 

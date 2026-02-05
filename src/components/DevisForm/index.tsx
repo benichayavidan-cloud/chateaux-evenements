@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, ArrowLeft, Sparkles, PartyPopper, Zap } from "lucide-react";
 import type ConfettiType from "canvas-confetti";
 
@@ -337,16 +336,8 @@ export function DevisForm() {
 
   if (isSubmitted) {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8, rotateX: -20 }}
-        animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-        transition={{
-          duration: 0.8,
-          type: "spring",
-          stiffness: 100,
-          damping: 15
-        }}
-        className="max-w-3xl mx-auto text-center"
+      <div
+        className="max-w-3xl mx-auto text-center animate-scale-in"
         style={{
           padding: "clamp(3rem, 8vw, 5rem) clamp(1.5rem, 4vw, 2.5rem)",
           background: "linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)",
@@ -355,31 +346,13 @@ export function DevisForm() {
         }}
       >
         {/* Animation du badge de succès */}
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{
-            delay: 0.2,
-            duration: 0.8,
-            type: "spring",
-            stiffness: 200,
-            damping: 15
-          }}
-          className="relative mx-auto mb-8"
+        <div
+          className="relative mx-auto mb-8 animate-scale-in delay-200"
           style={{ width: "120px", height: "120px" }}
         >
           {/* Cercle extérieur animé */}
-          <motion.div
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.5, 0.8, 0.5],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute inset-0 rounded-full"
+          <div
+            className="absolute inset-0 rounded-full animate-bounce-gentle"
             style={{
               background: "linear-gradient(135deg, rgba(163, 126, 44, 0.2) 0%, rgba(212, 175, 55, 0.2) 100%)",
             }}
@@ -397,28 +370,14 @@ export function DevisForm() {
           </div>
 
           {/* Particules brillantes */}
-          <motion.div
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
+          <div
             className="absolute inset-0"
+            style={{ animation: "spinOnce 20s linear infinite" }}
           >
             {[...Array(8)].map((_, i) => (
-              <motion.div
+              <div
                 key={i}
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1, 0] }}
-                transition={{
-                  delay: 0.5 + i * 0.1,
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 1,
-                }}
+                className="animate-bounce-gentle"
                 style={{
                   position: "absolute",
                   top: "50%",
@@ -429,16 +388,15 @@ export function DevisForm() {
                   background: "#D4AF37",
                   transform: `rotate(${i * 45}deg) translateX(70px)`,
                   boxShadow: "0 0 10px #D4AF37",
+                  animationDelay: `${0.5 + i * 0.1}s`,
                 }}
               />
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+        <h2
+          className="animate-fade-in delay-400"
           style={{
             fontSize: "clamp(2rem, 5vw, 3rem)",
             fontWeight: 700,
@@ -449,13 +407,9 @@ export function DevisForm() {
           }}
         >
           Demande envoyée avec succès !
-        </motion.h2>
+        </h2>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
+        <div className="animate-fade-in delay-500">
           <p
             style={{
               fontSize: "clamp(1.125rem, 3vw, 1.375rem)",
@@ -475,12 +429,10 @@ export function DevisForm() {
             </span>{" "}
             pour discuter de votre projet et établir un devis personnalisé.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 }}
+        <div
+          className="animate-scale-in delay-600"
           style={{
             background: "linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)",
             borderRadius: "1rem",
@@ -508,12 +460,10 @@ export function DevisForm() {
           >
             #DEV{Math.random().toString(36).substr(2, 9).toUpperCase()}
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
+        <div
+          className="animate-fade-only delay-800"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -529,8 +479,8 @@ export function DevisForm() {
             <Zap className="w-5 h-5 text-[#A37E2C]" />
             <p style={{ fontSize: "0.95rem" }}>Vous recevrez un devis personnalisé par email</p>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     );
   }
 
@@ -562,98 +512,86 @@ export function DevisForm() {
       `}</style>
       <div id="formulaire" className="max-w-5xl mx-auto">
         {/* Message d'encouragement flottant */}
-        <AnimatePresence>
-          {showEncouragement && (
-            <motion.div
-              initial={{ opacity: 0, y: -50, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -50, scale: 0.8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              style={{
-                position: "fixed",
-                top: "100px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                zIndex: 9999,
-                background: "linear-gradient(135deg, #10B981 0%, #059669 100%)",
-                color: "white",
-                padding: "1rem 2rem",
-                borderRadius: "9999px",
-                fontSize: "1.25rem",
-                fontWeight: 700,
-                boxShadow: "0 10px 40px rgba(16, 185, 129, 0.5), 0 0 0 4px rgba(16, 185, 129, 0.1)",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-              }}
-            >
-              <Sparkles className="w-6 h-6" />
-              {encouragementMessage}
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {showEncouragement && (
+          <div
+            className="animate-fade-in"
+            style={{
+              position: "fixed",
+              top: "100px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 9999,
+              background: "linear-gradient(135deg, #10B981 0%, #059669 100%)",
+              color: "white",
+              padding: "1rem 2rem",
+              borderRadius: "9999px",
+              fontSize: "1.25rem",
+              fontWeight: 700,
+              boxShadow: "0 10px 40px rgba(16, 185, 129, 0.5), 0 0 0 4px rgba(16, 185, 129, 0.1)",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.75rem",
+            }}
+          >
+            <Sparkles className="w-6 h-6" />
+            {encouragementMessage}
+          </div>
+        )}
 
         <TrustSection />
         <ProgressBar currentStep={currentStep} />
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <AnimatePresence mode="wait">
-            {currentStep === 1 && (
-              <Step1EventType
-                selectedType={watchedValues.typeEvenement}
-                setValue={setValue}
-                trigger={trigger}
-                setCurrentStep={setCurrentStep}
-                errors={displayedErrors}
-              />
-            )}
+          {currentStep === 1 && (
+            <Step1EventType
+              selectedType={watchedValues.typeEvenement}
+              setValue={setValue}
+              trigger={trigger}
+              setCurrentStep={setCurrentStep}
+              errors={displayedErrors}
+            />
+          )}
 
-            {currentStep === 2 && (
-              <Step2DateDuration
-                register={register}
-                setValue={setValue}
-                trigger={trigger}
-                getValues={getValues}
-                setCurrentStep={setCurrentStep}
-                selectedDuree={watchedValues.duree}
-                errors={displayedErrors}
-              />
-            )}
+          {currentStep === 2 && (
+            <Step2DateDuration
+              register={register}
+              setValue={setValue}
+              trigger={trigger}
+              getValues={getValues}
+              setCurrentStep={setCurrentStep}
+              selectedDuree={watchedValues.duree}
+              errors={displayedErrors}
+            />
+          )}
 
-            {currentStep === 3 && (
-              <Step3ChateauSelection
-                selectedChateauIds={watchedValues.chateauIds}
-                setValue={setValue}
-                errors={displayedErrors}
-                shouldValidate={shouldShowErrors}
-              />
-            )}
+          {currentStep === 3 && (
+            <Step3ChateauSelection
+              selectedChateauIds={watchedValues.chateauIds}
+              setValue={setValue}
+              errors={displayedErrors}
+              shouldValidate={shouldShowErrors}
+            />
+          )}
 
-            {currentStep === 4 && (
-              <Step4ContactForm
-                register={register}
-                errors={displayedErrors}
-                nombreParticipants={watchedValues.nombreParticipants}
-                nombreChambres={watchedValues.nombreChambres}
-                budget={watchedValues.budget}
-                onBudgetChange={(budget) => {
-                  setValue("budget", budget, { shouldValidate: shouldShowErrors });
-                }}
-              />
-            )}
-          </AnimatePresence>
+          {currentStep === 4 && (
+            <Step4ContactForm
+              register={register}
+              errors={displayedErrors}
+              nombreParticipants={watchedValues.nombreParticipants}
+              nombreChambres={watchedValues.nombreChambres}
+              budget={watchedValues.budget}
+              onBudgetChange={(budget) => {
+                setValue("budget", budget, { shouldValidate: shouldShowErrors });
+              }}
+            />
+          )}
 
           {/* Navigation buttons - sticky en bas pour toujours être visible */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="devis-nav-buttons"
+          <div
+            className="devis-nav-buttons animate-fade-in delay-300"
           >
             {currentStep > 1 ? (
-              <motion.button
-                whileHover={{ scale: 1.05, x: -5 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 type="button"
                 onClick={prevStep}
                 style={{
@@ -667,19 +605,17 @@ export function DevisForm() {
                   fontWeight: 600,
                   color: "#374151",
                 }}
-                className="flex items-center gap-2 shadow-md hover:shadow-xl"
+                className="flex items-center gap-2 shadow-md hover:shadow-xl hover-scale active:scale-95"
               >
                 <ArrowLeft className="w-5 h-5" />
                 Précédent
-              </motion.button>
+              </button>
             ) : (
               <div />
             )}
 
             {currentStep < 4 ? (
-              <motion.button
-                whileHover={{ scale: 1.05, x: 5 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 type="button"
                 onClick={nextStep}
                 style={{
@@ -695,16 +631,14 @@ export function DevisForm() {
                   position: "relative",
                   overflow: "hidden",
                 }}
-                className="flex items-center gap-2 shadow-lg hover:shadow-2xl"
+                className="flex items-center gap-2 shadow-lg hover:shadow-2xl hover-scale active:scale-95"
               >
                 <span className="shimmer" style={{ position: "absolute", inset: 0 }} />
                 <span style={{ position: "relative" }}>Suivant</span>
                 <ArrowRight className="w-5 h-5" style={{ position: "relative" }} />
-              </motion.button>
+              </button>
             ) : (
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <button
                 type="submit"
                 onClick={() => setValidatedSteps((prev) => new Set(prev).add(4))}
                 style={{
@@ -720,14 +654,14 @@ export function DevisForm() {
                   position: "relative",
                   overflow: "hidden",
                 }}
-                className="flex items-center gap-2 shadow-lg hover:shadow-2xl"
+                className="flex items-center gap-2 shadow-lg hover:shadow-2xl hover-scale active:scale-95"
               >
                 <span className="shimmer" style={{ position: "absolute", inset: 0 }} />
                 <span style={{ position: "relative" }}>Envoyer ma demande</span>
                 <Check className="w-5 h-5" style={{ position: "relative" }} />
-              </motion.button>
+              </button>
             )}
-          </motion.div>
+          </div>
         </form>
       </div>
     </>

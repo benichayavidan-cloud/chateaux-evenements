@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Check, Sparkles, PartyPopper, Zap, ArrowLeft } from "lucide-react";
 
 export default function MerciContent() {
@@ -37,15 +36,8 @@ export default function MerciContent() {
   return (
     <div style={{ minHeight: "100vh", background: "#FFFFFF", paddingTop: "80px" }}>
       <div style={{ maxWidth: "900px", margin: "0 auto", padding: "clamp(3rem, 8vw, 5rem) clamp(1.5rem, 4vw, 2.5rem)" }}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotateX: -20 }}
-          animate={{ opacity: 1, scale: 1, rotateX: 0 }}
-          transition={{
-            duration: 0.8,
-            type: "spring",
-            stiffness: 100,
-            damping: 15
-          }}
+        <div
+          className="animate-scale-in"
           style={{
             padding: "clamp(3rem, 8vw, 5rem) clamp(1.5rem, 4vw, 2.5rem)",
             background: "linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%)",
@@ -55,31 +47,13 @@ export default function MerciContent() {
           }}
         >
           {/* Animation du badge de succès */}
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{
-              delay: 0.2,
-              duration: 0.8,
-              type: "spring",
-              stiffness: 200,
-              damping: 15
-            }}
-            className="relative mx-auto mb-8"
+          <div
+            className="relative mx-auto mb-8 animate-scale-in delay-200"
             style={{ width: "120px", height: "120px" }}
           >
             {/* Cercle extérieur animé */}
-            <motion.div
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute inset-0 rounded-full"
+            <div
+              className="absolute inset-0 rounded-full animate-bounce-gentle"
               style={{
                 background: "linear-gradient(135deg, rgba(163, 126, 44, 0.2) 0%, rgba(212, 175, 55, 0.2) 100%)",
               }}
@@ -95,12 +69,10 @@ export default function MerciContent() {
             >
               <Check style={{ width: "64px", height: "64px", color: "#FFFFFF" }} strokeWidth={3} />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+          <h1
+            className="animate-fade-in delay-400"
             style={{
               fontSize: "clamp(2rem, 5vw, 3rem)",
               fontWeight: 700,
@@ -109,13 +81,9 @@ export default function MerciContent() {
             }}
           >
             Demande envoyée avec succès !
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-          >
+          <div className="animate-fade-in delay-500">
             <p
               style={{
                 fontSize: "clamp(1.125rem, 3vw, 1.375rem)",
@@ -128,12 +96,10 @@ export default function MerciContent() {
               <span style={{ fontWeight: 700, color: "#A37E2C" }}>24 heures</span>{" "}
               pour discuter de votre projet et établir un devis personnalisé.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6 }}
+          <div
+            className="animate-scale-in delay-600"
             style={{
               background: "linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)",
               borderRadius: "1rem",
@@ -161,12 +127,10 @@ export default function MerciContent() {
             >
               #DEV{ref}
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
+          <div
+            className="animate-fade-only delay-800"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -183,13 +147,12 @@ export default function MerciContent() {
               <Zap style={{ width: "20px", height: "20px", color: "#A37E2C" }} />
               <p style={{ fontSize: "0.95rem", color: "#6B7280" }}>Vous recevrez un devis personnalisé par email</p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Bouton retour */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
+          <div
+            className="animate-fade-only"
+            style={{ animationDelay: "1s" }}
           >
             <Link
               href="/"
@@ -218,8 +181,8 @@ export default function MerciContent() {
               <ArrowLeft style={{ width: "20px", height: "20px" }} />
               Retour à l'accueil
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );

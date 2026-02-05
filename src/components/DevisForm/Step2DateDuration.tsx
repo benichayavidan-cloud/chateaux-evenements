@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Calendar, Clock } from "lucide-react";
 import type { DureeEvent } from "@/types";
 import type {
@@ -36,12 +35,9 @@ export function Step2DateDuration({
   errors,
 }: Step2DateDurationProps) {
   return (
-    <motion.div
+    <div
       key="step2"
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -50 }}
-      className="flex flex-col gap-6"
+      className="flex flex-col gap-6 animate-slide-right"
     >
       <h3 className="text-xl lg:text-3xl font-bold mb-2 lg:mb-3 text-gray-800">
         Quand souhaitez-vous organiser votre événement ?
@@ -131,6 +127,6 @@ export function Step2DateDuration({
           <p className="text-red-500 text-sm mt-1">{errors.duree.message}</p>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }

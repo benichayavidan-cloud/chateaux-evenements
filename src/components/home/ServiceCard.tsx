@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useInView } from '@/hooks/useInView';
 import { Check, ArrowRight } from 'lucide-react';
 import { theme } from '@/design-system/tokens';
 import Image from 'next/image';
@@ -47,19 +47,14 @@ export function ServiceCard({
   const displayImage = imageData?.src || image;
   const imageAlt = imageData?.alt || `${titre} - Select Châteaux`;
 
+  const { ref, isInView } = useInView();
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: [0.22, 1, 0.36, 1]
-      }}
-      whileHover={{ y: -6 }}
-      className="service-card-split"
+    <div
+      ref={ref}
+      className={`service-card-split hover-lift animate-on-scroll ${isInView ? 'is-visible' : ''}`}
       style={{
+        animationDelay: `${index * 0.1}s`,
         display: 'flex',
         flexDirection: 'row',
         borderRadius: '16px',
@@ -227,6 +222,6 @@ export function ServiceCard({
           }
         }
       `}</style>
-    </motion.div>
+    </div>
   );
 }

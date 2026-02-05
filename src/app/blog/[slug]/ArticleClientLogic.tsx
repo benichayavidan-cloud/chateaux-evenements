@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
 import { BlogPost } from "@/data/blog-posts";
 import { MarkdownRenderer } from "@/components/blog/MarkdownRenderer";
 import { ArticleHero } from "@/components/blog/ArticleHero";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { ArticleSidebar } from "@/components/blog/ArticleSidebar";
+import { useScrollProgress } from "@/hooks/useInView";
 
 interface ArticleClientLogicProps {
   article: BlogPost;
@@ -19,7 +19,7 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
   const [tableOfContents, setTableOfContents] = useState<{ id: string; title: string; level: number }[]>([]);
 
   const articleRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll();
+  const scrollProgress = useScrollProgress();
 
   // Extraire Table of Contents depuis le contenu HTML
   useEffect(() => {
@@ -84,10 +84,10 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
   return (
     <>
       {/* Reading Progress Bar */}
-      <motion.div
+      <div
         className="fixed top-0 left-0 right-0 h-1 z-50 origin-left"
         style={{
-          scaleX: scrollYProgress,
+          transform: `scaleX(${scrollProgress})`,
           background: 'linear-gradient(to left, var(--brakt-secondary), var(--brakt-primary))'
         }}
       />

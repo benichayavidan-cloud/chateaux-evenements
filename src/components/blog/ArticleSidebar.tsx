@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 interface ArticleSidebarProps {
@@ -21,10 +20,9 @@ export function ArticleSidebar({ readingProgress }: ArticleSidebarProps) {
             </span>
           </div>
           <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden mb-1">
-            <motion.div
-              className="h-full bg-gradient-to-r from-[#d4af37] to-amber-600"
+            <div
+              className="h-full bg-gradient-to-r from-[#d4af37] to-amber-600 transition-all duration-300"
               style={{ width: `${readingProgress}%` }}
-              transition={{ duration: 0.3 }}
             />
           </div>
         </div>
