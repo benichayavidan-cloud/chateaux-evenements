@@ -21,7 +21,7 @@ export default function NotFound() {
             Retour à l&apos;accueil
           </Link>
           <Link
-            href="/devis"
+            href="/devis#formulaire"
             className="inline-flex items-center px-8 py-4 border border-gray-300 text-gray-700 font-medium rounded-full hover:border-[var(--bronze-antique)] hover:text-[var(--bronze-antique)] transition-all duration-500 group"
           >
             <FileText className="w-5 h-5 mr-2" />

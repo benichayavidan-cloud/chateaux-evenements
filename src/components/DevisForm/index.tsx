@@ -555,7 +555,7 @@ export function DevisForm() {
           }
         }
       `}</style>
-      <div className="max-w-5xl mx-auto">
+      <div id="formulaire" className="max-w-5xl mx-auto">
         {/* Message d'encouragement flottant */}
         <AnimatePresence>
           {showEncouragement && (

@@ -281,7 +281,7 @@ export default function Home() {
               flexWrap: 'wrap',
               width: '100%',
             }}>
-              <Link href="/devis">
+              <Link href="/devis#formulaire">
                 <Button
                   variant="secondary"
                   size="lg"

@@ -37,7 +37,7 @@ export function ArticleSidebar({ readingProgress }: ArticleSidebarProps) {
             Obtenez votre devis personnalisé en 24h. Nos experts vous accompagnent de A à Z.
           </p>
           <Link
-            href="/devis"
+            href="/devis#formulaire"
             className="inline-flex items-center justify-center gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full font-medium transition-all duration-300 hover:scale-105"
             style={{ width: '80%', marginBottom: '5px', padding: '8px' }}
           >
@@ -58,7 +58,7 @@ export function ArticleSidebar({ readingProgress }: ArticleSidebarProps) {
             Nos experts sont disponibles pour vous conseiller.
           </p>
           <Link
-            href="/devis"
+            href="/devis#formulaire"
             className="w-full flex items-center justify-center gap-2 bg-white border-2 border-gray-200 hover:border-[#d4af37] text-gray-900 rounded-full font-medium transition-all duration-300"
             style={{ padding: '8px' }}
           >

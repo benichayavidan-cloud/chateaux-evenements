@@ -178,7 +178,7 @@ export default function RootLayout({
           ]}
           cta={{
             label: "Demander un devis",
-            href: "/devis",
+            href: "/devis#formulaire",
           }}
           sticky
         />

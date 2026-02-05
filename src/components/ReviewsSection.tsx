@@ -239,7 +239,7 @@ export function ReviewsSection() {
             Rejoignez les {reviewsStats.fiveStars}+ entreprises qui nous font confiance
           </p>
           <a
-            href="/devis"
+            href="/devis#formulaire"
             className="inline-flex items-center gap-2 bg-[#A37E2C] rounded-full font-medium hover:bg-[#8B6A24] transition-colors duration-300"
             style={{ padding: '16px 40px', color: '#ffffff' }}
           >

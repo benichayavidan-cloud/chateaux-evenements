@@ -109,7 +109,7 @@ export default function EvenementsPage() {
                 Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables.
               </p>
 
-              <Link href="/devis" className="btn-primary group">
+              <Link href="/devis#formulaire" className="btn-primary group">
                 <span>Planifier mon événement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -202,7 +202,7 @@ export default function EvenementsPage() {
                     ))}
                   </div>
 
-                  <Link href="/devis" className="stripe-button group/btn">
+                  <Link href="/devis#formulaire" className="stripe-button group/btn">
                     <span>En savoir plus</span>
                     <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
                   </Link>
@@ -310,7 +310,7 @@ export default function EvenementsPage() {
             </p>
 
             <div className="flex flex-wrap gap-lg items-center justify-center">
-              <Link href="/devis" className="btn-primary group">
+              <Link href="/devis#formulaire" className="btn-primary group">
                 <Calendar className="w-5 h-5" />
                 <span>Demander un Devis</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

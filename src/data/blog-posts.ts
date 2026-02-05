@@ -274,7 +274,7 @@ const article1: BlogPost = {
     <div class="cta-box">
       <h4>🎯 Besoin d'un Devis Transparent en 24h ?</h4>
       <p>Nos experts Select Châteaux vous envoient <strong>3 propositions personnalisées</strong> avec décomposition ligne par ligne. Zéro frais caché.</p>
-      <a href="/devis" class="btn-primary">Obtenir mon Devis Gratuit</a>
+      <a href="/devis#formulaire" class="btn-primary">Obtenir mon Devis Gratuit</a>
       <p class="guarantee">✓ Réponse sous 24h • ✓ Sans engagement • ✓ Tarifs négociés</p>
     </div>
 
@@ -325,7 +325,7 @@ const article2: BlogPost = {
     <div class="download-box">
       <h3>📥 Téléchargez la Check-list PDF Imprimable</h3>
       <p>Version complète avec cases à cocher, timeline et templates emails inclus.</p>
-      <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
+      <a href="/devis#formulaire" class="btn-cta">Demander un devis gratuit</a>
     </div>
 
     <h3>⏰ Timeline : Quand Faire Quoi ?</h3>
@@ -567,25 +567,25 @@ const article2: BlogPost = {
       <div class="template">
         <h4>📧 Email Save-the-Date</h4>
         <p>Template pré-rédigé avec accroche, infos clés, et CTA confirmation.</p>
-        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
+        <a href="/devis#formulaire" class="btn-cta">Demander un devis gratuit</a>
       </div>
 
       <div class="template">
         <h4>📊 Budget Tracker Excel</h4>
         <p>Tableau avec formules automatiques et graphiques de suivi.</p>
-        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
+        <a href="/devis#formulaire" class="btn-cta">Demander un devis gratuit</a>
       </div>
 
       <div class="template">
         <h4>📋 Questionnaire Satisfaction</h4>
         <p>15 questions optimisées pour Google Forms (+ analyse automatique).</p>
-        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
+        <a href="/devis#formulaire" class="btn-cta">Demander un devis gratuit</a>
       </div>
 
       <div class="template">
         <h4>🗓️ Planning Type 2 Jours</h4>
         <p>Trame horaire minute-par-minute avec temps de trajet et pauses.</p>
-        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
+        <a href="/devis#formulaire" class="btn-cta">Demander un devis gratuit</a>
       </div>
     </div>
 
@@ -633,7 +633,7 @@ const article2: BlogPost = {
     <div class="cta-box">
       <h4>🚀 Besoin d'Aide pour Organiser votre Séminaire ?</h4>
       <p>Nos experts gèrent TOUT : lieu, programme, logistique, imprévus. Vous validez, on exécute.</p>
-      <a href="/devis" class="btn-primary">Demander un Accompagnement</a>
+      <a href="/devis#formulaire" class="btn-primary">Demander un Accompagnement</a>
       <p class="guarantee">✓ Devis sous 24h • ✓ Clés en main • ✓ Garantie satisfait ou remboursé</p>
     </div>
 
@@ -644,7 +644,7 @@ const article2: BlogPost = {
     <p>Téléchargez, imprimez, cochez. Et si vous voulez déléguer ? Nous sommes là.</p>
 
     <div class="final-download">
-      <a href="/devis" class="btn-cta">
+      <a href="/devis#formulaire" class="btn-cta">
         Demander un devis gratuit pour votre séminaire
       </a>
       <p>Recevez une proposition personnalisée avec check-list incluse</p>
@@ -955,7 +955,7 @@ const article3: BlogPost = {
     <div class="cta-box">
       <h4>🌳 Prêt à Tester l'Effet Nature sur vos Équipes ?</h4>
       <p>Recevez 3 propositions de châteaux dans l'Oise, les Yvelines, ou Seine-et-Marne. Tous situés dans des parcs de 20+ hectares.</p>
-      <a href="/devis" class="btn-primary">Demander un Devis</a>
+      <a href="/devis#formulaire" class="btn-primary">Demander un Devis</a>
       <p class="guarantee">✓ Réponse sous 24h • ✓ Visites virtuelles incluses • ✓ Garantie nature 100%</p>
     </div>
 

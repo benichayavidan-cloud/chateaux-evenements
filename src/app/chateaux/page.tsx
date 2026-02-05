@@ -951,7 +951,7 @@ export default function ChateauxPage() {
               viewport={{ once: true }}
               style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', marginTop: theme.spacing.xl }}
             >
-              <Link href="/devis">
+              <Link href="/devis#formulaire">
                 <Button variant="primary" size="lg">
                   Demander un Devis Gratuit
                 </Button>

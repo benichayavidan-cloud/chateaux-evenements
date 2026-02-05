@@ -105,7 +105,7 @@ export default async function BlogArticlePage({ params }: Props) {
               Transformez ces insights en un séminaire d'exception pour vos équipes.
             </p>
             <Link
-              href="/devis"
+              href="/devis#formulaire"
               style={{ padding: '16px 40px' }}
               className="inline-flex items-center justify-center gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl text-base shadow-lg"
             >

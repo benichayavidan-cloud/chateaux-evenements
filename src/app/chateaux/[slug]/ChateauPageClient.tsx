@@ -658,7 +658,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.medium, textAlign: 'center' }}>
                 Une autre question ? Notre équipe est à votre écoute
               </Text>
-              <Link href="/devis">
+              <Link href="/devis#formulaire">
                 <Button variant="primary" size="md">Nous Contacter</Button>
               </Link>
             </div>
@@ -676,7 +676,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               </Text>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }} style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <Link href="/devis"><Button variant="primary" size="lg">Demander un Devis</Button></Link>
+              <Link href="/devis#formulaire"><Button variant="primary" size="lg">Demander un Devis</Button></Link>
               <Link href="/chateaux"><Button variant="outline" size="lg">Voir d'autres châteaux</Button></Link>
             </motion.div>
           </div>

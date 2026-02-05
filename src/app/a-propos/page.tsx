@@ -97,7 +97,7 @@ export default function AboutPage() {
                 15 ans d'expertise au service de vos événements d'exception dans les plus beaux châteaux d'Île-de-France.
               </p>
 
-              <Link href="/devis" className="btn-primary group">
+              <Link href="/devis#formulaire" className="btn-primary group">
                 <span>Organiser mon événement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -390,7 +390,7 @@ export default function AboutPage() {
               Rejoignez les 500+ entreprises qui nous ont fait confiance
             </p>
             <div className="flex flex-wrap gap-lg items-center justify-center">
-              <Link href="/devis" className="btn-primary group">
+              <Link href="/devis#formulaire" className="btn-primary group">
                 <Award className="w-5 h-5" />
                 <span>Demander un Devis Gratuit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

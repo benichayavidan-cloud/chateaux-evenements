@@ -314,7 +314,7 @@ export default function BlogPage() {
               Transformez l'inspiration en réalité. Obtenez un devis personnalisé pour votre prochain séminaire en château.
             </p>
             <Link
-              href="/devis"
+              href="/devis#formulaire"
               style={{ padding: '16px 40px' }}
               className="inline-flex items-center justify-center gap-3 bg-[var(--bronze-antique)] hover:bg-amber-700 text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl mt-4 text-base shadow-lg"
             >
