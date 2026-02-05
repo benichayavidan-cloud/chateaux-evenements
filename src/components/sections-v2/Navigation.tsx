@@ -158,35 +158,38 @@ export function Navigation({
                         position: 'absolute',
                         top: '100%',
                         left: 0,
-                        marginTop: theme.spacing.sm,
+                        paddingTop: theme.spacing.sm,
+                        minWidth: '240px',
+                      }}
+                    >
+                      <div style={{
                         background: theme.colors.neutral.white,
                         borderRadius: theme.effects.borderRadius.lg,
                         boxShadow: theme.effects.shadows.xl,
                         padding: theme.spacing.sm,
-                        minWidth: '240px',
-                      }}
-                    >
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          variant="subtle"
-                          className="dropdown-link"
-                          style={{
-                            display: '-webkit-box',
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: 'vertical' as const,
-                            overflow: 'hidden',
-                            padding: `${theme.spacing.xs} ${theme.spacing.md}`,
-                            borderRadius: theme.effects.borderRadius.md,
-                            fontSize: theme.typography.fontSize.sm,
-                            lineHeight: theme.typography.lineHeight.relaxed,
-                            transition: `all ${theme.effects.transitions.base}`,
-                          }}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      }}>
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            variant="subtle"
+                            className="dropdown-link"
+                            style={{
+                              display: '-webkit-box',
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: 'vertical' as const,
+                              overflow: 'hidden',
+                              padding: `${theme.spacing.xs} ${theme.spacing.md}`,
+                              borderRadius: theme.effects.borderRadius.md,
+                              fontSize: theme.typography.fontSize.sm,
+                              lineHeight: theme.typography.lineHeight.relaxed,
+                              transition: `all ${theme.effects.transitions.base}`,
+                            }}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ) : (
