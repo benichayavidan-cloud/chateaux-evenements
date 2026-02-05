@@ -74,8 +74,8 @@ export function Step3ChateauSelection({
                   fill
                   className="object-cover"
                 />
-                {/* Overlay sombre pour rendre le texte lisible */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
+                {/* Overlay léger - gradient uniquement en bas pour texte lisible */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
                 {/* Texte par-dessus l'overlay */}
                 <div className="absolute bottom-0 left-0 right-0 z-10" style={{ padding: "2rem 1rem 1rem" }}>
                   <h4 className="font-bold mb-1 text-base" style={{ color: "#FFFFFF", filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))" }}>{chateau.nom}</h4>
