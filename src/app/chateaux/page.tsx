@@ -92,7 +92,7 @@ export default function ChateauxPage() {
             fill
             className="object-cover"
             priority
-            quality={85}
+            quality={75}
             sizes="100vw"
             style={{
               filter: 'saturate(1.2) contrast(1.1) brightness(1.05)',

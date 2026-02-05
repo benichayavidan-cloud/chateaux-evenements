@@ -2,16 +2,12 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Simple rate limiting (en mémoire - pour production utiliser Redis ou Vercel KV)
-// LIMITATION: Cette solution ne fonctionne qu'avec une seule instance. Pour un déploiement
-// multi-instance sur Vercel, migrer vers @vercel/kv ou Redis.
-// TODO: Migrer vers une solution distribuée pour production (Vercel KV recommandé)
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
 
-const RATE_LIMIT = 200; // Requêtes max par fenêtre (augmenté pour éviter les faux positifs)
+const RATE_LIMIT = 200;
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 
 function getRateLimitKey(req: NextRequest): string {
-  // Utiliser l'IP du client depuis les headers
   const forwarded = req.headers.get('x-forwarded-for');
   const realIp = req.headers.get('x-real-ip');
   const ip = forwarded ? forwarded.split(',')[0] : realIp || 'unknown';
@@ -39,48 +35,45 @@ function checkRateLimit(key: string): boolean {
 }
 
 export function middleware(request: NextRequest) {
-  // Rate limiting
-  const key = getRateLimitKey(request);
+  const { pathname } = request.nextUrl;
 
-  if (!checkRateLimit(key)) {
-    return new NextResponse('Trop de requêtes. Veuillez réessayer plus tard.', {
-      status: 429,
-      headers: {
-        'Retry-After': '900', // 15 minutes
-      },
-    });
+  // Rate limiting uniquement sur les routes API (pas les pages statiques)
+  if (pathname.startsWith('/api')) {
+    const key = getRateLimitKey(request);
+    if (!checkRateLimit(key)) {
+      return new NextResponse('Trop de requêtes. Veuillez réessayer plus tard.', {
+        status: 429,
+        headers: { 'Retry-After': '900' },
+      });
+    }
   }
 
-  // Ajouter des headers de sécurité supplémentaires
+  // Headers de sécurité sur toutes les routes
   const response = NextResponse.next();
 
-  // Content Security Policy compatible Next.js
-  // Note: Next.js nécessite unsafe-eval en dev (HMR) et unsafe-inline pour certains scripts
   const isDev = process.env.NODE_ENV === 'development';
 
   if (isDev) {
-    // Mode développement : CSP permissif pour Next.js HMR
     response.headers.set(
       'Content-Security-Policy',
       [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-eval' 'unsafe-inline'", // Next.js HMR nécessite unsafe-eval
+        "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: https: blob:",
         "font-src 'self' data:",
-        "connect-src 'self' https://*.supabase.co wss://*.supabase.co ws://localhost:* http://localhost:*", // WebSocket dev
+        "connect-src 'self' https://*.supabase.co wss://*.supabase.co ws://localhost:* http://localhost:*",
         "frame-ancestors 'self'",
         "base-uri 'self'",
         "form-action 'self'",
       ].join('; ')
     );
   } else {
-    // Mode production : CSP plus strict mais compatible Next.js
     response.headers.set(
       'Content-Security-Policy',
       [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com", // Next.js + Google Analytics
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: https: blob:",
         "font-src 'self' data:",
@@ -97,15 +90,9 @@ export function middleware(request: NextRequest) {
   return response;
 }
 
-// Configuration: appliquer le middleware sur toutes les routes sauf les statiques
+// Exclure les fichiers statiques, images, et assets du middleware
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    '/((?!_next/static|_next/image|favicon.ico|images/|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2|ttf|eot)$).*)',
   ],
 };

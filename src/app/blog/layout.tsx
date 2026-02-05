@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "@/styles/blog.css";
+import "@/styles/brakt-blog.css";
 
 export const metadata: Metadata = {
   title: "Blog & Magazine Événementiel | Guides Séminaires Châteaux",

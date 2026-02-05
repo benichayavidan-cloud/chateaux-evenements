@@ -22,8 +22,8 @@
   --brakt-overlay: rgba(0, 0, 0, 0.75);
 
   /* Fonts */
-  --brakt-font-primary: var(--font-poppins), 'Poppins', sans-serif;
-  --brakt-font-secondary: var(--font-roboto), 'Roboto', sans-serif;
+  --brakt-font-primary: var(--font-inter), 'Inter', sans-serif;
+  --brakt-font-secondary: var(--font-inter), 'Inter', sans-serif;
 
   /* Espacements */
   --brakt-spacing-xs: 10px;

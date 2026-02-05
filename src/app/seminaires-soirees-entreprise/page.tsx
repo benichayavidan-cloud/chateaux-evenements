@@ -74,7 +74,7 @@ export default function EvenementsPage() {
           className="object-cover"
           priority
           sizes="100vw"
-          quality={85}
+          quality={75}
         />
         {/* Overlay CLAIR */}
         <div className="hero-overlay-light" />

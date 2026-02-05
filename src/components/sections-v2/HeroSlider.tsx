@@ -114,7 +114,8 @@ export function HeroSlider({
               objectPosition: 'center',
             }}
             priority={currentIndex === 0}
-            quality={90}
+            sizes="100vw"
+            quality={75}
           />
 
           {/* Overlay */}

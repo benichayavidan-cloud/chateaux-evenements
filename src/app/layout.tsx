@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter, Poppins, Roboto } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import "../styles/design-system.css";
-import "../styles/blog.css";
-import "../styles/brakt-blog.css";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Navigation, Footer } from "@/components/sections-v2";
-import { GoogleAnalytics, GoogleTagManager } from "@/components/Analytics";
+import { GoogleAnalytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
 import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema } from "@/utils/seo/structured-data";
 import Image from "next/image";
@@ -25,19 +23,6 @@ const inter = Inter({
   display: "swap",
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Châteaux Séminaire Île-de-France | Select Châteaux",
@@ -116,7 +101,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${roboto.variable}`}>
+    <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
         {/* Google Consent Mode v2 - DOIT être chargé AVANT tous les autres scripts Google */}
         <script
@@ -138,7 +123,6 @@ export default function RootLayout({
                 'wait_for_update': 500
               });
 
-              console.log('✅ Google Consent Mode v2 initialisé (Advanced mode)');
             `,
           }}
         />
@@ -148,7 +132,6 @@ export default function RootLayout({
 
         {/* Google Analytics & Tag Manager */}
         <GoogleAnalytics />
-        <GoogleTagManager />
       </head>
       <body className={`${inter.className} antialiased`}>
         <Navigation
