@@ -278,12 +278,79 @@ export function HeroSlider({
         </>
       )}
 
+      {/* Scroll Indicator - "Découvrir" */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.8 }}
+        style={{
+          position: 'absolute',
+          bottom: '5rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 10,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+        className="hero-scroll-indicator"
+      >
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.5rem',
+          }}
+        >
+          <span
+            style={{
+              color: '#ffffff',
+              fontSize: '0.65rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.2em',
+              fontWeight: 600,
+              textShadow: '0 2px 8px rgba(0,0,0,0.5)',
+            }}
+          >
+            Découvrir
+          </span>
+          <div
+            style={{
+              width: '24px',
+              height: '40px',
+              borderRadius: '9999px',
+              border: '2px solid rgba(255,255,255,0.6)',
+              background: 'rgba(255,255,255,0.1)',
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+              padding: '8px 0',
+            }}
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+              style={{
+                width: '4px',
+                height: '12px',
+                borderRadius: '9999px',
+                background: theme.colors.primary.bronze,
+              }}
+            />
+          </div>
+        </motion.div>
+      </motion.div>
+
       {/* Indicators */}
       {showIndicators && slides.length > 1 && (
         <div
           style={{
             position: 'absolute',
-            bottom: theme.spacing.xl,
+            bottom: theme.spacing.lg,
             left: '50%',
             transform: 'translateX(-50%)',
             display: 'flex',
@@ -311,6 +378,17 @@ export function HeroSlider({
           ))}
         </div>
       )}
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .hero-scroll-indicator {
+            bottom: 4rem !important;
+          }
+          .hero-scroll-indicator span {
+            font-size: 0.55rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

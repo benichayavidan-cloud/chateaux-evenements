@@ -9,6 +9,7 @@ import { theme } from "@/design-system/tokens";
 import { chateaux, testimonials, chiffresCles, clientLogos, typesEvenements } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/home/LogoCarousel";
 import { ServiceCard } from "@/components/home/ServiceCard";
+import { StatsSection } from "@/components/home/StatsSection";
 import { generateBreadcrumbSchema, generateAggregateRatingSchema } from "@/utils/seo/structured-data";
 import { MapPin, Users, Building2, Star, ArrowRight } from "lucide-react";
 
@@ -76,50 +77,8 @@ export default function Home() {
         height="100vh"
       />
 
-      {/* Stats Section */}
-      <section
-        style={{
-          background: theme.colors.neutral.white,
-          padding: 'clamp(2rem, 5vw, 3.75rem) 0',
-          borderBottom: `1px solid ${theme.colors.neutral.gray200}`,
-        }}
-      >
-        <Container size="xl">
-          <Row gap="lg" align="center" justify="center">
-            {chiffresCles.map((chiffre, index) => (
-              <Col key={index} lg={3} md={6} xs={12}>
-                <div
-                  style={{
-                    textAlign: 'center',
-                    padding: theme.spacing.xl,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <Text
-                    variant="h1"
-                    as="div"
-                    color="bronze"
-                    align="center"
-                    style={{
-                      fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                      marginBottom: theme.spacing.sm,
-                      width: '100%',
-                    }}
-                  >
-                    {chiffre.unite || ''}{chiffre.valeur}{chiffre.suffix || ''}
-                  </Text>
-                  <Text variant="body" color="muted" align="center" style={{ width: '100%' }}>
-                    {chiffre.label}
-                  </Text>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
+      {/* Stats Section - Cartes animées */}
+      <StatsSection chiffres={chiffresCles} />
 
       {/* Châteaux Section */}
       <section
@@ -139,43 +98,45 @@ export default function Home() {
             </Text>
           </div>
 
-          {/* Cards Grid */}
-          <Row gap="xl">
+          {/* Cards Grid - 2 colonnes */}
+          <div
+            className="chateaux-grid"
+            style={{ gap: theme.spacing.xl }}
+          >
             {chateaux.slice(0, 4).map((chateau) => (
-              <Col key={chateau.id} lg={6} md={6} xs={12}>
-                <Card
-                  image={chateau.images.card}
-                  title={chateau.nom}
-                  description={chateau.description}
-                  badge={chateau.region}
-                  features={chateau.atouts}
-                  href={`/chateaux/${chateau.slug}`}
-                  variant="hover-overlay"
-                  imageHeight="450px"
-                  ctaLabel="Découvrir ce château"
-                  footer={
-                    <div style={{
-                      display: 'flex',
-                      gap: theme.spacing.lg,
-                      fontSize: theme.typography.fontSize.sm,
-                      color: theme.colors.neutral.gray700,
-                    }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
-                        <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                        <span>{chateau.capacite.min}-{chateau.capacite.max} pers</span>
-                      </div>
-                      {chateau.roomsTotal && (
-                        <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
-                          <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                          <span>{chateau.roomsTotal} chambres</span>
-                        </div>
-                      )}
+              <Card
+                key={chateau.id}
+                image={chateau.images.card}
+                title={chateau.nom}
+                description={chateau.description}
+                badge={chateau.region}
+                features={chateau.atouts}
+                href={`/chateaux/${chateau.slug}`}
+                variant="hover-overlay"
+                imageHeight="450px"
+                ctaLabel="Découvrir ce château"
+                footer={
+                  <div style={{
+                    display: 'flex',
+                    gap: theme.spacing.lg,
+                    fontSize: theme.typography.fontSize.sm,
+                    color: theme.colors.neutral.gray700,
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
+                      <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                      <span>{chateau.capacite.min}-{chateau.capacite.max} pers</span>
                     </div>
-                  }
-                />
-              </Col>
+                    {chateau.roomsTotal && (
+                      <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
+                        <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                        <span>{chateau.roomsTotal} chambres</span>
+                      </div>
+                    )}
+                  </div>
+                }
+              />
             ))}
-          </Row>
+          </div>
 
           {/* CTA */}
           <div style={{ textAlign: 'center', marginTop: theme.spacing['4xl'] }}>

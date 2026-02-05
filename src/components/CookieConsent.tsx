@@ -208,8 +208,8 @@ export function CookieConsent({
         className={containerClasses}
         style={{
           bottom: '16px',
-          left: '50%',
-          transform: !isOpen ? 'translateX(-50%) translateY(100%)' : 'translateX(-50%) translateY(0)',
+          left: '12px',
+          transform: !isOpen ? 'translateY(100%)' : 'translateY(0)',
           width: 'auto',
         }}
       >

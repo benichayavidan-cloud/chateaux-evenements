@@ -74,7 +74,7 @@ export function Footer({
     >
       <Container size="xl">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" style={{ marginBottom: theme.spacing.xl, alignItems: 'flex-start' }}>
+        <div className="footer-grid" style={{ marginBottom: theme.spacing.xl, alignItems: 'flex-start' }}>
           {/* About Section */}
           <div>
             {/* Logo */}
@@ -223,9 +223,22 @@ export function Footer({
       </Container>
 
       <style jsx>{`
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
         @media (min-width: 768px) {
+          .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
           .footer-bottom {
             flex-direction: row !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .footer-grid {
+            grid-template-columns: 1.2fr repeat(3, 1fr);
           }
         }
       `}</style>

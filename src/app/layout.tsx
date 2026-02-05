@@ -182,7 +182,7 @@ export default function RootLayout({
           }}
           sticky
         />
-        <main id="main-content" className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen" style={{ paddingTop: '80px' }}>{children}</main>
 
         <Footer
           logo={

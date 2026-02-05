@@ -66,8 +66,7 @@ export default function AboutPage() {
           sizes="100vw"
           quality={85}
         />
-        <div className="hero-overlay-light" />
-        <div className="hero-overlay-light-extra" />
+        <div className="hero-overlay" />
 
         <div className="relative h-full flex-center">
           <div className="hero-content">
@@ -77,18 +76,24 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="flex-col-center"
             >
-              <div className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-10">
-                <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
-                <span className="text-label text-gray-900">
+              <div className="badge-lg inline-flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 shadow-lg mb-10">
+                <Sparkles className="w-5 h-5 text-[var(--bronze-light)]" />
+                <span className="text-label text-white font-semibold tracking-wider uppercase text-xs">
                   Depuis 2009
                 </span>
               </div>
 
-              <h1 className="heading-display mb-5 leading-none">
+              <h1
+                className="heading-display mb-5 leading-none"
+                style={{ color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
+              >
                 À Propos de Select Châteaux
               </h1>
 
-              <p className="text-body-xl mb-14 max-w-3xl font-medium text-gray-700">
+              <p
+                className="text-body-xl mb-14 max-w-3xl font-medium"
+                style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
+              >
                 15 ans d'expertise au service de vos événements d'exception dans les plus beaux châteaux d'Île-de-France.
               </p>
 
@@ -106,10 +111,10 @@ export default function AboutPage() {
             transition={{ repeat: Infinity, duration: 2 }}
             className="flex flex-col items-center gap-3"
           >
-            <span className="text-gray-900 text-xs uppercase tracking-widest font-bold" style={{ textShadow: '0 2px 4px rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.2)' }}>
+            <span className="text-white text-xs uppercase tracking-widest font-bold" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
               Découvrir
             </span>
-            <div className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 shadow-lg" style={{ borderColor: 'rgba(17, 24, 39, 0.8)', background: 'rgba(255, 255, 255, 0.95)' }}>
+            <div className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 shadow-lg" style={{ borderColor: 'rgba(255,255,255,0.6)', background: 'rgba(255,255,255,0.15)' }}>
               <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
             </div>
           </motion.div>
@@ -232,32 +237,85 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-[var(--max-width-content)] mx-auto">
+          <div className="valeurs-grid">
             {valeurs.map((valeur, index) => {
               const IconComponent = valeur.icon;
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.12,
+                    type: 'spring',
+                    stiffness: 120,
+                  }}
                   viewport={{ once: true }}
-                  className="rounded-2xl flex flex-col items-center justify-center text-center"
+                  whileHover={{
+                    y: -8,
+                    boxShadow: '0 16px 40px rgba(163, 126, 44, 0.15), 0 4px 12px rgba(0,0,0,0.06)',
+                  }}
                   style={{
-                    padding: '1rem',
+                    padding: 'clamp(1.25rem, 2.5vw, 2rem)',
                     background: '#ffffff',
-                    border: '1px solid #f6f9fc',
+                    border: '1px solid rgba(163, 126, 44, 0.08)',
+                    borderRadius: '16px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    textAlign: 'center',
+                    cursor: 'default',
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+                    transition: 'box-shadow 0.3s ease',
                   }}
                 >
-                  <div className="rounded-full bg-[var(--bronze-antique)]/10 flex-center" style={{ width: '60px', height: '60px', marginBottom: '0.75rem' }}>
-                    <IconComponent className="w-8 h-8 text-[var(--bronze-antique)]" />
-                  </div>
-                  <h3 className="heading-md" style={{ color: '#1a1f36', marginBottom: '0.5rem' }}>{valeur.titre}</h3>
-                  <p className="leading-relaxed" style={{ color: '#6b7c93' }}>{valeur.description}</p>
+                  <motion.div
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                    style={{
+                      width: '64px',
+                      height: '64px',
+                      borderRadius: '50%',
+                      background: 'rgba(163, 126, 44, 0.08)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '1rem',
+                    }}
+                  >
+                    <IconComponent style={{ width: '28px', height: '28px', color: 'var(--bronze-antique)' }} />
+                  </motion.div>
+                  <h3 style={{ fontSize: 'clamp(1rem, 1.5vw, 1.15rem)', fontWeight: 600, color: '#1a1f36', marginBottom: '0.5rem' }}>{valeur.titre}</h3>
+                  <p style={{ color: '#6b7c93', lineHeight: 1.6, fontSize: 'clamp(0.8rem, 1.2vw, 0.9rem)' }}>{valeur.description}</p>
                 </motion.div>
               );
             })}
           </div>
+
+          <style jsx>{`
+            .valeurs-grid {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 1rem;
+              max-width: 1280px;
+              margin: 0 auto;
+              padding: 0 1rem;
+            }
+            @media (min-width: 640px) {
+              .valeurs-grid {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+            @media (min-width: 1024px) {
+              .valeurs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.25rem;
+                padding: 0 2rem;
+              }
+            }
+          `}</style>
         </div>
       </div>
 

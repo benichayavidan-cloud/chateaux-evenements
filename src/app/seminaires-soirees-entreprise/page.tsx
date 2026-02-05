@@ -76,9 +76,8 @@ export default function EvenementsPage() {
           sizes="100vw"
           quality={75}
         />
-        {/* Overlay CLAIR */}
-        <div className="hero-overlay-light" />
-        <div className="hero-overlay-light-extra" />
+        {/* Overlay SOMBRE */}
+        <div className="hero-overlay" />
 
         {/* Contenu - remonté pour laisser place au scroll */}
         <div className="relative h-full flex items-center justify-center" style={{ paddingBottom: '120px' }}>
@@ -89,18 +88,24 @@ export default function EvenementsPage() {
               transition={{ duration: 0.8 }}
               className="flex-col-center"
             >
-              <div className="badge-lg inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg mb-8">
-                <Sparkles className="w-5 h-5 text-[var(--bronze-antique)]" />
-                <span className="text-label text-gray-900">
+              <div className="badge-lg inline-flex items-center gap-3 bg-white/15 backdrop-blur-md border border-white/25 shadow-lg mb-8">
+                <Sparkles className="w-5 h-5 text-[var(--bronze-light)]" />
+                <span className="text-label text-white font-semibold tracking-wider uppercase text-xs">
                   Événements sur mesure
                 </span>
               </div>
 
-              <h1 className="heading-display mb-3 leading-none">
+              <h1
+                className="heading-display mb-3 leading-none"
+                style={{ color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}
+              >
                 Séminaires et Soirées d'Entreprise en Château
               </h1>
 
-              <p className="text-body-xl mb-6 max-w-3xl font-medium text-gray-700">
+              <p
+                className="text-body-xl mb-6 max-w-3xl font-medium"
+                style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 8px rgba(0,0,0,0.3)' }}
+              >
                 Des solutions sur-mesure pour transformer vos événements professionnels en moments inoubliables.
               </p>
 
@@ -120,16 +125,16 @@ export default function EvenementsPage() {
             className="flex flex-col items-center gap-3"
           >
             <span
-              className="text-gray-900 text-xs uppercase tracking-widest font-bold"
+              className="text-white text-xs uppercase tracking-widest font-bold"
               style={{
-                textShadow: '0 2px 4px rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.2)'
+                textShadow: '0 2px 8px rgba(0,0,0,0.5)'
               }}
             >
               Découvrir
             </span>
             <div className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 shadow-lg" style={{
-              borderColor: 'rgba(17, 24, 39, 0.8)',
-              background: 'rgba(255, 255, 255, 0.95)'
+              borderColor: 'rgba(255,255,255,0.6)',
+              background: 'rgba(255,255,255,0.15)'
             }}>
               <div className="w-1 h-3 bg-[var(--bronze-antique)] rounded-full" />
             </div>

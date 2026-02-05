@@ -1218,6 +1218,31 @@ textarea::placeholder {
    GRID LAYOUTS
    ============================================ */
 
+/* Grille stats homepage - 4 colonnes desktop */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Grille châteaux homepage - 2 colonnes desktop */
+.chateaux-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .chateaux-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .grid-2-cols {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

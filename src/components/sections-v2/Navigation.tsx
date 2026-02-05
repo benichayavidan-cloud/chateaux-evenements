@@ -73,16 +73,23 @@ export function Navigation({
   return (
     <nav
       style={{
-        position: sticky ? 'sticky' : 'relative',
+        position: sticky ? 'fixed' : 'relative',
         top: 0,
         left: 0,
         right: 0,
+        width: '100%',
         zIndex: theme.effects.zIndex.sticky,
-        background: navBackground,
-        backdropFilter: 'blur(12px)',
-        borderBottom: `1px solid ${isScrolled ? theme.colors.neutral.gray200 : 'transparent'}`,
-        transition: `all ${theme.effects.transitions.smooth} ${theme.effects.easings.smooth}`,
-        boxShadow: isScrolled ? theme.effects.shadows.sm : 'none',
+        background: isScrolled
+          ? 'rgba(255, 255, 255, 0.92)'
+          : transparent
+            ? 'rgba(255, 255, 255, 0.05)'
+            : 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: isScrolled ? 'blur(20px) saturate(1.8)' : 'blur(12px)',
+        borderBottom: `1px solid ${isScrolled ? 'rgba(163, 126, 44, 0.08)' : 'transparent'}`,
+        transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+        boxShadow: isScrolled
+          ? '0 4px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)'
+          : 'none',
       }}
     >
       <Container size="xl">
@@ -91,7 +98,8 @@ export function Navigation({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            height: 'clamp(64px, 10vw, 80px)',
+            height: isScrolled ? '60px' : 'clamp(64px, 10vw, 80px)',
+            transition: 'height 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
             gap: theme.spacing.lg,
           }}
         >
