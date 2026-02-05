@@ -82,6 +82,50 @@ const getChateauxNoms = (chateauIds: string): string => {
   return noms.length > 0 ? noms.join(', ') : 'Non spécifié';
 };
 
+// Version HTML en liste à puces pour les emails
+const getChateauxNomsHtml = (chateauIds: string): string => {
+  if (chateauIds === 'conseil') {
+    return '<p style="margin: 0; color: #334155; font-size: 15px;">Laissez-nous vous conseiller</p>';
+  }
+
+  const ids = chateauIds.split(',').map(id => id.trim());
+  const noms = ids
+    .map(id => {
+      const chateau = chateaux.find(c => c.id === id);
+      if (!chateau) return null;
+      const deptMatch = chateau.ref.match(/#(\d+)-/);
+      const dept = deptMatch ? deptMatch[1] : '';
+      return dept ? `${chateau.nom} (${dept})` : chateau.nom;
+    })
+    .filter(Boolean);
+
+  if (noms.length === 0) return '<p style="margin: 0; color: #334155; font-size: 15px;">Non spécifié</p>';
+
+  const items = noms.map(nom =>
+    `<li style="margin: 6px 0; color: #334155; font-size: 15px;">${nom}</li>`
+  ).join('');
+
+  return `<ul style="margin: 0; padding-left: 20px; list-style-type: disc;">${items}</ul>`;
+};
+
+// Version texte en liste à puces
+const getChateauxNomsText = (chateauIds: string): string => {
+  if (chateauIds === 'conseil') return '  • Laissez-nous vous conseiller';
+
+  const ids = chateauIds.split(',').map(id => id.trim());
+  const noms = ids
+    .map(id => {
+      const chateau = chateaux.find(c => c.id === id);
+      if (!chateau) return null;
+      const deptMatch = chateau.ref.match(/#(\d+)-/);
+      const dept = deptMatch ? deptMatch[1] : '';
+      return dept ? `${chateau.nom} (${dept})` : chateau.nom;
+    })
+    .filter(Boolean);
+
+  return noms.length > 0 ? noms.map(n => `  • ${n}`).join('\n') : '  • Non spécifié';
+};
+
 // Template HTML pour l'email admin
 const getAdminEmailTemplate = (devis: DemandeDevis): string => {
   return `
@@ -187,9 +231,7 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
                 </tr>
                 <tr>
                   <td style="padding: 15px; background-color: #f8fafc; border-radius: 6px;">
-                    <p style="margin: 0; color: #334155; font-size: 15px; line-height: 1.6;">
-                      ${getChateauxNoms(devis.chateau_id)}
-                    </p>
+                    ${getChateauxNomsHtml(devis.chateau_id)}
                   </td>
                 </tr>
               </table>
@@ -335,9 +377,10 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #059669;">Nombre de participants:</strong> ${devis.nombre_participants} personne${devis.nombre_participants > 1 ? 's' : ''}
                     </p>
-                    <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #059669;">Châteaux sélectionnés:</strong> ${getChateauxNoms(devis.chateau_id)}
+                    <p style="margin: 8px 0 4px 0; color: #334155; font-size: 15px;">
+                      <strong style="color: #059669;">Châteaux sélectionnés :</strong>
                     </p>
+                    ${getChateauxNomsHtml(devis.chateau_id)}
                   </td>
                 </tr>
               </table>
@@ -455,7 +498,7 @@ Chambres: ${devis.nombre_chambres} ${devis.plus_de_400_chambres ? '(Plus de 400)
 Budget estimé: ${devis.budget}
 
 CHÂTEAUX SÉLECTIONNÉS
-${getChateauxNoms(devis.chateau_id)}
+${getChateauxNomsText(devis.chateau_id)}
 
 ${devis.commentaire_deroulement ? `COMMENTAIRE CLIENT\n${devis.commentaire_deroulement}\n\n` : ''}
 ${devis.fichier_url ? `FICHIER JOINT\n${devis.fichier_url}\n\n` : ''}
@@ -483,7 +526,8 @@ Type d'événement: ${formatTypeEvenement(devis.type_evenement)}
 Date souhaitée: ${formatDate(devis.dates_souhaitees)}
 Durée: ${formatDuree(devis.duree)}
 Nombre de participants: ${devis.nombre_participants} personne${devis.nombre_participants > 1 ? 's' : ''}
-Châteaux sélectionnés: ${getChateauxNoms(devis.chateau_id)}
+Châteaux sélectionnés :
+${getChateauxNomsText(devis.chateau_id)}
 
 PROCHAINES ÉTAPES
 1. Notre équipe analyse votre demande et vérifie la disponibilité des châteaux
