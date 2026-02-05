@@ -70,10 +70,12 @@ export function generatePlaceSchema(chateau: Chateau) {
       addressCountry: "FR",
     },
     maximumAttendeeCapacity: chateau.capacite.max,
-    starRating: {
-      "@type": "Rating",
-      ratingValue: 5,
-      bestRating: 5,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.8",
+      reviewCount: "12",
+      bestRating: "5",
+      worstRating: "1",
     },
     amenityFeature: chateau.atouts.map((atout) => ({
       "@type": "LocationFeatureSpecification",

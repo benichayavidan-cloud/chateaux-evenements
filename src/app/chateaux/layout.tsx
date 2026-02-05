@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     "location chateau 280 personnes",
     "chateau monument historique seminaire",
   ],
-  metadataBase: new URL('https://www.selectchateaux.com'),
   alternates: {
     canonical: '/chateaux',
   },
@@ -96,7 +95,7 @@ export default function ChateauxLayout({
           "url": "https://www.selectchateaux.com/chateaux/manoir-anglo-normand-chantilly",
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "4.8",
             "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"
@@ -117,10 +116,6 @@ export default function ChateauxLayout({
             "addressCountry": "FR"
           },
           "maximumAttendeeCapacity": 180,
-          "starRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
           "amenityFeature": [
             {
               "@type": "LocationFeatureSpecification",
@@ -141,7 +136,7 @@ export default function ChateauxLayout({
           "url": "https://www.selectchateaux.com/chateaux/hotel-historique-seminaire-paris-92",
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "4.8",
             "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"
@@ -182,7 +177,7 @@ export default function ChateauxLayout({
           "url": "https://www.selectchateaux.com/chateaux/abbaye-millenaire-vallee-chevreuse",
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "4.8",
             "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"
@@ -203,10 +198,6 @@ export default function ChateauxLayout({
             "addressCountry": "FR"
           },
           "maximumAttendeeCapacity": 350,
-          "starRating": {
-            "@type": "Rating",
-            "ratingValue": "5"
-          },
           "amenityFeature": [
             {
               "@type": "LocationFeatureSpecification",
@@ -232,7 +223,7 @@ export default function ChateauxLayout({
           "url": "https://www.selectchateaux.com/chateaux/palais-royal-foret-chantilly",
           "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "4.8",
             "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"

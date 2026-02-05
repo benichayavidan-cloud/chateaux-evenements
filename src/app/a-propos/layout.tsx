@@ -36,8 +36,8 @@ export default function AProposLayout({
       ],
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "120",
+        ratingValue: "4.8",
+        reviewCount: "12",
         bestRating: "5",
         worstRating: "1",
       },

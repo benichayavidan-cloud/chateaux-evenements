@@ -140,6 +140,9 @@ export default function RootLayout({
         <GoogleAnalytics />
       </head>
       <body className={`${inter.className} antialiased`}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-white focus:text-[#a37e2c] focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold">
+          Aller au contenu principal
+        </a>
         <Navigation
           logo={
             <Image
@@ -179,7 +182,7 @@ export default function RootLayout({
           }}
           sticky
         />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen">{children}</main>
 
         <Footer
           logo={
@@ -218,6 +221,7 @@ export default function RootLayout({
                 { label: "Notre histoire", href: "/a-propos" },
                 { label: "Notre équipe", href: "/a-propos#equipe" },
                 { label: "Nos valeurs", href: "/a-propos#valeurs" },
+                { label: "Blog", href: "/blog" },
               ],
             },
           ]}

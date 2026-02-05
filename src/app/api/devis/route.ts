@@ -38,10 +38,7 @@ export async function POST(request: NextRequest) {
 
     if (!validationResult.success) {
       return NextResponse.json(
-        {
-          error: 'Données invalides',
-          details: validationResult.error.issues
-        },
+        { error: 'Données invalides' },
         { status: 400 }
       );
     }
@@ -89,62 +86,33 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       return NextResponse.json(
-        { error: 'Erreur lors de l\'enregistrement de la demande', details: error.message },
+        { error: 'Erreur lors de l\'enregistrement de la demande' },
         { status: 500 }
       );
     }
 
-    // Envoyer les emails de notification (AVEC await pour debug)
-    let emailResults = { admin: false, client: false, errors: [] as string[] };
-
+    // Envoyer les emails de notification
     if (insertedData && insertedData.length > 0) {
       const newDevis = insertedData[0];
 
-      console.log('📧 Tentative envoi emails pour devis:', {
-        id: newDevis.id,
-        email: newDevis.email,
-        entreprise: newDevis.entreprise,
-      });
-
-      try {
-        // Envoyer email admin
-        console.log('📧 Envoi email admin...');
-        const adminSent = await sendAdminNotification(newDevis);
-        emailResults.admin = adminSent;
-        console.log('📧 Email admin:', adminSent ? '✅ Envoyé' : '❌ Échec');
-      } catch (error) {
-        console.error('❌ Erreur email admin:', error);
-        emailResults.errors.push(`Admin: ${error instanceof Error ? error.message : 'Unknown'}`);
-      }
-
-      try {
-        // Envoyer email client
-        console.log('📧 Envoi email client...');
-        const clientSent = await sendClientConfirmation(newDevis);
-        emailResults.client = clientSent;
-        console.log('📧 Email client:', clientSent ? '✅ Envoyé' : '❌ Échec');
-      } catch (error) {
-        console.error('❌ Erreur email client:', error);
-        emailResults.errors.push(`Client: ${error instanceof Error ? error.message : 'Unknown'}`);
-      }
+      // Emails envoyés en parallèle, erreurs silencieuses (non-bloquantes)
+      await Promise.allSettled([
+        sendAdminNotification(newDevis),
+        sendClientConfirmation(newDevis),
+      ]);
     }
 
     return NextResponse.json(
       {
         success: true,
         message: 'Demande de devis enregistrée avec succès',
-        data: insertedData,
-        emailResults, // Retourner les résultats d'envoi pour debug
       },
       { status: 201 }
     );
 
-  } catch (error) {
+  } catch {
     return NextResponse.json(
-      {
-        error: 'Erreur serveur inattendue',
-        details: error instanceof Error ? error.message : 'Unknown error'
-      },
+      { error: 'Erreur serveur inattendue' },
       { status: 500 }
     );
   }
