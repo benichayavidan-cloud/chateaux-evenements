@@ -175,6 +175,7 @@ export default function RootLayout({
             },
             { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
             { label: "À propos", href: "/a-propos" },
+            { label: "Audit", href: "/audit" },
           ]}
           cta={{
             label: "Demander un devis",
