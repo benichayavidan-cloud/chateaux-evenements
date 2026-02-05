@@ -57,14 +57,19 @@ export function Step1EventType({
         Quel type d'événement souhaitez-vous organiser ?
       </h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {eventTypes.map((type) => {
+      <div className="step1-grid">
+        {eventTypes.map((type, index) => {
           const Icon = type.icon;
           const isSelected = selectedType === type.id;
           return (
-            <button
+            <motion.button
               key={type.id}
               type="button"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              whileHover={{ y: -4, boxShadow: '0 12px 30px rgba(163, 126, 44, 0.15)' }}
+              whileTap={{ scale: 0.97 }}
               onClick={async () => {
                 setValue("typeEvenement", type.id);
                 setTimeout(async () => {
@@ -74,24 +79,43 @@ export function Step1EventType({
                   }
                 }, 500);
               }}
-              style={{ padding: "clamp(1.5rem, 4vw, 2rem)", minHeight: "120px" }}
-              className={`
-                rounded-2xl border-2 transition-all duration-300 text-left flex flex-col justify-center
-                ${
-                  isSelected
-                    ? "border-[#a37e2c] bg-[#a37e2c]/5"
-                    : "border-gray-400 bg-white hover:border-[#a37e2c]/50"
-                }
-              `}
+              style={{
+                padding: "clamp(1.25rem, 3vw, 1.75rem)",
+                minHeight: "110px",
+                borderRadius: "16px",
+                border: isSelected ? "2px solid #a37e2c" : "2px solid #d1d5db",
+                background: isSelected ? "rgba(163, 126, 44, 0.05)" : "#ffffff",
+                textAlign: "left",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                cursor: "pointer",
+                transition: "border-color 0.3s, background 0.3s",
+                boxShadow: isSelected ? '0 4px 16px rgba(163, 126, 44, 0.12)' : '0 2px 8px rgba(0,0,0,0.04)',
+              }}
             >
-              <Icon className="w-8 h-8 text-[#a37e2c] mb-3" />
-              <div className="font-semibold text-base text-gray-800">
+              <Icon style={{ width: "28px", height: "28px", color: "#a37e2c", marginBottom: "0.75rem" }} />
+              <div style={{ fontWeight: 600, fontSize: "0.95rem", color: "#1f2937" }}>
                 {type.label}
               </div>
-            </button>
+            </motion.button>
           );
         })}
       </div>
+
+      <style jsx>{`
+        .step1-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+        }
+        @media (min-width: 768px) {
+          .step1-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+          }
+        }
+      `}</style>
       {errors.typeEvenement && (
         <p className="text-red-500 text-sm">{errors.typeEvenement.message}</p>
       )}
