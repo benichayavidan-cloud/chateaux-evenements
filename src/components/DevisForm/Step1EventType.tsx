@@ -96,19 +96,6 @@ export function Step1EventType({
         })}
       </div>
 
-      <style jsx>{`
-        .step1-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.75rem;
-        }
-        @media (min-width: 768px) {
-          .step1-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-          }
-        }
-      `}</style>
       {errors.typeEvenement && (
         <p className="text-red-500 text-sm">{errors.typeEvenement.message}</p>
       )}

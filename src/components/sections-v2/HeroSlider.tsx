@@ -393,16 +393,6 @@ export function HeroSlider({
         </div>
       )}
 
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .hero-scroll-indicator {
-            bottom: 4rem !important;
-          }
-          .hero-scroll-indicator span {
-            font-size: 0.55rem !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

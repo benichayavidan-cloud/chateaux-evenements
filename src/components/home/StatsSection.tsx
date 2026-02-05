@@ -98,23 +98,6 @@ export function StatsSection({ chiffres }: { chiffres: ChiffreCle[] }) {
         ))}
       </div>
 
-      <style jsx>{`
-        .stats-row {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0 1rem;
-        }
-        @media (min-width: 768px) {
-          .stats-row {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            padding: 0 2rem;
-          }
-        }
-      `}</style>
     </section>
   );
 }

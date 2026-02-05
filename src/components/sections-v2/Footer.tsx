@@ -222,26 +222,6 @@ export function Footer({
         </div>
       </Container>
 
-      <style jsx>{`
-        .footer-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        @media (min-width: 768px) {
-          .footer-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-          .footer-bottom {
-            flex-direction: row !important;
-          }
-        }
-        @media (min-width: 1024px) {
-          .footer-grid {
-            grid-template-columns: 1.2fr repeat(3, 1fr);
-          }
-        }
-      `}</style>
     </footer>
   );
 }

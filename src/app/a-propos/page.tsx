@@ -277,28 +277,6 @@ export default function AboutPage() {
             })}
           </div>
 
-          <style jsx>{`
-            .valeurs-grid {
-              display: grid;
-              grid-template-columns: 1fr;
-              gap: 1rem;
-              max-width: 1280px;
-              margin: 0 auto;
-              padding: 0 1rem;
-            }
-            @media (min-width: 640px) {
-              .valeurs-grid {
-                grid-template-columns: repeat(2, 1fr);
-              }
-            }
-            @media (min-width: 1024px) {
-              .valeurs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 1.25rem;
-                padding: 0 2rem;
-              }
-            }
-          `}</style>
         </div>
       </div>
 

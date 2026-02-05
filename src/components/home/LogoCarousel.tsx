@@ -19,11 +19,11 @@ export function LogoCarousel({ logos }: LogoCarouselProps) {
   return (
     <div style={{ overflow: 'hidden', width: '100%' }}>
       <div
+        className="animate-scroll-third"
         style={{
           display: 'flex',
           gap: theme.spacing['3xl'],
           alignItems: 'center',
-          animation: 'scroll 30s linear infinite',
           width: 'max-content',
         }}
       >
@@ -56,16 +56,6 @@ export function LogoCarousel({ logos }: LogoCarouselProps) {
         ))}
       </div>
 
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-100% / 3));
-          }
-        }
-      `}</style>
     </div>
   );
 }

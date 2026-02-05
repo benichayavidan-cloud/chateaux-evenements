@@ -1688,3 +1688,178 @@ textarea::placeholder {
   max-height: 100vh;
   opacity: 1;
 }
+
+/* === MIGRATED FROM STYLED-JSX (eliminates 36KB styled-jsx runtime) === */
+
+/* Navigation link hover effects */
+.dropdown-link:hover {
+  color: var(--bronze-antique) !important;
+  border-bottom: 2px solid var(--bronze-antique);
+  padding-bottom: 4px;
+}
+.dropdown-link:active {
+  color: var(--bronze-dark) !important;
+  border-bottom-color: var(--bronze-dark);
+}
+nav a[href]:not(.dropdown-link):not(.nav-logo):hover {
+  color: var(--bronze-antique) !important;
+  border-bottom: 2px solid var(--bronze-antique);
+  padding-bottom: 2px;
+}
+nav a[href]:not(.dropdown-link):not(.nav-logo):active {
+  color: var(--bronze-dark) !important;
+  border-bottom-color: var(--bronze-dark);
+}
+nav .nav-logo:hover,
+nav .nav-logo:active {
+  border-bottom: none !important;
+}
+nav button:hover {
+  color: var(--bronze-antique) !important;
+  border-bottom: 2px solid var(--bronze-antique);
+  padding-bottom: 2px;
+}
+nav button:active {
+  color: var(--bronze-dark) !important;
+  border-bottom-color: var(--bronze-dark);
+}
+
+/* Footer grid responsive */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-bottom {
+    flex-direction: row !important;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+  }
+}
+
+/* Step1 DevisForm grid */
+.step1-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .step1-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* À propos valeurs grid */
+.valeurs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 640px) {
+  .valeurs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .valeurs-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    padding: 0 2rem;
+  }
+}
+
+/* ServiceCard hover + mobile */
+.service-card-split:hover {
+  box-shadow: 0 12px 40px rgba(183, 135, 77, 0.15) !important;
+  border-color: rgba(163, 126, 44, 0.19) !important;
+}
+.service-card-split:hover .service-card-img {
+  transform: scale(1.08);
+}
+.service-card-split .service-card-img {
+  transition: transform 0.5s ease;
+}
+.service-card-split:hover .service-card-cta {
+  gap: 0.75rem;
+}
+.service-card-cta {
+  transition: gap 0.3s ease;
+}
+@media (max-width: 640px) {
+  .service-card-split {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+  .service-card-split > div:first-child {
+    width: 100% !important;
+    height: 180px !important;
+  }
+  .service-card-split > div:last-child {
+    padding: 1.25rem !important;
+  }
+}
+@media (max-width: 400px) {
+  .service-card-split > div:first-child {
+    height: 150px !important;
+  }
+  .service-card-split > div:last-child {
+    padding: 1rem !important;
+  }
+}
+
+/* Stats row responsive grid */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+@media (min-width: 768px) {
+  .stats-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+}
+
+/* Logo carousel scroll animation */
+@keyframes logoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes logoScrollThird {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 3)); }
+}
+.animate-scroll {
+  animation: logoScroll 40s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+.animate-scroll-third {
+  animation: logoScrollThird 40s linear infinite;
+}
+
+/* Hero scroll indicator mobile */
+@media (max-width: 768px) {
+  .hero-scroll-indicator {
+    bottom: 4rem !important;
+  }
+  .hero-scroll-indicator span {
+    font-size: 0.55rem !important;
+  }
+}

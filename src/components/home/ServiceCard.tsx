@@ -180,48 +180,6 @@ export function ServiceCard({
         </div>
       </div>
 
-      {/* Hover Styles */}
-      <style jsx global>{`
-        .service-card-split:hover {
-          box-shadow: 0 12px 40px rgba(183, 135, 77, 0.15) !important;
-          border-color: ${theme.colors.primary.bronze}30 !important;
-        }
-        .service-card-split:hover .service-card-img {
-          transform: scale(1.08);
-        }
-        .service-card-split .service-card-img {
-          transition: transform 0.5s ease;
-        }
-        .service-card-split:hover .service-card-cta {
-          gap: 0.75rem;
-        }
-        .service-card-cta {
-          transition: gap 0.3s ease;
-        }
-
-        @media (max-width: 640px) {
-          .service-card-split {
-            flex-direction: column !important;
-            height: auto !important;
-          }
-          .service-card-split > div:first-child {
-            width: 100% !important;
-            height: 180px !important;
-          }
-          .service-card-split > div:last-child {
-            padding: 1.25rem !important;
-          }
-        }
-
-        @media (max-width: 400px) {
-          .service-card-split > div:first-child {
-            height: 150px !important;
-          }
-          .service-card-split > div:last-child {
-            padding: 1rem !important;
-          }
-        }
-      `}</style>
     </div>
   );
 }
