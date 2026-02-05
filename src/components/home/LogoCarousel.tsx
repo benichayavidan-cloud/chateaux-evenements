@@ -32,7 +32,7 @@ export function LogoCarousel({ logos }: LogoCarouselProps) {
             key={`${logo.nom}-${index}`}
             style={{
               width: '140px',
-              height: '50px',
+              height: '80px',
               position: 'relative',
               flexShrink: 0,
               opacity: 0.8,
