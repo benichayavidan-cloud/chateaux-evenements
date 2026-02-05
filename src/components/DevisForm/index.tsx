@@ -536,22 +536,22 @@ export function DevisForm() {
         .devis-nav-buttons {
           display: flex;
           justify-content: space-between;
+          align-items: center;
           gap: 1rem;
-          flex-wrap: wrap;
-          position: sticky;
+          position: fixed;
           bottom: 0;
+          left: 0;
+          right: 0;
           background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(12px);
-          padding: 1rem 0;
-          margin-top: 1.5rem;
+          backdrop-filter: blur(16px);
+          padding: 0.75rem clamp(1.25rem, 5vw, 2.5rem);
           border-top: 1px solid #e5e7eb;
-          z-index: 20;
-          box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+          z-index: 50;
+          box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
         }
         @media (max-width: 480px) {
           .devis-nav-buttons {
-            padding: 0.75rem 0;
-            gap: 0.75rem;
+            padding: 0.625rem 1rem;
           }
         }
       `}</style>

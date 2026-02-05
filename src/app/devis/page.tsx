@@ -155,7 +155,7 @@ export default function DevisPage() {
         <div style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "clamp(2rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2.5rem) clamp(2.5rem, 7vw, 4rem)"
+          padding: "clamp(2rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2.5rem) 5rem"
         }}>
           <DevisForm />
         </div>
