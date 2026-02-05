@@ -34,6 +34,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       follow: false,
     },
 
+    alternates: {
+      canonical: `/chateaux/${slug}`,
+    },
+
     openGraph: {
       title: `${typeLieu} ${ville} - ${chateau.capacite.max} pers`,
       description: chateau.accrocheHero,
@@ -45,6 +49,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: `${typeLieu} pour séminaire d'entreprise`,
         },
       ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `${typeLieu} ${ville} - ${chateau.capacite.max} pers`,
+      description: chateau.accrocheHero,
+      images: [chateau.images.openGraph],
     },
   };
 }

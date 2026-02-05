@@ -18,17 +18,17 @@ const AUTO_LINK_RULES: { keyword: string; url: string; title?: string }[] = [
   { keyword: "chantilly", url: "/chateaux/manoir-anglo-normand-chantilly", title: "Découvrir nos châteaux à Chantilly" },
   { keyword: "Oise", url: "/chateaux", title: "Châteaux dans l'Oise" },
   { keyword: "Yvelines", url: "/chateaux", title: "Châteaux dans les Yvelines" },
-  { keyword: "Vallée de Chevreuse", url: "/chateaux/monastere-vallee-chevreuse", title: "Abbaye de la Vallée de Chevreuse" },
+  { keyword: "Vallée de Chevreuse", url: "/chateaux/abbaye-millenaire-vallee-chevreuse", title: "Abbaye de la Vallée de Chevreuse" },
   { keyword: "Fontainebleau", url: "/chateaux", title: "Châteaux près de Fontainebleau" },
 
   // Services
-  { keyword: "Team Building", url: "/team-building", title: "Activités Team Building" },
-  { keyword: "team building", url: "/team-building", title: "Activités Team Building" },
-  { keyword: "séminaire", url: "/evenements", title: "Organiser un séminaire" },
-  { keyword: "Séminaire", url: "/evenements", title: "Organiser un séminaire" },
-  { keyword: "CODIR", url: "/evenements", title: "Organiser un CODIR" },
-  { keyword: "événement d'entreprise", url: "/evenements", title: "Événements d'entreprise" },
-  { keyword: "événement entreprise", url: "/evenements", title: "Événements d'entreprise" },
+  { keyword: "Team Building", url: "/seminaires-soirees-entreprise", title: "Activités Team Building" },
+  { keyword: "team building", url: "/seminaires-soirees-entreprise", title: "Activités Team Building" },
+  { keyword: "séminaire", url: "/seminaires-soirees-entreprise", title: "Organiser un séminaire" },
+  { keyword: "Séminaire", url: "/seminaires-soirees-entreprise", title: "Organiser un séminaire" },
+  { keyword: "CODIR", url: "/seminaires-soirees-entreprise", title: "Organiser un CODIR" },
+  { keyword: "événement d'entreprise", url: "/seminaires-soirees-entreprise", title: "Événements d'entreprise" },
+  { keyword: "événement entreprise", url: "/seminaires-soirees-entreprise", title: "Événements d'entreprise" },
 
   // Châteaux spécifiques
   { keyword: "château", url: "/chateaux", title: "Nos châteaux" },

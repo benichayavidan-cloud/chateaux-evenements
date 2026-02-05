@@ -97,7 +97,7 @@ export default function ChateauxLayout({
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
-            "reviewCount": "120",
+            "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"
           }
@@ -142,7 +142,7 @@ export default function ChateauxLayout({
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
-            "reviewCount": "120",
+            "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"
           }
@@ -183,7 +183,7 @@ export default function ChateauxLayout({
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
-            "reviewCount": "120",
+            "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"
           }
@@ -233,7 +233,7 @@ export default function ChateauxLayout({
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
-            "reviewCount": "120",
+            "reviewCount": "12",
             "bestRating": "5",
             "worstRating": "1"
           }

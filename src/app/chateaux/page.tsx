@@ -83,6 +83,24 @@ export default function ChateauxPage() {
 
   return (
     <>
+      {/* H1 SEO - Invisible visuellement mais lu par Google (le motion.h1 a initial opacity:0) */}
+      <h1
+        className="sr-only"
+        style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          padding: 0,
+          margin: '-1px',
+          overflow: 'hidden',
+          clip: 'rect(0, 0, 0, 0)',
+          whiteSpace: 'nowrap',
+          border: 0,
+        }}
+      >
+        {getTitle()}
+      </h1>
+
       {/* Hero Section - Style château individuel */}
       <div style={{ height: '75vh', minHeight: '600px' }} className="relative overflow-hidden">
         <div className="absolute inset-0">
@@ -146,10 +164,11 @@ export default function ChateauxPage() {
                 padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
               }}
             >
-              <motion.h1
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.1 }}
+                aria-hidden="true"
                 style={{
                   fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
                   fontWeight: theme.typography.fontWeight.light,
@@ -161,7 +180,7 @@ export default function ChateauxPage() {
                 }}
               >
                 {getTitle()}
-              </motion.h1>
+              </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -768,7 +787,7 @@ export default function ChateauxPage() {
                     </span>
                   </motion.div>
 
-                  <Text variant="h5" style={{ marginBottom: '0.25rem', fontSize: '1rem', textAlign: 'center' }}>
+                  <Text variant="h5" as="h3" style={{ marginBottom: '0.25rem', fontSize: '1rem', textAlign: 'center' }}>
                     {item.title}
                   </Text>
 

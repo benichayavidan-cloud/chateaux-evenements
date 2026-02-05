@@ -13,7 +13,6 @@ const BASE_URL = "https://www.selectchateaux.com";
  */
 export function generateOrganizationSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${BASE_URL}/#organization`,
     name: "Select Châteaux",
@@ -59,7 +58,6 @@ export function generateOrganizationSchema() {
  */
 export function generatePlaceSchema(chateau: Chateau) {
   return {
-    "@context": "https://schema.org",
     "@type": ["Place", "EventVenue", "LodgingBusiness"],
     "@id": `${BASE_URL}/chateaux/${chateau.slug}#place`,
     name: chateau.nom,
@@ -102,7 +100,6 @@ export function generatePlaceSchema(chateau: Chateau) {
  */
 export function generateServiceSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${BASE_URL}/#service`,
     serviceType: "Organisation d'événements professionnels en château",
@@ -166,7 +163,6 @@ export function generateFAQSchema(
   faqs: Array<{ question: string; answer: string }>
 ) {
   return {
-    "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
@@ -186,7 +182,6 @@ export function generateBreadcrumbSchema(
   items: Array<{ name: string; url: string }>
 ) {
   return {
-    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
@@ -202,10 +197,13 @@ export function generateBreadcrumbSchema(
  */
 export function generateAggregateRatingSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "127",
+    itemReviewed: {
+      "@type": "Organization",
+      name: "Select Châteaux",
+    },
+    ratingValue: "4.8",
+    reviewCount: "12",
     bestRating: "5",
     worstRating: "1",
   };
@@ -216,7 +214,6 @@ export function generateAggregateRatingSchema() {
  */
 export function generateWebSiteSchema() {
   return {
-    "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${BASE_URL}/#website`,
     url: BASE_URL,
@@ -246,7 +243,6 @@ export function generateEventSchema(eventType: {
   href: string;
 }) {
   return {
-    "@context": "https://schema.org",
     "@type": "Event",
     name: eventType.titre,
     description: eventType.description,

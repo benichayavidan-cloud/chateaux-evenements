@@ -42,7 +42,7 @@ const article1: BlogPost = {
   author: {
     name: "Sophie Durand",
     role: "Experte Événementiel",
-    avatar: "/avatars/sophie.jpg"
+    avatar: "SD"
   },
   publishedAt: "2026-01-15",
   readingTime: 8,
@@ -304,7 +304,7 @@ const article2: BlogPost = {
   author: {
     name: "Thomas Mercier",
     role: "Event Manager Senior",
-    avatar: "/avatars/thomas.jpg"
+    avatar: "TM"
   },
   publishedAt: "2026-01-12",
   readingTime: 10,
@@ -325,7 +325,7 @@ const article2: BlogPost = {
     <div class="download-box">
       <h3>📥 Téléchargez la Check-list PDF Imprimable</h3>
       <p>Version complète avec cases à cocher, timeline et templates emails inclus.</p>
-      <a href="/downloads/checklist-seminaire-chateau.pdf" class="btn-download">Télécharger Gratuitement</a>
+      <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
     </div>
 
     <h3>⏰ Timeline : Quand Faire Quoi ?</h3>
@@ -567,25 +567,25 @@ const article2: BlogPost = {
       <div class="template">
         <h4>📧 Email Save-the-Date</h4>
         <p>Template pré-rédigé avec accroche, infos clés, et CTA confirmation.</p>
-        <a href="/downloads/template-save-the-date.docx" class="btn-secondary">Télécharger</a>
+        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
       </div>
 
       <div class="template">
         <h4>📊 Budget Tracker Excel</h4>
         <p>Tableau avec formules automatiques et graphiques de suivi.</p>
-        <a href="/downloads/budget-tracker-seminaire.xlsx" class="btn-secondary">Télécharger</a>
+        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
       </div>
 
       <div class="template">
         <h4>📋 Questionnaire Satisfaction</h4>
         <p>15 questions optimisées pour Google Forms (+ analyse automatique).</p>
-        <a href="/downloads/questionnaire-satisfaction.pdf" class="btn-secondary">Télécharger</a>
+        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
       </div>
 
       <div class="template">
         <h4>🗓️ Planning Type 2 Jours</h4>
         <p>Trame horaire minute-par-minute avec temps de trajet et pauses.</p>
-        <a href="/downloads/planning-seminaire-2j.pdf" class="btn-secondary">Télécharger</a>
+        <a href="/devis" class="btn-cta">Demander un devis gratuit</a>
       </div>
     </div>
 
@@ -644,10 +644,10 @@ const article2: BlogPost = {
     <p>Téléchargez, imprimez, cochez. Et si vous voulez déléguer ? Nous sommes là.</p>
 
     <div class="final-download">
-      <a href="/downloads/checklist-complete-seminaire.pdf" class="btn-download-big">
-        📥 Télécharger la Check-list Complète PDF
+      <a href="/devis" class="btn-cta">
+        Demander un devis gratuit pour votre séminaire
       </a>
-      <p>Version imprimable avec cases à cocher + tous les templates</p>
+      <p>Recevez une proposition personnalisée avec check-list incluse</p>
     </div>
   `
 };
@@ -661,7 +661,7 @@ const article3: BlogPost = {
   author: {
     name: "Dr. Claire Fontaine",
     role: "Psychologue du Travail",
-    avatar: "/avatars/claire.jpg"
+    avatar: "CF"
   },
   publishedAt: "2026-01-10",
   readingTime: 12,
@@ -969,7 +969,7 @@ const article3: BlogPost = {
       <h4>📖 Poursuivre la lecture :</h4>
       <ul>
         <li><a href="/blog/top-chateaux-oise-60">Top 7 des Châteaux dans l'Oise (60)</a></li>
-        <li><a href="/blog/team-building-nature-rse">Team Building RSE : Activités Nature</a></li>
+        <li><a href="/blog/team-building-rse-nature">Team Building RSE : Activités Nature</a></li>
         <li><a href="/blog/chantilly-destination-royale">Chantilly : La Destination Royale</a></li>
       </ul>
     </div>
@@ -988,7 +988,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Comment organiser un CODIR confidentiel : Les critères de sécurité",
     excerpt: "Salles isolées, protocoles NDA, contrôle d'accès : tout ce qu'il faut savoir pour organiser votre comité de direction dans un lieu sûr et discret.",
     category: "organisation",
-    author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "/avatars/jeanmarc.jpg" },
+    author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "JL" },
     publishedAt: "2026-01-08",
     readingTime: 9,
     image: "/images/generated-image-january-20-2026-10-19pm-chateau.webp",
@@ -1177,7 +1177,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Séminaire Résidentiel vs Journée d'Étude : Que choisir ?",
     excerpt: "Analyse comparative coût/bénéfices : quand privilégier un séminaire de 2 jours avec nuit sur place vs une journée intensive. Critères de décision et retours d'expérience.",
     category: "organisation",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
+    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-01-06",
     readingTime: 7,
     image: "/images/seminaire-residentiel-vs-journee-comparatif.webp",
@@ -1464,7 +1464,7 @@ const placeholderArticles: BlogPost[] = [
     title: "RSE et Événementiel : Organiser un séminaire éco-responsable",
     excerpt: "Labels, transports doux, restauration locale, compensation carbone : le guide complet pour un séminaire aligné avec vos engagements RSE. Cas pratiques et certifications.",
     category: "organisation",
-    author: { name: "Amélie Rousseau", role: "Consultante RSE", avatar: "/avatars/amelie.jpg" },
+    author: { name: "Amélie Rousseau", role: "Consultante RSE", avatar: "AR" },
     publishedAt: "2026-01-04",
     readingTime: 11,
     image: "/images/seminaire-eco-responsable-rse-chateau-vert.webp",
@@ -1890,7 +1890,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Transport : Comment déplacer 50 collaborateurs en Île-de-France",
     excerpt: "Bus privé, covoiturage organisé, train + navette : comparatif des solutions de transport pour votre séminaire. Coûts, contraintes logistiques, et impact environnemental.",
     category: "organisation",
-    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
+    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "TM" },
     publishedAt: "2026-01-02",
     readingTime: 6,
     image: "/images/transport-50-collaborateurs-ile-de-france-chateau.webp",
@@ -2326,7 +2326,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Convaincre sa direction : 5 arguments pour valider le budget",
     excerpt: "ROI sur la marque employeur, réduction du turnover, productivité augmentée : les arguments chiffrés pour défendre votre budget séminaire auprès du COMEX.",
     category: "organisation",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
+    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2025-12-30",
     readingTime: 8,
     image: "/images/seminaire-strategique-chateau-entreprise-reunion.webp",
@@ -2680,7 +2680,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/checklist-organiser-seminaire" class="auto-link">Téléchargez notre check-list complète d'organisation</a></li>
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Découvrez les châteaux adaptés à votre budget</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Découvrez les châteaux adaptés à votre budget</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Étape 6 : Les erreurs fatales qui sabotent votre demande</h2>
@@ -2792,7 +2792,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Repas de Séminaire : Les tendances traiteur 2026",
     excerpt: "Du buffet healthy au dîner gastronomique : les nouvelles attentes en restauration d'entreprise. Végétarien, locavore, expérience culinaire : ce que veulent vos collaborateurs.",
     category: "organisation",
-    author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "/avatars/antoine.jpg" },
+    author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "AD" },
     publishedAt: "2025-12-28",
     readingTime: 7,
     image: "/images/repas-seminaire-traiteur-tendances-gastronomie-2026.webp",
@@ -3277,7 +3277,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Consultez notre guide sur l'organisation de CODIR confidentiels</a></li>
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Découvrez les châteaux adaptés aux petits comités</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Découvrez les châteaux adaptés aux petits comités</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Tendance 10 : Les boissons d'exception (au-delà du vin)</h2>
@@ -3378,7 +3378,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Le planning idéal d'un séminaire de 2 jours",
     excerpt: "Modèle de planning minute par minute : équilibre plénières/ateliers/pauses, gestion de l'énergie, timing optimal pour les activités team building. Template téléchargeable.",
     category: "organisation",
-    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
+    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "TM" },
     publishedAt: "2025-12-26",
     readingTime: 9,
     image: "/images/planning-ideal-seminaire-residentiel-2-jours-chateau.webp",
@@ -3493,7 +3493,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Top 7 des Châteaux pour séminaire dans l'Oise (60) à moins d'1h de Paris",
     excerpt: "Notre sélection exclusive : du manoir anglo-normand au palais royal, découvrez les pépites de l'Oise accessibles en 35-50 minutes depuis Paris. Capacités, équipements, tarifs.",
     category: "lieux",
-    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "/avatars/laurent.jpg" },
+    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
     publishedAt: "2025-12-24",
     readingTime: 12,
     image: "/images/top-chateaux-oise-60-seminaire-entreprise.webp",
@@ -3748,7 +3748,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/seminaire-au-vert-productivite" class="auto-link">Découvrez l'impact de la nature sur la productivité</a></li>
-  <li class="mb-2"><a href="/blog/vexin-francais-destination-emergente" class="auto-link">Explorez d'autres destinations nature en Île-de-France</a></li>
+  <li class="mb-2"><a href="/blog/vexin-nouvelle-destination-seminaire" class="auto-link">Explorez d'autres destinations nature en Île-de-France</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">4. Château de Neuville - L'Élégance Intemporelle</h2>
@@ -4120,7 +4120,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/vexin-francais-destination-emergente" class="auto-link">Découvrez le Vexin français, destination émergente</a></li>
+  <li class="mb-2"><a href="/blog/vexin-nouvelle-destination-seminaire" class="auto-link">Découvrez le Vexin français, destination émergente</a></li>
   <li class="mb-2"><a href="/blog/chantilly-destination-royale" class="auto-link">Explorez Chantilly en détail, destination royale</a></li>
   <li class="mb-2"><a href="/blog/lieux-atypiques-manoir-forteresse" class="auto-link">Consultez notre guide des lieux atypiques</a></li>
 </ul>
@@ -4141,7 +4141,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Pourquoi le Vexin est la nouvelle 'Place to Be' des entreprises",
     excerpt: "Parc Naturel Régional, villages préservés, châteaux authentiques : le Vexin s'impose comme l'alternative nature au luxe ostentatoire. Tendance 2026 décryptée.",
     category: "lieux",
-    author: { name: "Claire Dubois", role: "Journaliste Tourisme d'Affaires", avatar: "/avatars/claire.jpg" },
+    author: { name: "Claire Dubois", role: "Journaliste Tourisme d'Affaires", avatar: "CF" },
     publishedAt: "2025-12-22",
     readingTime: 8,
     image: "/images/team-building-chateau-seminaire-cohesion-equipe-hero.webp",
@@ -4357,7 +4357,7 @@ const placeholderArticles: BlogPost[] = [
   </tbody>
 </table><strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Comparez avec les châteaux de l'Oise</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Comparez avec les châteaux de l'Oise</a></li>
   <li class="mb-2"><a href="/blog/lieux-atypiques-manoir-forteresse" class="auto-link">Découvrez les lieux atypiques en Île-de-France</a></li>
 </ul>
 
@@ -4412,7 +4412,7 @@ const placeholderArticles: BlogPost[] = [
   <li class="mb-2">Gare Vernon (Intercités Paris-Rouen) puis navette (20 km, 25 min)</li>
 </ul>
 
-<strong>Bus privatisé</strong> : Solution recommandée. Départ Paris, trajet 1h-1h15, pas de correspondance. (Voir <a href="/blog/transport-seminaire-comparatif" class="auto-link">notre guide transport</a>).
+<strong>Bus privatisé</strong> : Solution recommandée. Départ Paris, trajet 1h-1h15, pas de correspondance. (Voir <a href="/blog/transport-50-collaborateurs-ile-de-france" class="auto-link">notre guide transport</a>).
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Traiteurs et prestataires locaux</h3>
 
@@ -4500,7 +4500,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Explorez les châteaux de l'Oise, voisins du Vexin</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Explorez les châteaux de l'Oise, voisins du Vexin</a></li>
   <li class="mb-2"><a href="/blog/seminaire-au-vert-productivite" class="auto-link">Découvrez l'impact de la nature sur la productivité</a></li>
 </ul>
 
@@ -4518,7 +4518,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Chantilly : La destination royale pour impressionner vos clients",
     excerpt: "Domaine de Chantilly, hippodrome, forêt royale : pourquoi les plus grandes entreprises choisissent Chantilly pour leurs événements prestigieux. Guide complet.",
     category: "lieux",
-    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "/avatars/laurent.jpg" },
+    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
     publishedAt: "2025-12-20",
     readingTime: 10,
     image: "/images/chantilly-destination-royale-seminaire-luxe.webp",
@@ -4723,7 +4723,7 @@ const placeholderArticles: BlogPost[] = [
   </tbody>
 </table><strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Comparez avec les autres châteaux de l'Oise</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Comparez avec les autres châteaux de l'Oise</a></li>
   <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Découvrez comment organiser un CODIR confidentiel</a></li>
 </ul>
 
@@ -4906,7 +4906,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Explorez les 7 meilleurs châteaux de l'Oise</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Explorez les 7 meilleurs châteaux de l'Oise</a></li>
   <li class="mb-2"><a href="/blog/convaincre-direction-budget-seminaire" class="auto-link">Découvrez comment convaincre votre direction d'investir dans la qualité</a></li>
 </ul>
 
@@ -4926,7 +4926,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Fontainebleau : Le cadre idéal pour le Team Building nature",
     excerpt: "Forêt de 25 000 hectares, escalade, trail, VTT : Fontainebleau combine patrimoine et outdoor. Le lieu parfait pour les séminaires sportifs et challenges d'équipe.",
     category: "lieux",
-    author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "/avatars/marc.jpg" },
+    author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "ML" },
     publishedAt: "2025-12-18",
     readingTime: 9,
     image: "/images/team-building-exterieur-chateau-parc.webp",
@@ -5166,7 +5166,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/seminaire-au-vert-productivite" class="auto-link">Découvrez l'impact scientifique de la nature sur la productivité</a></li>
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Explorez les châteaux de l'Oise pour d'autres destinations nature</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Explorez les châteaux de l'Oise pour d'autres destinations nature</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Lieux de Séminaire avec Accès Direct Forêt</h2>
@@ -5431,7 +5431,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/seminaire-au-vert-productivite" class="auto-link">Consultez notre article sur l'impact scientifique de la nature</a></li>
-  <li class="mb-2"><a href="/blog/grands-groupes-100-personnes" class="auto-link">Découvrez les grands groupes adaptés aux activités outdoor</a></li>
+  <li class="mb-2"><a href="/blog/grands-groupes-100-personnes-chateau" class="auto-link">Découvrez les grands groupes adaptés aux activités outdoor</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🌲 Prêt à Organiser votre Séminaire Nature à Fontainebleau ?</h3>
@@ -5448,7 +5448,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Séminaire dans les Yvelines (78) : Luxe et proximité",
     excerpt: "De Versailles à la Vallée de Chevreuse : les châteaux des Yvelines allient standing 5 étoiles et accessibilité depuis Paris. Sélection des meilleures adresses.",
     category: "lieux",
-    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "/avatars/laurent.jpg" },
+    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
     publishedAt: "2025-12-16",
     readingTime: 11,
     image: "/images/seminaire-yvelines-78-chateau-luxe-proximite-paris.webp",
@@ -5615,7 +5615,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Comparez avec l'Oise, alternative plus accessible</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Comparez avec l'Oise, alternative plus accessible</a></li>
   <li class="mb-2"><a href="/blog/chantilly-destination-royale" class="auto-link">Découvrez Chantilly, destination prestige voisine</a></li>
 </ul>
 
@@ -5903,7 +5903,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Lieux Atypiques : Osez le manoir ou la forteresse médiévale",
     excerpt: "Au-delà du château classique : manoirs anglo-normands, forteresses du Moyen Âge, abbayes cisterciennes. Les lieux d'exception qui marquent les esprits.",
     category: "lieux",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
+    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2025-12-14",
     readingTime: 8,
     image: "/images/reunion-entreprise-chateau-elegant.webp",
@@ -6236,7 +6236,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Comparez avec les châteaux classiques de l'Oise</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Comparez avec les châteaux classiques de l'Oise</a></li>
   <li class="mb-2"><a href="/blog/petits-comites-lieux-intimes-board" class="auto-link">Découvrez les lieux adaptés aux petits comités</a></li>
 </ul>
 
@@ -6447,7 +6447,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Découvrez les châteaux classiques de l'Oise</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Découvrez les châteaux classiques de l'Oise</a></li>
   <li class="mb-2"><a href="/blog/petits-comites-lieux-intimes-board" class="auto-link">Explorez les lieux adaptés aux petits comités intimistes</a></li>
 </ul>
 
@@ -6465,7 +6465,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Grands Groupes : Où loger 100+ collaborateurs dans un même château ?",
     excerpt: "Capacités d'hébergement, configuration des salles, logistique food & beverage : les châteaux équipés pour les grands effectifs. Analyse détaillée et recommandations.",
     category: "lieux",
-    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
+    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "TM" },
     publishedAt: "2025-12-12",
     readingTime: 10,
     image: "/images/seminaire-entreprise-chateau-evenement-hero.webp",
@@ -6992,7 +6992,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Petits Comités : 5 lieux intimistes pour votre Board",
     excerpt: "CODIR, comité stratégique, board restreint : les châteaux confidentiels pour 10-20 personnes. Salons privés, service discret, confidentialité garantie.",
     category: "lieux",
-    author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "/avatars/jeanmarc.jpg" },
+    author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "JL" },
     publishedAt: "2025-12-10",
     readingTime: 7,
     image: "/images/petits-comites-board-meeting-chateau-luxe.webp",
@@ -7296,7 +7296,7 @@ const placeholderArticles: BlogPost[] = [
 </table><strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Consultez notre guide CODIR confidentiel avec critères sécurité</a></li>
-  <li class="mb-2"><a href="/blog/grands-groupes-100-personnes" class="auto-link">Comparez avec les lieux grands groupes, l'autre extrême</a></li>
+  <li class="mb-2"><a href="/blog/grands-groupes-100-personnes-chateau" class="auto-link">Comparez avec les lieux grands groupes, l'autre extrême</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Privatisation Totale : Avantages et Enjeux</h2>
@@ -7484,7 +7484,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Les plus beaux parcs de châteaux pour vos Garden Parties",
     excerpt: "Jardins à la française, parcs anglais, roseraies, terrasses panoramiques : les châteaux aux extérieurs spectaculaires pour vos cocktails et dîners en plein air.",
     category: "lieux",
-    author: { name: "Camille Forestier", role: "Paysagiste Événementiel", avatar: "/avatars/camille.jpg" },
+    author: { name: "Camille Forestier", role: "Paysagiste Événementiel", avatar: "CF" },
     publishedAt: "2025-12-08",
     readingTime: 9,
     image: "/images/cohesion-equipe-seminaire-chateau.webp",
@@ -8033,7 +8033,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/top-7-chateaux-oise-60-seminaire" class="auto-link">Découvrez les châteaux de l'Oise avec beaux parcs</a></li>
+  <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Découvrez les châteaux de l'Oise avec beaux parcs</a></li>
   <li class="mb-2"><a href="/blog/fontainebleau-team-building-nature" class="auto-link">Explorez les activités nature à Fontainebleau</a></li>
 </ul>
 
@@ -8053,7 +8053,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Châteaux avec Piscine et Spa : Le bien-être au travail",
     excerpt: "Spa privatisé, piscine chauffée, hammam, massages : les châteaux wellness pour combiner séminaire productif et détente. Sélection premium et tarifs.",
     category: "lieux",
-    author: { name: "Dr. Claire Fontaine", role: "Psychologue du Travail", avatar: "/avatars/claire.jpg" },
+    author: { name: "Dr. Claire Fontaine", role: "Psychologue du Travail", avatar: "CF" },
     publishedAt: "2025-12-06",
     readingTime: 8,
     image: "/images/chateaux-piscine-spa-bien-etre-seminaire.webp",
@@ -8735,7 +8735,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Murder Party au Château : L'activité immersive n°1",
     excerpt: "Enquête policière grandeur nature dans un château : comment ça marche, combien ça coûte, pourquoi c'est l'activité team building la plus demandée en 2026. Guide complet.",
     category: "team-building",
-    author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "/avatars/ludovic.jpg" },
+    author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },
     publishedAt: "2025-12-04",
     readingTime: 10,
     image: "/images/murder-party-chateau-activite-immersive-team-building.webp",
@@ -9326,8 +9326,8 @@ const placeholderArticles: BlogPost[] = [
   </tbody>
 </table><strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/escape-game-geant-chateau-team-building" class="auto-link">Découvrez l'escape game géant en château</a></li>
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Explorez les olympiades d'entreprise</a></li>
+  <li class="mb-2"><a href="/blog/escape-game-geant-chateau" class="auto-link">Découvrez l'escape game géant en château</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Explorez les olympiades d'entreprise</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Scénarios Murder Party : Thématiques et Époques</h2>
@@ -9674,8 +9674,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise 10 épreuves</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers culinaires avec chef</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise 10 épreuves</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers culinaires avec chef</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🎭 Prêt à Organiser votre Murder Party en Château ?</h3>
@@ -9694,7 +9694,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Olympiades d'Entreprise : 10 épreuves pour révéler les talents",
     excerpt: "Course en sac, tir à la corde, relais créatifs : les meilleures épreuves d'olympiades testées sur 100+ séminaires. Organisation, matériel, et variantes indoor/outdoor.",
     category: "team-building",
-    author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "/avatars/marc.jpg" },
+    author: { name: "Marc Leroy", role: "Coach Sportif Entreprise", avatar: "ML" },
     publishedAt: "2025-12-02",
     readingTime: 11,
     image: "/images/olympiades-entreprise-team-building-sport-chateau.webp",
@@ -10360,8 +10360,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/team-building-rse-nature-eco-responsable" class="auto-link">Découvrez les activités RSE en nature</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers cuisine en équipe</a></li>
+  <li class="mb-2"><a href="/blog/team-building-rse-nature" class="auto-link">Découvrez les activités RSE en nature</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers cuisine en équipe</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Budget et Tarifs Olympiades Entreprise</h2>
@@ -10512,7 +10512,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/murder-party-chateau-team-building-immersif" class="auto-link">Découvrez la murder party immersive</a></li>
+  <li class="mb-2"><a href="/blog/murder-party-chateau-activite-immersive" class="auto-link">Découvrez la murder party immersive</a></li>
   <li class="mb-2"><a href="/blog/soiree-entreprise-casino-gatsby-medievale" class="auto-link">Explorez les soirées thématiques entreprise</a></li>
 </ul>
 
@@ -10533,7 +10533,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Escape Game Géant : Transformez le château en terrain de jeu",
     excerpt: "Énigmes dans les salons, indices cachés dans le parc, mission collaborative : comment créer un escape game sur mesure dans un château. Prestataires et budget.",
     category: "team-building",
-    author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "/avatars/ludovic.jpg" },
+    author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },
     publishedAt: "2025-11-30",
     readingTime: 9,
     image: "/images/escape-game-chateau-team-building-enigmes.webp",
@@ -11030,8 +11030,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/murder-party-chateau-team-building-immersif" class="auto-link">Découvrez la murder party immersive</a></li>
-  <li class="mb-2"><a href="/blog/team-building-high-tech-drones-vr-chateau" class="auto-link">Explorez les activités high-tech en château</a></li>
+  <li class="mb-2"><a href="/blog/murder-party-chateau-activite-immersive" class="auto-link">Découvrez la murder party immersive</a></li>
+  <li class="mb-2"><a href="/blog/high-tech-drones-vr-cadre-historique" class="auto-link">Explorez les activités high-tech en château</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Conception Énigmes : Équilibre Difficulté et Flow</h2>
@@ -11105,8 +11105,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers créatifs en équipe</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers créatifs en équipe</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🔐 Prêt à Organiser votre Escape Game Géant en Château ?</h3>
@@ -11125,7 +11125,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Team Building RSE : Plantez des arbres ou construisez des ruches",
     excerpt: "Activités solidaires et éco-responsables : plantation d'arbres, construction de ruches, nettoyage de forêt. Fédérer en donnant du sens. Prestataires certifiés.",
     category: "team-building",
-    author: { name: "Amélie Rousseau", role: "Consultante RSE", avatar: "/avatars/amelie.jpg" },
+    author: { name: "Amélie Rousseau", role: "Consultante RSE", avatar: "AR" },
     publishedAt: "2025-11-28",
     readingTime: 8,
     image: "/images/simulation-crise-formation-chateau.webp",
@@ -11743,7 +11743,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/yoga-meditation-bien-etre-seminaire" class="auto-link">Découvrez le yoga et méditation en séminaire</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers culinaires locavores</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers culinaires locavores</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Organisation et Partenaires RSE Certifiés</h2>
@@ -11921,8 +11921,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Découvrez les olympiades nature</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers cuisine locavore</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Découvrez les olympiades nature</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers cuisine locavore</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🌱 Prêt à Organiser votre Team Building RSE Nature en Château ?</h3>
@@ -11942,7 +11942,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Atelier Cuisine avec un Chef : Fédérer par la gastronomie",
     excerpt: "Cours de cuisine gastronomique, challenge Top Chef, dégustation de vins : les ateliers culinaires qui transforment vos équipes en brigades soudées.",
     category: "team-building",
-    author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "/avatars/antoine.jpg" },
+    author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "AD" },
     publishedAt: "2025-11-26",
     readingTime: 7,
     image: "/images/atelier-cuisine-chef-gastronomie-team-building.webp",
@@ -12385,7 +12385,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/team-building-rse-nature-eco-responsable" class="auto-link">Découvrez les ateliers RSE anti-gaspi</a></li>
+  <li class="mb-2"><a href="/blog/team-building-rse-nature" class="auto-link">Découvrez les ateliers RSE anti-gaspi</a></li>
   <li class="mb-2"><a href="/blog/soiree-entreprise-casino-gatsby-medievale" class="auto-link">Explorez les soirées gastronomiques thématiques</a></li>
 </ul>
 
@@ -12664,7 +12664,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/team-building-rse-nature-eco-responsable" class="auto-link">Découvrez les ateliers créatifs manuels</a></li>
+  <li class="mb-2"><a href="/blog/team-building-rse-nature" class="auto-link">Découvrez les ateliers créatifs manuels</a></li>
   <li class="mb-2"><a href="/blog/soiree-entreprise-casino-gatsby-medievale" class="auto-link">Explorez les soirées gastronomiques château</a></li>
 </ul>
 
@@ -12684,7 +12684,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Les meilleurs Ice-Breakers pour débuter une réunion",
     excerpt: "20 activités testées et approuvées pour briser la glace en 5-15 minutes : du speed-meeting au jeu des présentations créatives. Fiches pratiques téléchargeables.",
     category: "team-building",
-    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "/avatars/thomas.jpg" },
+    author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "TM" },
     publishedAt: "2025-11-24",
     readingTime: 6,
     image: "/images/es-meilleurs-ice-breakers-pour-debuter-un-chateau.webp",
@@ -13139,8 +13139,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise</a></li>
-  <li class="mb-2"><a href="/blog/murder-party-chateau-team-building-immersif" class="auto-link">Explorez les activités immersives château</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise</a></li>
+  <li class="mb-2"><a href="/blog/murder-party-chateau-activite-immersive" class="auto-link">Explorez les activités immersives château</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Adapter Ice-Breaker Selon Contexte et Public</h2>
@@ -13237,8 +13237,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Découvrez les activités team building complètes</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers collaboratifs</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Découvrez les activités team building complètes</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers collaboratifs</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧊 Prêt à Dynamiser Démarrage de votre Séminaire ?</h3>
@@ -13258,7 +13258,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Soirée d'Entreprise : Casino, Gatsby ou Médiévale ?",
     excerpt: "Thématiques de soirées qui cartonnent : soirée casino, ambiance années 20, banquet médiéval. Organisation, costumes, animations, et budgets détaillés.",
     category: "team-building",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "/avatars/sophie.jpg" },
+    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2025-11-22",
     readingTime: 10,
     image: "/images/soiree-entreprise-casino-gatsby-medievale-chateau.webp",
@@ -13597,8 +13597,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/murder-party-chateau-team-building-immersif" class="auto-link">Découvrez les murder parties immersives</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers gastronomiques</a></li>
+  <li class="mb-2"><a href="/blog/murder-party-chateau-activite-immersive" class="auto-link">Découvrez les murder parties immersives</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers gastronomiques</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Décors, Costumes et Ambiance : Créer l'Immersion</h2>
@@ -13698,8 +13698,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise</a></li>
-  <li class="mb-2"><a href="/blog/escape-game-geant-chateau-team-building" class="auto-link">Explorez les activités immersives</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Découvrez les olympiades d'entreprise</a></li>
+  <li class="mb-2"><a href="/blog/escape-game-geant-chateau" class="auto-link">Explorez les activités immersives</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🎭 Prêt à Organiser votre Soirée Thématique en Château ?</h3>
@@ -13718,7 +13718,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Yoga et Méditation : Intégrer le bien-être au séminaire",
     excerpt: "Session de yoga matinale, atelier méditation pleine conscience, sophrologie : comment intégrer le wellness dans votre programme. Bénéfices prouvés sur la productivité.",
     category: "team-building",
-    author: { name: "Dr. Claire Fontaine", role: "Psychologue du Travail", avatar: "/avatars/claire.jpg" },
+    author: { name: "Dr. Claire Fontaine", role: "Psychologue du Travail", avatar: "CF" },
     publishedAt: "2025-11-20",
     readingTime: 8,
     image: "/images/yoga-meditation-bien-etre-seminaire-chateau.webp",
@@ -14100,7 +14100,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/chateaux-piscine-spa-bien-etre" class="auto-link">Découvrez les activités bien-être spa</a></li>
-  <li class="mb-2"><a href="/blog/team-building-rse-nature-eco-responsable" class="auto-link">Explorez le team building RSE nature</a></li>
+  <li class="mb-2"><a href="/blog/team-building-rse-nature" class="auto-link">Explorez le team building RSE nature</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Professeurs Certifiés et Accompagnement</h2>
@@ -14272,7 +14272,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/chateaux-piscine-spa-bien-etre" class="auto-link">Découvrez les châteaux avec spa et piscine</a></li>
-  <li class="mb-2"><a href="/blog/team-building-rse-nature-eco-responsable" class="auto-link">Explorez le team building RSE nature</a></li>
+  <li class="mb-2"><a href="/blog/team-building-rse-nature" class="auto-link">Explorez le team building RSE nature</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🧘 Prêt à Intégrer Yoga et Méditation à votre Séminaire ?</h3>
@@ -14292,7 +14292,7 @@ const placeholderArticles: BlogPost[] = [
     title: "High-Tech : Drones et VR dans un cadre historique",
     excerpt: "Course de drones FPV, escape game en réalité virtuelle, chasse au trésor digitale : les activités tech qui surprennent dans un château. Le contraste qui marque.",
     category: "team-building",
-    author: { name: "Alexandre Tech", role: "Expert Innovation Événementielle", avatar: "/avatars/alexandre.jpg" },
+    author: { name: "Alexandre Tech", role: "Expert Innovation Événementielle", avatar: "AT" },
     publishedAt: "2025-11-18",
     readingTime: 9,
     image: "/images/high-techdrones-et-vr-dans-un-cadre-chateau.webp",
@@ -14797,8 +14797,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/escape-game-geant-chateau-team-building" class="auto-link">Découvrez les escape games immersifs</a></li>
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Explorez les olympiades d'entreprise</a></li>
+  <li class="mb-2"><a href="/blog/escape-game-geant-chateau" class="auto-link">Découvrez les escape games immersifs</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Explorez les olympiades d'entreprise</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Sécurité et Réglementation Drones en Château</h2>
@@ -14927,8 +14927,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/murder-party-chateau-team-building-immersif" class="auto-link">Découvrez les activités immersives château</a></li>
-  <li class="mb-2"><a href="/blog/olympiades-entreprise-team-building-10-epreuves" class="auto-link">Explorez les olympiades d'entreprise</a></li>
+  <li class="mb-2"><a href="/blog/murder-party-chateau-activite-immersive" class="auto-link">Découvrez les activités immersives château</a></li>
+  <li class="mb-2"><a href="/blog/olympiades-entreprise-10-epreuves" class="auto-link">Explorez les olympiades d'entreprise</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🚁 Prêt à Organiser votre Team Building High-Tech en Château ?</h3>
@@ -14947,7 +14947,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Cadeaux Invités : Quoi offrir (Idées Made in France)",
     excerpt: "Du coffret gastronomique aux objets artisanaux : 30 idées de cadeaux invités mémorables et made in France. Budgets de 10€ à 100€ par personne. Fournisseurs recommandés.",
     category: "team-building",
-    author: { name: "Camille Forestier", role: "Experte Cadeaux Entreprise", avatar: "/avatars/camille.jpg" },
+    author: { name: "Camille Forestier", role: "Experte Cadeaux Entreprise", avatar: "CF" },
     publishedAt: "2025-11-16",
     readingTime: 7,
     image: "/images/cadeaux-invites-chateau.webp",
@@ -15239,8 +15239,8 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Découvrez les ateliers cuisine terroir</a></li>
-  <li class="mb-2"><a href="/blog/team-building-rse-nature-eco-responsable" class="auto-link">Explorez les activités RSE locales</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Découvrez les ateliers cuisine terroir</a></li>
+  <li class="mb-2"><a href="/blog/team-building-rse-nature" class="auto-link">Explorez les activités RSE locales</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Personnalisation et Packaging Château</h2>
@@ -15434,7 +15434,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/soiree-entreprise-casino-gatsby-medievale" class="auto-link">Découvrez les soirées thématiques château</a></li>
-  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie-team-building" class="auto-link">Explorez les ateliers gastronomie locale</a></li>
+  <li class="mb-2"><a href="/blog/atelier-cuisine-chef-gastronomie" class="auto-link">Explorez les ateliers gastronomie locale</a></li>
 </ul>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">🎁 Besoin d'Aide Sélection Cadeaux Invités Séminaire ?</h3>

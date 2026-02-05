@@ -110,10 +110,13 @@ export default function Home() {
   }));
 
   // Structured Data pour homepage
-  const structuredData = [
-    generateBreadcrumbSchema([{ name: "Accueil", url: "/" }]),
-    generateAggregateRatingSchema(),
-  ];
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateBreadcrumbSchema([{ name: "Accueil", url: "/" }]),
+      generateAggregateRatingSchema(),
+    ],
+  };
 
   return (
     <>
@@ -170,6 +173,7 @@ export default function Home() {
                 >
                   <Text
                     variant="h1"
+                    as="div"
                     color="bronze"
                     align="center"
                     style={{

@@ -22,15 +22,18 @@ export default async function ChateauPage({ params }: Props) {
     notFound();
   }
 
-  const structuredData = [
-    generatePlaceSchema(chateau),
-    generateFAQSchema(chateau.faq),
-    generateBreadcrumbSchema([
-      { name: "Accueil", url: "/" },
-      { name: "Nos Châteaux", url: "/chateaux" },
-      { name: chateau.nom, url: `/chateaux/${chateau.slug}` },
-    ]),
-  ];
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generatePlaceSchema(chateau),
+      generateFAQSchema(chateau.faq),
+      generateBreadcrumbSchema([
+        { name: "Accueil", url: "/" },
+        { name: "Nos Châteaux", url: "/chateaux" },
+        { name: chateau.nom, url: `/chateaux/${chateau.slug}` },
+      ]),
+    ],
+  };
 
   return (
     <>

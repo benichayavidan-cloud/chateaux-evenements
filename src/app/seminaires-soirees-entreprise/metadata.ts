@@ -32,6 +32,12 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Séminaires & Soirées d'Entreprise en Château",
+    description: "Des solutions sur-mesure pour vos événements professionnels en château d'exception.",
+    images: ["/images/seminaires-soirees-entreprise-hero.webp"],
+  },
   alternates: {
     canonical: "/seminaires-soirees-entreprise",
   },
