@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   description:
     "Guides complets, études de cas, et tendances pour organiser des séminaires d'exception en château : organisation, lieux, team building. Conseils d'experts Select Châteaux.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   keywords: [
     "blog séminaire château",

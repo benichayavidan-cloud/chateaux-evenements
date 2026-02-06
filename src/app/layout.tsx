@@ -5,7 +5,7 @@ import "../styles/design-system.css";
 import { Navigation, Footer } from "@/components/sections-v2";
 import { GoogleAnalytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
-import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema } from "@/utils/seo/structured-data";
+import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema, generateLocalBusinessSchema } from "@/utils/seo/structured-data";
 import Image from "next/image";
 import { CookieConsentLazy } from "@/components/CookieConsentLazy";
 
@@ -28,10 +28,9 @@ export const metadata: Metadata = {
   title: "Châteaux Séminaire Île-de-France | Select Châteaux",
   description:
     "Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
-  // VERROUILLAGE PAR DÉFAUT : Toutes les pages sont cachées sauf la Home qui surcharge
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   keywords: [
     "séminaire chateau ile de france",
@@ -97,6 +96,7 @@ export default function RootLayout({
       generateOrganizationSchema(),
       generateWebSiteSchema(),
       generateServiceSchema(),
+      generateLocalBusinessSchema(),
     ],
   };
 
@@ -104,8 +104,10 @@ export default function RootLayout({
     <html lang="fr" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
         {/* Preconnect & DNS Prefetch - Accélère les connexions aux domaines tiers */}
-        <link rel="preconnect" href="https://jmeiepmtgidqtmxfnlwf.supabase.co" />
+        <link rel="preconnect" href="https://jmeiepmtgidqtmxfnlwf.supabase.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://jmeiepmtgidqtmxfnlwf.supabase.co" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
@@ -147,7 +149,7 @@ export default function RootLayout({
           logo={
             <Image
               src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
-              alt="Select Châteaux"
+              alt="Select Châteaux - Châteaux pour séminaires d'entreprise en Île-de-France"
               width={180}
               height={60}
               priority
@@ -175,7 +177,6 @@ export default function RootLayout({
             },
             { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
             { label: "À propos", href: "/a-propos" },
-            { label: "Audit", href: "/audit" },
           ]}
           cta={{
             label: "Demander un devis",
@@ -189,7 +190,7 @@ export default function RootLayout({
           logo={
             <Image
               src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
-              alt="Select Châteaux"
+              alt="Select Châteaux - Châteaux pour séminaires d'entreprise en Île-de-France"
               width={180}
               height={60}
               sizes="180px"

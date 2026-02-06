@@ -16,7 +16,7 @@ import { MapPin, Users, Building2, Star, ArrowRight } from "lucide-react";
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
   title: "Châteaux Séminaire Île-de-France & Oise | Select Châteaux",
-  description: "Domaines d'exception pour séminaire en Île-de-France et Oise. Accès confidentiel aux domaines les plus convoités pour vos événements d'entreprise. 4 Lieux d'Exception. Devis gratuit.",
+  description: "4 châteaux d'exception pour séminaires d'entreprise en Île-de-France et Oise (60). Devis gratuit en 24h. Lieux confidentiels de 10 à 500 personnes. Séminaire résidentiel, CODIR, team building.",
   robots: {
     index: true,
     follow: true,

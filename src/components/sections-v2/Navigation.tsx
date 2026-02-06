@@ -160,6 +160,8 @@ export function Navigation({
                     style={{ position: 'relative' }}
                   >
                     <button
+                      aria-haspopup="true"
+                      aria-expanded={activeDropdown === link.href}
                       style={{
                         display: 'flex',
                         alignItems: 'center',

@@ -25,13 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ville = chateau.region.split("(")[0].trim();
 
   return {
-    title: `${typeLieu} ${ville} - ${chateau.capacite.max} pers | Réf ${chateau.ref}`,
-    description: `Organisez votre CODIR dans ce ${typeLieu.toLowerCase()} d'exception. Capacité ${chateau.capacite.max} personnes en résidentiel. ${chateau.accrocheHero}`,
+    title: `Séminaire ${typeLieu} ${ville} | ${chateau.capacite.max} pers - Select Châteaux`,
+    description: `Séminaire d'entreprise dans ce ${typeLieu.toLowerCase()} d'exception en ${ville}. Capacité ${chateau.capacite.max} personnes. ${chateau.accrocheHero} Devis gratuit en 24h.`,
 
-    // VERROUILLAGE : Cette page NE DOIT PAS être indexée
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
     },
 
     alternates: {

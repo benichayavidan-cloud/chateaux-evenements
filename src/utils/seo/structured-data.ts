@@ -213,6 +213,96 @@ export function generateAggregateRatingSchema() {
 }
 
 /**
+ * Schema LocalBusiness - SEO local (Google Maps, résultats locaux)
+ * Couvre l'Île-de-France et les départements clés
+ */
+export function generateLocalBusinessSchema() {
+  return {
+    "@type": "LocalBusiness",
+    "@id": `${BASE_URL}/#localbusiness`,
+    name: "Select Châteaux",
+    alternateName: "Select Chateaux",
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo.png`,
+    image: `${BASE_URL}/og-image.jpg`,
+    description:
+      "Location de châteaux pour séminaires d'entreprise en Île-de-France. Oise (60), Yvelines (78), Hauts-de-Seine (92), Val-d'Oise (95), Seine-et-Marne (77), Essonne (91). Devis gratuit sous 24h.",
+    telephone: "+33757991146",
+    email: "seminaires@selectchateaux.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Paris",
+      addressRegion: "Île-de-France",
+      addressCountry: "FR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 48.8566,
+      longitude: 2.3522,
+    },
+    areaServed: [
+      {
+        "@type": "State",
+        name: "Île-de-France",
+        addressCountry: "FR",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Oise (60)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Yvelines (78)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Hauts-de-Seine (92)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Val-d'Oise (95)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Seine-et-Marne (77)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Essonne (91)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Val-de-Marne (94)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Seine-Saint-Denis (93)",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Paris (75)",
+      },
+    ],
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+      ],
+      opens: "09:00",
+      closes: "19:00",
+    },
+    priceRange: "$$$$",
+    sameAs: [
+      "https://www.linkedin.com/company/select-chateaux/about/",
+    ],
+  };
+}
+
+/**
  * Schema WebSite - Pour la recherche Google
  */
 export function generateWebSiteSchema() {

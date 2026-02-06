@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${article.title} | Blog Select Châteaux`,
     description: article.excerpt,
     robots: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
     },
     keywords: article.keywords,
     authors: [{ name: article.author.name }],

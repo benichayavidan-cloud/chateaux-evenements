@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   description:
     "Obtenez votre devis gratuit pour votre séminaire en château. Réponse sous 24h, 4 châteaux d'exception en Île-de-France. Sans engagement.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   keywords: [
     "devis séminaire château",

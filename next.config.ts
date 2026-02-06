@@ -100,9 +100,29 @@ const nextConfig: NextConfig = {
           // CSP gérée par middleware.ts pour éviter les duplications
         ],
       },
-      // Cache agressif pour les assets statiques
+      // Cache agressif pour les images
       {
         source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Cache agressif pour les fonts
+      {
+        source: "/fonts/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Cache pour les assets statiques JS/CSS (Next.js _next/static)
+      {
+        source: "/_next/static/:path*",
         headers: [
           {
             key: "Cache-Control",
