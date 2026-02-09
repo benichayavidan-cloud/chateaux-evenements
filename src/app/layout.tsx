@@ -137,11 +137,10 @@ export default function RootLayout({
 
         {/* Structured Data - Schema.org */}
         <StructuredData data={structuredData} />
-
-        {/* Google Analytics & Tag Manager */}
-        <GoogleAnalytics />
       </head>
       <body className={`${inter.className} antialiased`}>
+        {/* Google Analytics - doit être dans body pour next/script afterInteractive */}
+        <GoogleAnalytics />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-white focus:text-[#a37e2c] focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold">
           Aller au contenu principal
         </a>

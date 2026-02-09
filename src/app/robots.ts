@@ -19,7 +19,7 @@ export default function robots(): MetadataRoute.Robots {
       disallow: [
         '/api/',           // Routes API privées
         '/_next/',         // Assets Next.js internes
-        '/admin/',         // Panel admin (si existant)
+        '/admin/',         // Panel admin
       ],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
