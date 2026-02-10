@@ -130,7 +130,21 @@ export default function RootLayout({
                 'region': ['FR', 'BE', 'CH', 'LU', 'CA'],
                 'wait_for_update': 500
               });
+            `,
+          }}
+        />
 
+        {/* Google tag (gtag.js) - Chargé avec l'ID Ads (GA4 ID retourne 404 côté Google) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17912491834" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('js', new Date());
+              gtag('config', 'G-TRWZDPNN9E', {
+                anonymize_ip: true,
+                cookie_flags: 'SameSite=None;Secure'
+              });
+              gtag('config', 'AW-17912491834');
             `,
           }}
         />

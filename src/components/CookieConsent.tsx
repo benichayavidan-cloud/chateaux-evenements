@@ -62,9 +62,21 @@ export function CookieConsent({
     try {
       const consent = localStorage.getItem("cookie-consent");
       if (!consent) {
+        // Nouveau visiteur : afficher le bandeau après 1s
         const timer = setTimeout(() => setIsOpen(true), 1000);
         return () => clearTimeout(timer);
       }
+
+      // Visiteur de retour : restaurer le consentement précédent
+      if (consent === "accepted" && typeof window !== "undefined" && window.gtag) {
+        window.gtag("consent", "update", {
+          analytics_storage: "granted",
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+        });
+      }
+      setHide(true);
     } catch (error) {
       console.warn("Cookie consent error:", error);
     }

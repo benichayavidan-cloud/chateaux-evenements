@@ -1,81 +1,46 @@
 /**
- * GOOGLE ANALYTICS & TAG MANAGER - SEO 2026
- * Composant pour tracking et analytics
+ * GOOGLE ANALYTICS & TRACKING - SEO 2026
+ * Le script gtag.js et les configs GA4/Ads sont chargés dans layout.tsx <head>
+ * Ce composant gère uniquement le tracking de navigation SPA (changements de route)
  */
 
 "use client";
 
-import Script from "next/script";
-import { useEffect, Suspense, useState } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-// Configuration - IDs Google
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "";
 
 /**
- * Google Analytics 4 Component - Internal
+ * Track SPA page views on route change
  */
-function GoogleAnalyticsInternal() {
+function PageViewTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [scriptLoaded, setScriptLoaded] = useState(false);
 
-  // Configure GA4 once the external script loads
   useEffect(() => {
-    if (!scriptLoaded) return;
     if (typeof window === "undefined" || !window.gtag) return;
 
-    window.gtag("js", new Date());
+    const url = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : "");
 
     if (GA_MEASUREMENT_ID) {
       window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path: window.location.pathname,
-        anonymize_ip: true,
-        cookie_flags: "SameSite=None;Secure",
-      });
-    }
-    if (GOOGLE_ADS_ID) {
-      window.gtag("config", GOOGLE_ADS_ID);
-    }
-  }, [scriptLoaded]);
-
-  // Track page views on route change
-  useEffect(() => {
-    if (!scriptLoaded) return;
-    if (typeof window === "undefined" || !window.gtag) return;
-
-    if (GA_MEASUREMENT_ID) {
-      window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path: pathname + searchParams.toString(),
+        page_path: url,
       });
     }
     if (GOOGLE_ADS_ID) {
       window.gtag("config", GOOGLE_ADS_ID, {
-        page_path: pathname + searchParams.toString(),
+        page_path: url,
       });
     }
-  }, [pathname, searchParams, scriptLoaded]);
+  }, [pathname, searchParams]);
 
-  if (process.env.NODE_ENV !== "production") {
-    return null;
-  }
-
-  const primaryId = GA_MEASUREMENT_ID || GOOGLE_ADS_ID;
-  if (!primaryId) return null;
-
-  return (
-    <Script
-      strategy="afterInteractive"
-      src={`https://www.googletagmanager.com/gtag/js?id=${primaryId}`}
-      onLoad={() => setScriptLoaded(true)}
-    />
-  );
+  return null;
 }
 
 /**
- * Google Analytics 4 Component - Wrapped with Suspense
+ * Google Analytics - SPA page view tracker (wrapped with Suspense)
  */
 export function GoogleAnalytics() {
   if (process.env.NODE_ENV !== "production") {
@@ -84,7 +49,7 @@ export function GoogleAnalytics() {
 
   return (
     <Suspense fallback={null}>
-      <GoogleAnalyticsInternal />
+      <PageViewTracker />
     </Suspense>
   );
 }
@@ -93,34 +58,21 @@ export function GoogleAnalytics() {
  * Google Tag Manager Component
  */
 export function GoogleTagManager() {
-  if (process.env.NODE_ENV !== "production") {
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+
+  if (process.env.NODE_ENV !== "production" || !GTM_ID) {
     return null;
   }
 
   return (
-    <>
-      <Script
-        id="google-tag-manager"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','${GTM_ID}');
-          `,
-        }}
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0"
+        width="0"
+        style={{ display: "none", visibility: "hidden" }}
       />
-      <noscript>
-        <iframe
-          src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-          height="0"
-          width="0"
-          style={{ display: "none", visibility: "hidden" }}
-        />
-      </noscript>
-    </>
+    </noscript>
   );
 }
 
