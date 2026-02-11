@@ -154,14 +154,15 @@ export default function Home() {
             style={{ maxWidth: '900px', margin: '0 auto' }}
           >
             {typesEvenements.map((service, index) => (
-              <ServiceCard
-                key={service.id}
-                icon={service.icon}
-                titre={service.titre}
-                description={service.description}
-                servicesInclus={service.servicesInclus}
-                index={index}
-              />
+              <Link key={service.id} href="/seminaires-soirees-entreprise" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <ServiceCard
+                  icon={service.icon}
+                  titre={service.titre}
+                  description={service.description}
+                  servicesInclus={service.servicesInclus}
+                  index={index}
+                />
+              </Link>
             ))}
           </div>
         </Container>
