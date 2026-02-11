@@ -17,7 +17,7 @@ export default function ChateauxLayout({
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@type": "Place",
+          "@type": ["Place", "EventVenue", "LodgingBusiness"],
           "name": "Le Manoir Anglo-Normand & Son Parc (Chantilly)",
           "description": "Le plus vaste Château-Hôtel de la région. Un manoir style anglo-normand niché au cœur d'une forêt privée, à 35 min de Paris. Idéal pour les grands groupes avec amphithéâtre et spa.",
           "address": {
@@ -58,7 +58,7 @@ export default function ChateauxLayout({
         "@type": "ListItem",
         "position": 2,
         "item": {
-          "@type": "Place",
+          "@type": ["Place", "EventVenue", "LodgingBusiness"],
           "name": "Le Refuge Historique Suspendu (Portes de Paris)",
           "description": "Un secret gardé aux portes de Paris (92). Bâtisse du XVIIe siècle en hôtel 5 étoiles, calme monacal et vue imprenable. Idéal pour CODIR stratégique accessible en métro.",
           "address": {
@@ -99,7 +99,7 @@ export default function ChateauxLayout({
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@type": "Place",
+          "@type": ["Place", "EventVenue", "LodgingBusiness"],
           "name": "L'Abbaye Millénaire & Son Étang (78)",
           "description": "Déconnexion radicale en Vallée de Chevreuse. Une abbaye cistercienne monumentale, ruines romantiques et étang privé. Le lieu ultime pour l'effet 'Wow'.",
           "address": {
@@ -140,7 +140,7 @@ export default function ChateauxLayout({
         "@type": "ListItem",
         "position": 4,
         "item": {
-          "@type": "Place",
+          "@type": ["Place", "EventVenue", "LodgingBusiness"],
           "name": "Le Palais Royal de la Forêt (Chantilly)",
           "description": "Le Versailles de l'Oise. Un palais royal style Louis XV au cœur d'une forêt de 500 hectares. Lustres de cristal, moulures dorées et spa haut de gamme pour vos événements les plus prestigieux.",
           "address": {
