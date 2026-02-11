@@ -128,8 +128,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <LogoCarousel />
-
       {/* Notre Histoire */}
       <div className="section-white" style={{ padding: '30px 0' }}>
         <div className="section-container">
@@ -351,6 +349,8 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
+
+      <LogoCarousel />
 
       <ReviewsSection />
     </div>

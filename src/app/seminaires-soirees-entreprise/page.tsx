@@ -145,9 +145,6 @@ export default function EvenementsPage() {
         </div>
       </div>
 
-      {/* Section Logos Clients */}
-      <LogoCarousel />
-
       {/* Types d'événements - Style Stripe Parallax */}
       <div className="section-white" style={{ padding: '40px 20px', background: '#f6f9fc' }}>
         <div className="section-container">
@@ -299,6 +296,9 @@ export default function EvenementsPage() {
           </div>
         </div>
       </div>
+
+      {/* Section Logos Clients */}
+      <LogoCarousel />
 
       {/* Section Témoignages */}
       <ReviewsSection />

@@ -2,6 +2,8 @@ import { DevisFormLazy } from "@/components/DevisFormLazy";
 import { theme } from "@/config/theme";
 import Image from "next/image";
 import { Check, Clock, Building2, Star } from "lucide-react";
+import { LogoCarousel } from "@/components/LogoCarousel";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 export default function DevisPage() {
   return (
@@ -160,6 +162,12 @@ export default function DevisPage() {
           <DevisFormLazy />
         </div>
       </div>
+
+      {/* Section Logos Clients */}
+      <LogoCarousel />
+
+      {/* Section Avis Google */}
+      <ReviewsSection />
     </>
   );
 }

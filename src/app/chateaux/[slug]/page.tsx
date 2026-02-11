@@ -9,6 +9,8 @@ import { chateaux as chateauxData } from "@/data/chateaux";
 import { StructuredData } from "@/components/StructuredData";
 import { generatePlaceSchema, generateFAQSchema, generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 import ChateauPageClient from "./ChateauPageClient";
+import { LogoCarousel } from "@/components/LogoCarousel";
+import { ReviewsSection } from "@/components/ReviewsSection";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -39,6 +41,8 @@ export default async function ChateauPage({ params }: Props) {
     <>
       <StructuredData data={structuredData} />
       <ChateauPageClient chateau={chateau} />
+      <LogoCarousel />
+      <ReviewsSection />
     </>
   );
 }

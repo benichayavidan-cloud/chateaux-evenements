@@ -14,6 +14,8 @@ import Image from "next/image";
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { trackPhoneClick } from '@/components/Analytics';
+import { LogoCarousel } from '@/components/LogoCarousel';
+import { ReviewsSection } from '@/components/ReviewsSection';
 
 export default function ChateauxPage() {
   const searchParams = useSearchParams();
@@ -930,6 +932,12 @@ export default function ChateauxPage() {
           </div>
         </Container>
       </Section>
+
+      {/* Section Logos Clients */}
+      <LogoCarousel />
+
+      {/* Section Avis Google */}
+      <ReviewsSection />
     </>
   );
 }
