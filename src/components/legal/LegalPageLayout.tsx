@@ -39,7 +39,7 @@ export function LegalPageLayout({ title, subtitle, children }: LegalPageLayoutPr
           </div>
 
           {/* Contenu */}
-          <div className="prose prose-sm max-w-none">
+          <div className="prose prose-sm max-w-none" style={{ color: theme.colors.neutral.gray700 }}>
             {children}
           </div>
         </div>
