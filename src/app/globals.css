@@ -1196,6 +1196,48 @@ textarea::placeholder {
   background: #ffffff;
 }
 
+/* ============================================
+   PAGES LÉGALES - Override complet fond blanc
+   Scope: .legal-page sur <main> de LegalPageLayout
+   Utilisé par: /cgv, /confidentialite, /mentions-legales
+   !important nécessaire pour overrider les règles globales
+   (body, h1-h6, p) qui forcent le texte en blanc
+   ============================================ */
+.legal-page h1,
+.legal-page h2,
+.legal-page h3,
+.legal-page h4,
+.legal-page h5,
+.legal-page h6 {
+  color: #0F172A !important;
+  font-family: var(--font-inter), sans-serif !important;
+}
+
+.legal-page p {
+  color: #334155 !important;
+}
+
+.legal-page strong,
+.legal-page b {
+  color: #0F172A !important;
+}
+
+.legal-page li {
+  color: #334155 !important;
+}
+
+.legal-page span {
+  color: #334155 !important;
+}
+
+.legal-page a {
+  color: #A37E2C !important;
+}
+
+.legal-page a:hover {
+  color: #8A6823 !important;
+}
+
 .section-gray {
   background: #f6f9fc;
 }

@@ -10,7 +10,7 @@ interface LegalPageLayoutProps {
 export function LegalPageLayout({ title, subtitle, children }: LegalPageLayoutProps) {
   return (
     <>
-      <main className="min-h-screen bg-white pt-20">
+      <main className="legal-page min-h-screen bg-white pt-20">
         <div className="mx-auto py-8 md:py-12 px-4" style={{ maxWidth: '1200px' }}>
           {/* En-tête - Centré sur toute la largeur de la page */}
           <div className="mb-8">
@@ -39,7 +39,7 @@ export function LegalPageLayout({ title, subtitle, children }: LegalPageLayoutPr
           </div>
 
           {/* Contenu */}
-          <div className="prose prose-sm max-w-none" style={{ color: theme.colors.neutral.gray700 }}>
+          <div className="max-w-none">
             {children}
           </div>
         </div>
