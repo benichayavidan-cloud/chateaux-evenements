@@ -153,9 +153,9 @@ export default function BlogPage() {
                 <div className="post-info flex flex-col justify-center gap-5 sm:gap-6 md:gap-7 text-left p-6 sm:p-8 md:p-10 lg:p-12">
                   {/* Category */}
                   <div className="post-labels mb-0">
-                    <Link href={`/blog?category=${featuredPost.category}`} className="text-[var(--bronze-antique)] no-underline text-sm sm:text-base">
+                    <button onClick={() => setSelectedCategory(featuredPost.category)} className="text-[var(--bronze-antique)] no-underline text-sm sm:text-base hover:underline cursor-pointer bg-transparent border-none p-0">
                       {CATEGORIES.find(c => c.value === featuredPost.category)?.label}
-                    </Link>
+                    </button>
                   </div>
 
                   {/* Title */}
@@ -224,9 +224,9 @@ export default function BlogPage() {
                 <div className="post-info">
                   {/* Category */}
                   <div className="post-labels">
-                    <Link href={`/blog?category=${post.category}`}>
+                    <button onClick={() => setSelectedCategory(post.category)} className="text-[var(--bronze-antique)] no-underline hover:underline cursor-pointer bg-transparent border-none p-0">
                       {CATEGORIES.find(c => c.value === post.category)?.label}
-                    </Link>
+                    </button>
                   </div>
 
                   {/* Title */}
