@@ -5,9 +5,6 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check, ArrowRight, ArrowLeft, Sparkles, PartyPopper, Zap } from "lucide-react";
-import type ConfettiType from "canvas-confetti";
-
-const getConfetti = () => import("canvas-confetti").then(mod => mod.default);
 import { formSchema, type FormData } from "./types";
 import { TrustSection } from "./TrustSection";
 import { ProgressBar } from "./ProgressBar";
@@ -164,52 +161,6 @@ const encouragingMessages = {
   ],
 };
 
-// Fonction pour lancer des confettis (lazy-loaded)
-const fireConfetti = async () => {
-  const confetti = await getConfetti();
-  const count = 200;
-  const defaults = {
-    origin: { y: 0.7 },
-    zIndex: 9999,
-  };
-
-  function fire(particleRatio: number, opts: any) {
-    confetti({
-      ...defaults,
-      ...opts,
-      particleCount: Math.floor(count * particleRatio),
-      colors: ["#A37E2C", "#D4AF37", "#C09448", "#8A6823", "#B8860B"],
-    });
-  }
-
-  fire(0.25, {
-    spread: 26,
-    startVelocity: 55,
-  });
-
-  fire(0.2, {
-    spread: 60,
-  });
-
-  fire(0.35, {
-    spread: 100,
-    decay: 0.91,
-    scalar: 0.8,
-  });
-
-  fire(0.1, {
-    spread: 120,
-    startVelocity: 25,
-    decay: 0.92,
-    scalar: 1.2,
-  });
-
-  fire(0.1, {
-    spread: 120,
-    startVelocity: 45,
-  });
-};
-
 export function DevisForm() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
@@ -252,18 +203,6 @@ export function DevisForm() {
     const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     setEncouragementMessage(randomMessage);
     setShowEncouragement(true);
-
-    // Petit confetti pour chaque étape complétée (lazy-loaded)
-    if (step > 1) {
-      const confetti = await getConfetti();
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.8 },
-        colors: ["#A37E2C", "#D4AF37"],
-        zIndex: 9999,
-      });
-    }
 
     setTimeout(() => {
       setShowEncouragement(false);
