@@ -142,6 +142,7 @@ export function DevisForm() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [validatedSteps, setValidatedSteps] = useState<Set<number>>(new Set());
 
   const {
@@ -200,6 +201,8 @@ export function DevisForm() {
   };
 
   const onSubmit = async (data: FormData) => {
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setValidatedSteps(new Set([1, 2, 3, 4]));
     try {
       const response = await fetch("/api/devis", {
@@ -217,6 +220,7 @@ export function DevisForm() {
           result.error ||
             "Une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer."
         );
+        setIsSubmitting(false);
         return;
       }
 
@@ -230,6 +234,7 @@ export function DevisForm() {
       // Rediriger vers la page de succès avec tracking automatique
       router.push(`/devis/merci?ref=${ref}`);
     } catch (error) {
+      setIsSubmitting(false);
       alert("Une erreur inattendue est survenue. Veuillez réessayer.");
     }
   };
@@ -513,24 +518,28 @@ export function DevisForm() {
             ) : (
               <button
                 type="submit"
+                disabled={isSubmitting}
                 onClick={() => setValidatedSteps((prev) => new Set(prev).add(4))}
                 style={{
                   padding: "clamp(0.875rem, 2vw, 1.125rem) clamp(1.75rem, 4vw, 2.5rem)",
-                  background: "linear-gradient(135deg, #10B981 0%, #059669 100%)",
+                  background: isSubmitting
+                    ? "linear-gradient(135deg, #9CA3AF 0%, #6B7280 100%)"
+                    : "linear-gradient(135deg, #10B981 0%, #059669 100%)",
                   border: "none",
                   borderRadius: "9999px",
-                  cursor: "pointer",
+                  cursor: isSubmitting ? "not-allowed" : "pointer",
                   transition: "all 0.3s",
                   fontSize: "clamp(0.95rem, 2vw, 1.05rem)",
                   fontWeight: 600,
                   color: "white",
                   position: "relative",
                   overflow: "hidden",
+                  opacity: isSubmitting ? 0.7 : 1,
                 }}
-                className="flex items-center gap-2 shadow-lg hover:shadow-2xl hover-scale active:scale-95"
+                className={`flex items-center gap-2 shadow-lg ${isSubmitting ? "" : "hover:shadow-2xl hover-scale active:scale-95"}`}
               >
-                <span className="shimmer" style={{ position: "absolute", inset: 0 }} />
-                <span style={{ position: "relative" }}>Envoyer ma demande</span>
+                {!isSubmitting && <span className="shimmer" style={{ position: "absolute", inset: 0 }} />}
+                <span style={{ position: "relative" }}>{isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}</span>
                 <Check className="w-5 h-5" style={{ position: "relative" }} />
               </button>
             )}
