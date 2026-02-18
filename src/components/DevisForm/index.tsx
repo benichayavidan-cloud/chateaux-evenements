@@ -137,37 +137,12 @@ const styleSheet = `
   }
 `;
 
-// Messages encourageants personnalisés par étape
-const encouragingMessages = {
-  1: [
-    "Excellent choix ! 🎯",
-    "Parfait ! Continuons... ✨",
-    "Super ! On avance bien 🚀",
-  ],
-  2: [
-    "Génial ! Presque terminé 🎉",
-    "Vous êtes sur la bonne voie ! 💪",
-    "Fantastique ! Une étape de plus ⭐",
-  ],
-  3: [
-    "Magnifique sélection ! 🏰",
-    "Excellent goût ! 👌",
-    "Wow, beau choix de château ! 🎭",
-  ],
-  4: [
-    "Dernière ligne droite ! 🏁",
-    "Plus qu'un instant ! ⚡",
-    "C'est presque fini ! 🎊",
-  ],
-};
 
 export function DevisForm() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [validatedSteps, setValidatedSteps] = useState<Set<number>>(new Set());
-  const [showEncouragement, setShowEncouragement] = useState(false);
-  const [encouragementMessage, setEncouragementMessage] = useState("");
 
   const {
     register,
@@ -197,18 +172,6 @@ export function DevisForm() {
   const shouldShowErrors = validatedSteps.has(currentStep) || isSubmitted;
   const displayedErrors = shouldShowErrors ? errors : {};
 
-  // Animation de célébration quand on passe à l'étape suivante
-  const showEncouragementMessage = async (step: number) => {
-    const messages = encouragingMessages[step as keyof typeof encouragingMessages];
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-    setEncouragementMessage(randomMessage);
-    setShowEncouragement(true);
-
-    setTimeout(() => {
-      setShowEncouragement(false);
-    }, 2000);
-  };
-
   const nextStep = async () => {
     // Marquer l'étape comme validée pour afficher les erreurs
     setValidatedSteps((prev) => new Set(prev).add(currentStep));
@@ -228,9 +191,7 @@ export function DevisForm() {
     }
 
     if (isValid) {
-      const nextStepNumber = Math.min(currentStep + 1, 4);
-      setCurrentStep(nextStepNumber);
-      showEncouragementMessage(nextStepNumber);
+      setCurrentStep(Math.min(currentStep + 1, 4));
     }
   };
 
@@ -450,33 +411,6 @@ export function DevisForm() {
         }
       `}</style>
       <div id="formulaire" className="max-w-5xl mx-auto">
-        {/* Message d'encouragement flottant */}
-        {showEncouragement && (
-          <div
-            className="animate-fade-in"
-            style={{
-              position: "fixed",
-              top: "100px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 9999,
-              background: "linear-gradient(135deg, #10B981 0%, #059669 100%)",
-              color: "white",
-              padding: "1rem 2rem",
-              borderRadius: "9999px",
-              fontSize: "1.25rem",
-              fontWeight: 700,
-              boxShadow: "0 10px 40px rgba(16, 185, 129, 0.5), 0 0 0 4px rgba(16, 185, 129, 0.1)",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-            }}
-          >
-            <Sparkles className="w-6 h-6" />
-            {encouragementMessage}
-          </div>
-        )}
-
         <TrustSection />
         <ProgressBar currentStep={currentStep} />
 
