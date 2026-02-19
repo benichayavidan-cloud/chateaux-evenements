@@ -1238,6 +1238,64 @@ textarea::placeholder {
   color: #8A6823 !important;
 }
 
+/* ============================================
+   CONTENU SEO GÉO PAGES - dangerouslySetInnerHTML
+   Override des couleurs globales pour le HTML injecté
+   ============================================ */
+.geo-seo-content h2,
+.geo-seo-content h3,
+.geo-seo-content h4 {
+  color: #1F2937 !important;
+  font-family: var(--font-cormorant), serif;
+  font-weight: 300;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.geo-seo-content h2 {
+  font-size: 1.75rem;
+}
+
+.geo-seo-content h3 {
+  font-size: 1.375rem;
+}
+
+.geo-seo-content p {
+  color: #4B5563 !important;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.geo-seo-content ul,
+.geo-seo-content ol {
+  color: #4B5563 !important;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.geo-seo-content li {
+  color: #4B5563 !important;
+  margin-bottom: 0.5rem;
+}
+
+.geo-seo-content a {
+  color: #A37E2C !important;
+  text-decoration: underline;
+}
+
+.geo-seo-content strong {
+  color: #1F2937 !important;
+  font-weight: 600;
+}
+
+.geo-sibling-link:hover {
+  background: linear-gradient(135deg, #A37E2C15, #A37E2C20) !important;
+  border-color: #A37E2C60 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(163, 126, 44, 0.18) !important;
+  color: #8B6A24 !important;
+}
+
 .section-gray {
   background: #f6f9fc;
 }
@@ -1300,6 +1358,60 @@ textarea::placeholder {
 
   .grid-2-cols > * {
     order: 0 !important;
+  }
+}
+
+/* Grille 2 cols responsive pour pages géo */
+@media (min-width: 768px) {
+  .md-grid-2-cols {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* Grille infos pratiques - 3 cols desktop, 2 cols tablet, 1 col mobile */
+@media (max-width: 767px) {
+  .infos-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .infos-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* FAQ responsive mobile */
+@media (max-width: 640px) {
+  .faq-button {
+    gap: 12px !important;
+    padding: 16px !important;
+  }
+  .faq-number {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .faq-answer-inner {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 16px !important;
+  }
+  .faq-answer-text {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* Single château atouts grid - 1 col mobile */
+@media (max-width: 640px) {
+  .atouts-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Single château image height mobile */
+@media (max-width: 640px) {
+  .chateau-single-image {
+    min-height: 220px !important;
   }
 }
 

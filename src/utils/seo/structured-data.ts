@@ -4,6 +4,7 @@
  */
 
 import type { Chateau } from "@/types";
+import type { GeoLandingPage } from "@/data/geo-landing-pages";
 
 const BASE_URL = "https://www.selectchateaux.com";
 
@@ -345,6 +346,28 @@ export function generateEventSchema(eventType: {
     },
     organizer: {
       "@id": `${BASE_URL}/#organization`,
+    },
+  };
+}
+
+/**
+ * Schema pour les pages géographiques SEO
+ * Combine Service + areaServed pour chaque zone
+ */
+export function generateGeoLandingSchema(page: GeoLandingPage) {
+  return {
+    "@type": "Service",
+    "@id": `${BASE_URL}/${page.slug}#service`,
+    name: page.h1,
+    description: page.description,
+    url: `${BASE_URL}/${page.slug}`,
+    provider: {
+      "@id": `${BASE_URL}/#organization`,
+    },
+    serviceType: "Organisation de séminaires en château",
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: page.h1.replace("Séminaire en Château ", "").replace("en ", "").replace("dans les ", "").replace("dans l'", "").replace("à ", ""),
     },
   };
 }

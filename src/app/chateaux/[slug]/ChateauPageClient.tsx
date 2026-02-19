@@ -7,7 +7,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Users, Check, Sparkles, Bed, Building2, Plus, Minus, HelpCircle, Home } from "lucide-react";
+import { Users, Check, Sparkles, Bed, Building2, Plus, Minus, HelpCircle, Home, MapPin } from "lucide-react";
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Badge, Button } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
@@ -643,6 +643,39 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               <Link href="/devis#formulaire"><Button variant="primary" size="lg">Demander un Devis</Button></Link>
               <Link href="/chateaux"><Button variant="outline" size="lg">Voir d'autres châteaux</Button></Link>
             </div>
+            {/* Liens SEO vers pages géographiques */}
+            {(() => {
+              const geoLinks: Record<string, { label: string; href: string }[]> = {
+                "1": [
+                  { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
+                  { label: "Séminaire château Oise", href: "/seminaire-chateau-oise-60" },
+                ],
+                "2": [
+                  { label: "Séminaire château Hauts-de-Seine", href: "/seminaire-chateau-hauts-de-seine-92" },
+                  { label: "Séminaire château proche Paris", href: "/seminaire-chateau-proche-paris" },
+                ],
+                "3": [
+                  { label: "Séminaire château Yvelines", href: "/seminaire-chateau-yvelines-78" },
+                  { label: "Séminaire château Île-de-France", href: "/seminaire-chateau-ile-de-france" },
+                ],
+                "4": [
+                  { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
+                  { label: "Séminaire château Oise", href: "/seminaire-chateau-oise-60" },
+                ],
+              };
+              const links = geoLinks[chateau.id];
+              if (!links) return null;
+              return (
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.lg, marginTop: theme.spacing.xl, flexWrap: "wrap" }}>
+                  <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze, opacity: 0.7 }} />
+                  {links.map((link, i) => (
+                    <Link key={i} href={link.href} style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              );
+            })()}
           </div>
         </Container>
       </Section>

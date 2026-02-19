@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { chateaux } from '@/data/chateaux'
 import { blogPosts } from '@/data/blog-posts'
+import { geoLandingPages } from '@/data/geo-landing-pages'
 
 /**
  * Sitemap.ts - Génération dynamique du sitemap XML
@@ -17,8 +18,6 @@ import { blogPosts } from '@/data/blog-posts'
  * - 0.7 : Contact + articles blog
  * - 0.3 : Pages légales
  *
- * NOTE: Le site est en mode pré-prod avec robots: { index: false }.
- * Ce sitemap est préparé pour le jour de l'activation.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.selectchateaux.com'
@@ -86,10 +85,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  // 6. Retour du sitemap complet (prêt pour l'indexation future)
+  // 5. Pages géographiques SEO
+  const geoPages: MetadataRoute.Sitemap = geoLandingPages.map((page) => ({
+    url: `${baseUrl}/${page.slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
+  // 6. Retour du sitemap complet
   return [
     ...staticPages,
     ...chateauxPages,
+    ...geoPages,
     ...blogListingPage,
     ...blogPages,
     ...legalPages
