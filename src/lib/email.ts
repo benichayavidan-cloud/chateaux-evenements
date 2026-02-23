@@ -285,6 +285,9 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
               <p style="margin: 0 0 10px 0; color: #64748b; font-size: 14px;">
                 SELECT CHÂTEAUX - Séminaires d'Exception
               </p>
+              <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 13px;">
+                60 Rue François 1er, 75008 Paris, France
+              </p>
               <p style="margin: 0; color: #94a3b8; font-size: 13px;">
                 📧 seminaires@selectchateaux.com | 🌐 www.selectchateaux.com
               </p>
@@ -457,6 +460,9 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
               <p style="margin: 0 0 10px 0; color: #64748b; font-size: 13px;">
                 Séminaires d'Exception dans les plus beaux domaines d'Île-de-France
               </p>
+              <p style="margin: 0 0 5px 0; color: #94a3b8; font-size: 13px;">
+                60 Rue François 1er, 75008 Paris, France
+              </p>
               <p style="margin: 0 0 15px 0; color: #94a3b8; font-size: 13px;">
                 📧 seminaires@selectchateaux.com | 🌐 <a href="https://www.selectchateaux.com" style="color: #3b82f6; text-decoration: none;">www.selectchateaux.com</a>
               </p>
@@ -507,6 +513,7 @@ Voir dans Supabase: https://supabase.com/dashboard/project/jmeiepmtgidqtmxfnlwf/
 
 ---
 SELECT CHÂTEAUX - Séminaires d'Exception
+60 Rue François 1er, 75008 Paris, France
 seminaires@selectchateaux.com | www.selectchateaux.com
 Demande reçue le ${new Date(devis.created_at).toLocaleDateString('fr-FR')}
   `.trim();
@@ -543,6 +550,7 @@ L'équipe SELECT CHÂTEAUX
 ---
 SELECT CHÂTEAUX
 Séminaires d'Exception dans les plus beaux domaines d'Île-de-France
+60 Rue François 1er, 75008 Paris, France
 seminaires@selectchateaux.com | www.selectchateaux.com
   `.trim();
 };

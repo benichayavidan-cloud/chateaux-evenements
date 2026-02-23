@@ -32,8 +32,11 @@ export function generateOrganizationSchema() {
     telephone: "+33757991146",
     address: {
       "@type": "PostalAddress",
-      addressCountry: "FR",
+      streetAddress: "60 Rue François 1er",
+      postalCode: "75008",
+      addressLocality: "Paris",
       addressRegion: "Île-de-France",
+      addressCountry: "FR",
     },
     sameAs: [
       "https://www.linkedin.com/company/select-chateaux/about/",
@@ -232,6 +235,8 @@ export function generateLocalBusinessSchema() {
     email: "seminaires@selectchateaux.com",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "60 Rue François 1er",
+      postalCode: "75008",
       addressLocality: "Paris",
       addressRegion: "Île-de-France",
       addressCountry: "FR",

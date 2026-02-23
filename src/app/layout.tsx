@@ -243,7 +243,7 @@ export default function RootLayout({
             },
           ]}
           contact={{
-            address: "Paris, Île-de-France",
+            address: "60 Rue François 1er, 75008 Paris",
             phone: "+33 7 57 99 11 46",
             email: "seminaires@selectchateaux.com",
           }}
