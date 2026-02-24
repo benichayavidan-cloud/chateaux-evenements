@@ -230,7 +230,7 @@ export function generateLocalBusinessSchema() {
     logo: `${BASE_URL}/logo.png`,
     image: `${BASE_URL}/og-image.jpg`,
     description:
-      "Location de châteaux pour séminaires d'entreprise en Île-de-France. Oise (60), Yvelines (78), Hauts-de-Seine (92), Val-d'Oise (95), Seine-et-Marne (77), Essonne (91). Devis gratuit sous 24h.",
+      "Select Châteaux est l'agence spécialiste de la location de châteaux et la privatisation de lieux d'exception pour vos événements professionnels. Séminaires, CODIR, lancements de produits, team building et soirées de gala à Paris, en Île-de-France et partout en France.",
     telephone: "+33757991146",
     email: "seminaires@selectchateaux.com",
     address: {
@@ -296,10 +296,9 @@ export function generateLocalBusinessSchema() {
         "Tuesday",
         "Wednesday",
         "Thursday",
-        "Friday",
       ],
       opens: "09:00",
-      closes: "19:00",
+      closes: "18:00",
     },
     priceRange: "$$$$",
     sameAs: [
