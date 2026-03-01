@@ -26,6 +26,7 @@ const formSchema = z.object({
   chambresTwin: z.boolean().optional(),
   budget: z.string().min(1, "Budget requis"),
   commentaireDeroulement: z.string().optional(),
+  gclid: z.string().optional(),
 });
 
 export async function POST(request: NextRequest) {
@@ -90,6 +91,7 @@ export async function POST(request: NextRequest) {
       budget: data.budget,
       commentaire_deroulement: data.commentaireDeroulement || '',
       fichier_url: null,
+      gclid: data.gclid || null,
     };
 
     // Insérer dans Supabase

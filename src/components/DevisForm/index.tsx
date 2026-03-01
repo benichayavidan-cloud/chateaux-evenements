@@ -13,6 +13,7 @@ import { Step2DateDuration } from "./Step2DateDuration";
 import { Step3ChateauSelection } from "./Step3ChateauSelection";
 import { Step4ContactForm } from "./Step4ContactForm";
 import { trackFormSubmit, trackDevisRequest } from "@/components/Analytics";
+import { getGclid } from "@/lib/gclid";
 
 // Styles pour les sliders et focus
 const styleSheet = `
@@ -205,12 +206,15 @@ export function DevisForm() {
     setIsSubmitting(true);
     setValidatedSteps(new Set([1, 2, 3, 4]));
     try {
+      // Récupérer le GCLID si présent (arrivée via Google Ads)
+      const gclid = getGclid();
+
       const response = await fetch("/api/devis", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, gclid: gclid || undefined }),
       });
 
       const result = await response.json();
@@ -222,6 +226,20 @@ export function DevisForm() {
         );
         setIsSubmitting(false);
         return;
+      }
+
+      // Stocker données contact pour Enhanced Conversions (page merci)
+      try {
+        sessionStorage.setItem(
+          "ec_data",
+          JSON.stringify({
+            email: data.email,
+            phone: data.telephoneMobile,
+            fullName: data.nomPrenom,
+          })
+        );
+      } catch {
+        // sessionStorage indisponible — non bloquant
       }
 
       // Tracking GA4/Ads

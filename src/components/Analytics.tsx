@@ -8,6 +8,7 @@
 
 import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { captureGclid } from "@/lib/gclid";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "";
@@ -20,6 +21,9 @@ function PageViewTracker() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // Capturer le GCLID Google Ads depuis l'URL (stocké en cookie 90j)
+    captureGclid();
+
     if (typeof window === "undefined" || !window.gtag) return;
 
     const url = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : "");

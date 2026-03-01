@@ -4,23 +4,44 @@ import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Check, Sparkles, PartyPopper, Zap, ArrowLeft } from "lucide-react";
+import { hashUserData, type HashedUserData } from "@/lib/hash-user-data";
 
 export default function MerciContent() {
   const searchParams = useSearchParams();
   const ref = searchParams.get("ref") || Math.random().toString(36).substr(2, 9).toUpperCase();
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.gtag) {
-      // Track conversion Google Ads (avec send_to pour attribution)
+    if (typeof window === "undefined" || !window.gtag) return;
+
+    const fireConversion = async () => {
       const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
       const convLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
+
+      // Préparer les données Enhanced Conversions (hachées SHA-256)
+      let userData: HashedUserData | undefined;
+      try {
+        const raw = sessionStorage.getItem("ec_data");
+        if (raw) {
+          const ecData = JSON.parse(raw);
+          userData = await hashUserData(ecData);
+          sessionStorage.removeItem("ec_data");
+        }
+      } catch {
+        // Données indisponibles — conversion fire quand même sans user_data
+      }
+
+      // Track conversion Google Ads avec Enhanced Conversions
       if (adsId && convLabel) {
-        window.gtag("event", "conversion", {
+        const conversionParams: Record<string, unknown> = {
           send_to: `${adsId}/${convLabel}`,
           value: 1.0,
           currency: "EUR",
           transaction_id: ref,
-        });
+        };
+        if (userData) {
+          conversionParams.user_data = userData;
+        }
+        window.gtag("event", "conversion", conversionParams);
       }
 
       // Track conversion GA4
@@ -30,7 +51,9 @@ export default function MerciContent() {
         value: 1,
         currency: "EUR",
       });
-    }
+    };
+
+    fireConversion();
   }, [ref]);
 
   return (
