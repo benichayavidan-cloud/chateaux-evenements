@@ -3,7 +3,10 @@ import { z } from 'zod';
 import { createClient } from '@supabase/supabase-js';
 import { sendAdminNotification, sendClientConfirmation } from '@/lib/email';
 
-// Schema Zod pour validation serveur (identique à DevisForm)
+// Schema Zod pour validation serveur
+// Accepte deux formats :
+// - Formulaire principal (/devis) : datesSouhaitees (date unique)
+// - Formulaire mini (pages château) : dateArrivee + dateDepart
 const formSchema = z.object({
   typeEvenement: z.enum([
     "seminaire",
@@ -12,8 +15,9 @@ const formSchema = z.object({
     "team-building",
     "autre",
   ]),
-  dateArrivee: z.string().min(1, "Veuillez sélectionner une date d'arrivée"),
-  dateDepart: z.string().min(1, "Veuillez sélectionner une date de départ"),
+  datesSouhaitees: z.string().min(1).optional(),
+  dateArrivee: z.string().min(1).optional(),
+  dateDepart: z.string().min(1).optional(),
   duree: z.enum(["1-jour", "2-jours", "3-jours-plus"]),
   chateauIds: z.array(z.string()).min(1, "Veuillez sélectionner au moins un château"),
   entreprise: z.string().min(2, "Nom de l'entreprise requis"),
@@ -28,7 +32,10 @@ const formSchema = z.object({
   budget: z.string().min(1, "Budget requis"),
   commentaireDeroulement: z.string().optional(),
   gclid: z.string().optional(),
-});
+}).refine(
+  (data) => data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
+  { message: "Veuillez sélectionner une date", path: ["datesSouhaitees"] }
+);
 
 export async function POST(request: NextRequest) {
   try {
@@ -61,6 +68,11 @@ export async function POST(request: NextRequest) {
 
     const data = validationResult.data;
 
+    // Construire dates_souhaitees selon le format reçu
+    const datesSouhaitees = data.dateArrivee && data.dateDepart
+      ? `${data.dateArrivee}|${data.dateDepart}`
+      : data.datesSouhaitees || '';
+
     // Créer un client Supabase avec le service role key pour plus de sécurité
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -77,7 +89,7 @@ export async function POST(request: NextRequest) {
     // Préparer les données pour Supabase
     const devisData = {
       type_evenement: data.typeEvenement,
-      dates_souhaitees: `${data.dateArrivee}|${data.dateDepart}`,
+      dates_souhaitees: datesSouhaitees,
       duree: data.duree,
       chateau_id: data.chateauIds.join(', '),
       entreprise: data.entreprise,

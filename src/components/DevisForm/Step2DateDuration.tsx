@@ -25,18 +25,6 @@ const dureeOptions = [
   { value: "3-jours-plus" as DureeEvent, label: "3 jours ou plus" },
 ];
 
-const dateInputStyle: React.CSSProperties = {
-  display: "block",
-  width: "100%",
-  padding: "clamp(0.75rem, 2vw, 1rem)",
-  background: "white",
-  border: "2px solid #9CA3AF",
-  fontSize: "1rem",
-  color: "#1F2937",
-  colorScheme: "light",
-  cursor: "pointer",
-};
-
 export function Step2DateDuration({
   register,
   setValue,
@@ -46,18 +34,6 @@ export function Step2DateDuration({
   selectedDuree,
   errors,
 }: Step2DateDurationProps) {
-  const today = new Date().toISOString().split("T")[0];
-
-  const tryAdvance = async () => {
-    setTimeout(async () => {
-      const formValues = getValues();
-      const isValid = await trigger(["dateArrivee", "dateDepart", "duree"]);
-      if (isValid && formValues.duree && formValues.dateArrivee && formValues.dateDepart) {
-        setCurrentStep(3);
-      }
-    }, 500);
-  };
-
   return (
     <div
       key="step2"
@@ -67,59 +43,47 @@ export function Step2DateDuration({
         Quand souhaitez-vous organiser votre événement ?
       </h3>
 
-      {/* Dates d'arrivée et de départ */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-        <div>
-          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
-            <Calendar className="w-4 h-4 text-gray-800" />
-            Date d&apos;arrivée *
-          </label>
-          <input
-            type="date"
-            {...register("dateArrivee")}
-            onChange={async (e) => {
-              setValue("dateArrivee", e.target.value);
-              tryAdvance();
-            }}
-            onClick={(e) => {
-              (e.currentTarget as HTMLInputElement).showPicker?.();
-            }}
-            className="rounded-xl focus:border-[#a37e2c] focus:outline-none"
-            style={dateInputStyle}
-            min={today}
-          />
-          {errors.dateArrivee && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.dateArrivee.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
-            <Calendar className="w-4 h-4 text-gray-800" />
-            Date de départ *
-          </label>
-          <input
-            type="date"
-            {...register("dateDepart")}
-            onChange={async (e) => {
-              setValue("dateDepart", e.target.value);
-              tryAdvance();
-            }}
-            onClick={(e) => {
-              (e.currentTarget as HTMLInputElement).showPicker?.();
-            }}
-            className="rounded-xl focus:border-[#a37e2c] focus:outline-none"
-            style={dateInputStyle}
-            min={today}
-          />
-          {errors.dateDepart && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.dateDepart.message}
-            </p>
-          )}
-        </div>
+      {/* Dates souhaitées */}
+      <div>
+        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800" style={{ marginBottom: "clamp(0.1875rem, 0.5vw, 0.25rem)" }}>
+          <Calendar className="w-4 h-4 text-gray-800" />
+          Date souhaitée *
+        </label>
+        <input
+          type="date"
+          {...register("datesSouhaitees")}
+          onChange={async (e) => {
+            setValue("datesSouhaitees", e.target.value);
+            setTimeout(async () => {
+              const formValues = getValues();
+              const isValid = await trigger(["datesSouhaitees", "duree"]);
+              if (isValid && formValues.duree) {
+                setCurrentStep(3);
+              }
+            }, 500);
+          }}
+          onClick={(e) => {
+            (e.currentTarget as HTMLInputElement).showPicker?.();
+          }}
+          className="rounded-xl focus:border-[#a37e2c] focus:outline-none"
+          style={{
+            display: "block",
+            width: "50%",
+            padding: "clamp(0.75rem, 2vw, 1rem)",
+            background: "white",
+            border: "2px solid #9CA3AF",
+            fontSize: "1rem",
+            color: "#1F2937",
+            colorScheme: "light",
+            cursor: "pointer",
+          }}
+          min={new Date().toISOString().split("T")[0]}
+        />
+        {errors.datesSouhaitees && (
+          <p className="text-red-500 text-sm mt-1">
+            {errors.datesSouhaitees.message}
+          </p>
+        )}
       </div>
 
       {/* Durée */}
@@ -139,8 +103,8 @@ export function Step2DateDuration({
                   setValue("duree", option.value);
                   setTimeout(async () => {
                     const formValues = getValues();
-                    const isValid = await trigger(["dateArrivee", "dateDepart", "duree"]);
-                    if (isValid && formValues.dateArrivee && formValues.dateDepart) {
+                    const isValid = await trigger(["datesSouhaitees", "duree"]);
+                    if (isValid && formValues.datesSouhaitees) {
                       setCurrentStep(3);
                     }
                   }, 500);
