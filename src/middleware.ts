@@ -73,11 +73,11 @@ export function middleware(request: NextRequest) {
       'Content-Security-Policy',
       [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net",
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com",
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: https: blob:",
         "font-src 'self' data:",
-        "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net",
+        "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.googleadservices.com https://www.google.fr https://*.google.fr https://pagead2.googlesyndication.com",
         "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",

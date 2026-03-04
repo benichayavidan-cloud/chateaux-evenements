@@ -7,13 +7,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Users, Check, Sparkles, Bed, Building2, Plus, Minus, HelpCircle, Home, MapPin } from "lucide-react";
+import { Users, Check, Sparkles, Bed, Building2, Plus, Minus, HelpCircle, Home, MapPin, Phone, FileText, Clock, Lock, Package } from "lucide-react";
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Badge, Button } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
 import { useState, useEffect, useRef } from "react";
 import type { Chateau } from "@/types";
-import { trackChateauView } from "@/components/Analytics";
+import { trackChateauView, trackPhoneClick } from "@/components/Analytics";
+import DevisFormMini from "@/components/DevisFormMini";
 import { useInView } from "@/hooks/useInView";
 
 interface ChateauPageClientProps {
@@ -40,6 +41,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'accommodation' | 'spaces'>('overview');
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [showStickyBar, setShowStickyBar] = useState(false);
 
   const pointsFortsView = useInView();
   const galerieView = useInView();
@@ -51,6 +53,15 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
   useEffect(() => {
     trackChateauView(chateau.nom);
   }, [chateau.nom]);
+
+  // Show sticky CTA bar after scrolling past the hero section
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyBar(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -230,6 +241,57 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                   </div>
                 </div>
               </div>
+
+              {/* CTA Buttons — Above the fold */}
+              <div className="flex flex-col sm:flex-row gap-2.5 w-full animate-fade-in delay-500" style={{ marginTop: 'clamp(0.75rem, 2vw, 1rem)' }}>
+                <a
+                  href="#devis-express"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '12px 20px',
+                    borderRadius: theme.effects.borderRadius.full,
+                    background: `linear-gradient(135deg, ${theme.colors.primary.gold} 0%, ${theme.colors.primary.bronze} 100%)`,
+                    color: '#FFFFFF',
+                    fontWeight: theme.typography.fontWeight.bold,
+                    fontSize: 'clamp(12px, 1.8vw, 14px)',
+                    textDecoration: 'none',
+                    boxShadow: `0 4px 16px ${theme.colors.primary.bronze}40`,
+                    transition: 'all 0.3s ease',
+                    whiteSpace: 'nowrap',
+                    flex: '1 1 auto',
+                  }}
+                >
+                  <FileText className="w-4 h-4" />
+                  Devis Gratuit en 24h
+                </a>
+                <a
+                  href="tel:+33757991146"
+                  onClick={() => trackPhoneClick()}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '12px 20px',
+                    borderRadius: theme.effects.borderRadius.full,
+                    border: `2px solid ${theme.colors.primary.bronze}`,
+                    background: 'rgba(255, 255, 255, 0.6)',
+                    color: theme.colors.primary.bronze,
+                    fontWeight: theme.typography.fontWeight.semibold,
+                    fontSize: 'clamp(12px, 1.8vw, 14px)',
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease',
+                    whiteSpace: 'nowrap',
+                    flex: '1 1 auto',
+                  }}
+                >
+                  <Phone className="w-4 h-4" />
+                  07 57 99 11 46
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -263,6 +325,60 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 style={{ background: theme.colors.primary.bronze }}
               />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bandeau chiffres clés — Arguments annonce Google Ads */}
+      <div
+        style={{
+          background: `${theme.colors.primary.bronze}05`,
+          borderBottom: `1px solid ${theme.colors.primary.bronze}15`,
+          padding: 'clamp(12px, 2vw, 16px) 0',
+        }}
+      >
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 32px)' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: 'clamp(8px, 2vw, 16px)',
+            }}
+          >
+            {[
+              { icon: <Check className="w-3.5 h-3.5" />, label: '500+ Événements' },
+              { icon: <Clock className="w-3.5 h-3.5" />, label: 'Devis sous 24h' },
+              { icon: <Lock className="w-3.5 h-3.5" />, label: 'Privatisation Totale' },
+              { icon: <Package className="w-3.5 h-3.5" />, label: 'Tout Inclus' },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 14px',
+                  background: `${theme.colors.primary.bronze}08`,
+                  border: `1px solid ${theme.colors.primary.bronze}20`,
+                  borderRadius: theme.effects.borderRadius.full,
+                }}
+              >
+                <span style={{ color: theme.colors.primary.bronze, display: 'flex' }}>{item.icon}</span>
+                <span
+                  style={{
+                    fontSize: 'clamp(10px, 1.5vw, 12px)',
+                    fontWeight: theme.typography.fontWeight.semibold,
+                    color: theme.colors.primary.bronze,
+                    textTransform: 'uppercase',
+                    letterSpacing: theme.typography.letterSpacing.wide,
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {item.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -630,6 +746,13 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
         </Container>
       </Section>
 
+      {/* Mini formulaire devis inline */}
+      <Section background="white" style={{ padding: '0' }}>
+        <Container size="lg">
+          <DevisFormMini chateauId={chateau.id} chateauNom={chateau.nom} />
+        </Container>
+      </Section>
+
       {/* CTA finale */}
       <Section background="gradient" style={{ padding: '30px 0' }}>
         <Container size="lg">
@@ -679,6 +802,78 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           </div>
         </Container>
       </Section>
+
+      {/* Sticky CTA Bar - Visible après scroll du hero */}
+      <div
+        style={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 9990,
+          transform: showStickyBar ? 'translateY(0)' : 'translateY(100%)',
+          transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+        }}
+      >
+        <div
+          style={{
+            background: 'rgba(255, 255, 255, 0.97)',
+            backdropFilter: 'blur(16px)',
+            borderTop: '1px solid rgba(163, 126, 44, 0.15)',
+            boxShadow: '0 -4px 24px rgba(0, 0, 0, 0.1)',
+            padding: 'clamp(10px, 2vw, 14px) clamp(16px, 4vw, 32px)',
+          }}
+        >
+          <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
+            {/* CTA buttons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
+              <a
+                href="tel:+33757991146"
+                onClick={() => trackPhoneClick()}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '10px 16px',
+                  borderRadius: '9999px',
+                  border: '2px solid #A37E2C',
+                  color: '#A37E2C',
+                  fontWeight: 600,
+                  fontSize: '13px',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                <Phone style={{ width: '16px', height: '16px' }} />
+                <span className="hidden sm:inline">07 57 99 11 46</span>
+                <span className="sm:hidden">Appeler</span>
+              </a>
+              <a
+                href="#devis-express"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '10px 20px',
+                  borderRadius: '9999px',
+                  background: 'linear-gradient(135deg, #D4AF37 0%, #A37E2C 100%)',
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  textDecoration: 'none',
+                  boxShadow: '0 4px 12px rgba(163, 126, 44, 0.3)',
+                  transition: 'all 0.2s',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                <FileText style={{ width: '16px', height: '16px' }} />
+                Devis Gratuit
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Lightbox pour la galerie */}
       {lightboxImage && (
