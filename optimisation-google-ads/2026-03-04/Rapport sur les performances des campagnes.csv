@@ -1,0 +1,8 @@
+Rapport sur les performances des campagnes
+Toute la période
+État de la campagne,Campagne,Budget,Nom du budget,Type de budget,État,Motifs de l'état,Taux d'optimisation,Type de campagne,Impr.,CTR,Code de la devise,Coût,Type de stratégie d'enchères,Clics,Taux de conv.,Conversions,CPC moy.,Coût/conv.
+Activée,INTENTION_LUXE,"25,00", --,Tous les jours,Éligible,inconnu,"100,00",Rechercher,119,"12,61%",ILS,"356,80",Maximiser les clics,15,"0,00%","0,00","23,79","0,00"
+Activée,SNIPER_GEO_IDF,"55,00", --,Tous les jours,Éligible (diffusion limitée),limité par le budget; inconnu,"92,30",Rechercher,274,"10,95%",ILS,"748,68",Maximiser les clics,30,"0,00%","0,00","24,96","0,00"
+Total : Campagnes, --, --, --, --, --,, --, --,393,"11,45%",ILS,"1105,48", --,45,"0,00%","0,00","24,57","0,00"
+Total : Compte,,,,,,,,,393,"11,45%",ILS,"1105,48",,45,"0,00%","0,00","24,57","0,00"
+Total : Rechercher,,,,,,,,Rechercher,393,"11,45%",ILS,"1105,48",,45,"0,00%","0,00","24,57","0,00"

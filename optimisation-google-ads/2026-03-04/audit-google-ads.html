@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Google Ads - Select Chateaux - 4 Mars 2026</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-bottom: 1px solid #334155;
+            padding: 40px 0;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header .date {
+            font-size: 14px;
+            color: #94a3b8;
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        /* ========== VERDICT GLOBAL ========== */
+        .verdict {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #7f1d1d 100%);
+            border: 1px solid #dc2626;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .verdict-emoji { font-size: 48px; margin-bottom: 12px; }
+        .verdict h2 { font-size: 24px; font-weight: 800; color: #fca5a5; margin-bottom: 8px; }
+        .verdict p { color: #fecaca; font-size: 16px; max-width: 700px; margin: 0 auto; }
+        .verdict-score {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 20px;
+            border-radius: 99px;
+            margin-top: 16px;
+            font-size: 14px;
+            color: #fca5a5;
+        }
+        .verdict-score strong { font-size: 22px; color: #ef4444; }
+
+        /* ========== SECTION ========== */
+        .section {
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f1f5f9;
+        }
+        .section-title .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        /* ========== KPI CARDS ========== */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .kpi-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+        .kpi-card.blue::before { background: #3b82f6; }
+        .kpi-card.purple::before { background: #8b5cf6; }
+        .kpi-card.green::before { background: #10b981; }
+        .kpi-card.orange::before { background: #f59e0b; }
+        .kpi-card.red::before { background: #ef4444; }
+        .kpi-card.cyan::before { background: #06b6d4; }
+
+        .kpi-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        .kpi-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: #f1f5f9;
+        }
+        .kpi-sub {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* ========== TABLES ========== */
+        .table-wrap {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        .table-wrap h3 {
+            padding: 16px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #cbd5e1;
+            border-bottom: 1px solid #334155;
+            background: #1a2332;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            padding: 12px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+            background: #1a2332;
+        }
+        td {
+            padding: 12px 16px;
+            font-size: 13px;
+            color: #cbd5e1;
+            border-bottom: 1px solid #1e293b;
+        }
+        tr:hover td { background: rgba(59, 130, 246, 0.05); }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .badge-green { background: #065f46; color: #6ee7b7; }
+        .badge-red { background: #7f1d1d; color: #fca5a5; }
+        .badge-orange { background: #78350f; color: #fcd34d; }
+        .badge-blue { background: #1e3a5f; color: #93c5fd; }
+        .badge-gray { background: #334155; color: #94a3b8; }
+
+        /* ========== CHART ========== */
+        .chart-wrap {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .chart-wrap h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #cbd5e1;
+            margin-bottom: 16px;
+        }
+
+        /* ========== ALERTS ========== */
+        .alert {
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .alert-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+        .alert-critical {
+            background: linear-gradient(135deg, #450a0a, #7f1d1d);
+            border: 1px solid #dc2626;
+        }
+        .alert-warning {
+            background: linear-gradient(135deg, #451a03, #78350f);
+            border: 1px solid #f59e0b;
+        }
+        .alert-info {
+            background: linear-gradient(135deg, #0c1929, #1e3a5f);
+            border: 1px solid #3b82f6;
+        }
+        .alert-success {
+            background: linear-gradient(135deg, #022c22, #065f46);
+            border: 1px solid #10b981;
+        }
+        .alert h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+        .alert p { font-size: 13px; color: #cbd5e1; }
+        .alert-critical h4 { color: #fca5a5; }
+        .alert-warning h4 { color: #fcd34d; }
+        .alert-info h4 { color: #93c5fd; }
+        .alert-success h4 { color: #6ee7b7; }
+
+        /* ========== PROGRESS BAR ========== */
+        .progress-bar-wrap {
+            margin-bottom: 12px;
+        }
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+        .progress-label span:first-child { color: #cbd5e1; }
+        .progress-label span:last-child { color: #94a3b8; font-weight: 600; }
+        .progress-track {
+            height: 8px;
+            background: #334155;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 99px;
+            transition: width 1s ease;
+        }
+
+        /* ========== RECOMMANDATIONS ========== */
+        .reco-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 16px;
+        }
+        .reco-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+        }
+        .reco-card .priority {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 3px 10px;
+            border-radius: 99px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .priority-high { background: #7f1d1d; color: #fca5a5; }
+        .priority-medium { background: #78350f; color: #fcd34d; }
+        .priority-low { background: #1e3a5f; color: #93c5fd; }
+        .reco-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 8px;
+            padding-right: 80px;
+        }
+        .reco-card p { font-size: 13px; color: #94a3b8; }
+        .reco-card ul {
+            margin-top: 8px;
+            padding-left: 16px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .reco-card li { margin-bottom: 4px; }
+
+        /* ========== TWO-COL ========== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .reco-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #475569;
+            font-size: 12px;
+            border-top: 1px solid #1e293b;
+            margin-top: 40px;
+        }
+
+        /* ========== KEYWORD BARS ========== */
+        .kw-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(51,65,85,0.5);
+        }
+        .kw-row:last-child { border-bottom: none; }
+        .kw-name { flex: 1; font-size: 13px; color: #cbd5e1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .kw-bar-track { width: 120px; height: 6px; background: #334155; border-radius: 99px; overflow: hidden; flex-shrink: 0; }
+        .kw-bar-fill { height: 100%; border-radius: 99px; background: #3b82f6; }
+        .kw-stats { font-size: 12px; color: #94a3b8; width: 160px; text-align: right; flex-shrink: 0; }
+
+        .highlight { color: #fbbf24; font-weight: 700; }
+        .text-red { color: #ef4444; }
+        .text-green { color: #10b981; }
+        .text-blue { color: #60a5fa; }
+
+        .divider {
+            height: 1px;
+            background: #334155;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="header-inner">
+        <div>
+            <h1>Audit Google Ads</h1>
+            <p style="color:#94a3b8; font-size:14px; margin-top:4px;">Select Chateaux - Campagnes Search</p>
+        </div>
+        <div class="date">4 mars 2026 &middot; P&eacute;riode : 28 jan - 4 mar 2026 (~5 semaines)</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ========== VERDICT GLOBAL ========== -->
+    <div class="verdict">
+        <div class="verdict-emoji">&#9888;&#65039;</div>
+        <h2>Alerte : 0 conversion en 5 semaines</h2>
+        <p>Tes campagnes g&eacute;n&egrave;rent du trafic (45 clics, CTR correct &agrave; 11,45%) mais <strong>aucun lead n'a &eacute;t&eacute; enregistr&eacute;</strong>. Le probl&egrave;me est soit le tracking des conversions, soit les landing pages, soit les deux.</p>
+        <div class="verdict-score">Score global : <strong>3/10</strong></div>
+    </div>
+
+    <!-- ========== KPIs GLOBAUX ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#1e3a5f;">&#128202;</div>
+            Chiffres cl&eacute;s - Vue d'ensemble
+        </div>
+        <div class="kpi-grid">
+            <div class="kpi-card blue">
+                <div class="kpi-label">Impressions</div>
+                <div class="kpi-value">393</div>
+                <div class="kpi-sub">~11 / jour en moyenne</div>
+            </div>
+            <div class="kpi-card purple">
+                <div class="kpi-label">Clics</div>
+                <div class="kpi-value">45</div>
+                <div class="kpi-sub">~1,3 / jour</div>
+            </div>
+            <div class="kpi-card green">
+                <div class="kpi-label">CTR (taux de clic)</div>
+                <div class="kpi-value">11,45%</div>
+                <div class="kpi-sub" style="color:#10b981;">Excellent (&gt;5% = bon)</div>
+            </div>
+            <div class="kpi-card orange">
+                <div class="kpi-label">CPC moyen</div>
+                <div class="kpi-value">24,57 &#8362;</div>
+                <div class="kpi-sub">~6,20 &euro; environ</div>
+            </div>
+            <div class="kpi-card red">
+                <div class="kpi-label">Conversions</div>
+                <div class="kpi-value" style="color:#ef4444;">0</div>
+                <div class="kpi-sub" style="color:#ef4444;">Probl&egrave;me critique</div>
+            </div>
+            <div class="kpi-card cyan">
+                <div class="kpi-label">Budget d&eacute;pens&eacute;</div>
+                <div class="kpi-value">1 105 &#8362;</div>
+                <div class="kpi-sub">~280 &euro; environ</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ALERTES CRITIQUES ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#7f1d1d;">&#128680;</div>
+            Probl&egrave;mes d&eacute;tect&eacute;s
+        </div>
+
+        <div class="alert alert-critical">
+            <div class="alert-icon">&#128308;</div>
+            <div>
+                <h4>0 conversion enregistr&eacute;e</h4>
+                <p>45 clics et aucune conversion. Soit le <strong>suivi des conversions n'est pas correctement configur&eacute;</strong> (le plus probable), soit les landing pages ne convertissent pas du tout. V&eacute;rifie en priorit&eacute; : le tag Google Ads est-il install&eacute; ? Le formulaire de devis d&eacute;clenche-t-il un &eacute;v&eacute;nement de conversion ?</p>
+            </div>
+        </div>
+
+        <div class="alert alert-critical">
+            <div class="alert-icon">&#128176;</div>
+            <div>
+                <h4>Devise en ILS (Shekel) au lieu d'EUR</h4>
+                <p>Ton compte Google Ads est configur&eacute; en <strong>Shekel isra&eacute;lien</strong> (ILS) au lieu d'Euro. Cela peut affecter le ciblage g&eacute;ographique et la facturation. V&eacute;rifie les param&egrave;tres de ton compte.</p>
+            </div>
+        </div>
+
+        <div class="alert alert-warning">
+            <div class="alert-icon">&#9888;&#65039;</div>
+            <div>
+                <h4>Campagne SNIPER_GEO_IDF limit&eacute;e par le budget</h4>
+                <p>Google indique "diffusion limit&eacute;e" par le budget. Tu rates des impressions potentielles. Le budget de 55 ILS/jour (~14&euro;) est insuffisant pour cette campagne g&eacute;o-cibl&eacute;e.</p>
+            </div>
+        </div>
+
+        <div class="alert alert-warning">
+            <div class="alert-icon">&#128683;</div>
+            <div>
+                <h4>70% des mots-cl&eacute;s inactifs</h4>
+                <p>Sur 69 mots-cl&eacute;s, <strong>48 ont 0 impression</strong>. La plupart sont marqu&eacute;s "rarement diffus&eacute;" = volume de recherche trop faible. Budget gaspill&eacute; en gestion de mots-cl&eacute;s inutiles.</p>
+            </div>
+        </div>
+
+        <div class="alert alert-info">
+            <div class="alert-icon">&#128197;</div>
+            <div>
+                <h4>2 premi&egrave;res semaines sans aucun clic</h4>
+                <p>Du 28 janvier au 9 f&eacute;vrier = 0 clic. Les campagnes ont mis du temps &agrave; d&eacute;marrer (phase d'apprentissage ou activation tardive).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== GRAPHIQUE TIMELINE ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#1e3a5f;">&#128200;</div>
+            &Eacute;volution des clics par jour
+        </div>
+        <div class="chart-wrap">
+            <canvas id="clicksChart" height="80"></canvas>
+        </div>
+    </div>
+
+    <!-- ========== CAMPAGNES ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#4c1d95;">&#127919;</div>
+            D&eacute;tail par campagne
+        </div>
+
+        <div class="table-wrap">
+            <h3>Performance des 2 campagnes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campagne</th>
+                        <th>Budget/jour</th>
+                        <th>Impr.</th>
+                        <th>Clics</th>
+                        <th>CTR</th>
+                        <th>CPC moy.</th>
+                        <th>Co&ucirc;t total</th>
+                        <th>Conv.</th>
+                        <th>&Eacute;tat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>INTENTION_LUXE</strong><br><span style="font-size:11px;color:#64748b;">Mots-cl&eacute;s g&eacute;n&eacute;raux s&eacute;minaire ch&acirc;teau</span></td>
+                        <td>25 &#8362;</td>
+                        <td>119</td>
+                        <td>15</td>
+                        <td><span class="text-green">12,61%</span></td>
+                        <td>23,79 &#8362;</td>
+                        <td>356,80 &#8362;</td>
+                        <td class="text-red"><strong>0</strong></td>
+                        <td><span class="badge badge-green">&Eacute;ligible</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SNIPER_GEO_IDF</strong><br><span style="font-size:11px;color:#64748b;">Ciblage g&eacute;o IDF (78, 60, 92)</span></td>
+                        <td>55 &#8362;</td>
+                        <td>274</td>
+                        <td>30</td>
+                        <td><span class="text-green">10,95%</span></td>
+                        <td>24,96 &#8362;</td>
+                        <td>748,68 &#8362;</td>
+                        <td class="text-red"><strong>0</strong></td>
+                        <td><span class="badge badge-orange">Limit&eacute; budget</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="two-col">
+            <div class="chart-wrap">
+                <h3>R&eacute;partition des clics</h3>
+                <canvas id="campaignClicks" height="200"></canvas>
+            </div>
+            <div class="chart-wrap">
+                <h3>R&eacute;partition du budget d&eacute;pens&eacute;</h3>
+                <canvas id="campaignCost" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ANNONCES ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#065f46;">&#128221;</div>
+            D&eacute;tail par annonce
+        </div>
+
+        <div class="table-wrap">
+            <h3>Performance des 4 annonces responsives</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Annonce</th>
+                        <th>Landing page</th>
+                        <th>Impr.</th>
+                        <th>Clics</th>
+                        <th>CTR</th>
+                        <th>CPC moy.</th>
+                        <th>Co&ucirc;t</th>
+                        <th>Efficacit&eacute;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Abbaye Chevreuse</strong><br><span style="font-size:11px;color:#64748b;">SNIPER_GEO_IDF &rarr; Chevreuse_78</span></td>
+                        <td style="font-size:11px;">/chateaux/abbaye-millenaire-vallee-chevreuse</td>
+                        <td>68</td>
+                        <td><strong>10</strong></td>
+                        <td><span class="text-green"><strong>14,71%</strong></span></td>
+                        <td>29,03 &#8362;</td>
+                        <td>290,25 &#8362;</td>
+                        <td><span class="badge badge-green">Bonne</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ch&acirc;teaux G&eacute;n&eacute;ral</strong><br><span style="font-size:11px;color:#64748b;">INTENTION_LUXE &rarr; Chateaux_General</span></td>
+                        <td style="font-size:11px;">/chateaux</td>
+                        <td>119</td>
+                        <td><strong>15</strong></td>
+                        <td><span class="text-green">12,61%</span></td>
+                        <td>23,79 &#8362;</td>
+                        <td>356,80 &#8362;</td>
+                        <td><span class="badge badge-green">Bonne</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>H&ocirc;tel Paris 92</strong><br><span style="font-size:11px;color:#64748b;">SNIPER_GEO_IDF &rarr; Paris_92</span></td>
+                        <td style="font-size:11px;">/chateaux/hotel-historique-seminaire-paris-92</td>
+                        <td>116</td>
+                        <td><strong>11</strong></td>
+                        <td>9,48%</td>
+                        <td>17,23 &#8362;</td>
+                        <td>189,49 &#8362;</td>
+                        <td><span class="badge badge-orange">Moyenne</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manoir Chantilly</strong><br><span style="font-size:11px;color:#64748b;">SNIPER_GEO_IDF &rarr; Chantilly_60</span></td>
+                        <td style="font-size:11px;">/chateaux/manoir-anglo-normand-chantilly</td>
+                        <td>91</td>
+                        <td><strong>9</strong></td>
+                        <td>9,89%</td>
+                        <td>29,88 &#8362;</td>
+                        <td>268,94 &#8362;</td>
+                        <td><span class="badge badge-green">Bonne</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ========== MOTS-CLES ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#78350f;">&#128273;</div>
+            Top mots-cl&eacute;s (par clics)
+        </div>
+
+        <div class="table-wrap">
+            <h3>Les 12 mots-cl&eacute;s qui ont g&eacute;n&eacute;r&eacute; des clics</h3>
+            <div style="padding: 8px 0;">
+                <div class="kw-row">
+                    <div class="kw-name">[location chateau s&eacute;minaire]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:100%;background:#3b82f6;"></div></div>
+                    <div class="kw-stats"><strong>7 clics</strong> &middot; 27 impr &middot; 25,9% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[s&eacute;minaire chantilly]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:100%;background:#8b5cf6;"></div></div>
+                    <div class="kw-stats"><strong>7 clics</strong> &middot; 53 impr &middot; 13,2% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[domaine s&eacute;minaire ile de france]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:43%;background:#3b82f6;"></div></div>
+                    <div class="kw-stats"><strong>3 clics</strong> &middot; 12 impr &middot; 25,0% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[s&eacute;minaire vall&eacute;e de chevreuse]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:43%;background:#10b981;"></div></div>
+                    <div class="kw-stats"><strong>3 clics</strong> &middot; 7 impr &middot; 42,9% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[chateau s&eacute;minaire ile de france]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:28%;background:#3b82f6;"></div></div>
+                    <div class="kw-stats"><strong>2 clics</strong> &middot; 4 impr &middot; 50,0% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[lieu s&eacute;minaire proche paris]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:14%;background:#f59e0b;"></div></div>
+                    <div class="kw-stats"><strong>1 clic</strong> &middot; 16 impr &middot; 6,3% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[lieu s&eacute;minaire au vert paris]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:14%;background:#f59e0b;"></div></div>
+                    <div class="kw-stats"><strong>1 clic</strong> &middot; 18 impr &middot; 5,6% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[lieu atypique s&eacute;minaire]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:14%;background:#f59e0b;"></div></div>
+                    <div class="kw-stats"><strong>1 clic</strong> &middot; 16 impr &middot; 6,3% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[s&eacute;minaire 78]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:14%;background:#8b5cf6;"></div></div>
+                    <div class="kw-stats"><strong>1 clic</strong> &middot; 19 impr &middot; 5,3% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[s&eacute;minaire yvelines]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:14%;background:#8b5cf6;"></div></div>
+                    <div class="kw-stats"><strong>1 clic</strong> &middot; 10 impr &middot; 10,0% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[s&eacute;minaire 92]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:14%;background:#8b5cf6;"></div></div>
+                    <div class="kw-stats"><strong>1 clic</strong> &middot; 13 impr &middot; 7,7% CTR</div>
+                </div>
+                <div class="kw-row">
+                    <div class="kw-name">[chateau s&eacute;minaire chantilly]</div>
+                    <div class="kw-bar-track"><div class="kw-bar-fill" style="width:14%;background:#10b981;"></div></div>
+                    <div class="kw-stats"><strong>1 clic</strong> &middot; 1 impr &middot; 100% CTR</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <h3>&#128308; Mots-cl&eacute;s probl&eacute;matiques (impressions sans clic)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mot-cl&eacute;</th>
+                        <th>Impressions</th>
+                        <th>Clics</th>
+                        <th>Diagnostic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>[s&eacute;minaire oise]</td>
+                        <td>20</td>
+                        <td class="text-red">0</td>
+                        <td><span class="badge badge-orange">CTR 0% - annonce non pertinente ?</span></td>
+                    </tr>
+                    <tr>
+                        <td>[soirée entreprise chateau]</td>
+                        <td>7</td>
+                        <td class="text-red">0</td>
+                        <td><span class="badge badge-orange">Intention diff&eacute;rente (soir&eacute;e ≠ s&eacute;minaire)</span></td>
+                    </tr>
+                    <tr>
+                        <td>[s&eacute;minaire au vert proche paris]</td>
+                        <td>7</td>
+                        <td class="text-red">0</td>
+                        <td><span class="badge badge-gray">Doublon avec "au vert paris"</span></td>
+                    </tr>
+                    <tr>
+                        <td>[s&eacute;minaire chevreuse]</td>
+                        <td>7</td>
+                        <td class="text-red">0</td>
+                        <td><span class="badge badge-orange">CTR 0% malgr&eacute; landing d&eacute;di&eacute;e</span></td>
+                    </tr>
+                    <tr>
+                        <td>[lieu s&eacute;minaire haut de gamme]</td>
+                        <td>5</td>
+                        <td class="text-red">0</td>
+                        <td><span class="badge badge-gray">Volume faible</span></td>
+                    </tr>
+                    <tr>
+                        <td>[salle s&eacute;minaire chateau]</td>
+                        <td>4</td>
+                        <td class="text-red">0</td>
+                        <td><span class="badge badge-gray">Volume faible</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Mots-clés inactifs -->
+        <div class="alert alert-warning">
+            <div class="alert-icon">&#128683;</div>
+            <div>
+                <h4>48 mots-cl&eacute;s avec 0 impression (rarement diffus&eacute;s)</h4>
+                <p>Principalement les mots-cl&eacute;s hyper-locaux de la campagne SNIPER_GEO_IDF : <em>[chateau s&eacute;minaire 60], [location chateau 92 entreprise], [s&eacute;minaire proche la d&eacute;fense], [domaine s&eacute;minaire oise]</em>... Ces mots-cl&eacute;s sont trop sp&eacute;cifiques et n'ont aucun volume de recherche. <strong>Il faut les remplacer ou passer en correspondance large.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ========== ANALYSE FORCES/FAIBLESSES ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#065f46;">&#9878;&#65039;</div>
+            Diagnostic : Forces & Faiblesses
+        </div>
+
+        <div class="two-col">
+            <div class="table-wrap">
+                <h3 style="color:#6ee7b7;">&#9989; Ce qui fonctionne</h3>
+                <div style="padding:16px 20px;">
+                    <div style="margin-bottom:16px;">
+                        <div style="font-weight:600;color:#6ee7b7;font-size:14px;">CTR excellent (11,45%)</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">La moyenne Search est ~3-5%. Ton CTR &agrave; 11,45% montre que tes annonces sont pertinentes et attirent le clic.</div>
+                    </div>
+                    <div style="margin-bottom:16px;">
+                        <div style="font-weight:600;color:#6ee7b7;font-size:14px;">Annonces bien r&eacute;dig&eacute;es</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">3/4 annonces not&eacute;es "Bonne" par Google. Les titres et descriptions sont pertinents.</div>
+                    </div>
+                    <div style="margin-bottom:16px;">
+                        <div style="font-weight:600;color:#6ee7b7;font-size:14px;">Strat&eacute;gie double pertinente</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">Campagne intention g&eacute;n&eacute;rale + sniper g&eacute;o = bon r&eacute;flexe de ciblage.</div>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;color:#6ee7b7;font-size:14px;">Landing pages d&eacute;di&eacute;es</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">Chaque groupe d'annonces a sa propre page (Chevreuse, Chantilly, Paris 92). Bonne pratique.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <h3 style="color:#fca5a5;">&#10060; Ce qui ne fonctionne pas</h3>
+                <div style="padding:16px 20px;">
+                    <div style="margin-bottom:16px;">
+                        <div style="font-weight:600;color:#fca5a5;font-size:14px;">0 conversion = ROI n&eacute;gatif total</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">1 105 ILS d&eacute;pens&eacute;s sans aucun lead. C'est le probl&egrave;me #1 &agrave; r&eacute;soudre imm&eacute;diatement.</div>
+                    </div>
+                    <div style="margin-bottom:16px;">
+                        <div style="font-weight:600;color:#fca5a5;font-size:14px;">Volume tr&egrave;s faible</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">45 clics en 5 semaines = insuffisant pour tirer des conclusions ou optimiser. March&eacute; niche.</div>
+                    </div>
+                    <div style="margin-bottom:16px;">
+                        <div style="font-weight:600;color:#fca5a5;font-size:14px;">70% des mots-cl&eacute;s morts</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">48/69 mots-cl&eacute;s n'ont jamais &eacute;t&eacute; affich&eacute;s. Trop sp&eacute;cifiques en correspondance exacte.</div>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;color:#fca5a5;font-size:14px;">Budget limit&eacute; sur SNIPER</div>
+                        <div style="font-size:13px;color:#94a3b8;margin-top:4px;">Google ne diffuse pas assez car le budget journalier est atteint trop vite.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ========== RECOMMANDATIONS ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#4c1d95;">&#128640;</div>
+            Plan d'action - Recommandations
+        </div>
+
+        <div class="reco-grid">
+            <div class="reco-card">
+                <div class="priority priority-high">URGENT</div>
+                <h4>1. V&eacute;rifier le tracking des conversions</h4>
+                <p>C'est la priorit&eacute; absolue. Sans tracking, tout l'argent est jet&eacute; par la fen&ecirc;tre.</p>
+                <ul>
+                    <li>V&eacute;rifier que le tag Google Ads est install&eacute; sur le site</li>
+                    <li>Configurer une action de conversion : formulaire de devis envoy&eacute;</li>
+                    <li>Tester avec le Tag Assistant de Google</li>
+                    <li>V&eacute;rifier les Enhanced Conversions (d&eacute;j&agrave; cod&eacute;es dans le site)</li>
+                </ul>
+            </div>
+
+            <div class="reco-card">
+                <div class="priority priority-high">URGENT</div>
+                <h4>2. Corriger la devise du compte</h4>
+                <p>Ton compte est en ILS (Shekel). Pour un business fran&ccedil;ais ciblant la France :</p>
+                <ul>
+                    <li>V&eacute;rifier le param&egrave;tre de devise dans Google Ads</li>
+                    <li>V&eacute;rifier le ciblage g&eacute;ographique (France uniquement ?)</li>
+                    <li>Note : la devise ne peut pas &ecirc;tre chang&eacute;e apr&egrave;s cr&eacute;ation du compte</li>
+                </ul>
+            </div>
+
+            <div class="reco-card">
+                <div class="priority priority-high">URGENT</div>
+                <h4>3. Nettoyer les mots-cl&eacute;s</h4>
+                <p>Supprimer les 48 mots-cl&eacute;s "rarement diffus&eacute;s" et optimiser :</p>
+                <ul>
+                    <li><strong>Garder</strong> : [location chateau s&eacute;minaire], [s&eacute;minaire chantilly], [s&eacute;minaire vall&eacute;e de chevreuse]</li>
+                    <li><strong>Passer en large</strong> : les mots-cl&eacute;s g&eacute;o (s&eacute;minaire 78, 92, 60)</li>
+                    <li><strong>Supprimer</strong> : tous les "rarement diffus&eacute;s" sans volume</li>
+                    <li><strong>Ajouter des n&eacute;gatifs</strong> : gratuit, pas cher, mariage, anniversaire</li>
+                </ul>
+            </div>
+
+            <div class="reco-card">
+                <div class="priority priority-medium">IMPORTANT</div>
+                <h4>4. Optimiser les landing pages</h4>
+                <p>M&ecirc;me si le CTR est bon, les pages doivent convertir :</p>
+                <ul>
+                    <li>CTA "Demander un devis" visible sans scroller</li>
+                    <li>Formulaire court (nom, email, t&eacute;l&eacute;phone, date, nb personnes)</li>
+                    <li>Num&eacute;ro de t&eacute;l&eacute;phone cliquable en haut</li>
+                    <li>T&eacute;moignages clients / logos entreprises</li>
+                    <li>Vitesse de chargement &lt; 3 secondes</li>
+                </ul>
+            </div>
+
+            <div class="reco-card">
+                <div class="priority priority-medium">IMPORTANT</div>
+                <h4>5. Am&eacute;liorer l'annonce Paris 92</h4>
+                <p>Seule annonce not&eacute;e "Moyenne" par Google :</p>
+                <ul>
+                    <li>Ajouter plus de mots-cl&eacute;s dans les titres</li>
+                    <li>Ajouter plus de mots-cl&eacute;s dans les descriptions</li>
+                    <li>Le CPC est le plus bas (17,23 &#8362;) = bon potentiel si am&eacute;lior&eacute;</li>
+                </ul>
+            </div>
+
+            <div class="reco-card">
+                <div class="priority priority-low">MOYEN TERME</div>
+                <h4>6. Augmenter le budget intelligemment</h4>
+                <p>Une fois le tracking fix&eacute; et les conversions mesur&eacute;es :</p>
+                <ul>
+                    <li>R&eacute;allouer le budget vers les mots-cl&eacute;s qui convertissent</li>
+                    <li>Augmenter SNIPER_GEO_IDF (actuellement limit&eacute;)</li>
+                    <li>Envisager Performance Max avec audience personnalis&eacute;e</li>
+                    <li>Tester des extensions d'annonces (lieu, appel, liens annexes)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ========== RESUME EXECUTIF ========== -->
+    <div class="section">
+        <div class="section-title">
+            <div class="icon" style="background:#1e3a5f;">&#128203;</div>
+            R&eacute;sum&eacute; ex&eacute;cutif
+        </div>
+
+        <div class="table-wrap">
+            <div style="padding:24px;">
+                <table style="margin-bottom:0;">
+                    <tbody>
+                        <tr>
+                            <td style="width:200px;font-weight:600;color:#f1f5f9;">P&eacute;riode</td>
+                            <td>28 janvier - 4 mars 2026 (5 semaines)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;color:#f1f5f9;">Budget total d&eacute;pens&eacute;</td>
+                            <td>1 105,48 ILS (~280 &euro;)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;color:#f1f5f9;">Visiteurs acquis</td>
+                            <td>45 clics</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;color:#f1f5f9;">Leads g&eacute;n&eacute;r&eacute;s</td>
+                            <td style="color:#ef4444;font-weight:700;">0 (tracking probablement d&eacute;faillant)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;color:#f1f5f9;">Co&ucirc;t par lead</td>
+                            <td style="color:#ef4444;font-weight:700;">&#8734; (pas de conversion mesur&eacute;e)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;color:#f1f5f9;">Qualit&eacute; des annonces</td>
+                            <td style="color:#10b981;">Bonne (CTR 11,45%)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;color:#f1f5f9;">Probl&egrave;me principal</td>
+                            <td style="color:#fbbf24;font-weight:600;">Tracking conversions absent ou mal configur&eacute;</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:600;color:#f1f5f9;">Action #1</td>
+                            <td style="color:#fbbf24;font-weight:600;">Configurer le suivi des conversions MAINTENANT</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    Audit g&eacute;n&eacute;r&eacute; le 4 mars 2026 &middot; Select Chateaux &middot; Donn&eacute;es Google Ads - P&eacute;riode 28/01/2026 - 04/03/2026
+</div>
+
+<!-- ========== CHARTS ========== -->
+<script>
+    // Timeline des clics
+    const clicksCtx = document.getElementById('clicksChart').getContext('2d');
+    new Chart(clicksCtx, {
+        type: 'bar',
+        data: {
+            labels: [
+                '28/01','29/01','30/01','31/01','01/02','02/02','03/02','04/02','05/02','06/02',
+                '07/02','08/02','09/02','10/02','11/02','12/02','13/02','14/02','15/02','16/02',
+                '17/02','18/02','19/02','20/02','21/02','22/02','23/02','24/02','25/02','26/02',
+                '27/02','28/02','01/03','02/03','03/03','04/03'
+            ],
+            datasets: [{
+                label: 'Clics par jour',
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,0,2,6,5,0,0,0,4,5,5,2,0,0,0,3,4,2,3,0,0,0,1,3,0],
+                backgroundColor: function(context) {
+                    const value = context.raw;
+                    if (value === 0) return 'rgba(100, 116, 139, 0.2)';
+                    if (value >= 5) return '#3b82f6';
+                    if (value >= 3) return '#60a5fa';
+                    return '#93c5fd';
+                },
+                borderRadius: 4,
+                borderSkipped: false,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1e293b',
+                    titleColor: '#f1f5f9',
+                    bodyColor: '#cbd5e1',
+                    borderColor: '#334155',
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    padding: 12,
+                }
+            },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(51, 65, 85, 0.3)' },
+                    ticks: { color: '#64748b', font: { size: 10 }, maxRotation: 45 }
+                },
+                y: {
+                    grid: { color: 'rgba(51, 65, 85, 0.3)' },
+                    ticks: { color: '#64748b', stepSize: 1 },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Donut clics par campagne
+    const clicksCampCtx = document.getElementById('campaignClicks').getContext('2d');
+    new Chart(clicksCampCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['INTENTION_LUXE', 'SNIPER_GEO_IDF'],
+            datasets: [{
+                data: [15, 30],
+                backgroundColor: ['#8b5cf6', '#3b82f6'],
+                borderColor: '#1e293b',
+                borderWidth: 3,
+            }]
+        },
+        options: {
+            responsive: true,
+            cutout: '65%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: '#94a3b8', padding: 16, font: { size: 12 } }
+                }
+            }
+        }
+    });
+
+    // Donut budget par campagne
+    const costCampCtx = document.getElementById('campaignCost').getContext('2d');
+    new Chart(costCampCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['INTENTION_LUXE (357 ILS)', 'SNIPER_GEO_IDF (749 ILS)'],
+            datasets: [{
+                data: [356.80, 748.68],
+                backgroundColor: ['#8b5cf6', '#3b82f6'],
+                borderColor: '#1e293b',
+                borderWidth: 3,
+            }]
+        },
+        options: {
+            responsive: true,
+            cutout: '65%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: '#94a3b8', padding: 16, font: { size: 12 } }
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
