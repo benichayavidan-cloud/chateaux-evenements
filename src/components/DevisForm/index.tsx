@@ -185,7 +185,7 @@ export function DevisForm() {
         isValid = await trigger("typeEvenement");
         break;
       case 2:
-        isValid = await trigger(["datesSouhaitees", "duree"]);
+        isValid = await trigger(["dateArrivee", "dateDepart", "duree"]);
         break;
       case 3:
         isValid = await trigger("chateauIds");

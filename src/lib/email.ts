@@ -37,26 +37,38 @@ const formatDuree = (duree: string): string => {
   return durees[duree] || duree;
 };
 
-// Fonction utilitaire pour formater la date en français
+// Fonction utilitaire pour formater une date ISO en français
 const formatDate = (dateString: string): string => {
   try {
     const date = new Date(dateString);
-
-    // Vérifier si la date est valide
-    if (isNaN(date.getTime())) {
-      return dateString; // Retourner la date originale si invalide
-    }
-
-    // Formater en français : "mercredi 29 janvier 2026"
+    if (isNaN(date.getTime())) return dateString;
     return date.toLocaleDateString('fr-FR', {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
       year: 'numeric'
     });
-  } catch (error) {
-    return dateString; // Retourner la date originale en cas d'erreur
+  } catch {
+    return dateString;
   }
+};
+
+// Parse le champ dates_souhaitees (format "arrivée|départ" ou ancienne date unique)
+const parseDates = (datesSouhaitees: string): { arrivee: string; depart: string | null } => {
+  if (datesSouhaitees.includes('|')) {
+    const [arrivee, depart] = datesSouhaitees.split('|');
+    return { arrivee, depart };
+  }
+  return { arrivee: datesSouhaitees, depart: null };
+};
+
+// Formater les dates pour affichage
+const formatDatesDisplay = (datesSouhaitees: string): string => {
+  const { arrivee, depart } = parseDates(datesSouhaitees);
+  if (depart) {
+    return `${formatDate(arrivee)} → ${formatDate(depart)}`;
+  }
+  return formatDate(arrivee);
 };
 
 // Fonction utilitaire pour obtenir les noms des châteaux sélectionnés avec département
@@ -202,7 +214,7 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
                       <strong style="color: #1e3a8a;">Type:</strong> ${formatTypeEvenement(devis.type_evenement)}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Date souhaitée:</strong> ${formatDate(devis.dates_souhaitees)}
+                      <strong style="color: #1e3a8a;">Dates:</strong> ${formatDatesDisplay(devis.dates_souhaitees)}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #1e3a8a;">Durée:</strong> ${formatDuree(devis.duree)}
@@ -372,7 +384,7 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                       <strong style="color: #059669;">Type d'événement:</strong> ${formatTypeEvenement(devis.type_evenement)}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #059669;">Date souhaitée:</strong> ${formatDate(devis.dates_souhaitees)}
+                      <strong style="color: #059669;">Dates:</strong> ${formatDatesDisplay(devis.dates_souhaitees)}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #059669;">Durée:</strong> ${formatDuree(devis.duree)}
@@ -497,7 +509,7 @@ Téléphone: ${devis.telephone_mobile}
 
 DÉTAILS ÉVÉNEMENT
 Type: ${formatTypeEvenement(devis.type_evenement)}
-Date souhaitée: ${formatDate(devis.dates_souhaitees)}
+Dates: ${formatDatesDisplay(devis.dates_souhaitees)}
 Durée: ${formatDuree(devis.duree)}
 Participants: ${devis.nombre_participants} ${devis.plus_de_500_participants ? '(Plus de 500)' : ''}
 Chambres: ${devis.nombre_chambres} ${devis.plus_de_400_chambres ? '(Plus de 400)' : ''} ${devis.chambres_twin ? '(avec options Twin)' : ''}
@@ -530,7 +542,7 @@ Notre équipe d'experts va étudier votre projet avec la plus grande attention.
 RÉCAPITULATIF DE VOTRE DEMANDE
 Référence: #DEV-${devis.id.substring(0, 8).toUpperCase()}
 Type d'événement: ${formatTypeEvenement(devis.type_evenement)}
-Date souhaitée: ${formatDate(devis.dates_souhaitees)}
+Dates: ${formatDatesDisplay(devis.dates_souhaitees)}
 Durée: ${formatDuree(devis.duree)}
 Nombre de participants: ${devis.nombre_participants} personne${devis.nombre_participants > 1 ? 's' : ''}
 Châteaux sélectionnés :

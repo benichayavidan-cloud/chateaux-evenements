@@ -12,7 +12,8 @@ const formSchema = z.object({
     "team-building",
     "autre",
   ]),
-  datesSouhaitees: z.string().min(1, "Veuillez sélectionner une date"),
+  dateArrivee: z.string().min(1, "Veuillez sélectionner une date d'arrivée"),
+  dateDepart: z.string().min(1, "Veuillez sélectionner une date de départ"),
   duree: z.enum(["1-jour", "2-jours", "3-jours-plus"]),
   chateauIds: z.array(z.string()).min(1, "Veuillez sélectionner au moins un château"),
   entreprise: z.string().min(2, "Nom de l'entreprise requis"),
@@ -76,7 +77,7 @@ export async function POST(request: NextRequest) {
     // Préparer les données pour Supabase
     const devisData = {
       type_evenement: data.typeEvenement,
-      dates_souhaitees: data.datesSouhaitees,
+      dates_souhaitees: `${data.dateArrivee}|${data.dateDepart}`,
       duree: data.duree,
       chateau_id: data.chateauIds.join(', '),
       entreprise: data.entreprise,

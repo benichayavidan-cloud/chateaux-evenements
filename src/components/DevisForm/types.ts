@@ -44,8 +44,11 @@ const customErrorMap = (issue: any, ctx: any): { message: string } => {
     if (fieldName === "chateauIds") {
       return { message: "Veuillez sélectionner au moins un château" };
     }
-    if (fieldName === "datesSouhaitees") {
-      return { message: "Veuillez sélectionner une date" };
+    if (fieldName === "dateArrivee") {
+      return { message: "Veuillez sélectionner une date d'arrivée" };
+    }
+    if (fieldName === "dateDepart") {
+      return { message: "Veuillez sélectionner une date de départ" };
     }
     if (fieldName === "entreprise") {
       return { message: "Nom de l'entreprise requis (minimum 2 caractères)" };
@@ -81,7 +84,8 @@ export const formSchema = z.object({
     "team-building",
     "autre",
   ]),
-  datesSouhaitees: z.string().min(1),
+  dateArrivee: z.string().min(1),
+  dateDepart: z.string().min(1),
   duree: z.enum(["1-jour", "2-jours", "3-jours-plus"]),
   chateauIds: z.array(z.string()).min(1),
   entreprise: z.string().min(2),

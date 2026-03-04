@@ -30,7 +30,8 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
     email: '',
     telephone: '',
     nombreParticipants: '',
-    dateSouhaitee: '',
+    dateArrivee: '',
+    dateDepart: '',
     message: '',
   });
 
@@ -45,7 +46,7 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
     if (isSubmitting) return;
 
     // Validation basique
-    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || !formData.dateSouhaitee) {
+    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || !formData.dateArrivee || !formData.dateDepart) {
       setError('Veuillez remplir tous les champs obligatoires.');
       return;
     }
@@ -58,7 +59,8 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
 
       const payload = {
         typeEvenement: 'seminaire' as const,
-        datesSouhaitees: formData.dateSouhaitee,
+        dateArrivee: formData.dateArrivee,
+        dateDepart: formData.dateDepart,
         duree: '1-jour' as const,
         chateauIds: [chateauId],
         entreprise: '-',
@@ -310,29 +312,60 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
             </div>
           </div>
 
-          {/* Date souhaitée */}
-          <div style={{ marginBottom: '16px' }}>
-            <label htmlFor="mini-date" style={labelStyle}>
-              Date souhaitée *
-            </label>
-            <input
-              id="mini-date"
-              name="dateSouhaitee"
-              type="date"
-              required
-              value={formData.dateSouhaitee}
-              onChange={handleChange}
-              min={new Date().toISOString().split('T')[0]}
-              style={inputStyle}
-              onFocus={(e) => {
-                e.currentTarget.style.borderColor = theme.colors.primary.bronze;
-                e.currentTarget.style.boxShadow = `0 0 0 3px ${theme.colors.primary.bronze}15`;
-              }}
-              onBlur={(e) => {
-                e.currentTarget.style.borderColor = theme.colors.neutral.gray300;
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            />
+          {/* Dates d'arrivée et de départ — 2 colonnes */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+            <div>
+              <label htmlFor="mini-date-arrivee" style={labelStyle}>
+                Date d&apos;arrivée *
+              </label>
+              <input
+                id="mini-date-arrivee"
+                name="dateArrivee"
+                type="date"
+                required
+                value={formData.dateArrivee}
+                onChange={handleChange}
+                onClick={(e) => {
+                  (e.currentTarget as HTMLInputElement).showPicker?.();
+                }}
+                min={new Date().toISOString().split('T')[0]}
+                style={{ ...inputStyle, cursor: 'pointer' }}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = theme.colors.primary.bronze;
+                  e.currentTarget.style.boxShadow = `0 0 0 3px ${theme.colors.primary.bronze}15`;
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = theme.colors.neutral.gray300;
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              />
+            </div>
+            <div>
+              <label htmlFor="mini-date-depart" style={labelStyle}>
+                Date de départ *
+              </label>
+              <input
+                id="mini-date-depart"
+                name="dateDepart"
+                type="date"
+                required
+                value={formData.dateDepart}
+                onChange={handleChange}
+                onClick={(e) => {
+                  (e.currentTarget as HTMLInputElement).showPicker?.();
+                }}
+                min={formData.dateArrivee || new Date().toISOString().split('T')[0]}
+                style={{ ...inputStyle, cursor: 'pointer' }}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = theme.colors.primary.bronze;
+                  e.currentTarget.style.boxShadow = `0 0 0 3px ${theme.colors.primary.bronze}15`;
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = theme.colors.neutral.gray300;
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              />
+            </div>
           </div>
 
           {/* Message optionnel */}

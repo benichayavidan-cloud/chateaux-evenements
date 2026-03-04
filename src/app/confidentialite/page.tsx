@@ -44,7 +44,7 @@ export default function ConfidentialitePage() {
           <p>
             Lorsque vous remplissez notre formulaire de demande de devis, nous collectons :
             nom et prénom, nom de l'entreprise, adresse email professionnelle, numéro de téléphone,
-            type d'événement souhaité, nombre de participants estimé, date souhaitée et budget approximatif.
+            type d'événement souhaité, nombre de participants estimé, dates d'arrivée et de départ souhaitées et budget approximatif.
           </p>
           <p>
             <strong>2.2. Données collectées automatiquement</strong>

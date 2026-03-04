@@ -76,7 +76,8 @@ export interface DevisFormData {
 
   // Étape 2
   nombreParticipants: number;
-  datesSouhaitees: Date | null;
+  dateArrivee: Date | null;
+  dateDepart: Date | null;
   duree: DureeEvent;
 
   // Étape 3
