@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { trackPhoneClick } from '@/components/Analytics';
 import { LogoCarousel } from '@/components/LogoCarousel';
 import { ReviewsSection } from '@/components/ReviewsSection';
+import DevisFormMini from '@/components/DevisFormMini';
 
 export default function ChateauxPage() {
   const searchParams = useSearchParams();
@@ -891,6 +892,13 @@ export default function ChateauxPage() {
               ))}
             </div>
           </div>
+        </Container>
+      </Section>
+
+      {/* Formulaire Devis Express */}
+      <Section background="white" style={{ padding: '0' }}>
+        <Container size="lg">
+          <DevisFormMini chateauId="conseil" chateauNom="Nos Châteaux d'Exception" />
         </Container>
       </Section>
 
