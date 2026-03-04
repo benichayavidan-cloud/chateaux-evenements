@@ -657,7 +657,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                         </span>
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <Text variant="bodyLarge" as="h3" style={{ lineHeight: theme.typography.lineHeight.snug, transition: "color 0.3s ease", fontWeight: theme.typography.fontWeight.semibold }}>
+                        <Text variant="body" as="h3" style={{ fontWeight: theme.typography.fontWeight.semibold, fontSize: theme.typography.fontSize.base, lineHeight: theme.typography.lineHeight.snug, transition: "color 0.3s ease", margin: 0 }}>
                           {item.question}
                         </Text>
                       </div>

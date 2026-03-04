@@ -2005,6 +2005,9 @@ nav button:active {
 .animate-scroll-third {
   animation: logoScrollThird 40s linear infinite;
 }
+.animate-scroll-third:hover {
+  animation-play-state: paused;
+}
 
 /* Hero scroll indicator mobile */
 @media (max-width: 768px) {

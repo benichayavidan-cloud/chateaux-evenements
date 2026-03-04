@@ -667,7 +667,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                         </span>
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <Text variant="h5" as="h3" style={{ lineHeight: theme.typography.lineHeight.snug, transition: 'color 0.3s ease' }} className="group-hover:text-[var(--bronze-antique)]">
+                        <Text variant="body" as="h3" style={{ fontWeight: theme.typography.fontWeight.semibold, fontSize: theme.typography.fontSize.base, lineHeight: theme.typography.lineHeight.snug, transition: 'color 0.3s ease', margin: 0 }} className="group-hover:text-[var(--bronze-antique)]">
                           {item.question}
                         </Text>
                       </div>

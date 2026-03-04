@@ -1,78 +1,77 @@
 "use client";
 
 import Image from "next/image";
-import { theme } from "@/config/theme";
-import { spacing } from "@/config/themeHelpers";
+import { theme } from "@/design-system/tokens";
 import { clientLogos } from "@/data/chateaux";
 
 export function LogoCarousel() {
-  // Dupliquer les logos pour créer un effet de boucle infinie
-  const duplicatedLogos = [...clientLogos, ...clientLogos];
+  // Dupliquer les logos 3x pour un défilement infini fluide (identique à la homepage)
+  const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <section className="overflow-hidden" style={{ background: theme.colors.neutral.white, paddingTop: 'clamp(1.375rem, 2.5vw, 1.875rem)', paddingBottom: '16px' }}>
-      <div className="w-full text-center px-5" style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
+    <section
+      style={{
+        background: '#f6f9fc',
+        padding: 'clamp(1.5rem, 4vw, 2.5rem) 0',
+        borderTop: `1px solid ${theme.colors.neutral.gray200}`,
+        borderBottom: `1px solid ${theme.colors.neutral.gray200}`,
+      }}
+    >
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 clamp(1rem, 3vw, 2rem)' }}>
         <p
           style={{
-            fontSize: theme.typography.fontSize.sm,
-            color: '#6b7c93',
-            textTransform: "uppercase",
+            textAlign: 'center',
+            textTransform: 'uppercase',
             letterSpacing: theme.typography.letterSpacing.wider,
-            fontWeight: theme.typography.fontWeight.medium,
-            width: "100%",
+            fontSize: theme.typography.fontSize.xs,
+            color: theme.colors.neutral.gray600,
+            margin: `0 auto ${theme.spacing['3xl']} auto`,
+            width: '100%',
           }}
         >
           Ils nous font confiance
         </p>
-      </div>
 
-      {/* Wrapper avec gradient fade sur les côtés */}
-      <div className="relative">
-        {/* Gradient gauche */}
-        <div
-          className="absolute left-0 top-0 bottom-0 z-10 pointer-events-none"
-          style={{
-            width: 'clamp(4rem, 15vw, 12rem)',
-            background: `linear-gradient(to right, ${theme.colors.neutral.white}, transparent)`,
-          }}
-        />
-
-        {/* Gradient droite */}
-        <div
-          className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
-          style={{
-            width: 'clamp(4rem, 15vw, 12rem)',
-            background: `linear-gradient(to left, ${theme.colors.neutral.white}, transparent)`,
-          }}
-        />
-
-        {/* Container du carousel avec animation */}
-        <div className="flex animate-scroll">
-          {duplicatedLogos.map((logo, index) => (
-            <div
-              key={`${logo.nom}-${index}`}
-              className="flex-shrink-0 flex items-center justify-center mx-6 md:mx-8"
-              style={{
-                width: "140px",
-                height: "80px",
-              }}
-            >
-              <div className="relative w-full h-full flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-300">
+        <div style={{ overflow: 'hidden', width: '100%' }}>
+          <div
+            className="animate-scroll-third"
+            style={{
+              display: 'flex',
+              gap: theme.spacing['3xl'],
+              alignItems: 'center',
+              width: 'max-content',
+            }}
+          >
+            {duplicatedLogos.map((logo, index) => (
+              <div
+                key={`${logo.nom}-${index}`}
+                style={{
+                  width: '140px',
+                  height: '80px',
+                  position: 'relative',
+                  flexShrink: 0,
+                  opacity: 0.8,
+                  transition: `opacity ${theme.effects.transitions.smooth}`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = '0.8';
+                }}
+              >
                 <Image
                   src={logo.url}
                   alt={`Logo ${logo.nom} - Client Select Châteaux`}
-                  width={100}
-                  height={60}
-                  sizes="100px"
-                  className="object-contain"
-                  loading="lazy"
+                  fill
+                  sizes="140px"
+                  style={{ objectFit: 'contain' }}
                 />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-
     </section>
   );
 }
