@@ -210,37 +210,6 @@ export default function ChateauxPage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-8 z-10">
-          <div
-            className="flex flex-col items-center gap-3 animate-bounce-gentle"
-          >
-            <span
-              style={{
-                color: 'white',
-                fontSize: theme.typography.fontSize.xs,
-                textTransform: "uppercase",
-                letterSpacing: theme.typography.letterSpacing.widest,
-                fontWeight: theme.typography.fontWeight.bold,
-                textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 0 1px rgba(0,0,0,0.9)'
-              }}
-            >
-              Découvrez
-            </span>
-            <div
-              className="w-6 h-10 rounded-full border-2 flex items-start justify-center p-2 shadow-xl"
-              style={{
-                borderColor: 'rgba(255, 255, 255, 0.9)',
-                background: 'rgba(255, 255, 255, 0.95)',
-              }}
-            >
-              <div
-                className="w-1 h-2 rounded-full"
-                style={{ background: theme.colors.primary.bronze }}
-              />
-            </div>
-          </div>
-        </div>
       </div>
 
       {/* ========== 1. HEADER PITCH - Dynamique selon le département ========== */}
