@@ -31,6 +31,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
   const [formData, setFormData] = useState({
     nomPrenom: '',
+    entreprise: '',
     email: '',
     telephone: '',
     nombreParticipants: '',
@@ -68,16 +69,15 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         dateDepart: formData.dateDepart,
         duree: '1-jour' as const,
         chateauIds: allIds,
-        entreprise: '-',
+        entreprise: formData.entreprise || '-',
         nomPrenom: formData.nomPrenom,
         email: formData.email,
         telephoneMobile: formData.telephone,
         nombreParticipants: parseInt(formData.nombreParticipants, 10),
         nombreChambres: 1,
         budget: '',
-        commentaireDeroulement: formData.message
-          ? `[Devis Express - ${formLabel}] ${formData.message}`
-          : `[Devis Express - ${formLabel}]`,
+        commentaireDeroulement: formData.message || '',
+        sourceLabel: formLabel,
         gclid: gclid || undefined,
       };
 
@@ -221,11 +221,15 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
         {/* Form — layout horizontal */}
         <form onSubmit={handleSubmit}>
-          {/* Ligne 1 : Nom, Email, Téléphone */}
+          {/* Ligne 1 : Nom, Entreprise, Email, Téléphone */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '12px' }}>
             <div>
               <label htmlFor="mini-nom" style={labelStyle}>Nom & Prénom *</label>
               <input id="mini-nom" name="nomPrenom" type="text" required placeholder="Jean Dupont" value={formData.nomPrenom} onChange={handleChange} style={inputStyle} {...focusHandlers} />
+            </div>
+            <div>
+              <label htmlFor="mini-entreprise" style={labelStyle}>Entreprise</label>
+              <input id="mini-entreprise" name="entreprise" type="text" placeholder="Nom de l'entreprise" value={formData.entreprise} onChange={handleChange} style={inputStyle} {...focusHandlers} />
             </div>
             <div>
               <label htmlFor="mini-email" style={labelStyle}>Email professionnel *</label>

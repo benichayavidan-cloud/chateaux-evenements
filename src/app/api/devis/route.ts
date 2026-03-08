@@ -31,6 +31,7 @@ const formSchema = z.object({
   chambresTwin: z.boolean().optional(),
   budget: z.string().optional().default(''),
   commentaireDeroulement: z.string().optional(),
+  sourceLabel: z.string().optional(),
   gclid: z.string().optional(),
 }).refine(
   (data) => data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
@@ -124,10 +125,11 @@ export async function POST(request: NextRequest) {
     // Envoyer les emails de notification
     if (insertedData && insertedData.length > 0) {
       const newDevis = insertedData[0];
+      const sourceLabel = data.sourceLabel || '';
 
       // Emails envoyés en parallèle, erreurs silencieuses (non-bloquantes)
       await Promise.allSettled([
-        sendAdminNotification(newDevis),
+        sendAdminNotification(newDevis, sourceLabel),
         sendClientConfirmation(newDevis),
       ]);
     }

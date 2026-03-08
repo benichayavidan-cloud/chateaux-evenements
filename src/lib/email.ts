@@ -15,28 +15,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Fonction utilitaire pour formater les types d'événements
-const formatTypeEvenement = (type: string): string => {
-  const types: Record<string, string> = {
-    'seminaire': 'Séminaire Résidentiel',
-    'journee-etude': 'Journée d\'Étude',
-    'soiree-entreprise': 'Soirée d\'Entreprise',
-    'team-building': 'Team Building',
-    'autre': 'Autre',
-  };
-  return types[type] || type;
-};
-
-// Fonction utilitaire pour formater la durée
-const formatDuree = (duree: string): string => {
-  const durees: Record<string, string> = {
-    '1-jour': '1 jour',
-    '2-jours': '2 jours',
-    '3-jours-plus': '3 jours ou plus',
-  };
-  return durees[duree] || duree;
-};
-
 // Fonction utilitaire pour formater une date ISO en français
 const formatDate = (dateString: string): string => {
   try {
@@ -53,7 +31,7 @@ const formatDate = (dateString: string): string => {
   }
 };
 
-// Parse le champ dates_souhaitees (format "arrivée|départ" ou ancienne date unique)
+// Parse le champ dates_souhaitees (format "arrivée|départ" ou date unique)
 const parseDates = (datesSouhaitees: string): { arrivee: string; depart: string | null } => {
   if (datesSouhaitees.includes('|')) {
     const [arrivee, depart] = datesSouhaitees.split('|');
@@ -62,13 +40,16 @@ const parseDates = (datesSouhaitees: string): { arrivee: string; depart: string 
   return { arrivee: datesSouhaitees, depart: null };
 };
 
-// Formater les dates pour affichage
-const formatDatesDisplay = (datesSouhaitees: string): string => {
-  const { arrivee, depart } = parseDates(datesSouhaitees);
-  if (depart) {
-    return `${formatDate(arrivee)} → ${formatDate(depart)}`;
-  }
-  return formatDate(arrivee);
+// Convertir la valeur numérique du dropdown en tranche lisible
+const formatParticipantsRange = (nombre: number): string => {
+  const ranges: Record<number, string> = {
+    20: '10 - 30 personnes',
+    50: '30 - 80 personnes',
+    100: '80 - 150 personnes',
+    200: '150 - 300 personnes',
+    400: '300 - 500 personnes',
+  };
+  return ranges[nombre] || `${nombre} personnes`;
 };
 
 // Fonction utilitaire pour obtenir les noms des châteaux sélectionnés avec département
@@ -82,11 +63,8 @@ const getChateauxNoms = (chateauIds: string): string => {
     .map(id => {
       const chateau = chateaux.find(c => c.id === id);
       if (!chateau) return null;
-
-      // Extraire le département depuis le ref (format "#60-CHANTILLY")
       const deptMatch = chateau.ref.match(/#(\d+)-/);
       const dept = deptMatch ? deptMatch[1] : '';
-
       return dept ? `${chateau.nom} (${dept})` : chateau.nom;
     })
     .filter(Boolean);
@@ -139,7 +117,9 @@ const getChateauxNomsText = (chateauIds: string): string => {
 };
 
 // Template HTML pour l'email admin
-const getAdminEmailTemplate = (devis: DemandeDevis): string => {
+const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string): string => {
+  const { arrivee, depart } = parseDates(devis.dates_souhaitees);
+
   return `
 <!DOCTYPE html>
 <html lang="fr">
@@ -170,23 +150,25 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
           <tr>
             <td style="padding: 40px;">
 
-              <!-- Informations Client -->
+              <!-- Contact -->
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 30px;">
                 <tr>
                   <td>
                     <h2 style="color: #1e3a8a; font-size: 20px; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3b82f6;">
-                      👤 Informations Client
+                      👤 Contact
                     </h2>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding: 15px; background-color: #f8fafc; border-radius: 6px;">
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
+                      <strong style="color: #1e3a8a;">Nom & Prénom:</strong> ${devis.nom_prenom}
+                    </p>
+                    ${devis.entreprise && devis.entreprise !== '-' ? `
+                    <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #1e3a8a;">Entreprise:</strong> ${devis.entreprise}
                     </p>
-                    <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Contact:</strong> ${devis.nom_prenom}
-                    </p>
+                    ` : ''}
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #1e3a8a;">Email:</strong>
                       <a href="mailto:${devis.email}" style="color: #3b82f6; text-decoration: none;">${devis.email}</a>
@@ -199,35 +181,28 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
                 </tr>
               </table>
 
-              <!-- Détails Événement -->
+              <!-- Événement -->
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 30px;">
                 <tr>
                   <td>
                     <h2 style="color: #1e3a8a; font-size: 20px; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3b82f6;">
-                      🎯 Détails Événement
+                      📅 Événement
                     </h2>
                   </td>
                 </tr>
                 <tr>
                   <td style="padding: 15px; background-color: #f8fafc; border-radius: 6px;">
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Type:</strong> ${formatTypeEvenement(devis.type_evenement)}
+                      <strong style="color: #1e3a8a;">Participants:</strong> ${formatParticipantsRange(devis.nombre_participants)}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Dates:</strong> ${formatDatesDisplay(devis.dates_souhaitees)}
+                      <strong style="color: #1e3a8a;">Date d'arrivée:</strong> ${formatDate(arrivee)}
                     </p>
+                    ${depart ? `
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Durée:</strong> ${formatDuree(devis.duree)}
+                      <strong style="color: #1e3a8a;">Date de départ:</strong> ${formatDate(depart)}
                     </p>
-                    <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Participants:</strong> ${devis.nombre_participants} ${devis.plus_de_500_participants ? '(Plus de 500)' : ''}
-                    </p>
-                    <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Chambres:</strong> ${devis.nombre_chambres} ${devis.plus_de_400_chambres ? '(Plus de 400)' : ''} ${devis.chambres_twin ? '(avec options Twin)' : ''}
-                    </p>
-                    <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Budget estimé:</strong> ${devis.budget}
-                    </p>
+                    ` : ''}
                   </td>
                 </tr>
               </table>
@@ -237,7 +212,7 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
                 <tr>
                   <td>
                     <h2 style="color: #1e3a8a; font-size: 20px; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3b82f6;">
-                      🏰 Châteaux Sélectionnés
+                      🏰 Châteaux sélectionnés
                     </h2>
                   </td>
                 </tr>
@@ -249,12 +224,12 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
               </table>
 
               ${devis.commentaire_deroulement ? `
-              <!-- Commentaire Client -->
+              <!-- Message -->
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 30px;">
                 <tr>
                   <td>
                     <h2 style="color: #1e3a8a; font-size: 20px; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3b82f6;">
-                      💬 Commentaire Client
+                      💬 Message
                     </h2>
                   </td>
                 </tr>
@@ -268,21 +243,14 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
               </table>
               ` : ''}
 
-              ${devis.fichier_url ? `
-              <!-- Fichier Joint -->
-              <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 30px;">
+              ${sourceLabel ? `
+              <!-- Source -->
+              <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td>
-                    <h2 style="color: #1e3a8a; font-size: 20px; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3b82f6;">
-                      📎 Fichier Joint
-                    </h2>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 15px; background-color: #f8fafc; border-radius: 6px;">
-                    <a href="${devis.fichier_url}" style="color: #3b82f6; text-decoration: none; font-size: 15px;">
-                      📄 Télécharger le fichier
-                    </a>
+                  <td style="padding: 10px 15px; background-color: #eef2ff; border-radius: 6px;">
+                    <p style="margin: 0; color: #6366f1; font-size: 13px;">
+                      📍 <strong>Source:</strong> ${sourceLabel}
+                    </p>
                   </td>
                 </tr>
               </table>
@@ -326,6 +294,8 @@ const getAdminEmailTemplate = (devis: DemandeDevis): string => {
 
 // Template HTML pour l'email client
 const getClientEmailTemplate = (devis: DemandeDevis): string => {
+  const { arrivee, depart } = parseDates(devis.dates_souhaitees);
+
   return `
 <!DOCTYPE html>
 <html lang="fr">
@@ -362,8 +332,8 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
               </p>
 
               <p style="color: #334155; font-size: 16px; line-height: 1.6; margin: 0 0 30px 0;">
-                Nous avons bien reçu votre demande de devis pour votre événement d'entreprise.
-                Notre équipe d'experts va étudier votre projet avec la plus grande attention.
+                Nous avons bien reçu votre demande de devis.
+                Notre équipe va étudier votre projet avec la plus grande attention.
               </p>
 
               <!-- Récapitulatif -->
@@ -371,7 +341,7 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                 <tr>
                   <td>
                     <h2 style="color: #059669; font-size: 20px; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #10b981;">
-                      📋 Récapitulatif de votre demande
+                      📋 Récapitulatif
                     </h2>
                   </td>
                 </tr>
@@ -381,17 +351,16 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                       <strong style="color: #059669;">Référence:</strong> #DEV-${devis.id.substring(0, 8).toUpperCase()}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #059669;">Type d'événement:</strong> ${formatTypeEvenement(devis.type_evenement)}
+                      <strong style="color: #059669;">Participants:</strong> ${formatParticipantsRange(devis.nombre_participants)}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #059669;">Dates:</strong> ${formatDatesDisplay(devis.dates_souhaitees)}
+                      <strong style="color: #059669;">Date d'arrivée:</strong> ${formatDate(arrivee)}
                     </p>
+                    ${depart ? `
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #059669;">Durée:</strong> ${formatDuree(devis.duree)}
+                      <strong style="color: #059669;">Date de départ:</strong> ${formatDate(depart)}
                     </p>
-                    <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #059669;">Nombre de participants:</strong> ${devis.nombre_participants} personne${devis.nombre_participants > 1 ? 's' : ''}
-                    </p>
+                    ` : ''}
                     <p style="margin: 8px 0 4px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #059669;">Châteaux sélectionnés :</strong>
                     </p>
@@ -415,21 +384,21 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                       <tr>
                         <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
                           <p style="margin: 0; color: #334155; font-size: 15px; line-height: 1.6;">
-                            <strong style="color: #059669;">1.</strong> Notre équipe analyse votre demande et vérifie la disponibilité des châteaux
+                            <strong style="color: #059669;">1.</strong> Notre équipe vérifie la disponibilité des châteaux
                           </p>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
                           <p style="margin: 0; color: #334155; font-size: 15px; line-height: 1.6;">
-                            <strong style="color: #059669;">2.</strong> Nous vous recontactons sous <strong>24 à 48 heures</strong> avec une proposition personnalisée
+                            <strong style="color: #059669;">2.</strong> Réponse sous <strong>24 à 48 heures</strong> avec une proposition personnalisée
                           </p>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding: 15px 0;">
                           <p style="margin: 0; color: #334155; font-size: 15px; line-height: 1.6;">
-                            <strong style="color: #059669;">3.</strong> Nous affinons ensemble votre projet pour créer un événement inoubliable
+                            <strong style="color: #059669;">3.</strong> On affine ensemble votre projet
                           </p>
                         </td>
                       </tr>
@@ -438,17 +407,14 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                 </tr>
               </table>
 
-              <!-- Informations de contact -->
+              <!-- Contact -->
               <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
                 <tr>
                   <td style="padding: 20px; background-color: #fef3c7; border-radius: 6px; border-left: 4px solid #f59e0b;">
                     <p style="margin: 0 0 10px 0; color: #92400e; font-size: 15px; font-weight: 600;">
                       Une question en attendant ?
                     </p>
-                    <p style="margin: 0; color: #78350f; font-size: 14px; line-height: 1.6;">
-                      N'hésitez pas à nous contacter :
-                    </p>
-                    <p style="margin: 10px 0 0 0; color: #78350f; font-size: 14px;">
+                    <p style="margin: 0; color: #78350f; font-size: 14px;">
                       📧 <a href="mailto:seminaires@selectchateaux.com" style="color: #b45309; text-decoration: none;">seminaires@selectchateaux.com</a>
                     </p>
                   </td>
@@ -496,33 +462,26 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
 };
 
 // Version texte brut pour l'email admin (fallback)
-const getAdminEmailText = (devis: DemandeDevis): string => {
+const getAdminEmailText = (devis: DemandeDevis, sourceLabel: string): string => {
+  const { arrivee, depart } = parseDates(devis.dates_souhaitees);
+
   return `
 NOUVELLE DEMANDE DE DEVIS
 Référence: #DEV-${devis.id.substring(0, 8).toUpperCase()}
 
-INFORMATIONS CLIENT
-Entreprise: ${devis.entreprise}
-Contact: ${devis.nom_prenom}
-Email: ${devis.email}
+CONTACT
+Nom & Prénom: ${devis.nom_prenom}
+${devis.entreprise && devis.entreprise !== '-' ? `Entreprise: ${devis.entreprise}\n` : ''}Email: ${devis.email}
 Téléphone: ${devis.telephone_mobile}
 
-DÉTAILS ÉVÉNEMENT
-Type: ${formatTypeEvenement(devis.type_evenement)}
-Dates: ${formatDatesDisplay(devis.dates_souhaitees)}
-Durée: ${formatDuree(devis.duree)}
-Participants: ${devis.nombre_participants} ${devis.plus_de_500_participants ? '(Plus de 500)' : ''}
-Chambres: ${devis.nombre_chambres} ${devis.plus_de_400_chambres ? '(Plus de 400)' : ''} ${devis.chambres_twin ? '(avec options Twin)' : ''}
-Budget estimé: ${devis.budget}
-
+ÉVÉNEMENT
+Participants: ${formatParticipantsRange(devis.nombre_participants)}
+Date d'arrivée: ${formatDate(arrivee)}
+${depart ? `Date de départ: ${formatDate(depart)}\n` : ''}
 CHÂTEAUX SÉLECTIONNÉS
 ${getChateauxNomsText(devis.chateau_id)}
 
-${devis.commentaire_deroulement ? `COMMENTAIRE CLIENT\n${devis.commentaire_deroulement}\n\n` : ''}
-${devis.fichier_url ? `FICHIER JOINT\n${devis.fichier_url}\n\n` : ''}
-
-Voir dans Supabase: https://supabase.com/dashboard/project/jmeiepmtgidqtmxfnlwf/editor
-
+${devis.commentaire_deroulement ? `MESSAGE\n${devis.commentaire_deroulement}\n\n` : ''}${sourceLabel ? `Source: ${sourceLabel}\n\n` : ''}
 ---
 SELECT CHÂTEAUX - Séminaires d'Exception
 60 Rue François 1er, 75008 Paris, France
@@ -533,28 +492,28 @@ Demande reçue le ${new Date(devis.created_at).toLocaleDateString('fr-FR')}
 
 // Version texte brut pour l'email client (fallback)
 const getClientEmailText = (devis: DemandeDevis): string => {
+  const { arrivee, depart } = parseDates(devis.dates_souhaitees);
+
   return `
 Bonjour ${devis.nom_prenom},
 
-Nous avons bien reçu votre demande de devis pour votre événement d'entreprise.
-Notre équipe d'experts va étudier votre projet avec la plus grande attention.
+Nous avons bien reçu votre demande de devis.
+Notre équipe va étudier votre projet avec la plus grande attention.
 
-RÉCAPITULATIF DE VOTRE DEMANDE
+RÉCAPITULATIF
 Référence: #DEV-${devis.id.substring(0, 8).toUpperCase()}
-Type d'événement: ${formatTypeEvenement(devis.type_evenement)}
-Dates: ${formatDatesDisplay(devis.dates_souhaitees)}
-Durée: ${formatDuree(devis.duree)}
-Nombre de participants: ${devis.nombre_participants} personne${devis.nombre_participants > 1 ? 's' : ''}
-Châteaux sélectionnés :
+Participants: ${formatParticipantsRange(devis.nombre_participants)}
+Date d'arrivée: ${formatDate(arrivee)}
+${depart ? `Date de départ: ${formatDate(depart)}\n` : ''}Châteaux sélectionnés :
 ${getChateauxNomsText(devis.chateau_id)}
 
 PROCHAINES ÉTAPES
-1. Notre équipe analyse votre demande et vérifie la disponibilité des châteaux
-2. Nous vous recontactons sous 24 à 48 heures avec une proposition personnalisée
-3. Nous affinons ensemble votre projet pour créer un événement inoubliable
+1. Notre équipe vérifie la disponibilité des châteaux
+2. Réponse sous 24 à 48 heures avec une proposition personnalisée
+3. On affine ensemble votre projet
 
 UNE QUESTION EN ATTENDANT ?
-N'hésitez pas à nous contacter : seminaires@selectchateaux.com
+seminaires@selectchateaux.com
 
 À très bientôt,
 L'équipe SELECT CHÂTEAUX
@@ -596,7 +555,7 @@ async function sendEmail(to: string, subject: string, html: string, text: string
 }
 
 // Envoyer l'email de notification à l'administrateur
-export async function sendAdminNotification(devis: DemandeDevis): Promise<boolean> {
+export async function sendAdminNotification(devis: DemandeDevis, sourceLabel: string = ''): Promise<boolean> {
   const adminEmail = process.env.EMAIL_ADMIN || process.env.SMTP_USER;
 
   if (!adminEmail) {
@@ -604,9 +563,9 @@ export async function sendAdminNotification(devis: DemandeDevis): Promise<boolea
     return false;
   }
 
-  const subject = `🔔 Nouvelle demande de devis - ${formatTypeEvenement(devis.type_evenement)}`;
-  const html = getAdminEmailTemplate(devis);
-  const text = getAdminEmailText(devis);
+  const subject = `🔔 Nouvelle demande de devis - ${devis.nom_prenom}`;
+  const html = getAdminEmailTemplate(devis, sourceLabel);
+  const text = getAdminEmailText(devis, sourceLabel);
 
   return sendEmail(adminEmail, subject, html, text);
 }
