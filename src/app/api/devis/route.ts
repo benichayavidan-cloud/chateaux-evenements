@@ -114,8 +114,9 @@ export async function POST(request: NextRequest) {
       .select();
 
     if (error) {
+      console.error('Supabase insert error:', JSON.stringify(error));
       return NextResponse.json(
-        { error: 'Erreur lors de l\'enregistrement de la demande' },
+        { error: 'Erreur lors de l\'enregistrement de la demande', details: error.message },
         { status: 500 }
       );
     }
