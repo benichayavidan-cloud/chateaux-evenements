@@ -20,7 +20,7 @@ const formSchema = z.object({
   dateDepart: z.string().min(1).optional(),
   duree: z.enum(["1-jour", "2-jours", "3-jours-plus"]),
   chateauIds: z.array(z.string()).min(1, "Veuillez sélectionner au moins un château"),
-  entreprise: z.string().min(2, "Nom de l'entreprise requis"),
+  entreprise: z.string().min(1).default('-'),
   nomPrenom: z.string().min(2, "Nom et prénom requis"),
   email: z.string().email("Email invalide"),
   telephoneMobile: z.string().min(10, "Numéro de téléphone invalide"),
@@ -29,7 +29,7 @@ const formSchema = z.object({
   plusDe500Participants: z.boolean().optional(),
   plusDe400Chambres: z.boolean().optional(),
   chambresTwin: z.boolean().optional(),
-  budget: z.string().min(1, "Budget requis"),
+  budget: z.string().optional().default(''),
   commentaireDeroulement: z.string().optional(),
   gclid: z.string().optional(),
 }).refine(

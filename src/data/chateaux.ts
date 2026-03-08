@@ -43,7 +43,7 @@ export const chateaux: Chateau[] = [
     ],
     images: {
       hero: [
-        imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp"),
+        "/images/chateau-anglo-normand-vue-aerienne-parc-foret-chantilly.webp",
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-automne-lierre-rouge-arc-en-ciel.webp"),
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-auditorium-conference-led-bleu-ecran-geant.webp"),
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-salle-seminaire-theatre-pierre-apparente-bois.webp"),
@@ -64,11 +64,11 @@ export const chateaux: Chateau[] = [
     seoH1: "Grand Château de style Anglo-Normand à Chantilly",
     seoTitle: "Château Séminaire Chantilly (60) | Grand Domaine 280 pers",
     accrocheHero: "Architecture Majestueuse & Spa de Prestige à 35 min de Paris",
-    descriptionLongue: "Le domaine de référence pour vos conventions d'envergure et kick-offs annuels. Une architecture anglo-normande exceptionnelle de 120 chambres, nichée au cœur d'une forêt privée. L'unique lieu de l'Oise capable d'accueillir 280 personnes en résidentiel, avec un amphithéâtre privé de 280 places et un spa de prestige de 800m². Unité de lieu parfaite : travail, restauration et hébergement sur un seul site.",
-    roomsTotal: 120,
+    descriptionLongue: "Le plus grand château-hôtel de France, à seulement 35 minutes de Paris. Un domaine majestueux de 6 hectares niché au cœur de la forêt de Chantilly, cerné par trois forêts centenaires. 120 chambres élégantes, 21 salles de réunion modulables baignées de lumière naturelle (de 15 à 240 m²), un spa Codage Paris avec piscine intérieure, et un restaurant gastronomique avec terrasse panoramique. Séminaires résidentiels, soirées de gala, journées d'étude ou team building en pleine nature : travail, hébergement, restauration et détente se déroulent sur un seul site, sans aucun transfert. L'unité de lieu parfaite pour des événements de 10 à 280 personnes.",
+    roomsTotal: 119,
     roomsTwin: 103,
-    bedroomText: "120 chambres au décor contemporain ou traditionnel, dont 103 en configuration Twin. Vue apaisante sur la forêt ou le parc privé.",
-    meetingText: "18 salles de réunion éclairées à la lumière du jour, dont un amphithéâtre de 280 places équipé d'une régie audiovisuelle complète pour vos plénières.",
+    bedroomText: "119 chambres et suites élégantes avec vue sur les jardins du château et la forêt de Chantilly. 103 chambres en configuration Twin idéales pour vos séminaires résidentiels. Accès au spa Codage Paris avec piscine intérieure, sauna et hammam pour une détente totale entre vos sessions de travail.",
+    meetingText: "21 salles de réunion modulables de 15 à 240 m², toutes baignées de lumière naturelle. Une Immersive Room de 240 m² pouvant accueillir 280 personnes en configuration théâtre, des salles de bal, un Yacht Club, des lofts privatifs et des salons confidentiels. Équipements complets : vidéoprojecteur, écran LCD, micro, système son. Configurations flexibles en U, théâtre, cabaret ou école selon vos besoins.",
     faq: [
       {
         question: "Quelle est la capacité de l'amphithéâtre ?",
@@ -107,12 +107,12 @@ export const chateaux: Chateau[] = [
     },
     styleArchitectural: "Bâtisse du XVIIe siècle classée Monument Historique",
     description:
-      "Un écrin de confidentialité aux portes de Paris. Bâtisse du XVIIe siècle classée Monument Historique, transformée en hôtel 5 étoiles. Jardin suspendu avec vue panoramique et accessibilité métro unique.",
+      "Boutique-hôtel 5 étoiles MGallery à 2 arrêts de métro de Paris. Vue Tour Eiffel, jardin botanique 5 000 m², spa 360 m², chapelle transformée en bar à rhum et restaurant bistronomique bio. L'adresse confidentielle par excellence.",
     atouts: [
-      "Luxe 5 Étoiles",
-      "Jardin Suspendu",
+      "MGallery 5 Étoiles",
+      "Vue Tour Eiffel",
       "Accessible Métro",
-      "Gastronomie",
+      "Spa 360m²",
     ],
     images: {
       hero: [
@@ -136,36 +136,36 @@ export const chateaux: Chateau[] = [
     slug: "hotel-historique-seminaire-paris-92",
     seoH1: "Domaine Historique de Luxe aux Portes de Paris",
     seoTitle: "Hôtel Séminaire Luxe 92 | Domaine 5★ Accessible Métro Paris",
-    accrocheHero: "Bâtisse Classée du XVIIe & Jardin Suspendu avec Vue sur Paris",
-    descriptionLongue: "Un refuge d'exception pour vos événements confidentiels. Cette bâtisse du XVIIe siècle classée Monument Historique a été transformée en hôtel 5 étoiles. Le seul domaine château accessible en métro, offrant un jardin suspendu classé avec vue panoramique sur Paris. L'adresse privilégiée pour vos CODIR et séminaires stratégiques de 80 à 180 personnes.",
+    accrocheHero: "MGallery 5★ Vue Tour Eiffel — Accessible Métro, Spa 360m² & Jardin 5 000m²",
+    descriptionLongue: "Un boutique-hôtel 5 étoiles MGallery aux portes de Paris, à deux arrêts de métro du centre (ligne 12, station Mairie d'Issy). Ce domaine au charme historique offre une vue imprenable sur la Tour Eiffel depuis ses terrasses, un jardin botanique de 5 000 m², un spa de 360 m² avec piscine, sauna et hammam, et une chapelle désacralisée transformée en bar à rhum. 83 chambres et suites au design contemporain, 9 espaces de réunion modulables et un restaurant bistronomique privilégiant les produits bio et locaux. Labellisé Clef Verte, c'est l'adresse confidentielle par excellence pour vos CODIR, séminaires stratégiques et événements d'entreprise de 10 à 180 personnes — avec la rareté d'un domaine d'exception accessible en transports en commun.",
     roomsTotal: 83,
     roomsTwin: 16,
-    bedroomText: "83 chambres et suites au design raffiné, imaginées par un architecte de renom. Calme absolu aux portes de Paris.",
-    meetingText: "Des espaces de travail modulables ouverts sur le jardin classé, alliant technologie de pointe et cadre monacal propice à la réflexion stratégique.",
+    bedroomText: "83 chambres et suites au design contemporain raffiné, dont des Junior Suites avec vue sur la Tour Eiffel. De la chambre Classique à la Suite Chapelle nichée dans l'ancienne chapelle du domaine, chaque espace marie élégance parisienne et confort absolu. Spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga privatisable. Jardin botanique de 5 000 m² pour des moments de sérénité entre vos sessions de travail.",
+    meetingText: "9 espaces de réunion modulables, du salon board intimiste à la salle de 160 m². Le restaurant Marguerite 1606 (160 m², 100 en cocktail, 70 en banquet) se transforme en salle de réception d'exception. La terrasse jardin de 100 m² accueille vos cocktails en plein air, le Studio propose un espace de 50 m² pour vos présentations, et les salons Agastache et Mélisse offrent des configurations board et U pour vos réunions stratégiques. Équipements complets : vidéoprojection, écrans LCD, micro et son professionnel.",
     faq: [
       {
         question: "Comment accéder au domaine en transports en commun ?",
-        answer: "Le domaine est accessible en métro à 5 minutes à pied de la station. Des navettes privées peuvent être organisées depuis l'aéroport ou les gares pour vos participants."
+        answer: "Le domaine est à 4 minutes à pied de la station Mairie d'Issy (métro ligne 12), soit à seulement 2 arrêts de Paris. Parking avec voiturier, bornes de recharge pour véhicules électriques et rack à vélos disponibles. C'est le seul domaine château d'exception accessible en métro."
       },
       {
         question: "Quel est le standing de l'établissement ?",
-        answer: "Hôtel 5 étoiles avec service de conciergerie personnalisé. Cette bâtisse historique du XVIIe siècle est classée Monument Historique, tout comme son jardin suspendu exceptionnel."
+        answer: "Boutique-hôtel 5 étoiles de la collection MGallery by Accor. 83 chambres et suites au design raffiné, dont des Junior Suites avec vue sur la Tour Eiffel. Labellisé Clef Verte pour son engagement environnemental. Service de conciergerie personnalisé."
       },
       {
-        question: "Quelle est l'histoire de ce lieu exceptionnel ?",
-        answer: "Cette bâtisse du XVIIe siècle a été transformée en hôtel 5 étoiles tout en préservant son caractère historique. Le jardin suspendu classé offre une vue imprenable sur Paris."
+        question: "Quels espaces uniques propose le domaine ?",
+        answer: "Une chapelle désacralisée transformée en bar à rhum, un jardin botanique de 5 000 m² avec terrasse et vue Tour Eiffel, un spa de 360 m² avec piscine, sauna, hammam et studio de yoga, et le restaurant bistronomique Marguerite 1606 privilégiant les produits bio et locaux."
       },
       {
-        question: "Quels types d'événements organisez-vous principalement ?",
-        answer: "Le domaine est spécialisé dans les événements confidentiels haut de gamme : CODIR, COMEX, séminaires stratégiques, dîners d'affaires et réceptions privées pour 80 à 180 personnes. La confidentialité absolue est garantie."
+        question: "Quels types d'événements organisez-vous ?",
+        answer: "Le domaine est idéal pour les événements confidentiels haut de gamme : CODIR, COMEX, séminaires stratégiques, dîners d'affaires et soirées d'entreprise de 10 à 180 personnes. Privatisation complète du domaine possible. 9 espaces modulables s'adaptent à tous les formats."
       },
       {
         question: "Proposez-vous de la restauration gastronomique ?",
-        answer: "Notre chef étoilé propose une cuisine gastronomique raffinée avec des menus personnalisables. Nous disposons d'une cave à vins exceptionnelle et pouvons organiser des dégustations commentées. Tous les régimes alimentaires peuvent être accommodés."
+        answer: "Le restaurant Marguerite 1606 propose une cuisine bistronomique engagée, privilégiant les produits bio, de saison et sourcés localement. 2 bars dont le bar à rhum dans la chapelle. Menus personnalisables, cocktails dînatoires et soirées de gala sur mesure. Tous les régimes alimentaires accommodés."
       },
       {
-        question: "Y a-t-il un espace bien-être ?",
-        answer: "Le domaine dispose d'un spa privatisable situé dans une chapelle désacralisée classée, créant une ambiance unique. Parfait pour des moments de détente entre les sessions de travail."
+        question: "Quelles activités team-building sont proposées ?",
+        answer: "Ateliers cuisine et gastronomie, dégustations œnologiques, rallye et chasse au trésor dans le domaine, murder party, olympiades, ateliers créatifs et artistiques, séances bien-être au spa, yoga en groupe et karaoké. Programme personnalisé par notre coordinateur événementiel."
       }
     ],
   },
@@ -180,12 +180,12 @@ export const chateaux: Chateau[] = [
     },
     styleArchitectural: "Abbaye cistercienne monumentale du XIIe siècle",
     description:
-      "Déconnexion stratégique totale pour vos séminaires résidentiels. Abbaye cistercienne classée Monument Historique offrant un cadre de réflexion hors du temps, idéal pour retraites de direction et incentives équipes commerciales.",
+      "Abbaye cistercienne du XIIe siècle rénovée en 2023, nichée sur 80 hectares en forêt de Rambouillet. 144 chambres, 14 salles de réunion, 6 restaurants Paris Society, spa, cinéma privé et activités nature. Déconnexion totale garantie.",
     atouts: [
-      "Site Classé MH",
-      "Salles Voûtées",
-      "Étang 70 Hectares",
-      "Ruines Romantiques",
+      "Domaine 80 Hectares",
+      "144 Chambres",
+      "14 Salles de Réunion",
+      "Spa & Cinéma Privé",
     ],
     images: {
       hero: [
@@ -210,36 +210,36 @@ export const chateaux: Chateau[] = [
     slug: "abbaye-millenaire-vallee-chevreuse",
     seoH1: "Ancienne Abbaye Cistercienne en Vallée de Chevreuse",
     seoTitle: "Abbaye Séminaire 78 | Domaine Cistercien & Étang 70ha",
-    accrocheHero: "Abbaye du XIIe Siècle & Étang Privé de 70 Hectares",
-    descriptionLongue: "Déconnexion stratégique totale pour vos événements d'exception. Cette abbaye cistercienne du XIIe siècle classée Monument Historique s'étend sur un domaine de 70 hectares avec étang privé. Ses salles voûtées monumentales et son cadre hors du temps créent l'environnement idéal pour vos retraites de direction, incentives commerciaux et séminaires résidentiels de 60 à 150 personnes. Absence de réseau GSM = concentration maximale garantie.",
-    roomsTotal: 147,
+    accrocheHero: "Abbaye du XIIe Siècle Rénovée en 2023 — 80 Hectares en Forêt de Rambouillet",
+    descriptionLongue: "Une parenthèse hors du temps au cœur d'un domaine de 80 hectares en forêt de Rambouillet. Cette abbaye cistercienne du XIIe siècle, entièrement rénovée en 2023, marie patrimoine millénaire et confort contemporain dans un décor signé Cordélia de Castellane. 144 chambres réparties dans trois bâtisses de caractère (Abbaye, Haras, La Ferme), 14 salles de réunion dont le mythique Réfectoire des Moines de 500 m², 6 restaurants et bars signés Paris Society, un spa d'exception, cinéma privé, padel et tennis. L'adresse ultime pour vos séminaires résidentiels, retraites de direction et soirées de gala de 60 à 300 personnes — dans un cadre où la déconnexion est totale.",
+    roomsTotal: 144,
     roomsTwin: null,
-    bedroomText: "147 chambres réparties entre l'abbaye historique et le domaine. Une décoration raffinée inspirée du patrimoine cistercien.",
-    meetingText: "Des salons historiques voûtés pour vos plénières grandioses et des espaces de réunion intimistes au bord de l'étang.",
+    bedroomText: "144 chambres et suites réparties dans trois bâtisses de caractère : l'Abbaye historique, les Haras et La Ferme. Du cosy au prestige, chaque chambre est habillée par la décoratrice Cordélia de Castellane dans un style alliant élégance et singularité. Suites d'exception avec le Pavillon d'Honneur et la Suite de l'Abbé. Spa d'exception aménagé dans les anciennes écuries, piscine, sauna et salle fitness pour des moments de détente entre vos sessions de travail.",
+    meetingText: "14 salles de réunion de 25 à 500 m², adaptées à tous les formats. Le Réfectoire des Moines, joyau de 500 m², accueille jusqu'à 300 personnes en cocktail sous ses voûtes monumentales. L'Orangerie (171 m², 128 en théâtre), le Salon 1900 (168 m², 120 en théâtre) et un cinéma privé de 200 m² complètent l'offre. Équipements complets : vidéoprojection, son professionnel, écrans LCD et micro. Configurations flexibles en U, théâtre, cabaret ou école.",
     faq: [
       {
         question: "Peut-on organiser des soirées festives ?",
-        answer: "Oui, le domaine est isolé sans contrainte sonore. Les salles voûtées offrent une acoustique exceptionnelle pour vos soirées de gala et événements musicaux."
+        answer: "Absolument. Le domaine est isolé, sans contrainte sonore. Le Réfectoire des Moines de 500 m² accueille jusqu'à 300 personnes en cocktail. 6 restaurants et bars signés Paris Society assurent une restauration d'exception. DJ, karaoké et animations sur mesure disponibles."
       },
       {
-        question: "Quelles activités proposez-vous ?",
-        answer: "Barque sur l'étang de 70 hectares, Escape Game géant dans les ruines historiques, olympiades dans le parc, parcours d'orientation en forêt, ateliers œnologie et dégustations."
+        question: "Quelles activités team-building proposez-vous ?",
+        answer: "Un terrain de jeu de 80 hectares : barque et pédalo sur le lac, murder party dans les ruines, olympiades dans le parc, rallye et chasse au trésor, ateliers cuisine et œnologie, VTT, padel, tennis, escape game grandeur nature. Cinéma privé, gaming room et karaoké pour les soirées."
       },
       {
-        question: "Quelle est l'histoire de cette abbaye cistercienne ?",
-        answer: "Cette abbaye cistercienne fondée au XIIe siècle a été classée Monument Historique en 1994. Située dans le Parc naturel régional de la Vallée de Chevreuse, elle offre un cadre historique exceptionnel avec ses salles voûtées monumentales et ses ruines romantiques."
+        question: "Quelle est l'histoire de cette abbaye ?",
+        answer: "Fondée au XIIe siècle par des moines cisterciens, cette abbaye a été entièrement rénovée en 2023. Située dans le Parc naturel régional de la Vallée de Chevreuse, en forêt de Rambouillet, elle offre un patrimoine millénaire sublimé par la décoration de Cordélia de Castellane. Ses salles voûtées, ses ruines romantiques et son lac créent un cadre hors du temps."
       },
       {
-        question: "Quelle est la taille du parc et de l'étang ?",
-        answer: "Le domaine s'étend sur 65 hectares de parc boisé avec un étang majestueux de 70 hectares. Des barques sont disponibles pour des promenades bucoliques ou des activités team-building nautiques. Le cadre naturel exceptionnel garantit une déconnexion totale."
+        question: "Combien de salles de réunion sont disponibles ?",
+        answer: "14 espaces de réunion de 25 à 500 m². Le Réfectoire des Moines (500 m², 300 en cocktail), l'Orangerie (171 m², 128 en théâtre), le Salon 1900 (168 m², 120 en théâtre), un cinéma privé de 200 m² et des salons intimistes. Tous équipés en vidéoprojection, son professionnel et WiFi haut débit."
       },
       {
-        question: "Quelle est la capacité d'accueil du domaine ?",
-        answer: "Le domaine dispose de vastes salles de réunion modulables et peut accueillir de 60 à 150 personnes en résidentiel avec 147 chambres réparties entre l'abbaye et le domaine."
+        question: "Quelle est la capacité d'hébergement ?",
+        answer: "144 chambres et suites réparties dans 3 bâtisses de caractère (Abbaye, Haras, La Ferme). Des chambres cosy aux suites prestige, en passant par les Pavillons d'Honneur privatifs. Le domaine accueille de 60 à 300 personnes selon la configuration de votre événement."
       },
       {
-        question: "À quelle distance de Paris se situe le domaine ?",
-        answer: "Le domaine est situé à environ 40 kilomètres au sud-ouest de Paris dans les Yvelines (78), soit environ 45 minutes en voiture. Un service de navettes privées peut être organisé depuis Paris ou les gares pour faciliter l'accès de vos participants."
+        question: "Comment accéder au domaine ?",
+        answer: "À 45 minutes de Paris en voiture, 15 minutes des gares de Rambouillet et Saint-Rémy-lès-Chevreuse, 40 minutes d'Orly et 20 minutes en hélicoptère depuis Paris. Parking sur place et service voiturier. Navettes privées organisables sur demande."
       }
     ],
   },
@@ -254,12 +254,12 @@ export const chateaux: Chateau[] = [
     },
     styleArchitectural: "Architecture classique française de style Louis XV",
     description:
-      "L'adresse de référence pour lancements produits et conventions internationales. Architecture classique prestigieuse au cœur d'une forêt de 500 hectares. Salle de bal modulable et spa prestige de 1500m² pour vos événements d'envergure.",
+      "Château InterContinental 5 étoiles au cœur de la forêt de Chantilly, à 15 min de Roissy-CDG. Centre de convention 700 m², 109 chambres, spa avec piscine et jacuzzi, rooftop panoramique. Labellisé Green Key.",
     atouts: [
-      "Style Louis XV",
-      "Salle de Bal",
-      "Spa 1500m²",
-      "Forêt 500 hectares",
+      "InterContinental 5★",
+      "Centre Convention 700m²",
+      "15 min Roissy-CDG",
+      "Spa & Rooftop",
     ],
     images: {
       hero: [
@@ -280,36 +280,36 @@ export const chateaux: Chateau[] = [
     slug: "palais-royal-foret-chantilly",
     seoH1: "Château 5 Étoiles avec Vue Panoramique sur Forêt",
     seoTitle: "Château Luxe Chantilly (60) | Domaine 5★ Forêt 200 pers",
-    accrocheHero: "Architecture Classique Louis XV & Spa Prestige 1500m²",
-    descriptionLongue: "L'adresse de référence pour vos lancements produits et conventions internationales. Une architecture classique française grandiose au cœur d'une forêt domaniale de 500 hectares. Ce château 5 étoiles de 108 chambres allie l'excellence du patrimoine français à la technologie moderne. Avec son spa prestige de 1500m² et sa salle de bal modulable, c'est le lieu idéal pour vos galas, conventions et événements stratégiques de 100 à 200 personnes.",
-    roomsTotal: 108,
+    accrocheHero: "InterContinental 5★ au Cœur de la Forêt de Chantilly — 15 min de Roissy-CDG",
+    descriptionLongue: "L'adresse de référence pour vos conventions internationales et lancements produits d'envergure. Ce château InterContinental 5 étoiles est niché au cœur de la forêt de Chantilly, à seulement 15 minutes de l'aéroport Roissy-CDG. 109 chambres surplombant la forêt, un centre de convention de 700 m² avec terrasses privées, 12 salles de réunion dont la salle Halphen de 380 m² pouvant accueillir 300 personnes en cocktail, un spa avec piscine intérieure et jacuzzi, un rooftop exclusif et une cuisine bistronomique raffinée. Labellisé Green Key, le domaine allie prestige et engagement responsable pour vos événements de 100 à 300 personnes.",
+    roomsTotal: 109,
     roomsTwin: 48,
-    bedroomText: "108 chambres et suites au style classique français. 48 chambres en configuration Twin pour faciliter l'organisation de vos séminaires résidentiels.",
-    meetingText: "12 salons de conférence baignés de lumière naturelle. Notre majestueuse salle de bal modulable se transforme au gré de vos ambitions pour théâtraliser vos lancements de produits et événements prestigieux.",
+    bedroomText: "109 chambres et suites surplombant la forêt de Chantilly, dont 48 en configuration Twin idéales pour vos séminaires résidentiels. Le standing InterContinental se retrouve dans chaque détail : literie d'exception, service pressing, conciergerie dédiée. Spa complet avec piscine intérieure chauffée, jacuzzi, sauna et salle fitness pour décompresser entre vos sessions de travail. Rooftop exclusif avec vue panoramique sur la forêt.",
+    meetingText: "12 salles de réunion au sein d'un centre de convention de 700 m² avec terrasses privées. La salle Halphen de 380 m² accueille jusqu'à 250 personnes en théâtre et 300 en cocktail — idéale pour vos plénières et soirées de gala. Une Creativity Room dédiée à l'innovation, des salons de board de 33 à 108 m² pour vos comités de direction. Équipements complets : vidéoprojection, son professionnel, écrans LCD, micro et WiFi haut débit.",
     faq: [
       {
         question: "Quelle est la capacité maximale du domaine ?",
-        answer: "Le domaine peut accueillir jusqu'à 200 personnes en résidentiel avec 108 chambres et suites. La salle de bal historique avec ses lustres monumentaux peut recevoir 200 convives assis pour vos galas et conventions."
+        answer: "Le centre de convention de 700 m² et la salle Halphen de 380 m² accueillent jusqu'à 300 personnes en cocktail et 250 en théâtre. 109 chambres et suites, dont 48 en configuration Twin, pour vos séminaires résidentiels. Privatisation complète du domaine possible."
       },
       {
-        question: "Quels sont les équipements du spa prestige ?",
-        answer: "Le spa de 1500m² comprend une piscine de 25 mètres, un parcours aquatique avec jets massants, sauna finlandais, hammam, cabines de soins avec produits de luxe, et un fitness center équipé des dernières technologies. Entièrement privatisable."
+        question: "Quels sont les équipements bien-être ?",
+        answer: "Spa complet avec piscine intérieure chauffée, jacuzzi, sauna finlandais et salle fitness équipée. Rooftop exclusif avec vue panoramique sur la forêt de Chantilly. Activités outdoor : tennis, pétanque, VTT et équitation à proximité."
       },
       {
-        question: "Le style architectural est-il authentique ?",
-        answer: "Le domaine a été construit dans le pur style classique français avec moulures dorées, parquets nobles, lustres de cristal et tapisseries d'époque. Une restauration minutieuse a préservé l'authenticité du lieu tout en intégrant les technologies modernes."
+        question: "Quelle est la proximité avec les aéroports et Paris ?",
+        answer: "À seulement 15 minutes de l'aéroport Roissy-CDG, 40 minutes de Paris par l'A1 et 8 minutes de la gare d'Orry-la-Ville. Un emplacement stratégique pour vos conventions internationales. Parking avec bornes de recharge électriques et voiturier disponible."
       },
       {
-        question: "Quelle est la taille de la forêt et quelles activités proposez-vous ?",
-        answer: "Le domaine est situé au cœur d'une forêt domaniale de 500 hectares. Nous proposons chasse au trésor, rallye 4x4, parcours d'orientation, VTT électrique, course d'orientation nocturne et olympiades forestières avec coordinateur expert."
+        question: "Le domaine est-il éco-responsable ?",
+        answer: "Le domaine est labellisé Green Key, garantissant un engagement fort en matière de responsabilité environnementale. Bornes de recharge pour véhicules électriques, cuisine bistronomique privilégiant les produits locaux et de saison, gestion responsable des ressources."
       },
       {
-        question: "Proposez-vous une table gastronomique ?",
-        answer: "Notre chef étoilé propose une cuisine gastronomique française raffinée avec des techniques contemporaines. Cave exceptionnelle de grands crus. Menus personnalisables et régimes spéciaux accommodés."
+        question: "Quelles activités team-building proposez-vous ?",
+        answer: "Un programme complet : cours de cuisine et œnologie, VTT et équitation en forêt de Chantilly, rallye et chasse au trésor, murder party, olympiades sportives, ateliers créatifs et artistiques, karaoké et blind test. Coordinateur événementiel dédié pour personnaliser votre programme."
       },
       {
-        question: "À quelle distance de Paris et des aéroports ?",
-        answer: "Situé à 40 minutes de Paris par l'autoroute A1 et à 30 minutes de l'aéroport Roissy Charles de Gaulle. Service de navettes privées disponible depuis Paris, les gares et aéroports. Héliport à proximité pour arrivées VIP."
+        question: "Proposez-vous une restauration gastronomique ?",
+        answer: "Notre cuisine bistronomique met en valeur les produits locaux et de saison dans un cadre raffiné. Menus personnalisables pour vos déjeuners et dîners d'affaires. Service traiteur événementiel pour cocktails et soirées de gala. Tous les régimes alimentaires accommodés."
       }
     ],
   },

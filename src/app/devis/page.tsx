@@ -1,14 +1,14 @@
-import { DevisFormLazy } from "@/components/DevisFormLazy";
-import { theme } from "@/config/theme";
+import DevisFormMini from "@/components/DevisFormMini";
+import { theme } from "@/design-system/tokens";
 import Image from "next/image";
 import { Check, Clock, Building2, Star } from "lucide-react";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { chateaux } from "@/data/chateaux";
 
 export default function DevisPage() {
   return (
     <>
-
       <div style={{ minHeight: "100vh", background: "#FFFFFF", display: "flex", flexDirection: "column" }}>
         {/* Hero avec Image d'ambiance */}
         <div style={{
@@ -23,7 +23,7 @@ export default function DevisPage() {
           alignItems: "center",
           justifyContent: "center",
         }}>
-          {/* Image d'ambiance en arrière-plan */}
+          {/* Image d'ambiance en arriere-plan */}
           <div style={{
             position: "absolute",
             inset: 0,
@@ -31,7 +31,7 @@ export default function DevisPage() {
           }}>
             <Image
               src="/images/seminaires-soirees-entreprise-hero.webp"
-              alt="Devis location château séminaire Île-de-France - Salle de réunion lumineuse"
+              alt="Devis location chateau seminaire Ile-de-France - Salle de reunion lumineuse"
               fill
               className="object-cover"
               priority
@@ -60,7 +60,7 @@ export default function DevisPage() {
               color: "#ffffff",
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}>
-              Devis Séminaire Gratuit & Réponse 24h
+              Devis Séminaire Gratuit &amp; Réponse 24h
             </h1>
             <p style={{
               fontSize: "clamp(1rem, 3vw, 1.375rem)",
@@ -71,10 +71,10 @@ export default function DevisPage() {
               color: "rgba(255,255,255,0.92)",
               textShadow: "0 1px 8px rgba(0,0,0,0.3)",
             }}>
-              Remplissez le formulaire en 4 étapes et recevez votre devis personnalisé pour votre séminaire en château
+              Remplissez le formulaire et recevez votre devis personnalisé pour votre séminaire en château
             </p>
 
-            {/* Éléments de Réassurance */}
+            {/* Elements de Reassurance */}
             <div style={{
               display: "flex",
               flexWrap: "wrap",
@@ -82,7 +82,7 @@ export default function DevisPage() {
               gap: "clamp(0.5rem, 1.5vw, 0.75rem)",
               marginTop: "clamp(1rem, 3vw, 1.5rem)"
             }}>
-              {/* 4 Châteaux */}
+              {/* 4 Chateaux */}
               <div style={{
                 display: "flex",
                 alignItems: "center",
@@ -95,10 +95,10 @@ export default function DevisPage() {
                 color: "#ffffff"
               }}>
                 <Building2 className="w-4 h-4" />
-                <span style={{ fontSize: "0.875rem", fontWeight: 600 }}>4 Châteaux d'exception</span>
+                <span style={{ fontSize: "0.875rem", fontWeight: 600 }}>4 Châteaux d&apos;exception</span>
               </div>
 
-              {/* Réponse 24h */}
+              {/* Reponse 24h */}
               <div style={{
                 display: "flex",
                 alignItems: "center",
@@ -127,7 +127,7 @@ export default function DevisPage() {
                 color: "#ffffff"
               }}>
                 <Check className="w-4 h-4" />
-                <span style={{ fontSize: "0.875rem", fontWeight: 600 }}>Gratuit & Sans engagement</span>
+                <span style={{ fontSize: "0.875rem", fontWeight: 600 }}>Gratuit &amp; Sans engagement</span>
               </div>
 
               {/* Note */}
@@ -153,14 +153,19 @@ export default function DevisPage() {
           </div>
         </div>
 
-        {/* Formulaire */}
-        <div style={{
+        {/* Formulaire Devis Express */}
+        <div id="formulaire" style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "clamp(2rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2.5rem) 5rem"
+          width: "100%",
+          padding: "0 clamp(1.25rem, 5vw, 2.5rem)",
         }}>
-          <DevisFormLazy />
+          <DevisFormMini
+            chateauIds={chateaux.map((c) => c.id)}
+            sourceLabel="Page Devis"
+          />
         </div>
+
       </div>
 
       {/* Section Logos Clients */}

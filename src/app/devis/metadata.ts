@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Devis Séminaire Gratuit & Réponse 24h | Select Châteaux",
     description:
-      "Remplissez le formulaire en 4 étapes et recevez votre devis personnalisé pour votre séminaire en château. Sans engagement.",
+      "Remplissez le formulaire en 2 minutes et recevez votre devis personnalisé pour votre séminaire en château. Sans engagement.",
     url: "https://www.selectchateaux.com/devis",
     type: "website",
     siteName: "Select Châteaux",

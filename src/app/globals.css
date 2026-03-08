@@ -1415,6 +1415,52 @@ textarea::placeholder {
   }
 }
 
+/* Devis page — Châteaux grid responsive */
+@media (max-width: 767px) {
+  .devis-chateaux-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Geo landing pages — Hero photo grid responsive */
+@media (max-width: 767px) {
+  .geo-hero-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    height: clamp(220px, 55vw, 300px) !important;
+  }
+  .geo-hero-grid > div:first-child {
+    grid-row: 1 / 3 !important;
+  }
+  .geo-hero-cell:nth-child(n+4) {
+    display: none !important;
+  }
+}
+
+/* Geo landing pages — Intro grid responsive */
+@media (max-width: 767px) {
+  .geo-intro-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Geo landing pages — FAQ grid responsive */
+@media (max-width: 767px) {
+  .geo-faq-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .geo-faq-grid > div:last-child {
+    display: none;
+  }
+}
+
+/* Geo landing pages — Single château card responsive */
+@media (max-width: 767px) {
+  .geo-single-chateau {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* ============================================
    CARD COMPONENTS
    ============================================ */

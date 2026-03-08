@@ -16,11 +16,15 @@ import { getGclid } from '@/lib/gclid';
 import { hashUserData } from '@/lib/hash-user-data';
 
 interface DevisFormMiniProps {
-  chateauId: string;
-  chateauNom: string;
+  chateauId?: string;
+  chateauNom?: string;
+  /** Pour les pages géo avec plusieurs châteaux */
+  chateauIds?: string[];
+  /** Label affiché dans le commentaire (ex: "Séminaire Château Île-de-France") */
+  sourceLabel?: string;
 }
 
-export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniProps) {
+export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourceLabel }: DevisFormMiniProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -55,13 +59,15 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
 
     try {
       const gclid = getGclid();
+      const allIds = chateauIds || (chateauId ? [chateauId] : []);
+      const formLabel = sourceLabel || chateauNom || 'Séminaire';
 
       const payload = {
         typeEvenement: 'seminaire' as const,
         dateArrivee: formData.dateArrivee,
         dateDepart: formData.dateDepart,
         duree: '1-jour' as const,
-        chateauIds: [chateauId],
+        chateauIds: allIds,
         entreprise: '-',
         nomPrenom: formData.nomPrenom,
         email: formData.email,
@@ -70,8 +76,8 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
         nombreChambres: 1,
         budget: '',
         commentaireDeroulement: formData.message
-          ? `[Devis Express - ${chateauNom}] ${formData.message}`
-          : `[Devis Express - ${chateauNom}]`,
+          ? `[Devis Express - ${formLabel}] ${formData.message}`
+          : `[Devis Express - ${formLabel}]`,
         gclid: gclid || undefined,
       };
 
@@ -106,7 +112,7 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
       }
 
       trackFormSubmit('devis-express');
-      trackDevisRequest([chateauId]);
+      trackDevisRequest(allIds);
 
       const ref = Math.random().toString(36).substr(2, 9).toUpperCase();
       router.push(`/devis/merci?ref=${ref}`);
@@ -216,7 +222,7 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
         {/* Form — layout horizontal */}
         <form onSubmit={handleSubmit}>
           {/* Ligne 1 : Nom, Email, Téléphone */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '12px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '12px' }}>
             <div>
               <label htmlFor="mini-nom" style={labelStyle}>Nom & Prénom *</label>
               <input id="mini-nom" name="nomPrenom" type="text" required placeholder="Jean Dupont" value={formData.nomPrenom} onChange={handleChange} style={inputStyle} {...focusHandlers} />
@@ -232,7 +238,7 @@ export default function DevisFormMini({ chateauId, chateauNom }: DevisFormMiniPr
           </div>
 
           {/* Ligne 2 : Participants, Date arrivée, Date départ */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '12px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '12px' }}>
             <div>
               <label htmlFor="mini-participants" style={labelStyle}>Participants *</label>
               <select
