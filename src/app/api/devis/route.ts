@@ -68,10 +68,13 @@ export async function POST(request: NextRequest) {
 
     const data = validationResult.data;
 
-    // Construire dates_souhaitees selon le format reçu
-    const datesSouhaitees = data.dateArrivee && data.dateDepart
-      ? `${data.dateArrivee}|${data.dateDepart}`
-      : data.datesSouhaitees || '';
+    // Construire dates_souhaitees : colonne de type date dans Supabase
+    // Pour le formulaire mini (dateArrivee + dateDepart), on stocke dateArrivee
+    // et on ajoute les dates complètes dans le commentaire
+    const datesSouhaitees = data.dateArrivee || data.datesSouhaitees || '';
+    const datesInfo = data.dateArrivee && data.dateDepart
+      ? `Arrivée: ${data.dateArrivee} | Départ: ${data.dateDepart}`
+      : '';
 
     // Créer un client Supabase avec le service role key pour plus de sécurité
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -102,7 +105,7 @@ export async function POST(request: NextRequest) {
       plus_de_400_chambres: data.plusDe400Chambres || false,
       chambres_twin: data.chambresTwin || false,
       budget: data.budget,
-      commentaire_deroulement: data.commentaireDeroulement || '',
+      commentaire_deroulement: [datesInfo, data.commentaireDeroulement].filter(Boolean).join(' — '),
       fichier_url: null,
       gclid: data.gclid || null,
     };
@@ -116,7 +119,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error('Supabase insert error:', JSON.stringify(error));
       return NextResponse.json(
-        { error: 'Erreur lors de l\'enregistrement de la demande', details: error.message },
+        { error: 'Erreur lors de l\'enregistrement de la demande' },
         { status: 500 }
       );
     }
