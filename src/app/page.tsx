@@ -123,9 +123,11 @@ export default function Home() {
 
           {/* CTA */}
           <div style={{ textAlign: 'center', marginTop: theme.spacing['4xl'] }}>
-            <Button variant="primary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-              Voir tous nos châteaux
-            </Button>
+            <Link href="/chateaux">
+              <Button variant="primary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                Voir tous nos châteaux
+              </Button>
+            </Link>
           </div>
         </Container>
       </section>
