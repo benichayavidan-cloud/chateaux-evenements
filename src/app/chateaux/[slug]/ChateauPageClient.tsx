@@ -110,8 +110,11 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
   // Images de chambre : filtre auto + images forcées par château
   const extraBedroomImages: Record<string, string[]> = {
     "1": [
-      "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-j%26f-4-copie.webp",
-      "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/montvillargene/chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chambre-moderne-epuree-tete-lit-taupe.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-chambre-design-contemporaine.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-chambre-double-cosy.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-chambre-elegante-moderne.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-chambre-loft-industriel.webp",
     ],
   };
   const autoBedroomImages = chateau.images.galerie.filter(img => /chambre|suite|bedroom|room|lit/i.test(img));
