@@ -93,14 +93,9 @@ export default function ChateauxPage() {
   const prevImage = () => setLightboxIndex(i => i !== null ? (i - 1 + heroImages.length) % heroImages.length : null);
   const nextImage = () => setLightboxIndex(i => i !== null ? (i + 1) % heroImages.length : null);
 
-  const headerPitch = useInView();
-  const whySection = useInView();
-  const boussole = useInView();
   const chateauxSection = useInView();
-  const commentSection = useInView();
-  const trustSection = useInView();
-  const ctaSection = useInView();
-  const ctaButtons = useInView();
+  const pitchSection = useInView();
+  const stepsSection = useInView();
 
   return (
     <>
@@ -356,772 +351,444 @@ export default function ChateauxPage() {
         </div>
       </div>
 
-      {/* ========== 1. HEADER PITCH - Dynamique selon le département ========== */}
-      <Section background="white" style={{ padding: '50px 0 30px' }}>
-        <Container size="md">
-          {/* Contenu par département OU contenu éditorial par défaut */}
-          {getHeaderPitch() ? (
-            <p
-              ref={headerPitch.ref}
-              className={`animate-on-scroll ${headerPitch.isInView ? 'is-visible' : ''}`}
-              style={{
-                textAlign: 'center',
-                maxWidth: '800px',
-                margin: '0 auto',
-                fontSize: 'clamp(1.05rem, 2.5vw, 1.15rem)',
-                lineHeight: 1.8,
-                color: theme.colors.neutral.gray600,
-                fontWeight: theme.typography.fontWeight.normal,
-              }}
-            >
-              {getHeaderPitch()}
-            </p>
-          ) : (
-            <div
-              ref={headerPitch.ref}
-              className={`animate-on-scroll ${headerPitch.isInView ? 'is-visible' : ''}`}
-              style={{ maxWidth: '940px', margin: '0 auto' }}
-            >
-              <h2
+      {/* ========== 2. LES 4 CHÂTEAUX — Cards éditoriales alternées ========== */}
+      <section
+        style={{
+          background: '#f6f9fc',
+          paddingTop: '15px',
+          paddingBottom: 'clamp(2rem, 5vw, 3.75rem)',
+        }}
+      >
+        <Container size="xl">
+          <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
+            <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
+              {filteredChateaux.length} Châteaux d'Exception en Île-de-France
+            </Text>
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              Cliquez pour découvrir chaque domaine en détail
+            </Text>
+          </div>
+
+          <div
+            ref={chateauxSection.ref}
+            style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}
+          >
+            {filteredChateaux.map((chateau, index) => (
+              <Link
+                key={chateau.id}
+                href={`/chateaux/${chateau.slug}`}
+                className={`chateau-editorial-card animate-on-scroll ${chateauxSection.isInView ? 'is-visible' : ''}`}
                 style={{
-                  textAlign: 'center',
-                  fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-                  fontFamily: theme.typography.fonts.heading,
-                  fontWeight: theme.typography.fontWeight.light,
-                  fontStyle: 'italic',
-                  color: theme.colors.neutral.gray900,
-                  lineHeight: 1.3,
-                  marginBottom: '2rem',
+                  display: 'flex',
+                  background: '#fff',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+                  border: '1px solid #f0f0f0',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+                  animationDelay: `${index * 0.1}s`,
                 }}
               >
-                L'Équilibre Parfait : 4 Châteaux d'Exception entre Paris et Nature
-              </h2>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <p style={{
-                  textAlign: 'center',
-                  fontSize: 'clamp(0.95rem, 2.2vw, 1.05rem)',
-                  lineHeight: 1.8,
-                  color: theme.colors.neutral.gray600,
-                }}>
-                  Réussir un séminaire d'entreprise demande un cadre qui inspire autant qu'il rassure.
-                  Répartis stratégiquement dans les <strong style={{ color: theme.colors.neutral.gray800 }}>Hauts-de-Seine (92)</strong>,
-                  les <strong style={{ color: theme.colors.neutral.gray800 }}>Yvelines (78)</strong> et
-                  l'<strong style={{ color: theme.colors.neutral.gray800 }}>Oise (60)</strong>,
-                  ces 4 châteaux d'exception offrent une accessibilité rare, à moins d'une heure de la capitale
-                  et à proximité directe des aéroports et gares TGV.
-                </p>
-
-                <p style={{
-                  textAlign: 'center',
-                  fontSize: 'clamp(0.95rem, 2.2vw, 1.05rem)',
-                  lineHeight: 1.8,
-                  color: theme.colors.neutral.gray600,
-                }}>
-                  Chaque domaine garantit une <strong style={{ color: theme.colors.neutral.gray800 }}>unité de lieu totale</strong> pour
-                  vos projets. Que ce soit pour une journée d'étude intensive ou un séminaire résidentiel de plusieurs jours,
-                  les infrastructures s'adaptent à vos besoins avec une capacité de <strong style={{ color: theme.colors.neutral.gray800 }}>40 à 120 chambres</strong> par
-                  site. Entre le prestige historique de Chantilly et la confidentialité des parcs du 92,
-                  vos collaborateurs profitent d'une immersion au vert propice à la cohésion d'équipe.
-                </p>
-
-                <p style={{
-                  textAlign: 'center',
-                  fontSize: 'clamp(0.95rem, 2.2vw, 1.05rem)',
-                  lineHeight: 1.8,
-                  color: theme.colors.neutral.gray600,
-                }}>
-                  De la séance de travail stratégique à la soirée d'entreprise mémorable sous les dorures,
-                  l'Île-de-France devient le théâtre d'une <strong style={{ color: theme.colors.neutral.gray800 }}>excellence opérationnelle sans compromis</strong>.
-                </p>
-              </div>
-            </div>
-          )}
-        </Container>
-      </Section>
-
-      {/* Pourquoi Nos Châteaux - 4 cartes sur une ligne */}
-      <Section background="gray" style={{ padding: '50px 0' }}>
-        <Container size="xl">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.lg }}>
-            <div
-              ref={whySection.ref}
-              className={`animate-on-scroll ${whySection.isInView ? 'is-visible' : ''}`}
-            >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'center' }}>
-                Pourquoi Choisir Nos Châteaux
-              </Text>
-              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
-                L'excellence au service de vos événements
-              </Text>
-            </div>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1rem',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '1.5rem 1rem',
-          }}>
-            {[
-              {
-                icon: Shield,
-                title: 'Privatisation',
-                description: 'Domaines privatisables pour confidentialité totale'
-              },
-              {
-                icon: MapPin,
-                title: 'Accès Privilégié',
-                description: 'Lieux d\'exception habituellement fermés au public'
-              },
-              {
-                icon: Award,
-                title: 'Service Premium',
-                description: 'Accompagnement de A à Z par nos experts'
-              },
-              {
-                icon: Clock,
-                title: 'Proche Paris',
-                description: '30-60 min de Paris. Dépaysement garanti'
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`animate-on-scroll hover-lift ${whySection.isInView ? 'is-visible' : ''}`}
-                style={{ animationDelay: `${index * 0.08}s` }}
-              >
-                <div
-                  style={{
-                    padding: '1.25rem',
-                    background: 'white',
-                    borderRadius: theme.effects.borderRadius.lg,
-                    border: `1px solid ${theme.colors.neutral.gray200}`,
-                    textAlign: 'center',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-                    transition: 'box-shadow 0.2s ease',
-                  }}
-                  className="hover:shadow-md"
-                >
-                  <div
-                    style={{
-                      width: '48px',
-                      height: '48px',
-                      borderRadius: theme.effects.borderRadius.full,
-                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: `1px solid ${theme.colors.primary.bronze}25`,
-                    }}
-                  >
-                    <item.icon className="w-5 h-5" style={{ color: theme.colors.primary.bronze }} />
-                  </div>
-                  <Text variant="body" style={{ fontWeight: theme.typography.fontWeight.semibold, fontSize: '0.95rem', textAlign: 'center' }}>
-                    {item.title}
-                  </Text>
-                  <Text variant="caption" color="muted" style={{ lineHeight: 1.5, textAlign: 'center', fontSize: '0.8rem' }}>
-                    {item.description}
-                  </Text>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* ========== 2. BOUSSOLE DE CHOIX - Uniquement si pas de filtre département ========== */}
-      {!dept && (
-      <Section background="white" style={{ padding: '50px 0' }}>
-        <Container size="xl">
-          <div
-            ref={boussole.ref}
-            className={`animate-on-scroll ${boussole.isInView ? 'is-visible' : ''}`}
-          >
-            <Text
-              variant="h3"
-              style={{
-                textAlign: 'center',
-                marginBottom: '2rem',
-                color: theme.colors.neutral.gray800,
-                fontWeight: theme.typography.fontWeight.medium,
-              }}
-            >
-              Quel château pour votre événement ?
-            </Text>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '1.25rem',
-              maxWidth: '1100px',
-              margin: '0 auto',
-            }}>
-              {[
-                {
-                  image: chateaux.find(c => c.slug === 'abbaye-millenaire-vallee-chevreuse')?.images.card || '',
-                  question: '🌳 Besoin de grand air ?',
-                  answer: 'Abbaye en Vallée de Chevreuse (78)',
-                  detail: 'Étang privé 70ha • Ruines romantiques',
-                  href: '/chateaux/abbaye-millenaire-vallee-chevreuse',
-                },
-                {
-                  image: chateaux.find(c => c.slug === 'manoir-anglo-normand-chantilly')?.images.card || '',
-                  question: '🏰 Grandes équipes ?',
-                  answer: 'Manoir de Chantilly (60)',
-                  detail: 'Jusqu\'à 280 pers • 120 chambres',
-                  href: '/chateaux/manoir-anglo-normand-chantilly',
-                },
-                {
-                  image: chateaux.find(c => c.slug === 'hotel-historique-seminaire-paris-92')?.images.card || '',
-                  question: '🚇 Temps limité ?',
-                  answer: 'Domaine Historique (92)',
-                  detail: 'Accessible en métro • 5min à pied',
-                  href: '/chateaux/hotel-historique-seminaire-paris-92',
-                },
-              ].map((item, index) => (
-                <Link key={index} href={item.href}>
-                  <div
-                    className={`animate-on-scroll hover-lift ${boussole.isInView ? 'is-visible' : ''} hover:shadow-xl`}
-                    style={{
-                      background: 'white',
-                      borderRadius: theme.effects.borderRadius.xl,
-                      overflow: 'hidden',
-                      cursor: 'pointer',
-                      border: `1px solid ${theme.colors.neutral.gray200}`,
-                      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
-                      transition: 'box-shadow 0.2s ease, transform 0.3s ease',
-                      animationDelay: `${index * 0.1}s`,
-                    }}
-                  >
-                    {/* Image en haut */}
-                    <div style={{ position: 'relative', height: '160px', overflow: 'hidden' }}>
-                      <Image
-                        src={item.image}
-                        alt={item.answer}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                      <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.3) 100%)',
-                      }} />
-                    </div>
-
-                    {/* Texte en bas - centré */}
-                    <div style={{
-                      padding: '1.25rem',
-                      textAlign: 'center',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      minHeight: '140px',
-                    }}>
-                      <Text
-                        variant="body"
-                        style={{
-                          fontWeight: theme.typography.fontWeight.semibold,
-                          color: theme.colors.neutral.gray800,
-                          marginBottom: '0.5rem',
-                          fontSize: '1rem',
-                          textAlign: 'center',
-                        }}
-                      >
-                        {item.question}
-                      </Text>
-                      <Text
-                        variant="body"
-                        style={{
-                          color: theme.colors.primary.bronze,
-                          fontWeight: theme.typography.fontWeight.medium,
-                          marginBottom: '0.25rem',
-                          fontSize: '0.9rem',
-                          textAlign: 'center',
-                        }}
-                      >
-                        {item.answer}
-                      </Text>
-                      <Text
-                        variant="caption"
-                        style={{
-                          color: theme.colors.neutral.gray500,
-                          fontSize: '0.8rem',
-                          textAlign: 'center',
-                        }}
-                      >
-                        {item.detail}
-                      </Text>
-                      <div style={{ marginTop: '0.75rem' }}>
-                        <ArrowRight
-                          className="w-4 h-4"
-                          style={{ color: theme.colors.primary.bronze }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
-      )}
-
-      {/* Section Châteaux - Design Bento Grid Moderne */}
-      <Section spacing="xl" background="white" style={{ padding: '60px 0' }}>
-        <Container size="xl">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <div
-              ref={chateauxSection.ref}
-              className={`animate-on-scroll ${chateauxSection.isInView ? 'is-visible' : ''}`}
-            >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'center' }}>
-                {filteredChateaux.length} Châteaux d'Exception
-              </Text>
-              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
-                Cliquez pour découvrir chaque domaine
-              </Text>
-            </div>
-          </div>
-
-          {/* Bento Grid - Adaptatif selon nombre de châteaux */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: filteredChateaux.length === 1 ? '1fr' : 'repeat(2, 1fr)',
-            gap: '1rem',
-            maxWidth: filteredChateaux.length === 1 ? '600px' : '1200px',
-            margin: '0 auto',
-          }}>
-            {filteredChateaux.map((chateau, index) => (
-              <Link key={chateau.id} href={`/chateaux/${chateau.slug}`}>
-                <div
-                  className={`animate-on-scroll from-scale hover-scale ${chateauxSection.isInView ? 'is-visible' : ''}`}
-                  style={{
-                    position: 'relative',
-                    height: '320px',
-                    borderRadius: '20px',
-                    overflow: 'hidden',
-                    cursor: 'pointer',
-                    animationDelay: `${index * 0.1}s`,
-                  }}
-                >
-                  {/* Image de fond */}
+                {/* Image */}
+                <div className="chateau-editorial-image" style={{ overflow: 'hidden' }}>
                   <Image
                     src={chateau.images.card}
-                    alt={chateau.nom}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    style={{ transition: 'transform 0.5s ease' }}
+                    alt={`${chateau.nom} - Séminaire entreprise ${chateau.region}`}
+                    width={800}
+                    height={500}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
                   />
+                </div>
 
-                  {/* Overlay gradient */}
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.75) 100%)',
-                  }} />
-
-                  {/* Badge région en haut à droite */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                    background: 'white',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '50px',
+                {/* Contenu */}
+                <div className="chateau-editorial-content" style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                }}>
+                  <span style={{
+                    display: 'inline-block',
+                    width: 'fit-content',
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    fontSize: theme.typography.fontSize.xs,
                     fontWeight: 600,
-                    fontSize: '0.85rem',
-                    color: theme.colors.neutral.gray800,
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase' as const,
+                    background: 'rgba(184,134,11,0.1)',
+                    color: theme.colors.primary.bronze,
                   }}>
                     {chateau.region}
+                  </span>
+
+                  <h3 style={{
+                    fontFamily: theme.typography.fonts.heading,
+                    fontSize: 'clamp(20px, 2vw, 26px)',
+                    fontStyle: 'italic',
+                    color: theme.colors.neutral.gray900,
+                    margin: '12px 0 8px',
+                    lineHeight: 1.3,
+                  }}>
+                    {chateau.nom}
+                  </h3>
+
+                  <p style={{
+                    color: theme.colors.neutral.gray600,
+                    fontSize: theme.typography.fontSize.sm,
+                    lineHeight: 1.7,
+                    marginBottom: '16px',
+                  }}>
+                    {chateau.description}
+                  </p>
+
+                  {/* Atouts */}
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap' as const,
+                    gap: '8px',
+                    marginBottom: '20px',
+                  }}>
+                    {chateau.atouts.map((atout) => (
+                      <span key={atout} style={{
+                        padding: '4px 10px',
+                        background: '#f8fafc',
+                        border: `1px solid ${theme.colors.neutral.gray200}`,
+                        borderRadius: '6px',
+                        fontSize: '12px',
+                        color: theme.colors.neutral.gray700,
+                      }}>
+                        {atout}
+                      </span>
+                    ))}
                   </div>
 
-                  {/* Contenu en bas */}
+                  {/* Footer */}
                   <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    padding: '1.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingTop: '16px',
+                    borderTop: `1px solid ${theme.colors.neutral.gray200}`,
                   }}>
-                    {/* Titre */}
-                    <h3 style={{
-                      color: 'white',
-                      fontSize: '1.35rem',
-                      fontWeight: 600,
-                      marginBottom: '0.75rem',
-                      textShadow: '0 2px 8px rgba(0,0,0,0.3)',
-                    }}>
-                      {chateau.nom}
-                    </h3>
-
-                    {/* Stats: Capacité & Chambres */}
                     <div style={{
                       display: 'flex',
-                      gap: '1rem',
-                      marginBottom: '0.75rem',
+                      gap: theme.spacing.lg,
+                      fontSize: theme.typography.fontSize.sm,
+                      color: theme.colors.neutral.gray600,
                     }}>
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        background: 'rgba(255,255,255,0.15)',
-                        backdropFilter: 'blur(8px)',
-                        padding: '0.5rem 0.75rem',
-                        borderRadius: '8px',
-                      }}>
-                        <Users className="w-4 h-4" style={{ color: 'white' }} />
-                        <span style={{ color: 'white', fontSize: '0.85rem', fontWeight: 500 }}>
-                          {chateau.capacite.max} pers.
-                        </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
+                        <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                        <span>{chateau.capacite.min}-{chateau.capacite.max} pers</span>
                       </div>
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        background: 'rgba(255,255,255,0.15)',
-                        backdropFilter: 'blur(8px)',
-                        padding: '0.5rem 0.75rem',
-                        borderRadius: '8px',
-                      }}>
-                        <Bed className="w-4 h-4" style={{ color: 'white' }} />
-                        <span style={{ color: 'white', fontSize: '0.85rem', fontWeight: 500 }}>
-                          {chateau.roomsTotal} ch.
-                        </span>
-                      </div>
+                      {chateau.roomsTotal && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
+                          <Bed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                          <span>{chateau.roomsTotal} chambres</span>
+                        </div>
+                      )}
                     </div>
-
-                    {/* CTA avec flèche */}
-                    <div
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        color: theme.colors.primary.gold,
-                        fontWeight: 600,
-                        fontSize: '0.9rem',
-                        transition: 'transform 0.2s ease',
-                      }}
-                    >
-                      Découvrir
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
+                    <span style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: theme.colors.primary.bronze,
+                      fontWeight: 600,
+                      fontSize: theme.typography.fontSize.sm,
+                    }}>
+                      Découvrir <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
-
-                  {/* Hover effect overlay */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}30, ${theme.colors.primary.gold}20)`,
-                      pointerEvents: 'none',
-                      opacity: 0,
-                      transition: 'opacity 0.3s ease',
-                    }}
-                    className="group-hover:opacity-100"
-                  />
                 </div>
               </Link>
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* Comment ça marche - 3 étapes sur une ligne avec animations rapides */}
-      <Section background="gray" style={{ padding: '50px 0' }}>
+      {/* ========== 3. PITCH ÉDITORIAL — Texte + Chiffres-clés ========== */}
+      <section style={{ background: '#fff', padding: 'clamp(2.5rem, 5vw, 3.75rem) 0' }}>
         <Container size="xl">
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-            <div
-              ref={commentSection.ref}
-              className={`animate-on-scroll ${commentSection.isInView ? 'is-visible' : ''}`}
+          <div
+            ref={pitchSection.ref}
+            className={`animate-on-scroll ${pitchSection.isInView ? 'is-visible' : ''}`}
+          >
+            {/* Titre centré */}
+            <h2
+              style={{
+                textAlign: 'center',
+                fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
+                fontFamily: theme.typography.fonts.heading,
+                fontWeight: theme.typography.fontWeight.light,
+                fontStyle: 'italic',
+                color: theme.colors.neutral.gray900,
+                lineHeight: 1.3,
+                marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+              }}
             >
-              <Text variant="h2" style={{ marginBottom: '0.5rem' }}>
-                Comment ça marche
-              </Text>
-              <Text variant="bodyLarge" color="muted" style={{ textAlign: 'center' }}>
-                Un processus simple en 3 étapes
-              </Text>
-            </div>
-          </div>
+              L'Équilibre Parfait : 4 Châteaux d'Exception entre Paris et Nature
+            </h2>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1.25rem',
-            maxWidth: '1000px',
-            margin: '0 auto',
-            position: 'relative',
-          }}>
-            {/* Ligne de connexion entre les étapes */}
-            <div style={{
-              position: 'absolute',
-              top: '45px',
-              left: '20%',
-              right: '20%',
-              height: '2px',
-              background: `linear-gradient(90deg, ${theme.colors.primary.bronze}40, ${theme.colors.primary.gold}60, ${theme.colors.primary.bronze}40)`,
-              zIndex: 0,
-            }} />
+            {/* Layout 2 colonnes : texte + chiffres-clés */}
+            <div className="pitch-layout" style={{
+              display: 'flex',
+              gap: 'clamp(2rem, 4vw, 3.5rem)',
+              maxWidth: '1100px',
+              margin: '0 auto',
+              alignItems: 'flex-start',
+            }}>
+              {/* Texte — 60% */}
+              <div className="pitch-text" style={{ flex: '1 1 60%' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <p style={{
+                    fontSize: 'clamp(0.9375rem, 2vw, 1.025rem)',
+                    lineHeight: 1.8,
+                    color: theme.colors.neutral.gray600,
+                  }}>
+                    Réussir un séminaire d'entreprise demande un cadre qui inspire autant qu'il rassure.
+                    Répartis stratégiquement dans les <strong style={{ color: theme.colors.neutral.gray800 }}>Hauts-de-Seine (92)</strong>,
+                    les <strong style={{ color: theme.colors.neutral.gray800 }}>Yvelines (78)</strong> et
+                    l'<strong style={{ color: theme.colors.neutral.gray800 }}>Oise (60)</strong>,
+                    ces 4 châteaux d'exception offrent une accessibilité rare, à moins d'une heure de la capitale.
+                  </p>
+                  <p style={{
+                    fontSize: 'clamp(0.9375rem, 2vw, 1.025rem)',
+                    lineHeight: 1.8,
+                    color: theme.colors.neutral.gray600,
+                  }}>
+                    Chaque domaine garantit une <strong style={{ color: theme.colors.neutral.gray800 }}>unité de lieu totale</strong>.
+                    Journée d'étude intensive ou séminaire résidentiel de plusieurs jours,
+                    les infrastructures s'adaptent avec <strong style={{ color: theme.colors.neutral.gray800 }}>40 à 120 chambres</strong> par site.
+                  </p>
+                  <p style={{
+                    fontSize: 'clamp(0.9375rem, 2vw, 1.025rem)',
+                    lineHeight: 1.8,
+                    color: theme.colors.neutral.gray600,
+                  }}>
+                    De la séance de travail stratégique à la soirée d'entreprise mémorable,
+                    l'Île-de-France devient le théâtre d'une <strong style={{ color: theme.colors.neutral.gray800 }}>excellence opérationnelle sans compromis</strong>.
+                  </p>
+                </div>
+              </div>
 
-            {[
-              {
-                step: '1',
-                title: 'Demande',
-                description: 'Formulaire rapide',
-                icon: Calendar
-              },
-              {
-                step: '2',
-                title: 'Sélection',
-                description: 'Châteaux sur-mesure',
-                icon: Award
-              },
-              {
-                step: '3',
-                title: 'Organisation',
-                description: 'On gère tout',
-                icon: CheckCircle
-              }
-            ].map((item, index) => (
-              <div
-                key={index}
-                className={`animate-on-scroll from-scale hover-lift-sm ${commentSection.isInView ? 'is-visible' : ''}`}
-                style={{ position: 'relative', zIndex: 1, animationDelay: `${index * 0.08}s` }}
-              >
-                <div
-                  style={{
-                    padding: '1.5rem 1.25rem',
-                    background: 'white',
-                    borderRadius: theme.effects.borderRadius.xl,
-                    border: `1px solid ${theme.colors.neutral.gray200}`,
-                    textAlign: 'center',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
-                    transition: 'box-shadow 0.15s ease',
+              {/* Chiffres-clés — 40% */}
+              <div className="pitch-stats" style={{
+                flex: '0 0 auto',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+                minWidth: '220px',
+              }}>
+                {[
+                  { value: '< 1h', label: 'de Paris', icon: Clock },
+                  { value: '40–120', label: 'chambres par site', icon: Bed },
+                  { value: '100%', label: 'privatisable', icon: Shield },
+                  { value: '15 ans', label: 'd\'expertise B2B', icon: Award },
+                ].map((stat, i) => (
+                  <div key={i} style={{
                     display: 'flex',
-                    flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    minHeight: '180px',
-                  }}
-                  className="hover:shadow-lg"
-                >
-                  {/* Numéro d'étape */}
-                  <div
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      marginBottom: '1rem',
-                      borderRadius: theme.effects.borderRadius.full,
-                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}, ${theme.colors.primary.gold})`,
+                    gap: '1rem',
+                    padding: '1rem 1.25rem',
+                    background: theme.colors.neutral.gray50,
+                    borderRadius: '12px',
+                    border: `1px solid ${theme.colors.neutral.gray200}`,
+                  }}>
+                    <div style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '10px',
+                      background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`,
+                      border: `1px solid ${theme.colors.primary.bronze}25`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 4px 12px rgba(183, 135, 77, 0.3)',
-                      transition: 'transform 0.4s ease',
-                    }}
-                    className="hover:scale-110"
-                  >
-                    <span style={{
-                      color: 'white',
-                      fontWeight: theme.typography.fontWeight.bold,
-                      fontSize: '1.25rem',
+                      flexShrink: 0,
                     }}>
-                      {item.step}
-                    </span>
+                      <stat.icon className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                    </div>
+                    <div>
+                      <div style={{
+                        fontSize: '1.25rem',
+                        fontWeight: 700,
+                        color: theme.colors.neutral.gray900,
+                        lineHeight: 1.2,
+                      }}>
+                        {stat.value}
+                      </div>
+                      <div style={{
+                        fontSize: '0.8125rem',
+                        color: theme.colors.neutral.gray500,
+                      }}>
+                        {stat.label}
+                      </div>
+                    </div>
                   </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
-                  <Text variant="h5" as="h3" style={{ marginBottom: '0.25rem', fontSize: '1rem', textAlign: 'center' }}>
-                    {item.title}
-                  </Text>
+      {/* ========== 4. COMMENT ÇA MARCHE — Bannière compacte ========== */}
+      <section style={{
+        background: theme.colors.neutral.gray50,
+        borderTop: `1px solid ${theme.colors.neutral.gray200}`,
+        borderBottom: `1px solid ${theme.colors.neutral.gray200}`,
+        padding: 'clamp(1.5rem, 3vw, 2.5rem) 0',
+      }}>
+        <Container size="xl">
+          <div
+            ref={stepsSection.ref}
+            className={`animate-on-scroll ${stepsSection.isInView ? 'is-visible' : ''}`}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 'clamp(1.5rem, 4vw, 3rem)',
+              flexWrap: 'wrap',
+            }}
+          >
+            <span style={{
+              fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+              fontWeight: theme.typography.fontWeight.semibold,
+              color: theme.colors.neutral.gray800,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+            }}>
+              Comment ça marche
+            </span>
 
-                  <Text variant="caption" color="muted" style={{ fontSize: '0.85rem', textAlign: 'center' }}>
-                    {item.description}
-                  </Text>
+            <div style={{
+              width: '1px',
+              height: '24px',
+              background: theme.colors.neutral.gray300,
+            }} className="hidden-mobile-divider" />
+
+            {[
+              { step: '1', title: 'Demande', desc: 'Formulaire rapide' },
+              { step: '2', title: 'Sélection', desc: 'Châteaux sur-mesure' },
+              { step: '3', title: 'Organisation', desc: 'On gère tout' },
+            ].map((item, i) => (
+              <div key={i} style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+              }}>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  background: `linear-gradient(135deg, ${theme.colors.primary.bronze}, ${theme.colors.primary.gold})`,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                }}>
+                  <span style={{ color: 'white', fontWeight: 700, fontSize: '0.8125rem' }}>{item.step}</span>
                 </div>
+                <div>
+                  <div style={{ fontSize: '0.9rem', fontWeight: 600, color: theme.colors.neutral.gray800, lineHeight: 1.2 }}>
+                    {item.title}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: theme.colors.neutral.gray500 }}>
+                    {item.desc}
+                  </div>
+                </div>
+                {i < 2 && (
+                  <ArrowRight className="w-4 h-4" style={{ color: theme.colors.neutral.gray400, marginLeft: '0.5rem' }} />
+                )}
               </div>
             ))}
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* ========== 3. TRUST & SEO BLOCK - Design moderne sur une ligne ========== */}
-      <Section background="white" style={{ padding: '50px 0' }}>
-        <Container size="xl">
-          <div
-            ref={trustSection.ref}
-            className={`animate-on-scroll ${trustSection.isInView ? 'is-visible' : ''}`}
-          >
-            <Text
-              variant="h3"
-              style={{
-                textAlign: 'center',
-                marginBottom: '2rem',
-                color: theme.colors.neutral.gray800,
-              }}
-            >
-              Pourquoi Select Châteaux ?
-            </Text>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '1rem',
-              maxWidth: '1100px',
-              margin: '0 auto',
-            }}>
-              {[
-                {
-                  icon: Shield,
-                  title: 'Privatisation',
-                  highlight: '100%',
-                  description: 'Lieux dédiés à votre entreprise',
-                  gradient: 'linear-gradient(135deg, #B7874D 0%, #D4AF37 100%)',
-                },
-                {
-                  icon: Check,
-                  title: 'Tout Inclus',
-                  highlight: '0€',
-                  description: 'de frais cachés',
-                  gradient: 'linear-gradient(135deg, #1E3A5F 0%, #2E5A8F 100%)',
-                },
-                {
-                  icon: Award,
-                  title: 'Expertise B2B',
-                  highlight: '15 ans',
-                  description: 'd\'expérience corporate',
-                  gradient: 'linear-gradient(135deg, #4A5568 0%, #718096 100%)',
-                },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className={`animate-on-scroll from-scale hover-lift ${trustSection.isInView ? 'is-visible' : ''}`}
-                  style={{
-                    background: item.gradient,
-                    borderRadius: theme.effects.borderRadius.xl,
-                    padding: '1.5rem',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
-                    animationDelay: `${index * 0.1}s`,
-                  }}
-                >
-                  {/* Background pattern */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '-20px',
-                    right: '-20px',
-                    width: '100px',
-                    height: '100px',
-                    borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.1)',
-                  }} />
-
-                  <div style={{ position: 'relative', zIndex: 1 }}>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      marginBottom: '1rem',
-                    }}>
-                      <div style={{
-                        width: '40px',
-                        height: '40px',
-                        borderRadius: '10px',
-                        background: 'rgba(255,255,255,0.2)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}>
-                        <item.icon className="w-5 h-5" style={{ color: 'white' }} />
-                      </div>
-                      <Text variant="body" style={{ color: 'white', fontWeight: 600, fontSize: '0.95rem' }}>
-                        {item.title}
-                      </Text>
-                    </div>
-
-                    <div style={{
-                      fontSize: '2.25rem',
-                      fontWeight: 700,
-                      color: 'white',
-                      lineHeight: 1,
-                      marginBottom: '0.25rem',
-                    }}>
-                      {item.highlight}
-                    </div>
-
-                    <Text variant="caption" style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.85rem' }}>
-                      {item.description}
-                    </Text>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Formulaire Devis Express */}
+      {/* ========== 5. FORMULAIRE DEVIS EXPRESS ========== */}
       <Section background="white" style={{ padding: '0' }}>
         <Container size="lg">
           <DevisFormMini chateauId="conseil" chateauNom="Nos Châteaux d'Exception" />
         </Container>
       </Section>
 
-      {/* CTA finale */}
-      <Section background="gradient" style={{ padding: '60px 0' }}>
-        <Container size="lg">
-          <div className="section-header" style={{ textAlign: 'center' }}>
-            <div
-              ref={ctaSection.ref}
-              className={`animate-on-scroll ${ctaSection.isInView ? 'is-visible' : ''}`}
-            >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'center' }}>
-                Prêt à organiser votre événement d'exception ?
-              </Text>
-              <Text variant="bodyLarge" color="muted" style={{ marginBottom: theme.spacing.xl, textAlign: 'center', maxWidth: '700px', margin: '0 auto' }}>
-                Nos experts vous accompagnent dans le choix du château idéal. Devis gratuit sous 24h.
-              </Text>
-            </div>
+      {/* ========== 6. LOGOS CLIENTS ========== */}
+      <LogoCarousel />
 
-            <div
-              ref={ctaButtons.ref}
-              className={`animate-on-scroll ${ctaButtons.isInView ? 'is-visible' : ''}`}
-              style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', marginTop: theme.spacing.xl, animationDelay: '0.2s' }}
-            >
-              <Link href="/devis#formulaire">
-                <Button variant="primary" size="lg">
-                  Demander un Devis Gratuit
-                </Button>
+      {/* ========== 7. AVIS GOOGLE ========== */}
+      <ReviewsSection />
+
+      {/* ========== 8. CTA FINALE — Bandeau slim ========== */}
+      <section style={{
+        background: `linear-gradient(135deg, ${theme.colors.primary.bronze} 0%, ${theme.colors.primary.bronzeDark} 100%)`,
+        padding: 'clamp(1rem, 2.5vw, 1.5rem) 0',
+      }}>
+        <Container size="xl">
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 'clamp(1rem, 3vw, 2rem)',
+            flexWrap: 'wrap',
+          }}>
+            <span style={{
+              color: 'white',
+              fontSize: 'clamp(0.9375rem, 2vw, 1.125rem)',
+              fontWeight: theme.typography.fontWeight.medium,
+              fontFamily: theme.typography.fonts.heading,
+              fontStyle: 'italic',
+            }}>
+              Votre prochain séminaire commence ici
+            </span>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <Link
+                href="/devis#formulaire"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '10px 24px',
+                  borderRadius: theme.effects.borderRadius.full,
+                  background: 'white',
+                  color: theme.colors.primary.bronze,
+                  fontWeight: 700,
+                  fontSize: '0.875rem',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                Devis gratuit en 24h
               </Link>
-              <a href="tel:+33757991146" onClick={() => trackPhoneClick()}>
-                <Button variant="outline" size="lg">
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Phone className="w-5 h-5" />
-                    <span>07 57 99 11 46</span>
-                  </div>
-                </Button>
+              <a
+                href="tel:+33757991146"
+                onClick={() => trackPhoneClick()}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '10px 20px',
+                  borderRadius: theme.effects.borderRadius.full,
+                  border: '1.5px solid rgba(255,255,255,0.5)',
+                  color: 'white',
+                  fontWeight: 600,
+                  fontSize: '0.875rem',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                <Phone className="w-4 h-4" />
+                07 57 99 11 46
               </a>
             </div>
           </div>
         </Container>
-      </Section>
-
-      {/* Section Logos Clients */}
-      <LogoCarousel />
-
-      {/* Section Avis Google */}
-      <ReviewsSection />
+      </section>
 
       {/* Lightbox carrousel avec flèches */}
       {lightboxIndex !== null && (

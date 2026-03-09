@@ -1475,6 +1475,29 @@ textarea::placeholder {
   }
 }
 
+/* Page /chateaux — Pitch layout responsive */
+@media (max-width: 767px) {
+  .pitch-layout {
+    flex-direction: column !important;
+  }
+  .pitch-text {
+    flex: 1 1 100% !important;
+  }
+  .pitch-stats {
+    flex: 1 1 100% !important;
+    min-width: 0 !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+  .pitch-stats > div {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-width: 140px;
+  }
+  .hidden-mobile-divider {
+    display: none !important;
+  }
+}
+
 /* Page /chateaux — Hero photo grid responsive */
 @media (max-width: 767px) {
   .hero-grid-listing {
