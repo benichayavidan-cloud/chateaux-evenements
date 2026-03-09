@@ -67,7 +67,8 @@ export default function Home() {
       <section
         style={{
           background: '#f6f9fc',
-          padding: 'clamp(2rem, 5vw, 3.75rem) 0',
+          paddingTop: '15px',
+          paddingBottom: 'clamp(2rem, 5vw, 3.75rem)',
         }}
       >
         <Container size="xl">
@@ -235,7 +236,8 @@ export default function Home() {
       <section
         style={{
           background: '#fafafa',
-          padding: `${theme.spacing.section.lg} 0`,
+          paddingTop: '15px',
+          paddingBottom: theme.spacing.section.lg,
         }}
       >
         <Container size="xl">
@@ -271,7 +273,8 @@ export default function Home() {
       <section
         style={{
           background: '#f6f9fc',
-          padding: 'clamp(1.5rem, 4vw, 2.5rem) 0',
+          paddingTop: '15px',
+          paddingBottom: 'clamp(1.5rem, 4vw, 2.5rem)',
           borderTop: `1px solid ${theme.colors.neutral.gray200}`,
           borderBottom: `1px solid ${theme.colors.neutral.gray200}`,
         }}
@@ -301,7 +304,8 @@ export default function Home() {
       <section
         style={{
           background: `linear-gradient(135deg, ${theme.colors.primary.bronze} 0%, ${theme.colors.primary.bronzeDark} 100%)`,
-          padding: 'clamp(0.625rem, 1.5vw, 1.25rem) 0',
+          paddingTop: '15px',
+          paddingBottom: 'clamp(0.625rem, 1.5vw, 1.25rem)',
           position: 'relative',
           overflow: 'hidden',
           display: 'flex',

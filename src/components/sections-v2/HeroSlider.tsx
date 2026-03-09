@@ -96,8 +96,7 @@ export function HeroSlider({
         minHeight: '600px',
         overflow: 'hidden',
       }}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      /* Pas de pause au hover — le slider continue en continu */
     >
       {/* Slides — all rendered, only current is visible */}
       {slides.map((slide, index) => (
