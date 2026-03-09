@@ -889,7 +889,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       {/* Section FAQ — 2 colonnes : FAQ + Image équipe */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'stretch' }}>
             {/* Colonne gauche — FAQ */}
             <div>
               <div style={{ marginBottom: '1.5rem' }}>
@@ -976,7 +976,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
             </div>
 
             {/* Colonne droite — Images FAQ par château */}
-            <div style={{ position: 'sticky', top: '100px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', justifyContent: 'center', height: '100%' }}>
               {(() => {
                 const faqImages: Record<string, { src: string; alt: string; aspect: string }[]> = {
                   "2": [
