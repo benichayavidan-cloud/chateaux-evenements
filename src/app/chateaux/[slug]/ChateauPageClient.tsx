@@ -975,26 +975,36 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               </div>
             </div>
 
-            {/* Colonne droite — Image équipe */}
-            <div style={{ position: 'sticky', top: '100px' }}>
-              <div style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-                <div style={{ position: 'relative', aspectRatio: '4/5' }}>
-                  <Image
-                    src="/images/equipe-chateau-chef-serveurs-accueil-evenement.webp"
-                    alt={`Équipe du ${chateau.nom} — Chef gastronomique, serveurs et responsable accueil groupe`}
-                    fill className="object-cover" loading="lazy" quality={80} sizes="50vw"
-                  />
-                  {/* Overlay bas avec texte */}
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)', padding: '2rem 1.5rem 1.5rem' }}>
-                    <p style={{ color: 'white', fontSize: '1.125rem', fontWeight: 600, fontFamily: theme.typography.fonts.heading, marginBottom: '0.25rem' }}>
-                      Notre équipe à votre service
-                    </p>
-                    <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.8125rem', lineHeight: 1.5 }}>
-                      Chef gastronomique, maîtres d&apos;hôtel et responsable événementiel — un accompagnement dédié pour votre événement
-                    </p>
+            {/* Colonne droite — Images FAQ par château */}
+            <div style={{ position: 'sticky', top: '100px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {(() => {
+                const faqImages: Record<string, { src: string; alt: string; aspect: string }[]> = {
+                  "2": [
+                    { src: "/images/evenement-entreprise-reine-margot-facade-terrasse-exterieure.webp", alt: `Façade et terrasse extérieure du ${chateau.nom} — réception événement entreprise`, aspect: "16/10" },
+                    { src: "/images/evenement-entreprise-reine-margot-equipe-chef-service-accueil.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique et service d'accueil événementiel`, aspect: "3/4" },
+                  ],
+                };
+                const images = faqImages[chateau.id] || [
+                  { src: "/images/equipe-chateau-chef-serveurs-accueil-evenement.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique, serveurs et responsable accueil groupe`, aspect: "4/5" },
+                ];
+                return images.map((img, i) => (
+                  <div key={i} style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+                    <div style={{ position: 'relative', aspectRatio: img.aspect }}>
+                      <Image src={img.src} alt={img.alt} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+                      {i === images.length - 1 && (
+                        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)', padding: '2rem 1.5rem 1.5rem' }}>
+                          <p style={{ color: 'white', fontSize: '1.125rem', fontWeight: 600, fontFamily: theme.typography.fonts.heading, marginBottom: '0.25rem' }}>
+                            Notre équipe à votre service
+                          </p>
+                          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.8125rem', lineHeight: 1.5 }}>
+                            Chef gastronomique, maîtres d&apos;hôtel et responsable événementiel — un accompagnement dédié pour votre événement
+                          </p>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </div>
+                ));
+              })()}
             </div>
           </div>
         </Container>
