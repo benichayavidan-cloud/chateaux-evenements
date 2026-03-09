@@ -51,7 +51,7 @@ export const chateaux: Chateau[] = [
       openGraph: imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp"),
       card: imgPath("Chateau de Montvillargene", "evenement-entreprise-chateau-montvillargenne-vue-aerienne-domaine.webp"),
       galerie: [
-        imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-allee-entree-parc-arbres-perspective.webp"),
+        imgPath("Chateau de Montvillargene", "evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp"),
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-auditorium-conference-led-bleu-ecran-geant.webp"),
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chambre-moderne-epuree-tete-lit-taupe.webp"),
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-j&f-4-copie.webp"),

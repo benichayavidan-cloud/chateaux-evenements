@@ -4,6 +4,7 @@
 
 'use client';
 
+import { useState } from 'react';
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Card, Button } from '@/components/ui-v2';
 import { Users, Bed, Sparkles, Calendar, ArrowRight, Shield, Award, MapPin, Clock, CheckCircle, Phone, Check } from 'lucide-react';
@@ -92,6 +93,13 @@ export default function ChateauxPage() {
     filteredChateaux[3]?.images.hero[0] || filteredChateaux[0]?.images.galerie[2],
     filteredChateaux[0]?.images.galerie[0] || filteredChateaux[0]?.images.hero[1],
   ].filter(Boolean) as string[];
+
+  // Lightbox state
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevImage = () => setLightboxIndex(i => i !== null ? (i - 1 + heroImages.length) % heroImages.length : null);
+  const nextImage = () => setLightboxIndex(i => i !== null ? (i + 1) % heroImages.length : null);
 
   const headerPitch = useInView();
   const whySection = useInView();
@@ -193,14 +201,15 @@ export default function ChateauxPage() {
         >
           {/* Grande image principale à gauche — occupe 2 lignes */}
           <div
-            className="relative overflow-hidden"
+            className="relative cursor-pointer group overflow-hidden"
             style={{ gridRow: '1 / 3', gridColumn: '1 / 2' }}
+            onClick={() => openLightbox(0)}
           >
             <Image
               src={heroImages[0] || ''}
               alt={`${filteredChateaux[0]?.nom || 'Château'} - Vue principale`}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               priority
               quality={85}
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -208,52 +217,77 @@ export default function ChateauxPage() {
           </div>
 
           {/* 4 petites images à droite — grille 2x2 */}
-          <div className="relative overflow-hidden">
+          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(1)}>
             <Image
               src={heroImages[1] || ''}
               alt={`${filteredChateaux[1]?.nom || 'Château'} - Vue`}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               quality={80}
               sizes="25vw"
             />
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(2)}>
             <Image
               src={heroImages[2] || ''}
               alt={`${filteredChateaux[2]?.nom || 'Château'} - Vue`}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               quality={80}
               sizes="25vw"
             />
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(3)}>
             <Image
               src={heroImages[3] || ''}
               alt={`${filteredChateaux[3]?.nom || 'Château'} - Vue`}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               quality={80}
               sizes="25vw"
             />
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(4)}>
             <Image
               src={heroImages[4] || ''}
               alt="Vue complémentaire"
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               quality={80}
               sizes="25vw"
             />
+            {/* Bouton "Toutes les photos" */}
+            <button
+              onClick={(e) => { e.stopPropagation(); openLightbox(0); }}
+              style={{
+                position: 'absolute',
+                bottom: '0.75rem',
+                right: '0.75rem',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 16px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                border: `1px solid ${theme.colors.neutral.gray300}`,
+                borderRadius: theme.effects.borderRadius.lg,
+                fontSize: '0.8125rem',
+                fontWeight: theme.typography.fontWeight.semibold,
+                color: theme.colors.neutral.gray900,
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+                zIndex: 10,
+              }}
+            >
+              <Sparkles className="w-4 h-4" />
+              Toutes les photos
+            </button>
           </div>
         </div>
 
@@ -1033,6 +1067,62 @@ export default function ChateauxPage() {
 
       {/* Section Avis Google */}
       <ReviewsSection />
+
+      {/* Lightbox carrousel avec flèches */}
+      {lightboxIndex !== null && (
+        <div
+          className="animate-fade-only"
+          onClick={closeLightbox}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'Escape') closeLightbox();
+          }}
+          tabIndex={0}
+          ref={(el) => el?.focus()}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0, 0, 0, 0.95)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', outline: 'none' }}
+        >
+          {/* Bouton fermer */}
+          <button
+            onClick={closeLightbox}
+            style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.1)', border: '2px solid rgba(255, 255, 255, 0.2)', color: 'white', fontSize: '24px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000 }}
+            aria-label="Fermer"
+          >
+            ✕
+          </button>
+
+          {/* Compteur */}
+          <div style={{ position: 'absolute', top: '1.5rem', left: '50%', transform: 'translateX(-50%)', color: 'rgba(255,255,255,0.8)', fontSize: '0.9375rem', fontWeight: 600, zIndex: 10000 }}>
+            {lightboxIndex + 1} / {heroImages.length}
+          </div>
+
+          {/* Flèche gauche */}
+          <button
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            style={{ position: 'absolute', left: 'clamp(0.5rem, 2vw, 1.5rem)', top: '50%', transform: 'translateY(-50%)', width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000, transition: 'all 0.2s ease' }}
+            aria-label="Image précédente"
+          >
+            ‹
+          </button>
+
+          {/* Flèche droite */}
+          <button
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            style={{ position: 'absolute', right: 'clamp(0.5rem, 2vw, 1.5rem)', top: '50%', transform: 'translateY(-50%)', width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000, transition: 'all 0.2s ease' }}
+            aria-label="Image suivante"
+          >
+            ›
+          </button>
+
+          {/* Image */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ position: 'relative', width: '100%', height: '100%', maxWidth: '1400px', maxHeight: '85vh', cursor: 'default' }}
+          >
+            <Image src={heroImages[lightboxIndex]} alt={`Photo ${lightboxIndex + 1}`} fill sizes="100vw" className="object-contain" quality={85} priority />
+          </div>
+        </div>
+      )}
     </>
   );
 }
