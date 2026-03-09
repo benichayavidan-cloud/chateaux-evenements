@@ -826,11 +826,19 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       <section style={{ position: 'relative', padding: 'clamp(5rem, 10vw, 8rem) 0', overflow: 'hidden' }}>
         {/* Image de fond */}
         <div style={{ position: 'absolute', inset: 0 }}>
-          <Image
-            src={chateau.images.hero[0]}
-            alt={`Vue du ${chateau.nom} — Points forts du domaine`}
-            fill sizes="100vw" className="object-cover" loading="lazy" quality={80}
-          />
+          {(() => {
+            const pointsFortsImages: Record<string, { src: string; position: string }> = {
+              "2": { src: "/images/evenement-entreprise-reine-margot-facade-jardin-terrasse.webp", position: "center 60%" },
+            };
+            const img = pointsFortsImages[chateau.id] || { src: chateau.images.hero[0], position: "center center" };
+            return (
+              <Image
+                src={img.src}
+                alt={`Vue du ${chateau.nom} — Points forts du domaine`}
+                fill sizes="100vw" className="object-cover" style={{ objectPosition: img.position }} loading="lazy" quality={80}
+              />
+            );
+          })()}
           <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)' }} />
         </div>
         <Container size="xl" style={{ position: 'relative', zIndex: 2 }}>
