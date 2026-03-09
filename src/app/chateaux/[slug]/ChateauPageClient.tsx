@@ -184,8 +184,8 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
           <Container size="xl">
             <div style={{ maxWidth: '800px' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
-                <Bed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hébergement</span>
+                <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Le lieu</span>
               </div>
               <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 600, fontFamily: theme.typography.fonts.heading, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
                 {chateau.roomsTotal} chambres d&apos;exception
