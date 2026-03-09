@@ -183,9 +183,9 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem)', zIndex: 2 }}>
           <Container size="xl">
             <div style={{ maxWidth: '800px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <Bed className="w-6 h-6" style={{ color: theme.colors.primary.gold }} />
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: theme.colors.primary.gold, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Hébergement</span>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: 'rgba(255,255,255,0.12)', borderRadius: theme.effects.borderRadius.full, border: '1px solid rgba(255,255,255,0.25)', marginBottom: '1rem' }}>
+                <Bed className="w-4 h-4" style={{ color: 'white' }} />
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'white', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hébergement</span>
               </div>
               <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 600, fontFamily: theme.typography.fonts.heading, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
                 {chateau.roomsTotal} chambres d&apos;exception
