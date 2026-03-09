@@ -159,36 +159,45 @@ export function Navigation({
                     onMouseLeave={handleDropdownLeave}
                     style={{ position: 'relative' }}
                   >
-                    <button
-                      aria-haspopup="true"
-                      aria-expanded={activeDropdown === link.href}
+                    <div
                       style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '6px',
-                        background: 'none',
-                        border: 'none',
-                        color: activeDropdown === link.href
-                          ? 'var(--bronze-antique, #A37E2C)'
-                          : theme.colors.neutral.gray700,
-                        fontWeight: theme.typography.fontWeight.medium,
-                        cursor: 'pointer',
-                        transition: 'color 0.2s ease',
                         padding: '10px 8px',
                         margin: '-10px -8px',
-                        lineHeight: 1,
-                        fontSize: 'inherit',
                       }}
                     >
-                      {link.label}
+                      <Link
+                        href={link.href}
+                        variant="subtle"
+                        aria-haspopup="true"
+                        aria-expanded={activeDropdown === link.href}
+                        style={{
+                          color: activeDropdown === link.href
+                            ? 'var(--bronze-antique, #A37E2C)'
+                            : theme.colors.neutral.gray700,
+                          fontWeight: theme.typography.fontWeight.medium,
+                          cursor: 'pointer',
+                          transition: 'color 0.2s ease',
+                          lineHeight: 1,
+                          fontSize: 'inherit',
+                        }}
+                      >
+                        {link.label}
+                      </Link>
                       <ChevronDown
                         className="w-4 h-4"
                         style={{
+                          color: activeDropdown === link.href
+                            ? 'var(--bronze-antique, #A37E2C)'
+                            : theme.colors.neutral.gray700,
                           transform: activeDropdown === link.href ? 'rotate(180deg)' : 'rotate(0)',
-                          transition: 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                          transition: 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease',
+                          pointerEvents: 'none',
                         }}
                       />
-                    </button>
+                    </div>
 
                     <div
                       className={`nav-dropdown ${activeDropdown === link.href ? 'is-open' : ''}`}
@@ -295,32 +304,53 @@ export function Navigation({
                   <div key={link.href} style={{ marginBottom: theme.spacing.md }}>
                     {link.children ? (
                       <>
-                        <button
-                          onClick={() =>
-                            setActiveDropdown(activeDropdown === link.href ? null : link.href)
-                          }
+                        <div
                           style={{
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
                             width: '100%',
                             padding: theme.spacing.md,
-                            background: 'none',
-                            border: 'none',
-                            fontSize: theme.typography.fontSize.lg,
-                            fontWeight: theme.typography.fontWeight.medium,
-                            cursor: 'pointer',
                           }}
                         >
-                          {link.label}
-                          <ChevronDown
-                            className="w-5 h-5"
+                          <Link
+                            href={link.href}
+                            variant="subtle"
+                            onClick={handleLinkClick}
                             style={{
-                              transform: activeDropdown === link.href ? 'rotate(180deg)' : 'rotate(0)',
-                              transition: 'transform 0.2s',
+                              fontSize: theme.typography.fontSize.lg,
+                              fontWeight: theme.typography.fontWeight.medium,
+                              flex: 1,
                             }}
-                          />
-                        </button>
+                          >
+                            {link.label}
+                          </Link>
+                          <button
+                            onClick={() =>
+                              setActiveDropdown(activeDropdown === link.href ? null : link.href)
+                            }
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              width: '40px',
+                              height: '40px',
+                              background: 'none',
+                              border: 'none',
+                              cursor: 'pointer',
+                              flexShrink: 0,
+                            }}
+                            aria-label="Ouvrir le sous-menu"
+                          >
+                            <ChevronDown
+                              className="w-5 h-5"
+                              style={{
+                                transform: activeDropdown === link.href ? 'rotate(180deg)' : 'rotate(0)',
+                                transition: 'transform 0.2s',
+                              }}
+                            />
+                          </button>
+                        </div>
                         <div
                           className={`accordion-content ${activeDropdown === link.href ? 'is-open' : ''}`}
                           style={{ paddingLeft: theme.spacing.lg }}
