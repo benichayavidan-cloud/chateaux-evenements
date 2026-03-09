@@ -1475,6 +1475,28 @@ textarea::placeholder {
   }
 }
 
+/* Page /chateaux — Hero CTA bar responsive */
+@media (max-width: 639px) {
+  .hero-cta-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    text-align: center;
+  }
+  .hero-cta-bar p {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .hero-cta-buttons {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+  .hero-cta-buttons a {
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 /* Page /chateaux — Pitch layout responsive */
 @media (max-width: 767px) {
   .pitch-layout {
@@ -1498,6 +1520,41 @@ textarea::placeholder {
   }
 }
 
+/* Page /chateaux — Comment ça marche responsive */
+@media (max-width: 767px) {
+  .steps-banner {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: flex-start !important;
+    padding: 0 1rem;
+  }
+  .steps-banner > span:first-child {
+    align-self: center;
+    margin-bottom: 0.25rem;
+  }
+  .steps-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .step-arrow-mobile {
+    display: none !important;
+  }
+}
+
+/* Page /chateaux — CTA finale responsive */
+@media (max-width: 639px) {
+  .cta-finale-bar {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 0.75rem !important;
+  }
+  .cta-finale-buttons {
+    justify-content: center !important;
+  }
+}
+
 /* Page /chateaux — Hero photo grid responsive */
 @media (max-width: 767px) {
   .hero-grid-listing {
@@ -1510,6 +1567,22 @@ textarea::placeholder {
   }
   .hero-grid-listing > div:nth-child(n+4) {
     display: none !important;
+  }
+  /* Déplacer le bouton "Toutes les photos" sur la 3ème image visible (slot 3) */
+  .hero-grid-listing > div:nth-child(3) {
+    position: relative;
+  }
+}
+
+/* Page /chateaux — Lightbox responsive */
+@media (max-width: 639px) {
+  .lightbox-overlay {
+    padding: 0.75rem !important;
+  }
+  .lightbox-nav-btn {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1.25rem !important;
   }
 }
 

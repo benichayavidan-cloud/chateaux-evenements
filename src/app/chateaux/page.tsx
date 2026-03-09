@@ -280,6 +280,7 @@ export default function ChateauxPage() {
 
         {/* CTA Bar sous les photos */}
         <div
+          className="hero-cta-bar"
           style={{
             display: 'flex',
             flexDirection: 'row',
@@ -296,7 +297,7 @@ export default function ChateauxPage() {
         >
           <p
             style={{
-              fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+              fontSize: 'clamp(0.8125rem, 2vw, 1rem)',
               color: theme.colors.neutral.gray600,
               fontStyle: 'italic',
               margin: 0,
@@ -306,7 +307,7 @@ export default function ChateauxPage() {
           >
             Collection exclusive de domaines privatisables aux portes de Paris pour vos événements d'entreprise
           </p>
-          <div className="flex gap-2.5 flex-shrink-0 items-center">
+          <div className="hero-cta-buttons flex gap-2.5 flex-shrink-0 items-center">
             <Link
               href="/devis#formulaire"
               style={{
@@ -647,7 +648,7 @@ export default function ChateauxPage() {
         <Container size="xl">
           <div
             ref={stepsSection.ref}
-            className={`animate-on-scroll ${stepsSection.isInView ? 'is-visible' : ''}`}
+            className={`steps-banner animate-on-scroll ${stepsSection.isInView ? 'is-visible' : ''}`}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -703,7 +704,7 @@ export default function ChateauxPage() {
                   </div>
                 </div>
                 {i < 2 && (
-                  <ArrowRight className="w-4 h-4" style={{ color: theme.colors.neutral.gray400, marginLeft: '0.5rem' }} />
+                  <ArrowRight className="step-arrow-mobile w-4 h-4" style={{ color: theme.colors.neutral.gray400, marginLeft: '0.5rem' }} />
                 )}
               </div>
             ))}
@@ -730,7 +731,7 @@ export default function ChateauxPage() {
         padding: 'clamp(1rem, 2.5vw, 1.5rem) 0',
       }}>
         <Container size="xl">
-          <div style={{
+          <div className="cta-finale-bar" style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -746,7 +747,7 @@ export default function ChateauxPage() {
             }}>
               Votre prochain séminaire commence ici
             </span>
-            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div className="cta-finale-buttons" style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
               <Link
                 href="/devis#formulaire"
                 style={{
@@ -793,7 +794,7 @@ export default function ChateauxPage() {
       {/* Lightbox carrousel avec flèches */}
       {lightboxIndex !== null && (
         <div
-          className="animate-fade-only"
+          className="animate-fade-only lightbox-overlay"
           onClick={closeLightbox}
           onKeyDown={(e) => {
             if (e.key === 'ArrowLeft') prevImage();
@@ -820,6 +821,7 @@ export default function ChateauxPage() {
 
           {/* Flèche gauche */}
           <button
+            className="lightbox-nav-btn"
             onClick={(e) => { e.stopPropagation(); prevImage(); }}
             style={{ position: 'absolute', left: 'clamp(0.5rem, 2vw, 1.5rem)', top: '50%', transform: 'translateY(-50%)', width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000, transition: 'all 0.2s ease' }}
             aria-label="Image précédente"
@@ -829,6 +831,7 @@ export default function ChateauxPage() {
 
           {/* Flèche droite */}
           <button
+            className="lightbox-nav-btn"
             onClick={(e) => { e.stopPropagation(); nextImage(); }}
             style={{ position: 'absolute', right: 'clamp(0.5rem, 2vw, 1.5rem)', top: '50%', transform: 'translateY(-50%)', width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000, transition: 'all 0.2s ease' }}
             aria-label="Image suivante"
