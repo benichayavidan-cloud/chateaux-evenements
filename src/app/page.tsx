@@ -76,10 +76,10 @@ export default function Home() {
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
               4 Châteaux d'Exception en Île-de-France
             </Text>
-            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '940px', margin: '0 auto' }}>
               Réussissez votre prochain séminaire d'entreprise au sein de 4 châteaux d'exception. Situés idéalement en Île-de-France et à proximité immédiate de Paris, ces domaines allient le prestige de l'histoire au confort moderne pour offrir un cadre de travail hors du commun.
             </Text>
-            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '800px', margin: `${theme.spacing.md} auto 0 auto` }}>
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '940px', margin: `${theme.spacing.md} auto 0 auto` }}>
               Chaque site dispose d'une capacité d'accueil allant de 40 à 120 chambres, permettant de loger vos collaborateurs dans un environnement raffiné et apaisant, propice à la réflexion comme à la cohésion.
             </Text>
           </div>
@@ -251,7 +251,7 @@ export default function Home() {
             <p style={{
               fontSize: theme.typography.fontSize.xl,
               color: theme.colors.neutral.white,
-              maxWidth: '800px',
+              maxWidth: '940px',
               margin: `0 auto ${theme.spacing['2xl']} auto`,
               opacity: 0.95,
               textAlign: 'center',
