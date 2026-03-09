@@ -109,13 +109,18 @@ export function ServiceCard({
           {titre}
         </h3>
 
-        {/* Description */}
+        {/* Description - hauteur fixe pour alignement */}
         <p
           style={{
             fontSize: '0.85rem',
             color: theme.colors.neutral.gray600,
             lineHeight: 1.6,
             marginBottom: '16px',
+            minHeight: '108px',
+            display: '-webkit-box',
+            WebkitLineClamp: 5,
+            WebkitBoxOrient: 'vertical' as const,
+            overflow: 'hidden',
           }}
         >
           {description}
