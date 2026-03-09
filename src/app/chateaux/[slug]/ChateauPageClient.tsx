@@ -980,8 +980,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               {(() => {
                 const faqImages: Record<string, { src: string; alt: string; aspect: string }[]> = {
                   "2": [
-                    { src: "/images/evenement-entreprise-reine-margot-facade-terrasse-exterieure.webp", alt: `Façade et terrasse extérieure du ${chateau.nom} — réception événement entreprise`, aspect: "16/10" },
-                    { src: "/images/evenement-entreprise-reine-margot-equipe-chef-service-accueil.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique et service d'accueil événementiel`, aspect: "3/4" },
+                    { src: "/images/evenement-entreprise-reine-margot-equipe-chef-service-accueil.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique et service d'accueil événementiel`, aspect: "4/3" },
                   ],
                 };
                 const images = faqImages[chateau.id] || [
