@@ -18,12 +18,12 @@ interface ServiceCardProps {
 // Images de personnes heureuses pour chaque type de service
 const happyPeopleImages: Record<string, { src: string; alt: string }> = {
   'presentation': {
-    src: '/images/services/seminaire-residentiel-chambre-luxe-hotel-cheminee-confort.webp',
-    alt: 'Séminaire résidentiel - chambre de luxe avec cheminée pour hébergement premium en château'
+    src: 'https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/montvillargene/evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp',
+    alt: 'Séminaire résidentiel - chambre prestige château Montvillargenne pour hébergement premium'
   },
   'book-open': {
-    src: '/images/services/journee-etude-reunion-equipe-professionnels-collaboration.webp',
-    alt: 'Journée d\'étude entreprise - équipe de professionnels en réunion de travail collaborative'
+    src: 'https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/montvillargene/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp',
+    alt: 'Journée d\'étude entreprise - salle plénière pierre apparente château Montvillargenne'
   },
   'champagne': {
     src: '/images/services/soiree-entreprise-groupe-fete-theme-gatsby-costumes.webp',

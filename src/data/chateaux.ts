@@ -49,7 +49,7 @@ export const chateaux: Chateau[] = [
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-salle-seminaire-theatre-pierre-apparente-bois.webp"),
       ],
       openGraph: imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp"),
-      card: imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp"),
+      card: imgPath("Chateau de Montvillargene", "evenement-entreprise-chateau-montvillargenne-vue-aerienne-domaine.webp"),
       galerie: [
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-allee-entree-parc-arbres-perspective.webp"),
         imgPath("Chateau de Montvillargene", "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-auditorium-conference-led-bleu-ecran-geant.webp"),
@@ -263,13 +263,13 @@ export const chateaux: Chateau[] = [
     ],
     images: {
       hero: [
-        imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp"),
+        imgPath("Chateau Mont Royal", "evenement-entreprise-tiara-mont-royal-chantilly-terrasse-exterieure.webp"),
         imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-facade-exterieur-chateau-pierre-terrasse-parasols-parc.webp"),
         imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-salle-reunion-board-u-rectangulaire-chaises-beiges-ecran.webp"),
         imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-restaurant-bar-luxe-rotonde-circulaire-baies-panoramiques.webp"),
       ],
       openGraph: imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp"),
-      card: imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp"),
+      card: imgPath("Chateau Mont Royal", "evenement-entreprise-tiara-mont-royal-chantilly-terrasse-exterieure.webp"),
       galerie: [
         imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-facade-exterieur-chateau-pierre-terrasse-parasols-parc.webp"),
         imgPath("Chateau Mont Royal", "chateau-mont-royal-60-oise-chantilly-chambre-double-king-balcon-terrasse-vue-panoramique-miroir.webp"),
