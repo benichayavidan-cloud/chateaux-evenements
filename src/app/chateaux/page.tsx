@@ -74,15 +74,7 @@ export default function ChateauxPage() {
         </>
       );
     }
-    return (
-      <>
-        Une collection exclusive de <strong style={{ color: theme.colors.neutral.gray800 }}>4 domaines historiques privatisables</strong>,
-        sélectionnés pour leur proximité avec Paris (&lt;1h) et leur excellence opérationnelle.
-        Du séminaire résidentiel de 200 personnes à Chantilly au CODIR confidentiel dans les Hauts-de-Seine,
-        chaque lieu offre une <strong style={{ color: theme.colors.neutral.gray800 }}>unité de lieu parfaite</strong> :
-        salles de réunion high-tech, restauration gastronomique et hébergement sur place.
-      </>
-    );
+    return null;
   };
 
   // Images pour la grille hero (5 images depuis les châteaux filtrés)
@@ -367,21 +359,84 @@ export default function ChateauxPage() {
       {/* ========== 1. HEADER PITCH - Dynamique selon le département ========== */}
       <Section background="white" style={{ padding: '50px 0 30px' }}>
         <Container size="md">
-          <p
-            ref={headerPitch.ref}
-            className={`animate-on-scroll ${headerPitch.isInView ? 'is-visible' : ''}`}
-            style={{
-              textAlign: 'center',
-              maxWidth: '800px',
-              margin: '0 auto',
-              fontSize: 'clamp(1.05rem, 2.5vw, 1.15rem)',
-              lineHeight: 1.8,
-              color: theme.colors.neutral.gray600,
-              fontWeight: theme.typography.fontWeight.normal,
-            }}
-          >
-            {getHeaderPitch()}
-          </p>
+          {/* Contenu par département OU contenu éditorial par défaut */}
+          {getHeaderPitch() ? (
+            <p
+              ref={headerPitch.ref}
+              className={`animate-on-scroll ${headerPitch.isInView ? 'is-visible' : ''}`}
+              style={{
+                textAlign: 'center',
+                maxWidth: '800px',
+                margin: '0 auto',
+                fontSize: 'clamp(1.05rem, 2.5vw, 1.15rem)',
+                lineHeight: 1.8,
+                color: theme.colors.neutral.gray600,
+                fontWeight: theme.typography.fontWeight.normal,
+              }}
+            >
+              {getHeaderPitch()}
+            </p>
+          ) : (
+            <div
+              ref={headerPitch.ref}
+              className={`animate-on-scroll ${headerPitch.isInView ? 'is-visible' : ''}`}
+              style={{ maxWidth: '940px', margin: '0 auto' }}
+            >
+              <h2
+                style={{
+                  textAlign: 'center',
+                  fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
+                  fontFamily: theme.typography.fonts.heading,
+                  fontWeight: theme.typography.fontWeight.light,
+                  fontStyle: 'italic',
+                  color: theme.colors.neutral.gray900,
+                  lineHeight: 1.3,
+                  marginBottom: '2rem',
+                }}
+              >
+                L'Équilibre Parfait : 4 Châteaux d'Exception entre Paris et Nature
+              </h2>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <p style={{
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.95rem, 2.2vw, 1.05rem)',
+                  lineHeight: 1.8,
+                  color: theme.colors.neutral.gray600,
+                }}>
+                  Réussir un séminaire d'entreprise demande un cadre qui inspire autant qu'il rassure.
+                  Répartis stratégiquement dans les <strong style={{ color: theme.colors.neutral.gray800 }}>Hauts-de-Seine (92)</strong>,
+                  les <strong style={{ color: theme.colors.neutral.gray800 }}>Yvelines (78)</strong> et
+                  l'<strong style={{ color: theme.colors.neutral.gray800 }}>Oise (60)</strong>,
+                  ces 4 châteaux d'exception offrent une accessibilité rare, à moins d'une heure de la capitale
+                  et à proximité directe des aéroports et gares TGV.
+                </p>
+
+                <p style={{
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.95rem, 2.2vw, 1.05rem)',
+                  lineHeight: 1.8,
+                  color: theme.colors.neutral.gray600,
+                }}>
+                  Chaque domaine garantit une <strong style={{ color: theme.colors.neutral.gray800 }}>unité de lieu totale</strong> pour
+                  vos projets. Que ce soit pour une journée d'étude intensive ou un séminaire résidentiel de plusieurs jours,
+                  les infrastructures s'adaptent à vos besoins avec une capacité de <strong style={{ color: theme.colors.neutral.gray800 }}>40 à 120 chambres</strong> par
+                  site. Entre le prestige historique de Chantilly et la confidentialité des parcs du 92,
+                  vos collaborateurs profitent d'une immersion au vert propice à la cohésion d'équipe.
+                </p>
+
+                <p style={{
+                  textAlign: 'center',
+                  fontSize: 'clamp(0.95rem, 2.2vw, 1.05rem)',
+                  lineHeight: 1.8,
+                  color: theme.colors.neutral.gray600,
+                }}>
+                  De la séance de travail stratégique à la soirée d'entreprise mémorable sous les dorures,
+                  l'Île-de-France devient le théâtre d'une <strong style={{ color: theme.colors.neutral.gray800 }}>excellence opérationnelle sans compromis</strong>.
+                </p>
+              </div>
+            </div>
+          )}
         </Container>
       </Section>
 
