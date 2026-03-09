@@ -55,7 +55,7 @@ export default function Home() {
       <HeroSlider
         slides={heroSlides}
         autoPlay
-        autoPlayDuration={6000}
+        autoPlayDuration={3000}
         height="100vh"
         heading="Châteaux d'Exception pour Séminaires en Île-de-France"
       />
@@ -74,10 +74,13 @@ export default function Home() {
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['4xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-              Nos Châteaux d'Exception
+              4 Châteaux d'Exception en Île-de-France
             </Text>
-            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '700px', margin: '0 auto' }}>
-              Accédez aux domaines les plus prestigieux d'Île-de-France et de l'Oise pour vos événements professionnels
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '800px', margin: '0 auto' }}>
+              Réussissez votre prochain séminaire d'entreprise au sein de 4 châteaux d'exception. Situés idéalement en Île-de-France et à proximité immédiate de Paris, ces domaines allient le prestige de l'histoire au confort moderne pour offrir un cadre de travail hors du commun.
+            </Text>
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '800px', margin: `${theme.spacing.md} auto 0 auto` }}>
+              Chaque site dispose d'une capacité d'accueil allant de 40 à 120 chambres, permettant de loger vos collaborateurs dans un environnement raffiné et apaisant, propice à la réflexion comme à la cohésion.
             </Text>
           </div>
 
