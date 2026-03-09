@@ -116,6 +116,13 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
       "/images/evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp",
       "/images/evenement-entreprise-chateau-montvillargenne-chambre-loft-industriel.webp",
     ],
+    "2": [
+      "/images/evenement-entreprise-reine-margot-chambre-doree.webp",
+      "/images/evenement-entreprise-reine-margot-chambre-prestige-bleue.webp",
+      "/images/evenement-entreprise-reine-margot-chambre-vue-panoramique.webp",
+      "/images/evenement-entreprise-reine-margot-salle-de-bain-design.webp",
+      "/images/evenement-entreprise-reine-margot-suite-salon-vue-jardin.webp",
+    ],
   };
   const autoBedroomImages = chateau.images.galerie.filter(img => /chambre|suite|bedroom|room|lit/i.test(img));
   const forcedImages = extraBedroomImages[chateau.id] || [];
