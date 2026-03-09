@@ -33,6 +33,7 @@ export interface Chateau {
   roomsTwin: number | null; // null = "Modulables"
   bedroomText: string;
   meetingText: string;
+  meetingRooms: number;
 }
 
 export interface TypeEvenement {

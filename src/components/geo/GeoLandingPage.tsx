@@ -577,16 +577,18 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                       <div style={{ padding: theme.spacing.xl, flex: 1, display: "flex", flexDirection: "column" }}>
                         <Text variant="h4" lineClamp={2} style={{ marginBottom: theme.spacing.sm, minHeight: "2.4em" }}>{chateau.nom}</Text>
                         <Text variant="body" color="muted" lineClamp={3} style={{ marginBottom: theme.spacing.md }}>{chateau.description}</Text>
-                        <div style={{ display: "flex", flexWrap: "wrap", gap: theme.spacing.xs }}>
+                        <div style={{ display: "flex", flexWrap: "nowrap", gap: theme.spacing.xs, overflow: "hidden" }}>
                           {chateau.atouts.slice(0, 4).map((atout) => (
                             <span
                               key={atout}
                               style={{
-                                fontSize: theme.typography.fontSize.xs,
+                                fontSize: "11px",
                                 background: theme.colors.neutral.gray100,
                                 color: theme.colors.neutral.gray700,
-                                padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
+                                padding: `3px ${theme.spacing.sm}`,
                                 borderRadius: theme.effects.borderRadius.full,
+                                whiteSpace: "nowrap",
+                                flexShrink: 0,
                               }}
                             >
                               {atout}

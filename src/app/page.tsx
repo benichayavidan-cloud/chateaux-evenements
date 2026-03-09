@@ -11,7 +11,7 @@ import { LogoCarousel } from "@/components/home/LogoCarousel";
 import { ServiceCard } from "@/components/home/ServiceCard";
 import { StatsSection } from "@/components/home/StatsSection";
 import { generateBreadcrumbSchema, generateAggregateRatingSchema } from "@/utils/seo/structured-data";
-import { MapPin, Users, Building2, Star, ArrowRight } from "lucide-react";
+import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen } from "lucide-react";
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
@@ -162,18 +162,21 @@ export default function Home() {
                   {/* Atouts */}
                   <div style={{
                     display: 'flex',
-                    flexWrap: 'wrap' as const,
-                    gap: '8px',
+                    flexWrap: 'nowrap' as const,
+                    gap: '6px',
                     marginBottom: '20px',
+                    overflow: 'hidden',
                   }}>
                     {chateau.atouts.map((atout) => (
                       <span key={atout} style={{
-                        padding: '4px 10px',
+                        padding: '3px 8px',
                         background: '#f8fafc',
                         border: `1px solid ${theme.colors.neutral.gray200}`,
                         borderRadius: '6px',
-                        fontSize: '12px',
+                        fontSize: '11px',
                         color: theme.colors.neutral.gray700,
+                        whiteSpace: 'nowrap' as const,
+                        flexShrink: 0,
                       }}>
                         {atout}
                       </span>
@@ -202,6 +205,12 @@ export default function Home() {
                         <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
                           <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
                           <span>{chateau.roomsTotal} chambres</span>
+                        </div>
+                      )}
+                      {chateau.meetingRooms && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
+                          <DoorOpen className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                          <span>{chateau.meetingRooms} salles</span>
                         </div>
                       )}
                     </div>

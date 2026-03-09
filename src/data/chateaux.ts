@@ -69,6 +69,7 @@ export const chateaux: Chateau[] = [
     roomsTwin: 103,
     bedroomText: "119 chambres et suites élégantes avec vue sur les jardins du château et la forêt de Chantilly. 103 chambres en configuration Twin idéales pour vos séminaires résidentiels. Accès au spa Codage Paris avec piscine intérieure, sauna et hammam pour une détente totale entre vos sessions de travail.",
     meetingText: "21 salles de réunion modulables de 15 à 240 m², toutes baignées de lumière naturelle. Une Immersive Room de 240 m² pouvant accueillir 280 personnes en configuration théâtre, des salles de bal, un Yacht Club, des lofts privatifs et des salons confidentiels. Équipements complets : vidéoprojecteur, écran LCD, micro, système son. Configurations flexibles en U, théâtre, cabaret ou école selon vos besoins.",
+    meetingRooms: 21,
     faq: [
       {
         question: "Quelle est la capacité de l'amphithéâtre ?",
@@ -142,6 +143,7 @@ export const chateaux: Chateau[] = [
     roomsTwin: 16,
     bedroomText: "83 chambres et suites au design contemporain raffiné, dont des Junior Suites avec vue sur la Tour Eiffel. De la chambre Classique à la Suite Chapelle nichée dans l'ancienne chapelle du domaine, chaque espace marie élégance parisienne et confort absolu. Spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga privatisable. Jardin botanique de 5 000 m² pour des moments de sérénité entre vos sessions de travail.",
     meetingText: "9 espaces de réunion modulables, du salon board intimiste à la salle de 160 m². Le restaurant Marguerite 1606 (160 m², 100 en cocktail, 70 en banquet) se transforme en salle de réception d'exception. La terrasse jardin de 100 m² accueille vos cocktails en plein air, le Studio propose un espace de 50 m² pour vos présentations, et les salons Agastache et Mélisse offrent des configurations board et U pour vos réunions stratégiques. Équipements complets : vidéoprojection, écrans LCD, micro et son professionnel.",
+    meetingRooms: 9,
     faq: [
       {
         question: "Comment accéder au domaine en transports en commun ?",
@@ -216,6 +218,7 @@ export const chateaux: Chateau[] = [
     roomsTwin: null,
     bedroomText: "144 chambres et suites réparties dans trois bâtisses de caractère : l'Abbaye historique, les Haras et La Ferme. Du cosy au prestige, chaque chambre est habillée par la décoratrice Cordélia de Castellane dans un style alliant élégance et singularité. Suites d'exception avec le Pavillon d'Honneur et la Suite de l'Abbé. Spa d'exception aménagé dans les anciennes écuries, piscine, sauna et salle fitness pour des moments de détente entre vos sessions de travail.",
     meetingText: "14 salles de réunion de 25 à 500 m², adaptées à tous les formats. Le Réfectoire des Moines, joyau de 500 m², accueille jusqu'à 300 personnes en cocktail sous ses voûtes monumentales. L'Orangerie (171 m², 128 en théâtre), le Salon 1900 (168 m², 120 en théâtre) et un cinéma privé de 200 m² complètent l'offre. Équipements complets : vidéoprojection, son professionnel, écrans LCD et micro. Configurations flexibles en U, théâtre, cabaret ou école.",
+    meetingRooms: 14,
     faq: [
       {
         question: "Peut-on organiser des soirées festives ?",
@@ -286,6 +289,7 @@ export const chateaux: Chateau[] = [
     roomsTwin: 48,
     bedroomText: "109 chambres et suites surplombant la forêt de Chantilly, dont 48 en configuration Twin idéales pour vos séminaires résidentiels. Le standing InterContinental se retrouve dans chaque détail : literie d'exception, service pressing, conciergerie dédiée. Spa complet avec piscine intérieure chauffée, jacuzzi, sauna et salle fitness pour décompresser entre vos sessions de travail. Rooftop exclusif avec vue panoramique sur la forêt.",
     meetingText: "12 salles de réunion au sein d'un centre de convention de 700 m² avec terrasses privées. La salle Halphen de 380 m² accueille jusqu'à 250 personnes en théâtre et 300 en cocktail — idéale pour vos plénières et soirées de gala. Une Creativity Room dédiée à l'innovation, des salons de board de 33 à 108 m² pour vos comités de direction. Équipements complets : vidéoprojection, son professionnel, écrans LCD, micro et WiFi haut débit.",
+    meetingRooms: 12,
     faq: [
       {
         question: "Quelle est la capacité maximale du domaine ?",
