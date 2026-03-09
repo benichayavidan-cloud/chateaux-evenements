@@ -1377,7 +1377,9 @@ textarea::placeholder {
 
   .chateau-editorial-image {
     width: 50%;
-    height: 380px;
+    height: auto;
+    min-height: 320px;
+    align-self: stretch;
   }
 
   .chateau-editorial-content {
@@ -1388,7 +1390,7 @@ textarea::placeholder {
 
 @media (min-width: 1024px) {
   .chateau-editorial-image {
-    height: 400px;
+    min-height: 360px;
   }
 
   .chateau-editorial-content {

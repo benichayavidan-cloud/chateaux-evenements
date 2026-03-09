@@ -393,15 +393,13 @@ export default function ChateauxPage() {
                 }}
               >
                 {/* Image */}
-                <div className="chateau-editorial-image" style={{ overflow: 'hidden' }}>
+                <div className="chateau-editorial-image" style={{ overflow: 'hidden', position: 'relative' }}>
                   <Image
                     src={chateau.images.card}
                     alt={`${chateau.nom} - Séminaire entreprise ${chateau.region}`}
-                    width={800}
-                    height={500}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     style={{
-                      width: '100%',
-                      height: '100%',
                       objectFit: 'cover',
                       transition: 'transform 0.5s ease',
                     }}
