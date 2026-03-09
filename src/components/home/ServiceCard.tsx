@@ -41,6 +41,7 @@ export function ServiceCard({
   description,
   servicesInclus,
   image,
+  variant = 'default',
   index = 0
 }: ServiceCardProps) {
   const imageData = happyPeopleImages[icon];
@@ -52,26 +53,27 @@ export function ServiceCard({
   return (
     <div
       ref={ref}
-      className={`service-card-split hover-lift animate-on-scroll ${isInView ? 'is-visible' : ''}`}
+      className={`service-card-forfait hover-lift animate-on-scroll ${isInView ? 'is-visible' : ''}`}
       style={{
         animationDelay: `${index * 0.1}s`,
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         borderRadius: '16px',
         overflow: 'hidden',
         background: theme.colors.neutral.white,
         boxShadow: '0 4px 24px rgba(0, 0, 0, 0.08)',
         border: `1px solid ${theme.colors.neutral.gray200}`,
-        height: '280px',
         cursor: 'pointer',
+        height: '100%',
+        transition: 'box-shadow 0.3s ease, transform 0.3s ease',
       }}
     >
-      {/* Image Part - 45% */}
+      {/* Image Part - Haut */}
       <div
         style={{
           position: 'relative',
-          width: '45%',
-          minWidth: '45%',
+          width: '100%',
+          height: '200px',
           overflow: 'hidden',
         }}
       >
@@ -79,29 +81,28 @@ export function ServiceCard({
           src={displayImage || ''}
           alt={imageAlt}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
           sizes="(max-width: 768px) 100vw, 25vw"
           className="service-card-img"
         />
       </div>
 
-      {/* Content Part - 55% */}
+      {/* Content Part - Bas */}
       <div
         style={{
           flex: 1,
-          padding: '1.5rem',
+          padding: '24px',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
         }}
       >
         {/* Title */}
         <h3
           style={{
-            fontSize: '1.25rem',
-            fontWeight: 600,
+            fontSize: '1.15rem',
+            fontWeight: 700,
             color: theme.colors.neutral.gray900,
-            marginBottom: '0.5rem',
+            marginBottom: '8px',
             lineHeight: 1.3,
           }}
         >
@@ -111,18 +112,22 @@ export function ServiceCard({
         {/* Description */}
         <p
           style={{
-            fontSize: '0.875rem',
+            fontSize: '0.85rem',
             color: theme.colors.neutral.gray600,
             lineHeight: 1.6,
-            marginBottom: '1rem',
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
+            marginBottom: '16px',
           }}
         >
           {description}
         </p>
+
+        {/* Divider */}
+        <div style={{
+          width: '100%',
+          height: '1px',
+          background: theme.colors.neutral.gray200,
+          marginBottom: '16px',
+        }} />
 
         {/* Services List */}
         <ul
@@ -132,17 +137,17 @@ export function ServiceCard({
             margin: 0,
             display: 'flex',
             flexDirection: 'column',
-            gap: '0.5rem',
+            gap: '8px',
             flex: 1,
           }}
         >
-          {servicesInclus.slice(0, 3).map((item, idx) => (
+          {servicesInclus.slice(0, 5).map((item, idx) => (
             <li
               key={idx}
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.5rem',
+                gap: '8px',
                 fontSize: '0.8rem',
                 color: theme.colors.neutral.gray700,
               }}
@@ -151,13 +156,7 @@ export function ServiceCard({
                 className="w-3.5 h-3.5"
                 style={{ color: theme.colors.primary.bronze, flexShrink: 0 }}
               />
-              <span style={{
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-              }}>
-                {item}
-              </span>
+              <span>{item}</span>
             </li>
           ))}
         </ul>
@@ -167,13 +166,18 @@ export function ServiceCard({
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '0.5rem',
-            color: theme.colors.primary.bronze,
+            justifyContent: 'center',
+            gap: '8px',
+            color: theme.colors.neutral.white,
+            background: theme.colors.primary.bronze,
             fontSize: '0.875rem',
             fontWeight: 600,
-            marginTop: '0.75rem',
+            marginTop: '20px',
+            padding: '10px 20px',
+            borderRadius: '8px',
+            transition: 'background 0.2s ease',
           }}
-          className="service-card-cta"
+          className="service-card-cta-btn"
         >
           <span>Découvrir</span>
           <ArrowRight className="w-4 h-4" />

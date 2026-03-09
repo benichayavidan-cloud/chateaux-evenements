@@ -84,43 +84,139 @@ export default function Home() {
             </Text>
           </div>
 
-          {/* Cards Grid - 2 colonnes */}
-          <div
-            className="chateaux-grid"
-            style={{ gap: theme.spacing.xl }}
-          >
-            {chateaux.slice(0, 4).map((chateau) => (
-              <Card
+          {/* Cards Horizontales Alternées - Style éditorial */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+            {chateaux.slice(0, 4).map((chateau, index) => (
+              <Link
                 key={chateau.id}
-                image={chateau.images.card}
-                title={chateau.nom}
-                description={chateau.description}
-                badge={chateau.region}
-                features={chateau.atouts}
                 href={`/chateaux/${chateau.slug}`}
-                variant="hover-overlay"
-                imageHeight="450px"
-                ctaLabel="Découvrir ce château"
-                footer={
+                className="chateau-editorial-card"
+                style={{
+                  display: 'flex',
+                  background: '#fff',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+                  border: '1px solid #f0f0f0',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+                }}
+              >
+                {/* Image */}
+                <div className="chateau-editorial-image" style={{ overflow: 'hidden' }}>
+                  <img
+                    src={chateau.images.card}
+                    alt={`${chateau.nom} - Séminaire entreprise ${chateau.region}`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 0.5s ease',
+                    }}
+                  />
+                </div>
+
+                {/* Contenu */}
+                <div className="chateau-editorial-content" style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                }}>
+                  <span style={{
+                    display: 'inline-block',
+                    width: 'fit-content',
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    fontSize: theme.typography.fontSize.xs,
+                    fontWeight: 600,
+                    letterSpacing: '0.5px',
+                    textTransform: 'uppercase' as const,
+                    background: 'rgba(184,134,11,0.1)',
+                    color: theme.colors.primary.bronze,
+                  }}>
+                    {chateau.region}
+                  </span>
+
+                  <h3 style={{
+                    fontFamily: theme.typography.fonts.heading,
+                    fontSize: 'clamp(20px, 2vw, 26px)',
+                    fontStyle: 'italic',
+                    color: theme.colors.neutral.gray900,
+                    margin: '12px 0 8px',
+                    lineHeight: 1.3,
+                  }}>
+                    {chateau.nom}
+                  </h3>
+
+                  <p style={{
+                    color: theme.colors.neutral.gray600,
+                    fontSize: theme.typography.fontSize.sm,
+                    lineHeight: 1.7,
+                    marginBottom: '16px',
+                  }}>
+                    {chateau.description}
+                  </p>
+
+                  {/* Atouts */}
                   <div style={{
                     display: 'flex',
-                    gap: theme.spacing.lg,
-                    fontSize: theme.typography.fontSize.sm,
-                    color: theme.colors.neutral.gray700,
+                    flexWrap: 'wrap' as const,
+                    gap: '8px',
+                    marginBottom: '20px',
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
-                      <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                      <span>{chateau.capacite.min}-{chateau.capacite.max} pers</span>
-                    </div>
-                    {chateau.roomsTotal && (
-                      <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
-                        <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                        <span>{chateau.roomsTotal} chambres</span>
-                      </div>
-                    )}
+                    {chateau.atouts.map((atout) => (
+                      <span key={atout} style={{
+                        padding: '4px 10px',
+                        background: '#f8fafc',
+                        border: `1px solid ${theme.colors.neutral.gray200}`,
+                        borderRadius: '6px',
+                        fontSize: '12px',
+                        color: theme.colors.neutral.gray700,
+                      }}>
+                        {atout}
+                      </span>
+                    ))}
                   </div>
-                }
-              />
+
+                  {/* Footer: capacité + chambres + CTA */}
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingTop: '16px',
+                    borderTop: `1px solid ${theme.colors.neutral.gray200}`,
+                  }}>
+                    <div style={{
+                      display: 'flex',
+                      gap: theme.spacing.lg,
+                      fontSize: theme.typography.fontSize.sm,
+                      color: theme.colors.neutral.gray600,
+                    }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
+                        <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                        <span>{chateau.capacite.min}-{chateau.capacite.max} pers</span>
+                      </div>
+                      {chateau.roomsTotal && (
+                        <div style={{ display: 'flex', alignItems: 'center', gap: theme.spacing.xs }}>
+                          <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                          <span>{chateau.roomsTotal} chambres</span>
+                        </div>
+                      )}
+                    </div>
+                    <span style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: theme.colors.primary.bronze,
+                      fontWeight: 600,
+                      fontSize: theme.typography.fontSize.sm,
+                    }}>
+                      Découvrir <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
 
@@ -142,7 +238,7 @@ export default function Home() {
           padding: `${theme.spacing.section.lg} 0`,
         }}
       >
-        <Container size="lg">
+        <Container size="xl">
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
@@ -153,11 +249,8 @@ export default function Home() {
             </Text>
           </div>
 
-          {/* Services Grid - 2x2 compact */}
-          <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-5"
-            style={{ maxWidth: '900px', margin: '0 auto' }}
-          >
+          {/* Services Grid - 4 colonnes verticales type forfait */}
+          <div className="services-forfait-grid">
             {typesEvenements.map((service, index) => (
               <Link key={service.id} href="/seminaires-soirees-entreprise" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ServiceCard
@@ -165,6 +258,7 @@ export default function Home() {
                   titre={service.titre}
                   description={service.description}
                   servicesInclus={service.servicesInclus}
+                  variant="compact"
                   index={index}
                 />
               </Link>
