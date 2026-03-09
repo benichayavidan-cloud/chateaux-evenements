@@ -208,8 +208,22 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
 
 // Slider pour la section Espaces de Réunion
 function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
+  // Images forcées par château (prioritaires sur le filtre auto)
+  const extraMeetingImages: Record<string, string[]> = {
+    "1": [
+      "/images/evenement-entreprise-chateau-montvillargenne-lobby-salon-accueil.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-atelier-creatif.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-theatre.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-board-room.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-carte-murale.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-seminaire-verte.webp",
+    ],
+  };
+  const forcedMeeting = extraMeetingImages[chateau.id];
   // Filtrer les images de salles de réunion
-  const meetingImages = chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
+  const meetingImages = forcedMeeting || chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
   const fallbackImg = chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1];
   const images = meetingImages.length > 0 ? meetingImages : [fallbackImg];
   const [current, setCurrent] = useState(0);
@@ -282,7 +296,20 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
 
 // Section Espaces de Réunion — Overlay avec slider
 function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
-  const meetingImages = chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
+  const extraMeetingImagesOverlay: Record<string, string[]> = {
+    "1": [
+      "/images/evenement-entreprise-chateau-montvillargenne-lobby-salon-accueil.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-atelier-creatif.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-theatre.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-board-room.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-carte-murale.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salle-seminaire-verte.webp",
+    ],
+  };
+  const forcedMeeting = extraMeetingImagesOverlay[chateau.id];
+  const meetingImages = forcedMeeting || chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
   const fallbackImg = chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1];
   const images = meetingImages.length > 0 ? meetingImages : [fallbackImg];
   const [current, setCurrent] = useState(0);
