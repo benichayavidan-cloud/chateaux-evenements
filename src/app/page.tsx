@@ -242,10 +242,10 @@ export default function Home() {
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-              Nos Services d'Excellence
+              Services Sur Mesure : 4 Châteaux d'Exception Proches de Paris
             </Text>
-            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '600px', margin: '0 auto' }}>
-              Des événements clés en main dans des lieux d'exception
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '940px', margin: '0 auto' }}>
+              Concevez un séminaire d'entreprise sans contrainte grâce à des solutions événementielles entièrement intégrées. Situés au vert, à deux pas des aéroports internationaux et des gares TGV, ces 4 châteaux d'exception en Île-de-France offrent un équilibre parfait entre accessibilité et déconnexion. Avec un parc hôtelier allant de 40 à 120 chambres, chaque domaine devient le théâtre exclusif de vos ambitions, garantissant une unité de lieu propice à l'efficacité et au ressourcement de vos équipes.
             </Text>
           </div>
 
