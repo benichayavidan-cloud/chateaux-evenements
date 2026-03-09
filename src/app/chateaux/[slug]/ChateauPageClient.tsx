@@ -889,7 +889,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       {/* Section FAQ — 2 colonnes : FAQ + Image équipe */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'stretch' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'start' }}>
             {/* Colonne gauche — FAQ */}
             <div>
               <div style={{ marginBottom: '1.5rem' }}>
@@ -976,11 +976,11 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
             </div>
 
             {/* Colonne droite — Images FAQ par château */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', justifyContent: 'center', height: '100%' }}>
+            <div style={{ position: 'sticky', top: '100px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {(() => {
                 const faqImages: Record<string, { src: string; alt: string; aspect: string }[]> = {
                   "2": [
-                    { src: "/images/evenement-entreprise-reine-margot-equipe-chef-service-accueil.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique et service d'accueil événementiel`, aspect: "4/3" },
+                    { src: "/images/evenement-entreprise-reine-margot-equipe-chef-service-accueil.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique et service d'accueil événementiel`, aspect: "4/5" },
                   ],
                 };
                 const images = faqImages[chateau.id] || [
