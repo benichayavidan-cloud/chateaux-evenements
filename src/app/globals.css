@@ -1475,6 +1475,21 @@ textarea::placeholder {
   }
 }
 
+/* Page /chateaux — Hero photo grid responsive */
+@media (max-width: 767px) {
+  .hero-grid-listing {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    height: clamp(220px, 55vw, 300px) !important;
+  }
+  .hero-grid-listing > div:first-child {
+    grid-row: 1 / 3 !important;
+  }
+  .hero-grid-listing > div:nth-child(n+4) {
+    display: none !important;
+  }
+}
+
 /* Geo landing pages — Hero photo grid responsive */
 @media (max-width: 767px) {
   .geo-hero-grid {

@@ -84,9 +84,15 @@ export default function ChateauxPage() {
     );
   };
 
-  const heroBadge = useInView();
-  const heroTitle = useInView();
-  const heroDesc = useInView();
+  // Images pour la grille hero (5 images depuis les châteaux filtrés)
+  const heroImages = [
+    filteredChateaux[0]?.images.hero[0],
+    filteredChateaux[1]?.images.hero[0] || filteredChateaux[0]?.images.galerie[0],
+    filteredChateaux[2]?.images.hero[0] || filteredChateaux[0]?.images.galerie[1],
+    filteredChateaux[3]?.images.hero[0] || filteredChateaux[0]?.images.galerie[2],
+    filteredChateaux[0]?.images.galerie[0] || filteredChateaux[0]?.images.hero[1],
+  ].filter(Boolean) as string[];
+
   const headerPitch = useInView();
   const whySection = useInView();
   const boussole = useInView();
@@ -116,100 +122,212 @@ export default function ChateauxPage() {
         {getTitle()}
       </h1>
 
-      {/* Hero Section - Style château individuel */}
-      <div style={{ height: '75vh', minHeight: '600px' }} className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/seminaires-soirees-entreprise-hero.webp"
-            alt="Châteaux pour séminaires en Île-de-France"
-            fill
-            className="object-cover"
-            priority
-            quality={75}
-            sizes="100vw"
-            style={{
-              filter: 'saturate(1.2) contrast(1.1) brightness(1.05)',
-              objectPosition: "center"
-            }}
-          />
-        </div>
-
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
-
-        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-5 sm:px-8 md:px-12">
-          <div className="flex flex-col items-center md:items-start w-full" style={{ maxWidth: '520px', gap: 'clamp(1rem, 2.5vw, 1.5rem)' }}>
+      {/* Hero Section — Style Airbnb (comme les pages châteaux individuelles) */}
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) 0' }}>
+        {/* Titre + infos au-dessus des photos */}
+        <div style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
+          <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: '0.5rem' }}>
             <div
-              ref={heroBadge.ref}
-              className={`flex justify-center md:justify-start w-full animate-fade-in delay-500 ${heroBadge.isInView ? '' : 'opacity-0'}`}
-            >
-              <div
-                className="inline-flex items-center gap-3 bg-white/95 backdrop-blur-sm border border-gray-200 shadow-lg"
-                style={{
-                  padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.25rem, 3vw, 1.5rem)',
-                  borderRadius: theme.effects.borderRadius.full,
-                }}
-              >
-                <div
-                  className="w-1.5 h-1.5 rounded-full animate-pulse"
-                  style={{
-                    background: theme.colors.primary.gold,
-                    filter: "drop-shadow(0 0 4px rgba(212, 175, 55, 0.8))",
-                  }}
-                />
-                <span
-                  className="font-semibold"
-                  style={{
-                    fontSize: 'clamp(0.8125rem, 2vw, 0.875rem)',
-                    color: theme.colors.primary.gold,
-                  }}
-                >
-                  {filteredChateaux.length} {filteredChateaux.length > 1 ? 'Domaines' : 'Domaine'} d'Exception
-                </span>
-              </div>
-            </div>
-
-            <div
-              className="text-center md:text-left rounded-2xl w-full"
+              className="inline-flex items-center gap-2"
               style={{
-                background: 'rgba(255, 255, 255, 0.90)',
-                backdropFilter: 'blur(14px)',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-                padding: 'clamp(1.5rem, 4vw, 2rem) clamp(1.25rem, 3.5vw, 1.75rem)',
+                padding: '0.375rem 0.75rem',
+                background: `linear-gradient(135deg, ${theme.colors.primary.bronze}12, ${theme.colors.primary.gold}08)`,
+                border: `1px solid ${theme.colors.primary.bronze}40`,
+                borderRadius: theme.effects.borderRadius.full,
               }}
             >
-              <div
-                ref={heroTitle.ref}
-                className={`animate-fade-in delay-100 ${heroTitle.isInView ? '' : 'opacity-0'}`}
-                aria-hidden="true"
-                style={{
-                  fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
-                  fontWeight: theme.typography.fontWeight.light,
-                  fontStyle: 'italic',
-                  fontFamily: theme.typography.fonts.heading,
-                  lineHeight: 1.25,
-                  color: theme.colors.neutral.gray900,
-                  marginBottom: 'clamp(0.75rem, 2vw, 1rem)',
-                }}
-              >
-                {getTitle()}
-              </div>
-
-              <p
-                ref={heroDesc.ref}
-                className={`animate-fade-in delay-200 ${heroDesc.isInView ? '' : 'opacity-0'}`}
-                style={{
-                  fontSize: 'clamp(0.9375rem, 2.2vw, 1rem)',
-                  color: theme.colors.neutral.gray600,
-                  fontWeight: theme.typography.fontWeight.normal,
-                  lineHeight: 1.6,
-                }}
-              >
-                {getDescription()}
-              </p>
+              <MapPin className="w-3.5 h-3.5" style={{ color: theme.colors.primary.bronze }} />
+              <span style={{ fontSize: '0.8125rem', fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
+                Île-de-France & Oise
+              </span>
             </div>
+            <div
+              className="inline-flex items-center gap-2"
+              style={{
+                padding: '0.375rem 0.75rem',
+                background: `${theme.colors.primary.bronze}08`,
+                border: `1px solid ${theme.colors.primary.bronze}25`,
+                borderRadius: theme.effects.borderRadius.full,
+              }}
+            >
+              <span style={{ fontSize: '0.8125rem', fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
+                {filteredChateaux.length} {filteredChateaux.length > 1 ? 'Domaines' : 'Domaine'} d'Exception
+              </span>
+            </div>
+          </div>
+
+          <div
+            aria-hidden="true"
+            style={{
+              fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
+              fontWeight: theme.typography.fontWeight.semibold,
+              fontFamily: theme.typography.fonts.heading,
+              lineHeight: 1.2,
+              color: theme.colors.neutral.gray900,
+              marginBottom: '0.5rem',
+            }}
+          >
+            {getTitle()}
+          </div>
+
+          <p style={{
+            color: theme.colors.neutral.gray600,
+            fontSize: '0.9375rem',
+            lineHeight: 1.6,
+            maxWidth: '700px',
+          }}>
+            {getDescription()}
+          </p>
+        </div>
+
+        {/* Grille photos style Airbnb */}
+        <div
+          className="rounded-2xl overflow-hidden hero-grid-listing"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '2fr 1fr 1fr',
+            gridTemplateRows: '1fr 1fr',
+            gap: '4px',
+            height: 'clamp(300px, 55vh, 500px)',
+          }}
+        >
+          {/* Grande image principale à gauche — occupe 2 lignes */}
+          <div
+            className="relative overflow-hidden"
+            style={{ gridRow: '1 / 3', gridColumn: '1 / 2' }}
+          >
+            <Image
+              src={heroImages[0] || ''}
+              alt={`${filteredChateaux[0]?.nom || 'Château'} - Vue principale`}
+              fill
+              className="object-cover"
+              priority
+              quality={85}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+
+          {/* 4 petites images à droite — grille 2x2 */}
+          <div className="relative overflow-hidden">
+            <Image
+              src={heroImages[1] || ''}
+              alt={`${filteredChateaux[1]?.nom || 'Château'} - Vue`}
+              fill
+              className="object-cover"
+              loading="lazy"
+              quality={80}
+              sizes="25vw"
+            />
+          </div>
+
+          <div className="relative overflow-hidden">
+            <Image
+              src={heroImages[2] || ''}
+              alt={`${filteredChateaux[2]?.nom || 'Château'} - Vue`}
+              fill
+              className="object-cover"
+              loading="lazy"
+              quality={80}
+              sizes="25vw"
+            />
+          </div>
+
+          <div className="relative overflow-hidden">
+            <Image
+              src={heroImages[3] || ''}
+              alt={`${filteredChateaux[3]?.nom || 'Château'} - Vue`}
+              fill
+              className="object-cover"
+              loading="lazy"
+              quality={80}
+              sizes="25vw"
+            />
+          </div>
+
+          <div className="relative overflow-hidden">
+            <Image
+              src={heroImages[4] || ''}
+              alt="Vue complémentaire"
+              fill
+              className="object-cover"
+              loading="lazy"
+              quality={80}
+              sizes="25vw"
+            />
           </div>
         </div>
 
+        {/* CTA Bar sous les photos */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1rem',
+            marginTop: 'clamp(1rem, 2vw, 1.25rem)',
+            padding: 'clamp(1rem, 2vw, 1.25rem)',
+            background: theme.colors.neutral.gray50,
+            borderRadius: theme.effects.borderRadius.xl,
+            border: `1px solid ${theme.colors.neutral.gray200}`,
+            flexWrap: 'wrap',
+          }}
+        >
+          <p
+            style={{
+              fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+              color: theme.colors.neutral.gray600,
+              fontStyle: 'italic',
+              margin: 0,
+              flex: '1 1 auto',
+              minWidth: 0,
+            }}
+          >
+            Collection exclusive de domaines privatisables aux portes de Paris pour vos événements d'entreprise
+          </p>
+          <div className="flex gap-2.5 flex-shrink-0 items-center">
+            <Link
+              href="/devis#formulaire"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '12px 24px',
+                borderRadius: theme.effects.borderRadius.full,
+                background: `linear-gradient(135deg, ${theme.colors.primary.gold} 0%, ${theme.colors.primary.bronze} 100%)`,
+                color: '#FFFFFF',
+                fontWeight: theme.typography.fontWeight.bold,
+                fontSize: '0.875rem',
+                textDecoration: 'none',
+                boxShadow: '0 4px 12px rgba(183, 135, 77, 0.3)',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              Devis Gratuit en 24h
+            </Link>
+            <a
+              href="tel:+33757991146"
+              onClick={() => trackPhoneClick()}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '12px 20px',
+                borderRadius: theme.effects.borderRadius.full,
+                border: `1.5px solid ${theme.colors.neutral.gray300}`,
+                color: theme.colors.neutral.gray700,
+                fontWeight: theme.typography.fontWeight.semibold,
+                fontSize: '0.875rem',
+                textDecoration: 'none',
+                background: 'white',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              <Phone className="w-4 h-4" />
+              07 57 99 11 46
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* ========== 1. HEADER PITCH - Dynamique selon le département ========== */}
