@@ -470,7 +470,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                 <div style={{ marginTop: "1.5rem" }}>
                   <NextLink href="/devis#formulaire" style={{ textDecoration: "none" }}>
                     <Button variant="primary" size="md" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                      Découvrir nos domaines
+                      Découvrir les domaines
                     </Button>
                   </NextLink>
                 </div>
@@ -590,7 +590,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
             {/* Section Header */}
             <div className="section-header" style={{ marginBottom: theme.spacing["4xl"] }}>
               <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-                {linkedChateaux.length > 1 ? "Nos châteaux dans cette région" : "Notre château dans cette région"}
+                {linkedChateaux.length > 1 ? "Les châteaux dans cette région" : "Le château dans cette région"}
               </Text>
               <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: "940px", margin: "0 auto" }}>
                 {linkedChateaux.length > 1
@@ -1152,7 +1152,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                     color: theme.colors.neutral.white,
                   }}
                 >
-                  Voir tous nos châteaux
+                  Voir tous les châteaux
                 </Button>
               </NextLink>
             </div>

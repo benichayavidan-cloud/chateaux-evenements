@@ -23,8 +23,8 @@ const AUTO_LINK_RULES: { keyword: string; url: string; title?: string }[] = [
   { keyword: "Séminaire", url: "/seminaires-soirees-entreprise", title: "Organiser un séminaire" },
   { keyword: "CODIR", url: "/seminaires-soirees-entreprise", title: "Organiser un CODIR" },
   { keyword: "événement d'entreprise", url: "/seminaires-soirees-entreprise", title: "Événements d'entreprise" },
-  { keyword: "château", url: "/chateaux", title: "Nos châteaux" },
-  { keyword: "Château", url: "/chateaux", title: "Nos châteaux" },
+  { keyword: "château", url: "/chateaux", title: "Les châteaux" },
+  { keyword: "Château", url: "/chateaux", title: "Les châteaux" },
 ];
 
 // Tags et attributs autorisés pour le contenu blog

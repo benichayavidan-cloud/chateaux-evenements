@@ -392,7 +392,7 @@ export const typesEvenements: TypeEvenement[] = [
     id: "team-building",
     titre: "Team Building",
     description:
-      "Renforcez la cohésion de vos équipes à travers des activités ludiques et immersives. Nos domaines offrent un terrain de jeu exceptionnel pour des challenges mémorables.",
+      "Renforcez la cohésion de vos équipes à travers des activités ludiques et immersives. Les domaines offrent un terrain de jeu exceptionnel pour des challenges mémorables.",
     icon: "users",
     servicesInclus: [
       "Activités outdoor dans les parcs",

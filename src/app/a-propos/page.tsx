@@ -168,7 +168,7 @@ export default function AboutPage() {
               </p>
 
               <p className="text-body-xl mb-xl">
-                De la PME innovante aux groupes du CAC 40, nous avons su créer des expériences mémorables qui allient l'élégance intemporelle de nos domaines à l'excellence du service contemporain.
+                De la PME innovante aux groupes du CAC 40, nous avons su créer des expériences mémorables qui allient l'élégance intemporelle des domaines sélectionnés à l'excellence du service contemporain.
               </p>
             </div>
           </div>

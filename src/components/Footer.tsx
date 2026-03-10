@@ -51,7 +51,7 @@ export function Footer() {
                   href="/chateaux"
                   className="text-gray-300 hover:text-[var(--gold)] transition-colors"
                 >
-                  Nos Châteaux
+                  Les Châteaux
                 </Link>
               </li>
               <li>

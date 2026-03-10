@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Select Châteaux | Lieux Secrets pour Séminaires",
-    description: "Découvrez nos domaines privés pour vos événements d'entreprise.",
+    description: "Découvrez des domaines privés d'exception pour vos événements d'entreprise.",
     images: ["/og-image.jpg"]
   },
 };
@@ -178,10 +178,10 @@ export default function RootLayout({
           links={[
             { label: "Accueil", href: "/" },
             {
-              label: "Nos Châteaux",
+              label: "Les Châteaux",
               href: "/chateaux",
               children: [
-                { label: "Tous nos domaines", href: "/chateaux" },
+                { label: "Tous les domaines", href: "/chateaux" },
                 { label: "Manoir Anglo-Normand Chantilly", href: "/chateaux/manoir-anglo-normand-chantilly" },
                 { label: "Domaine Historique Paris 92", href: "/chateaux/hotel-historique-seminaire-paris-92" },
                 { label: "Abbaye Vallée de Chevreuse", href: "/chateaux/abbaye-millenaire-vallee-chevreuse" },
@@ -213,9 +213,9 @@ export default function RootLayout({
           description="L'excellence événementielle dans des châteaux d'exception. Accès confidentiel aux domaines les plus convoités d'Île-de-France."
           sections={[
             {
-              title: "Nos Châteaux",
+              title: "Les Châteaux",
               links: [
-                { label: "Tous nos domaines", href: "/chateaux" },
+                { label: "Tous les domaines", href: "/chateaux" },
                 { label: "Séminaire château Oise", href: "/seminaire-chateau-oise-60" },
                 { label: "Séminaire château Yvelines", href: "/seminaire-chateau-yvelines-78" },
                 { label: "Séminaire château Hauts-de-Seine", href: "/seminaire-chateau-hauts-de-seine-92" },

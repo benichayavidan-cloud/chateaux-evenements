@@ -33,13 +33,13 @@ export default function ChateauxPage() {
     if (dept === '60') return 'Châteaux Oise (60)';
     if (dept === '78') return 'Châteaux Yvelines (78)';
     if (dept === '92') return 'Châteaux Hauts-de-Seine (92)';
-    return 'Nos Châteaux pour Séminaires';
+    return 'Châteaux pour Séminaires';
   };
 
   const getDescription = () => {
-    if (dept === '60') return 'Découvrez nos châteaux d\'exception dans l\'Oise pour vos séminaires et événements d\'entreprise';
-    if (dept === '78') return 'Découvrez nos châteaux d\'exception dans les Yvelines pour vos séminaires et événements d\'entreprise';
-    if (dept === '92') return 'Découvrez nos domaines d\'exception dans les Hauts-de-Seine pour vos séminaires et événements d\'entreprise';
+    if (dept === '60') return 'Découvrez les châteaux d\'exception dans l\'Oise pour vos séminaires et événements d\'entreprise';
+    if (dept === '78') return 'Découvrez les châteaux d\'exception dans les Yvelines pour vos séminaires et événements d\'entreprise';
+    if (dept === '92') return 'Découvrez le domaine d\'exception dans les Hauts-de-Seine pour vos séminaires et événements d\'entreprise';
     return 'Collection exclusive de domaines privatisables en Île-de-France et Oise';
   };
 
@@ -722,7 +722,7 @@ export default function ChateauxPage() {
       {/* ========== 5. FORMULAIRE DEVIS EXPRESS ========== */}
       <Section background="white" style={{ padding: '0' }}>
         <Container size="lg">
-          <DevisFormMini chateauId="conseil" chateauNom="Nos Châteaux d'Exception" />
+          <DevisFormMini chateauId="conseil" chateauNom="Châteaux d'Exception" />
         </Container>
       </Section>
 

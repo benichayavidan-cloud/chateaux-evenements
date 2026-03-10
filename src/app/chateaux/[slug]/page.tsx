@@ -31,7 +31,7 @@ export default async function ChateauPage({ params }: Props) {
       generateFAQSchema(chateau.faq),
       generateBreadcrumbSchema([
         { name: "Accueil", url: "/" },
-        { name: "Nos Châteaux", url: "/chateaux" },
+        { name: "Les Châteaux", url: "/chateaux" },
         { name: chateau.nom, url: `/chateaux/${chateau.slug}` },
       ]),
     ],

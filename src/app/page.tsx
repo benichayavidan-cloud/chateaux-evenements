@@ -234,7 +234,7 @@ export default function Home() {
           <div style={{ textAlign: 'center', marginTop: theme.spacing['4xl'] }}>
             <Link href="/chateaux">
               <Button variant="primary" size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
-                Voir tous nos châteaux
+                Voir tous les châteaux
               </Button>
             </Link>
           </div>
@@ -368,7 +368,7 @@ export default function Home() {
               WebkitBoxOrient: 'vertical' as const,
               overflow: 'hidden',
             }}>
-              Nos experts vous accompagnent dans la création d'événements inoubliables dans nos châteaux d'exception
+              Nos experts vous accompagnent dans la création d'événements inoubliables dans des châteaux d'exception
             </p>
             <div style={{
               display: 'flex',
@@ -398,7 +398,7 @@ export default function Home() {
                     color: theme.colors.neutral.white,
                   }}
                 >
-                  Découvrir nos châteaux
+                  Découvrir les châteaux
                 </Button>
               </Link>
             </div>
