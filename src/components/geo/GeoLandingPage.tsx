@@ -995,8 +995,8 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
               }}
             >
               <Image
-                src="/images/equipe-chateau-chef-serveurs-accueil-evenement.webp"
-                alt="Notre équipe à votre service — chef, serveurs et responsable accueil"
+                src="/images/equipe-select-chateaux-organisateur-seminaire-entreprise-chateau.webp"
+                alt="Équipe Select Châteaux — organisateurs de séminaires et événements d'entreprise en château"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -1012,14 +1012,14 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                   textShadow: "0 2px 8px rgba(0,0,0,0.3)",
                   margin: 0,
                 }}>
-                  Notre équipe à votre service
+                  L&apos;équipe Select Châteaux
                 </p>
                 <p style={{
                   color: "rgba(255,255,255,0.8)",
                   fontSize: theme.typography.fontSize.sm,
                   marginTop: theme.spacing.xs,
                 }}>
-                  Un interlocuteur dédié de A à Z
+                  Vos organisateurs dédiés pour un séminaire d&apos;entreprise clé en main en château d&apos;exception
                 </p>
               </div>
             </div>
