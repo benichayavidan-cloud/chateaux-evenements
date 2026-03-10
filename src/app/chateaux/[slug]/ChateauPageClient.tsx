@@ -37,6 +37,126 @@ const getMeetingRoomImageIndex = (chateauId: string): number => {
   return mapping[chateauId] ?? 1;
 };
 
+// Wrapper Sticky JS — position fixed manuelle au scroll
+function StickySlider({ children }: { children: React.ReactNode }) {
+  const placeholderRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const geoRef = useRef({ width: 0, left: 0, height: 420 });
+  const [mode, setMode] = useState<'static' | 'fixed' | 'bottom'>('static');
+  const [style, setStyle] = useState<React.CSSProperties>({});
+
+  useEffect(() => {
+    const placeholder = placeholderRef.current;
+    const slider = sliderRef.current;
+    if (!placeholder || !slider) return;
+
+    // Mesurer la taille initiale (quand static, le slider est dans le flux)
+    const measure = () => {
+      const r = placeholder.getBoundingClientRect();
+      geoRef.current = { width: r.width, left: r.left, height: slider.offsetHeight || 420 };
+    };
+
+    const update = () => {
+      // Le placeholder reste toujours dans le flux, on se base sur son parent (la grille section)
+      const gridCell = placeholder;
+      const section = gridCell.closest('section') || gridCell.parentElement?.parentElement?.parentElement;
+      if (!section) return;
+
+      const sectionRect = section.getBoundingClientRect();
+      const cellRect = gridCell.getBoundingClientRect();
+      const sliderH = geoRef.current.height;
+      const navOffset = 100;
+
+      // Toujours mesurer la largeur/position du placeholder (il ne bouge pas)
+      geoRef.current.width = cellRect.width;
+      geoRef.current.left = cellRect.left;
+
+      if (sectionRect.top <= navOffset && sectionRect.bottom > sliderH + navOffset + 40) {
+        setMode('fixed');
+        setStyle({
+          position: 'fixed',
+          top: navOffset,
+          left: geoRef.current.left,
+          width: geoRef.current.width,
+          zIndex: 10,
+        });
+      } else if (sectionRect.bottom <= sliderH + navOffset + 40) {
+        setMode('bottom');
+        setStyle({
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+        });
+      } else {
+        setMode('static');
+        setStyle({});
+      }
+    };
+
+    measure();
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', () => { measure(); update(); }, { passive: true });
+    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
+  }, []);
+
+  return (
+    <div ref={placeholderRef} style={{ position: 'relative', minHeight: geoRef.current.height || 420 }}>
+      <div ref={sliderRef} style={style}>{children}</div>
+    </div>
+  );
+}
+
+// Paragraph Card — Design Cards avec bordure dorée
+function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
+  const [hovered, setHovered] = useState(false);
+
+  // Détecte "Label : Contenu" pour extraire un titre de carte
+  const colonMatch = text.match(/^(.{5,55}?)\s:\s/);
+  const label = colonMatch ? colonMatch[1] : null;
+  const body = colonMatch && label ? text.substring(colonMatch[0].length) : text;
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: sectionBg === 'gray' ? 'white' : theme.colors.neutral.gray50,
+        borderRadius: '16px',
+        padding: 'clamp(16px, 3vw, 24px) clamp(18px, 3vw, 28px)',
+        marginBottom: '12px',
+        borderLeft: `3px solid ${theme.colors.primary.gold}`,
+        boxShadow: hovered ? '0 8px 30px rgba(0,0,0,0.08)' : '0 2px 12px rgba(0,0,0,0.04)',
+        transform: hovered ? 'translateX(4px)' : 'translateX(0)',
+        transition: 'all 0.3s ease',
+      }}
+    >
+      {label && (
+        <div style={{
+          fontSize: '0.6875rem', fontWeight: 700, textTransform: 'uppercase' as const,
+          letterSpacing: '0.08em', color: theme.colors.primary.bronze,
+          marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px',
+        }}>
+          <div style={{
+            width: '18px', height: '18px', borderRadius: '50%',
+            background: `${theme.colors.primary.bronze}10`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '9px', color: theme.colors.primary.bronze,
+          }}>✦</div>
+          {label}
+        </div>
+      )}
+      <p style={{
+        fontSize: 'clamp(0.8125rem, 1.5vw, 0.9375rem)', lineHeight: 1.8,
+        color: theme.colors.neutral.gray600, margin: 0,
+      }}>
+        {body}
+      </p>
+    </div>
+  );
+}
+
 // Slider pour la section Vue d'ensemble
 function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
   const [current, setCurrent] = useState(0);
@@ -176,65 +296,83 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
   };
 
   return (
-    <section style={{ padding: 0 }}>
-      <div style={{ position: 'relative', height: 'clamp(28rem, 60vw, 38rem)', overflow: 'hidden' }}>
-        {/* Slider images */}
-        {images.map((img, i) => (
-          <div
-            key={i}
-            style={{
-              position: 'absolute', inset: 0,
-              opacity: current === i ? 1 : 0,
-              transition: 'opacity 0.8s ease-in-out',
-            }}
-          >
-            <Image src={img} alt={`${chateau.nom} - chambre ${i + 1}`} fill sizes="100vw" className="object-cover" loading="lazy" quality={80} />
-          </div>
-        ))}
-        {/* Gradient overlay bas */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)', zIndex: 1 }} />
-        {/* Flèches */}
-        <button
-          onClick={() => goTo((current - 1 + images.length) % images.length)}
-          style={{ position: 'absolute', right: '4.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
-          aria-label="Précédent"
-        >‹</button>
-        <button
-          onClick={() => goTo((current + 1) % images.length)}
-          style={{ position: 'absolute', right: '1.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
-          aria-label="Suivant"
-        >›</button>
-        {/* Contenu en overlay */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem)', zIndex: 2 }}>
-          <Container size="xl">
-            <div style={{ maxWidth: '800px' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: 'rgba(255,255,255,0.85)', borderRadius: theme.effects.borderRadius.full, border: '1px solid rgba(255,255,255,0.95)', marginBottom: '1rem' }}>
-                <Bed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hébergement</span>
-              </div>
-              <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 600, fontFamily: theme.typography.fonts.heading, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
-                {chateau.roomsTotal} chambres d&apos;exception
-              </h2>
-              <p style={{ fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '650px' }}>
-                {chateau.bedroomText}
-              </p>
-              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
-                  <Bed className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>{chateau.roomsTotal} Chambres</span>
-                </div>
-                {chateau.roomsTwin && (
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
-                    <Users className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
-                    <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>{chateau.roomsTwin} Twin</span>
-                  </div>
-                )}
-              </div>
+    <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+      <Container size="xl">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          {/* Cards LEFT */}
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
+              <Bed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hébergement</span>
             </div>
-          </Container>
+            <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
+              {chateau.roomsTotal} chambres d&apos;exception
+            </Text>
+            {chateau.bedroomText.split('\n\n').map((paragraph, i) => (
+              <ParaCard key={i} text={paragraph} sectionBg="white" />
+            ))}
+            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
+                <Bed className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>{chateau.roomsTotal} Chambres</span>
+              </div>
+              {chateau.roomsTwin && (
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
+                  <Users className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>{chateau.roomsTwin} Twin</span>
+                </div>
+              )}
+            </div>
+          </div>
+          {/* Slider RIGHT — sticky JS */}
+          <StickySlider>
+            <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+              {images.map((img, i) => (
+                <div
+                  key={i}
+                  style={{
+                    position: 'absolute', inset: 0,
+                    opacity: current === i ? 1 : 0,
+                    transition: 'opacity 0.8s ease-in-out',
+                  }}
+                >
+                  <Image src={img} alt={`${chateau.nom} - chambre ${i + 1}`} fill sizes="50vw" className="object-cover" loading="lazy" quality={80} />
+                </div>
+              ))}
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => goTo((current - 1 + images.length) % images.length)}
+                    style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
+                    aria-label="Précédent"
+                  >‹</button>
+                  <button
+                    onClick={() => goTo((current + 1) % images.length)}
+                    style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
+                    aria-label="Suivant"
+                  >›</button>
+                  <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
+                    {images.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => goTo(i)}
+                        style={{
+                          width: current === i ? '20px' : '8px', height: '8px',
+                          borderRadius: '4px', border: 'none', cursor: 'pointer',
+                          background: current === i ? 'white' : 'rgba(255,255,255,0.5)',
+                          transition: 'all 0.3s ease',
+                        }}
+                        aria-label={`Photo ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </StickySlider>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }
 
@@ -467,9 +605,13 @@ function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
               <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 600, fontFamily: theme.typography.fonts.heading, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
                 Espaces de Réunion
               </h2>
-              <p style={{ fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '650px' }}>
-                {chateau.meetingText}
-              </p>
+              <div style={{ fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '650px' }}>
+                {chateau.meetingText.split('\n\n').map((paragraph, i) => (
+                  <p key={i} style={{ marginBottom: i < chateau.meetingText.split('\n\n').length - 1 ? '1rem' : 0 }}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
                   <Check className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
@@ -835,24 +977,27 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
         </div>
       </div>
 
-      {/* Section Vue d'ensemble — Split slider + texte */}
+      {/* Section Vue d'ensemble — Slider gauche (sticky) + Cards droite */}
       <Section spacing="lg" background="gray" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'center' }}>
-            {/* Slider images */}
-            <OverviewSlider images={chateau.images.hero} nom={chateau.nom} />
+          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+            {/* Slider LEFT — sticky JS */}
+            <StickySlider>
+              <OverviewSlider images={chateau.images.hero} nom={chateau.nom} />
+            </StickySlider>
+            {/* Cards RIGHT */}
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
                 <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Le lieu</span>
               </div>
-              <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'left' }}>
+              <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
                 Une expérience d&#39;exception
               </Text>
-              <Text variant="bodyLarge" color="muted" style={{ lineHeight: 1.8, textAlign: 'left' }}>
-                {chateau.descriptionLongue}
-              </Text>
-              <div className="flex flex-wrap md:flex-nowrap" style={{ gap: '0.5rem', marginTop: '1.5rem' }}>
+              {chateau.descriptionLongue.split('\n\n').map((paragraph, i) => (
+                <ParaCard key={i} text={paragraph} sectionBg="gray" />
+              ))}
+              <div className="flex flex-wrap" style={{ gap: '0.5rem', marginTop: '1rem' }}>
                 {chateau.atouts.map((atout, i) => (
                   <div key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
                     <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
@@ -868,23 +1013,27 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       {/* Section Hébergement — Overlay slider pleine largeur */}
       <HebergementOverlay chateau={chateau} />
 
-      {/* Section Espaces de Réunion — Split inversé (texte gauche, slider droite) */}
-      <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+      {/* Section Espaces de Réunion — Slider gauche (sticky) + Cards droite */}
+      <Section spacing="lg" background="gray" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'center' }}>
-            {/* Texte à gauche */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+            {/* Slider LEFT — sticky JS */}
+            <StickySlider>
+              <MeetingRoomSlider chateau={chateau} />
+            </StickySlider>
+            {/* Cards RIGHT */}
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
                 <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Espaces de travail</span>
               </div>
-              <Text variant="h2" style={{ marginBottom: theme.spacing.lg, textAlign: 'left' }}>
+              <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
                 Espaces de Réunion
               </Text>
-              <Text variant="bodyLarge" color="muted" style={{ lineHeight: 1.8, textAlign: 'left' }}>
-                {chateau.meetingText}
-              </Text>
-              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+              {chateau.meetingText.split('\n\n').map((paragraph, i) => (
+                <ParaCard key={i} text={paragraph} sectionBg="gray" />
+              ))}
+              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
                   <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
                   <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Lumière naturelle</span>
@@ -899,8 +1048,6 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 </div>
               </div>
             </div>
-            {/* Slider à droite */}
-            <MeetingRoomSlider chateau={chateau} />
           </div>
         </Container>
       </Section>
@@ -1069,13 +1216,8 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
             {/* Colonne droite — Images FAQ par château */}
             <div style={{ position: 'sticky', top: '100px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {(() => {
-                const faqImages: Record<string, { src: string; alt: string; aspect: string }[]> = {
-                  "2": [
-                    { src: "/images/evenement-entreprise-reine-margot-equipe-chef-service-accueil.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique et service d'accueil événementiel`, aspect: "4/5" },
-                  ],
-                };
-                const images = faqImages[chateau.id] || [
-                  { src: "/images/equipe-chateau-chef-serveurs-accueil-evenement.webp", alt: `Équipe du ${chateau.nom} — Chef gastronomique, serveurs et responsable accueil groupe`, aspect: "4/5" },
+                const images = [
+                  { src: "/images/equipe-select-chateaux-organisateur-seminaire-entreprise-chateau.webp", alt: "Équipe Select Châteaux — organisateurs de séminaires et événements d'entreprise en château", aspect: "2/3" },
                 ];
                 return images.map((img, i) => (
                   <div key={i} style={{ position: 'relative', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
@@ -1084,10 +1226,10 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                       {i === images.length - 1 && (
                         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)', padding: '2rem 1.5rem 1.5rem' }}>
                           <p style={{ color: 'white', fontSize: '1.125rem', fontWeight: 600, fontFamily: theme.typography.fonts.heading, marginBottom: '0.25rem' }}>
-                            Notre équipe à votre service
+                            L&apos;équipe Select Châteaux
                           </p>
                           <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.8125rem', lineHeight: 1.5 }}>
-                            Chef gastronomique, maîtres d&apos;hôtel et responsable événementiel — un accompagnement dédié pour votre événement
+                            Vos organisateurs dédiés pour un séminaire d&apos;entreprise clé en main en château d&apos;exception
                           </p>
                         </div>
                       )}

@@ -9,7 +9,7 @@ import { useInView } from "@/hooks/useInView";
 import {
   MapPin, Building2, Users, Sparkles, Clock, TreePine, Settings,
   Car, Award, Plane, Train, Heart, Castle, Waves, Music, WifiOff,
-  Landmark, Star, Shield, ChevronRight, ArrowRight,
+  Landmark, Star, Shield, ChevronRight, ArrowRight, DoorOpen,
   Info, BookOpen, HelpCircle, Plus, Minus, Check,
 } from "lucide-react";
 import { chateaux } from "@/data/chateaux";
@@ -22,7 +22,7 @@ import {
   generateFAQSchema,
   generateGeoLandingSchema,
 } from "@/utils/seo/structured-data";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
 
 // Icon mapping
@@ -38,6 +38,7 @@ interface GeoLandingPageProps {
 
 export function GeoLandingPage({ data }: GeoLandingPageProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const heroView = useInView();
   const introView = useInView();
@@ -78,6 +79,21 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
     }
     if (gridImages.length >= 5) break;
   }
+
+  // Build extended images for lightbox (all grid images + more from châteaux)
+  const allGeoImages: { src: string; alt: string }[] = [...gridImages];
+  for (const c of linkedChateaux) {
+    for (const img of [...c.images.hero, ...c.images.galerie]) {
+      if (!allGeoImages.some((g) => g.src === img)) {
+        allGeoImages.push({ src: img, alt: c.nom });
+      }
+    }
+  }
+
+  const openLightbox = (idx: number) => setLightboxIndex(idx);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevImage = () => setLightboxIndex(i => i !== null ? (i - 1 + allGeoImages.length) % allGeoImages.length : null);
+  const nextImage = () => setLightboxIndex(i => i !== null ? (i + 1) % allGeoImages.length : null);
 
   // Structured Data
   const structuredData = {
@@ -189,7 +205,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
           </div>
         </div>
 
-        {/* Photo grid — Airbnb style (2fr 1fr 1fr, 2 rows) */}
+        {/* Photo grid — Airbnb style (2fr 1fr 1fr, 2 rows) — cliquable avec lightbox */}
         <div
           className="geo-hero-grid rounded-2xl overflow-hidden"
           style={{
@@ -201,7 +217,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
           }}
         >
           {/* Main image — spans 2 rows */}
-          <div className="relative group overflow-hidden" style={{ gridRow: "1 / 3", gridColumn: "1 / 2" }}>
+          <div className="relative cursor-pointer group overflow-hidden" style={{ gridRow: "1 / 3", gridColumn: "1 / 2" }} onClick={() => openLightbox(0)}>
             <Image
               src={gridImages[0].src}
               alt={gridImages[0].alt}
@@ -214,7 +230,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
           </div>
 
           {/* Top-middle */}
-          <div className="relative group overflow-hidden geo-hero-cell">
+          <div className="relative cursor-pointer group overflow-hidden geo-hero-cell" onClick={() => openLightbox(1)}>
             <Image
               src={gridImages[1]?.src || gridImages[0].src}
               alt={gridImages[1]?.alt || gridImages[0].alt}
@@ -225,7 +241,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
           </div>
 
           {/* Top-right */}
-          <div className="relative group overflow-hidden geo-hero-cell">
+          <div className="relative cursor-pointer group overflow-hidden geo-hero-cell" onClick={() => openLightbox(2)}>
             <Image
               src={gridImages[2]?.src || gridImages[0].src}
               alt={gridImages[2]?.alt || gridImages[0].alt}
@@ -236,7 +252,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
           </div>
 
           {/* Bottom-middle */}
-          <div className="relative group overflow-hidden geo-hero-cell">
+          <div className="relative cursor-pointer group overflow-hidden geo-hero-cell" onClick={() => openLightbox(3)}>
             <Image
               src={gridImages[3]?.src || gridImages[1]?.src || gridImages[0].src}
               alt={gridImages[3]?.alt || gridImages[0].alt}
@@ -246,8 +262,8 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
             />
           </div>
 
-          {/* Bottom-right — with "Voir nos domaines" button */}
-          <div className="relative group overflow-hidden geo-hero-cell">
+          {/* Bottom-right — with "Toutes les photos" button */}
+          <div className="relative cursor-pointer group overflow-hidden geo-hero-cell" onClick={() => openLightbox(4)}>
             <Image
               src={gridImages[4]?.src || gridImages[2]?.src || gridImages[0].src}
               alt={gridImages[4]?.alt || gridImages[0].alt}
@@ -255,8 +271,11 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="25vw"
             />
-            <NextLink
-              href="#chateaux-zone"
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex(0);
+              }}
               style={{
                 position: "absolute",
                 bottom: "0.75rem",
@@ -271,14 +290,14 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                 fontSize: "0.8125rem",
                 fontWeight: theme.typography.fontWeight.semibold,
                 color: theme.colors.neutral.gray900,
+                cursor: "pointer",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
                 zIndex: 10,
-                textDecoration: "none",
               }}
             >
               <Sparkles className="w-4 h-4" />
-              Voir nos domaines
-            </NextLink>
+              Toutes les photos
+            </button>
           </div>
         </div>
       </div>
@@ -452,175 +471,178 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════
-          CHÂTEAUX DE LA ZONE
+          CHÂTEAUX DE LA ZONE — Style éditorial (identique homepage)
       ═══════════════════════════════════════════ */}
-      <Section spacing="lg" background="white" id="chateaux-zone">
+      <section
+        id="chateaux-zone"
+        style={{
+          background: "#f6f9fc",
+          paddingTop: "15px",
+          paddingBottom: "clamp(2rem, 5vw, 3.75rem)",
+        }}
+      >
         <Container size="xl">
           <div ref={chateauxView.ref} className={`animate-on-scroll ${chateauxView.isInView ? "is-visible" : ""}`}>
-            <div className="section-header" style={{ marginBottom: theme.spacing["3xl"] }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: theme.spacing.sm, marginBottom: theme.spacing.lg, padding: "12px 20px", background: `linear-gradient(135deg, ${theme.colors.primary.bronze}15, ${theme.colors.primary.gold}10)`, border: `1px solid ${theme.colors.primary.bronze}30`, borderRadius: theme.effects.borderRadius.full }}>
-                <Castle className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.semibold }}>
-                  {linkedChateaux.length > 1 ? "Nos domaines" : "Notre domaine"}
-                </Text>
-              </div>
+            {/* Section Header */}
+            <div className="section-header" style={{ marginBottom: theme.spacing["4xl"] }}>
               <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
                 {linkedChateaux.length > 1 ? "Nos châteaux dans cette région" : "Notre château dans cette région"}
               </Text>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.md }}>
-                <div style={{ width: "40px", height: "1px", background: `linear-gradient(to right, transparent, ${theme.colors.primary.bronze})` }} />
-                <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                <div style={{ width: "40px", height: "1px", background: `linear-gradient(to left, transparent, ${theme.colors.primary.bronze})` }} />
-              </div>
+              <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: "940px", margin: "0 auto" }}>
+                {linkedChateaux.length > 1
+                  ? `Découvrez ${linkedChateaux.length} domaines d'exception sélectionnés pour vos séminaires d'entreprise. Chaque lieu allie le prestige de l'histoire au confort moderne pour un cadre de travail hors du commun.`
+                  : "Découvrez ce domaine d'exception sélectionné pour vos séminaires d'entreprise. Un lieu qui allie le prestige de l'histoire au confort moderne pour un cadre de travail hors du commun."
+                }
+              </Text>
             </div>
 
-            {linkedChateaux.length === 1 ? (
-              <NextLink
-                href={`/chateaux/${linkedChateaux[0].slug}`}
-                style={{ textDecoration: "none", display: "block" }}
-              >
-                <div
-                  className="group hover-lift-sm geo-single-chateau"
+            {/* Cards Horizontales Alternées - Style éditorial */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
+              {linkedChateaux.map((chateau) => (
+                <NextLink
+                  key={chateau.id}
+                  href={`/chateaux/${chateau.slug}`}
+                  className="chateau-editorial-card"
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    borderRadius: theme.effects.borderRadius["2xl"],
+                    display: "flex",
+                    background: "#fff",
+                    borderRadius: "20px",
                     overflow: "hidden",
-                    boxShadow: theme.effects.shadows.lg,
-                    background: theme.colors.neutral.white,
-                    transition: theme.components.card.transition,
-                    border: `1px solid ${theme.colors.neutral.gray200}`,
+                    boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
+                    border: "1px solid #f0f0f0",
+                    textDecoration: "none",
+                    color: "inherit",
+                    transition: "box-shadow 0.3s ease, transform 0.3s ease",
                   }}
                 >
-                  <div className="chateau-single-image" style={{ position: "relative", minHeight: "400px", overflow: "hidden" }}>
-                    <Image
-                      src={linkedChateaux[0].images.card}
-                      alt={linkedChateaux[0].nom}
-                      fill
-                      className="object-cover group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      style={{ transition: `transform ${theme.effects.transitions.ultra} ${theme.effects.easings.smooth}` }}
+                  {/* Image */}
+                  <div className="chateau-editorial-image" style={{ overflow: "hidden" }}>
+                    <img
+                      src={chateau.images.card}
+                      alt={`${chateau.nom} - Séminaire entreprise ${chateau.region}`}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.5s ease",
+                      }}
                     />
-                    <div style={{ position: "absolute", top: theme.spacing.lg, left: theme.spacing.lg }}>
-                      <Badge variant="glass" size="lg">{linkedChateaux[0].region}</Badge>
-                    </div>
                   </div>
 
-                  <div style={{ padding: theme.spacing["3xl"], display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                    <Text variant="h3" style={{ marginBottom: theme.spacing.md }}>{linkedChateaux[0].nom}</Text>
-                    <Text variant="body" color="muted" style={{ marginBottom: theme.spacing.xl, lineHeight: theme.typography.lineHeight.relaxed }}>{linkedChateaux[0].description}</Text>
+                  {/* Contenu */}
+                  <div className="chateau-editorial-content" style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}>
+                    <span style={{
+                      display: "inline-block",
+                      width: "fit-content",
+                      padding: "4px 12px",
+                      borderRadius: "20px",
+                      fontSize: theme.typography.fontSize.xs,
+                      fontWeight: 600,
+                      letterSpacing: "0.5px",
+                      textTransform: "uppercase" as const,
+                      background: "rgba(184,134,11,0.1)",
+                      color: theme.colors.primary.bronze,
+                    }}>
+                      {chateau.region}
+                    </span>
 
-                    <div className="atouts-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: theme.spacing.sm, marginBottom: theme.spacing.xl }}>
-                      {linkedChateaux[0].atouts.slice(0, 6).map((atout) => (
-                        <div
-                          key={atout}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: theme.spacing.sm,
-                            fontSize: theme.typography.fontSize.sm,
-                            color: theme.colors.neutral.gray700,
-                          }}
-                        >
-                          <Check className="w-4 h-4" style={{ color: theme.colors.primary.bronze, flexShrink: 0 }} />
-                          <span>{atout}</span>
-                        </div>
+                    <h3 style={{
+                      fontFamily: theme.typography.fonts.heading,
+                      fontSize: "clamp(20px, 2vw, 26px)",
+                      fontStyle: "italic",
+                      color: theme.colors.neutral.gray900,
+                      margin: "12px 0 8px",
+                      lineHeight: 1.3,
+                    }}>
+                      {chateau.nom}
+                    </h3>
+
+                    <p style={{
+                      color: theme.colors.neutral.gray600,
+                      fontSize: theme.typography.fontSize.sm,
+                      lineHeight: 1.7,
+                      marginBottom: "16px",
+                    }}>
+                      {chateau.description}
+                    </p>
+
+                    {/* Atouts */}
+                    <div style={{
+                      display: "flex",
+                      flexWrap: "nowrap" as const,
+                      gap: "6px",
+                      marginBottom: "20px",
+                      overflow: "hidden",
+                    }}>
+                      {chateau.atouts.map((atout) => (
+                        <span key={atout} style={{
+                          padding: "3px 8px",
+                          background: "#f8fafc",
+                          border: `1px solid ${theme.colors.neutral.gray200}`,
+                          borderRadius: "6px",
+                          fontSize: "11px",
+                          color: theme.colors.neutral.gray700,
+                          whiteSpace: "nowrap" as const,
+                          flexShrink: 0,
+                        }}>
+                          {atout}
+                        </span>
                       ))}
                     </div>
 
-                    <div>
-                      <Button variant="primary" size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                        Découvrir ce domaine
-                      </Button>
+                    {/* Footer: capacité + chambres + CTA */}
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      paddingTop: "16px",
+                      borderTop: `1px solid ${theme.colors.neutral.gray200}`,
+                    }}>
+                      <div style={{
+                        display: "flex",
+                        gap: theme.spacing.lg,
+                        fontSize: theme.typography.fontSize.sm,
+                        color: theme.colors.neutral.gray600,
+                      }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: theme.spacing.xs }}>
+                          <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                          <span>{chateau.capacite.min}-{chateau.capacite.max} pers</span>
+                        </div>
+                        {chateau.roomsTotal && (
+                          <div style={{ display: "flex", alignItems: "center", gap: theme.spacing.xs }}>
+                            <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                            <span>{chateau.roomsTotal} chambres</span>
+                          </div>
+                        )}
+                        {chateau.meetingRooms && (
+                          <div style={{ display: "flex", alignItems: "center", gap: theme.spacing.xs }}>
+                            <DoorOpen className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                            <span>{chateau.meetingRooms} salles</span>
+                          </div>
+                        )}
+                      </div>
+                      <span style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "6px",
+                        color: theme.colors.primary.bronze,
+                        fontWeight: 600,
+                        fontSize: theme.typography.fontSize.sm,
+                      }}>
+                        Découvrir <ArrowRight className="w-4 h-4" />
+                      </span>
                     </div>
                   </div>
-                </div>
-              </NextLink>
-            ) : (
-              <div
-                className="chateaux-grid"
-                style={{ gap: theme.spacing.xl }}
-              >
-                {linkedChateaux.map((chateau) => (
-                  <NextLink
-                    key={chateau.id}
-                    href={`/chateaux/${chateau.slug}`}
-                    style={{ textDecoration: "none", display: "block" }}
-                  >
-                    <div
-                      className="group hover-lift-sm"
-                      style={{
-                        borderRadius: theme.components.card.borderRadius,
-                        overflow: "hidden",
-                        boxShadow: theme.components.card.shadow,
-                        background: theme.colors.neutral.white,
-                        transition: theme.components.card.transition,
-                        border: `1px solid ${theme.colors.neutral.gray200}`,
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <div style={{ position: "relative", height: "320px", minHeight: "320px", overflow: "hidden" }}>
-                        <Image
-                          src={chateau.images.card}
-                          alt={chateau.nom}
-                          fill
-                          className="object-cover group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          style={{ transition: `transform ${theme.effects.transitions.ultra} ${theme.effects.easings.smooth}` }}
-                        />
-                        <div style={{ position: "absolute", top: theme.spacing.md, left: theme.spacing.md }}>
-                          <Badge variant="glass" size="md">{chateau.region}</Badge>
-                        </div>
-                      </div>
-                      <div style={{ padding: theme.spacing.xl, flex: 1, display: "flex", flexDirection: "column" }}>
-                        <Text variant="h4" lineClamp={2} style={{ marginBottom: theme.spacing.sm, minHeight: "2.4em" }}>{chateau.nom}</Text>
-                        <Text variant="body" color="muted" lineClamp={3} style={{ marginBottom: theme.spacing.md }}>{chateau.description}</Text>
-                        <div style={{ display: "flex", flexWrap: "nowrap", gap: theme.spacing.xs, overflow: "hidden" }}>
-                          {chateau.atouts.slice(0, 4).map((atout) => (
-                            <span
-                              key={atout}
-                              style={{
-                                fontSize: "11px",
-                                background: theme.colors.neutral.gray100,
-                                color: theme.colors.neutral.gray700,
-                                padding: `3px ${theme.spacing.sm}`,
-                                borderRadius: theme.effects.borderRadius.full,
-                                whiteSpace: "nowrap",
-                                flexShrink: 0,
-                              }}
-                            >
-                              {atout}
-                            </span>
-                          ))}
-                        </div>
-                        <div
-                          style={{
-                            marginTop: "auto",
-                            paddingTop: theme.spacing.md,
-                            display: "flex",
-                            alignItems: "center",
-                            gap: theme.spacing.sm,
-                            color: theme.colors.primary.bronze,
-                            fontWeight: theme.typography.fontWeight.medium,
-                            fontSize: theme.typography.fontSize.sm,
-                            textTransform: "uppercase",
-                            letterSpacing: theme.typography.letterSpacing.wider,
-                          }}
-                        >
-                          <span>Découvrir ce domaine</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </div>
-                      </div>
-                    </div>
-                  </NextLink>
-                ))}
-              </div>
-            )}
+                </NextLink>
+              ))}
+            </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* ═══════════════════════════════════════════
           DEVIS EXPRESS — Formulaire inline
@@ -1033,6 +1055,62 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
           </div>
         </Container>
       </section>
+
+      {/* Lightbox carrousel avec flèches — identique pages château */}
+      {lightboxIndex !== null && (
+        <div
+          className="animate-fade-only"
+          onClick={closeLightbox}
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft") prevImage();
+            if (e.key === "ArrowRight") nextImage();
+            if (e.key === "Escape") closeLightbox();
+          }}
+          tabIndex={0}
+          ref={(el) => el?.focus()}
+          style={{ position: "fixed", inset: 0, background: "rgba(0, 0, 0, 0.95)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem", outline: "none" }}
+        >
+          {/* Bouton fermer */}
+          <button
+            onClick={closeLightbox}
+            style={{ position: "absolute", top: "1.5rem", right: "1.5rem", width: "48px", height: "48px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.1)", border: "2px solid rgba(255, 255, 255, 0.2)", color: "white", fontSize: "24px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(10px)", zIndex: 10000 }}
+            aria-label="Fermer"
+          >
+            ✕
+          </button>
+
+          {/* Compteur */}
+          <div style={{ position: "absolute", top: "1.5rem", left: "50%", transform: "translateX(-50%)", color: "rgba(255,255,255,0.8)", fontSize: "0.9375rem", fontWeight: 600, zIndex: 10000 }}>
+            {lightboxIndex + 1} / {allGeoImages.length}
+          </div>
+
+          {/* Flèche gauche */}
+          <button
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            style={{ position: "absolute", left: "clamp(0.5rem, 2vw, 1.5rem)", top: "50%", transform: "translateY(-50%)", width: "52px", height: "52px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.15)", border: "2px solid rgba(255, 255, 255, 0.3)", color: "white", fontSize: "1.5rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(10px)", zIndex: 10000, transition: "all 0.2s ease" }}
+            aria-label="Image précédente"
+          >
+            ‹
+          </button>
+
+          {/* Flèche droite */}
+          <button
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            style={{ position: "absolute", right: "clamp(0.5rem, 2vw, 1.5rem)", top: "50%", transform: "translateY(-50%)", width: "52px", height: "52px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.15)", border: "2px solid rgba(255, 255, 255, 0.3)", color: "white", fontSize: "1.5rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(10px)", zIndex: 10000, transition: "all 0.2s ease" }}
+            aria-label="Image suivante"
+          >
+            ›
+          </button>
+
+          {/* Image */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ position: "relative", width: "100%", height: "100%", maxWidth: "1400px", maxHeight: "85vh", cursor: "default" }}
+          >
+            <Image src={allGeoImages[lightboxIndex].src} alt={allGeoImages[lightboxIndex].alt} fill sizes="100vw" className="object-contain" quality={85} priority />
+          </div>
+        </div>
+      )}
     </>
   );
 }
