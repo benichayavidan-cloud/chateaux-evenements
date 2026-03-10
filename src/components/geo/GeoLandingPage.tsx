@@ -430,8 +430,8 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                 gap: "clamp(2rem, 4vw, 3rem)",
               }}
             >
-              {/* Slider LEFT — sticky */}
-              <StickySlider>
+              {/* Slider LEFT — sticky CSS */}
+              <div style={{ position: "sticky", top: "100px", alignSelf: "start" }}>
                 <GeoSlider
                   images={(() => {
                     const imgs: string[] = [];
@@ -444,7 +444,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                   })()}
                   nom={data.introTitre}
                 />
-              </StickySlider>
+              </div>
 
               {/* Cards RIGHT */}
               <div>
