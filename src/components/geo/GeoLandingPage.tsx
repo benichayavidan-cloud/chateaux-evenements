@@ -22,8 +22,122 @@ import {
   generateFAQSchema,
   generateGeoLandingSchema,
 } from "@/utils/seo/structured-data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
+
+// ── StickySlider — position fixed manuelle au scroll (identique pages château) ──
+function StickySlider({ children }: { children: React.ReactNode }) {
+  const placeholderRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const geoRef = useRef({ width: 0, left: 0, height: 420 });
+  const [style, setStyle] = useState<React.CSSProperties>({});
+
+  useEffect(() => {
+    const placeholder = placeholderRef.current;
+    const slider = sliderRef.current;
+    if (!placeholder || !slider) return;
+
+    const measure = () => {
+      const r = placeholder.getBoundingClientRect();
+      geoRef.current = { width: r.width, left: r.left, height: slider.offsetHeight || 420 };
+    };
+
+    const update = () => {
+      const section = placeholder.closest('section') || placeholder.parentElement?.parentElement?.parentElement;
+      if (!section) return;
+      const sectionRect = section.getBoundingClientRect();
+      const cellRect = placeholder.getBoundingClientRect();
+      const sliderH = geoRef.current.height;
+      const navOffset = 100;
+      geoRef.current.width = cellRect.width;
+      geoRef.current.left = cellRect.left;
+
+      if (sectionRect.top <= navOffset && sectionRect.bottom > sliderH + navOffset + 40) {
+        setStyle({ position: 'fixed', top: navOffset, left: geoRef.current.left, width: geoRef.current.width, zIndex: 10 });
+      } else if (sectionRect.bottom <= sliderH + navOffset + 40) {
+        setStyle({ position: 'absolute', bottom: 0, left: 0, width: '100%' });
+      } else {
+        setStyle({});
+      }
+    };
+
+    measure(); update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', () => { measure(); update(); }, { passive: true });
+    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
+  }, []);
+
+  return (
+    <div ref={placeholderRef} style={{ position: 'relative', minHeight: geoRef.current.height || 420 }}>
+      <div ref={sliderRef} style={style}>{children}</div>
+    </div>
+  );
+}
+
+// ── ParaCard — bordure dorée avec label auto-détecté ──
+function ParaCard({ text, sectionBg = 'white' }: { text: string; sectionBg?: 'gray' | 'white' }) {
+  const [hovered, setHovered] = useState(false);
+  const colonMatch = text.match(/^(.{5,55}?)\s:\s/);
+  const label = colonMatch ? colonMatch[1] : null;
+  const body = colonMatch && label ? text.substring(colonMatch[0].length) : text;
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: sectionBg === 'gray' ? 'white' : theme.colors.neutral.gray50,
+        borderRadius: '16px',
+        padding: 'clamp(16px, 3vw, 24px) clamp(18px, 3vw, 28px)',
+        marginBottom: '12px',
+        borderLeft: `3px solid ${theme.colors.primary.gold}`,
+        boxShadow: hovered ? '0 8px 30px rgba(0,0,0,0.08)' : '0 2px 12px rgba(0,0,0,0.04)',
+        transform: hovered ? 'translateX(4px)' : 'translateX(0)',
+        transition: 'all 0.3s ease',
+      }}
+    >
+      {label && (
+        <div style={{ fontSize: '0.6875rem', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.08em', color: theme.colors.primary.bronze, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ width: '18px', height: '18px', borderRadius: '50%', background: `${theme.colors.primary.bronze}10`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', color: theme.colors.primary.bronze }}>✦</div>
+          {label}
+        </div>
+      )}
+      <p style={{ fontSize: 'clamp(0.8125rem, 1.5vw, 0.9375rem)', lineHeight: 1.8, color: theme.colors.neutral.gray600, margin: 0 }}>{body}</p>
+    </div>
+  );
+}
+
+// ── GeoSlider — autoplay + flèches + dots ──
+function GeoSlider({ images, nom }: { images: string[]; nom: string }) {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const startAutoplay = () => { timerRef.current = setInterval(() => { setCurrent(prev => (prev + 1) % images.length); }, 4000); };
+
+  useEffect(() => {
+    startAutoplay();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [images.length]);
+
+  const goTo = (index: number) => { setCurrent(index); if (timerRef.current) clearInterval(timerRef.current); startAutoplay(); };
+
+  return (
+    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+      {images.map((img, i) => (
+        <div key={i} style={{ position: 'absolute', inset: 0, opacity: current === i ? 1 : 0, transition: 'opacity 0.6s ease-in-out' }}>
+          <Image src={img} alt={`${nom} - ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+        </div>
+      ))}
+      <button onClick={() => goTo((current - 1 + images.length) % images.length)} style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }} aria-label="Précédent">‹</button>
+      <button onClick={() => goTo((current + 1) % images.length)} style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }} aria-label="Suivant">›</button>
+      <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
+        {images.map((_, i) => (
+          <button key={i} onClick={() => goTo(i)} style={{ width: current === i ? '20px' : '8px', height: '8px', borderRadius: '4px', border: 'none', cursor: 'pointer', background: current === i ? 'white' : 'rgba(255,255,255,0.5)', transition: 'all 0.3s ease' }} aria-label={`Photo ${i + 1}`} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 // Icon mapping
 const iconMap: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
@@ -303,68 +417,58 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
       </div>
 
       {/* ═══════════════════════════════════════════
-          INTRODUCTION — Split image + texte
+          INTRODUCTION — Design "Le lieu" (StickySlider + ParaCards)
       ═══════════════════════════════════════════ */}
-      <Section spacing="lg" background="white">
+      <section style={{ background: "#f6f9fc", padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
         <Container size="xl">
           <div ref={introView.ref} className={`animate-on-scroll ${introView.isInView ? "is-visible" : ""}`}>
             <div
+              className="geo-intro-grid"
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: theme.spacing["3xl"],
-                alignItems: "center",
+                gridTemplateColumns: "1.15fr 1fr",
+                gap: "clamp(2rem, 4vw, 3rem)",
               }}
-              className="geo-intro-grid"
             >
-              {/* Image */}
-              <div
-                style={{
-                  position: "relative",
-                  borderRadius: theme.effects.borderRadius["2xl"],
-                  overflow: "hidden",
-                  aspectRatio: "4/3",
-                  boxShadow: theme.effects.shadows.xl,
-                }}
-              >
-                {linkedChateaux[0] && (
-                  <Image
-                    src={linkedChateaux[0].images.card}
-                    alt={data.introTitre}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                )}
-                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "3px", background: `linear-gradient(to right, ${theme.colors.primary.bronze}, ${theme.colors.primary.gold}, transparent)` }} />
-              </div>
+              {/* Slider LEFT — sticky */}
+              <StickySlider>
+                <GeoSlider
+                  images={(() => {
+                    const imgs: string[] = [];
+                    linkedChateaux.forEach((c) => {
+                      c.images.hero.forEach((img) => {
+                        if (!imgs.includes(img)) imgs.push(img);
+                      });
+                    });
+                    return imgs.length > 0 ? imgs : [data.heroImage];
+                  })()}
+                  nom={data.introTitre}
+                />
+              </StickySlider>
 
-              {/* Texte */}
+              {/* Cards RIGHT */}
               <div>
-                <div style={{ display: "inline-flex", alignItems: "center", gap: theme.spacing.sm, marginBottom: theme.spacing.lg, padding: "10px 18px", background: `linear-gradient(135deg, ${theme.colors.primary.bronze}12, ${theme.colors.primary.gold}08)`, border: `1px solid ${theme.colors.primary.bronze}30`, borderRadius: theme.effects.borderRadius.full }}>
-                  <Sparkles className="w-3.5 h-3.5" style={{ color: theme.colors.primary.bronze }} />
-                  <Text variant="caption" style={{ color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.semibold }}>
-                    Notre sélection
-                  </Text>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: "1rem" }}>
+                  <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                  <span style={{ fontSize: "0.75rem", fontWeight: 600, color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>Notre sélection</span>
                 </div>
-
-                <Text variant="h2" style={{ marginBottom: theme.spacing.xl }}>
+                <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "left" }}>
                   {data.introTitre}
                 </Text>
-
                 {data.introduction.split(". ").reduce<string[][]>((acc, sentence, i) => {
                   const groupIndex = Math.floor(i / 2);
                   if (!acc[groupIndex]) acc[groupIndex] = [];
                   acc[groupIndex].push(sentence);
                   return acc;
                 }, []).map((group, i) => (
-                  <Text key={i} variant="body" color="muted" style={{ lineHeight: theme.typography.lineHeight.relaxed, marginBottom: theme.spacing.md }}>
-                    {group.join(". ")}{!group[group.length - 1].endsWith(".") ? "." : ""}
-                  </Text>
+                  <ParaCard
+                    key={i}
+                    text={group.join(". ") + (!group[group.length - 1].endsWith(".") ? "." : "")}
+                    sectionBg="gray"
+                  />
                 ))}
-
-                <div style={{ marginTop: theme.spacing.xl }}>
-                  <NextLink href="/devis#formulaire">
+                <div style={{ marginTop: "1.5rem" }}>
+                  <NextLink href="/devis#formulaire" style={{ textDecoration: "none" }}>
                     <Button variant="primary" size="md" rightIcon={<ArrowRight className="w-4 h-4" />}>
                       Découvrir nos domaines
                     </Button>
@@ -374,7 +478,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* ═══════════════════════════════════════════
           POURQUOI — Background image + glassmorphism
