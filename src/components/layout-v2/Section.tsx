@@ -71,8 +71,8 @@ export const Section = forwardRef<HTMLElement, SectionProps>(
     const baseStyles = {
       position: 'relative' as const,
       width: fullWidth ? '100%' : undefined,
-      paddingTop: spacingMap[spacing],
-      paddingBottom: spacingMap[spacing],
+      paddingTop: '15px',
+      paddingBottom: '15px',
       background: backgroundMap[background],
     };
 
