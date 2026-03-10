@@ -22,8 +22,196 @@ import {
   generateFAQSchema,
   generateGeoLandingSchema,
 } from "@/utils/seo/structured-data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
+
+// ── Composants partagés (identiques aux pages château) ──────────────
+
+// Wrapper Sticky JS — position fixed manuelle au scroll
+function StickySlider({ children }: { children: React.ReactNode }) {
+  const placeholderRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const geoRef = useRef({ width: 0, left: 0, height: 420 });
+  const [mode, setMode] = useState<'static' | 'fixed' | 'bottom'>('static');
+  const [style, setStyle] = useState<React.CSSProperties>({});
+
+  useEffect(() => {
+    const placeholder = placeholderRef.current;
+    const slider = sliderRef.current;
+    if (!placeholder || !slider) return;
+
+    const measure = () => {
+      const r = placeholder.getBoundingClientRect();
+      geoRef.current = { width: r.width, left: r.left, height: slider.offsetHeight || 420 };
+    };
+
+    const update = () => {
+      const gridCell = placeholder;
+      const section = gridCell.closest('section') || gridCell.parentElement?.parentElement?.parentElement;
+      if (!section) return;
+
+      const sectionRect = section.getBoundingClientRect();
+      const cellRect = gridCell.getBoundingClientRect();
+      const sliderH = geoRef.current.height;
+      const navOffset = 100;
+
+      geoRef.current.width = cellRect.width;
+      geoRef.current.left = cellRect.left;
+
+      if (sectionRect.top <= navOffset && sectionRect.bottom > sliderH + navOffset + 40) {
+        setMode('fixed');
+        setStyle({
+          position: 'fixed',
+          top: navOffset,
+          left: geoRef.current.left,
+          width: geoRef.current.width,
+          zIndex: 10,
+        });
+      } else if (sectionRect.bottom <= sliderH + navOffset + 40) {
+        setMode('bottom');
+        setStyle({
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          width: '100%',
+        });
+      } else {
+        setMode('static');
+        setStyle({});
+      }
+    };
+
+    measure();
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', () => { measure(); update(); }, { passive: true });
+    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
+  }, []);
+
+  return (
+    <div ref={placeholderRef} style={{ position: 'relative', minHeight: geoRef.current.height || 420 }}>
+      <div ref={sliderRef} style={style}>{children}</div>
+    </div>
+  );
+}
+
+// Paragraph Card — Design Cards avec bordure dorée
+function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
+  const [hovered, setHovered] = useState(false);
+
+  const colonMatch = text.match(/^(.{5,55}?)\s:\s/);
+  const label = colonMatch ? colonMatch[1] : null;
+  const body = colonMatch && label ? text.substring(colonMatch[0].length) : text;
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: sectionBg === 'gray' ? 'white' : theme.colors.neutral.gray50,
+        borderRadius: '16px',
+        padding: 'clamp(16px, 3vw, 24px) clamp(18px, 3vw, 28px)',
+        marginBottom: '12px',
+        borderLeft: `3px solid ${theme.colors.primary.gold}`,
+        boxShadow: hovered ? '0 8px 30px rgba(0,0,0,0.08)' : '0 2px 12px rgba(0,0,0,0.04)',
+        transform: hovered ? 'translateX(4px)' : 'translateX(0)',
+        transition: 'all 0.3s ease',
+      }}
+    >
+      {label && (
+        <div style={{
+          fontSize: '0.6875rem', fontWeight: 700, textTransform: 'uppercase' as const,
+          letterSpacing: '0.08em', color: theme.colors.primary.bronze,
+          marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px',
+        }}>
+          <div style={{
+            width: '18px', height: '18px', borderRadius: '50%',
+            background: `${theme.colors.primary.bronze}10`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '9px', color: theme.colors.primary.bronze,
+          }}>✦</div>
+          {label}
+        </div>
+      )}
+      <p style={{
+        fontSize: 'clamp(0.8125rem, 1.5vw, 0.9375rem)', lineHeight: 1.8,
+        color: theme.colors.neutral.gray600, margin: 0,
+      }}>
+        {body}
+      </p>
+    </div>
+  );
+}
+
+// Slider images avec autoplay + flèches + dots
+function GeoSlider({ images, nom }: { images: string[]; nom: string }) {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startAutoplay = () => {
+    timerRef.current = setInterval(() => {
+      setCurrent(prev => (prev + 1) % images.length);
+    }, 4000);
+  };
+
+  useEffect(() => {
+    startAutoplay();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [images.length]);
+
+  const goTo = (index: number) => {
+    setCurrent(index);
+    if (timerRef.current) clearInterval(timerRef.current);
+    startAutoplay();
+  };
+
+  return (
+    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+      {images.map((img, i) => (
+        <div
+          key={i}
+          style={{
+            position: 'absolute', inset: 0,
+            opacity: current === i ? 1 : 0,
+            transition: 'opacity 0.6s ease-in-out',
+          }}
+        >
+          <Image src={img} alt={`${nom} - ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+        </div>
+      ))}
+      {/* Flèches */}
+      <button
+        onClick={() => goTo((current - 1 + images.length) % images.length)}
+        style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
+        aria-label="Précédent"
+      >‹</button>
+      <button
+        onClick={() => goTo((current + 1) % images.length)}
+        style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
+        aria-label="Suivant"
+      >›</button>
+      {/* Dots */}
+      <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            style={{
+              width: current === i ? '20px' : '8px', height: '8px',
+              borderRadius: '4px', border: 'none', cursor: 'pointer',
+              background: current === i ? 'white' : 'rgba(255,255,255,0.5)',
+              transition: 'all 0.3s ease',
+            }}
+            aria-label={`Photo ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ── Fin composants partagés ──────────────────────────────────────────
 
 // Icon mapping
 const iconMap: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
@@ -471,178 +659,68 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
       </section>
 
       {/* ═══════════════════════════════════════════
-          CHÂTEAUX DE LA ZONE — Style éditorial (identique homepage)
+          CHÂTEAUX DE LA ZONE — Design "Le lieu" (StickySlider + ParaCards)
       ═══════════════════════════════════════════ */}
-      <section
-        id="chateaux-zone"
-        style={{
-          background: "#f6f9fc",
-          paddingTop: "15px",
-          paddingBottom: "clamp(2rem, 5vw, 3.75rem)",
-        }}
-      >
-        <Container size="xl">
-          <div ref={chateauxView.ref} className={`animate-on-scroll ${chateauxView.isInView ? "is-visible" : ""}`}>
-            {/* Section Header */}
-            <div className="section-header" style={{ marginBottom: theme.spacing["4xl"] }}>
-              <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-                {linkedChateaux.length > 1 ? "Nos châteaux dans cette région" : "Notre château dans cette région"}
-              </Text>
-              <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: "940px", margin: "0 auto" }}>
-                {linkedChateaux.length > 1
-                  ? `Découvrez ${linkedChateaux.length} domaines d'exception sélectionnés pour vos séminaires d'entreprise. Chaque lieu allie le prestige de l'histoire au confort moderne pour un cadre de travail hors du commun.`
-                  : "Découvrez ce domaine d'exception sélectionné pour vos séminaires d'entreprise. Un lieu qui allie le prestige de l'histoire au confort moderne pour un cadre de travail hors du commun."
-                }
-              </Text>
-            </div>
+      <div id="chateaux-zone" ref={chateauxView.ref} className={`animate-on-scroll ${chateauxView.isInView ? "is-visible" : ""}`}>
+        {linkedChateaux.map((chateau, index) => {
+          const isEven = index % 2 === 0;
+          const sliderImages = chateau.images.hero.length > 0 ? chateau.images.hero : [chateau.images.card];
 
-            {/* Cards Horizontales Alternées - Style éditorial */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
-              {linkedChateaux.map((chateau) => (
-                <NextLink
-                  key={chateau.id}
-                  href={`/chateaux/${chateau.slug}`}
-                  className="chateau-editorial-card"
+          return (
+            <section
+              key={chateau.id}
+              style={{ background: isEven ? "#f6f9fc" : "white", padding: "clamp(2.5rem, 5vw, 4rem) 0" }}
+            >
+              <Container size="xl">
+                <div
+                  className="geo-chateau-zigzag"
                   style={{
-                    display: "flex",
-                    background: "#fff",
-                    borderRadius: "20px",
-                    overflow: "hidden",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
-                    border: "1px solid #f0f0f0",
-                    textDecoration: "none",
-                    color: "inherit",
-                    transition: "box-shadow 0.3s ease, transform 0.3s ease",
+                    display: "grid",
+                    gridTemplateColumns: isEven ? "1.15fr 1fr" : "1fr 1.15fr",
+                    gap: "clamp(2rem, 4vw, 3rem)",
                   }}
                 >
-                  {/* Image */}
-                  <div className="chateau-editorial-image" style={{ overflow: "hidden" }}>
-                    <img
-                      src={chateau.images.card}
-                      alt={`${chateau.nom} - Séminaire entreprise ${chateau.region}`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        transition: "transform 0.5s ease",
-                      }}
-                    />
+                  {/* Slider — sticky */}
+                  <div style={{ order: isEven ? 0 : 1 }}>
+                    <StickySlider>
+                      <GeoSlider images={sliderImages} nom={chateau.nom} />
+                    </StickySlider>
                   </div>
 
-                  {/* Contenu */}
-                  <div className="chateau-editorial-content" style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                  }}>
-                    <span style={{
-                      display: "inline-block",
-                      width: "fit-content",
-                      padding: "4px 12px",
-                      borderRadius: "20px",
-                      fontSize: theme.typography.fontSize.xs,
-                      fontWeight: 600,
-                      letterSpacing: "0.5px",
-                      textTransform: "uppercase" as const,
-                      background: "rgba(184,134,11,0.1)",
-                      color: theme.colors.primary.bronze,
-                    }}>
-                      {chateau.region}
-                    </span>
-
-                    <h3 style={{
-                      fontFamily: theme.typography.fonts.heading,
-                      fontSize: "clamp(20px, 2vw, 26px)",
-                      fontStyle: "italic",
-                      color: theme.colors.neutral.gray900,
-                      margin: "12px 0 8px",
-                      lineHeight: 1.3,
-                    }}>
+                  {/* Cards texte */}
+                  <div style={{ order: isEven ? 1 : 0 }}>
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: "1rem" }}>
+                      <Castle className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                      <span style={{ fontSize: "0.75rem", fontWeight: 600, color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>{chateau.region}</span>
+                    </div>
+                    <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "left" }}>
                       {chateau.nom}
-                    </h3>
-
-                    <p style={{
-                      color: theme.colors.neutral.gray600,
-                      fontSize: theme.typography.fontSize.sm,
-                      lineHeight: 1.7,
-                      marginBottom: "16px",
-                    }}>
-                      {chateau.description}
-                    </p>
-
-                    {/* Atouts */}
-                    <div style={{
-                      display: "flex",
-                      flexWrap: "nowrap" as const,
-                      gap: "6px",
-                      marginBottom: "20px",
-                      overflow: "hidden",
-                    }}>
-                      {chateau.atouts.map((atout) => (
-                        <span key={atout} style={{
-                          padding: "3px 8px",
-                          background: "#f8fafc",
-                          border: `1px solid ${theme.colors.neutral.gray200}`,
-                          borderRadius: "6px",
-                          fontSize: "11px",
-                          color: theme.colors.neutral.gray700,
-                          whiteSpace: "nowrap" as const,
-                          flexShrink: 0,
-                        }}>
-                          {atout}
-                        </span>
+                    </Text>
+                    {chateau.descriptionLongue.split('\n\n').map((paragraph, i) => (
+                      <ParaCard key={i} text={paragraph} sectionBg={isEven ? "gray" : "white"} />
+                    ))}
+                    <div className="flex flex-wrap" style={{ gap: "0.5rem", marginTop: "1rem" }}>
+                      {chateau.atouts.map((atout, i) => (
+                        <div key={i} style={{ display: "inline-flex", alignItems: "center", gap: "4px", padding: "6px 10px", background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: "nowrap" }}>
+                          <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                          <span style={{ fontSize: "0.75rem", fontWeight: 500, color: theme.colors.neutral.gray700 }}>{atout}</span>
+                        </div>
                       ))}
                     </div>
-
-                    {/* Footer: capacité + chambres + CTA */}
-                    <div style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      paddingTop: "16px",
-                      borderTop: `1px solid ${theme.colors.neutral.gray200}`,
-                    }}>
-                      <div style={{
-                        display: "flex",
-                        gap: theme.spacing.lg,
-                        fontSize: theme.typography.fontSize.sm,
-                        color: theme.colors.neutral.gray600,
-                      }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: theme.spacing.xs }}>
-                          <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                          <span>{chateau.capacite.min}-{chateau.capacite.max} pers</span>
-                        </div>
-                        {chateau.roomsTotal && (
-                          <div style={{ display: "flex", alignItems: "center", gap: theme.spacing.xs }}>
-                            <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                            <span>{chateau.roomsTotal} chambres</span>
-                          </div>
-                        )}
-                        {chateau.meetingRooms && (
-                          <div style={{ display: "flex", alignItems: "center", gap: theme.spacing.xs }}>
-                            <DoorOpen className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                            <span>{chateau.meetingRooms} salles</span>
-                          </div>
-                        )}
-                      </div>
-                      <span style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        color: theme.colors.primary.bronze,
-                        fontWeight: 600,
-                        fontSize: theme.typography.fontSize.sm,
-                      }}>
-                        Découvrir <ArrowRight className="w-4 h-4" />
-                      </span>
+                    <div style={{ marginTop: "1.5rem" }}>
+                      <NextLink href={`/chateaux/${chateau.slug}`} style={{ textDecoration: "none" }}>
+                        <Button variant="primary" size="lg" rightIcon={<ArrowRight className="w-4 h-4" />}>
+                          Découvrir ce domaine
+                        </Button>
+                      </NextLink>
                     </div>
                   </div>
-                </NextLink>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
+                </div>
+              </Container>
+            </section>
+          );
+        })}
+      </div>
 
       {/* ═══════════════════════════════════════════
           DEVIS EXPRESS — Formulaire inline

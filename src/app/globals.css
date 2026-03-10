@@ -1627,6 +1627,16 @@ textarea::placeholder {
   }
 }
 
+/* Geo landing pages — Zigzag château section responsive */
+@media (max-width: 767px) {
+  .geo-chateau-zigzag {
+    grid-template-columns: 1fr !important;
+  }
+  .geo-chateau-zigzag > div {
+    order: 0 !important;
+  }
+}
+
 /* ============================================
    CARD COMPONENTS
    ============================================ */
