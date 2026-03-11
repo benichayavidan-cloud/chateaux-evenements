@@ -111,7 +111,7 @@ function ParaCard({ text, sectionBg = 'white' }: { text: string; sectionBg?: 'gr
 function GeoSlider({ images, nom }: { images: string[]; nom: string }) {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const startAutoplay = () => { timerRef.current = setInterval(() => { setCurrent(prev => (prev + 1) % images.length); }, 4000); };
+  const startAutoplay = () => { timerRef.current = setInterval(() => { setCurrent(prev => (prev + 1) % images.length); }, 2000); };
 
   useEffect(() => {
     startAutoplay();

@@ -159,33 +159,31 @@ export function Navigation({
                     onMouseLeave={handleDropdownLeave}
                     style={{ position: 'relative' }}
                   >
-                    <div
+                    <button
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded={activeDropdown === link.href}
+                      onClick={() => setActiveDropdown(activeDropdown === link.href ? null : link.href)}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
                         gap: '6px',
                         padding: '10px 8px',
                         margin: '-10px -8px',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                        color: activeDropdown === link.href
+                          ? 'var(--bronze-antique, #A37E2C)'
+                          : theme.colors.neutral.gray700,
+                        fontWeight: theme.typography.fontWeight.medium,
+                        transition: 'color 0.2s ease',
+                        lineHeight: 1,
+                        fontSize: 'inherit',
+                        fontFamily: 'inherit',
                       }}
                     >
-                      <Link
-                        href={link.href}
-                        variant="subtle"
-                        aria-haspopup="true"
-                        aria-expanded={activeDropdown === link.href}
-                        style={{
-                          color: activeDropdown === link.href
-                            ? 'var(--bronze-antique, #A37E2C)'
-                            : theme.colors.neutral.gray700,
-                          fontWeight: theme.typography.fontWeight.medium,
-                          cursor: 'pointer',
-                          transition: 'color 0.2s ease',
-                          lineHeight: 1,
-                          fontSize: 'inherit',
-                        }}
-                      >
-                        {link.label}
-                      </Link>
+                      <span>{link.label}</span>
                       <ChevronDown
                         className="w-4 h-4"
                         style={{
@@ -197,7 +195,7 @@ export function Navigation({
                           pointerEvents: 'none',
                         }}
                       />
-                    </div>
+                    </button>
 
                     <div
                       className={`nav-dropdown ${activeDropdown === link.href ? 'is-open' : ''}`}

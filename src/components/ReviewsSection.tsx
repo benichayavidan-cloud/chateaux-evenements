@@ -9,8 +9,6 @@ import { useState, useEffect } from "react";
 export function ReviewsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3);
-  const [isPaused, setIsPaused] = useState(false);
-
   // Responsive cards per view - Bootstrap breakpoints
   useEffect(() => {
     const updateCardsPerView = () => {
@@ -38,16 +36,14 @@ export function ReviewsSection() {
     setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
   };
 
-  // Auto-scroll toutes les 3 secondes
+  // Auto-scroll toutes les 2 secondes
   useEffect(() => {
-    if (isPaused) return;
-
     const interval = setInterval(() => {
       handleNext();
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, [currentIndex, isPaused, cardsPerView]);
+  }, [currentIndex, cardsPerView]);
 
   const visibleReviews = reviews.slice(currentIndex, currentIndex + cardsPerView);
 
@@ -100,8 +96,6 @@ export function ReviewsSection() {
         {/* Carrousel */}
         <div
           className="relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
         >
           {/* Cartes visibles */}
           <div className="overflow-hidden">

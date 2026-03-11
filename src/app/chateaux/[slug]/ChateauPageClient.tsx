@@ -165,9 +165,8 @@ function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
   const startAutoplay = () => {
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % images.length);
-    }, 4000);
+    }, 2000);
   };
-
   useEffect(() => {
     startAutoplay();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
@@ -280,7 +279,7 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
   const startAutoplay = () => {
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % images.length);
-    }, 5000);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -441,9 +440,8 @@ function RestaurantSlider({ chateau }: { chateau: Chateau }) {
   const startAutoplay = () => {
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % images.length);
-    }, 4000);
+    }, 2000);
   };
-
   useEffect(() => {
     startAutoplay();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
@@ -558,9 +556,8 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
   const startAutoplay = () => {
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % images.length);
-    }, 4000);
+    }, 2000);
   };
-
   useEffect(() => {
     startAutoplay();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
@@ -673,7 +670,7 @@ function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
   const startAutoplay = () => {
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % images.length);
-    }, 5000);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -1126,10 +1123,10 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               ))}
               <div className="flex flex-wrap" style={{ gap: '0.5rem', marginTop: '1rem' }}>
                 {chateau.atouts.map((atout, i) => (
-                  <div key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
+                  <Link key={i} href="/devis#formulaire" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap', textDecoration: 'none', transition: 'all 0.2s ease' }}>
                     <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>{atout}</span>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -1161,18 +1158,12 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 <ParaCard key={i} text={paragraph} sectionBg="gray" />
               ))}
               <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
-                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
-                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Lumière naturelle</span>
-                </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
-                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
-                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Équipement AV complet</span>
-                </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
-                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
-                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Salles modulables</span>
-                </div>
+                {["Lumière naturelle", "Équipement AV complet", "Salles modulables"].map((tag, i) => (
+                  <Link key={i} href="/devis#formulaire" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap', textDecoration: 'none', transition: 'all 0.2s ease' }}>
+                    <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>{tag}</span>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -1196,18 +1187,12 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 <ParaCard key={i} text={paragraph} sectionBg="white" />
               ))}
               <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
-                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
-                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Menus sur mesure</span>
-                </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
-                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
-                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Régimes spéciaux</span>
-                </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
-                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
-                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Cocktails & galas</span>
-                </div>
+                {["Menus sur mesure", "Régimes spéciaux", "Cocktails & galas"].map((tag, i) => (
+                  <Link key={i} href="/devis#formulaire" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap', textDecoration: 'none', transition: 'all 0.2s ease' }}>
+                    <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                    <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>{tag}</span>
+                  </Link>
+                ))}
               </div>
             </div>
             {/* Slider RIGHT — sticky */}

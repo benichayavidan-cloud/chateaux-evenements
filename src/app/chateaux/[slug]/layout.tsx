@@ -33,6 +33,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       follow: true,
     },
 
+    keywords: [
+      `séminaire ${typeLieu.toLowerCase()} ${ville.toLowerCase()}`,
+      `château séminaire ${ville.toLowerCase()}`,
+      `événement entreprise ${ville.toLowerCase()}`,
+      `séminaire résidentiel ${ville.toLowerCase()}`,
+      `location château ${ville.toLowerCase()}`,
+      `team building château ${ville.toLowerCase()}`,
+      `séminaire ${chateau.capacite.max} personnes`,
+      `${chateau.styleArchitectural.toLowerCase()} séminaire`,
+    ],
+
     alternates: {
       canonical: `/chateaux/${slug}`,
     },

@@ -51,14 +51,13 @@ export interface HeroSliderProps {
 export function HeroSlider({
   slides,
   autoPlay = true,
-  autoPlayDuration = 5000,
+  autoPlayDuration = 2000,
   height = '100vh',
   showNavigation = true,
   showIndicators = true,
   heading,
 }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [contentKey, setContentKey] = useState(0);
 
   // Navigation
@@ -79,11 +78,11 @@ export function HeroSlider({
 
   // Auto-play
   useEffect(() => {
-    if (!autoPlay || isPaused) return;
+    if (!autoPlay) return;
 
     const timer = setInterval(goToNext, autoPlayDuration);
     return () => clearInterval(timer);
-  }, [autoPlay, isPaused, autoPlayDuration, goToNext]);
+  }, [autoPlay, autoPlayDuration, goToNext]);
 
   const currentSlide = slides[currentIndex];
 
