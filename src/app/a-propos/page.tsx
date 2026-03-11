@@ -233,23 +233,26 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* ===== 2. CHIFFRES (Option C — bandeau noir) ===== */}
+      {/* ===== 2. CHIFFRES ===== */}
       <div
         ref={chiffresRef.ref}
-        style={{ background: "#050505", padding: "15px 0" }}
+        style={{ background: "#f6f9fc", padding: "15px 0" }}
       >
         <div className="section-container">
           <div
-            className={`grid grid-cols-2 md:grid-cols-4 animate-on-scroll ${chiffresRef.isInView ? "is-visible" : ""}`}
-            style={{ gap: 0 }}
+            className={`grid grid-cols-2 md:grid-cols-4 gap-4 animate-on-scroll ${chiffresRef.isInView ? "is-visible" : ""}`}
           >
             {chiffresCles.map((c, i) => (
               <div
                 key={i}
+                className="bg-white rounded-2xl border border-gray-200"
                 style={{
                   textAlign: "center",
-                  padding: "2rem 1rem",
-                  borderRight: i < chiffresCles.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                  padding: "clamp(1.5rem, 3vw, 2rem)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <div
@@ -258,6 +261,7 @@ export default function AboutPage() {
                     fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
                     fontStyle: "italic",
                     color: "var(--bronze-antique)",
+                    fontWeight: 300,
                     marginBottom: "0.5rem",
                   }}
                 >
@@ -266,9 +270,9 @@ export default function AboutPage() {
                   {c.unite === "%" ? "%" : ""}
                   {c.suffix || ""}
                 </div>
-                <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 500 }}>
+                <p className="font-medium text-center" style={{ color: "#6b7c93" }}>
                   {c.label}
-                </div>
+                </p>
               </div>
             ))}
           </div>
