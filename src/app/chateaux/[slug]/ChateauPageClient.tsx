@@ -7,7 +7,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Users, Check, Sparkles, Bed, Building2, Plus, Minus, HelpCircle, MapPin, Phone, FileText, Clock, Lock, Package } from "lucide-react";
+import { Users, Check, Sparkles, Bed, Building2, UtensilsCrossed, Plus, Minus, HelpCircle, MapPin, Phone, FileText, Clock, Lock, Package } from "lucide-react";
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Badge, Button } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
@@ -373,6 +373,133 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
         </div>
       </Container>
     </Section>
+  );
+}
+
+// Slider pour la section Restauration
+function RestaurantSlider({ chateau }: { chateau: Chateau }) {
+  const extraRestaurantImages: Record<string, string[]> = {
+    "1": [
+      "/images/evenement-entreprise-chateau-montvillargenne-restaurant-bar-lounge.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salon-lounge-bar.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-terrasse-restaurant-exterieur.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-bar-lounge-chic.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-brunch-buffet-patisseries.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-buffet-gastronomique-traiteur.webp",
+      "/images/evenement-entreprise-chateau-montvillargenne-salon-cheminee-cosy.webp",
+    ],
+    "2": [
+      "/images/evenement-entreprise-reine-margot-restaurant-verriere.webp",
+      "/images/evenement-entreprise-reine-margot-serre-verriere-diner.webp",
+      "/images/evenement-entreprise-reine-margot-cuisine-gastronomique-dressage.webp",
+      "/images/evenement-entreprise-reine-margot-terrasse-jardin-potager.webp",
+      "/images/evenement-entreprise-reine-margot-facade-jardin-terrasse.webp",
+      "/images/evenement-entreprise-reine-margot-facade-illuminee-soiree.webp",
+      "/images/evenement-entreprise-reine-margot-cour-interieure-passerelle.webp",
+      "/images/evenement-entreprise-reine-margot-espace-pause-cafe-accueil.webp",
+      "/images/evenement-entreprise-reine-margot-chapelle-lounge-interieur.webp",
+    ],
+    "3": [
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-refectoire-des-moines.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-diner-refectoire-des-moines.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-restaurant-les-chasses.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-terrasse-restaurant-les-chasses.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-restaurant-trattoria-ferme.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-restaurant-auberge.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-terrasse-auberge.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-james-bar-salon-anglais.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-james-bar-salon-de-musique.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-james-bar-salon-ete.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-bettys-bar-ferme.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-karaoke.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-62-espace-pause-sellerie-1.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-63-espace-pause-sellerie-2.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-64-pause-apres-midi.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-68-activites-camion-maraicher.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-58-salon-1900-haras-3.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-60-salon-1900-haras-5.webp",
+      "/images/evenement-entreprise-abbaye-vaux-de-cernay-pavillon-des-sources.webp",
+    ],
+    "4": [
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-restaurant-opera.webp",
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-bar-stradivarius.webp",
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-terrasse-exterieure.webp",
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-patio.webp",
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-patio-2.webp",
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-buffet-seminaire.webp",
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-activites-team-building.webp",
+      "/images/evenement-entreprise-tiara-mont-royal-chantilly-salle-pleniere-halphen.webp",
+    ],
+  };
+  const forced = extraRestaurantImages[chateau.id];
+  const restImages = forced || chateau.images.galerie.filter(img => /restaurant|terrasse|bar|buffet|brunch|cuisine|traiteur/i.test(img));
+  const fallbackImg = chateau.images.hero[0];
+  const images = restImages.length > 0 ? restImages : [fallbackImg];
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startAutoplay = () => {
+    timerRef.current = setInterval(() => {
+      setCurrent(prev => (prev + 1) % images.length);
+    }, 4000);
+  };
+
+  useEffect(() => {
+    startAutoplay();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [images.length]);
+
+  const goTo = (index: number) => {
+    setCurrent(index);
+    if (timerRef.current) clearInterval(timerRef.current);
+    startAutoplay();
+  };
+
+  return (
+    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+      {images.map((img, i) => (
+        <div
+          key={i}
+          style={{
+            position: 'absolute', inset: 0,
+            opacity: current === i ? 1 : 0,
+            transition: 'opacity 0.6s ease-in-out',
+          }}
+        >
+          <Image src={img} alt={`${chateau.nom} - restauration ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+        </div>
+      ))}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={() => goTo((current - 1 + images.length) % images.length)}
+            style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
+            aria-label="Précédent"
+          >‹</button>
+          <button
+            onClick={() => goTo((current + 1) % images.length)}
+            style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
+            aria-label="Suivant"
+          >›</button>
+          <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                style={{
+                  width: current === i ? '20px' : '8px', height: '8px',
+                  borderRadius: '4px', border: 'none', cursor: 'pointer',
+                  background: current === i ? 'white' : 'rgba(255,255,255,0.5)',
+                  transition: 'all 0.3s ease',
+                }}
+                aria-label={`Photo restauration ${i + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
@@ -1045,6 +1172,45 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
                   <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
                   <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Salles modulables</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Section Restauration — Même design que Espaces de Réunion, background white */}
+      <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+        <Container size="xl">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+            {/* Slider LEFT — sticky */}
+            <StickySlider>
+              <RestaurantSlider chateau={chateau} />
+            </StickySlider>
+            {/* Cards RIGHT */}
+            <div>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
+                <UtensilsCrossed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Restauration</span>
+              </div>
+              <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
+                Expérience Culinaire
+              </Text>
+              {chateau.restaurationText.split('\n\n').map((paragraph, i) => (
+                <ParaCard key={i} text={paragraph} sectionBg="white" />
+              ))}
+              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
+                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Menus sur mesure</span>
+                </div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
+                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Régimes spéciaux</span>
+                </div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap' }}>
+                  <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
+                  <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>Cocktails & galas</span>
                 </div>
               </div>
             </div>

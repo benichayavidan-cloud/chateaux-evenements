@@ -34,6 +34,7 @@ export interface Chateau {
   bedroomText: string;
   meetingText: string;
   meetingRooms: number;
+  restaurationText: string;
 }
 
 export interface TypeEvenement {
