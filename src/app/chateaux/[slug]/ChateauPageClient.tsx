@@ -1179,15 +1179,11 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
         </Container>
       </Section>
 
-      {/* Section Restauration — Même design que Espaces de Réunion, background white */}
+      {/* Section Restauration — Zigzag inversé : Cards GAUCHE, Slider DROITE */}
       <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
-            {/* Slider LEFT — sticky */}
-            <StickySlider>
-              <RestaurantSlider chateau={chateau} />
-            </StickySlider>
-            {/* Cards RIGHT */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+            {/* Cards LEFT */}
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
                 <UtensilsCrossed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
@@ -1214,6 +1210,10 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 </div>
               </div>
             </div>
+            {/* Slider RIGHT — sticky */}
+            <StickySlider>
+              <RestaurantSlider chateau={chateau} />
+            </StickySlider>
           </div>
         </Container>
       </Section>
