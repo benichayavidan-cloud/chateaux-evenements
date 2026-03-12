@@ -37,7 +37,7 @@ function FlipCard({ activity }: { activity: Activity }) {
         }}>
           <Image
             src={activity.image}
-            alt={activity.name}
+            alt={`${activity.name} — ${isSoiree ? 'animation soirée entreprise' : 'activité team building'} en château`}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"

@@ -46,6 +46,14 @@ const outdoorImages = [
   "/images/services/team-building-activite-babyfoot-humain-exterieur-parc.webp",
 ];
 
+const outdoorAlts = [
+  "Olympiades sportives en plein air — team building outdoor en château",
+  "Rallye challenge et énigmes en équipe dans le parc du château",
+  "Rallye découverte du domaine — activité team building outdoor",
+  "Activités de team building en extérieur dans les jardins du château",
+  "Baby-foot humain — challenge sportif team building en château",
+];
+
 const indoorImages = [
   "/images/escape-game-chateau-team-building-enigmes.webp",
   "/images/jeu-enigmes-team-building-chateau.webp",
@@ -316,7 +324,7 @@ function OutdoorOverlay() {
               transition: 'opacity 0.8s ease-in-out',
             }}
           >
-            <Image src={img} alt={`Activité outdoor team building - ${i + 1}`} fill sizes="100vw" className="object-cover" loading="lazy" quality={80} />
+            <Image src={img} alt={outdoorAlts[i] || `Activité outdoor team building en château - ${i + 1}`} fill sizes="100vw" className="object-cover" loading="lazy" quality={80} />
           </div>
         ))}
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)', zIndex: 1 }} />
@@ -342,14 +350,14 @@ function OutdoorOverlay() {
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, color: theme.colors.primary.gold, textTransform: 'uppercase', letterSpacing: '0.1em' }}>En plein air</span>
               </div>
               <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 600, fontFamily: theme.typography.fonts.heading, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
-                Activités Outdoor
+                Activités de Team Building Outdoor en Château
               </h2>
               <div style={{ fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '650px' }}>
                 <p style={{ marginBottom: '1rem' }}>
-                  Profitez des parcs et jardins exceptionnels de nos châteaux pour des activités en plein air mémorables. Olympiades, rallyes, challenges sportifs... le cadre historique sublime chaque moment.
+                  Profitez des parcs et jardins exceptionnels de nos <Link href="/chateaux" style={{ color: theme.colors.primary.gold, textDecoration: 'underline', textUnderlineOffset: '3px' }}>châteaux en Île-de-France</Link> pour des activités en plein air mémorables. Olympiades, rallyes, challenges sportifs... le cadre historique sublime chaque moment.
                 </p>
                 <p>
-                  Nos activateurs professionnels encadrent chaque épreuve pour garantir une expérience sécurisée, inclusive et inoubliable pour tous vos collaborateurs.
+                  Nos activateurs professionnels encadrent chaque épreuve pour garantir une expérience sécurisée, inclusive et inoubliable. Combinez vos activités outdoor avec nos <Link href="/seminaires-soirees-entreprise" style={{ color: theme.colors.primary.gold, textDecoration: 'underline', textUnderlineOffset: '3px' }}>soirées d&apos;entreprise en château</Link> pour une journée complète.
                 </p>
               </div>
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
@@ -409,8 +417,25 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
 
   return (
     <>
+      {/* ─── Breadcrumbs visuels SEO ─── */}
+      <nav aria-label="Fil d'Ariane" style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 4vw, 2rem) 0' }}>
+        <ol style={{ display: 'flex', alignItems: 'center', gap: '6px', listStyle: 'none', margin: 0, padding: 0, fontSize: '0.8125rem' }}>
+          <li>
+            <Link href="/" style={{ color: theme.colors.neutral.gray500, textDecoration: 'none', transition: 'color 0.2s' }}>
+              Accueil
+            </Link>
+          </li>
+          <li style={{ color: theme.colors.neutral.gray400 }} aria-hidden="true">›</li>
+          <li>
+            <span style={{ color: theme.colors.primary.bronze, fontWeight: 600 }}>
+              Team Building en Château
+            </span>
+          </li>
+        </ol>
+      </nav>
+
       {/* ─── Hero Section — Grille style Airbnb ─── */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) 0' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 4vw, 2rem) 0' }}>
         <div style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
           <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: '0.5rem' }}>
             <div
@@ -634,7 +659,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
         <Container size="xl">
           <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <StickySlider>
-              <ImageSlider images={overviewImages} alt="Team building château" />
+              <ImageSlider images={overviewImages} alt="Activités de team building et cohésion d'équipe en château d'exception" />
             </StickySlider>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
@@ -642,7 +667,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Nos activités</span>
               </div>
               <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                Des expériences uniques en château
+                Team Building en Château : des expériences uniques
               </Text>
               <ParaCard text="Un cadre exceptionnel : Imaginez vos équipes se retrouvant dans un château historique, entourées de parcs centenaires. Le dépaysement total crée une parenthèse unique, loin du quotidien professionnel, propice à tisser des liens authentiques." sectionBg="gray" />
               <ParaCard text="Des activités sur mesure : Chaque team building est conçu en fonction de vos objectifs — cohésion, communication, leadership, créativité. Nos chefs de projet vous accompagnent pour créer le programme parfait, de la demi-journée au séjour complet." sectionBg="gray" />
@@ -668,7 +693,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
         <Container size="xl">
           <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <StickySlider>
-              <ImageSlider images={indoorImages} alt="Activités indoor team building" />
+              <ImageSlider images={indoorImages} alt="Team building indoor en château — escape game, murder party, challenges créatifs" />
             </StickySlider>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
@@ -676,7 +701,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>En intérieur</span>
               </div>
               <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                Activités Indoor
+                Team Building Indoor en Château
               </Text>
               {activitesIndoor.map((activite, i) => (
                 <ParaCard key={i} text={activite.text} sectionBg="gray" />
@@ -704,7 +729,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Gastronomie</span>
               </div>
               <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                Ateliers Culinaires & Restauration
+                Ateliers Culinaires & Gastronomie en Château
               </Text>
               <ParaCard text="Atelier cuisine avec chef : Enfilez vos tabliers et relevez des défis culinaires en équipe sous la direction d'un chef professionnel. Cuisine française, pâtisserie, œnologie... une activité qui rassemble et régale." sectionBg="white" />
               <ParaCard text="Restauration gastronomique : Profitez d'une cuisine raffinée adaptée à votre événement. Cocktail dînatoire, dîner assis, brunch du lendemain... nos chefs élaborent des menus sur mesure avec des produits locaux et de saison." sectionBg="white" />
@@ -719,7 +744,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               </div>
             </div>
             <StickySlider>
-              <ImageSlider images={gastronomieImages} alt="Atelier cuisine team building" />
+              <ImageSlider images={gastronomieImages} alt="Atelier cuisine gastronomique et team building culinaire en château" />
             </StickySlider>
           </div>
         </Container>
@@ -801,7 +826,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                   <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Questions fréquentes</span>
                 </div>
                 <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'left' }}>
-                  Tout savoir sur nos team building
+                  FAQ — Team Building en Château
                 </Text>
                 <Text variant="body" color="muted" style={{ textAlign: 'left' }}>
                   Les réponses à vos questions les plus fréquentes
@@ -921,16 +946,19 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               <Link href="/devis#formulaire"><Button variant="primary" size="lg">Demander un Devis</Button></Link>
               <Link href="/chateaux"><Button variant="outline" size="lg">Voir les châteaux</Button></Link>
             </div>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.lg, marginTop: theme.spacing.xl, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.md, marginTop: theme.spacing.xl, flexWrap: "wrap" }}>
               <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze, opacity: 0.7 }} />
               <Link href="/seminaire-chateau-chantilly" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
-                Team building Chantilly
+                Séminaire château Chantilly
               </Link>
               <Link href="/seminaire-chateau-ile-de-france" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
-                Team building Île-de-France
+                Séminaire château Île-de-France
               </Link>
               <Link href="/seminaire-chateau-proche-paris" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
-                Team building proche Paris
+                Séminaire château proche Paris
+              </Link>
+              <Link href="/seminaires-soirees-entreprise" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                Soirées d&apos;entreprise en château
               </Link>
             </div>
           </div>
