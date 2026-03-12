@@ -10,7 +10,7 @@ import {
   MapPin, Building2, Users, Sparkles, Clock, TreePine, Settings,
   Car, Award, Plane, Train, Heart, Castle, Waves, Music, WifiOff,
   Landmark, Star, Shield, ChevronRight, ArrowRight, DoorOpen,
-  Info, BookOpen, HelpCircle, Plus, Minus, Check,
+  Info, BookOpen, HelpCircle, Plus, Minus, Check, Phone, Send,
 } from "lucide-react";
 import { chateaux } from "@/data/chateaux";
 import { blogPosts } from "@/data/blog-posts";
@@ -316,6 +316,49 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
               <Clock className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
               Devis sous 24h
             </span>
+          </div>
+
+          {/* CTA hero — conversion rapide Ads */}
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginTop: "0.75rem", flexWrap: "wrap" }}>
+            <a
+              href="#devis-express"
+              style={{ textDecoration: "none" }}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("devis-express")?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              <Button variant="primary" size="md" leftIcon={<Send className="w-4 h-4" />}>
+                Devis Express Gratuit
+              </Button>
+            </a>
+            <a
+              href="tel:+33757991146"
+              onClick={() => {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "phone_click", {
+                    event_category: "engagement",
+                    event_label: "07 57 99 11 46",
+                  });
+                }
+              }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "8px 16px",
+                borderRadius: theme.effects.borderRadius.full,
+                border: `1.5px solid ${theme.colors.primary.bronze}`,
+                color: theme.colors.primary.bronze,
+                fontWeight: theme.typography.fontWeight.semibold,
+                fontSize: theme.typography.fontSize.sm,
+                textDecoration: "none",
+                transition: "all 0.2s ease",
+              }}
+            >
+              <Phone className="w-4 h-4" />
+              07 57 99 11 46
+            </a>
           </div>
         </div>
 
@@ -1131,7 +1174,14 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
               Décrivez-nous votre projet et recevez une proposition personnalisée sous 24h
             </p>
             <div style={{ display: "flex", gap: theme.spacing.md, justifyContent: "center", flexWrap: "wrap" }}>
-              <NextLink href="/devis#formulaire">
+              <a
+                href="#devis-express"
+                style={{ textDecoration: "none" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("devis-express")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 <Button
                   variant="secondary"
                   size="lg"
@@ -1142,7 +1192,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                 >
                   Demander un Devis Gratuit
                 </Button>
-              </NextLink>
+              </a>
               <NextLink href="/chateaux">
                 <Button
                   variant="outline"
