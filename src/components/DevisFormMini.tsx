@@ -11,7 +11,7 @@ import { Send, Clock, Shield } from 'lucide-react';
 import { Button } from '@/components/ui-v2';
 import { Text } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
-import { trackFormSubmit, trackDevisRequest } from '@/components/Analytics';
+import { trackFormSubmit, trackDevisRequest, trackFormStart } from '@/components/Analytics';
 import { getGclid } from '@/lib/gclid';
 import { hashUserData } from '@/lib/hash-user-data';
 
@@ -28,6 +28,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [formStartTracked, setFormStartTracked] = useState(false);
 
   const [formData, setFormData] = useState({
     nomPrenom: '',
@@ -43,6 +44,11 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
+    // Micro-conversion form_start au premier champ rempli
+    if (!formStartTracked) {
+      trackFormStart("devis_mini");
+      setFormStartTracked(true);
+    }
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 

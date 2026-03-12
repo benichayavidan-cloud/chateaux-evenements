@@ -119,10 +119,49 @@ export const trackDownload = (fileName: string) => {
 
 export const trackPhoneClick = () => {
   if (typeof window !== "undefined" && window.gtag) {
+    // GA4 event
     window.gtag("event", "phone_click", {
       event_category: "engagement",
       event_label: "07 57 99 11 46",
     });
+
+    // Google Ads micro-conversion — un appel = un lead potentiel
+    // Forcer ad_storage pour que la conversion remonte même sans consentement cookies
+    const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+    if (adsId) {
+      window.gtag("consent", "update", {
+        ad_storage: "granted",
+        ad_user_data: "granted",
+      });
+      window.gtag("event", "conversion", {
+        send_to: `${adsId}/phone_click`,
+        value: 0.5,
+        currency: "EUR",
+      });
+    }
+  }
+};
+
+/**
+ * Micro-conversion : l'utilisateur commence à remplir un formulaire
+ * Signal intermédiaire pour Google Ads (plus de données = meilleure optimisation)
+ */
+export const trackFormStart = (formName: string) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "form_start", {
+      event_category: "engagement",
+      event_label: formName,
+    });
+
+    // Google Ads micro-conversion
+    const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+    if (adsId) {
+      window.gtag("event", "conversion", {
+        send_to: `${adsId}/form_start`,
+        value: 0.2,
+        currency: "EUR",
+      });
+    }
   }
 };
 

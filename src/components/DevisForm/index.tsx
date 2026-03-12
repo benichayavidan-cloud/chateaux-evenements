@@ -12,7 +12,7 @@ import { Step1EventType } from "./Step1EventType";
 import { Step2DateDuration } from "./Step2DateDuration";
 import { Step3ChateauSelection } from "./Step3ChateauSelection";
 import { Step4ContactForm } from "./Step4ContactForm";
-import { trackFormSubmit, trackDevisRequest } from "@/components/Analytics";
+import { trackFormSubmit, trackDevisRequest, trackFormStart } from "@/components/Analytics";
 import { getGclid } from "@/lib/gclid";
 
 // Styles pour les sliders et focus
@@ -145,6 +145,7 @@ export function DevisForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [validatedSteps, setValidatedSteps] = useState<Set<number>>(new Set());
+  const [formStartTracked, setFormStartTracked] = useState(false);
 
   const {
     register,
@@ -193,6 +194,11 @@ export function DevisForm() {
     }
 
     if (isValid) {
+      // Micro-conversion form_start : l'utilisateur progresse dans le formulaire
+      if (!formStartTracked) {
+        trackFormStart("devis");
+        setFormStartTracked(true);
+      }
       setCurrentStep(Math.min(currentStep + 1, 4));
     }
   };
