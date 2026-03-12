@@ -410,7 +410,7 @@ export default function AboutPage() {
             style={{ marginBottom: "3rem", alignItems: "center" }}
           >
             <div className="card-image group" style={{ aspectRatio: "5/4" }}>
-              <Image src="/images/chateau-francais-seminaire-vert.webp" alt="Château sélectionné pour séminaire d'entreprise en Île-de-France" fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="50vw" />
+              <Image src="/images/chateau-exception-seminaire-entreprise-ile-de-france.webp" alt="Château sélectionné pour séminaire d'entreprise en Île-de-France" fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="50vw" />
             </div>
             <div>
               <div style={{ width: "40px", height: "3px", background: "var(--bronze-antique)", borderRadius: "2px", marginBottom: "1.25rem" }} />
