@@ -772,16 +772,41 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
                           </div>
                         )}
                       </div>
-                      <span style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        color: theme.colors.primary.bronze,
-                        fontWeight: 600,
-                        fontSize: theme.typography.fontSize.sm,
-                      }}>
-                        Découvrir <ArrowRight className="w-4 h-4" />
-                      </span>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                        <a
+                          href="#devis-express"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            document.getElementById("devis-express")?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "5px",
+                            padding: "6px 14px",
+                            background: theme.colors.primary.bronze,
+                            color: "#fff",
+                            borderRadius: "20px",
+                            fontWeight: 600,
+                            fontSize: theme.typography.fontSize.xs,
+                            textDecoration: "none",
+                            whiteSpace: "nowrap",
+                          }}
+                        >
+                          <Send className="w-3 h-3" /> Devis Express
+                        </a>
+                        <span style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "6px",
+                          color: theme.colors.primary.bronze,
+                          fontWeight: 600,
+                          fontSize: theme.typography.fontSize.sm,
+                        }}>
+                          Découvrir <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </NextLink>

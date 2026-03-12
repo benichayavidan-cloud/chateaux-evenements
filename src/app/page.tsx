@@ -11,7 +11,7 @@ import { LogoCarousel } from "@/components/home/LogoCarousel";
 import { ServiceCard } from "@/components/home/ServiceCard";
 import { StatsSection } from "@/components/home/StatsSection";
 import { generateBreadcrumbSchema, generateAggregateRatingSchema } from "@/utils/seo/structured-data";
-import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen } from "lucide-react";
+import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "lucide-react";
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
@@ -214,16 +214,36 @@ export default function Home() {
                         </div>
                       )}
                     </div>
-                    <span style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      color: theme.colors.primary.bronze,
-                      fontWeight: 600,
-                      fontSize: theme.typography.fontSize.sm,
-                    }}>
-                      Découvrir <ArrowRight className="w-4 h-4" />
-                    </span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <Link
+                        href="/devis#formulaire"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                          padding: '6px 14px',
+                          background: theme.colors.primary.bronze,
+                          color: '#fff',
+                          borderRadius: '20px',
+                          fontWeight: 600,
+                          fontSize: theme.typography.fontSize.xs,
+                          textDecoration: 'none',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        <Send className="w-3 h-3" /> Devis Express
+                      </Link>
+                      <span style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        color: theme.colors.primary.bronze,
+                        fontWeight: 600,
+                        fontSize: theme.typography.fontSize.sm,
+                      }}>
+                        Découvrir <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Link>

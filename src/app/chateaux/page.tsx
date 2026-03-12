@@ -7,7 +7,7 @@
 import { useState } from 'react';
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Card, Button } from '@/components/ui-v2';
-import { Users, Bed, Sparkles, Calendar, ArrowRight, Shield, Award, MapPin, Clock, CheckCircle, Phone, Check, DoorOpen } from 'lucide-react';
+import { Users, Bed, Sparkles, Calendar, ArrowRight, Shield, Award, MapPin, Clock, CheckCircle, Phone, Check, DoorOpen, Send } from 'lucide-react';
 import { theme } from '@/design-system/tokens';
 import { chateaux } from "@/data/chateaux";
 import { useInView } from '@/hooks/useInView';
@@ -502,16 +502,37 @@ export default function ChateauxPage() {
                         </div>
                       )}
                     </div>
-                    <span style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      color: theme.colors.primary.bronze,
-                      fontWeight: 600,
-                      fontSize: theme.typography.fontSize.sm,
-                    }}>
-                      Découvrir <ArrowRight className="w-4 h-4" />
-                    </span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <Link
+                        href="/devis#formulaire"
+                        onClick={(e) => e.stopPropagation()}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                          padding: '6px 14px',
+                          background: theme.colors.primary.bronze,
+                          color: '#fff',
+                          borderRadius: '20px',
+                          fontWeight: 600,
+                          fontSize: theme.typography.fontSize.xs,
+                          textDecoration: 'none',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        <Send className="w-3 h-3" /> Devis Express
+                      </Link>
+                      <span style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        color: theme.colors.primary.bronze,
+                        fontWeight: 600,
+                        fontSize: theme.typography.fontSize.sm,
+                      }}>
+                        Découvrir <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Link>
