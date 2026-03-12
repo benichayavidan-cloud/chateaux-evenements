@@ -50,18 +50,18 @@ export default function AboutPage() {
 
   const equipe = [
     {
-      nom: "Rebecca Ben Attar",
+      nom: "Rebecca Ben Sadoun",
       poste: "Directrice Générale",
       image:
         "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&auto=format&fit=crop&q=80",
       bio: "15 ans d'expertise en événementiel de luxe. Rebecca sélectionne chaque château et supervise la qualité de chaque prestation.",
     },
     {
-      nom: "Jonathan Ben Attar",
+      nom: "Mickael Berrebi",
       poste: "Directeur Opérations",
       image:
         "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
-      bio: "Expert en gestion hôtelière, Jonathan coordonne la logistique et garantit l'excellence opérationnelle de chaque événement.",
+      bio: "Expert en gestion hôtelière, Mickael coordonne la logistique et garantit l'excellence opérationnelle de chaque événement.",
     },
     {
       nom: "Avidan Benichay",
