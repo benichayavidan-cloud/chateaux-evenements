@@ -350,7 +350,7 @@ function OutdoorOverlay() {
                 <span style={{ fontSize: '0.75rem', fontWeight: 700, color: theme.colors.primary.gold, textTransform: 'uppercase', letterSpacing: '0.1em' }}>En plein air</span>
               </div>
               <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 600, fontFamily: theme.typography.fonts.heading, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
-                Activités de Team Building Outdoor en Château
+                Activités Outdoor — Cohésion d&apos;Équipe en Plein Air
               </h2>
               <div style={{ fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '650px' }}>
                 <p style={{ marginBottom: '1rem' }}>
@@ -477,7 +477,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               marginBottom: '0.5rem',
             }}
           >
-            Team Building en Château d&apos;Exception
+            Team Building en Château en Île-de-France — Cohésion d&apos;Équipe
           </h1>
 
           <div className="flex flex-wrap items-center gap-3" style={{ color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>
@@ -488,12 +488,12 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span className="inline-flex items-center gap-1.5">
               <Trophy className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-              +15 activités
+              +40 activités cohésion
             </span>
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-              Châteaux proches Paris
+              Châteaux proche Paris
             </span>
           </div>
         </div>
@@ -573,7 +573,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               fontStyle: 'italic', margin: 0, flex: '1 1 auto', minWidth: 0,
             }}
           >
-            Renforcez la cohésion de vos équipes dans un cadre historique d&apos;exception
+            Séminaire team building et cohésion d&apos;équipe en château d&apos;exception proche Paris
           </p>
           <div className="flex gap-2.5 flex-shrink-0 items-center">
             <a
@@ -667,7 +667,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Nos activités</span>
               </div>
               <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                Team Building en Château : des expériences uniques
+                Séminaire Team Building en Château proche Paris
               </Text>
               <ParaCard text="Un cadre exceptionnel : Imaginez vos équipes se retrouvant dans un château historique, entourées de parcs centenaires. Le dépaysement total crée une parenthèse unique, loin du quotidien professionnel, propice à tisser des liens authentiques." sectionBg="gray" />
               <ParaCard text="Des activités sur mesure : Chaque team building est conçu en fonction de vos objectifs — cohésion, communication, leadership, créativité. Nos chefs de projet vous accompagnent pour créer le programme parfait, de la demi-journée au séjour complet." sectionBg="gray" />
@@ -701,7 +701,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>En intérieur</span>
               </div>
               <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                Team Building Indoor en Château
+                Activités Indoor — Escape Game & Murder Party en Château
               </Text>
               {activitesIndoor.map((activite, i) => (
                 <ParaCard key={i} text={activite.text} sectionBg="gray" />
@@ -729,7 +729,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                 <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Gastronomie</span>
               </div>
               <Text variant="h2" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
-                Ateliers Culinaires & Gastronomie en Château
+                Ateliers Cuisine & Gastronomie pour Séminaire d&apos;Entreprise
               </Text>
               <ParaCard text="Atelier cuisine avec chef : Enfilez vos tabliers et relevez des défis culinaires en équipe sous la direction d'un chef professionnel. Cuisine française, pâtisserie, œnologie... une activité qui rassemble et régale." sectionBg="white" />
               <ParaCard text="Restauration gastronomique : Profitez d'une cuisine raffinée adaptée à votre événement. Cocktail dînatoire, dîner assis, brunch du lendemain... nos chefs élaborent des menus sur mesure avec des produits locaux et de saison." sectionBg="white" />
@@ -770,10 +770,10 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               className={`animate-on-scroll ${pointsFortsView.isInView ? 'is-visible' : ''}`}
             >
               <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center', color: 'white', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
-                Pourquoi choisir nos team building ?
+                Pourquoi choisir nos Team Building en Île-de-France ?
               </Text>
               <Text variant="bodyLarge" style={{ textAlign: 'center', color: 'rgba(255,255,255,0.8)' }}>
-                L&apos;excellence au service de la cohésion
+                Cohésion d&apos;équipe et séminaire d&apos;entreprise dans un cadre d&apos;exception
               </Text>
             </div>
           </div>
@@ -826,10 +826,10 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                   <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Questions fréquentes</span>
                 </div>
                 <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'left' }}>
-                  FAQ — Team Building en Château
+                  FAQ — Team Building & Séminaire en Château
                 </Text>
                 <Text variant="body" color="muted" style={{ textAlign: 'left' }}>
-                  Les réponses à vos questions les plus fréquentes
+                  Tout savoir sur la cohésion d&apos;équipe en château en Île-de-France
                 </Text>
               </div>
 
@@ -939,7 +939,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
           <div className="section-header" style={{ textAlign: 'center' }}>
             <div ref={ctaView.ref} className={`animate-on-scroll ${ctaView.isInView ? 'is-visible' : ''}`}>
               <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
-                Prêt à organiser votre team building ?
+                Organisez votre Team Building en Château proche Paris
               </Text>
             </div>
             <div ref={ctaButtonsView.ref} className={`animate-on-scroll ${ctaButtonsView.isInView ? 'is-visible' : ''}`} style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '200ms' }}>

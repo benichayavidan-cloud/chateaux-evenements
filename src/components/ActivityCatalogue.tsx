@@ -212,10 +212,10 @@ export default function ActivityCatalogue() {
             fontWeight: 600, color: '#0F172A',
             marginBottom: '0.75rem', lineHeight: 1.2,
           }}>
-            Notre Catalogue d&apos;Activités
+            +40 Activités Team Building & Soirées en Château
           </h2>
-          <p style={{ fontSize: '1rem', color: '#64748B', maxWidth: '550px', margin: '0 auto' }}>
-            Des expériences uniques pour renforcer la cohésion de vos équipes
+          <p style={{ fontSize: '1rem', color: '#64748B', maxWidth: '600px', margin: '0 auto' }}>
+            Séminaire cohésion d&apos;équipe en Île-de-France — activités outdoor, indoor et soirées d&apos;entreprise
           </p>
         </div>
 
