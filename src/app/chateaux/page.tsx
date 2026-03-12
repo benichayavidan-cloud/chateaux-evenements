@@ -474,8 +474,8 @@ export default function ChateauxPage() {
                   {/* Footer */}
                   <div style={{
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
+                    flexDirection: 'column',
+                    gap: '12px',
                     paddingTop: '16px',
                     borderTop: `1px solid ${theme.colors.neutral.gray200}`,
                   }}>
@@ -502,7 +502,7 @@ export default function ChateauxPage() {
                         </div>
                       )}
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '12px' }}>
                       <Link
                         href="/devis#formulaire"
                         onClick={(e) => e.stopPropagation()}
