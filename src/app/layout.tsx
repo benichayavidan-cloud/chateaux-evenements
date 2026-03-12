@@ -176,7 +176,6 @@ export default function RootLayout({
             />
           }
           links={[
-            { label: "Accueil", href: "/" },
             {
               label: "Les Châteaux",
               href: "/chateaux",
@@ -188,6 +187,7 @@ export default function RootLayout({
                 { label: "Palais Royal Forêt Chantilly", href: "/chateaux/palais-royal-foret-chantilly" },
               ],
             },
+            { label: "Team Building", href: "/team-building-chateau" },
             { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
             { label: "À propos", href: "/a-propos" },
           ]}
@@ -233,10 +233,11 @@ export default function RootLayout({
               ],
             },
             {
-              title: "À propos",
+              title: "Nos services",
               links: [
-                { label: "Notre histoire", href: "/a-propos" },
+                { label: "Team Building", href: "/team-building-chateau" },
                 { label: "Séminaires & Soirées", href: "/seminaires-soirees-entreprise" },
+                { label: "Notre histoire", href: "/a-propos" },
                 { label: "Blog", href: "/blog" },
                 { label: "Demander un devis", href: "/devis" },
               ],
