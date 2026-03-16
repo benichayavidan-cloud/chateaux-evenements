@@ -133,8 +133,9 @@ export const trackPhoneClick = () => {
         ad_storage: "granted",
         ad_user_data: "granted",
       });
+      const phoneLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_PHONE_CLICK_LABEL;
       window.gtag("event", "conversion", {
-        send_to: `${adsId}/phone_click`,
+        send_to: `${adsId}/${phoneLabel || "8yc2CM6NoIccELreq91C"}`,
         value: 0.5,
         currency: "EUR",
       });
@@ -156,8 +157,9 @@ export const trackFormStart = (formName: string) => {
     // Google Ads micro-conversion
     const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
     if (adsId) {
+      const formStartLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_FORM_START_LABEL;
       window.gtag("event", "conversion", {
-        send_to: `${adsId}/form_start`,
+        send_to: `${adsId}/${formStartLabel || "v2mNCJf3n4ccELreq91C"}`,
         value: 0.2,
         currency: "EUR",
       });

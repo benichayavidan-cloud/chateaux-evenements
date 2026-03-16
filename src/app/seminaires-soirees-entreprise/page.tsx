@@ -8,6 +8,7 @@ import { ArrowRight, Check, Sparkles, Calendar, Users, Trophy, PartyPopper, Pale
 import { Section, Container } from '@/components/layout-v2';
 import { Text } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
+import { trackPhoneClick } from '@/components/Analytics';
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
@@ -320,7 +321,7 @@ export default function EvenementsPage() {
                   <span>Devis gratuit en 24h</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <a href="tel:+33757991146" className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all">
+                <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all">
                   <Phone className="w-4 h-4" />
                   07 57 99 11 46
                 </a>
@@ -552,7 +553,7 @@ export default function EvenementsPage() {
                 <span>Demander un Devis Gratuit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <a href="tel:+33757991146" className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 text-sm font-semibold transition-all" style={{ borderColor: theme.colors.primary.bronze, color: theme.colors.primary.bronze }}>
+              <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 text-sm font-semibold transition-all" style={{ borderColor: theme.colors.primary.bronze, color: theme.colors.primary.bronze }}>
                 <Phone className="w-4 h-4" />
                 07 57 99 11 46
               </a>

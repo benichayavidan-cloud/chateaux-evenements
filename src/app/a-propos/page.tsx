@@ -26,6 +26,7 @@ import {
 import { chiffresCles } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { trackPhoneClick } from "@/components/Analytics";
 
 export default function AboutPage() {
   // useInView hooks
@@ -210,6 +211,7 @@ export default function AboutPage() {
                 </Link>
                 <a
                   href="tel:+33757991146"
+                  onClick={() => trackPhoneClick()}
                   className="badge-lg inline-flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/30"
                   style={{ padding: "16px 28px" }}
                 >
@@ -764,6 +766,7 @@ export default function AboutPage() {
               </Link>
               <a
                 href="tel:+33757991146"
+                onClick={() => trackPhoneClick()}
                 className="btn-secondary group"
               >
                 <Phone className="w-4 h-4" />

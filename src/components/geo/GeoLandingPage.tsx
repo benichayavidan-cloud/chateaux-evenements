@@ -24,6 +24,7 @@ import {
 } from "@/utils/seo/structured-data";
 import { useState, useEffect, useRef } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
+import { trackPhoneClick } from "@/components/Analytics";
 
 // ── StickySlider — position fixed manuelle au scroll (identique pages château) ──
 function StickySlider({ children }: { children: React.ReactNode }) {
@@ -334,14 +335,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
             </a>
             <a
               href="tel:+33757991146"
-              onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "phone_click", {
-                    event_category: "engagement",
-                    event_label: "07 57 99 11 46",
-                  });
-                }
-              }}
+              onClick={() => trackPhoneClick()}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
