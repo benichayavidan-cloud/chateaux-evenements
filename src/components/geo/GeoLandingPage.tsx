@@ -13,7 +13,7 @@ import {
   Info, BookOpen, HelpCircle, Plus, Minus, Check, Phone, Send,
 } from "lucide-react";
 import { chateaux } from "@/data/chateaux";
-import { blogPosts } from "@/data/blog-posts";
+// blogPosts importé côté serveur et passé en props (évite 861KB dans le bundle client)
 import type { GeoLandingPage as GeoLandingPageData } from "@/data/geo-landing-pages";
 import { geoLandingPages } from "@/data/geo-landing-pages";
 import { StructuredData } from "@/components/StructuredData";
@@ -147,11 +147,21 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; style?: 
   Landmark, Star, Shield,
 };
 
-interface GeoLandingPageProps {
-  data: GeoLandingPageData;
+export interface LinkedBlogPost {
+  slug: string;
+  title: string;
+  image: string;
+  imageAlt: string;
+  category: "organisation" | "lieux" | "team-building";
+  readingTime: number;
 }
 
-export function GeoLandingPage({ data }: GeoLandingPageProps) {
+interface GeoLandingPageProps {
+  data: GeoLandingPageData;
+  linkedBlogPosts?: LinkedBlogPost[];
+}
+
+export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPageProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -172,10 +182,7 @@ export function GeoLandingPage({ data }: GeoLandingPageProps) {
   // Pages géo sœurs (toutes sauf la page courante)
   const siblingGeoPages = geoLandingPages.filter((p) => p.slug !== data.slug);
 
-  // Trouver les articles de blog liés
-  const linkedBlogPosts = data.blogLinks
-    .map((link) => blogPosts.find((post) => post.slug === link.slug))
-    .filter(Boolean);
+  // Blog posts résolus côté serveur via props
 
   // Build images for the Airbnb-style photo grid (need 5)
   const gridImages: { src: string; alt: string }[] = [
