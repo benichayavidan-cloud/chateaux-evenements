@@ -77,7 +77,8 @@ export function Step2DateDuration({
             colorScheme: "light",
             cursor: "pointer",
           }}
-          min={new Date().toISOString().split("T")[0]}
+          suppressHydrationWarning
+          min={typeof window !== "undefined" ? new Date().toISOString().split("T")[0] : ""}
         />
         {errors.datesSouhaitees && (
           <p className="text-red-500 text-sm mt-1">

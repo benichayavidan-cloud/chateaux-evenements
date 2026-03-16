@@ -154,9 +154,13 @@ export const trackFormStart = (formName: string) => {
       event_label: formName,
     });
 
-    // Google Ads micro-conversion
+    // Google Ads micro-conversion — forcer ad_storage pour que la conversion remonte sans consentement
     const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
     if (adsId) {
+      window.gtag("consent", "update", {
+        ad_storage: "granted",
+        ad_user_data: "granted",
+      });
       const formStartLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_FORM_START_LABEL;
       window.gtag("event", "conversion", {
         send_to: `${adsId}/${formStartLabel || "v2mNCJf3n4ccELreq91C"}`,

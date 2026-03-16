@@ -5,7 +5,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Send, Clock, Shield } from 'lucide-react';
 import { Button } from '@/components/ui-v2';
@@ -29,6 +29,11 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formStartTracked, setFormStartTracked] = useState(false);
+  const [today, setToday] = useState('');
+
+  useEffect(() => {
+    setToday(new Date().toISOString().split('T')[0]);
+  }, []);
 
   const [formData, setFormData] = useState({
     nomPrenom: '',
@@ -286,7 +291,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
                 value={formData.dateArrivee}
                 onChange={handleChange}
                 onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
-                min={new Date().toISOString().split('T')[0]}
+                min={today}
                 style={{ ...inputStyle, cursor: 'pointer' }}
                 {...focusHandlers}
               />
@@ -301,7 +306,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
                 value={formData.dateDepart}
                 onChange={handleChange}
                 onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
-                min={formData.dateArrivee || new Date().toISOString().split('T')[0]}
+                min={formData.dateArrivee || today}
                 style={{ ...inputStyle, cursor: 'pointer' }}
                 {...focusHandlers}
               />
