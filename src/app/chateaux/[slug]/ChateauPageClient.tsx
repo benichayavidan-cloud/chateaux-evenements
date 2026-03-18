@@ -1418,8 +1418,8 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  padding: '10px 16px',
+                  gap: '8px',
+                  padding: '10px 20px',
                   borderRadius: '9999px',
                   border: '2px solid #A37E2C',
                   color: '#A37E2C',

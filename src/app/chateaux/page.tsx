@@ -316,8 +316,8 @@ export default function ChateauxPage() {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
-                padding: '12px 20px',
+                gap: '8px',
+                padding: '12px 24px',
                 borderRadius: theme.effects.borderRadius.full,
                 border: `1.5px solid ${theme.colors.neutral.gray300}`,
                 color: theme.colors.neutral.gray700,
@@ -783,8 +783,8 @@ export default function ChateauxPage() {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  padding: '10px 20px',
+                  gap: '8px',
+                  padding: '12px 24px',
                   borderRadius: theme.effects.borderRadius.full,
                   border: '1.5px solid rgba(255,255,255,0.5)',
                   color: 'white',

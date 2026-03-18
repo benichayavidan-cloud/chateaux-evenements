@@ -323,10 +323,10 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "6px",
-                padding: "8px 16px",
+                gap: "8px",
+                padding: "12px 24px",
                 borderRadius: theme.effects.borderRadius.full,
-                border: `1.5px solid ${theme.colors.primary.bronze}`,
+                border: `2px solid ${theme.colors.primary.bronze}`,
                 color: theme.colors.primary.bronze,
                 fontWeight: theme.typography.fontWeight.semibold,
                 fontSize: theme.typography.fontSize.sm,
