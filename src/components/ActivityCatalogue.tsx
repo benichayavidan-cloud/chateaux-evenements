@@ -2,22 +2,31 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Clock, MapPin, Check } from 'lucide-react';
 import { theme } from '@/design-system/tokens';
 import { teamBuildingActivities, tbActivities, soireeActivities } from '@/data/team-building-activities';
 import type { Activity } from '@/data/team-building-activities';
 
 // ─── Flip Card ───────────────────────────────────────────────
+function useIsTouch() {
+  const [isTouch, setIsTouch] = useState(false);
+  useEffect(() => {
+    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+  return isTouch;
+}
+
 function FlipCard({ activity }: { activity: Activity }) {
   const [flipped, setFlipped] = useState(false);
   const isSoiree = activity.category === 'soiree';
+  const isTouch = useIsTouch();
 
   return (
     <div
       className="flip-card"
-      onMouseEnter={() => setFlipped(true)}
-      onMouseLeave={() => setFlipped(false)}
+      onMouseEnter={isTouch ? undefined : () => setFlipped(true)}
+      onMouseLeave={isTouch ? undefined : () => setFlipped(false)}
       onClick={() => setFlipped(f => !f)}
       style={{ perspective: '1200px', height: '440px', cursor: 'pointer' }}
     >
