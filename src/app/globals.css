@@ -1063,12 +1063,45 @@ textarea::placeholder {
 /* Mobile responsive hero */
 @media (max-width: 768px) {
   .hero-section {
-    min-height: 350px;
-    height: 56vh;
+    min-height: auto;
+    height: auto;
+    padding: 3rem 0 2rem;
   }
 
   .hero-content {
     padding: 0 1rem;
+  }
+
+  .hero-section .heading-display {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-section .text-body-xl {
+    font-size: 0.875rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .hero-section .badge-lg {
+    padding: 8px 16px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-section .badge-lg .text-label,
+  .hero-section .badge-lg span {
+    font-size: 0.6rem !important;
+  }
+
+  .hero-section .btn-primary {
+    padding: 12px 24px !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Cacher le scroll indicator sur mobile */
+  .hero-section .animate-bounce-gentle {
+    display: none !important;
   }
 }
 
