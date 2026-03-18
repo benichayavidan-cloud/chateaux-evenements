@@ -433,8 +433,10 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
         <Container size="xl">
           <div ref={introView.ref} className={`animate-on-scroll ${introView.isInView ? "is-visible" : ""}`}>
             <div
-              className="geo-intro-grid grid grid-cols-1 md:grid-cols-[1.15fr_1fr]"
+              className="geo-intro-grid responsive-grid"
               style={{
+                display: "grid",
+                gridTemplateColumns: "1.15fr 1fr",
                 gap: "clamp(2rem, 4vw, 3rem)",
               }}
             >
@@ -809,8 +811,10 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
             </div>
 
             <div
-              className="infos-grid grid grid-cols-1 sm:grid-cols-3"
+              className="infos-grid responsive-grid"
               style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
                 gap: theme.spacing.md,
               }}
             >
@@ -944,7 +948,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
             </div>
           </div>
 
-          <div className="geo-faq-grid grid grid-cols-1 md:grid-cols-2" style={{ gap: theme.spacing["3xl"], alignItems: "start" }}>
+          <div className="geo-faq-grid responsive-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: theme.spacing["3xl"], alignItems: "start" }}>
             {/* FAQ Accordion */}
             <div>
               {data.faq.map((item, index) => {

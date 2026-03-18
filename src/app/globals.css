@@ -1126,6 +1126,14 @@ textarea::placeholder {
   .points-forts-section div[style*="minWidth"] span {
     font-size: 0.8125rem !important;
   }
+
+  /* Responsive grids — force 1 column on mobile */
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .responsive-grid-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
 
 /* ============================================

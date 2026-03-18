@@ -339,7 +339,7 @@ export default function EvenementsPage() {
       {/* Section Soirées à Thème — Slider LEFT + Cards RIGHT */}
       <Section spacing="lg" background="gray" style={{ padding: '15px 0' }}>
         <Container size="xl">
-          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="responsive-grid" style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <StickySlider>
               <ImageSlider images={[
                 { src: "/images/services/soiree-entreprise-gatsby-annees-folles-chateau-jazz.webp", alt: "Soirée Gatsby années folles en château — orchestre jazz et tenues Art Déco" },
@@ -382,7 +382,7 @@ export default function EvenementsPage() {
       {/* Section Sur Mesure — Zigzag inversé : Cards LEFT + Slider RIGHT */}
       <Section spacing="lg" background="white" style={{ padding: '15px 0' }}>
         <Container size="xl">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.15fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="responsive-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
                 <Palette className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
