@@ -2058,12 +2058,14 @@ textarea::placeholder {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
+  pointer-events: none;
   transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 .mobile-menu.is-open {
   max-height: 100vh;
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* === MIGRATED FROM STYLED-JSX (eliminates 36KB styled-jsx runtime) === */
