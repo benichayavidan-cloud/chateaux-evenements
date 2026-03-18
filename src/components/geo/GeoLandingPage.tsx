@@ -26,51 +26,11 @@ import { useState, useEffect, useRef } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
 import { trackPhoneClick } from "@/components/Analytics";
 
-// ── StickySlider — position fixed manuelle au scroll (identique pages château) ──
+// ── StickySlider — CSS natif (hardware-accelerated, pas de JS scroll listener) ──
 function StickySlider({ children }: { children: React.ReactNode }) {
-  const placeholderRef = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const geoRef = useRef({ width: 0, left: 0, height: 420 });
-  const [style, setStyle] = useState<React.CSSProperties>({});
-
-  useEffect(() => {
-    const placeholder = placeholderRef.current;
-    const slider = sliderRef.current;
-    if (!placeholder || !slider) return;
-
-    const measure = () => {
-      const r = placeholder.getBoundingClientRect();
-      geoRef.current = { width: r.width, left: r.left, height: slider.offsetHeight || 420 };
-    };
-
-    const update = () => {
-      const section = placeholder.closest('section') || placeholder.parentElement?.parentElement?.parentElement;
-      if (!section) return;
-      const sectionRect = section.getBoundingClientRect();
-      const cellRect = placeholder.getBoundingClientRect();
-      const sliderH = geoRef.current.height;
-      const navOffset = 100;
-      geoRef.current.width = cellRect.width;
-      geoRef.current.left = cellRect.left;
-
-      if (sectionRect.top <= navOffset && sectionRect.bottom > sliderH + navOffset + 40) {
-        setStyle({ position: 'fixed', top: navOffset, left: geoRef.current.left, width: geoRef.current.width, zIndex: 10 });
-      } else if (sectionRect.bottom <= sliderH + navOffset + 40) {
-        setStyle({ position: 'absolute', bottom: 0, left: 0, width: '100%' });
-      } else {
-        setStyle({});
-      }
-    };
-
-    measure(); update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', () => { measure(); update(); }, { passive: true });
-    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
-  }, []);
-
   return (
-    <div ref={placeholderRef} style={{ position: 'relative', minHeight: geoRef.current.height || 420 }}>
-      <div ref={sliderRef} style={style}>{children}</div>
+    <div style={{ position: 'sticky', top: '100px', alignSelf: 'flex-start' }}>
+      {children}
     </div>
   );
 }
@@ -112,18 +72,35 @@ function ParaCard({ text, sectionBg = 'white' }: { text: string; sectionBg?: 'gr
 function GeoSlider({ images, nom }: { images: string[]; nom: string }) {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const startAutoplay = () => { timerRef.current = setInterval(() => { setCurrent(prev => (prev + 1) % images.length); }, 2000); };
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisibleRef = useRef(false);
+
+  const startAutoplay = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (!isVisibleRef.current) return;
+    timerRef.current = setInterval(() => { setCurrent(prev => (prev + 1) % images.length); }, 3000);
+  };
 
   useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) startAutoplay();
+        else if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => { observer.disconnect(); if (timerRef.current) clearInterval(timerRef.current); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images.length]);
 
-  const goTo = (index: number) => { setCurrent(index); if (timerRef.current) clearInterval(timerRef.current); startAutoplay(); };
+  const goTo = (index: number) => { setCurrent(index); startAutoplay(); };
 
   return (
-    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+    <div ref={containerRef} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
       {images.map((img, i) => (
         <div key={i} style={{ position: 'absolute', inset: 0, opacity: current === i ? 1 : 0, transition: 'opacity 0.6s ease-in-out' }}>
           <Image src={img} alt={`${nom} - ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />

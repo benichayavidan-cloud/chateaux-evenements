@@ -37,73 +37,11 @@ const getMeetingRoomImageIndex = (chateauId: string): number => {
   return mapping[chateauId] ?? 1;
 };
 
-// Wrapper Sticky JS — position fixed manuelle au scroll
+// Wrapper Sticky CSS — hardware-accelerated, pas de JS scroll listener
 function StickySlider({ children }: { children: React.ReactNode }) {
-  const placeholderRef = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const geoRef = useRef({ width: 0, left: 0, height: 420 });
-  const [mode, setMode] = useState<'static' | 'fixed' | 'bottom'>('static');
-  const [style, setStyle] = useState<React.CSSProperties>({});
-
-  useEffect(() => {
-    const placeholder = placeholderRef.current;
-    const slider = sliderRef.current;
-    if (!placeholder || !slider) return;
-
-    // Mesurer la taille initiale (quand static, le slider est dans le flux)
-    const measure = () => {
-      const r = placeholder.getBoundingClientRect();
-      geoRef.current = { width: r.width, left: r.left, height: slider.offsetHeight || 420 };
-    };
-
-    const update = () => {
-      // Le placeholder reste toujours dans le flux, on se base sur son parent (la grille section)
-      const gridCell = placeholder;
-      const section = gridCell.closest('section') || gridCell.parentElement?.parentElement?.parentElement;
-      if (!section) return;
-
-      const sectionRect = section.getBoundingClientRect();
-      const cellRect = gridCell.getBoundingClientRect();
-      const sliderH = geoRef.current.height;
-      const navOffset = 100;
-
-      // Toujours mesurer la largeur/position du placeholder (il ne bouge pas)
-      geoRef.current.width = cellRect.width;
-      geoRef.current.left = cellRect.left;
-
-      if (sectionRect.top <= navOffset && sectionRect.bottom > sliderH + navOffset + 40) {
-        setMode('fixed');
-        setStyle({
-          position: 'fixed',
-          top: navOffset,
-          left: geoRef.current.left,
-          width: geoRef.current.width,
-          zIndex: 10,
-        });
-      } else if (sectionRect.bottom <= sliderH + navOffset + 40) {
-        setMode('bottom');
-        setStyle({
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-        });
-      } else {
-        setMode('static');
-        setStyle({});
-      }
-    };
-
-    measure();
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', () => { measure(); update(); }, { passive: true });
-    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
-  }, []);
-
   return (
-    <div ref={placeholderRef} style={{ position: 'relative', minHeight: geoRef.current.height || 420 }}>
-      <div ref={sliderRef} style={style}>{children}</div>
+    <div style={{ position: 'sticky', top: '100px', alignSelf: 'flex-start' }}>
+      {children}
     </div>
   );
 }

@@ -59,86 +59,59 @@ function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gra
   );
 }
 
-// Sticky Slider — même composant que les pages château
+// Sticky Slider — CSS natif (hardware-accelerated, pas de JS scroll listener)
 function StickySlider({ children }: { children: React.ReactNode }) {
-  const placeholderRef = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const geoRef = useRef({ width: 0, left: 0, height: 420 });
-  const [style, setStyle] = useState<React.CSSProperties>({});
-
-  useEffect(() => {
-    const placeholder = placeholderRef.current;
-    const slider = sliderRef.current;
-    if (!placeholder || !slider) return;
-
-    const measure = () => {
-      const r = placeholder.getBoundingClientRect();
-      geoRef.current = { width: r.width, left: r.left, height: slider.offsetHeight || 420 };
-    };
-
-    const update = () => {
-      const gridCell = placeholder;
-      const section = gridCell.closest('section') || gridCell.parentElement?.parentElement?.parentElement;
-      if (!section) return;
-
-      const sectionRect = section.getBoundingClientRect();
-      const cellRect = gridCell.getBoundingClientRect();
-      const sliderH = geoRef.current.height;
-      const navOffset = 100;
-
-      geoRef.current.width = cellRect.width;
-      geoRef.current.left = cellRect.left;
-
-      if (sectionRect.top <= navOffset && sectionRect.bottom > sliderH + navOffset + 40) {
-        setStyle({
-          position: 'fixed',
-          top: navOffset,
-          left: geoRef.current.left,
-          width: geoRef.current.width,
-          zIndex: 10,
-        });
-      } else if (sectionRect.bottom <= sliderH + navOffset + 40) {
-        setStyle({
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-        });
-      } else {
-        setStyle({});
-      }
-    };
-
-    measure();
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    const onResize = () => { measure(); update(); };
-    window.addEventListener('resize', onResize, { passive: true });
-    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', onResize); };
-  }, []);
-
   return (
-    <div ref={placeholderRef} style={{ position: 'relative', minHeight: geoRef.current.height || 420 }}>
-      <div ref={sliderRef} style={style}>{children}</div>
+    <div style={{ position: 'sticky', top: '100px', alignSelf: 'flex-start' }}>
+      {children}
     </div>
   );
 }
 
-// Image Slider avec navigation et auto-play
-function ImageSlider({ images, interval = 2000 }: { images: { src: string; alt: string }[]; interval?: number }) {
+// Image Slider avec navigation et auto-play (IntersectionObserver)
+function ImageSlider({ images, interval = 3000 }: { images: { src: string; alt: string }[]; interval?: number }) {
   const [current, setCurrent] = useState(0);
   const total = images.length;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const isVisibleRef = useRef(false);
 
   const next = () => setCurrent((c) => (c + 1) % total);
   const prev = () => setCurrent((c) => (c - 1 + total) % total);
 
+  const startAutoplay = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (!isVisibleRef.current) return;
+    timerRef.current = setInterval(next, interval);
+  };
+
   useEffect(() => {
-    const timer = setInterval(next, interval);
-    return () => clearInterval(timer);
-  }, [current, interval]);
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          startAutoplay();
+        } else if (timerRef.current) {
+          clearInterval(timerRef.current);
+          timerRef.current = null;
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => { observer.disconnect(); if (timerRef.current) clearInterval(timerRef.current); };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [interval]);
+
+  const goTo = (index: number) => {
+    setCurrent(index);
+    startAutoplay();
+  };
 
   return (
-    <div style={{ position: 'relative', width: '100%', borderRadius: '1rem', overflow: 'hidden', aspectRatio: '16/10' }}>
+    <div ref={containerRef} style={{ position: 'relative', width: '100%', borderRadius: '1rem', overflow: 'hidden', aspectRatio: '16/10' }}>
       {images.map((img, i) => (
         <div
           key={i}
@@ -159,12 +132,12 @@ function ImageSlider({ images, interval = 2000 }: { images: { src: string; alt: 
         </div>
       ))}
       {/* Navigation */}
-      <button onClick={prev} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: 'none', color: '#fff', fontSize: '18px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }} aria-label="Image précédente">‹</button>
-      <button onClick={next} style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: 'none', color: '#fff', fontSize: '18px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }} aria-label="Image suivante">›</button>
+      <button onClick={() => { prev(); startAutoplay(); }} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: 'none', color: '#fff', fontSize: '18px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }} aria-label="Image précédente">‹</button>
+      <button onClick={() => { next(); startAutoplay(); }} style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(0,0,0,0.5)', border: 'none', color: '#fff', fontSize: '18px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2 }} aria-label="Image suivante">›</button>
       {/* Dots */}
       <div style={{ position: 'absolute', bottom: '12px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
         {images.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)} style={{ width: i === current ? '24px' : '8px', height: '8px', borderRadius: '4px', background: i === current ? '#fff' : 'rgba(255,255,255,0.5)', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0 }} aria-label={`Image ${i + 1}`} />
+          <button key={i} onClick={() => goTo(i)} style={{ width: i === current ? '24px' : '8px', height: '8px', borderRadius: '4px', background: i === current ? '#fff' : 'rgba(255,255,255,0.5)', border: 'none', cursor: 'pointer', transition: 'all 0.3s ease', padding: 0 }} aria-label={`Image ${i + 1}`} />
         ))}
       </div>
       {/* Counter */}

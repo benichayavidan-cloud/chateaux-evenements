@@ -109,68 +109,9 @@ const activitesIndoor = [
 // ─── Sous-composants (identiques château page) ──────────────────────
 
 function StickySlider({ children }: { children: React.ReactNode }) {
-  const placeholderRef = useRef<HTMLDivElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const geoRef = useRef({ width: 0, left: 0, height: 420 });
-  const [mode, setMode] = useState<'static' | 'fixed' | 'bottom'>('static');
-  const [style, setStyle] = useState<React.CSSProperties>({});
-
-  useEffect(() => {
-    const placeholder = placeholderRef.current;
-    const slider = sliderRef.current;
-    if (!placeholder || !slider) return;
-
-    const measure = () => {
-      const r = placeholder.getBoundingClientRect();
-      geoRef.current = { width: r.width, left: r.left, height: slider.offsetHeight || 420 };
-    };
-
-    const update = () => {
-      const gridCell = placeholder;
-      const section = gridCell.closest('section') || gridCell.parentElement?.parentElement?.parentElement;
-      if (!section) return;
-
-      const sectionRect = section.getBoundingClientRect();
-      const cellRect = gridCell.getBoundingClientRect();
-      const sliderH = geoRef.current.height;
-      const navOffset = 100;
-
-      geoRef.current.width = cellRect.width;
-      geoRef.current.left = cellRect.left;
-
-      if (sectionRect.top <= navOffset && sectionRect.bottom > sliderH + navOffset + 40) {
-        setMode('fixed');
-        setStyle({
-          position: 'fixed',
-          top: navOffset,
-          left: geoRef.current.left,
-          width: geoRef.current.width,
-          zIndex: 10,
-        });
-      } else if (sectionRect.bottom <= sliderH + navOffset + 40) {
-        setMode('bottom');
-        setStyle({
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-        });
-      } else {
-        setMode('static');
-        setStyle({});
-      }
-    };
-
-    measure();
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', () => { measure(); update(); }, { passive: true });
-    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
-  }, []);
-
   return (
-    <div ref={placeholderRef} style={{ position: 'relative', minHeight: geoRef.current.height || 420 }}>
-      <div ref={sliderRef} style={style}>{children}</div>
+    <div style={{ position: 'sticky', top: '100px', alignSelf: 'flex-start' }}>
+      {children}
     </div>
   );
 }
@@ -224,15 +165,34 @@ function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gra
 function ImageSlider({ images, alt }: { images: string[]; alt: string }) {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isVisibleRef = useRef(false);
 
   const startAutoplay = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (!isVisibleRef.current) return;
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % images.length);
-    }, 2000);
+    }, 3000);
   };
+
   useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          startAutoplay();
+        } else if (timerRef.current) {
+          clearInterval(timerRef.current);
+          timerRef.current = null;
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => { observer.disconnect(); if (timerRef.current) clearInterval(timerRef.current); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [images.length]);
 
@@ -243,7 +203,7 @@ function ImageSlider({ images, alt }: { images: string[]; alt: string }) {
   };
 
   return (
-    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+    <div ref={containerRef} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
       {images.map((img, i) => (
         <div
           key={i}
@@ -293,16 +253,34 @@ function ImageSlider({ images, alt }: { images: string[]; alt: string }) {
 function OutdoorOverlay() {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisibleRef = useRef(false);
 
   const startAutoplay = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (!isVisibleRef.current) return;
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % outdoorImages.length);
-    }, 2000);
+    }, 3000);
   };
 
   useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting) {
+          startAutoplay();
+        } else if (timerRef.current) {
+          clearInterval(timerRef.current);
+          timerRef.current = null;
+        }
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => { observer.disconnect(); if (timerRef.current) clearInterval(timerRef.current); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -313,7 +291,7 @@ function OutdoorOverlay() {
   };
 
   return (
-    <section style={{ padding: 0 }}>
+    <section ref={sectionRef} style={{ padding: 0 }}>
       <div style={{ position: 'relative', height: 'clamp(28rem, 60vw, 38rem)', overflow: 'hidden' }}>
         {outdoorImages.map((img, i) => (
           <div
