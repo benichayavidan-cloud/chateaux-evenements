@@ -441,7 +441,7 @@ export default function EvenementsPage() {
               { step: "4", titre: "Votre événement", description: "Un coordinateur dédié orchestre chaque détail du premier café au dernier invité" },
             ].map((item, i) => (
               <div key={item.step} className={`flex flex-col items-center text-center animate-on-scroll from-scale ${processSteps.isInView ? 'is-visible' : ''}`} style={{ width: '250px', animationDelay: `${i * 0.15}s` }}>
-                <div className="rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-md hover:scale-110" style={{ width: '90px', height: '90px', transition: 'transform 0.3s ease' }}>
+                <div className="process-step-circle rounded-full bg-[var(--bronze-antique)] text-white flex-center text-3xl font-bold shadow-lg mb-md hover:scale-110" style={{ width: '90px', height: '90px', transition: 'transform 0.3s ease' }}>
                   {item.step}
                 </div>
                 <h3 className="text-xl font-semibold mb-2" style={{ color: '#1a1f36', minHeight: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

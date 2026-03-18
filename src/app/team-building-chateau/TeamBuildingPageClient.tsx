@@ -726,7 +726,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
       <ActivityCatalogue />
 
       {/* ─── Points forts — Grid avec image de fond ─── */}
-      <section style={{ position: 'relative', padding: 'clamp(5rem, 10vw, 8rem) 0', overflow: 'hidden' }}>
+      <section className="points-forts-section" style={{ position: 'relative', padding: 'clamp(3rem, 8vw, 8rem) 0', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0 }}>
           <Image
             src="/images/evenement-entreprise-tiara-mont-royal-chantilly-activites-team-building.webp"

@@ -728,7 +728,7 @@ export default function AboutPage() {
                 style={{ textAlign: "center", position: "relative", zIndex: 2, animationDelay: `${i * 0.15}s` }}
               >
                 <div style={{
-                  width: "90px", height: "90px", borderRadius: "50%",
+                  width: "90px", height: "90px", borderRadius: "50%", /* process-step-circle */
                   background: "var(--bronze-antique)", color: "#fff",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   fontFamily: "var(--font-cormorant)", fontSize: "1.8rem", fontWeight: 500,
