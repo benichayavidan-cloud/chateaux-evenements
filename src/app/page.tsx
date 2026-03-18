@@ -15,8 +15,8 @@ import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "luci
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Châteaux Séminaire Île-de-France & Oise | Select Châteaux",
-  description: "4 châteaux d'exception pour séminaires d'entreprise en Île-de-France et Oise (60). Devis gratuit en 24h. Lieux confidentiels de 10 à 500 personnes. Séminaire résidentiel, CODIR, team building.",
+  title: "Séminaire en Château Île-de-France | 4 Domaines Privatisables | Select Châteaux",
+  description: "Privatisez l'un de nos 4 châteaux pour votre séminaire près de Paris. De 10 à 500 pers, hébergement inclus. Devis gratuit en 24h, réponse garantie.",
   robots: {
     index: true,
     follow: true,

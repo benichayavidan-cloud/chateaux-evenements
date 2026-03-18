@@ -25,24 +25,13 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "Châteaux Séminaire Île-de-France | Select Châteaux",
+  title: "Séminaire Château Île-de-France | Select Châteaux",
   description:
-    "Découvrez 4 châteaux d'exception pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
+    "4 châteaux privatisables pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel 5 étoiles Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
   robots: {
     index: true,
     follow: true,
   },
-  keywords: [
-    "séminaire chateau ile de france",
-    "location chateau seminaire",
-    "lieu événementiel confidentiel",
-    "organisation codir luxe",
-    "chateau chantilly seminaire",
-    "abbaye vaux de cernay seminaire",
-    "château événement entreprise",
-    "séminaire résidentiel",
-    "team building château",
-  ],
   authors: [{ name: "Select Châteaux" }],
   icons: {
     icon: [

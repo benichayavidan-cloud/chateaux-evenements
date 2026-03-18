@@ -19,13 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `https://www.selectchateaux.com/blog/${article.slug}`;
 
   return {
-    title: `${article.title} | Blog Select Châteaux`,
+    title: `${article.title} | Select Châteaux`,
     description: article.excerpt,
     robots: {
       index: true,
       follow: true,
     },
-    keywords: article.keywords,
     authors: [{ name: article.author.name }],
     metadataBase: new URL("https://www.selectchateaux.com"),
     alternates: {

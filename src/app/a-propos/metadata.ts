@@ -1,25 +1,17 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "À Propos de Select Châteaux | 15 Ans d'Excellence Événementielle",
+  title: "Select Châteaux | Agence Séminaires en Château depuis 2009",
   description:
-    "Découvrez Select Châteaux, agence spécialisée dans l'organisation de séminaires en châteaux depuis 2009. Notre équipe, nos valeurs, notre engagement pour vos événements d'exception.",
+    "Depuis 2009, nous privatisons des châteaux d'exception pour vos séminaires. 4 domaines en Île-de-France, 200+ événements organisés. Devis gratuit 24h.",
   robots: {
     index: true,
     follow: true,
   },
-  keywords: [
-    "select châteaux",
-    "agence événementielle château",
-    "organisation séminaires luxe",
-    "événements entreprise patrimoine",
-    "agence séminaires île-de-france",
-    "experts événements châteaux",
-  ],
   openGraph: {
-    title: "À Propos de Select Châteaux | 15 Ans d'Excellence",
+    title: "Select Châteaux | Agence Séminaires en Château depuis 2009",
     description:
-      "Depuis 2009, Select Châteaux orchestre vos événements d'exception dans les plus beaux châteaux d'Île-de-France. Découvrez notre histoire et nos valeurs.",
+      "Depuis 2009, nous privatisons des châteaux d'exception pour vos séminaires. 4 domaines en Île-de-France, 200+ événements organisés.",
     url: "https://www.selectchateaux.com/a-propos",
     type: "website",
     siteName: "Select Châteaux",
@@ -35,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "À Propos de Select Châteaux | 15 Ans d'Excellence",
-    description: "L'expertise événementielle au service de vos séminaires d'exception",
+    title: "Select Châteaux | Agence Séminaires en Château depuis 2009",
+    description: "Depuis 2009, nous privatisons des châteaux d'exception pour vos séminaires en Île-de-France.",
     images: ["/images/seminaires-soirees-entreprise-hero.webp"],
   },
   alternates: {

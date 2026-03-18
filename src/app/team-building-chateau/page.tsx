@@ -47,29 +47,12 @@ const faq = [
 ];
 
 export const metadata: Metadata = {
-  title: "Team Building Château Île-de-France | Select Châteaux",
-  description: "Organisez votre team building en château proche de Paris. +40 activités : olympiades, escape game, murder party, cuisine. 20 à 500 personnes. Devis gratuit 24h.",
+  title: "Team Building en Château près de Paris | +40 Activités | Select Châteaux",
+  description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. De 20 à 500 pers, à 30 min de Paris. Devis gratuit 24h.",
   robots: { index: true, follow: true },
-  keywords: [
-    "team building château",
-    "team building entreprise château",
-    "activités cohésion équipe château",
-    "séminaire team building",
-    "team building proche Paris",
-    "team building Île-de-France",
-    "olympiades entreprise château",
-    "escape game château entreprise",
-    "murder party château",
-    "atelier cuisine team building",
-    "journée cohésion entreprise château",
-    "activités groupe château",
-    "team building outdoor château",
-    "team building indoor château",
-    "soirée entreprise château",
-  ],
   openGraph: {
-    title: "Team Building Château Île-de-France | Select Châteaux",
-    description: "+40 activités de cohésion d'équipe en château d'exception. Olympiades, escape game, murder party, cuisine. Devis gratuit en 24h.",
+    title: "Team Building en Château près de Paris | +40 Activités | Select Châteaux",
+    description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. Devis gratuit en 24h.",
     url: "https://www.selectchateaux.com/team-building-chateau",
     siteName: "Select Châteaux",
     images: [
@@ -85,8 +68,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Team Building Château Île-de-France | Select Châteaux",
-    description: "+40 activités de team building en château d'exception près de Paris.",
+    title: "Team Building en Château près de Paris | +40 Activités",
+    description: "+40 activités de team building en château privatisé près de Paris. Devis gratuit.",
     images: ["https://www.selectchateaux.com/images/team-building-chateau-seminaire-cohesion-equipe-hero.webp"],
   },
   alternates: {
