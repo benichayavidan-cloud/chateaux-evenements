@@ -1385,6 +1385,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           zIndex: 9990,
           transform: showStickyBar ? 'translateY(0)' : 'translateY(100%)',
           transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+          pointerEvents: showStickyBar ? 'auto' as const : 'none' as const,
         }}
       >
         <div

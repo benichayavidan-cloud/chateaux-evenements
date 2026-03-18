@@ -943,6 +943,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
           position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 9990,
           transform: showStickyBar ? 'translateY(0)' : 'translateY(100%)',
           transition: 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+          pointerEvents: showStickyBar ? 'auto' as const : 'none' as const,
         }}
       >
         <div
