@@ -65,13 +65,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     title: "Séminaire en Château en Île-de-France | 4 Domaines d'Exception",
     description:
       "Organisez votre séminaire en château en Île-de-France. 4 domaines exclusifs de 50 à 280 personnes, à 30-45 min de Paris. Devis gratuit sous 24h.",
-    keywords: [
-      "château séminaire île de france",
-      "séminaire château ile de france",
-      "location château séminaire île-de-france",
-      "lieu séminaire prestige île-de-france",
-      "domaine séminaire résidentiel île-de-france",
-    ],
+    keywords: [],
     ogTitle: "Séminaire en Château en Île-de-France | Select Châteaux",
     ogDescription:
       "4 châteaux d'exception pour vos séminaires d'entreprise en Île-de-France. De 50 à 280 personnes, à 30-45 min de Paris.",
@@ -124,12 +118,12 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Combien coûte un séminaire en château en 2026 ?",
       },
       {
-        slug: "top-10-chateaux-seminaire-ile-de-france",
-        title: "Top 10 des châteaux pour séminaire en Île-de-France",
+        slug: "checklist-organiser-seminaire",
+        title: "La Check-list ultime pour organiser un séminaire sans stress",
       },
       {
-        slug: "organiser-seminaire-chateau-guide-complet",
-        title: "Guide complet : organiser un séminaire en château",
+        slug: "seminaire-residentiel-vs-journee",
+        title: "Séminaire Résidentiel vs Journée d'Étude : Que choisir ?",
       },
     ],
     faq: [
@@ -186,13 +180,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     title: "Séminaire en Château Proche de Paris | 30-45 min de la Capitale",
     description:
       "Trouvez votre château pour séminaire proche de Paris. 4 domaines exclusifs à 30-45 min, de 50 à 280 pers. Navettes, hébergement premium. Devis gratuit 24h.",
-    keywords: [
-      "séminaire château proche paris",
-      "château séminaire près de paris",
-      "lieu séminaire château paris",
-      "séminaire résidentiel proche paris",
-      "château événement entreprise paris",
-    ],
+    keywords: [],
     ogTitle: "Séminaire en Château Proche de Paris | Select Châteaux",
     ogDescription:
       "4 châteaux pour séminaire à 30-45 min de Paris. Hébergement, salles équipées, restauration gastronomique. Devis gratuit.",
@@ -241,16 +229,16 @@ export const geoLandingPages: GeoLandingPage[] = [
     ],
     blogLinks: [
       {
-        slug: "top-10-chateaux-seminaire-ile-de-france",
-        title: "Top 10 des châteaux pour séminaire en Île-de-France",
+        slug: "transport-50-collaborateurs-ile-de-france",
+        title: "Transport : Comment déplacer 50 collaborateurs en Île-de-France",
       },
       {
-        slug: "combien-coute-seminaire-chateau-2026",
-        title: "Combien coûte un séminaire en château en 2026 ?",
+        slug: "planning-ideal-seminaire-2-jours",
+        title: "Le planning idéal d'un séminaire de 2 jours",
       },
       {
-        slug: "checklist-organisation-seminaire-chateau",
-        title: "Checklist : organiser un séminaire en château",
+        slug: "seminaire-au-vert-productivite",
+        title: "Séminaire au vert : Pourquoi quitter Paris augmente la productivité de 30%",
       },
     ],
     faq: [
@@ -302,13 +290,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     title: "Séminaire en Château à Chantilly | 2 Domaines Prestige",
     description:
       "Organisez votre séminaire en château à Chantilly. 2 domaines de prestige au cœur de la forêt : manoir 280 pers et château 5★ 200 pers. À 35 min de Paris. Devis 24h.",
-    keywords: [
-      "château séminaire chantilly",
-      "séminaire château chantilly",
-      "lieu séminaire chantilly",
-      "domaine séminaire chantilly forêt",
-      "château événement entreprise chantilly",
-    ],
+    keywords: [],
     ogTitle: "Séminaire en Château à Chantilly | Select Châteaux",
     ogDescription:
       "2 châteaux de prestige à Chantilly pour vos séminaires. Forêt domaniale, spa, amphithéâtre. À 35 min de Paris.",
@@ -357,16 +339,16 @@ export const geoLandingPages: GeoLandingPage[] = [
     ],
     blogLinks: [
       {
-        slug: "top-10-chateaux-seminaire-ile-de-france",
-        title: "Top 10 des châteaux pour séminaire en Île-de-France",
+        slug: "chantilly-destination-royale",
+        title: "Chantilly : La destination royale pour impressionner vos clients",
       },
       {
-        slug: "seminaire-nature-foret-bienfaits-equipes",
-        title: "Les bienfaits d'un séminaire en pleine nature",
+        slug: "escape-game-geant-chateau",
+        title: "Escape Game Géant : Transformez le château en terrain de jeu",
       },
       {
-        slug: "combien-coute-seminaire-chateau-2026",
-        title: "Combien coûte un séminaire en château en 2026 ?",
+        slug: "grands-groupes-100-personnes-chateau",
+        title: "Grands Groupes : Où loger 100+ collaborateurs dans un même château ?",
       },
     ],
     faq: [
@@ -418,13 +400,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     title: "Séminaire en Château dans l'Oise (60) | 2 Domaines Forêt Chantilly",
     description:
       "Séminaire en château dans l'Oise. 2 domaines prestigieux en forêt de Chantilly : manoir 280 pers + château 5★ 200 pers. À 35 min de Paris & 30 min de CDG. Devis 24h.",
-    keywords: [
-      "séminaire château oise",
-      "château séminaire oise 60",
-      "lieu séminaire oise",
-      "domaine événement entreprise oise",
-      "château séminaire résidentiel oise",
-    ],
+    keywords: [],
     ogTitle: "Séminaire en Château dans l'Oise (60) | Select Châteaux",
     ogDescription:
       "2 châteaux dans l'Oise pour vos séminaires d'entreprise. Forêt de Chantilly, spa, amphithéâtre. À 35 min de Paris.",
@@ -473,16 +449,16 @@ export const geoLandingPages: GeoLandingPage[] = [
     ],
     blogLinks: [
       {
-        slug: "top-10-chateaux-seminaire-ile-de-france",
-        title: "Top 10 des châteaux pour séminaire en Île-de-France",
+        slug: "top-chateaux-oise-60",
+        title: "Top 7 des Châteaux pour séminaire dans l'Oise (60)",
       },
       {
-        slug: "seminaire-nature-foret-bienfaits-equipes",
-        title: "Les bienfaits d'un séminaire en pleine nature",
+        slug: "chateaux-piscine-spa-bien-etre",
+        title: "Châteaux avec Piscine et Spa : Le bien-être au travail",
       },
       {
-        slug: "organiser-convention-entreprise-200-personnes",
-        title: "Organiser une convention de 200+ personnes",
+        slug: "convaincre-direction-budget-seminaire",
+        title: "Convaincre sa direction : 5 arguments pour valider le budget",
       },
     ],
     faq: [
@@ -534,13 +510,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     title: "Séminaire en Château dans les Yvelines (78) | Abbaye Cistercienne",
     description:
       "Séminaire en château dans les Yvelines. Abbaye cistercienne rénovée 2023, 144 chambres, 14 salles, 80ha, 6 restaurants Paris Society. Vallée de Chevreuse à 45 min de Paris. Devis 24h.",
-    keywords: [
-      "séminaire château yvelines",
-      "château séminaire yvelines 78",
-      "abbaye séminaire yvelines",
-      "lieu séminaire vallée de chevreuse",
-      "domaine événement entreprise yvelines",
-    ],
+    keywords: [],
     ogTitle: "Séminaire en Château dans les Yvelines (78) | Select Châteaux",
     ogDescription:
       "Abbaye cistercienne rénovée 2023 dans les Yvelines. 144 chambres, 14 salles, 80ha, 6 restaurants Paris Society. À 45 min de Paris.",
@@ -589,16 +559,16 @@ export const geoLandingPages: GeoLandingPage[] = [
     ],
     blogLinks: [
       {
-        slug: "seminaire-nature-foret-bienfaits-equipes",
-        title: "Les bienfaits d'un séminaire en pleine nature",
+        slug: "seminaire-yvelines-78-luxe-proximite",
+        title: "Séminaire dans les Yvelines (78) : Luxe et proximité",
       },
       {
-        slug: "top-10-chateaux-seminaire-ile-de-france",
-        title: "Top 10 des châteaux pour séminaire en Île-de-France",
+        slug: "seminaire-eco-responsable-rse",
+        title: "RSE et Événementiel : Organiser un séminaire éco-responsable",
       },
       {
-        slug: "team-building-chateau-activites-originales",
-        title: "Les meilleures activités team building en château",
+        slug: "yoga-meditation-bien-etre-seminaire",
+        title: "Yoga et Méditation : Intégrer le bien-être au séminaire",
       },
     ],
     faq: [
@@ -650,13 +620,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     title: "Séminaire en Château dans les Hauts-de-Seine (92) | Hôtel 5★ Métro",
     description:
       "Séminaire en château dans les Hauts-de-Seine. MGallery 5★, 83 chambres vue Tour Eiffel, spa 360m², 9 salles, restaurant bio Marguerite 1606. Métro ligne 12. Devis gratuit 24h.",
-    keywords: [
-      "séminaire château hauts de seine",
-      "château séminaire hauts de seine 92",
-      "lieu séminaire 92",
-      "hôtel séminaire luxe paris 92",
-      "domaine événement entreprise hauts-de-seine",
-    ],
+    keywords: [],
     ogTitle: "Séminaire en Château Hauts-de-Seine (92) | Select Châteaux",
     ogDescription:
       "Boutique-hôtel MGallery 5★ dans le 92. 83 chambres vue Tour Eiffel, spa 360m², restaurant bio, accessible métro L12. Séminaires de prestige.",
@@ -705,16 +669,16 @@ export const geoLandingPages: GeoLandingPage[] = [
     ],
     blogLinks: [
       {
-        slug: "top-10-chateaux-seminaire-ile-de-france",
-        title: "Top 10 des châteaux pour séminaire en Île-de-France",
+        slug: "organiser-codir-confidentiel",
+        title: "Comment organiser un CODIR confidentiel : Les critères de sécurité",
       },
       {
-        slug: "combien-coute-seminaire-chateau-2026",
-        title: "Combien coûte un séminaire en château en 2026 ?",
+        slug: "petits-comites-lieux-intimes-board",
+        title: "Petits Comités : 5 lieux intimistes pour votre Board",
       },
       {
-        slug: "organiser-codir-chateau-guide",
-        title: "Comment organiser un CODIR en château",
+        slug: "repas-seminaire-tendances-traiteur-2026",
+        title: "Repas de Séminaire : Les tendances traiteur 2026",
       },
     ],
     faq: [
