@@ -809,12 +809,10 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
             </div>
 
             <div
+              className="infos-grid grid grid-cols-1 sm:grid-cols-3"
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
                 gap: theme.spacing.md,
               }}
-              className="infos-grid"
             >
               {data.infosPratiques.map((info, index) => (
                 <div
@@ -946,7 +944,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
             </div>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: theme.spacing["3xl"], alignItems: "start" }} className="geo-faq-grid">
+          <div className="geo-faq-grid grid grid-cols-1 md:grid-cols-2" style={{ gap: theme.spacing["3xl"], alignItems: "start" }}>
             {/* FAQ Accordion */}
             <div>
               {data.faq.map((item, index) => {

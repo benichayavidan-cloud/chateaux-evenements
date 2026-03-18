@@ -805,7 +805,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
 
         {/* Grille photos style Airbnb */}
         <div
-          className="rounded-2xl overflow-hidden"
+          className="hero-grid-listing rounded-2xl overflow-hidden"
           style={{
             display: 'grid',
             gridTemplateColumns: '2fr 1fr 1fr',
@@ -1203,7 +1203,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       {/* Section FAQ — 2 colonnes : FAQ + Image équipe */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'start' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'start' }}>
             {/* Colonne gauche — FAQ */}
             <div>
               <div style={{ marginBottom: '1.5rem' }}>

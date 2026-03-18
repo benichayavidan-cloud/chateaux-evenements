@@ -284,8 +284,8 @@ export default function AboutPage() {
       {/* ===== 3. MANIFESTE (Option C) ===== */}
       <div
         ref={manifesteRef.ref}
-        className={`animate-on-scroll ${manifesteRef.isInView ? "is-visible" : ""}`}
-        style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "520px" }}
+        className={`grid grid-cols-1 md:grid-cols-2 animate-on-scroll ${manifesteRef.isInView ? "is-visible" : ""}`}
+        style={{ minHeight: "520px" }}
       >
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "clamp(2.5rem, 5vw, 4.5rem)", background: "#fff" }}>
           <div style={{ fontFamily: "var(--font-cormorant)", fontSize: "6rem", color: "var(--bronze-antique)", opacity: 0.2, lineHeight: 0.8, marginBottom: "-0.5rem" }}>
@@ -473,15 +473,16 @@ export default function AboutPage() {
             <div style={{ width: "60px", height: "2px", margin: "1.5rem auto 0", background: "linear-gradient(90deg, transparent, var(--bronze-antique), transparent)" }} />
           </div>
 
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            maxWidth: "960px",
-            margin: "0 auto",
-            borderRadius: "20px",
-            overflow: "hidden",
-            boxShadow: "0 8px 40px rgba(0,0,0,0.06)",
-          }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-2"
+            style={{
+              maxWidth: "960px",
+              margin: "0 auto",
+              borderRadius: "20px",
+              overflow: "hidden",
+              boxShadow: "0 8px 40px rgba(0,0,0,0.06)",
+            }}
+          >
             {/* AVANT */}
             <div style={{ background: "#171717", padding: "2.5rem", color: "rgba(255,255,255,0.7)" }}>
               <div style={{
@@ -627,7 +628,8 @@ export default function AboutPage() {
 
           <div
             ref={equipeCards.ref}
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem" }}
+            className="grid grid-cols-1 sm:grid-cols-3"
+            style={{ gap: "1.5rem" }}
           >
             {equipe.map((m, i) => (
               <div
@@ -664,7 +666,8 @@ export default function AboutPage() {
 
           <div
             ref={garantiesRef.ref}
-            style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}
+            className="grid grid-cols-2 md:grid-cols-4"
+            style={{ gap: "1rem" }}
           >
             {garanties.map((g, i) => {
               const Icon = g.icon;
@@ -708,7 +711,8 @@ export default function AboutPage() {
 
           <div
             ref={processRef.ref}
-            style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.5rem", position: "relative" }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4"
+            style={{ gap: "1.5rem", position: "relative" }}
           >
             {/* Ligne horizontale */}
             <div style={{
