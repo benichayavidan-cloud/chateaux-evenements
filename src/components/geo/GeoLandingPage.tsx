@@ -321,9 +321,9 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
               href="tel:+33757991146"
               onClick={() => trackPhoneClick()}
               className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
-              style={{ textDecoration: "none" }}
+              style={{ textDecoration: "none", color: "white" }}
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4" style={{ color: "white" }} />
               07 57 99 11 46
             </a>
           </div>
@@ -433,10 +433,8 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
         <Container size="xl">
           <div ref={introView.ref} className={`animate-on-scroll ${introView.isInView ? "is-visible" : ""}`}>
             <div
-              className="geo-intro-grid"
+              className="geo-intro-grid grid grid-cols-1 md:grid-cols-[1.15fr_1fr]"
               style={{
-                display: "grid",
-                gridTemplateColumns: "1.15fr 1fr",
                 gap: "clamp(2rem, 4vw, 3rem)",
               }}
             >

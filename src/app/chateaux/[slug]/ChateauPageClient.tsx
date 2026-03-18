@@ -235,7 +235,7 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
   return (
     <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
       <Container size="xl">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.15fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
           {/* Cards LEFT */}
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
@@ -963,9 +963,9 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               href="tel:+33757991146"
               onClick={() => trackPhoneClick()}
               className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
-              style={{ textDecoration: 'none', whiteSpace: 'nowrap' }}
+              style={{ textDecoration: 'none', whiteSpace: 'nowrap', color: 'white' }}
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4" style={{ color: 'white' }} />
               07 57 99 11 46
             </a>
           </div>
@@ -1029,8 +1029,8 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       {/* Section Vue d'ensemble — Slider gauche (sticky) + Cards droite */}
       <Section spacing="lg" background="gray" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
-            {/* Slider LEFT — sticky JS */}
+          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
+            {/* Slider LEFT — sticky */}
             <StickySlider>
               <OverviewSlider images={chateau.images.hero} nom={chateau.nom} />
             </StickySlider>
@@ -1065,8 +1065,8 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       {/* Section Espaces de Réunion — Slider gauche (sticky) + Cards droite */}
       <Section spacing="lg" background="gray" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
-            {/* Slider LEFT — sticky JS */}
+          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
+            {/* Slider LEFT — sticky */}
             <StickySlider>
               <MeetingRoomSlider chateau={chateau} />
             </StickySlider>
@@ -1098,7 +1098,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
       {/* Section Restauration — Zigzag inversé : Cards GAUCHE, Slider DROITE */}
       <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.15fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
             {/* Cards LEFT */}
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
@@ -1403,9 +1403,9 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
                 href="tel:+33757991146"
                 onClick={() => trackPhoneClick()}
                 className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
-                style={{ textDecoration: 'none', whiteSpace: 'nowrap' }}
+                style={{ textDecoration: 'none', whiteSpace: 'nowrap', color: 'white' }}
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4" style={{ color: 'white' }} />
                 <span className="hidden sm:inline">07 57 99 11 46</span>
                 <span className="sm:hidden">Appeler</span>
               </a>

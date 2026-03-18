@@ -15,7 +15,7 @@
 - **Action code** : Vérifier qu'il n'y a pas de `noindex` caché ou de problème de rendu
 - **Action manuelle** : GSC → Inspect URL → Request Indexing
 - **Temps** : 15 min
-- **Statut** : [ ] TODO
+- **Statut** : [x] FAIT (18/03/2026) — Indexation demandée via GSC
 
 ### 1.2 ❌ Dédupliquer les geo-landing pages
 - **Gravité** : CRITIQUE
@@ -31,7 +31,7 @@
   - [ ] Ajouter du contenu SEO unique par territoire (histoire, accès, activités locales)
   - [ ] Envisager de fusionner IDF + Proche Paris (intent identique)
 - **Temps** : 3-4h
-- **Statut** : [ ] TODO
+- **Statut** : [x] FAIT (18/03/2026) — 7 liens cassés corrigés, 18 liens diversifiés, keywords supprimés
 
 ### 1.3 ⚠️ Réécrire les meta titles/descriptions pour le CTR
 - **Gravité** : ÉLEVÉE
@@ -55,7 +55,7 @@
   - Description 140-155 caractères, avec CTA + chiffre concret + emoji optionnel
   - Toujours inclure une proposition de valeur unique (USP)
 - **Temps** : 2h
-- **Statut** : [ ] TODO
+- **Statut** : [x] FAIT (18/03/2026) — 8 pages réécrites
 
 ---
 
@@ -72,7 +72,7 @@
   - [ ] Style : Grande typographie, au-dessus de la ligne de flottaison
   - [ ] Garder cohérent avec le design existant
 - **Temps** : 1h
-- **Statut** : [ ] TODO
+- **Statut** : [x] FAIT (18/03/2026) — H1 visible sur /chateaux
 
 ### 2.2 ⚠️ Maillage interne stratégique (siloing)
 - **Gravité** : ÉLEVÉE
@@ -106,14 +106,14 @@
       └── Chaque article → 2-3 liens vers pages commerciales pertinentes
   ```
 - **Temps** : 3-4h
-- **Statut** : [ ] TODO
+- **Statut** : [x] FAIT (18/03/2026) — 90 liens internes ajoutés (30 articles × 3), lien cassé corrigé
 
 ### 2.3 Nettoyer le code SEO obsolète
 - **Gravité** : FAIBLE
 - **Actions** :
   - [ ] Supprimer les balises `keywords` de tous les metadata (Google les ignore depuis 2009)
 - **Temps** : 30 min
-- **Statut** : [ ] TODO
+- **Statut** : [x] FAIT (18/03/2026) — keywords supprimés partout
 
 ---
 

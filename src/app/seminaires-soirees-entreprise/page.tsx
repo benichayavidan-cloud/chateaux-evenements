@@ -294,8 +294,8 @@ export default function EvenementsPage() {
                   <span>Devis gratuit en 24h</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all">
-                  <Phone className="w-4 h-4" />
+                <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all" style={{ color: 'white' }}>
+                  <Phone className="w-4 h-4" style={{ color: 'white' }} />
                   07 57 99 11 46
                 </a>
               </div>
@@ -339,7 +339,7 @@ export default function EvenementsPage() {
       {/* Section Soirées à Thème — Slider LEFT + Cards RIGHT */}
       <Section spacing="lg" background="gray" style={{ padding: '15px 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <StickySlider>
               <ImageSlider images={[
                 { src: "/images/services/soiree-entreprise-gatsby-annees-folles-chateau-jazz.webp", alt: "Soirée Gatsby années folles en château — orchestre jazz et tenues Art Déco" },
@@ -382,7 +382,7 @@ export default function EvenementsPage() {
       {/* Section Sur Mesure — Zigzag inversé : Cards LEFT + Slider RIGHT */}
       <Section spacing="lg" background="white" style={{ padding: '15px 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.15fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
                 <Palette className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
@@ -462,7 +462,7 @@ export default function EvenementsPage() {
               <HelpCircle className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
               <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Questions fréquentes</span>
             </div>
-            <Text variant="h2" style={{ marginBottom: '0.5rem', whiteSpace: 'nowrap', textAlign: 'center' }}>
+            <Text variant="h2" style={{ marginBottom: '0.5rem', textAlign: 'center' }}>
               Tout savoir sur les soirées d'entreprise en château
             </Text>
           </div>
@@ -526,8 +526,8 @@ export default function EvenementsPage() {
                 <span>Demander un Devis Gratuit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all">
-                <Phone className="w-4 h-4" />
+              <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all" style={{ color: 'white' }}>
+                <Phone className="w-4 h-4" style={{ color: 'white' }} />
                 07 57 99 11 46
               </a>
             </div>

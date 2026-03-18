@@ -553,11 +553,12 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
           >
             Séminaire team building et cohésion d&apos;équipe en château d&apos;exception proche Paris
           </p>
-          <div className="flex gap-2.5 flex-shrink-0 items-center">
+          <div className="flex gap-2.5 items-center flex-wrap w-full sm:w-auto">
             <a
               href="#devis-express"
+              className="flex-1 sm:flex-initial"
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
                 padding: '12px 24px', borderRadius: theme.effects.borderRadius.full,
                 background: `linear-gradient(135deg, ${theme.colors.primary.gold} 0%, ${theme.colors.primary.bronze} 100%)`,
                 color: '#FFFFFF', fontWeight: theme.typography.fontWeight.bold,
@@ -573,9 +574,9 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               href="tel:+33757991146"
               onClick={() => trackPhoneClick()}
               className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
-              style={{ textDecoration: 'none', whiteSpace: 'nowrap' }}
+              style={{ textDecoration: 'none', whiteSpace: 'nowrap', color: 'white' }}
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4" style={{ color: 'white' }} />
               07 57 99 11 46
             </a>
           </div>
@@ -628,7 +629,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
       {/* ─── Section Vue d'ensemble — Slider gauche (sticky) + Cards droite ─── */}
       <Section spacing="lg" background="gray" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <StickySlider>
               <ImageSlider images={overviewImages} alt="Activités de team building et cohésion d'équipe en château d'exception" />
             </StickySlider>
@@ -662,7 +663,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
       {/* ─── Section Activités Indoor — Slider gauche (sticky) + Cards droite ─── */}
       <Section spacing="lg" background="gray" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1.15fr_1fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <StickySlider>
               <ImageSlider images={indoorImages} alt="Team building indoor en château — escape game, murder party, challenges créatifs" />
             </StickySlider>
@@ -693,7 +694,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
       {/* ─── Section Gastronomie — Cards GAUCHE, Slider DROITE (zigzag inversé) ─── */}
       <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.15fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_1.15fr]" style={{ gap: 'clamp(2rem, 4vw, 3rem)' }}>
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
                 <ChefHat className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
@@ -959,9 +960,9 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
                 href="tel:+33757991146"
                 onClick={() => trackPhoneClick()}
                 className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
-                style={{ textDecoration: 'none', whiteSpace: 'nowrap', padding: '10px 16px', fontSize: '13px' }}
+                style={{ textDecoration: 'none', whiteSpace: 'nowrap', padding: '10px 16px', fontSize: '13px', color: 'white' }}
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4" style={{ color: 'white' }} />
                 <span className="hidden sm:inline">07 57 99 11 46</span>
                 <span className="sm:hidden">Appeler</span>
               </a>

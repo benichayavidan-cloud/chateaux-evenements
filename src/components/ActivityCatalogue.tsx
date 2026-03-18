@@ -27,6 +27,7 @@ function FlipCard({ activity }: { activity: Activity }) {
           position: 'relative', width: '100%', height: '100%',
           transition: 'transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
           transformStyle: 'preserve-3d',
+          WebkitTransformStyle: 'preserve-3d',
           transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
         }}
       >

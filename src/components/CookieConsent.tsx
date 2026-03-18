@@ -221,71 +221,69 @@ export function CookieConsent({
         style={{
           bottom: '16px',
           left: '12px',
+          right: isMobile ? '12px' : 'auto',
           transform: !isOpen ? 'translateY(100%)' : 'translateY(0)',
-          width: 'auto',
+          width: isMobile ? 'auto' : 'max-content',
+          maxWidth: 'calc(100vw - 24px)',
         }}
       >
         <div
           style={{
-            padding: '8px 12px',
+            padding: isMobile ? '12px 16px' : '8px 12px',
             background: 'rgba(255, 255, 255, 0.98)',
             backdropFilter: 'blur(12px)',
             borderRadius: '10px',
             border: '1px solid rgba(163, 126, 44, 0.1)',
             boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.15)',
-            width: 'max-content',
-            maxWidth: 'calc(100vw - 24px)',
             display: 'flex',
-            alignItems: 'center',
+            flexDirection: isMobile ? 'column' as const : 'row' as const,
+            alignItems: isMobile ? 'stretch' : 'center',
+            gap: isMobile ? '10px' : '12px',
           }}
         >
-          <div className="flex flex-row items-center gap-3">
-            <p
+          <p
+            style={{
+              fontSize: isMobile ? '12px' : '11px',
+              lineHeight: isMobile ? '1.4' : '1',
+              color: '#374151',
+              whiteSpace: isMobile ? 'normal' : 'nowrap',
+              margin: 0,
+              padding: 0,
+            }}
+          >
+            {cookieText}
+          </p>
+          <div className="flex items-center gap-2 flex-shrink-0" style={{ justifyContent: isMobile ? 'flex-end' : 'flex-start' }}>
+            <Button
+              onClick={handleDecline}
+              variant="secondary"
+              size="sm"
               style={{
-                fontSize: '11px',
-                lineHeight: '1',
-                color: '#374151',
+                fontSize: '10px',
+                height: '28px',
+                padding: '0 10px',
                 whiteSpace: 'nowrap',
-                margin: 0,
-                padding: 0,
                 display: 'flex',
                 alignItems: 'center',
               }}
             >
-              {cookieText}
-            </p>
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <Button
-                onClick={handleDecline}
-                variant="secondary"
-                size="sm"
-                style={{
-                  fontSize: '10px',
-                  height: '28px',
-                  padding: '0 10px',
-                  whiteSpace: 'nowrap',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                Refuser
-              </Button>
-              <Button
-                onClick={handleAccept}
-                variant="primary"
-                size="sm"
-                style={{
-                  fontSize: '10px',
-                  height: '28px',
-                  padding: '0 10px',
-                  whiteSpace: 'nowrap',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                Accepter
-              </Button>
-            </div>
+              Refuser
+            </Button>
+            <Button
+              onClick={handleAccept}
+              variant="primary"
+              size="sm"
+              style={{
+                fontSize: '10px',
+                height: '28px',
+                padding: '0 10px',
+                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              Accepter
+            </Button>
           </div>
         </div>
       </div>

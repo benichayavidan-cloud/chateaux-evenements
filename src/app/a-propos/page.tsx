@@ -212,11 +212,11 @@ export default function AboutPage() {
                 <a
                   href="tel:+33757991146"
                   onClick={() => trackPhoneClick()}
-                  className="badge-lg inline-flex items-center gap-3 bg-black/40 backdrop-blur-md border border-white/30"
-                  style={{ padding: "16px 28px" }}
+                  className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
+                  style={{ padding: "16px 28px", color: "white" }}
                 >
-                  <Phone className="w-4 h-4 text-white" />
-                  <span className="text-white font-semibold text-sm">07 57 99 11 46</span>
+                  <Phone className="w-4 h-4" style={{ color: "white" }} />
+                  <span style={{ color: "white" }}>07 57 99 11 46</span>
                 </a>
               </div>
             </div>
@@ -768,9 +768,10 @@ export default function AboutPage() {
                 href="tel:+33757991146"
                 onClick={() => trackPhoneClick()}
                 className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
+                style={{ color: 'white' }}
               >
-                <Phone className="w-4 h-4" />
-                <span>07 57 99 11 46</span>
+                <Phone className="w-4 h-4" style={{ color: 'white' }} />
+                <span style={{ color: 'white' }}>07 57 99 11 46</span>
               </a>
             </div>
           </div>

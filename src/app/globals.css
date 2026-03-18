@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Flip Card iOS Safari fix */
+.flip-card-inner {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.flip-card-inner > div {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 /* Header Navigation Hover */
 .header-nav-link:hover {
   color: #B8860B !important;

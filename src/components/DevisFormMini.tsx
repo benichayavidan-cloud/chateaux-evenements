@@ -313,8 +313,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
             </div>
           </div>
 
-          {/* Ligne 3 : Message + Bouton côte à côte */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '12px', alignItems: 'end' }}>
+          {/* Ligne 3 : Message + Bouton — stacké sur mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto]" style={{ gap: '12px', alignItems: 'end' }}>
             <div>
               <label htmlFor="mini-message" style={labelStyle}>
                 Message <span style={{ color: theme.colors.neutral.gray400, fontWeight: theme.typography.fontWeight.normal }}>(optionnel)</span>
