@@ -857,7 +857,7 @@ const article3: BlogPost = {
         <p><strong>Distance Paris :</strong> 40-60 min</p>
         <p><strong>Atouts :</strong> Parc Naturel Régional, abbayes millénaires, étangs. Authenticité préservée.</p>
         <p><strong>Idéal pour :</strong> CODIR, séminaires R&D, retreats créatifs.</p>
-        <a href="/chateaux/monastere-vallee-chevreuse">Découvrir l'Abbaye de Chevreuse</a>
+        <a href="/chateaux/abbaye-millenaire-vallee-chevreuse">Découvrir l'Abbaye de Chevreuse</a>
       </div>
 
       <div class="zone">

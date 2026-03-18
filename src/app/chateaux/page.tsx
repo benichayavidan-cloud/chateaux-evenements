@@ -99,23 +99,7 @@ export default function ChateauxPage() {
 
   return (
     <>
-      {/* H1 SEO - Invisible visuellement mais lu par Google */}
-      <h1
-        className="sr-only"
-        style={{
-          position: 'absolute',
-          width: '1px',
-          height: '1px',
-          padding: 0,
-          margin: '-1px',
-          overflow: 'hidden',
-          clip: 'rect(0, 0, 0, 0)',
-          whiteSpace: 'nowrap',
-          border: 0,
-        }}
-      >
-        {getTitle()}
-      </h1>
+      {/* H1 SEO - moved to visible heading below */}
 
       {/* Hero Section — Style Airbnb (comme les pages châteaux individuelles) */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) 0' }}>
@@ -151,8 +135,7 @@ export default function ChateauxPage() {
             </div>
           </div>
 
-          <div
-            aria-hidden="true"
+          <h1
             style={{
               fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
               fontWeight: theme.typography.fontWeight.semibold,
@@ -163,7 +146,7 @@ export default function ChateauxPage() {
             }}
           >
             {getTitle()}
-          </div>
+          </h1>
 
           <p style={{
             color: theme.colors.neutral.gray600,

@@ -1,13 +1,43 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, ArrowRight } from "lucide-react";
-import { getBlogPostBySlug, getSmartRelatedPosts } from "@/data/blog-posts";
+import { Clock, ArrowRight, Castle, MapPin, Users2, Sparkles } from "lucide-react";
+import { getBlogPostBySlug, getSmartRelatedPosts, BlogCategory } from "@/data/blog-posts";
 import { ArticleClientLogic } from "./ArticleClientLogic";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
+
+/**
+ * Maillage interne : liens vers pages commerciales selon la catégorie de l'article
+ */
+function getRelatedCommercialPages(category: BlogCategory) {
+  const base = [
+    { href: "/chateaux", label: "Nos 4 Châteaux d'Exception", icon: Castle },
+  ];
+
+  if (category === "organisation") {
+    return [
+      ...base,
+      { href: "/seminaire-chateau-ile-de-france", label: "Séminaire Château Île-de-France", icon: MapPin },
+      { href: "/seminaire-chateau-proche-paris", label: "Séminaire Château proche Paris", icon: MapPin },
+    ];
+  }
+  if (category === "team-building") {
+    return [
+      { href: "/team-building-chateau", label: "+40 Activités Team Building en Château", icon: Users2 },
+      ...base,
+      { href: "/seminaire-chateau-chantilly", label: "Séminaire Château à Chantilly", icon: MapPin },
+    ];
+  }
+  // category === "lieux"
+  return [
+    ...base,
+    { href: "/seminaire-chateau-oise-60", label: "Séminaire Château dans l'Oise (60)", icon: MapPin },
+    { href: "/seminaire-chateau-yvelines-78", label: "Séminaire Château dans les Yvelines (78)", icon: MapPin },
+  ];
+}
 
 export default async function BlogArticlePage({ params }: Props) {
   // Server-side: Récupération de l'article
@@ -94,6 +124,31 @@ export default async function BlogArticlePage({ params }: Props) {
             </div>
           </section>
         )}
+
+        {/* Maillage interne — Pages commerciales liées */}
+        <section className="w-full bg-white flex justify-center" style={{ padding: '48px 20px' }}>
+          <div className="max-w-4xl w-full">
+            <h2 className="text-2xl sm:text-3xl font-light italic text-gray-900 text-center mb-8">
+              Découvrir nos Châteaux
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {getRelatedCommercialPages(article.category).map((page) => (
+                <Link
+                  key={page.href}
+                  href={page.href}
+                  className="group flex items-center gap-3 p-4 rounded-xl border border-gray-200 hover:border-amber-300 hover:bg-amber-50/50 transition-all duration-200"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-amber-50 border border-amber-200 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-100 transition-colors">
+                    <page.icon className="w-5 h-5 text-amber-700" />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-amber-800 transition-colors">
+                    {page.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* CTA Final (Server-rendered) */}
         <section className="w-full bg-gradient-to-br from-amber-50 to-orange-50 flex justify-center" style={{ padding: '60px 20px' }}>
