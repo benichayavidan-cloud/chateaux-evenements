@@ -313,20 +313,8 @@ export default function ChateauxPage() {
             <a
               href="tel:+33757991146"
               onClick={() => trackPhoneClick()}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 24px',
-                borderRadius: theme.effects.borderRadius.full,
-                border: `1.5px solid ${theme.colors.neutral.gray300}`,
-                color: theme.colors.neutral.gray700,
-                fontWeight: theme.typography.fontWeight.semibold,
-                fontSize: '0.875rem',
-                textDecoration: 'none',
-                background: 'white',
-                transition: 'all 0.2s ease',
-              }}
+              className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
+              style={{ textDecoration: 'none' }}
             >
               <Phone className="w-4 h-4" />
               07 57 99 11 46
@@ -780,19 +768,8 @@ export default function ChateauxPage() {
               <a
                 href="tel:+33757991146"
                 onClick={() => trackPhoneClick()}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '12px 24px',
-                  borderRadius: theme.effects.borderRadius.full,
-                  border: '1.5px solid rgba(255,255,255,0.5)',
-                  color: 'white',
-                  fontWeight: 600,
-                  fontSize: '0.875rem',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease',
-                }}
+                className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
+                style={{ textDecoration: 'none' }}
               >
                 <Phone className="w-4 h-4" />
                 07 57 99 11 46

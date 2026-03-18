@@ -572,15 +572,8 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
             <a
               href="tel:+33757991146"
               onClick={() => trackPhoneClick()}
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                padding: '12px 24px', borderRadius: theme.effects.borderRadius.full,
-                border: `2px solid ${theme.colors.primary.bronze}`,
-                background: 'white', color: theme.colors.primary.bronze,
-                fontWeight: theme.typography.fontWeight.semibold,
-                fontSize: '0.875rem', textDecoration: 'none',
-                transition: 'all 0.3s ease', whiteSpace: 'nowrap',
-              }}
+              className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
+              style={{ textDecoration: 'none', whiteSpace: 'nowrap' }}
             >
               <Phone className="w-4 h-4" />
               07 57 99 11 46
@@ -965,15 +958,10 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               <a
                 href="tel:+33757991146"
                 onClick={() => trackPhoneClick()}
-                style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '6px',
-                  padding: '10px 16px', borderRadius: '9999px',
-                  border: '2px solid #A37E2C', color: '#A37E2C',
-                  fontWeight: 600, fontSize: '13px', textDecoration: 'none',
-                  transition: 'all 0.2s', whiteSpace: 'nowrap',
-                }}
+                className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
+                style={{ textDecoration: 'none', whiteSpace: 'nowrap', padding: '10px 16px', fontSize: '13px' }}
               >
-                <Phone style={{ width: '16px', height: '16px' }} />
+                <Phone className="w-4 h-4" />
                 <span className="hidden sm:inline">07 57 99 11 46</span>
                 <span className="sm:hidden">Appeler</span>
               </a>

@@ -320,19 +320,8 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
             <a
               href="tel:+33757991146"
               onClick={() => trackPhoneClick()}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "12px 24px",
-                borderRadius: theme.effects.borderRadius.full,
-                border: `2px solid ${theme.colors.primary.bronze}`,
-                color: theme.colors.primary.bronze,
-                fontWeight: theme.typography.fontWeight.semibold,
-                fontSize: theme.typography.fontSize.sm,
-                textDecoration: "none",
-                transition: "all 0.2s ease",
-              }}
+              className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
+              style={{ textDecoration: "none" }}
             >
               <Phone className="w-4 h-4" />
               07 57 99 11 46

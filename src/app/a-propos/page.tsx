@@ -767,7 +767,7 @@ export default function AboutPage() {
               <a
                 href="tel:+33757991146"
                 onClick={() => trackPhoneClick()}
-                className="btn-secondary group"
+                className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
               >
                 <Phone className="w-4 h-4" />
                 <span>07 57 99 11 46</span>
