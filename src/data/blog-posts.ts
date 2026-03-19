@@ -1575,6 +1575,659 @@ const article5: BlogPost = {
 };
 
 // ============================================
+// ARTICLE 6: HÔTEL SÉMINAIRE CHANTILLY
+// ============================================
+
+const article6: BlogPost = {
+  id: 33,
+  slug: "hotel-seminaire-chantilly-guide",
+  title: "Hôtel de Séminaire à Chantilly : Comment Choisir le Bon Domaine",
+  excerpt: "Manoir anglo-normand ou château 5★ InterContinental ? 228 chambres, 33 salles, 2 spas. Comparatif détaillé des hôtels de séminaire à Chantilly avec tarifs et capacités.",
+  category: "lieux",
+  author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
+  publishedAt: "2026-03-19",
+  readingTime: 9,
+  image: "/images/chateau-anglo-normand-vue-aerienne-parc-foret-chantilly.webp",
+  imageAlt: "Hôtel de séminaire à Chantilly - Châteaux et domaines pour événements d'entreprise",
+  keywords: ["hotel seminaire chantilly", "château hôtel chantilly séminaire", "lieu séminaire chantilly oise", "domaine chantilly entreprise", "hébergement séminaire chantilly", "hôtel réunion chantilly"],
+  faq: [
+    { question: "Quels hôtels de séminaire existent à Chantilly ?", answer: "Deux domaines premium : un manoir anglo-normand de 120 chambres (50-280 pers) avec spa Codage Paris et escape game, et un château 5★ InterContinental de 109 chambres (100-200 pers) avec spa Biologique Recherche et rooftop." },
+    { question: "Quel est le meilleur hôtel de séminaire à Chantilly pour un grand groupe ?", answer: "Le Manoir Anglo-Normand est idéal pour les grands groupes : 120 chambres, 21 salles de réunion, amphithéâtre de 280 places, et Immersive Room de 240 m². Il accueille jusqu'à 280 personnes." },
+    { question: "Les hôtels de séminaire à Chantilly ont-ils des spas ?", answer: "Oui, les deux. Le Manoir dispose d'un spa Codage Paris, le Château 5★ d'un spa Biologique Recherche avec piscine chauffée. L'accès spa est inclus dans les forfaits résidentiels." },
+    { question: "Combien coûte une nuit en hôtel de séminaire à Chantilly ?", answer: "Le Manoir Anglo-Normand : 240-320€/pers/nuit en forfait séminaire. Le Château 5★ InterContinental : 320-450€/pers/nuit. Les deux incluent hébergement, pension complète et salles." }
+  ],
+  content: `
+    <div class="prose prose-lg max-w-none">
+
+<p class="mb-6">Choisir un <strong>hôtel de séminaire à Chantilly</strong> n'est pas juste une question de standing — c'est une question de format. Un CODIR de 12 personnes n'a pas les mêmes besoins qu'une convention de 200 collaborateurs. À Chantilly, deux domaines d'exception s'offrent à vous, chacun avec sa personnalité et ses atouts. Ce guide vous aide à choisir celui qui correspond parfaitement à votre événement.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Le Manoir Anglo-Normand : L'Immersion en Forêt</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Un château historique au cœur de 6 hectares</h3>
+
+<p class="mb-6">Construit entre 1911 et 1914 pour un héritier Rothschild, ce <strong>manoir anglo-normand</strong> mêle architecture historique et infrastructures modernes. Niché dans un parc forestier privé de 6 hectares, il offre un dépaysement total à seulement 35 minutes de Paris.</p>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Caractéristique</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Détail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">Chambres</td><td class="border border-gray-300 px-4 py-2"><strong>120</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Capacité max</td><td class="border border-gray-300 px-4 py-2"><strong>280 personnes</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Salles de réunion</td><td class="border border-gray-300 px-4 py-2"><strong>21 salles</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Immersive Room</td><td class="border border-gray-300 px-4 py-2">240 m², 280 places</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Spa</td><td class="border border-gray-300 px-4 py-2">Codage Paris</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Activités</td><td class="border border-gray-300 px-4 py-2">Escape game privatif, piscine, fitness</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Depuis Paris</td><td class="border border-gray-300 px-4 py-2">35 min (A1)</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Prix séminaire</td><td class="border border-gray-300 px-4 py-2">240-320€/pers/jour</td></tr>
+  </tbody>
+</table>
+
+<p class="mb-6"><strong>Idéal pour :</strong> Conventions, kick-offs, séminaires de 50 à 280 personnes. L'Immersive Room de 240 m² et l'amphithéâtre en font le lieu parfait pour les grandes plénières avec un effet "waouh".</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Le Château 5★ InterContinental : Le Prestige Absolu</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Un palais musical du début du XXe</h3>
+
+<p class="mb-6">Construit entre 1907 et 1911 par le compositeur Fernand Halphen, ce <strong>château 5 étoiles</strong> sous enseigne InterContinental incarne l'excellence hôtelière. Architecture Louis XV/XVI, salons nommés d'après des compositeurs, rooftop panoramique sur la forêt de Chantilly.</p>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Caractéristique</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Détail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">Chambres</td><td class="border border-gray-300 px-4 py-2"><strong>109</strong> (dont 48 Twin)</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Capacité max</td><td class="border border-gray-300 px-4 py-2"><strong>200 personnes</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Salles de réunion</td><td class="border border-gray-300 px-4 py-2"><strong>12 salons</strong> (Salle Halphen 380 m²)</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Centre de convention</td><td class="border border-gray-300 px-4 py-2">700 m²</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Spa</td><td class="border border-gray-300 px-4 py-2">Biologique Recherche + piscine chauffée</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Restaurant</td><td class="border border-gray-300 px-4 py-2">L'Opéra (180 couverts) + Bar Le Stradivarius</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Depuis Paris/CDG</td><td class="border border-gray-300 px-4 py-2">35 min Paris / <strong>15 min Roissy-CDG</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Prix séminaire</td><td class="border border-gray-300 px-4 py-2">320-450€/pers/jour</td></tr>
+  </tbody>
+</table>
+
+<p class="mb-6"><strong>Idéal pour :</strong> CODIR premium, séminaires internationaux (15 min de CDG), événements clients prestigieux. Le label Green Key et le rooftop panoramique en font un lieu d'exception pour les entreprises exigeantes.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Comparatif : Quel Hôtel Choisir ?</h2>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Critère</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Manoir Anglo-Normand</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Château 5★</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">Budget</td><td class="border border-gray-300 px-4 py-2">240-320€ ✅</td><td class="border border-gray-300 px-4 py-2">320-450€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Grand groupe (100+)</td><td class="border border-gray-300 px-4 py-2"><strong>280 pers max ✅</strong></td><td class="border border-gray-300 px-4 py-2">200 pers max</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Prestige / VIP</td><td class="border border-gray-300 px-4 py-2">Haut de gamme</td><td class="border border-gray-300 px-4 py-2"><strong>Ultra-premium ✅</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">International (CDG)</td><td class="border border-gray-300 px-4 py-2">35 min</td><td class="border border-gray-300 px-4 py-2"><strong>15 min ✅</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Team building</td><td class="border border-gray-300 px-4 py-2"><strong>Escape game, forêt ✅</strong></td><td class="border border-gray-300 px-4 py-2">Spa, rooftop</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Nombre de salles</td><td class="border border-gray-300 px-4 py-2"><strong>21 ✅</strong></td><td class="border border-gray-300 px-4 py-2">12</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">RSE / Label</td><td class="border border-gray-300 px-4 py-2">—</td><td class="border border-gray-300 px-4 py-2"><strong>Green Key ✅</strong></td></tr>
+  </tbody>
+</table>
+
+<div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+  <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Visitez Nos Hôtels de Séminaire à Chantilly</h3>
+  <p style="color: #d1d5db; margin-bottom: 1.5rem;">Devis personnalisé sous 24h avec visite virtuelle et proposition sur-mesure.</p>
+  <a href="/seminaire-chateau-chantilly" style="display: inline-block; background: #c9a84c; color: #1a1a2e; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem;">Voir les Lieux</a>
+  <a href="/devis#formulaire" style="display: inline-block; background: transparent; color: #c9a84c; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; border: 2px solid #c9a84c;">Devis Gratuit</a>
+</div>
+
+    </div>
+  `
+};
+
+// ============================================
+// ARTICLE 7: SÉMINAIRE OISE
+// ============================================
+
+const article7: BlogPost = {
+  id: 34,
+  slug: "seminaire-oise-nature-prestige-paris",
+  title: "Séminaire dans l'Oise : Nature et Prestige à 35 min de Paris",
+  excerpt: "Forêt de Chantilly (6 300 ha), châteaux anglo-normands, spas 5★ : l'Oise combine nature préservée et infrastructure haut de gamme. Le département séminaire le plus accessible d'Île-de-France.",
+  category: "lieux",
+  author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
+  publishedAt: "2026-03-19",
+  readingTime: 8,
+  image: "/images/chateau-francais-seminaire-vert.webp",
+  imageAlt: "Séminaire dans l'Oise - Château en pleine nature à 35 minutes de Paris",
+  keywords: ["seminaire oise", "séminaire oise entreprise", "château séminaire oise 60", "lieu séminaire nature oise", "séminaire forêt chantilly", "séminaire oise proche paris"],
+  faq: [
+    { question: "Pourquoi choisir l'Oise pour un séminaire d'entreprise ?", answer: "L'Oise combine 3 atouts uniques : la forêt de Chantilly (6 300 ha Natura 2000), des châteaux-hôtels haut de gamme (228 chambres sur 2 domaines), et une accessibilité exceptionnelle (35 min A1 depuis Paris, 25 min TER, 15 min depuis Roissy-CDG)." },
+    { question: "Combien coûte un séminaire dans l'Oise ?", answer: "De 240 à 450€ par personne et par jour selon le standing. Le Manoir Anglo-Normand : 240-320€/pers. Le Château 5★ : 320-450€/pers. Forfaits tout compris avec hébergement, restauration et salles." },
+    { question: "Quelles activités de team building dans l'Oise ?", answer: "La forêt de Chantilly offre : rallye 2CV, course d'orientation, VTT, sylvothérapie, escape game en château. Activités équestres uniques : visite des écuries d'entraînement, spectacles de dressage privatisés." },
+    { question: "L'Oise est-elle accessible en train depuis Paris ?", answer: "Oui. 25 minutes en TER depuis Paris Gare du Nord (gare Chantilly-Gouvieux, trains toutes les 30 min). C'est la destination château la plus accessible en train de toute l'Île-de-France." }
+  ],
+  content: `
+    <div class="prose prose-lg max-w-none">
+
+<p class="mb-6">L'<strong>Oise</strong> est le secret le mieux gardé des organisateurs de séminaires exigeants. À 35 minutes de Paris par l'A1, ce département offre ce que peu de destinations combinent : une <strong>forêt domaniale de 6 300 hectares</strong> (Natura 2000), des châteaux-hôtels avec spas et salles de convention, et le patrimoine équestre de Chantilly. Tout cela à 15 minutes de Roissy-CDG — idéal pour les séminaires internationaux.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Pourquoi l'Oise Séduit les Entreprises Parisiennes</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">L'accessibilité imbattable</h3>
+
+<p class="mb-6">Aucune autre destination "château et nature" n'est aussi bien desservie :</p>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>25 min en TER</strong> depuis Gare du Nord (trains toutes les 30 min)</li>
+  <li class="mb-2"><strong>35 min en voiture</strong> par l'A1 depuis Paris</li>
+  <li class="mb-2"><strong>15 min depuis Roissy-CDG</strong> — aucun concurrent ne peut rivaliser</li>
+  <li class="mb-2">Pas besoin de bus privatisé : vos collaborateurs viennent en train (économie 800-1 200€)</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">La forêt de Chantilly : un terrain de jeu exceptionnel</h3>
+
+<p class="mb-6">6 300 hectares de forêt domaniale classée <strong>Natura 2000</strong> — la 7e forêt la plus visitée d'Île-de-France. Pour un séminaire, c'est un atout incomparable : rallyes 2CV sous les allées forestières, courses d'orientation, VTT, sylvothérapie, ou simples promenades entre deux sessions de travail.</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Le patrimoine équestre unique au monde</h3>
+
+<p class="mb-6"><strong>Chantilly</strong> est la capitale mondiale du cheval de course : 15 écuries d'entraînement, 2 500 chevaux dans un rayon de 10 km, les Grandes Écuries du XVIIIe siècle. Pour vos séminaires, cela signifie des <strong>expériences impossibles ailleurs</strong> : assister à un galop matinal, privatiser un spectacle équestre, organiser un team building aux écuries.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Nos 2 Domaines dans l'Oise</h2>
+
+<p class="mb-6">Select Châteaux propose <strong>2 domaines d'exception</strong> dans l'Oise, totalisant 228 chambres et 33 salles de réunion :</p>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Domaine</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Chambres</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Capacité</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Prix/pers/jour</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Atout</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2"><a href="/seminaire-chateau-chantilly" class="text-blue-600 hover:underline">Manoir Anglo-Normand</a></td>
+      <td class="border border-gray-300 px-4 py-2">120</td>
+      <td class="border border-gray-300 px-4 py-2">50-280</td>
+      <td class="border border-gray-300 px-4 py-2">240-320€</td>
+      <td class="border border-gray-300 px-4 py-2">Escape game, 21 salles</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2"><a href="/seminaire-chateau-chantilly" class="text-blue-600 hover:underline">Château 5★</a></td>
+      <td class="border border-gray-300 px-4 py-2">109</td>
+      <td class="border border-gray-300 px-4 py-2">100-200</td>
+      <td class="border border-gray-300 px-4 py-2">320-450€</td>
+      <td class="border border-gray-300 px-4 py-2">Spa premium, 15 min CDG</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+  <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Organisez Votre Séminaire dans l'Oise</h3>
+  <p style="color: #d1d5db; margin-bottom: 1.5rem;">2 domaines, 228 chambres, forêt de 6 300 ha. Devis sous 24h.</p>
+  <a href="/seminaire-chateau-oise-60" style="display: inline-block; background: #c9a84c; color: #1a1a2e; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem;">Voir les Lieux</a>
+  <a href="/devis#formulaire" style="display: inline-block; background: transparent; color: #c9a84c; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; border: 2px solid #c9a84c;">Devis Gratuit</a>
+</div>
+
+    </div>
+  `
+};
+
+// ============================================
+// ARTICLE 8: PRIVATISATION JOURNÉE D'ÉTUDE
+// ============================================
+
+const article8: BlogPost = {
+  id: 35,
+  slug: "privatisation-journee-etude-chateau",
+  title: "Privatisation de Journée d'Étude en Château : Le Guide Complet",
+  excerpt: "Privatiser un château pour une journée d'étude coûte 120-180€/pers. Salle, pauses, déjeuner inclus. Pourquoi ça change tout vs une salle de réunion classique — et comment organiser la vôtre.",
+  category: "organisation",
+  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  publishedAt: "2026-03-19",
+  readingTime: 8,
+  image: "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
+  imageAlt: "Privatisation de journée d'étude en château - Salle de réunion prestige",
+  keywords: ["privatisation journée d'étude", "journée étude château", "privatiser château séminaire", "location château journée entreprise", "salle réunion château ile-de-france", "journée séminaire privatisée"],
+  faq: [
+    { question: "Combien coûte la privatisation d'un château pour une journée d'étude ?", answer: "De 120 à 180€ par personne, incluant la salle de réunion équipée, les pauses café, et le déjeuner. Pour 30 personnes, comptez 3 600 à 5 400€ la journée tout compris." },
+    { question: "Peut-on privatiser un château pour une seule journée ?", answer: "Oui. Nos 4 châteaux proposent des formules journée d'étude sans hébergement, de 9h à 18h. Idéal pour les réunions stratégiques, formations, ou ateliers créatifs." },
+    { question: "Quels équipements sont inclus dans une journée d'étude en château ?", answer: "Vidéoprojecteur, écran, paperboard, WiFi haut débit, micro (sur demande), et espace de pause privatif. Certains châteaux offrent aussi l'accès au parc et au spa." },
+    { question: "Pourquoi privatiser un château plutôt que louer une salle classique ?", answer: "L'impact sur la productivité est mesurable : +30% de créativité (étude Warwick), 100% de concentration (pas de distractions de bureau), et un effet mémoriel qui renforce les décisions prises." }
+  ],
+  content: `
+    <div class="prose prose-lg max-w-none">
+
+<p class="mb-6">Une <strong>journée d'étude en château</strong>, c'est le format le plus sous-estimé de l'événementiel corporate. Pas besoin d'hébergement, pas de budget overnight — juste une journée de 9h à 18h dans un lieu qui transforme la qualité de vos réflexions. Et le prix ? Souvent comparable à une salle de séminaire parisienne, avec un impact 10 fois supérieur.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Pourquoi Privatiser un Château pour une Journée</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Le problème des salles de réunion classiques</h3>
+
+<p class="mb-6">Une salle Marriott ou un espace de coworking, c'est fonctionnel. Mais c'est aussi <strong>100% forgettable</strong>. Vos participants oublient le lieu 48h après. En château, l'environnement crée un <strong>ancrage mémoriel</strong> : les décisions prises dans un cadre exceptionnel sont mieux retenues et mieux appliquées.</p>
+
+<div class="alert alert-info">
+  <strong>Étude Warwick University :</strong> Travailler dans un environnement stimulant (nature, architecture remarquable) augmente la productivité de 30% et la créativité de 50% par rapport à un bureau standard.
+</div>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Ce qui est inclus dans nos formules journée</h3>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Prestation</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Inclus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">Salle de réunion privatisée</td><td class="border border-gray-300 px-4 py-2">✅ 9h-18h</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Équipement (vidéoprojecteur, WiFi, paperboard)</td><td class="border border-gray-300 px-4 py-2">✅</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">2 pauses café + viennoiseries</td><td class="border border-gray-300 px-4 py-2">✅</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Déjeuner (3 plats)</td><td class="border border-gray-300 px-4 py-2">✅</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Accès parc / terrasse</td><td class="border border-gray-300 px-4 py-2">✅</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Accès spa</td><td class="border border-gray-300 px-4 py-2">Selon château</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Parking</td><td class="border border-gray-300 px-4 py-2">✅ Gratuit</td></tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Budget : Moins Cher qu'on ne le Pense</h2>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Lieu</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Prix/pers journée</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">30 pers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">Salle hôtel Paris</td><td class="border border-gray-300 px-4 py-2">90-150€</td><td class="border border-gray-300 px-4 py-2">2 700-4 500€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2"><strong>Château (nos lieux)</strong></td><td class="border border-gray-300 px-4 py-2"><strong>120-180€</strong></td><td class="border border-gray-300 px-4 py-2"><strong>3 600-5 400€</strong></td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Espace coworking premium</td><td class="border border-gray-300 px-4 py-2">80-120€</td><td class="border border-gray-300 px-4 py-2">2 400-3 600€</td></tr>
+  </tbody>
+</table>
+
+<p class="mb-6">La différence de prix est de <strong>20-30€/pers</strong> par rapport à un hôtel parisien. Pour 30 personnes, cela représente 600-900€ de plus — soit le prix d'un déjeuner d'équipe. L'impact sur la productivité, lui, est incommensurable.</p>
+
+<div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+  <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Privatisez un Château pour Votre Journée d'Étude</h3>
+  <p style="color: #d1d5db; margin-bottom: 1.5rem;">4 châteaux disponibles, de 120€/pers. Devis personnalisé sous 24h.</p>
+  <a href="/devis#formulaire" style="display: inline-block; background: #c9a84c; color: #1a1a2e; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none;">Demander un Devis</a>
+</div>
+
+    </div>
+  `
+};
+
+// ============================================
+// ARTICLE 9: SÉMINAIRE YVELINES
+// ============================================
+
+const article9: BlogPost = {
+  id: 36,
+  slug: "seminaire-yvelines-chateaux-abbayes",
+  title: "Séminaire dans les Yvelines : Châteaux et Abbayes à 45 min de Paris",
+  excerpt: "Abbaye cistercienne de 1118, Vallée de Chevreuse, RER direct : les Yvelines offrent le plus beau patrimoine château d'Île-de-France. De 240 à 300€/pers/jour en résidentiel.",
+  category: "lieux",
+  author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
+  publishedAt: "2026-03-19",
+  readingTime: 8,
+  image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-salle-reunion-refectoire.webp",
+  imageAlt: "Séminaire dans les Yvelines - Abbaye et châteaux pour événements d'entreprise",
+  keywords: ["seminaire yvelines", "séminaire yvelines entreprise", "château séminaire yvelines 78", "abbaye séminaire yvelines", "lieu séminaire vallée chevreuse", "séminaire yvelines proche paris"],
+  faq: [
+    { question: "Quels lieux de séminaire dans les Yvelines ?", answer: "Le joyau des Yvelines est l'Abbaye cistercienne de la Vallée de Chevreuse : fondée en 1118, 144 chambres, 14 salles, 6 restaurants Paris Society, spa dans les anciennes écuries. Un lieu unique à 45 min de Paris." },
+    { question: "Les Yvelines sont-elles accessibles en transports depuis Paris ?", answer: "Excellente desserte : RER A (Saint-Germain, 25 min), RER C (Versailles, 30 min), RER B (Vallée de Chevreuse, 45 min). Les Yvelines ont la meilleure couverture RER de tous les départements ruraux d'Île-de-France." },
+    { question: "Quel budget pour un séminaire dans les Yvelines ?", answer: "240 à 300€ par personne et par jour en résidentiel à l'Abbaye de Chevreuse. Journée d'étude : 120-180€/pers. C'est le positionnement premium des Yvelines : luxe et nature à prix maîtrisé." }
+  ],
+  content: `
+    <div class="prose prose-lg max-w-none">
+
+<p class="mb-6">Les <strong>Yvelines</strong> cachent le lieu de séminaire le plus extraordinaire d'Île-de-France : une <strong>abbaye cistercienne fondée en 1118</strong>, nichée dans 80 hectares de forêt de Rambouillet. Au cœur du Parc Naturel Régional de la Haute Vallée de Chevreuse, ce lieu offre ce qu'aucun hôtel parisien ne pourra jamais donner — 900 ans d'histoire, une déconnexion totale, et une gastronomie signée Paris Society.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Les Yvelines : Le Département Premium de l'Île-de-France</h2>
+
+<p class="mb-6">Avec Versailles, la forêt de Rambouillet, et la Vallée de Chevreuse, les <strong>Yvelines</strong> concentrent le patrimoine le plus prestigieux d'Île-de-France. Pour les séminaires, cela signifie des lieux qui impressionnent naturellement — sans artifice.</p>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>28 châteaux</strong> privatisables pour événements d'entreprise</li>
+  <li class="mb-2"><strong>4 forêts domaniales</strong> : Rambouillet, Saint-Germain, Marly, Versailles</li>
+  <li class="mb-2"><strong>63 300 hectares</strong> de Parc Naturel Régional (6x la surface de Paris)</li>
+  <li class="mb-2"><strong>RER A + C + B</strong> : la meilleure desserte transport d'Île-de-France rurale</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Notre Lieu Signature : L'Abbaye Millénaire</h2>
+
+<p class="mb-6">Fondée en 1118 par des moines de Savigny, cette <strong>abbaye cistercienne</strong> a rejoint l'ordre de Cîteaux en 1147. Classée Monument Historique, entièrement rénovée en 2023 par Cordélia de Castellane, elle offre un cadre sans équivalent :</p>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Infrastructure</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Détail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">Chambres</td><td class="border border-gray-300 px-4 py-2"><strong>144</strong> dans 3 bâtiments</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Salles de réunion</td><td class="border border-gray-300 px-4 py-2"><strong>14</strong> + cinéma 48 places</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Réfectoire des Moines</td><td class="border border-gray-300 px-4 py-2">500 m², 150 conférence / 300 cocktail</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Restaurants</td><td class="border border-gray-300 px-4 py-2"><strong>6</strong> par Paris Society</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Domaine</td><td class="border border-gray-300 px-4 py-2">80 hectares de forêt</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Réseau mobile</td><td class="border border-gray-300 px-4 py-2"><strong>0</strong> — déconnexion totale</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Depuis Paris</td><td class="border border-gray-300 px-4 py-2">45 min (A10 + N118)</td></tr>
+  </tbody>
+</table>
+
+<div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+  <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Découvrez l'Abbaye des Yvelines</h3>
+  <p style="color: #d1d5db; margin-bottom: 1.5rem;">900 ans d'histoire, 144 chambres, déconnexion totale. Devis sous 24h.</p>
+  <a href="/chateaux/abbaye-millenaire-vallee-chevreuse" style="display: inline-block; background: #c9a84c; color: #1a1a2e; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem;">Voir le Lieu</a>
+  <a href="/devis#formulaire" style="display: inline-block; background: transparent; color: #c9a84c; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; border: 2px solid #c9a84c;">Devis Gratuit</a>
+</div>
+
+    </div>
+  `
+};
+
+// ============================================
+// ARTICLE 10: BUDGET SÉMINAIRE 2026
+// ============================================
+
+const article10: BlogPost = {
+  id: 37,
+  slug: "budget-seminaire-entreprise-2026-planifier",
+  title: "Budget Séminaire d'Entreprise 2026 : Comment Planifier Sans Surprise",
+  excerpt: "Lieu (25-35%), intervenant (40-50%), transport (5-8%) : la répartition exacte du budget séminaire. Tableaux par taille de groupe (10, 30, 50, 100 pers) et astuces pour économiser 20%.",
+  category: "organisation",
+  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  publishedAt: "2026-03-19",
+  readingTime: 9,
+  image: "/images/combien-coute-seminaire-chateau-2026-tarifs-budget.webp",
+  imageAlt: "Budget séminaire entreprise 2026 - Planification et répartition des coûts",
+  keywords: ["budget séminaire entreprise", "budget séminaire 2026", "coût séminaire entreprise", "planifier budget séminaire", "prix séminaire par personne", "budget événement corporate"],
+  faq: [
+    { question: "Quel budget prévoir pour un séminaire d'entreprise en 2026 ?", answer: "De 3 000€ (journée, 10 pers) à 50 000€+ (2 jours résidentiel, 100 pers). Le coût moyen est de 250-350€ par personne et par jour, tout compris. Répartition type : lieu 25-35%, intervenant 40-50%, logistique 15-25%." },
+    { question: "Comment réduire le budget d'un séminaire de 20% ?", answer: "5 leviers : réserver en semaine (mardi-jeudi, -20%), anticiper 3-6 mois (-15% négociation), choisir le train plutôt que le bus (-800€), opter pour un forfait tout compris, et limiter l'open bar à 2h." },
+    { question: "Quel est le poste de dépense le plus important d'un séminaire ?", answer: "L'intervenant/facilitateur (40-50% du budget). Un coach professionnel coûte 2 000-5 000€/jour. Le lieu et la restauration représentent 25-35%. Le transport et la logistique 15-25%." },
+    { question: "Comment présenter le budget séminaire à sa direction ?", answer: "Présentez-le comme un investissement avec ROI mesurable : 4,8x en moyenne. Comparez le coût du séminaire (300€/pers) au coût d'un turnover (15 000-25 000€/employé). Un seul départ évité rembourse le séminaire." }
+  ],
+  content: `
+    <div class="prose prose-lg max-w-none">
+
+<p class="mb-6">Le <strong>budget</strong> est le nerf de la guerre de tout séminaire. Trop souvent, les organisateurs sous-estiment certains postes et se retrouvent avec des dépassements de 30-40%. Ce guide vous donne la <strong>répartition exacte</strong> constatée sur 200+ séminaires organisés entre 2020 et 2026, avec des tableaux concrets par taille de groupe.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">La Répartition Type d'un Budget Séminaire</h2>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Poste</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">% Budget</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Exemple (50 pers, 2 jours)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2"><strong>Intervenant / Facilitateur</strong></td><td class="border border-gray-300 px-4 py-2">40-50%</td><td class="border border-gray-300 px-4 py-2">8 000-12 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2"><strong>Lieu & Restauration</strong></td><td class="border border-gray-300 px-4 py-2">25-35%</td><td class="border border-gray-300 px-4 py-2">5 000-8 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Supports pédagogiques</td><td class="border border-gray-300 px-4 py-2">8-12%</td><td class="border border-gray-300 px-4 py-2">1 500-3 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Logistique & Transport</td><td class="border border-gray-300 px-4 py-2">5-8%</td><td class="border border-gray-300 px-4 py-2">1 000-2 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Communication</td><td class="border border-gray-300 px-4 py-2">3-5%</td><td class="border border-gray-300 px-4 py-2">500-1 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2"><strong>TOTAL</strong></td><td class="border border-gray-300 px-4 py-2"><strong>100%</strong></td><td class="border border-gray-300 px-4 py-2"><strong>16 000-26 000€</strong></td></tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Budgets par Taille de Groupe</h2>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Format</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">10 pers</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">30 pers</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">50 pers</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">100 pers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">Journée d'étude</td><td class="border border-gray-300 px-4 py-2">1 500€</td><td class="border border-gray-300 px-4 py-2">4 000€</td><td class="border border-gray-300 px-4 py-2">6 500€</td><td class="border border-gray-300 px-4 py-2">12 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">Résidentiel 1 nuit</td><td class="border border-gray-300 px-4 py-2">3 500€</td><td class="border border-gray-300 px-4 py-2">9 000€</td><td class="border border-gray-300 px-4 py-2">15 000€</td><td class="border border-gray-300 px-4 py-2">28 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">2 nuits + activités</td><td class="border border-gray-300 px-4 py-2">6 000€</td><td class="border border-gray-300 px-4 py-2">16 000€</td><td class="border border-gray-300 px-4 py-2">26 000€</td><td class="border border-gray-300 px-4 py-2">50 000€</td></tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">5 Astuces pour Économiser 20%</h2>
+
+<ol class="list-decimal ml-6 mb-6">
+  <li class="mb-3"><strong>Réservez mardi-jeudi</strong> — Les tarifs sont 15-20% moins chers qu'en fin de semaine</li>
+  <li class="mb-3"><strong>Anticipez 3-6 mois</strong> — Plus de marge de négociation, meilleurs tarifs</li>
+  <li class="mb-3"><strong>Choisissez le train</strong> — Chantilly en TER (25 min Gare du Nord) = 0€ de transport vs 1 200€ en bus</li>
+  <li class="mb-3"><strong>Optez pour le tout compris</strong> — Les forfaits château incluent souvent plus que la somme des parties</li>
+  <li class="mb-3"><strong>Limitez l'open bar</strong> — 2h d'open bar suffit. Au-delà, le rapport coût/valeur chute</li>
+</ol>
+
+<div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+  <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Obtenez un Devis Précis pour Votre Séminaire</h3>
+  <p style="color: #d1d5db; margin-bottom: 1.5rem;">Indiquez votre nombre de participants et vos dates, nous vous envoyons un budget détaillé sous 24h.</p>
+  <a href="/devis#formulaire" style="display: inline-block; background: #c9a84c; color: #1a1a2e; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none;">Devis Gratuit 24h</a>
+</div>
+
+    </div>
+  `
+};
+
+// ============================================
+// ARTICLE 11: SOIRÉE ENTREPRISE EN CHÂTEAU
+// ============================================
+
+const article11: BlogPost = {
+  id: 38,
+  slug: "soiree-entreprise-chateau-idees-themes",
+  title: "Soirée d'Entreprise en Château : 7 Thèmes qui Marquent les Esprits",
+  excerpt: "Casino Royal, Gatsby, banquet médiéval, murder party, soirée étoilée... 7 thèmes testés avec budgets (50-150€/pers) et retours d'expérience. Transformez votre soirée en événement inoubliable.",
+  category: "team-building",
+  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  publishedAt: "2026-03-19",
+  readingTime: 9,
+  image: "/images/evenement-entreprise-reine-margot-facade-illuminee-soiree.webp",
+  imageAlt: "Soirée d'entreprise en château - Thèmes et animations pour événements mémorables",
+  keywords: ["soirée entreprise château", "soirée thématique château entreprise", "animation soirée séminaire château", "idées soirée entreprise", "soirée gala château", "soirée casino entreprise château"],
+  faq: [
+    { question: "Quels sont les meilleurs thèmes pour une soirée en château ?", answer: "Les 3 thèmes les plus demandés : Casino Royal (tables de jeu, croupiers, 80-120€/pers), Gatsby Années Folles (jazz, charleston, 60-100€/pers), et Banquet Médiéval (troubadours, menu d'époque, 70-130€/pers)." },
+    { question: "Combien coûte une soirée thématique en château ?", answer: "De 50 à 150€ par personne selon le thème et le nombre de participants. Le lieu château est souvent inclus dans le forfait séminaire résidentiel, seule l'animation est en supplément." },
+    { question: "Peut-on organiser une soirée en château sans y dormir ?", answer: "Oui. Nos châteaux proposent des soirées événementielles de 19h à minuit, sans hébergement. Idéal pour les soirées de fin d'année, anniversaires d'entreprise ou lancements de produit." }
+  ],
+  content: `
+    <div class="prose prose-lg max-w-none">
+
+<p class="mb-6">Une <strong>soirée en château</strong>, c'est l'assurance d'un événement dont on parle encore 6 mois après. Le cadre fait 80% du travail — les voûtes médiévales, les salons dorés, les parcs illuminés créent une atmosphère impossible à reproduire dans un hôtel ou un restaurant parisien. Voici <strong>7 thèmes testés et approuvés</strong> par nos clients, avec budgets et retours d'expérience.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Les 7 Thèmes Stars</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">1. Casino Royal — L'élégance James Bond</h3>
+<p class="mb-6">Tables de blackjack, roulette et poker avec croupiers professionnels. Dress code smoking/robe de cocktail. Jetons offerts à l'entrée, lots pour les gagnants. <strong>Budget : 80-120€/pers</strong> | Satisfaction : 9.2/10</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">2. Gatsby / Années Folles — Le glamour des 1920s</h3>
+<p class="mb-6">Orchestre jazz, cours de charleston, cocktails d'époque, photobooth vintage. Le décor du château se prête naturellement au style Art Déco. <strong>Budget : 60-100€/pers</strong> | Satisfaction : 9.0/10</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">3. Banquet Médiéval — L'immersion totale</h3>
+<p class="mb-6">Festin aux chandelles dans le réfectoire, troubadours, jongleurs, menu médiéval revisité. L'Abbaye de Chevreuse avec ses voûtes du XIIe est le cadre parfait. <strong>Budget : 70-130€/pers</strong> | Satisfaction : 9.4/10</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">4. Murder Party — Le suspense en costume</h3>
+<p class="mb-6">Enquête policière grandeur nature avec acteurs, indices, et dénouement. Chaque participant incarne un personnage. <strong>Budget : 40-80€/pers</strong> | Satisfaction : 9.5/10</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">5. Soirée Étoilée — Le dîner gastronomique</h3>
+<p class="mb-6">Menu 5 services avec accord mets-vins, chef en direct, terrasse sous les étoiles. Pour les groupes qui préfèrent l'excellence culinaire aux animations. <strong>Budget : 100-150€/pers</strong> | Satisfaction : 9.1/10</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">6. Soirée Cinéma Privatif — Le confort absolu</h3>
+<p class="mb-6">Projection privée dans le cinéma 48 places de l'Abbaye (Chevreuse), popcorn gourmet, et cocktails. Idéal après une journée intense de travail. <strong>Budget : 30-50€/pers</strong> | Satisfaction : 8.8/10</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">7. Karaoké & DJ — La fête pure</h3>
+<p class="mb-6">DJ professionnel, piste de danse, karaoké dans un salon privatisé. Le format le plus simple et souvent le plus fédérateur. <strong>Budget : 40-60€/pers</strong> | Satisfaction : 8.7/10</p>
+
+<div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+  <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Organisez Votre Soirée en Château</h3>
+  <p style="color: #d1d5db; margin-bottom: 1.5rem;">Casino, Gatsby, médiéval ou sur-mesure. Devis personnalisé sous 24h.</p>
+  <a href="/devis#formulaire" style="display: inline-block; background: #c9a84c; color: #1a1a2e; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none;">Demander un Devis</a>
+</div>
+
+    </div>
+  `
+};
+
+// ============================================
+// ARTICLE 12: GUIDE SÉMINAIRE RÉSIDENTIEL
+// ============================================
+
+const article12: BlogPost = {
+  id: 39,
+  slug: "guide-seminaire-residentiel-chateau",
+  title: "Guide Complet : Organiser un Séminaire Résidentiel en Château en 2026",
+  excerpt: "De la définition des objectifs au bilan J+90 : le guide étape par étape pour organiser un séminaire résidentiel réussi. Budgets, planning, activités et pièges à éviter.",
+  category: "organisation",
+  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  publishedAt: "2026-03-19",
+  readingTime: 15,
+  image: "/images/planning-ideal-seminaire-residentiel-2-jours-chateau.webp",
+  imageAlt: "Guide complet organiser séminaire résidentiel en château 2026",
+  keywords: ["seminaire residentiel", "organiser séminaire résidentiel", "séminaire résidentiel château", "guide séminaire entreprise", "séminaire avec nuit château", "organisation séminaire résidentiel 2026"],
+  faq: [
+    { question: "Qu'est-ce qu'un séminaire résidentiel ?", answer: "Un séminaire avec au moins une nuit sur place. Les participants dorment dans le lieu de l'événement, ce qui permet des moments informels (dîner, soirée) impossibles en journée d'étude. Format le plus efficace pour la cohésion d'équipe." },
+    { question: "Combien de temps dure un séminaire résidentiel idéal ?", answer: "Le format optimal est 1 nuit (arrivée J1 après-midi, départ J2 16h). Pour les transformations majeures ou les retraites stratégiques, 2 nuits permettent d'approfondir. Au-delà de 3 nuits, l'efficacité diminue." },
+    { question: "Comment organiser un séminaire résidentiel de A à Z ?", answer: "Les 7 étapes : 1) Définir les objectifs, 2) Fixer le budget, 3) Choisir le lieu et les dates (3-6 mois avant), 4) Concevoir le programme, 5) Gérer la logistique (transport, hébergement), 6) Communiquer aux participants, 7) Évaluer après l'événement." },
+    { question: "Quel budget pour un séminaire résidentiel en château ?", answer: "De 240 à 400€ par personne et par nuit, tout compris (hébergement, pension complète, salles, pauses). Pour 50 personnes sur 1 nuit : 12 000 à 20 000€. Le format résidentiel coûte 2x la journée mais l'impact est 3x supérieur." },
+    { question: "Quels sont les pièges à éviter dans un séminaire résidentiel ?", answer: "Les 5 erreurs fréquentes : surcharger le programme (prévoyez du temps libre), négliger les moments informels (le dîner est aussi important que les ateliers), oublier le plan B météo, sous-estimer le transport, et ne pas évaluer après l'événement." }
+  ],
+  content: `
+    <div class="prose prose-lg max-w-none">
+
+<p class="mb-6">Le <strong>séminaire résidentiel</strong> est le format le plus puissant de l'événementiel corporate. Les participants dorment sur place, partagent des repas, des soirées, des moments informels — et c'est là que la magie opère. Les liens se créent, les barrières hiérarchiques s'assouplissent, les décisions se prennent dans un climat de confiance. Ce guide vous accompagne de A à Z pour organiser un séminaire résidentiel en château qui transforme réellement votre équipe.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Étape 1 : Définir Vos Objectifs (J-180 à J-120)</h2>
+
+<p class="mb-6">Avant de chercher un lieu ou un budget, répondez à <strong>3 questions fondamentales</strong> :</p>
+
+<ol class="list-decimal ml-6 mb-6">
+  <li class="mb-3"><strong>Pourquoi ce séminaire ?</strong> — Cohésion d'équipe, plan stratégique, intégration nouveaux, lancement projet ?</li>
+  <li class="mb-3"><strong>Quel résultat concret attendez-vous ?</strong> — Un plan d'action validé, des liens renforcés, une vision partagée ?</li>
+  <li class="mb-3"><strong>Comment mesurerez-vous le succès ?</strong> — NPS post-événement, enquête satisfaction J+30, KPIs métier ?</li>
+</ol>
+
+<div class="alert alert-info">
+  <strong>Règle d'or :</strong> Un séminaire qui essaie de tout faire ne réussit rien. Choisissez UN objectif principal et DEUX objectifs secondaires maximum.
+</div>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Étape 2 : Fixer le Budget (J-120)</h2>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Format</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Budget/pers</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">30 pers</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">50 pers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">1 nuit standard</td><td class="border border-gray-300 px-4 py-2">240-300€</td><td class="border border-gray-300 px-4 py-2">7 200-9 000€</td><td class="border border-gray-300 px-4 py-2">12 000-15 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">1 nuit + activités</td><td class="border border-gray-300 px-4 py-2">300-400€</td><td class="border border-gray-300 px-4 py-2">9 000-12 000€</td><td class="border border-gray-300 px-4 py-2">15 000-20 000€</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">2 nuits tout compris</td><td class="border border-gray-300 px-4 py-2">400-550€</td><td class="border border-gray-300 px-4 py-2">12 000-16 500€</td><td class="border border-gray-300 px-4 py-2">20 000-27 500€</td></tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Étape 3 : Choisir le Lieu (J-120 à J-90)</h2>
+
+<p class="mb-6">Le choix du château dépend de <strong>4 critères</strong> :</p>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Taille du groupe</strong> — CODIR 8-20 pers vs convention 100+ pers</li>
+  <li class="mb-2"><strong>Accessibilité</strong> — Train (Chantilly 25 min) vs voiture (Chevreuse 45 min)</li>
+  <li class="mb-2"><strong>Ambiance recherchée</strong> — Prestige 5★ vs déconnexion nature vs urbain accessible</li>
+  <li class="mb-2"><strong>Budget</strong> — 240€/pers (Manoir Chantilly) à 450€/pers (Château 5★)</li>
+</ul>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Château</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Idéal pour</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Depuis Paris</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2"><a href="/seminaire-chateau-chantilly" class="text-blue-600 hover:underline">Manoir Chantilly</a></td><td class="border border-gray-300 px-4 py-2">50-280 pers, conventions</td><td class="border border-gray-300 px-4 py-2">35 min</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2"><a href="/seminaire-chateau-chantilly" class="text-blue-600 hover:underline">Château 5★ Chantilly</a></td><td class="border border-gray-300 px-4 py-2">VIP, international</td><td class="border border-gray-300 px-4 py-2">35 min</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2"><a href="/chateaux/abbaye-millenaire-vallee-chevreuse" class="text-blue-600 hover:underline">Abbaye Chevreuse</a></td><td class="border border-gray-300 px-4 py-2">60-150 pers, déconnexion</td><td class="border border-gray-300 px-4 py-2">45 min</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2"><a href="/seminaire-chateau-hauts-de-seine-92" class="text-blue-600 hover:underline">MGallery 5★ (92)</a></td><td class="border border-gray-300 px-4 py-2">6-80 pers, urbain</td><td class="border border-gray-300 px-4 py-2">15 min</td></tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Étape 4 : Concevoir le Programme (J-90 à J-60)</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Planning type — Séminaire résidentiel 1 nuit</h3>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Horaire</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">J1</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">J2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-4 py-2">9h-10h</td><td class="border border-gray-300 px-4 py-2">Arrivée + café</td><td class="border border-gray-300 px-4 py-2">Plénière matinale</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">10h-12h30</td><td class="border border-gray-300 px-4 py-2">Plénière + ateliers</td><td class="border border-gray-300 px-4 py-2">Ateliers sous-groupes</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">12h30-14h</td><td class="border border-gray-300 px-4 py-2">Déjeuner networking</td><td class="border border-gray-300 px-4 py-2">Déjeuner</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">14h-16h</td><td class="border border-gray-300 px-4 py-2">Ateliers sous-groupes</td><td class="border border-gray-300 px-4 py-2">Synthèse + plan d'action</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">16h-18h</td><td class="border border-gray-300 px-4 py-2"><strong>Team building</strong></td><td class="border border-gray-300 px-4 py-2">Clôture + départ</td></tr>
+    <tr><td class="border border-gray-300 px-4 py-2">19h-22h</td><td class="border border-gray-300 px-4 py-2"><strong>Dîner + soirée</strong></td><td class="border border-gray-300 px-4 py-2">—</td></tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info">
+  <strong>L'astuce des pros :</strong> Le dîner du J1 est le moment le plus important du séminaire. C'est là que les barrières tombent, que les idées mûrissent, et que les consensus se construisent. Ne le sous-estimez jamais.
+</div>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Étape 5-7 : Logistique, Communication, Bilan</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Logistique (J-60 à J-7)</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2">Transport : bus privatisé ou train (Chantilly = 0€ transport en TER)</li>
+  <li class="mb-2">Chambres : attribution nominative, prévoir 5% de plus pour les imprévus</li>
+  <li class="mb-2">Régimes alimentaires : questionnaire 2 semaines avant</li>
+  <li class="mb-2">Plan B météo : confirmer les espaces intérieurs de repli</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Communication (J-30 à J-1)</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2">J-30 : Save the date avec lieu et programme</li>
+  <li class="mb-2">J-14 : Détails pratiques (accès, dress code, à prévoir)</li>
+  <li class="mb-2">J-1 : Rappel WhatsApp avec infos de dernière minute</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Bilan (J+1 à J+90)</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2">J+1 : Email de remerciement + photos + questionnaire NPS</li>
+  <li class="mb-2">J+7 : Synthèse des ateliers + plan d'action distribué</li>
+  <li class="mb-2">J+30 : Point d'avancement sur les engagements pris</li>
+  <li class="mb-2">J+90 : Bilan impact : turnover, engagement, KPIs métier</li>
+</ul>
+
+<div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
+  <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Prêt à Organiser Votre Séminaire Résidentiel ?</h3>
+  <p style="color: #d1d5db; margin-bottom: 1.5rem;">Select Châteaux vous accompagne de A à Z. 4 châteaux, 450+ chambres, 15 ans d'expertise.</p>
+  <a href="/chateaux" style="display: inline-block; background: #c9a84c; color: #1a1a2e; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; margin-right: 1rem;">Voir nos Châteaux</a>
+  <a href="/devis#formulaire" style="display: inline-block; background: transparent; color: #c9a84c; padding: 0.75rem 2rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; border: 2px solid #c9a84c;">Devis Gratuit 24h</a>
+</div>
+
+    </div>
+  `
+};
+
+// ============================================
 // ARTICLES 4-30: METADATA COMPLÈTES, CONTENU PLACEHOLDER
 // ============================================
 
@@ -16231,6 +16884,13 @@ export const blogPosts: BlogPost[] = [
   article3,
   article4,
   article5,
+  article6,
+  article7,
+  article8,
+  article9,
+  article10,
+  article11,
+  article12,
   ...placeholderArticles
 ];
 

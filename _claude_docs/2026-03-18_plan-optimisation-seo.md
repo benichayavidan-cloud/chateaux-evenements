@@ -128,39 +128,52 @@
   - Cibler des requêtes long-tail à FAIBLE concurrence
   - Chaque article doit linker vers 2-3 pages commerciales
   - Contenu B2B orienté : DRH, office managers, assistantes de direction, CEO
-- **Statut** : [ ] TODO
+- **Statut** : [x] EN COURS — 2 nouveaux articles publiés (19/03/2026)
 
 ### 3.2 Articles prioritaires à écrire (basés sur les données GSC)
 - **Gravité** : ÉLEVÉE
 - **Requêtes à cibler** (opportunités détectées) :
 
-| # | Sujet article | Requête cible | Position actuelle | Potentiel |
-|---|---|---|---|---|
-| 1 | "Guide complet : organiser un séminaire résidentiel en château" | seminaire residentiel | 69.5 | Page pilier |
-| 2 | "Séminaire à Chantilly : guide des plus beaux domaines" | seminaire chantilly (124 imp) | 53.7 | Fort volume |
-| 3 | "Séminaire en Vallée de Chevreuse : l'abbaye secrète" | seminaire vallee de chevreuse (157 imp) | 49.1 | Plus fort volume |
-| 4 | "Les meilleurs hôtels de séminaire à Chantilly" | hotel seminaire chantilly (52 imp) | 59.7 | Volume moyen |
-| 5 | "Séminaire dans l'Oise : nature et prestige à 30 min de Paris" | seminaire oise (22 imp) | 43.5 | Geo-spécifique |
-| 6 | "Privatisation de journée d'étude en château" | privatisation journée d'étude | 62.0 | Niche B2B |
-| 7 | "Séminaire dans les Yvelines : châteaux et abbayes" | seminaire yvelines (17 imp) | 56.9 | Geo-spécifique |
-| 8 | "Budget séminaire d'entreprise 2026 : combien prévoir ?" | budget séminaire | 45.0 | Intent commercial |
-| 9 | "Soirée casino, Gatsby ou médiévale en château" | soirée entreprise château | — | Événementiel |
-| 10 | "Séminaire CODIR : pourquoi choisir un château privatisé" | codir château (pos 8!) | 8.0 | Déjà top 10! |
+| # | Sujet article | Requête cible | Position actuelle | Potentiel | Statut |
+|---|---|---|---|---|---|
+| 1 | "Guide complet : organiser un séminaire résidentiel en château" | seminaire residentiel | 69.5 | Page pilier | [ ] TODO |
+| 2 | "Séminaire à Chantilly : guide des plus beaux domaines" | seminaire chantilly (124 imp) | 53.7 | Fort volume | [x] FAIT 19/03 — Titre, excerpt, 6 keywords, 5 FAQ, CTA optimisés |
+| 3 | "Séminaire en Vallée de Chevreuse : l'abbaye secrète" | seminaire vallee de chevreuse (157 imp) | 49.1 | Plus fort volume | [x] FAIT 19/03 — Nouvel article 1800 mots, 5 FAQ, liens internes |
+| 4 | "Les meilleurs hôtels de séminaire à Chantilly" | hotel seminaire chantilly (52 imp) | 59.7 | Volume moyen | [ ] TODO |
+| 5 | "Séminaire dans l'Oise : nature et prestige à 30 min de Paris" | seminaire oise (22 imp) | 43.5 | Geo-spécifique | [ ] TODO |
+| 6 | "Privatisation de journée d'étude en château" | privatisation journée d'étude | 62.0 | Niche B2B | [ ] TODO |
+| 7 | "Séminaire dans les Yvelines : châteaux et abbayes" | seminaire yvelines (17 imp) | 56.9 | Geo-spécifique | [ ] TODO |
+| 8 | "Budget séminaire d'entreprise 2026 : combien prévoir ?" | budget séminaire | 45.0 | Intent commercial | [ ] TODO |
+| 9 | "Soirée casino, Gatsby ou médiévale en château" | soirée entreprise château | — | Événementiel | [ ] TODO |
+| 10 | "Séminaire CODIR : pourquoi choisir un château privatisé" | codir château (pos 8!) | 8.0 | Déjà top 10! | [x] FAIT 19/03 — Nouvel article 1600 mots, 4 FAQ, tableaux comparatifs |
 
-- **Statut** : [ ] TODO
+- **Statut** : [x] PARTIEL — 3/10 articles faits (Chantilly optimisé, Chevreuse et CODIR créés)
 
 ### 3.3 Optimiser les articles existants qui rankent presque
 - **Gravité** : MOYENNE
 - **Quick wins** — articles proches du top 10 :
 
-| Article | Requête | Position | Action |
-|---|---|---|---|
-| /blog/checklist-organiser-seminaire | check list organisation seminaire | 8.8 | Enrichir + meilleur title |
-| /blog/escape-game-geant-chateau | création escape game chateau | 10.6 | Enrichir contenu |
-| /blog/murder-party-chateau | murder party immersive | 33.5 | Déjà 5 clics, renforcer |
-| /blog/combien-coute-seminaire-chateau-2026 | budget séminaire | 45.0 | Ajouter tableau de prix |
+| Article | Requête | Position | Action | Statut |
+|---|---|---|---|---|
+| /blog/checklist-organiser-seminaire | check list organisation seminaire | 8.8 | Enrichir + meilleur title | [x] FAIT 19/03 — Vidéo intégrée + FAQ + Video Schema |
+| /blog/escape-game-geant-chateau | création escape game chateau | 10.6 | Enrichir contenu | [x] FAIT 19/03 — FAQ + keywords enrichis |
+| /blog/murder-party-chateau | murder party immersive | 33.5 | Déjà 5 clics, renforcer | [x] FAIT 19/03 — FAQ + keywords enrichis |
+| /blog/combien-coute-seminaire-chateau-2026 | budget séminaire | 45.0 | Ajouter tableau de prix | [x] FAIT 19/03 — FAQ budget ajoutée |
 
-- **Statut** : [ ] TODO
+- **Statut** : [x] FAIT (19/03/2026)
+
+### 3.4 ✅ Optimisation SEO globale du blog (NOUVEAU — Session 5)
+- **Réalisé le** : 19/03/2026
+- **Actions effectuées** :
+  - [x] Analyse concurrentielle : blogs Kactus, Naboo, Aleou
+  - [x] FAQ JSON-LD ajoutées aux **32 articles** (~85 questions/réponses)
+  - [x] Schema VideoObject JSON-LD ajouté (article checklist)
+  - [x] Keywords enrichis sur **26 articles** (passés de 4 à 6 mots-clés)
+  - [x] Titres optimisés : Chantilly (#13), RSE (#6), Vexin (#12)
+  - [x] Excerpts améliorés avec chiffres/stats : 4 articles
+  - [x] Vidéo "Planification de Séminaire" (5m29s) intégrée dans article checklist
+  - [x] Layout blog mis à jour : génération auto FAQ + Video Schema JSON-LD
+- **Impact attendu** : Rich results FAQ sur 32 pages, +30% visibilité organique
 
 ---
 
@@ -263,9 +276,9 @@
 | **Session 2** | Phase 1.2 | Dédupliquer les 6 geo-landing pages | 3-4h |
 | **Session 3** | Phase 2.1 + 2.3 | H1 visibles + nettoyage keywords | 1.5h |
 | **Session 4** | Phase 2.2 | Maillage interne complet (siloing) | 3-4h |
-| **Session 5** | Phase 3.2 | Écrire articles blog #1-3 (Chantilly, Chevreuse, CODIR) | 3-4h |
-| **Session 6** | Phase 3.2 + 3.3 | Écrire articles #4-6 + optimiser articles existants | 3-4h |
-| **Session 7** | Phase 3.2 | Écrire articles #7-10 | 3-4h |
+| **Session 5** ✅ | Phase 3.2 + 3.3 + 3.4 | Articles Chevreuse + CODIR + optimisation SEO 32 articles + vidéo | **FAIT 19/03** |
+| **Session 6** | Phase 3.2 | Écrire articles #4-6 (hôtel Chantilly, Oise, privatisation) | 3-4h |
+| **Session 7** | Phase 3.2 | Écrire articles #7-10 (Yvelines, budget, soirée, résidentiel) | 3-4h |
 | **Session 8** | Phase 4.1 + 4.2 | Google Business Profile + annuaires B2B | 3-4h |
 | **Session 9** | Phase 4.3 | Stratégie LinkedIn + premiers posts | 2h |
 | **Session 10** | Phase 5.1 | Page pilier #1 : Guide organiser séminaire | 4-5h |
