@@ -125,7 +125,7 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
                       <span
                         key={keyword}
                         style={{ padding: '8px 16px' }}
-                        className="inline-flex items-center justify-center bg-gray-100 text-gray-700 rounded-full text-xs hover:bg-gradient-to-l hover:from-amber-600 hover:to-[#d4af37] hover:text-white transition-all duration-300 cursor-pointer leading-none font-medium"
+                        className="keyword-tag inline-flex items-center justify-center rounded-full text-xs transition-all duration-300 cursor-pointer leading-none font-medium"
                       >
                         #{keyword}
                       </span>

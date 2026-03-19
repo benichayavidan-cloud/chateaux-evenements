@@ -81,6 +81,17 @@
   color: #ffffff !important;
 }
 
+/* Exceptions pour les mots-clés (tags article) */
+.brakt-blog .keyword-tag {
+  color: #374151 !important;
+  background: #f3f4f6 !important;
+}
+
+.brakt-blog .keyword-tag:hover {
+  color: #ffffff !important;
+  background: linear-gradient(to left, #d97706, #d4af37) !important;
+}
+
 /* ============================================
    LAYOUT PRINCIPAL
    ============================================ */
