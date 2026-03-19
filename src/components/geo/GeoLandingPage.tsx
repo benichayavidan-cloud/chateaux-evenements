@@ -25,6 +25,7 @@ import {
 import { useState, useEffect, useRef } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
 import { trackPhoneClick } from "@/components/Analytics";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 
 // ── StickySlider — CSS natif (hardware-accelerated, pas de JS scroll listener) ──
 function StickySlider({ children }: { children: React.ReactNode }) {
@@ -1257,6 +1258,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
           </div>
         </div>
       )}
+      <StickyCtaBar />
     </>
   );
 }

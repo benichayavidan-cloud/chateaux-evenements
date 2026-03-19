@@ -18,6 +18,7 @@ import { trackPhoneClick } from '@/components/Analytics';
 import { LogoCarousel } from '@/components/LogoCarousel';
 import { ReviewsSection } from '@/components/ReviewsSection';
 import DevisFormMini from '@/components/DevisFormMini';
+import { StickyCtaBar } from '@/components/StickyCtaBar';
 
 export default function ChateauxPage() {
   const searchParams = useSearchParams();
@@ -836,6 +837,7 @@ export default function ChateauxPage() {
           </div>
         </div>
       )}
+      <StickyCtaBar />
     </>
   );
 }

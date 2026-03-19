@@ -11,6 +11,7 @@ import { theme } from '@/design-system/tokens';
 import { trackPhoneClick } from '@/components/Analytics';
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 
 // ParaCard — même design que les pages château
 function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
@@ -540,6 +541,7 @@ export default function EvenementsPage() {
 
       {/* Témoignages */}
       <ReviewsSection />
+      <StickyCtaBar />
     </div>
   );
 }

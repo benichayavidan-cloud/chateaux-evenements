@@ -26,6 +26,7 @@ import {
 import { chiffresCles } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { trackPhoneClick } from "@/components/Analytics";
 
 export default function AboutPage() {
@@ -787,6 +788,7 @@ export default function AboutPage() {
       {/* ===== 11. Logo Carousel + Reviews ===== */}
       <LogoCarousel />
       <ReviewsSection />
+      <StickyCtaBar />
     </div>
   );
 }
