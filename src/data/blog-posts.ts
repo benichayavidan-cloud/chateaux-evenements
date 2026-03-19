@@ -1043,7 +1043,7 @@ const article4: BlogPost = {
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   readingTime: 12,
-  image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-salle-reunion-refectoire.webp",
+  image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-refectoire-des-moines.webp",
   imageAlt: "Séminaire en Vallée de Chevreuse - Abbaye cistercienne millénaire pour événements d'entreprise",
   keywords: ["seminaire vallee de chevreuse", "abbaye vaux de cernay séminaire", "séminaire yvelines nature", "lieu séminaire déconnexion", "château vallée chevreuse entreprise"],
   faq: [
@@ -1876,7 +1876,7 @@ const article9: BlogPost = {
   author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
   publishedAt: "2026-03-19",
   readingTime: 8,
-  image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-salle-reunion-refectoire.webp",
+  image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-refectoire-des-moines.webp",
   imageAlt: "Séminaire dans les Yvelines - Abbaye et châteaux pour événements d'entreprise",
   keywords: ["seminaire yvelines", "séminaire yvelines entreprise", "château séminaire yvelines 78", "abbaye séminaire yvelines", "lieu séminaire vallée chevreuse", "séminaire yvelines proche paris"],
   faq: [

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { HeroSlider } from "@/components/sections-v2";
 import { Container } from "@/components/layout-v2";
 import { Text, Card, Button, Badge } from "@/components/ui-v2";
@@ -105,13 +106,15 @@ export default function Home() {
                 }}
               >
                 {/* Image */}
-                <div className="chateau-editorial-image" style={{ overflow: 'hidden' }}>
-                  <img
+                <div className="chateau-editorial-image" style={{ overflow: 'hidden', position: 'relative' }}>
+                  <Image
                     src={chateau.images.card}
                     alt={`${chateau.nom} - Séminaire entreprise ${chateau.region}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    quality={85}
+                    loading="lazy"
                     style={{
-                      width: '100%',
-                      height: '100%',
                       objectFit: 'cover',
                       transition: 'transform 0.5s ease',
                     }}
