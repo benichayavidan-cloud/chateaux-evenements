@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getBlogPostBySlug } from "@/data/blog-posts";
+import { getBlogPostBySlug, type FaqItem } from "@/data/blog-posts";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -138,6 +138,50 @@ export default async function BlogArticleLayout({ children, params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+
+      {/* Schema JSON-LD FAQ - Pour rich results FAQ dans Google */}
+      {article.faq && article.faq.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": article.faq.map((item: FaqItem) => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          }) }}
+        />
+      )}
+
+      {/* Schema JSON-LD Video - Pour rich results vidéo dans Google */}
+      {article.video && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": article.video.name,
+            "description": article.video.description,
+            "thumbnailUrl": article.video.thumbnailUrl,
+            "contentUrl": article.video.contentUrl,
+            "uploadDate": article.video.uploadDate,
+            "duration": article.video.duration,
+            "publisher": {
+              "@type": "Organization",
+              "name": "Select Châteaux",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.selectchateaux.com/logo.png"
+              }
+            }
+          }) }}
+        />
+      )}
 
       {children}
     </>
