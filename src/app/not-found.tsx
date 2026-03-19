@@ -28,21 +28,43 @@ export default function NotFound() {
         <p className="text-base sm:text-lg text-gray-600 mb-8">
           La page que vous recherchez n&apos;existe pas ou a été déplacée.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '16px' }} className="sm:!flex-row">
           <Link
             href="/"
-            className="inline-flex items-center px-10 py-5 font-medium rounded-full transition-all duration-500 group"
-            style={{ backgroundColor: 'var(--bronze-antique)', color: '#ffffff' }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '16px 40px',
+              backgroundColor: '#b8860b',
+              color: '#ffffff',
+              fontWeight: 500,
+              borderRadius: '9999px',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              fontSize: '16px',
+            }}
           >
-            <Home className="w-5 h-5 mr-2" style={{ color: '#ffffff' }} />
+            <Home className="w-5 h-5" style={{ color: '#ffffff', marginRight: '10px' }} />
             <span style={{ color: '#ffffff' }}>Retour à l&apos;accueil</span>
           </Link>
           <Link
             href="/devis#formulaire"
-            className="inline-flex items-center px-10 py-5 border border-gray-300 text-gray-700 font-medium rounded-full hover:border-[var(--bronze-antique)] hover:text-[var(--bronze-antique)] transition-all duration-500 group"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              padding: '16px 40px',
+              backgroundColor: 'transparent',
+              color: '#374151',
+              fontWeight: 500,
+              borderRadius: '9999px',
+              border: '2px solid #d1d5db',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              fontSize: '16px',
+            }}
           >
-            <FileText className="w-5 h-5 mr-2" />
-            Demander un devis
+            <FileText className="w-5 h-5" style={{ marginRight: '10px' }} />
+            <span>Demander un devis</span>
           </Link>
         </div>
       </div>
