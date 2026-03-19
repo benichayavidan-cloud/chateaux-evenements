@@ -31,7 +31,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/"
-            className="inline-flex items-center px-8 py-4 font-medium rounded-full transition-all duration-500 group"
+            className="inline-flex items-center px-10 py-5 font-medium rounded-full transition-all duration-500 group"
             style={{ backgroundColor: 'var(--bronze-antique)', color: '#ffffff' }}
           >
             <Home className="w-5 h-5 mr-2" style={{ color: '#ffffff' }} />
@@ -39,7 +39,7 @@ export default function NotFound() {
           </Link>
           <Link
             href="/devis#formulaire"
-            className="inline-flex items-center px-8 py-4 border border-gray-300 text-gray-700 font-medium rounded-full hover:border-[var(--bronze-antique)] hover:text-[var(--bronze-antique)] transition-all duration-500 group"
+            className="inline-flex items-center px-10 py-5 border border-gray-300 text-gray-700 font-medium rounded-full hover:border-[var(--bronze-antique)] hover:text-[var(--bronze-antique)] transition-all duration-500 group"
           >
             <FileText className="w-5 h-5 mr-2" />
             Demander un devis
