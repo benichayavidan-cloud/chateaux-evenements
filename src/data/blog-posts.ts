@@ -1700,8 +1700,8 @@ const article7: BlogPost = {
   author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
   publishedAt: "2026-03-19",
   readingTime: 8,
-  image: "/images/chateau-francais-seminaire-vert.webp",
-  imageAlt: "Séminaire dans l'Oise - Château en pleine nature à 35 minutes de Paris",
+  image: "/images/seminaire-oise-60-chateau-nature-prestige-paris.webp",
+  imageAlt: "Séminaire dans l'Oise - Manoir anglo-normand avec terrasse réunion en pleine nature",
   keywords: ["seminaire oise", "séminaire oise entreprise", "château séminaire oise 60", "lieu séminaire nature oise", "séminaire forêt chantilly", "séminaire oise proche paris"],
   faq: [
     { question: "Pourquoi choisir l'Oise pour un séminaire d'entreprise ?", answer: "L'Oise combine 3 atouts uniques : la forêt de Chantilly (6 300 ha Natura 2000), des châteaux-hôtels haut de gamme (228 chambres sur 2 domaines), et une accessibilité exceptionnelle (35 min A1 depuis Paris, 25 min TER, 15 min depuis Roissy-CDG)." },
@@ -7257,8 +7257,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2025-12-14",
     readingTime: 8,
-    image: "/images/reunion-entreprise-chateau-elegant.webp",
-    imageAlt: "Salle Reception Chateau Moderne - Séminaire château entreprise",
+    image: "/images/lieux-atypiques-manoir-forteresse-abbaye-seminaire.webp",
+    imageAlt: "Lieux atypiques séminaire - Manoir anglo-normand, forteresse médiévale et abbaye",
     keywords: ["lieu atypique séminaire", "manoir événement", "forteresse médiévale", "abbaye séminaire", "lieu original séminaire", "château insolite entreprise"],
     faq: [
       { question: "Quels sont les lieux atypiques pour un séminaire en Île-de-France ?", answer: "Abbaye cistercienne millénaire, manoir anglo-normand en forêt, château 5★ avec rooftop, ou MGallery avec vue Tour Eiffel. Le choix dépend de l'effet recherché : historique, nature, prestige ou urbain." },
@@ -17335,8 +17335,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-03-22",
     readingTime: 11,
-    image: "/images/seminaire-entreprise-chateau-evenement-hero.webp",
-    imageAlt: "Activités team building à Chantilly - Spectacles équestres et aventures en forêt",
+    image: "/images/team-building-chantilly-activites-equestre-2cv-escape.webp",
+    imageAlt: "15 activités team building à Chantilly - Spectacle équestre, rallye 2CV et escape game",
     keywords: ["activite seminaire chantilly", "activité séminaire chantilly", "team building chantilly", "team building forêt chantilly", "activité entreprise chantilly", "séminaire chantilly activités", "soirée entreprise chantilly", "spectacle equestre chantilly entreprise"],
     faq: [
       { question: "Quelles activités de team building peut-on faire à Chantilly ?", answer: "Chantilly offre 15+ activités uniques : spectacle équestre privatisé (Grandes Écuries), rallye 2CV dans la forêt de 6 300 ha, escape game en château, olympiades outdoor, sylvothérapie, atelier crème chantilly avec un chef, murder party, défi culinaire, tir à l'arc, chasse au trésor GPS, et visite privatisée du Musée Condé." },
@@ -17512,8 +17512,8 @@ const placeholderArticles: BlogPost[] = [
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-03-22",
     readingTime: 10,
-    image: "/images/seminaire-entreprise-chateau-evenement-hero.webp",
-    imageAlt: "Séminaire au vert près de Paris - Vallée de Chevreuse nature et déconnexion",
+    image: "/images/seminaire-vert-vallee-chevreuse-nature-deconnexion.webp",
+    imageAlt: "Séminaire au vert Vallée de Chevreuse - Réunion en pleine nature avec abbaye et forêt",
     keywords: ["séminaire au vert paris", "séminaire nature île-de-france", "seminaire vallee de chevreuse", "séminaire déconnexion paris", "séminaire éco responsable", "séminaire écologique", "séminaire RSE île-de-france", "séminaire forêt paris", "séminaire bien-être nature"],
     faq: [
       { question: "Où organiser un séminaire au vert près de Paris ?", answer: "La Vallée de Chevreuse est la destination idéale : Parc Naturel Régional à 35 min de Paris en RER B. Abbayes privatisables, domaines en forêt, activités nature. Alternative : Fontainebleau (1h) ou Vexin (50 min). La Vallée de Chevreuse offre le meilleur ratio proximité/déconnexion." },
