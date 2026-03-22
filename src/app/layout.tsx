@@ -25,9 +25,9 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "Séminaire Château Île-de-France | Select Châteaux",
+  title: "Séminaire en Château près de Paris : 4 Domaines Privatisables",
   description:
-    "4 châteaux privatisables pour séminaires d'entreprise en Île-de-France. Manoir Chantilly, hôtel 5 étoiles Paris 92, abbaye Yvelines, palais royal. Devis 24h.",
+    "Privatisez un château pour votre séminaire à 30-45 min de Paris. 4 domaines en Île-de-France, 10 à 300 pers, hébergement et spa inclus. Devis gratuit 24h.",
   robots: {
     index: true,
     follow: true,
