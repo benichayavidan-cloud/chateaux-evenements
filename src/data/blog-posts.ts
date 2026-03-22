@@ -50,8 +50,8 @@ export interface BlogPost {
 const article1: BlogPost = {
   id: 1,
   slug: "combien-coute-seminaire-chateau-2026",
-  title: "Combien coûte vraiment un séminaire en château en 2026 ?",
-  excerpt: "Transparence totale sur les prix : de 150€ à 450€/personne. Découvrez ce qui est inclus, les coûts cachés à éviter, et comment optimiser votre budget sans sacrifier la qualité.",
+  title: "Prix Séminaire en Château : Tarifs 2026 [150€ à 450€/pers]",
+  excerpt: "Combien coûte un séminaire en château ? Grille tarifaire complète 2026, coûts cachés à éviter et 5 astuces pour optimiser votre budget. Devis gratuit en 24h.",
   category: "organisation",
   author: {
     name: "Sophie Durand",
@@ -318,8 +318,8 @@ const article1: BlogPost = {
 const article2: BlogPost = {
   id: 2,
   slug: "checklist-organiser-seminaire",
-  title: "La Check-list ultime pour organiser un séminaire sans stress",
-  excerpt: "Téléchargez notre check-list professionnelle en 7 étapes : de la définition des objectifs à l'évaluation post-événement. Tout ce qu'il ne faut pas oublier pour un séminaire réussi.",
+  title: "Checklist Séminaire : 25 Étapes pour Ne Rien Oublier",
+  excerpt: "Checklist complète en 7 phases pour organiser votre séminaire d'entreprise. De J-90 à J+7 : objectifs, logistique, budget, animation. Téléchargement gratuit.",
   category: "organisation",
   author: {
     name: "Thomas Mercier",
@@ -2236,8 +2236,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 4,
     slug: "organiser-codir-confidentiel",
-    title: "Comment organiser un CODIR confidentiel : Les critères de sécurité",
-    excerpt: "Salles isolées, protocoles NDA, contrôle d'accès : tout ce qu'il faut savoir pour organiser votre comité de direction dans un lieu sûr et discret.",
+    title: "CODIR en Château : 6 Critères de Confidentialité",
+    excerpt: "Organisez votre comité de direction dans un lieu 100% sécurisé : salles isolées, protocoles NDA, contrôle d'accès. Guide des critères essentiels.",
     category: "organisation",
     author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "JL" },
     publishedAt: "2026-01-08",
@@ -4065,8 +4065,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 9,
     slug: "repas-seminaire-tendances-traiteur-2026",
-    title: "Repas de Séminaire : Les tendances traiteur 2026",
-    excerpt: "Du buffet healthy au dîner gastronomique : les nouvelles attentes en restauration d'entreprise. Végétarien, locavore, expérience culinaire : ce que veulent vos collaborateurs.",
+    title: "Repas de Séminaire : 8 Tendances Traiteur 2026",
+    excerpt: "Buffet healthy, menu locavore, atelier chef : les 8 formats de restauration qui cartonnent en séminaire d'entreprise. Tarifs et prestataires recommandés.",
     category: "organisation",
     author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "AD" },
     publishedAt: "2025-12-28",
@@ -4776,8 +4776,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 11,
     slug: "top-chateaux-oise-60",
-    title: "Top 7 des Châteaux pour séminaire dans l'Oise (60) à moins d'1h de Paris",
-    excerpt: "Notre sélection exclusive : du manoir anglo-normand au palais royal, découvrez les pépites de l'Oise accessibles en 35-50 minutes depuis Paris. Capacités, équipements, tarifs.",
+    title: "7 Châteaux pour Séminaire dans l'Oise [à 45 min de Paris]",
+    excerpt: "Sélection des meilleurs châteaux de l'Oise pour séminaire : capacités, équipements, tarifs. Manoirs et palais privatisables à 35-50 min de Paris.",
     category: "lieux",
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
     publishedAt: "2025-12-24",
@@ -5811,8 +5811,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 13,
     slug: "chantilly-destination-royale",
-    title: "Séminaire à Chantilly : Guide des Plus Beaux Domaines à 25 min de Paris",
-    excerpt: "2 châteaux privatisables, 228 chambres, forêt de 6 300 hectares. Organisez votre séminaire à Chantilly : spectacles équestres, spas 5★, et train direct depuis Paris Gare du Nord.",
+    title: "Séminaire Chantilly : 2 Châteaux Privatisables [Guide 2026]",
+    excerpt: "Organisez votre séminaire à Chantilly : 228 chambres, spa 5★, forêt de 6 300 ha. Train direct Gare du Nord, 25 min de Paris. Devis gratuit.",
     category: "lieux",
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
     publishedAt: "2025-12-20",
@@ -7817,8 +7817,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 17,
     slug: "grands-groupes-100-personnes-chateau",
-    title: "Grands Groupes : Où loger 100+ collaborateurs dans un même château ?",
-    excerpt: "Capacités d'hébergement, configuration des salles, logistique food & beverage : les châteaux équipés pour les grands effectifs. Analyse détaillée et recommandations.",
+    title: "Séminaire 100+ Personnes : Quel Château Choisir ?",
+    excerpt: "Hébergement, salles plénières, restauration : comparatif des châteaux capables d'accueillir 100 à 500 collaborateurs. Capacités et tarifs détaillés.",
     category: "lieux",
     author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "TM" },
     publishedAt: "2025-12-12",
@@ -11912,8 +11912,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 23,
     slug: "escape-game-geant-chateau",
-    title: "Escape Game Géant : Transformez le château en terrain de jeu",
-    excerpt: "Énigmes dans les salons, indices cachés dans le parc, mission collaborative : comment créer un escape game sur mesure dans un château. Prestataires et budget.",
+    title: "Escape Game en Château : Créez une Aventure Géante",
+    excerpt: "Organisez un escape game grandeur nature dans un château : énigmes, indices dans le parc, mission collaborative. Budget, prestataires et retours d'expérience.",
     category: "team-building",
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },
     publishedAt: "2025-11-30",
