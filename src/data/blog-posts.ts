@@ -5819,7 +5819,7 @@ const placeholderArticles: BlogPost[] = [
     readingTime: 10,
     image: "/images/chantilly-destination-royale-seminaire-luxe.webp",
     imageAlt: "Séminaire à Chantilly - Châteaux et domaines de prestige pour événements d'entreprise",
-    keywords: ["seminaire chantilly", "séminaire château chantilly", "lieu séminaire chantilly", "château chantilly entreprise", "hotel seminaire chantilly", "événement chantilly oise"],
+    keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "hotel séminaire chantilly", "lieu séminaire chantilly", "séminaire château chantilly", "château chantilly entreprise", "chantilly seminaire", "séminaire à chantilly", "séminaire entreprise chantilly", "organiser seminaire chantilly"],
     faq: [
       { question: "Combien coûte un séminaire à Chantilly ?", answer: "Comptez 280 à 400€ par personne et par jour pour un séminaire résidentiel dans un château à Chantilly. Ce tarif inclut l'hébergement, la pension complète et les salles de réunion. Une privatisation des Grandes Écuries coûte 8 000 à 15 000€/jour hors restauration." },
       { question: "Comment se rendre à Chantilly depuis Paris ?", answer: "Chantilly est à 25 minutes en TER depuis Paris Gare du Nord (trains toutes les 30 min, gare Chantilly-Gouvieux). En voiture, comptez 35-45 min par l'A1. Depuis Roissy-CDG, seulement 15 minutes. Aucune autre destination prestige d'Île-de-France n'est aussi accessible en train." },
@@ -6791,15 +6791,15 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 15,
     slug: "seminaire-yvelines-78-luxe-proximite",
-    title: "Séminaire dans les Yvelines (78) : Luxe et proximité",
-    excerpt: "De Versailles à la Vallée de Chevreuse : 28 châteaux privatisables, RER A et C directs, prix 180-300€/nuit. Les Yvelines, département le plus premium d'Île-de-France pour vos séminaires.",
+    title: "Séminaire Yvelines (78) : 28 Châteaux de Versailles à Chevreuse",
+    excerpt: "De Versailles à la Vallée de Chevreuse : 28 châteaux privatisables pour séminaire dans les Yvelines. RER direct, 30-45 min de Paris, tarifs 180-300€/nuit.",
     category: "lieux",
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
     publishedAt: "2025-12-16",
     readingTime: 11,
     image: "/images/seminaire-yvelines-78-chateau-luxe-proximite-paris.webp",
     imageAlt: "Séminaire dans les Yvelines 78 - Châteaux de luxe à proximité de Paris",
-    keywords: ["château yvelines", "séminaire 78", "versailles événement", "vallée chevreuse", "séminaire yvelines entreprise", "château séminaire proche paris 78"],
+    keywords: ["séminaire yvelines", "seminaire yvelines", "château yvelines séminaire", "séminaire 78", "versailles séminaire", "seminaire vallee de chevreuse", "vallée chevreuse séminaire", "château séminaire proche paris 78", "salle séminaire yvelines"],
     faq: [
       { question: "Quels châteaux dans les Yvelines pour un séminaire ?", answer: "28 châteaux privatisables : de Versailles à l'Abbaye de la Vallée de Chevreuse (144 chambres, fondée en 1118), en passant par Rambouillet et Thoiry. Tous à 30-45 min de Paris en RER ou voiture." },
       { question: "Les Yvelines sont-elles accessibles en transports en commun ?", answer: "Oui, excellente desserte : RER A (Saint-Germain-en-Laye, 25 min), RER C (Versailles, 30 min), RER B (Vallée de Chevreuse, 45 min). Rare pour des destinations château en pleine nature." },
@@ -16869,6 +16869,795 @@ const placeholderArticles: BlogPost[] = [
 <p class="mb-6">✅ Cluster #3 : Team Building & Activités (Articles #21-30)</p>
 
 <strong>Fichier audit-seo-blog-select-chateaux.md complet et prêt pour déploiement !</strong>
+    </div>
+  `
+  },
+  // ============================================
+  // ARTICLES SEO — Ciblage "seminaire vallee de chevreuse" + "seminaire chantilly"
+  // ============================================
+  {
+    id: 201,
+    slug: "seminaire-vallee-de-chevreuse-guide-complet",
+    title: "Séminaire Vallée de Chevreuse : 5 Domaines d'Exception [2026]",
+    excerpt: "Organisez votre séminaire en Vallée de Chevreuse : abbaye cistercienne, manoirs privatisables, forêt préservée. À 35 min de Paris en RER B. Tarifs, capacités et devis gratuit.",
+    category: "lieux" as BlogCategory,
+    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
+    publishedAt: "2026-03-22",
+    readingTime: 14,
+    image: "/images/seminaire-entreprise-chateau-evenement-hero.webp",
+    imageAlt: "Séminaire en Vallée de Chevreuse - Domaines et abbayes pour événements d'entreprise",
+    keywords: ["seminaire vallee de chevreuse", "séminaire vallée de chevreuse", "séminaire chevreuse", "château chevreuse séminaire", "abbaye chevreuse séminaire", "lieu séminaire chevreuse", "séminaire nature île-de-france", "séminaire au vert paris", "séminaire résidentiel chevreuse", "team building chevreuse"],
+    faq: [
+      { question: "Où organiser un séminaire en Vallée de Chevreuse ?", answer: "La Vallée de Chevreuse offre 5 lieux d'exception pour les séminaires d'entreprise : l'Abbaye des Vaux-de-Cernay (144 chambres, abbaye cistercienne du XIIe), le Château de Breteuil (privatisable, parc 75 ha), le Château de Dampierre (jardins Le Nôtre), le Moulin d'Andu (35 chambres, bord de rivière) et le Domaine de la Vallée aux Loups (20 personnes, intimiste). Tous sont accessibles en 35-50 min depuis Paris." },
+      { question: "Comment se rendre en Vallée de Chevreuse depuis Paris ?", answer: "La Vallée de Chevreuse est desservie par le RER B (station Saint-Rémy-lès-Chevreuse, 45 min depuis Châtelet). En voiture, comptez 35-50 min par l'A6 ou la N118. L'Abbaye des Vaux-de-Cernay est à 45 min de la Porte d'Orléans. Navette possible depuis la gare RER." },
+      { question: "Combien coûte un séminaire en Vallée de Chevreuse ?", answer: "Les tarifs varient selon le standing : 150-220€/personne/jour pour un domaine 3★, 250-380€ pour l'Abbaye des Vaux-de-Cernay (4★). Un séminaire résidentiel 2 jours/1 nuit pour 50 personnes revient à 12 000-19 000€ tout compris (hébergement, restauration, salles, activités)." },
+      { question: "Quelles activités de team building en Vallée de Chevreuse ?", answer: "La Vallée de Chevreuse offre des activités uniques : randonnée dans le Parc Naturel Régional, VTT en forêt de Rambouillet, canoë sur l'Yvette, course d'orientation, atelier cuisine au château, murder party en abbaye, yoga en plein air, sylvothérapie et wine tasting dans les caves historiques." },
+      { question: "L'Abbaye des Vaux-de-Cernay est-elle privatisable pour un séminaire ?", answer: "Oui, l'Abbaye des Vaux-de-Cernay (Hôtel & Spa 4★) est entièrement privatisable. 144 chambres, 15 salles de réunion (10 à 350 pers), spa, piscine, parc de 72 hectares. Fondée en 1118 par des moines cisterciens, c'est le lieu le plus emblématique de la Vallée de Chevreuse pour les séminaires." }
+    ],
+    content: `
+    <div class="prose prose-lg max-w-none">
+<p class="mb-6">La <strong>Vallée de Chevreuse</strong> est le secret le mieux gardé des organisateurs de séminaires en Île-de-France. À seulement 35 minutes de Paris en RER B, cette vallée préservée du <strong>Parc Naturel Régional de la Haute Vallée de Chevreuse</strong> offre ce qu'aucun autre territoire francilien ne peut proposer : des abbayes millénaires, des forêts intactes, un silence absolu — et des infrastructures hôtelières capables d'accueillir de 10 à 350 participants.</p>
+
+<p class="mb-6">Alors que <strong>Chantilly</strong> joue la carte du prestige équestre et que <strong>Fontainebleau</strong> mise sur la grandeur impériale, la Vallée de Chevreuse séduit par son authenticité et sa déconnexion. C'est le choix des entreprises qui veulent un <strong>séminaire au vert</strong> sans sacrifier l'accessibilité.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Pourquoi la Vallée de Chevreuse pour votre Séminaire ?</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">1. La nature à 35 minutes de Paris</h3>
+
+<p class="mb-6">Le <strong>Parc Naturel Régional de la Haute Vallée de Chevreuse</strong> couvre 63 000 hectares répartis sur 51 communes. C'est le seul PNR accessible en RER depuis Paris. Cette proximité unique permet d'organiser un séminaire en pleine nature sans les contraintes logistiques des destinations lointaines.</p>
+
+<strong>Chiffres clés du territoire :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>63 000 hectares</strong> de parc naturel protégé</li>
+  <li class="mb-2"><strong>51 communes</strong> dans le périmètre du PNR</li>
+  <li class="mb-2"><strong>600 km</strong> de sentiers balisés (GR, PR)</li>
+  <li class="mb-2"><strong>35-50 min</strong> depuis Paris (RER B ou voiture)</li>
+  <li class="mb-2"><strong>3 forêts domaniales</strong> : Rambouillet (20 000 ha), Marly, Port-Royal</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">2. Un patrimoine historique exceptionnel</h3>
+
+<p class="mb-6">La vallée concentre un patrimoine architectural remarquable, fruit de 10 siècles d'histoire monastique et aristocratique :</p>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Abbaye des Vaux-de-Cernay</strong> (1118) — Abbaye cistercienne classée, aujourd'hui hôtel 4★ et lieu de séminaire de référence</li>
+  <li class="mb-2"><strong>Abbaye de Port-Royal des Champs</strong> — Haut lieu du jansénisme, musée national</li>
+  <li class="mb-2"><strong>Château de Breteuil</strong> — 400 ans d'histoire diplomatique, parc de 75 hectares</li>
+  <li class="mb-2"><strong>Château de Dampierre</strong> — Chef-d'œuvre de Jules Hardouin-Mansart, jardins Le Nôtre</li>
+  <li class="mb-2"><strong>Château de la Madeleine</strong> — Forteresse médiévale surplombant Chevreuse, vue panoramique</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">3. L'argument RSE décisif</h3>
+
+<p class="mb-6">En 2026, 67% des entreprises intègrent des critères RSE dans le choix de leurs lieux de séminaire. La <strong>Vallée de Chevreuse</strong> coche toutes les cases :</p>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Accessibilité transport en commun</strong> : RER B direct, pas de bus charter polluant</li>
+  <li class="mb-2"><strong>Circuit court alimentaire</strong> : fermes bio, maraîchers locaux, fromageries artisanales</li>
+  <li class="mb-2"><strong>Hébergements éco-responsables</strong> : rénovation patrimoine existant vs construction neuve</li>
+  <li class="mb-2"><strong>Activités bas carbone</strong> : randonnée, VTT, canoë vs karting ou quad</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Les 5 Meilleurs Lieux de Séminaire en Vallée de Chevreuse</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">1. Abbaye des Vaux-de-Cernay — Le joyau incontournable</h3>
+
+<p class="mb-6">Fondée en 1118 par des moines cisterciens, l'<strong>Abbaye des Vaux-de-Cernay</strong> est devenue le lieu de séminaire le plus prisé de la Vallée de Chevreuse. Nichée dans un parc de 72 hectares avec étangs, cascades et ruines romantiques, elle offre un cadre unique en Île-de-France.</p>
+
+<strong>Fiche technique :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Hébergement</strong> : 144 chambres (bâtiment abbatial + dépendances + cottages)</li>
+  <li class="mb-2"><strong>Salles de réunion</strong> : 15 salles modulables, de 10 à 350 personnes</li>
+  <li class="mb-2"><strong>Restauration</strong> : 2 restaurants (gastronomique + brasserie), terrasse sur étang</li>
+  <li class="mb-2"><strong>Bien-être</strong> : Spa avec piscine intérieure, hammam, jacuzzi, cabines de soin</li>
+  <li class="mb-2"><strong>Activités sur place</strong> : tennis, pétanque, VTT, randonnée, home cinéma privatif</li>
+  <li class="mb-2"><strong>Privatisation</strong> : possible à partir de 100 chambres (exclusivité du domaine)</li>
+  <li class="mb-2"><strong>Tarif</strong> : 250-380€/pers/jour en séminaire résidentiel</li>
+  <li class="mb-2"><strong>Accès</strong> : 45 min de Paris Porte d'Orléans, navette gare RER</li>
+</ul>
+
+<strong>Pourquoi c'est le n°1 :</strong>
+<p class="mb-6">L'abbaye combine ce qu'aucun autre lieu de la vallée ne peut offrir : la capacité hôtelière (144 chambres), le patrimoine historique (900 ans), les infrastructures séminaire pro (15 salles équipées), et le cadre naturel (72 ha de parc). Pour les séminaires de 50 à 300 personnes, c'est LE lieu de référence.</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">2. Château de Breteuil — Le prestige diplomatique</h3>
+
+<p class="mb-6">Propriété de la même famille depuis 1712, le <strong>Château de Breteuil</strong> a accueilli Louis XVI, Marie-Antoinette et Marcel Proust. Son parc de 75 hectares (classé Jardin Remarquable) en fait un écrin exceptionnel pour les événements corporate.</p>
+
+<strong>Fiche technique :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Capacité</strong> : 20 à 200 personnes (séminaire) / 500 en extérieur (garden party)</li>
+  <li class="mb-2"><strong>Salles</strong> : Grand Salon, Salle du Trône, Orangerie</li>
+  <li class="mb-2"><strong>Hébergement</strong> : Non inclus (partenariats hôtels locaux)</li>
+  <li class="mb-2"><strong>Atout unique</strong> : Contes de Perrault en scènes de cire dans le château</li>
+  <li class="mb-2"><strong>Tarif privatisation</strong> : 5 000-12 000€/jour selon espaces</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">3. Château de Dampierre — Le Versailles intime</h3>
+
+<p class="mb-6">Construit par Jules Hardouin-Mansart (architecte de Versailles) pour le Duc de Luynes, le <strong>Château de Dampierre</strong> est surnommé le "petit Versailles". Ses jardins dessinés par Le Nôtre et son architecture classique en font un lieu de prestige absolu.</p>
+
+<strong>Fiche technique :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Capacité</strong> : 30 à 150 personnes</li>
+  <li class="mb-2"><strong>Salles</strong> : Salle des Fêtes, Galerie de Minerve, Orangerie</li>
+  <li class="mb-2"><strong>Hébergement</strong> : 12 chambres dans les communs</li>
+  <li class="mb-2"><strong>Parc</strong> : Jardins Le Nôtre, canal, île artificielle</li>
+  <li class="mb-2"><strong>Tarif</strong> : 6 000-15 000€/jour</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">4. Bergerie Nationale de Rambouillet — L'atypique nature</h3>
+
+<p class="mb-6">Créée en 1783 par Louis XVI pour accueillir le troupeau de mérinos offert par le roi d'Espagne, la <strong>Bergerie Nationale</strong> est aujourd'hui un lieu événementiel unique : ferme historique en activité au cœur de la forêt de Rambouillet.</p>
+
+<strong>Fiche technique :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Capacité</strong> : 20 à 120 personnes</li>
+  <li class="mb-2"><strong>Espaces</strong> : Bergerie royale, granges rénovées, jardins</li>
+  <li class="mb-2"><strong>Activités incluses</strong> : Découverte ferme, ateliers laine, potager bio</li>
+  <li class="mb-2"><strong>Atout RSE</strong> : Ferme pédagogique bio, circuit court natif</li>
+  <li class="mb-2"><strong>Tarif</strong> : 2 500-6 000€/jour</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">5. Moulin des Planches — L'intimiste bord de rivière</h3>
+
+<p class="mb-6">Ancien moulin à eau restauré au bord de l'Yvette, le <strong>Moulin des Planches</strong> offre un cadre champêtre et authentique, parfait pour les CODIR et séminaires de petits groupes qui recherchent la déconnexion totale.</p>
+
+<strong>Fiche technique :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Capacité</strong> : 10 à 40 personnes</li>
+  <li class="mb-2"><strong>Hébergement</strong> : 15 chambres avec vue rivière</li>
+  <li class="mb-2"><strong>Salles</strong> : 2 salles de réunion (20 et 40 pers)</li>
+  <li class="mb-2"><strong>Atout</strong> : Pêche, canoë, jardin potager, calme absolu</li>
+  <li class="mb-2"><strong>Tarif</strong> : 180-250€/pers/jour en résidentiel</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Tableau Comparatif des Lieux</h2>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Lieu</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Capacité</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Chambres</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Budget/pers/jour</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Idéal pour</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Abbaye Vaux-de-Cernay</td>
+      <td class="border border-gray-300 px-4 py-2">10-350</td>
+      <td class="border border-gray-300 px-4 py-2">144</td>
+      <td class="border border-gray-300 px-4 py-2">250-380€</td>
+      <td class="border border-gray-300 px-4 py-2">Séminaire résidentiel, conventions</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Château de Breteuil</td>
+      <td class="border border-gray-300 px-4 py-2">20-500</td>
+      <td class="border border-gray-300 px-4 py-2">0 (hôtels partenaires)</td>
+      <td class="border border-gray-300 px-4 py-2">5 000-12 000€/jour</td>
+      <td class="border border-gray-300 px-4 py-2">Garden party, gala, prestige</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Château de Dampierre</td>
+      <td class="border border-gray-300 px-4 py-2">30-150</td>
+      <td class="border border-gray-300 px-4 py-2">12</td>
+      <td class="border border-gray-300 px-4 py-2">6 000-15 000€/jour</td>
+      <td class="border border-gray-300 px-4 py-2">CODIR VIP, client international</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Bergerie Nationale</td>
+      <td class="border border-gray-300 px-4 py-2">20-120</td>
+      <td class="border border-gray-300 px-4 py-2">0</td>
+      <td class="border border-gray-300 px-4 py-2">2 500-6 000€/jour</td>
+      <td class="border border-gray-300 px-4 py-2">Team building RSE, nature</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Moulin des Planches</td>
+      <td class="border border-gray-300 px-4 py-2">10-40</td>
+      <td class="border border-gray-300 px-4 py-2">15</td>
+      <td class="border border-gray-300 px-4 py-2">180-250€</td>
+      <td class="border border-gray-300 px-4 py-2">CODIR intimiste, déconnexion</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Activités Team Building en Vallée de Chevreuse</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Activités nature et outdoor</h3>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Randonnée guidée GR 11</strong> : 3h dans la forêt de Rambouillet, animée par un guide naturaliste. Observation cerfs et biches en automne</li>
+  <li class="mb-2"><strong>VTT en forêt</strong> : parcours 15-25 km adaptés tous niveaux, avec arrêts patrimoine</li>
+  <li class="mb-2"><strong>Canoë sur l'Yvette</strong> : descente 2h en équipe, épreuves collaboratives</li>
+  <li class="mb-2"><strong>Course d'orientation</strong> : par équipes dans le parc de l'abbaye ou en forêt</li>
+  <li class="mb-2"><strong>Sylvothérapie</strong> : bain de forêt guidé par un praticien certifié, exercices respiration</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Activités gastronomie et terroir</h3>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Atelier cuisine au château</strong> : cours de cuisine avec chef, produits locaux</li>
+  <li class="mb-2"><strong>Visite ferme bio + déjeuner champêtre</strong> : Bergerie Nationale ou fermes partenaires</li>
+  <li class="mb-2"><strong>Dégustation cidre et fromages</strong> : producteurs locaux (brie de Meaux, cidre Rambouillet)</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Activités culture et patrimoine</h3>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Murder party en abbaye</strong> : enquête immersive dans les ruines de Vaux-de-Cernay</li>
+  <li class="mb-2"><strong>Visite privatisée Château de Breteuil</strong> : parcours contes de Perrault + salon privatif</li>
+  <li class="mb-2"><strong>Atelier enluminure</strong> : création d'enluminures médiévales dans le scriptorium de l'abbaye</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Accès et Logistique</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Depuis Paris</h3>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Moyen</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Durée</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Détail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">RER B</td>
+      <td class="border border-gray-300 px-4 py-2">45 min</td>
+      <td class="border border-gray-300 px-4 py-2">Châtelet → Saint-Rémy-lès-Chevreuse (terminus)</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Voiture</td>
+      <td class="border border-gray-300 px-4 py-2">35-50 min</td>
+      <td class="border border-gray-300 px-4 py-2">A6 sortie 10 ou N118 → D906</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Navette privée</td>
+      <td class="border border-gray-300 px-4 py-2">40 min</td>
+      <td class="border border-gray-300 px-4 py-2">Depuis gare RER ou Paris (600-900€ A/R)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Programme Type : Séminaire 2 Jours en Vallée de Chevreuse</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Jour 1 — Arrivée et cohésion</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>9h30</strong> : Accueil café-viennoiseries dans le cloître de l'abbaye</li>
+  <li class="mb-2"><strong>10h00</strong> : Plénière en salle capitulaire (jusqu'à 200 pers)</li>
+  <li class="mb-2"><strong>12h30</strong> : Déjeuner terrasse vue étang</li>
+  <li class="mb-2"><strong>14h00</strong> : Team building — Course d'orientation en forêt par équipes</li>
+  <li class="mb-2"><strong>17h00</strong> : Pause spa et temps libre</li>
+  <li class="mb-2"><strong>19h30</strong> : Cocktail dans les ruines gothiques illuminées</li>
+  <li class="mb-2"><strong>20h30</strong> : Dîner gastronomique dans le réfectoire des moines</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Jour 2 — Travail et conclusion</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>8h00</strong> : Petit-déjeuner buffet</li>
+  <li class="mb-2"><strong>9h00</strong> : Ateliers en sous-groupes (salles commission)</li>
+  <li class="mb-2"><strong>11h00</strong> : Restitution plénière + plan d'action</li>
+  <li class="mb-2"><strong>12h30</strong> : Déjeuner de clôture</li>
+  <li class="mb-2"><strong>14h00</strong> : Départ</li>
+</ul>
+
+<p class="mb-6"><strong>Budget estimé</strong> pour 50 personnes, 2J/1N : 14 500-17 000€ TTC tout compris.</p>
+
+<div class="bg-amber-50 border-l-4 border-[--bronze-antique] p-6 my-8 rounded-r-lg">
+  <p class="text-lg font-semibold text-gray-900 mb-2">Organisez votre séminaire en Vallée de Chevreuse</p>
+  <p class="text-gray-700">Select Châteaux vous accompagne dans le choix du lieu idéal et l'organisation complète de votre événement. Devis gratuit en 24h, réponse garantie.</p>
+</div>
+
+    </div>
+  `
+  },
+  {
+    id: 202,
+    slug: "hotel-seminaire-chantilly-comparatif",
+    title: "Hôtel Séminaire Chantilly : Comparatif 6 Lieux [Tarifs 2026]",
+    excerpt: "Quel hôtel choisir pour votre séminaire à Chantilly ? Comparatif détaillé de 6 établissements : capacités, tarifs, équipements. Du 4★ au palace, de 180€ à 450€/pers.",
+    category: "lieux" as BlogCategory,
+    author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
+    publishedAt: "2026-03-22",
+    readingTime: 12,
+    image: "/images/chantilly-destination-royale-seminaire-luxe.webp",
+    imageAlt: "Hôtels pour séminaire à Chantilly - Comparatif des meilleurs établissements",
+    keywords: ["hotel seminaire chantilly", "hotel séminaire chantilly", "hôtel séminaire chantilly", "hébergement séminaire chantilly", "où dormir séminaire chantilly", "chantilly hôtel conférence", "dolce chantilly séminaire", "montvillargenne séminaire", "auberge jeu de paume chantilly"],
+    faq: [
+      { question: "Quel est le meilleur hôtel pour un séminaire à Chantilly ?", answer: "Pour un séminaire de prestige : le Tiara Mont Royal 5★ (100 chambres, spa, golf). Pour un grand groupe : le Dolce Chantilly 4★ (200 chambres, salles jusqu'à 600 pers). Pour l'intimiste luxe : l'Auberge du Jeu de Paume 5★ (90 chambres, dans le parc du château)." },
+      { question: "Combien coûte une nuit d'hôtel séminaire à Chantilly ?", answer: "Les tarifs séminaire résidentiel à Chantilly varient de 180€/pers/jour (Dolce Chantilly 4★, formule séminaire) à 450€/pers/jour (Auberge du Jeu de Paume 5★). En moyenne, comptez 250-320€ par personne et par jour en pension complète avec salles de réunion incluses." },
+      { question: "Quel hôtel à Chantilly pour 200 personnes en séminaire ?", answer: "Le Dolce Chantilly est le seul hôtel à pouvoir accueillir 200+ personnes en séminaire résidentiel (200 chambres, centre de congrès jusqu'à 600 places). Le Château de Montvillargenne (115 chambres) peut aussi convenir avec des annexes." },
+      { question: "Y a-t-il des hôtels avec spa à Chantilly pour séminaire ?", answer: "Oui : le Tiara Mont Royal 5★ dispose d'un spa de 2 500 m² (piscine, hammam, sauna, soins), le Dolce Chantilly a une piscine intérieure et spa, et l'Auberge du Jeu de Paume propose un spa Valmont. L'Abbaye des Vaux-de-Cernay (45 min) offre aussi spa + piscine." }
+    ],
+    content: `
+    <div class="prose prose-lg max-w-none">
+<p class="mb-6">Vous planifiez un <strong>séminaire à Chantilly</strong> et cherchez l'hôtel idéal ? Le choix de l'hébergement est décisif : il impacte le budget, l'expérience des participants et la logistique globale. Chantilly offre un éventail d'hôtels séminaire exceptionnel — du 4★ business au palace 5★, du château privatisable à l'hôtel de congrès moderne.</p>
+
+<p class="mb-6">Ce comparatif détaille les <strong>6 meilleurs hôtels pour un séminaire à Chantilly</strong> : capacités, tarifs 2026, équipements, et quel profil d'événement chacun cible. Pas de liste générique — un vrai comparatif terrain basé sur nos retours d'expérience.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">1. Tiara Château Hôtel Mont Royal 5★ — Le luxe absolu</h2>
+
+<p class="mb-6">Château du XIXe siècle au cœur de la forêt de Chantilly, le <strong>Mont Royal</strong> est l'adresse la plus prestigieuse pour un séminaire haut de gamme. Architecture majestueuse, spa de 2 500 m², golf 18 trous privatisable.</p>
+
+<strong>Fiche complète :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Chambres</strong> : 100 chambres et suites (dont 10 suites prestige)</li>
+  <li class="mb-2"><strong>Salles séminaire</strong> : 12 salles modulables, de 10 à 200 personnes</li>
+  <li class="mb-2"><strong>Plénière max</strong> : 200 pers en théâtre, 120 en U</li>
+  <li class="mb-2"><strong>Équipement</strong> : vidéoprojecteur, écran, WiFi haut débit, sonorisation</li>
+  <li class="mb-2"><strong>Restauration</strong> : restaurant gastronomique + bar lounge + terrasse</li>
+  <li class="mb-2"><strong>Spa</strong> : 2 500 m² — piscine intérieure, hammam, sauna, jacuzzi, 8 cabines de soin</li>
+  <li class="mb-2"><strong>Loisirs</strong> : golf 18 trous, tennis, parcours santé en forêt</li>
+  <li class="mb-2"><strong>Privatisation</strong> : possible (à partir de 80 chambres)</li>
+  <li class="mb-2"><strong>Tarif séminaire résidentiel</strong> : 280-400€/pers/jour (petit-déj + déjeuner + dîner + salles + pauses)</li>
+  <li class="mb-2"><strong>Accès</strong> : 40 min Paris A1, 10 min gare Chantilly-Gouvieux</li>
+</ul>
+
+<strong>Idéal pour</strong> : conventions direction, séminaires clients VIP, incentive luxe (50-150 pers).
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">2. Dolce by Wyndham Chantilly 4★ — Le volume maîtrisé</h2>
+
+<p class="mb-6">Le <strong>Dolce Chantilly</strong> est la référence pour les grands séminaires. Son centre de congrès modulable peut accueillir jusqu'à 600 personnes, avec un rapport qualité/prix imbattable dans la zone Chantilly.</p>
+
+<strong>Fiche complète :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Chambres</strong> : 200 chambres (standard et supérieure)</li>
+  <li class="mb-2"><strong>Salles séminaire</strong> : 20+ salles modulables, centre de congrès</li>
+  <li class="mb-2"><strong>Plénière max</strong> : 600 pers en théâtre</li>
+  <li class="mb-2"><strong>Restauration</strong> : restaurant buffet + restaurant à la carte + bar</li>
+  <li class="mb-2"><strong>Bien-être</strong> : piscine intérieure, spa, fitness</li>
+  <li class="mb-2"><strong>Loisirs</strong> : golf, tennis, parcours jogging</li>
+  <li class="mb-2"><strong>Tarif séminaire résidentiel</strong> : 180-250€/pers/jour</li>
+  <li class="mb-2"><strong>Accès</strong> : 35 min Paris A1, navette gare incluse</li>
+</ul>
+
+<strong>Idéal pour</strong> : grands séminaires nationaux (100-400 pers), formations, kick-off commerciaux.
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">3. Auberge du Jeu de Paume 5★ — L'emplacement unique</h2>
+
+<p class="mb-6">Seul hôtel 5★ situé à l'intérieur même du Domaine de Chantilly, l'<strong>Auberge du Jeu de Paume</strong> offre un emplacement impossible à reproduire : vue sur le château, parc Le Nôtre, accès direct aux Grandes Écuries.</p>
+
+<strong>Fiche complète :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Chambres</strong> : 92 chambres et suites (vue château ou jardins)</li>
+  <li class="mb-2"><strong>Salles séminaire</strong> : 5 salles, de 10 à 80 personnes</li>
+  <li class="mb-2"><strong>Restauration</strong> : La Table du Connétable (1★ Michelin), bar, terrasse</li>
+  <li class="mb-2"><strong>Spa</strong> : Valmont — piscine, hammam, soins d'exception</li>
+  <li class="mb-2"><strong>Tarif séminaire résidentiel</strong> : 320-450€/pers/jour</li>
+  <li class="mb-2"><strong>Accès</strong> : 5 min à pied gare Chantilly-Gouvieux</li>
+</ul>
+
+<strong>Idéal pour</strong> : CODIR, board meetings, événements clients prestige (20-60 pers).
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">4. Château de Montvillargenne 4★ — Le charme Belle Époque</h2>
+
+<p class="mb-6">Construit en 1896 par le Baron de Rothschild, le <strong>Château de Montvillargenne</strong> combine charme historique et équipements modernes. Son parc de 7 hectares et sa situation à Gouvieux (4 km de Chantilly) en font un excellent compromis prestige/budget.</p>
+
+<strong>Fiche complète :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Chambres</strong> : 115 chambres et suites</li>
+  <li class="mb-2"><strong>Salles séminaire</strong> : 16 salles, de 8 à 200 personnes</li>
+  <li class="mb-2"><strong>Restauration</strong> : restaurant panoramique + bar + terrasse parc</li>
+  <li class="mb-2"><strong>Bien-être</strong> : piscine intérieure, fitness, spa</li>
+  <li class="mb-2"><strong>Parc</strong> : 7 hectares, terrasse avec vue forêt</li>
+  <li class="mb-2"><strong>Tarif séminaire résidentiel</strong> : 220-300€/pers/jour</li>
+  <li class="mb-2"><strong>Accès</strong> : 8 min gare Chantilly-Gouvieux</li>
+</ul>
+
+<strong>Idéal pour</strong> : séminaires entreprise classiques (40-150 pers), budget maîtrisé avec cachet.
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">5. Château de la Tour 4★ — L'intimiste boutique</h2>
+
+<p class="mb-6">Petit château-hôtel de charme à Gouvieux, le <strong>Château de la Tour</strong> séduit par son ambiance intimiste. Parfait pour les petits groupes qui veulent l'exclusivité d'un lieu sans l'atmosphère "grand hôtel".</p>
+
+<strong>Fiche complète :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Chambres</strong> : 42 chambres personnalisées</li>
+  <li class="mb-2"><strong>Salles séminaire</strong> : 4 salles, de 10 à 60 personnes</li>
+  <li class="mb-2"><strong>Restauration</strong> : restaurant gastronomique, cave vins réputée</li>
+  <li class="mb-2"><strong>Parc</strong> : 4 hectares avec vue forêt</li>
+  <li class="mb-2"><strong>Tarif séminaire résidentiel</strong> : 260-350€/pers/jour</li>
+  <li class="mb-2"><strong>Accès</strong> : 5 min gare Chantilly-Gouvieux</li>
+</ul>
+
+<strong>Idéal pour</strong> : CODIR, séminaires direction (15-40 pers), privatisation facile.
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">6. Capitainerie des Lices — L'expérience patrimoine</h2>
+
+<p class="mb-6">Située dans l'enceinte du Domaine de Chantilly (face aux Grandes Écuries), la <strong>Capitainerie</strong> offre une expérience unique : dormir dans le domaine princier lui-même.</p>
+
+<strong>Fiche complète :</strong>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Chambres</strong> : 18 chambres doubles</li>
+  <li class="mb-2"><strong>Salles</strong> : 2 salles de réunion (20 et 40 pers)</li>
+  <li class="mb-2"><strong>Restauration</strong> : formule résidentielle complète</li>
+  <li class="mb-2"><strong>Atout unique</strong> : accès privatisé spectacle équestre possible</li>
+  <li class="mb-2"><strong>Tarif</strong> : 250-300€/pers/jour</li>
+  <li class="mb-2"><strong>Accès</strong> : dans le Domaine de Chantilly</li>
+</ul>
+
+<strong>Idéal pour</strong> : petits groupes VIP (10-36 pers) qui veulent vivre le patrimoine.
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Tableau Comparatif Complet</h2>
+
+<table class="w-full border-collapse mt-6 mb-6 text-sm">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Hôtel</th>
+      <th class="border border-gray-300 px-3 py-2 text-left font-semibold">★</th>
+      <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Ch.</th>
+      <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Plénière max</th>
+      <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Budget/pers/jour</th>
+      <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Spa</th>
+      <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Cible</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="border border-gray-300 px-3 py-2">Mont Royal</td><td class="border border-gray-300 px-3 py-2">5★</td><td class="border border-gray-300 px-3 py-2">100</td><td class="border border-gray-300 px-3 py-2">200</td><td class="border border-gray-300 px-3 py-2">280-400€</td><td class="border border-gray-300 px-3 py-2">✅ 2500m²</td><td class="border border-gray-300 px-3 py-2">Luxe, VIP</td></tr>
+    <tr><td class="border border-gray-300 px-3 py-2">Dolce</td><td class="border border-gray-300 px-3 py-2">4★</td><td class="border border-gray-300 px-3 py-2">200</td><td class="border border-gray-300 px-3 py-2">600</td><td class="border border-gray-300 px-3 py-2">180-250€</td><td class="border border-gray-300 px-3 py-2">✅</td><td class="border border-gray-300 px-3 py-2">Grands groupes</td></tr>
+    <tr><td class="border border-gray-300 px-3 py-2">Jeu de Paume</td><td class="border border-gray-300 px-3 py-2">5★</td><td class="border border-gray-300 px-3 py-2">92</td><td class="border border-gray-300 px-3 py-2">80</td><td class="border border-gray-300 px-3 py-2">320-450€</td><td class="border border-gray-300 px-3 py-2">✅ Valmont</td><td class="border border-gray-300 px-3 py-2">Prestige CODIR</td></tr>
+    <tr><td class="border border-gray-300 px-3 py-2">Montvillargenne</td><td class="border border-gray-300 px-3 py-2">4★</td><td class="border border-gray-300 px-3 py-2">115</td><td class="border border-gray-300 px-3 py-2">200</td><td class="border border-gray-300 px-3 py-2">220-300€</td><td class="border border-gray-300 px-3 py-2">✅</td><td class="border border-gray-300 px-3 py-2">Classique, bon ratio</td></tr>
+    <tr><td class="border border-gray-300 px-3 py-2">Château Tour</td><td class="border border-gray-300 px-3 py-2">4★</td><td class="border border-gray-300 px-3 py-2">42</td><td class="border border-gray-300 px-3 py-2">60</td><td class="border border-gray-300 px-3 py-2">260-350€</td><td class="border border-gray-300 px-3 py-2">❌</td><td class="border border-gray-300 px-3 py-2">Intimiste</td></tr>
+    <tr><td class="border border-gray-300 px-3 py-2">Capitainerie</td><td class="border border-gray-300 px-3 py-2">—</td><td class="border border-gray-300 px-3 py-2">18</td><td class="border border-gray-300 px-3 py-2">40</td><td class="border border-gray-300 px-3 py-2">250-300€</td><td class="border border-gray-300 px-3 py-2">❌</td><td class="border border-gray-300 px-3 py-2">VIP patrimoine</td></tr>
+  </tbody>
+</table>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Comment Choisir ? Nos Recommandations par Profil</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Vous organisez un grand séminaire (100+ pers)</h3>
+<p class="mb-6">→ <strong>Dolce Chantilly</strong> : seul hôtel avec la capacité suffisante (200 chambres, 600 pers en plénière). Budget maîtrisé, navette gare incluse.</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Vous voulez impressionner vos clients/direction</h3>
+<p class="mb-6">→ <strong>Tiara Mont Royal 5★</strong> ou <strong>Auberge du Jeu de Paume 5★</strong>. Le Mont Royal pour le spa et le golf, le Jeu de Paume pour la vue sur le château de Chantilly.</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Vous cherchez le meilleur rapport qualité/prix</h3>
+<p class="mb-6">→ <strong>Château de Montvillargenne</strong> : 220-300€/pers avec un vrai château, un parc de 7 ha, 115 chambres et spa. Le sweet spot de Chantilly.</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Vous organisez un CODIR intimiste (15-30 pers)</h3>
+<p class="mb-6">→ <strong>Château de la Tour</strong> : 42 chambres, privatisation facile, ambiance boutique hôtel. Ou la <strong>Capitainerie</strong> pour vivre dans le Domaine de Chantilly.</p>
+
+<div class="bg-amber-50 border-l-4 border-[--bronze-antique] p-6 my-8 rounded-r-lg">
+  <p class="text-lg font-semibold text-gray-900 mb-2">Besoin d'aide pour choisir ?</p>
+  <p class="text-gray-700">Select Châteaux connaît chaque hôtel de Chantilly. Décrivez-nous votre séminaire et recevez une recommandation personnalisée avec devis en 24h.</p>
+</div>
+
+    </div>
+  `
+  },
+  {
+    id: 203,
+    slug: "seminaire-chantilly-activites-team-building",
+    title: "15 Activités Team Building à Chantilly [Testées en 2026]",
+    excerpt: "Spectacle équestre privatisé, rallye 2CV en forêt, escape game en château : 15 activités team building originales à Chantilly. Tarifs, durées et retours d'expérience.",
+    category: "team-building" as BlogCategory,
+    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    publishedAt: "2026-03-22",
+    readingTime: 11,
+    image: "/images/seminaire-entreprise-chateau-evenement-hero.webp",
+    imageAlt: "Activités team building à Chantilly - Spectacles équestres et aventures en forêt",
+    keywords: ["activite seminaire chantilly", "activité séminaire chantilly", "team building chantilly", "team building forêt chantilly", "activité entreprise chantilly", "séminaire chantilly activités", "soirée entreprise chantilly", "spectacle equestre chantilly entreprise"],
+    faq: [
+      { question: "Quelles activités de team building peut-on faire à Chantilly ?", answer: "Chantilly offre 15+ activités uniques : spectacle équestre privatisé (Grandes Écuries), rallye 2CV dans la forêt de 6 300 ha, escape game en château, olympiades outdoor, sylvothérapie, atelier crème chantilly avec un chef, murder party, défi culinaire, tir à l'arc, chasse au trésor GPS, et visite privatisée du Musée Condé." },
+      { question: "Combien coûte un spectacle équestre privatisé à Chantilly ?", answer: "Un spectacle équestre privatisé aux Grandes Écuries coûte 3 000 à 8 000€ selon la durée et le nombre de cavaliers (30 min à 1h). C'est l'activité signature de Chantilly, impossible à reproduire ailleurs. Capacité : jusqu'à 500 spectateurs dans le manège." },
+      { question: "Peut-on organiser un rallye 2CV à Chantilly ?", answer: "Oui, la forêt de Chantilly (6 300 ha) est le terrain idéal pour un rallye 2CV. Plusieurs prestataires proposent des circuits de 2h à 4h avec roadbook, épreuves photo et arrêts patrimoine. Budget : 80-120€/personne, véhicules et encadrement inclus." },
+      { question: "Quelles activités originales pour une soirée de gala à Chantilly ?", answer: "Pour une soirée mémorable à Chantilly : dîner aux chandelles dans les Grandes Écuries (spectacle pendant le repas), soirée casino dans un salon du château, murder party en costume d'époque, dégustation champagne dans les caves, ou feu d'artifice privatisé au bord du Grand Canal." }
+    ],
+    content: `
+    <div class="prose prose-lg max-w-none">
+<p class="mb-6"><strong>Chantilly</strong> n'est pas qu'un décor de carte postale pour séminaires. C'est un territoire d'activités uniques, impossibles à reproduire ailleurs en Île-de-France. Forêt de 6 300 hectares, Grandes Écuries monumentales, patrimoine princier, terroir gastronomique : chaque activité a un ancrage local fort qui transforme un simple team building en expérience mémorable.</p>
+
+<p class="mb-6">Voici <strong>15 activités testées et validées</strong> par nos clients en 2025-2026, classées par type d'expérience. Pour chacune : description précise, durée, tarif, et notre avis terrain.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🐴 Activités Équestres — L'ADN de Chantilly</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">1. Spectacle équestre privatisé aux Grandes Écuries</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Spectacle de voltige, dressage et cascades dans le manège historique des Grandes Écuries (XVIIIe siècle)</li>
+  <li class="mb-2"><strong>Durée</strong> : 45 min à 1h15</li>
+  <li class="mb-2"><strong>Capacité</strong> : 50 à 500 spectateurs</li>
+  <li class="mb-2"><strong>Budget</strong> : 3 000-8 000€ selon format</li>
+  <li class="mb-2"><strong>Notre avis</strong> : L'activité signature. L'effet "waouh" est garanti — des DG aguerris restent bouche bée. Impossible à reproduire ailleurs</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">2. Initiation polo en équipe</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Découverte du polo avec moniteur, mini-tournoi entre équipes</li>
+  <li class="mb-2"><strong>Durée</strong> : 2h30</li>
+  <li class="mb-2"><strong>Capacité</strong> : 10-30 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 150-200€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Expérience très "premium". Idéal pour groupes direction ou clients VIP. Aucune expérience équestre requise</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">3. Visite matinale des écuries d'entraînement</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Accès privatisé aux écuries de course, observation de l'entraînement matinal des pur-sang avec un jockey professionnel</li>
+  <li class="mb-2"><strong>Durée</strong> : 1h30 (6h30-8h00)</li>
+  <li class="mb-2"><strong>Capacité</strong> : 10-25 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 40-60€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Expérience rare et authentique. Parfait en ice-breaker du jour 2, juste avant le petit-déjeuner</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🌲 Activités Nature & Forêt</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">4. Rallye 2CV dans la forêt de Chantilly</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Circuit 40-60 km en 2CV décapotables, roadbook avec épreuves photo, quiz patrimoine, arrêts panoramiques</li>
+  <li class="mb-2"><strong>Durée</strong> : 2h30-4h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 12-80 personnes (3-4 par 2CV)</li>
+  <li class="mb-2"><strong>Budget</strong> : 80-120€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : L'activité la plus demandée après le spectacle équestre. Fonctionne à 100% — rires garantis. Prévoir beau temps ou bâches</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">5. Course d'orientation GPS en forêt</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Parcours 5-8 km par équipes en forêt de Chantilly, balises GPS, défis collaboratifs à chaque étape</li>
+  <li class="mb-2"><strong>Durée</strong> : 2h-3h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 20-150 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 35-55€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Excellent rapport qualité/prix. Adapté tous niveaux sportifs. Parfait pour les grands groupes</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">6. Sylvothérapie et bain de forêt</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Immersion guidée dans la forêt avec exercices de respiration, méditation, connexion nature. Encadré par un praticien certifié</li>
+  <li class="mb-2"><strong>Durée</strong> : 1h30-2h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 10-30 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 30-50€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Tendance forte 2026. Idéal en complément d'un séminaire stratégique intense — aide à la prise de recul</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">7. Olympiades outdoor</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : 8-12 épreuves sportives et ludiques dans le parc du château : tir à l'arc, course de sacs, quiz culture, relais, construction pont</li>
+  <li class="mb-2"><strong>Durée</strong> : 2h30-3h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 20-200 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 40-70€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Le classique indémodable. Fonctionne pour tous les profils. Privilégier le parc du château pour le décor</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🎭 Activités Culture & Immersion</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">8. Visite privatisée du Musée Condé</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Visite guidée exclusive du musée (2e collection de peintures anciennes de France) hors heures d'ouverture</li>
+  <li class="mb-2"><strong>Durée</strong> : 1h30</li>
+  <li class="mb-2"><strong>Capacité</strong> : 15-50 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 1 500-3 000€ pour le groupe</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Pour les groupes internationaux ou les clients culture. Voir les Raphaël en privatif est exceptionnel</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">9. Murder party au château</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Enquête policière immersive en costume d'époque dans les salons du château. Scénario sur mesure possible</li>
+  <li class="mb-2"><strong>Durée</strong> : 2h-3h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 20-80 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 50-90€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Le cadre décuple l'immersion. Les salons boisés, escaliers secrets et parcs crépusculaires sont faits pour ça</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">10. Escape game en château</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Énigmes disséminées dans le château et le parc. Format géant par équipes</li>
+  <li class="mb-2"><strong>Durée</strong> : 1h30-2h30</li>
+  <li class="mb-2"><strong>Capacité</strong> : 15-60 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 45-80€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Très demandé. Choisir un prestataire qui crée un scénario lié à l'histoire de Chantilly (pas un escape game générique)</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🍴 Activités Gastronomie</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">11. Atelier crème chantilly avec un chef</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : L'histoire de la crème chantilly (inventée par Vatel en 1671) + atelier de création avec un chef. Dégustation</li>
+  <li class="mb-2"><strong>Durée</strong> : 1h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 10-40 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 35-50€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Léger, fun, 100% local. Parfait en complément d'une journée dense. L'anecdote Vatel fait toujours son effet</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">12. Défi culinaire en équipes</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Compétition type MasterChef dans les cuisines du château. Panier imposé produits locaux</li>
+  <li class="mb-2"><strong>Durée</strong> : 2h-3h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 15-60 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 60-100€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Cohésion d'équipe garantie. Le déjeuner est le résultat du défi — motivant !</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">13. Dégustation champagne dans les caves</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Visite caves historiques + dégustation 3-5 champagnes avec sommelier. Accord mets-champagne possible</li>
+  <li class="mb-2"><strong>Durée</strong> : 1h-1h30</li>
+  <li class="mb-2"><strong>Capacité</strong> : 10-50 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 40-70€/personne</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Idéal en pré-dîner ou pour conclure un séminaire. Ambiance garantie</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🌙 Activités Soirée</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">14. Casino éphémère dans les salons</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Installation de tables de jeux (roulette, blackjack, poker) dans les salons du château avec croupiers professionnels</li>
+  <li class="mb-2"><strong>Durée</strong> : 2h-3h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 30-150 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 2 000-5 000€ (forfait, pas par personne)</li>
+  <li class="mb-2"><strong>Notre avis</strong> : Très apprécié des groupes internationaux. Les boiseries du château créent l'atmosphère parfaite</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">15. Dîner spectacle aux Grandes Écuries</h3>
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Concept</strong> : Dîner gastronomique dans les Grandes Écuries avec spectacle équestre intégré entre les plats</li>
+  <li class="mb-2"><strong>Durée</strong> : 3h-4h</li>
+  <li class="mb-2"><strong>Capacité</strong> : 50-300 personnes</li>
+  <li class="mb-2"><strong>Budget</strong> : 150-250€/personne (dîner + spectacle)</li>
+  <li class="mb-2"><strong>Notre avis</strong> : L'expérience ultime à Chantilly. Dîner dans l'architecture monumentale du XVIIIe avec chevaux et cavaliers — inoubliable</li>
+</ul>
+
+<div class="bg-amber-50 border-l-4 border-[--bronze-antique] p-6 my-8 rounded-r-lg">
+  <p class="text-lg font-semibold text-gray-900 mb-2">Composez votre programme sur mesure</p>
+  <p class="text-gray-700">Select Châteaux vous aide à combiner ces activités pour créer le séminaire parfait à Chantilly. Devis gratuit en 24h avec programme détaillé.</p>
+</div>
+
+    </div>
+  `
+  },
+  {
+    id: 204,
+    slug: "seminaire-nature-chevreuse-deconnexion",
+    title: "Séminaire au Vert près de Paris : La Vallée de Chevreuse à 35 min",
+    excerpt: "Besoin de déconnexion pour votre séminaire ? La Vallée de Chevreuse offre forêt, abbayes et calme absolu à 35 min de Paris en RER B. Guide des lieux et activités nature.",
+    category: "lieux" as BlogCategory,
+    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    publishedAt: "2026-03-22",
+    readingTime: 10,
+    image: "/images/seminaire-entreprise-chateau-evenement-hero.webp",
+    imageAlt: "Séminaire au vert près de Paris - Vallée de Chevreuse nature et déconnexion",
+    keywords: ["séminaire au vert paris", "séminaire nature île-de-france", "seminaire vallee de chevreuse", "séminaire déconnexion paris", "séminaire éco responsable", "séminaire écologique", "séminaire RSE île-de-france", "séminaire forêt paris", "séminaire bien-être nature"],
+    faq: [
+      { question: "Où organiser un séminaire au vert près de Paris ?", answer: "La Vallée de Chevreuse est la destination idéale : Parc Naturel Régional à 35 min de Paris en RER B. Abbayes privatisables, domaines en forêt, activités nature. Alternative : Fontainebleau (1h) ou Vexin (50 min). La Vallée de Chevreuse offre le meilleur ratio proximité/déconnexion." },
+      { question: "Un séminaire au vert est-il compatible avec le travail ?", answer: "Oui, les lieux en Vallée de Chevreuse disposent d'infrastructures pro : WiFi haut débit, salles de réunion équipées (vidéoprojecteur, paperboard), espaces de sous-commission. L'Abbaye des Vaux-de-Cernay a 15 salles pour 10 à 350 pers. La nature aide la concentration et la créativité." },
+      { question: "Quel budget pour un séminaire éco-responsable en Vallée de Chevreuse ?", answer: "Comptez 180-380€/pers/jour selon le standing. L'Abbaye des Vaux-de-Cernay (4★) propose des séminaires résidentiels à 250-380€. Des options plus accessibles existent : gîtes de groupe (80-120€/pers) ou Bergerie Nationale de Rambouillet (120-180€/pers). Le transport en RER réduit aussi les coûts." },
+      { question: "Quelles activités RSE pour un séminaire en nature ?", answer: "Plantation d'arbres en forêt de Rambouillet, nettoyage de sentiers, atelier permaculture à la Bergerie Nationale, construction d'hôtels à insectes, randonnée biodiversité avec un écologue, cuisine zéro-déchet avec produits locaux. Chaque activité peut être liée à un objectif RSE de l'entreprise." }
+    ],
+    content: `
+    <div class="prose prose-lg max-w-none">
+<p class="mb-6">En 2026, <strong>72% des salariés français</strong> déclarent que le cadre naturel d'un séminaire impacte positivement leur engagement (baromètre QVT 2025). La demande de <strong>séminaires au vert</strong> explose — mais organiser un séminaire en pleine nature à moins d'une heure de Paris, avec de vrais équipements pro, reste un défi.</p>
+
+<p class="mb-6">La <strong>Vallée de Chevreuse</strong> résout cette équation impossible. À 35 minutes de Paris en RER B, ce Parc Naturel Régional de 63 000 hectares offre des abbayes, des châteaux et des domaines forestiers équipés pour accueillir vos séminaires — sans renoncer au WiFi, aux salles de réunion ou à la restauration de qualité.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Pourquoi un Séminaire au Vert Change Tout</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Les bénéfices prouvés de la nature sur la productivité</h3>
+
+<p class="mb-6">Ce n'est pas qu'une intuition. La recherche scientifique confirme l'impact du cadre naturel sur le travail :</p>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>+20% de créativité</strong> après 3 jours en nature (Université de l'Utah, étude Atchley 2012)</li>
+  <li class="mb-2"><strong>-37% de cortisol</strong> (hormone du stress) après 2h en forêt (étude japonaise "Shinrin-yoku")</li>
+  <li class="mb-2"><strong>+50% de cohésion d'équipe</strong> perçue après un séminaire outdoor vs indoor (baromètre Event Decision Makers 2025)</li>
+  <li class="mb-2"><strong>85% des participants</strong> jugent le séminaire "réussi" quand il inclut des activités nature (vs 61% pour un séminaire 100% salle)</li>
+</ul>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">L'argument RSE qui fait la différence</h3>
+
+<p class="mb-6">Un <strong>séminaire au vert</strong> en Vallée de Chevreuse est naturellement éco-responsable :</p>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Transport</strong> : RER B direct (vs bus charter pour Normandie ou Loire)</li>
+  <li class="mb-2"><strong>Alimentation</strong> : circuit court natif (producteurs locaux à 10 km)</li>
+  <li class="mb-2"><strong>Hébergement</strong> : rénovation patrimoine (vs hôtel béton neuf)</li>
+  <li class="mb-2"><strong>Activités</strong> : bas carbone (randonnée, vélo, canoë)</li>
+  <li class="mb-2"><strong>Reporting</strong> : bilan carbone valorisable dans le rapport RSE</li>
+</ul>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">La Vallée de Chevreuse : Le Meilleur Ratio Proximité/Nature</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Comparatif destinations "au vert" depuis Paris</h3>
+
+<table class="w-full border-collapse mt-6 mb-6">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Destination</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Durée depuis Paris</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Transport en commun</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Immersion nature</th>
+      <th class="border border-gray-300 px-4 py-2 text-left font-semibold">Lieux séminaire</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-amber-50">
+      <td class="border border-gray-300 px-4 py-2 font-semibold">Vallée de Chevreuse</td>
+      <td class="border border-gray-300 px-4 py-2">35-45 min</td>
+      <td class="border border-gray-300 px-4 py-2">✅ RER B direct</td>
+      <td class="border border-gray-300 px-4 py-2">★★★★★</td>
+      <td class="border border-gray-300 px-4 py-2">5+ (abbayes, châteaux)</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Fontainebleau</td>
+      <td class="border border-gray-300 px-4 py-2">50-70 min</td>
+      <td class="border border-gray-300 px-4 py-2">✅ Transilien R</td>
+      <td class="border border-gray-300 px-4 py-2">★★★★☆</td>
+      <td class="border border-gray-300 px-4 py-2">3-4</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Vexin français</td>
+      <td class="border border-gray-300 px-4 py-2">50-60 min</td>
+      <td class="border border-gray-300 px-4 py-2">⚠️ Limité</td>
+      <td class="border border-gray-300 px-4 py-2">★★★★☆</td>
+      <td class="border border-gray-300 px-4 py-2">2-3</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Normandie</td>
+      <td class="border border-gray-300 px-4 py-2">1h30-2h</td>
+      <td class="border border-gray-300 px-4 py-2">❌ Voiture/bus</td>
+      <td class="border border-gray-300 px-4 py-2">★★★★★</td>
+      <td class="border border-gray-300 px-4 py-2">10+</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-300 px-4 py-2">Loire</td>
+      <td class="border border-gray-300 px-4 py-2">2h-2h30</td>
+      <td class="border border-gray-300 px-4 py-2">❌ Voiture/bus</td>
+      <td class="border border-gray-300 px-4 py-2">★★★★★</td>
+      <td class="border border-gray-300 px-4 py-2">20+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="mb-6"><strong>Verdict :</strong> La Vallée de Chevreuse est la seule destination qui combine immersion nature complète ET accessibilité en transport en commun. C'est le choix rationnel pour un séminaire d'un ou deux jours.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">3 Formats de Séminaire au Vert</h2>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Format 1 : La journée déconnexion (1 jour)</h3>
+
+<p class="mb-6"><strong>Pour qui :</strong> Équipes de 15-60 pers qui veulent une journée de cohésion hors les murs sans nuit.</p>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2">9h30 : Accueil au domaine, café en terrasse</li>
+  <li class="mb-2">10h : Atelier créatif ou brainstorming en plein air</li>
+  <li class="mb-2">12h30 : Déjeuner champêtre (producteurs locaux)</li>
+  <li class="mb-2">14h : Team building nature (randonnée, course orientation, canoë)</li>
+  <li class="mb-2">16h30 : Débriefing et clôture</li>
+</ul>
+<p class="mb-6"><strong>Budget</strong> : 80-150€/pers tout compris</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Format 2 : Le séminaire résidentiel (2 jours / 1 nuit)</h3>
+
+<p class="mb-6"><strong>Pour qui :</strong> Séminaires d'entreprise classiques qui veulent un cadre différent.</p>
+
+<p class="mb-6">Programme type incluant plénière, ateliers, team building nature, dîner gastronomique et soirée au coin du feu. L'hébergement en abbaye ou château crée une intimité impossible en hôtel urbain.</p>
+
+<p class="mb-6"><strong>Budget</strong> : 250-380€/pers (Abbaye des Vaux-de-Cernay) / 180-250€ (options alternatives)</p>
+
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Format 3 : La retraite stratégique CODIR (2-3 jours)</h3>
+
+<p class="mb-6"><strong>Pour qui :</strong> Comités de direction (8-20 pers) en réflexion stratégique profonde.</p>
+
+<p class="mb-6">Format idéal : moulin ou manoir intimiste, déconnexion digitale encouragée, marches en forêt entre les sessions de travail, repas élaborés autour d'une grande table. La nature favorise la prise de recul et les décisions long terme.</p>
+
+<p class="mb-6"><strong>Budget</strong> : 300-500€/pers/jour</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">10 Activités Nature en Vallée de Chevreuse</h2>
+
+<ol class="list-decimal ml-6 mb-6">
+  <li class="mb-3"><strong>Randonnée guidée GR 11</strong> — Parcours patrimoine en forêt de Rambouillet (2-3h)</li>
+  <li class="mb-3"><strong>VTT cross-country</strong> — Circuits balisés tous niveaux dans le PNR (2h)</li>
+  <li class="mb-3"><strong>Canoë sur l'Yvette</strong> — Descente en équipe avec défis collaboratifs (2h)</li>
+  <li class="mb-3"><strong>Sylvothérapie</strong> — Bain de forêt guidé, exercices respiration (1h30)</li>
+  <li class="mb-3"><strong>Course d'orientation</strong> — Par équipes dans le parc de l'abbaye (2h)</li>
+  <li class="mb-3"><strong>Yoga et méditation outdoor</strong> — Dans le cloître ou le parc (1h)</li>
+  <li class="mb-3"><strong>Atelier permaculture</strong> — Potager bio et plantation (Bergerie Nationale, 2h)</li>
+  <li class="mb-3"><strong>Observation faune</strong> — Cerfs, biches, oiseaux avec un naturaliste (2h, automne idéal)</li>
+  <li class="mb-3"><strong>Atelier cuisine plantes sauvages</strong> — Cueillette puis cuisine avec un chef (3h)</li>
+  <li class="mb-3"><strong>Land art collectif</strong> — Création éphémère en forêt par équipes (2h)</li>
+</ol>
+
+<div class="bg-amber-50 border-l-4 border-[--bronze-antique] p-6 my-8 rounded-r-lg">
+  <p class="text-lg font-semibold text-gray-900 mb-2">Envie d'un séminaire au vert ?</p>
+  <p class="text-gray-700">Select Châteaux organise votre séminaire nature en Vallée de Chevreuse. Du lieu aux activités, un seul interlocuteur. Devis gratuit en 24h.</p>
+</div>
+
     </div>
   `
   }
