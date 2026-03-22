@@ -159,11 +159,10 @@ export function Navigation({
                     onMouseLeave={handleDropdownLeave}
                     style={{ position: 'relative' }}
                   >
-                    <button
-                      type="button"
+                    <a
+                      href={link.href}
                       aria-haspopup="true"
                       aria-expanded={activeDropdown === link.href}
-                      onClick={() => setActiveDropdown(activeDropdown === link.href ? null : link.href)}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -181,6 +180,7 @@ export function Navigation({
                         lineHeight: 1,
                         fontSize: 'inherit',
                         fontFamily: 'inherit',
+                        textDecoration: 'none',
                       }}
                     >
                       <span>{link.label}</span>
@@ -195,7 +195,7 @@ export function Navigation({
                           pointerEvents: 'none',
                         }}
                       />
-                    </button>
+                    </a>
 
                     <div
                       className={`nav-dropdown ${activeDropdown === link.href ? 'is-open' : ''}`}
