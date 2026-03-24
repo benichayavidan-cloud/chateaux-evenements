@@ -27,8 +27,8 @@ export async function GET() {
       <description>${escapeXml(post.excerpt)}</description>
       <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
       <category>${post.category}</category>
-      <enclosure url="${SITE_URL}/api/images/${post.slug}" type="image/png" length="0" />
-      <image>${SITE_URL}/api/images/${post.slug}</image>
+      <enclosure url="${SITE_URL}/api/images/${post.image.replace("/images/", "").replace(".webp", "")}" type="image/png" length="0" />
+      <image>${SITE_URL}/api/images/${post.image.replace("/images/", "").replace(".webp", "")}</image>
       <author>seminaires@selectchateaux.com (${escapeXml(post.author.name)})</author>
     </item>`
     )
