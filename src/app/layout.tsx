@@ -47,6 +47,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.selectchateaux.com'),
   alternates: {
     canonical: '/',
+    types: {
+      'application/rss+xml': '/blog/feed.xml',
+    },
   },
   openGraph: {
     type: "website",
