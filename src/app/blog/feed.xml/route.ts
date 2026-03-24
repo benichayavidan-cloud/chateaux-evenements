@@ -27,7 +27,8 @@ export async function GET() {
       <description>${escapeXml(post.excerpt)}</description>
       <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
       <category>${post.category}</category>
-      <enclosure url="${SITE_URL}${post.image}" type="image/webp" />
+      <enclosure url="${SITE_URL}${post.image}" type="image/webp" length="0" />
+      <image>${SITE_URL}${post.image}</image>
       <author>seminaires@selectchateaux.com (${escapeXml(post.author.name)})</author>
     </item>`
     )
