@@ -7,6 +7,8 @@
  * - CLUSTER 3: Team Building (RH)
  */
 
+import { seoArticles2026 } from "./blog-posts-seo-2026";
+
 export type BlogCategory = "organisation" | "lieux" | "team-building";
 
 export interface FaqItem {
@@ -58,8 +60,8 @@ const article1: BlogPost = {
     role: "Experte Événementiel",
     avatar: "SD"
   },
-  publishedAt: "2026-01-15",
-  readingTime: 8,
+  publishedAt: "2026-03-20",
+  readingTime: 12,
   image: "/images/combien-coute-seminaire-chateau-2026-tarifs-budget.webp",
   imageAlt: "Combien coûte un séminaire en château 2026 - Tarifs et budget détaillés",
   keywords: [
@@ -67,14 +69,22 @@ const article1: BlogPost = {
     "budget événement entreprise",
     "coût séminaire 2026",
     "tarif location château séminaire",
-    "devis séminaire"
+    "devis séminaire",
+    "prix séminaire château ile de france",
+    "budget séminaire entreprise",
+    "combien coute séminaire entreprise",
+    "tarif séminaire résidentiel château",
+    "prix location château événement professionnel"
   ],
   featured: true,
   faq: [
     { question: "Combien coûte un séminaire en château par personne ?", answer: "De 150€ à 450€ par personne selon la formule : journée d'étude (120-180€), résidentiel 1 nuit (240-350€), ou séminaire 2 nuits tout compris (400-550€). Le prix inclut hébergement, restauration et salles de réunion." },
     { question: "Quels sont les coûts cachés d'un séminaire en château ?", answer: "Les principaux coûts souvent oubliés : transport (bus 800-1 500€), activités team building (30-80€/pers), équipement technique (500-2 000€), et la privatisation exclusive (+15-25%). Demandez toujours un devis tout compris pour éviter les surprises." },
     { question: "Comment réduire le budget d'un séminaire sans sacrifier la qualité ?", answer: "Choisissez un jour de semaine (mardi-jeudi, -20%), réservez 3-6 mois à l'avance, optez pour un forfait tout compris plutôt qu'à la carte, et privilégiez les châteaux proches de Paris pour réduire les coûts de transport." },
-    { question: "Un séminaire en château est-il plus cher qu'un hôtel ?", answer: "Le surcoût est de 15-20% par rapport à un hôtel 4★, mais l'impact est incomparable : privatisation exclusive, cadre mémorable, espaces extérieurs vastes. Rapporté au ROI (productivité, cohésion), c'est un investissement rentable." }
+    { question: "Un séminaire en château est-il plus cher qu'un hôtel ?", answer: "Le surcoût est de 15-20% par rapport à un hôtel 4★, mais l'impact est incomparable : privatisation exclusive, cadre mémorable, espaces extérieurs vastes. Rapporté au ROI (productivité, cohésion), c'est un investissement rentable." },
+    { question: "Quel budget prévoir pour un séminaire de 50 personnes en château ?", answer: "Pour 50 personnes en formule résidentielle 1 nuit, comptez entre 12 500€ et 17 500€ tout compris (250-350€/pers). Ce budget inclut la privatisation du château, l'hébergement, la restauration, les salles de réunion et le petit-déjeuner. Ajoutez 2 000 à 4 000€ pour le transport et les activités team building." },
+    { question: "Quand réserver pour obtenir les meilleurs tarifs ?", answer: "Réservez 4 à 6 mois à l'avance pour les meilleures disponibilités et tarifs. Les périodes les plus avantageuses sont janvier-mars et novembre (hors vacances scolaires). Les mardis et mercredis sont 15 à 20% moins chers que les jeudis et vendredis." },
+    { question: "Le prix d'un séminaire en château inclut-il les activités team building ?", answer: "Non, les activités team building sont généralement en supplément (30 à 80€/personne). Certains châteaux proposent des forfaits tout compris avec 1 ou 2 activités incluses. Chez Select Châteaux, nous négocions des packages sur mesure pour optimiser votre budget global." }
   ],
   content: `
     <h2>💰 La Transparence d'abord : Combien coûte VRAIMENT un séminaire en château ?</h2>
@@ -326,8 +336,8 @@ const article2: BlogPost = {
     role: "Event Manager Senior",
     avatar: "TM"
   },
-  publishedAt: "2026-01-12",
-  readingTime: 10,
+  publishedAt: "2026-03-18",
+  readingTime: 12,
   image: "/images/reunion-entreprise-chateau-elegant.webp",
   imageAlt: "Checklist complète pour organiser un séminaire en château",
   keywords: [
@@ -335,7 +345,12 @@ const article2: BlogPost = {
     "organiser séminaire entreprise",
     "planning séminaire",
     "étapes organisation événement",
-    "to-do list séminaire"
+    "to-do list séminaire",
+    "check list organisation seminaire",
+    "liste tâches séminaire entreprise",
+    "template planning séminaire",
+    "préparer séminaire château",
+    "guide organisation séminaire 2026"
   ],
   video: {
     name: "Planification de Séminaire — Les 4 Phases du Succès",
@@ -349,7 +364,9 @@ const article2: BlogPost = {
     { question: "Combien de temps à l'avance faut-il organiser un séminaire ?", answer: "Idéalement 3 à 6 mois avant la date. Les meilleurs châteaux sont réservés tôt. En urgence, comptez minimum 3 semaines pour un événement de qualité." },
     { question: "Quelles sont les étapes clés pour organiser un séminaire ?", answer: "Les 7 étapes : définir les objectifs, fixer le budget, choisir la date et le lieu, concevoir le programme, gérer la logistique (transport, hébergement), communiquer aux participants, et évaluer après l'événement." },
     { question: "Qui contacter en premier pour organiser un séminaire en château ?", answer: "Contactez une agence spécialisée comme Select Châteaux qui gère tout de A à Z : sélection du lieu, négociation tarifaire, coordination logistique. Devis gratuit sous 24h." },
-    { question: "Quels sont les pièges à éviter quand on organise un séminaire ?", answer: "Les 5 erreurs fréquentes : réserver trop tard, sous-estimer le budget transport, ne pas prévoir de plan B météo pour les activités outdoor, surcharger le programme, et oublier d'évaluer la satisfaction après l'événement." }
+    { question: "Quels sont les pièges à éviter quand on organise un séminaire ?", answer: "Les 5 erreurs fréquentes : réserver trop tard, sous-estimer le budget transport, ne pas prévoir de plan B météo pour les activités outdoor, surcharger le programme, et oublier d'évaluer la satisfaction après l'événement." },
+    { question: "Comment organiser un séminaire en urgence en 2 semaines ?", answer: "C'est possible en passant par un spécialiste comme Select Châteaux : nous avons un réseau de 800+ lieux avec disponibilités en temps réel. En 48h nous vous proposons 3 options adaptées. Les châteaux en semaine (mardi-jeudi) ont souvent des créneaux disponibles même au dernier moment." },
+    { question: "Faut-il un prestataire ou peut-on tout organiser en interne ?", answer: "Pour un séminaire de moins de 20 personnes dans un lieu simple, l'interne est gérable. Au-delà, un prestataire spécialisé fait gagner 40 à 60 heures de travail, négocie les tarifs (économie de 10-20%) et gère les imprévus le jour J. Le coût du prestataire est souvent compensé par les économies négociées." }
   ],
   content: `
     <h2>📋 La Check-list ZERO OUBLI pour votre Séminaire en Château</h2>
@@ -14077,14 +14094,18 @@ const placeholderArticles: BlogPost[] = [
     excerpt: "20 activités testées et approuvées pour briser la glace en 5-15 minutes : du speed-meeting au jeu des présentations créatives. Fiches pratiques téléchargeables.",
     category: "team-building",
     author: { name: "Thomas Mercier", role: "Event Manager Senior", avatar: "TM" },
-    publishedAt: "2025-11-24",
-    readingTime: 6,
+    publishedAt: "2026-03-22",
+    readingTime: 10,
     image: "/images/es-meilleurs-ice-breakers-pour-debuter-un-chateau.webp",
-    imageAlt: "Es Meilleurs Ice Breakers Pour Debuter Un Chateau",
-    keywords: ["ice breaker", "brise glace réunion", "activité lancement séminaire", "jeu présentation", "animation début réunion", "exercice cohésion séminaire"],
+    imageAlt: "Les meilleurs ice-breakers pour débuter une réunion ou un séminaire en château",
+    keywords: ["ice breaker", "brise glace réunion", "activité lancement séminaire", "jeu présentation", "animation début réunion", "exercice cohésion séminaire", "ice breaker réunion", "icebreaker séminaire", "jeu brise glace entreprise", "activité brise glace originale", "idée ice breaker rapide", "ice breaker teambuilding"],
     faq: [
       { question: "Quels sont les meilleurs ice-breakers pour un séminaire ?", answer: "Les 5 plus efficaces : le portrait chinois (5 min), le 2 vérités 1 mensonge (10 min), la carte du monde (10 min), le speed meeting (15 min), et le défi photo d'équipe (20 min). Adaptez selon la taille du groupe." },
-      { question: "Combien de temps dure un ice-breaker ?", answer: "5 à 20 minutes maximum. L'objectif est de briser la glace rapidement, pas de remplacer les sessions de travail. Prévoyez un ice-breaker à chaque début de demi-journée." }
+      { question: "Combien de temps dure un ice-breaker ?", answer: "5 à 20 minutes maximum. L'objectif est de briser la glace rapidement, pas de remplacer les sessions de travail. Prévoyez un ice-breaker à chaque début de demi-journée." },
+      { question: "Quel ice-breaker pour un groupe de plus de 50 personnes ?", answer: "Pour les grands groupes, privilégiez les formats visuels et participatifs : le Human Bingo (chacun cherche des points communs), l'énergie matinale (exercice physique collectif de 10 min), ou le mur d'humeur (chacun colle un post-it décrivant son état d'esprit). Évitez les tours de table individuels au-delà de 20 personnes." },
+      { question: "Quels ice-breakers fonctionnent en visio et en présentiel ?", answer: "Le 2 vérités 1 mensonge, le portrait chinois et la météo émotionnelle fonctionnent parfaitement dans les deux formats. En visio, ajoutez un fond d'écran challenge (chacun choisit un fond qui le représente) ou un show & tell d'objet personnel." },
+      { question: "Faut-il un animateur professionnel pour les ice-breakers ?", answer: "Non, la plupart des ice-breakers de 5 à 15 minutes peuvent être animés par n'importe qui avec les bonnes instructions. Pour les formats plus longs (escape game, rally château), un animateur pro est recommandé. Select Châteaux fournit des fiches pratiques avec chaque séminaire." },
+      { question: "Comment adapter un ice-breaker au cadre d'un château ?", answer: "Exploitez le lieu : organisez un rally photo des détails architecturaux, une enquête historique sur le château, ou un quiz sur l'histoire du domaine. Le cadre exceptionnel d'un château rend chaque activité plus mémorable et engageante." }
     ],
     content: `
     <div class="prose prose-lg max-w-none">
@@ -17677,7 +17698,8 @@ export const blogPosts: BlogPost[] = [
   article10,
   article11,
   article12,
-  ...placeholderArticles
+  ...placeholderArticles,
+  ...seoArticles2026
 ];
 
 // Helper functions
