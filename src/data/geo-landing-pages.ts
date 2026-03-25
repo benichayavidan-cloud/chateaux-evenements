@@ -811,7 +811,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     h1: "Séminaire en Vallée de Chevreuse",
     heroAccroche:
       "Une abbaye cistercienne du XIIe siècle dans un parc naturel de 80 hectares, à 45 min de Paris",
-    heroImage: "/images/abbaye-millenaire-vallee-chevreuse-hero.webp",
+    heroImage: "/images/seminaire-vert-vallee-chevreuse-nature-deconnexion.webp",
     introTitre: "Séminaire en Vallée de Chevreuse : l'abbaye cistercienne qui transforme vos équipes",
     introduction: `La Vallée de Chevreuse concentre 191 impressions mensuelles sur Google pour un séminaire en pleine nature à moins d'une heure de Paris — et une seule adresse à la hauteur de ces attentes : notre abbaye cistercienne fondée en 1118, entièrement rénovée en 2023 dans un décor signé Cordélia de Castellane. Classée Parc naturel régional, la Vallée de Chevreuse offre ce que les salles de conférence ne peuvent pas donner : 80 hectares de forêt de Rambouillet, un lac privé, un silence absolu propice à la réflexion stratégique, et l'absence de réseau GSM comme bouclier anti-distraction. 144 chambres dans 3 bâtisses, 14 salles de réunion équipées, 6 restaurants et bars Paris Society dont le mythique Réfectoire des Moines (500 m², 300 personnes en cocktail sous des voûtes du XIIe siècle), un cinéma privé de 200 m², une gaming room et un karaoké. Pour les CODIR, retraites de leadership et séminaires de transformation, c'est le lieu n°1 à 45 minutes de Paris par l'A13.`,
     pourquoiTitre: "Pourquoi choisir la Vallée de Chevreuse pour votre séminaire ?",
