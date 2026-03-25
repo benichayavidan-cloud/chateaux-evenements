@@ -176,12 +176,14 @@ export const geoLandingPages: GeoLandingPage[] = [
 
 <h2>Choisir le bon château pour votre séminaire en Île-de-France</h2>
 <table>
-<tr><th>Critère</th><th>Chantilly (60)</th><th>Yvelines (78)</th><th>Hauts-de-Seine (92)</th></tr>
+<thead><tr><th>Critère</th><th>Chantilly (60)</th><th>Yvelines (78)</th><th>Hauts-de-Seine (92)</th></tr></thead>
+<tbody>
 <tr><td>Distance Paris</td><td>35 min (A1)</td><td>45 min (A13)</td><td>Métro (2 arrêts)</td></tr>
 <tr><td>Capacité max</td><td>300 pers.</td><td>300 pers.</td><td>180 pers.</td></tr>
 <tr><td>Chambres</td><td>228</td><td>144</td><td>83</td></tr>
 <tr><td>Budget résidentiel</td><td>150–350 €/pers</td><td>240–350 €/pers</td><td>280–450 €/pers</td></tr>
 <tr><td>Idéal pour</td><td>Conventions, kick-offs</td><td>CODIR, RSE, déconnexion</td><td>Board, COMEX, standing</td></tr>
+</tbody>
 </table>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
