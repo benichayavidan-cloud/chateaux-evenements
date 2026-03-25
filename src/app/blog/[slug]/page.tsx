@@ -21,14 +21,18 @@ function getRelatedCommercialPages(category: BlogCategory) {
     return [
       ...base,
       { href: "/seminaire-chateau-ile-de-france", label: "Séminaire Château Île-de-France", icon: MapPin },
-      { href: "/seminaire-chateau-proche-paris", label: "Séminaire Château proche Paris", icon: MapPin },
+      { href: "/seminaire-chateau-chantilly", label: "Hôtel Séminaire Chantilly", icon: MapPin },
+      { href: "/seminaire-chateau-oise-60", label: "Séminaire Château Oise (60)", icon: MapPin },
+      { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
     ];
   }
   if (category === "team-building") {
     return [
       { href: "/team-building-chateau", label: "+40 Activités Team Building en Château", icon: Users2 },
       ...base,
-      { href: "/seminaire-chateau-chantilly", label: "Séminaire Château à Chantilly", icon: MapPin },
+      { href: "/seminaire-chateau-chantilly", label: "Hôtel Séminaire Chantilly", icon: MapPin },
+      { href: "/seminaire-chateau-yvelines-78", label: "Séminaire Château Yvelines (78)", icon: MapPin },
+      { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
     ];
   }
   // category === "lieux"
@@ -36,6 +40,8 @@ function getRelatedCommercialPages(category: BlogCategory) {
     ...base,
     { href: "/seminaire-chateau-oise-60", label: "Séminaire Château dans l'Oise (60)", icon: MapPin },
     { href: "/seminaire-chateau-yvelines-78", label: "Séminaire Château dans les Yvelines (78)", icon: MapPin },
+    { href: "/seminaire-chateau-hauts-de-seine-92", label: "Séminaire Château Hauts-de-Seine (92)", icon: MapPin },
+    { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
   ];
 }
 

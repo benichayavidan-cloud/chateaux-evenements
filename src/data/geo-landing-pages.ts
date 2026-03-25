@@ -165,7 +165,20 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>Sortir du cadre habituel du bureau transforme radicalement la dynamique d'un séminaire. Un château offre un « effet wow » immédiat qui marque les esprits et favorise l'engagement des participants. L'architecture historique, les jardins d'exception et l'éloignement de la vie quotidienne créent les conditions idéales pour la créativité, la réflexion stratégique et le renforcement des liens entre collaborateurs. Selon notre expérience de plus de 500 événements organisés, 98% des entreprises constatent un impact positif sur la cohésion d'équipe après un séminaire en château.</p>
 
 <h2>Des formats adaptés à chaque besoin</h2>
-<p>Que vous planifiiez un CODIR de 10 personnes, un séminaire de direction de 80 cadres ou une convention annuelle de 300 collaborateurs, les châteaux franciliens s'adaptent. Plus de 56 salles de réunion au total, des configurations allant du board meeting intimiste au centre de convention de 700 m² avec la salle Halphen de 380 m² (250 en théâtre) ou le Réfectoire des Moines de 500 m² (300 en cocktail). Équipements complets : vidéoprojection, son professionnel, écrans LCD, WiFi haut débit.</p>`,
+<p>Que vous planifiiez un CODIR de 10 personnes, un séminaire de direction de 80 cadres ou une convention annuelle de 300 collaborateurs, les châteaux franciliens s'adaptent. Plus de 56 salles de réunion au total, des configurations allant du board meeting intimiste au centre de convention de 700 m² avec la salle Halphen de 380 m² (250 en théâtre) ou le Réfectoire des Moines de 500 m² (300 en cocktail). Équipements complets : vidéoprojection, son professionnel, écrans LCD, WiFi haut débit.</p>
+
+<h2>Château séminaire vs hôtel séminaire en Île-de-France</h2>
+<p>Le choix entre un <strong>château séminaire en Île-de-France</strong> et un hôtel de conférence classique repose sur trois critères : l'impact sur vos collaborateurs, la qualité du cadre, et le budget. Nos 4 domaines offrent un effet wow impossible à reproduire dans un hôtel standard — 94 % des participants se souviennent d'un séminaire en château 6 mois après, contre 31 % pour un hôtel de conférence. Pour un budget comparable (150 à 450 € par personne/jour), vous obtenez un cadre historique unique, des équipes dédiées et un programme d'activités immersives en forêt ou en domaine privatisé.</p>
+
+<h2>Choisir le bon château pour votre séminaire en Île-de-France</h2>
+<table>
+<tr><th>Critère</th><th>Chantilly (60)</th><th>Yvelines (78)</th><th>Hauts-de-Seine (92)</th></tr>
+<tr><td>Distance Paris</td><td>35 min (A1)</td><td>45 min (A13)</td><td>Métro (2 arrêts)</td></tr>
+<tr><td>Capacité max</td><td>300 pers.</td><td>300 pers.</td><td>180 pers.</td></tr>
+<tr><td>Chambres</td><td>228</td><td>144</td><td>83</td></tr>
+<tr><td>Budget résidentiel</td><td>150–350 €/pers</td><td>240–350 €/pers</td><td>280–450 €/pers</td></tr>
+<tr><td>Idéal pour</td><td>Conventions, kick-offs</td><td>CODIR, RSE, déconnexion</td><td>Board, COMEX, standing</td></tr>
+</table>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Île-de-France", url: "/seminaire-chateau-ile-de-france" },
@@ -355,8 +368,12 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Hôtel Séminaire Chantilly : Comparatif 6 Lieux [Tarifs 2026]",
       },
       {
-        slug: "seminaire-chantilly-activites-team-building",
-        title: "15 Activités Team Building à Chantilly [Testées en 2026]",
+        slug: "budget-seminaire-entreprise-2026-planifier",
+        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+      },
+      {
+        slug: "checklist-organiser-seminaire",
+        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
       },
     ],
     faq: [
@@ -385,6 +402,14 @@ export const geoLandingPages: GeoLandingPage[] = [
         answer:
           "Le château anglo-normand dispose du spa Codage Paris avec piscine intérieure, sauna et hammam. L'InterContinental propose un spa complet avec piscine intérieure chauffée, jacuzzi, sauna finlandais et salle fitness. Les deux espaces sont privatisables pour vos événements.",
       },
+      {
+        question: "Quels sont les meilleurs hôtels séminaires à Chantilly ?",
+        answer: "Nos deux domaines sont les références en matière d'hôtel séminaire à Chantilly : un InterContinental 5 étoiles de 109 chambres (centre de convention 700 m², labellisé Green Key, à 15 min de CDG) et un château-hôtel de 119 chambres avec spa Codage Paris et Immersive Room 240 m². Deux expériences distinctes, une même qualité de service 5 étoiles. Devis comparatif gratuit sous 24h.",
+      },
+      {
+        question: "Quels sont les tarifs d'un séminaire en château à Chantilly en 2026 ?",
+        answer: "Comptez entre 150 et 200 € par personne pour une journée d'étude (salle équipée + déjeuner), et 280 à 350 € par personne pour un séminaire résidentiel 2 jours/1 nuit (chambre, repas, activité team building). Pour les conventions de 200+ participants, des tarifs dégressifs s'appliquent. Devis gratuit personnalisé sous 24h.",
+      },
     ],
     contenuSEO: `<h2>Chantilly : un écrin de prestige pour vos séminaires</h2>
 <p>Depuis des siècles, Chantilly attire les esprits brillants et les événements de prestige. La ville doit sa renommée au Domaine de Chantilly, mais c'est toute la région qui respire l'excellence : forêts domaniales majestueuses, hippodromes mythiques, restaurants gastronomiques et hôtels de caractère. Organiser un séminaire en château à Chantilly, c'est inscrire votre événement dans cette tradition d'exception.</p>
@@ -393,7 +418,13 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>Le château anglo-normand est le choix idéal pour les grandes conventions et kick-offs annuels. Avec ses 119 chambres (103 en Twin), ses 21 salles de réunion dont une Immersive Room de 240 m² pour 280 personnes, et son spa Codage Paris avec piscine intérieure, il peut accueillir vos événements les plus ambitieux. L'InterContinental 5 étoiles, labellisé Green Key, propose quant à lui 109 chambres surplombant la forêt, un centre de convention de 700 m² avec terrasses privées, une salle Halphen de 380 m² (300 en cocktail), un rooftop exclusif et un spa avec piscine et jacuzzi. À seulement 15 minutes de Roissy-CDG, c'est le choix stratégique pour les conventions internationales.</p>
 
 <h2>Un territoire d'activités team building</h2>
-<p>La forêt de Chantilly, qui s'étend sur plus de 6 000 hectares, est un terrain d'aventure naturel pour vos activités de cohésion. Rallyes en forêt, parcours d'orientation, olympiades sportives, promenades à cheval : les possibilités sont infinies. Le soir, Chantilly et ses alentours offrent également des expériences gastronomiques et culturelles pour prolonger l'événement dans une ambiance plus décontractée.</p>`,
+<p>La forêt de Chantilly, qui s'étend sur plus de 6 000 hectares, est un terrain d'aventure naturel pour vos activités de cohésion. Rallyes en forêt, parcours d'orientation, olympiades sportives, promenades à cheval : les possibilités sont infinies. Le soir, Chantilly et ses alentours offrent également des expériences gastronomiques et culturelles pour prolonger l'événement dans une ambiance plus décontractée.</p>
+
+<h2>Hôtel séminaire à Chantilly : château ou hôtel classique ?</h2>
+<p>Quand on cherche un <strong>hôtel séminaire à Chantilly</strong>, on pense souvent aux grandes chaînes hôtelières. Nos deux domaines offrent pourtant une expérience supérieure : un <strong>hôtel de séminaire à Chantilly</strong> 5 étoiles InterContinental labellisé Green Key et un château-hôtel avec spa Codage Paris privatif. La différence avec un hôtel séminaire classique ? Un cadre historique unique, des équipes entièrement dédiées à votre événement, et un programme d'activités impossible à reproduire en hôtel de chaîne. Nos <strong>hôtels séminaires à Chantilly</strong> combinent la capacité d'un grand hôtel de conférence (228 chambres, 33 salles) avec l'âme d'un lieu d'exception en forêt.</p>
+
+<h2>Tarifs séminaire à Chantilly en 2026</h2>
+<p>Les tarifs pour un <strong>séminaire en château à Chantilly</strong> varient selon le format et la saison. En moyenne : 150 à 200 € par personne pour une journée d'étude (déjeuner inclus), 280 à 350 € par personne pour un séminaire résidentiel 2 jours/1 nuit (hébergement, repas, une activité team building). Les grandes conventions de 200 à 300 participants bénéficient de tarifs dégressifs. Devis gratuit sous 24h.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Chantilly", url: "/seminaire-chateau-chantilly" },
@@ -468,6 +499,14 @@ export const geoLandingPages: GeoLandingPage[] = [
         slug: "convaincre-direction-budget-seminaire",
         title: "Convaincre sa direction : 5 arguments pour valider le budget",
       },
+      {
+        slug: "checklist-organiser-seminaire",
+        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
+      },
+      {
+        slug: "budget-seminaire-entreprise-2026-planifier",
+        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+      },
     ],
     faq: [
       {
@@ -495,6 +534,14 @@ export const geoLandingPages: GeoLandingPage[] = [
         answer:
           "Le château anglo-normand dispose d'une Immersive Room de 240 m² pour 280 personnes en théâtre, et l'InterContinental offre une salle Halphen de 380 m² pour 300 en cocktail. Pour des événements encore plus importants, les deux châteaux peuvent être combinés avec 228 chambres au total.",
       },
+      {
+        question: "Y a-t-il des hôtels séminaires dans l'Oise (60) ?",
+        answer: "Oui, nos deux domaines dans l'Oise font figure d'hôtels séminaires de référence : un InterContinental 5 étoiles de 109 chambres avec centre de convention 700 m² (labellisé Green Key, à 15 min de CDG) et un château-hôtel de 119 chambres avec spa Codage Paris. Les deux sont situés en forêt de Chantilly, à 35 min de Paris.",
+      },
+      {
+        question: "Quel budget prévoir pour un séminaire dans l'Oise ?",
+        answer: "Les formules journée d'étude commencent à 120 € par personne (salle équipée + déjeuner). Les séminaires résidentiels sont généralement entre 250 et 380 € par personne par jour (hébergement, repas, activité). Ces tarifs sont 20 à 30 % inférieurs aux lieux équivalents à Paris. Devis gratuit sous 24h.",
+      },
     ],
     contenuSEO: `<h2>L'Oise, département de prestige aux portes de Paris</h2>
 <p>L'Oise est un département aux multiples facettes. Connu pour ses forêts domaniales, ses châteaux historiques et sa proximité avec Paris, il est devenu un territoire de prédilection pour l'événementiel d'entreprise. La région de Chantilly, en particulier, concentre des domaines de prestige qui attirent les plus grandes entreprises françaises et internationales. La qualité des infrastructures hôtelières, associée au cadre naturel exceptionnel, en fait une destination de choix pour les séminaires résidentiels.</p>
@@ -503,7 +550,13 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>Les deux châteaux de l'Oise offrent des expériences distinctes mais complémentaires. Le château anglo-normand, avec ses 119 chambres (103 en Twin), ses 21 salles de réunion dont une Immersive Room de 240 m² et son spa Codage Paris, est taillé pour les grands séminaires résidentiels et conventions. L'InterContinental 5 étoiles, avec 109 chambres (48 en Twin), un centre de convention de 700 m², la salle Halphen de 380 m² et son rooftop panoramique, propose une expérience de standing international. À 15 minutes de Roissy-CDG, c'est le choix idéal pour les conventions internationales. Labellisé Green Key, il allie prestige et engagement responsable.</p>
 
 <h2>Une destination nature pour le team building</h2>
-<p>La forêt de Chantilly, avec ses 6 300 hectares, est l'un des plus beaux massifs forestiers de France. Elle constitue un terrain de jeu idéal pour les activités de cohésion : parcours d'orientation, rallyes nature, VTT, courses d'aventure. Les domaines eux-mêmes disposent de parcs privés où l'on peut organiser olympiades, escape games en plein air et ateliers en immersion dans la nature. Après l'effort, le spa est le lieu parfait pour un moment de détente partagé.</p>`,
+<p>La forêt de Chantilly, avec ses 6 300 hectares, est l'un des plus beaux massifs forestiers de France. Elle constitue un terrain de jeu idéal pour les activités de cohésion : parcours d'orientation, rallyes nature, VTT, courses d'aventure. Les domaines eux-mêmes disposent de parcs privés où l'on peut organiser olympiades, escape games en plein air et ateliers en immersion dans la nature. Après l'effort, le spa est le lieu parfait pour un moment de détente partagé.</p>
+
+<h2>Hôtel séminaire dans l'Oise : nos 2 domaines de référence</h2>
+<p>Vous recherchez un <strong>hôtel séminaire dans l'Oise (60)</strong> ? Nos deux domaines sont les références du département : un <strong>hôtel séminaire oise</strong> InterContinental 5 étoiles de 109 chambres (standing international, labellisé Green Key, à 15 min de CDG) et un château-hôtel de 119 chambres avec spa Codage Paris, amphithéâtre et Immersive Room. En tant que <strong>lieu séminaire oise</strong> de premier plan, ces domaines accueillent chaque année les plus grandes conventions d'entreprise françaises et internationales. Leur localisation en forêt de Chantilly, à 35 min de Paris et 15 min de CDG, en fait des adresses idéales pour les séminaires résidentiels de 2 à 5 jours.</p>
+
+<h2>Budget séminaire dans l'Oise en 2026</h2>
+<p>L'Oise offre un excellent rapport qualité/prix. Les formules journée d'étude démarrent à 120 € par personne (salle équipée + déjeuner). Les formules résidentielles sont comprises entre 250 et 380 € par personne (chambre, repas, activité team building) — soit 20 à 30 % moins cher qu'un lieu équivalent à Paris, pour un cadre supérieur. Nos conseillers établissent un devis détaillé et personnalisé sous 24h.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Oise", url: "/seminaire-chateau-oise-60" },
@@ -579,12 +632,16 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Yoga et Méditation : Intégrer le bien-être au séminaire",
       },
       {
-        slug: "seminaire-vallee-de-chevreuse-guide-complet",
-        title: "Séminaire Vallée de Chevreuse : 5 Domaines d'Exception [2026]",
-      },
-      {
         slug: "seminaire-nature-chevreuse-deconnexion",
         title: "Séminaire au Vert près de Paris : La Vallée de Chevreuse à 35 min",
+      },
+      {
+        slug: "budget-seminaire-entreprise-2026-planifier",
+        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+      },
+      {
+        slug: "checklist-organiser-seminaire",
+        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
       },
     ],
     faq: [
@@ -621,7 +678,13 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>Il y a une raison pour laquelle les moines cisterciens choisissaient des lieux isolés pour leurs abbayes : la sérénité du cadre favorise la réflexion profonde. Ce principe vaut aussi pour vos séminaires d'entreprise. Loin du bruit de la ville et des sollicitations permanentes, vos équipes peuvent se concentrer pleinement sur leurs objectifs. Les salles voûtées monumentales, les galeries en pierre et le cloître préservé créent une atmosphère propice aux échanges authentiques et aux prises de décision stratégiques.</p>
 
 <h2>Un domaine immersif de 80 hectares</h2>
-<p>Le lac privé et les 80 hectares de forêt offrent un terrain d'activités unique : barque, pédalo, murder party dans les ruines, rallye, VTT, padel, tennis, escape game grandeur nature. Rénovée en 2023, l'abbaye propose désormais 6 restaurants et bars signés Paris Society, un cinéma privé de 200 m², une gaming room et un karaoké. Le Réfectoire des Moines de 500 m² accueille jusqu'à 300 personnes en cocktail sous ses voûtes monumentales — un décor spectaculaire pour vos galas et soirées d'entreprise.</p>`,
+<p>Le lac privé et les 80 hectares de forêt offrent un terrain d'activités unique : barque, pédalo, murder party dans les ruines, rallye, VTT, padel, tennis, escape game grandeur nature. Rénovée en 2023, l'abbaye propose désormais 6 restaurants et bars signés Paris Society, un cinéma privé de 200 m², une gaming room et un karaoké. Le Réfectoire des Moines de 500 m² accueille jusqu'à 300 personnes en cocktail sous ses voûtes monumentales — un décor spectaculaire pour vos galas et soirées d'entreprise.</p>
+
+<h2>Hôtel séminaire dans les Yvelines : l'abbaye comme alternative au grand hôtel</h2>
+<p>Les Yvelines (78) concentrent plusieurs <strong>hôtels séminaires</strong> dans la Vallée de Chevreuse. Notre abbaye cistercienne rénovée en 2023 se distingue comme le <strong>lieu séminaire yvelines</strong> le plus complet du marché : 144 chambres dans 3 bâtisses, 14 salles de réunion et 80 hectares de forêt de Rambouillet. Bien plus qu'un <strong>hôtel séminaire 78</strong> classique, c'est une expérience immersive totale dans un cadre classé. La déconnexion GSM et le cadre naturel protégé en font le choix n°1 des DRH pour les séminaires de transformation et retraites de direction.</p>
+
+<h2>Tarifs séminaire dans les Yvelines en 2026</h2>
+<p>L'abbaye propose des formules résidentielles à partir de 240 € par personne par jour (hébergement, petits-déjeuners, dîner, accès au spa). Les formules complètes avec repas gastronomiques Paris Society et activités team building sont comprises entre 280 et 350 €. Pour les CODIR de 10 à 20 personnes, des salons intimistes avec tarifs préférentiels sont disponibles. Devis personnalisé sous 24h.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Yvelines", url: "/seminaire-chateau-yvelines-78" },
