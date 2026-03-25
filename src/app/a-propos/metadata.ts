@@ -1,17 +1,17 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Qui Sommes-Nous ? 200+ Séminaires en Château depuis 2009",
+  title: "Select Châteaux — Séminaires Château Île-de-France depuis 2009",
   description:
-    "Select Châteaux : agence spécialisée en séminaires d'entreprise dans 4 châteaux d'exception en Île-de-France. 200+ événements, 15 ans d'expertise. Devis gratuit.",
+    "Découvrez pourquoi 200+ entreprises nous confient leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception, devis sous 48h.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Qui Sommes-Nous ? 200+ Séminaires en Château depuis 2009",
+    title: "Select Châteaux — Séminaires Château Île-de-France depuis 2009",
     description:
-      "Select Châteaux : agence spécialisée en séminaires d'entreprise dans 4 châteaux d'exception en Île-de-France. 200+ événements, 15 ans d'expertise.",
+      "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception. Devis sous 48h.",
     url: "https://www.selectchateaux.com/a-propos",
     type: "website",
     siteName: "Select Châteaux",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Qui Sommes-Nous ? 200+ Séminaires en Château depuis 2009",
-    description: "Select Châteaux : 15 ans d'expertise en séminaires d'entreprise dans des châteaux d'exception en Île-de-France.",
+    title: "Select Châteaux — Séminaires Château Île-de-France depuis 2009",
+    description: "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, devis sous 48h.",
     images: ["/images/seminaires-soirees-entreprise-hero.webp"],
   },
   alternates: {

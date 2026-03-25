@@ -328,8 +328,8 @@ const article1: BlogPost = {
 const article2: BlogPost = {
   id: 2,
   slug: "checklist-organiser-seminaire",
-  title: "Checklist Séminaire : 25 Étapes pour Ne Rien Oublier",
-  excerpt: "Checklist complète en 7 phases pour organiser votre séminaire d'entreprise. De J-90 à J+7 : objectifs, logistique, budget, animation. Téléchargement gratuit.",
+  title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
+  excerpt: "Téléchargement gratuit. Checklist en 7 phases (J-90 à J+7) : objectifs, logistique, budget, animation. Ne ratez aucune étape pour votre séminaire d'entreprise.",
   category: "organisation",
   author: {
     name: "Thomas Mercier",
@@ -1957,8 +1957,8 @@ const article9: BlogPost = {
 const article10: BlogPost = {
   id: 37,
   slug: "budget-seminaire-entreprise-2026-planifier",
-  title: "Budget Séminaire d'Entreprise 2026 : Comment Planifier Sans Surprise",
-  excerpt: "Lieu (25-35%), intervenant (40-50%), transport (5-8%) : la répartition exacte du budget séminaire. Tableaux par taille de groupe (10, 30, 50, 100 pers) et astuces pour économiser 20%.",
+  title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+  excerpt: "Répartition exacte du budget séminaire 2026 : lieu (25-35%), intervenants, transport. Tableaux de coûts pour 10 à 100 personnes et astuces pour économiser jusqu'à 20%.",
   category: "organisation",
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
@@ -11926,8 +11926,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 23,
     slug: "escape-game-geant-chateau",
-    title: "Escape Game en Château : Créez une Aventure Géante",
-    excerpt: "Organisez un escape game grandeur nature dans un château : énigmes, indices dans le parc, mission collaborative. Budget, prestataires et retours d'expérience.",
+    title: "Escape Game en Château : Guide & Tarifs 2026",
+    excerpt: "Escape game grandeur nature dans un château : énigmes cachées, mission collaborative en équipe. Prestataires recommandés, budget complet et guide pas à pas.",
     category: "team-building",
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },
     publishedAt: "2025-11-30",
