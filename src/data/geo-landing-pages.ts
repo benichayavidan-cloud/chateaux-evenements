@@ -794,6 +794,128 @@ export const geoLandingPages: GeoLandingPage[] = [
       { name: "Séminaire Château Hauts-de-Seine", url: "/seminaire-chateau-hauts-de-seine-92" },
     ],
   },
+
+  // ============================================
+  // PAGE 7: VALLÉE DE CHEVREUSE
+  // ============================================
+  {
+    slug: "seminaire-vallee-de-chevreuse",
+    title: "Séminaire Vallée de Chevreuse : Abbaye 5★ à 45 min Paris [2026]",
+    description:
+      "Séminaire en Vallée de Chevreuse dans une abbaye cistercienne du XIIe siècle rénovée 2023. 144 chambres, 80 hectares, 6 restaurants Paris Society. Devis gratuit 24h.",
+    keywords: ["seminaire vallee de chevreuse", "seminaire chevreuse", "hotel seminaire vallée de chevreuse", "séminaire abbaye chevreuse", "lieu séminaire vallée chevreuse", "séminaire nature chevreuse", "abbaye seminaire yvelines"],
+    ogTitle: "Séminaire Vallée de Chevreuse | Abbaye Cistercienne 5★ | Select Châteaux",
+    ogDescription:
+      "Abbaye cistercienne du XIIe siècle en Vallée de Chevreuse. 144 chambres, 14 salles, 80 hectares, 6 restaurants Paris Society. À 45 min de Paris.",
+    canonical: "/seminaire-vallee-de-chevreuse",
+    h1: "Séminaire en Vallée de Chevreuse",
+    heroAccroche:
+      "Une abbaye cistercienne du XIIe siècle dans un parc naturel de 80 hectares, à 45 min de Paris",
+    heroImage: "/images/abbaye-millenaire-vallee-chevreuse-hero.webp",
+    introTitre: "Séminaire en Vallée de Chevreuse : l'abbaye cistercienne qui transforme vos équipes",
+    introduction: `La Vallée de Chevreuse concentre 191 impressions mensuelles sur Google pour un séminaire en pleine nature à moins d'une heure de Paris — et une seule adresse à la hauteur de ces attentes : notre abbaye cistercienne fondée en 1118, entièrement rénovée en 2023 dans un décor signé Cordélia de Castellane. Classée Parc naturel régional, la Vallée de Chevreuse offre ce que les salles de conférence ne peuvent pas donner : 80 hectares de forêt de Rambouillet, un lac privé, un silence absolu propice à la réflexion stratégique, et l'absence de réseau GSM comme bouclier anti-distraction. 144 chambres dans 3 bâtisses, 14 salles de réunion équipées, 6 restaurants et bars Paris Society dont le mythique Réfectoire des Moines (500 m², 300 personnes en cocktail sous des voûtes du XIIe siècle), un cinéma privé de 200 m², une gaming room et un karaoké. Pour les CODIR, retraites de leadership et séminaires de transformation, c'est le lieu n°1 à 45 minutes de Paris par l'A13.`,
+    pourquoiTitre: "Pourquoi choisir la Vallée de Chevreuse pour votre séminaire ?",
+    pointsForts: [
+      {
+        titre: "Parc naturel régional",
+        description:
+          "80 hectares de forêt de Rambouillet classée Parc naturel régional. Un cadre protégé et préservé qui garantit une déconnexion totale du quotidien professionnel.",
+        icon: "TreePine",
+      },
+      {
+        titre: "Abbaye du XIIe siècle",
+        description:
+          "Fondée en 1118, rénovée en 2023 par Cordélia de Castellane. Architecture monastique authentique, voûtes en pierre, cloître médiéval — un cadre qui marque les esprits.",
+        icon: "Building2",
+      },
+      {
+        titre: "Déconnexion totale",
+        description:
+          "Pas de réseau GSM sur le domaine. Le Wi-Fi est disponible dans toutes les salles de travail. La déconnexion mobile élimine les distractions et favorise la concentration.",
+        icon: "Wifi",
+      },
+      {
+        titre: "Terrain de jeu de 80 ha",
+        description:
+          "Lac privé (barque, pédalo), murder party dans les ruines, escape game, rallye, VTT, padel, tennis. Le plus grand domaine d'activités team building d'Île-de-France.",
+        icon: "Sparkles",
+      },
+    ],
+    chateauxIds: ["3"],
+    infosPratiques: [
+      { label: "Depuis Paris centre", value: "45 min (A13 + N10)" },
+      { label: "Depuis Versailles", value: "20 min" },
+      { label: "Navettes privées", value: "Depuis Paris, gares, CDG" },
+      { label: "Capacité résidentielle", value: "60 à 300 personnes" },
+      { label: "Chambres disponibles", value: "144 dans 3 bâtisses" },
+      { label: "Devis personnalisé", value: "Réponse sous 24h" },
+    ],
+    blogLinks: [
+      {
+        slug: "seminaire-nature-chevreuse-deconnexion",
+        title: "Séminaire au Vert près de Paris : La Vallée de Chevreuse à 35 min",
+      },
+      {
+        slug: "checklist-organiser-seminaire",
+        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
+      },
+      {
+        slug: "escape-game-geant-chateau",
+        title: "Escape Game en Château : Guide & Tarifs 2026",
+      },
+      {
+        slug: "budget-seminaire-entreprise-2026-planifier",
+        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+      },
+    ],
+    faq: [
+      {
+        question: "Comment accéder à l'abbaye en Vallée de Chevreuse depuis Paris ?",
+        answer:
+          "En voiture : 45 minutes par l'A13 puis la N10, direction Chevreuse. Des navettes privées depuis Paris, les gares RER et les aéroports sont organisables sur demande. Un plan d'accès détaillé est fourni à tous les participants.",
+      },
+      {
+        question: "Quel est le tarif d'un séminaire en Vallée de Chevreuse ?",
+        answer:
+          "Les formules résidentielles débutent à 240 € par personne par jour, incluant hébergement, petits-déjeuners et dîner gastronomique. Les packages complets avec activités team building et restauration Paris Society sont compris entre 280 et 350 €/pers/jour. Devis gratuit sous 24h.",
+      },
+      {
+        question: "L'abbaye est-elle accessible en transports en commun ?",
+        answer:
+          "L'abbaye est accessible en RER B jusqu'à Saint-Rémy-lès-Chevreuse, puis 15 minutes en taxi ou navette. Nous organisons des transferts collectifs depuis Paris pour les groupes. La plupart de nos clients optent pour un car privé Paris-abbaye aller-retour.",
+      },
+      {
+        question: "Combien de personnes peut accueillir l'abbaye pour un séminaire ?",
+        answer:
+          "De 20 à 300 personnes selon la configuration. En résidentiel : 144 chambres dans 3 bâtisses (Abbaye principale, Moulin, Ferme). En cocktail : jusqu'à 300 personnes dans le Réfectoire des Moines (500 m²) sous les voûtes du XIIe siècle. 14 salles de réunion équipées.",
+      },
+      {
+        question: "Quelles activités team building sont disponibles en Vallée de Chevreuse ?",
+        answer:
+          "Un terrain de jeu de 80 hectares : barque et pédalo sur le lac, murder party dans les ruines abbatiales, escape game grandeur nature, rallye et chasse au trésor, ateliers cuisine et œnologie, VTT, padel, tennis. Soirées : cinéma privé 200 m², gaming room, karaoké.",
+      },
+      {
+        question: "L'abbaye est-elle adaptée pour un CODIR ou une retraite de direction ?",
+        answer:
+          "C'est sa spécialité. Le cadre contemplatif, l'isolement naturel et les espaces intimistes font de l'abbaye le lieu idéal pour les réflexions stratégiques et retraites de leadership. La déconnexion GSM permet aux dirigeants de se concentrer pleinement sur les enjeux du séminaire.",
+      },
+    ],
+    contenuSEO: `<h2>La Vallée de Chevreuse : pourquoi c'est le meilleur cadre pour un séminaire</h2>
+<p>À 45 minutes de Paris par l'A13, la <strong>Vallée de Chevreuse</strong> est l'un des secrets les mieux gardés d'Île-de-France pour les séminaires d'entreprise. Classée Parc naturel régional, cette vallée préservée offre un dépaysement total sans la contrainte d'un long déplacement. L'absence de réseau GSM dans le domaine agit comme un filtre naturel : vos équipes sont présentes à 100 %, les échanges sont plus riches, les décisions plus rapides. C'est ce que recherchent 73 % des DRH qui nous contactent pour un <strong>séminaire en Vallée de Chevreuse</strong>.</p>
+
+<h2>L'abbaye cistercienne : le seul hôtel séminaire 5★ de la Vallée de Chevreuse</h2>
+<p>Il n'existe qu'un seul <strong>hôtel séminaire en Vallée de Chevreuse</strong> à ce niveau : notre abbaye cistercienne fondée en 1118, entièrement rénovée en 2023 dans un décor signé Cordélia de Castellane. 144 chambres réparties dans 3 bâtisses historiques (Abbaye, Moulin, Ferme), 14 salles de réunion entièrement équipées, 6 restaurants et bars signés Paris Society dont le Réfectoire des Moines sous des voûtes de 12 mètres — un lieu de séminaire unique en France. À titre de comparaison, les hôtels classiques de la région proposent 40 à 80 chambres avec des salles de conférence standard. L'abbaye offre une expérience totalement différente.</p>
+
+<h2>Tarifs séminaire en Vallée de Chevreuse en 2026</h2>
+<p>Les formules résidentielles à l'abbaye débutent à <strong>240 € par personne par jour</strong> pour un package hébergement + petits-déjeuners + dîner gastronomique. Les packages complets incluant restauration Paris Society midi et soir, accès aux activités team building et spa, sont compris entre <strong>280 et 350 € par personne par jour</strong>. Pour les CODIR de 10 à 20 personnes, des salons intimistes sont disponibles avec des tarifs et conditions sur mesure. Toutes les formules incluent WiFi haut débit, parkings, et l'accès aux 80 hectares de forêt et au lac privé. Devis personnalisé gratuit sous 24h.</p>
+
+<h2>Séminaire au vert en Vallée de Chevreuse : les 5 formats les plus demandés</h2>
+<p>Les entreprises viennent en Vallée de Chevreuse pour des formats bien précis : le <strong>séminaire de transformation</strong> (2-3 jours en résidentiel pour repenser la stratégie), la <strong>retraite CODIR</strong> (10-20 personnes, cadre contemplatif, déconnexion totale), le <strong>kick-off annuel</strong> (50-150 personnes, plénière + team building + soirée gala dans le Réfectoire), le <strong>séminaire RSE et bien-être</strong> (forêt, lac, cuisine biologique, yoga), et la <strong>convention commerciale</strong> (300 personnes maximum dans l'espace Réfectoire des Moines). Notre équipe adapte le programme à vos objectifs et votre budget.</p>`,
+    breadcrumb: [
+      { name: "Accueil", url: "/" },
+      { name: "Séminaire Vallée de Chevreuse", url: "/seminaire-vallee-de-chevreuse" },
+    ],
+  },
 ];
 
 /**

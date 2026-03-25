@@ -38,9 +38,9 @@ function getRelatedCommercialPages(category: BlogCategory) {
   // category === "lieux"
   return [
     ...base,
+    { href: "/seminaire-vallee-de-chevreuse", label: "Séminaire Vallée de Chevreuse", icon: MapPin },
     { href: "/seminaire-chateau-oise-60", label: "Séminaire Château dans l'Oise (60)", icon: MapPin },
     { href: "/seminaire-chateau-yvelines-78", label: "Séminaire Château dans les Yvelines (78)", icon: MapPin },
-    { href: "/seminaire-chateau-hauts-de-seine-92", label: "Séminaire Château Hauts-de-Seine (92)", icon: MapPin },
     { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
   ];
 }

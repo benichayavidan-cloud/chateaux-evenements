@@ -219,6 +219,7 @@ export default function RootLayout({
                 { label: "Séminaire château Île-de-France", href: "/seminaire-chateau-ile-de-france" },
                 { label: "Séminaire château proche Paris", href: "/seminaire-chateau-proche-paris" },
                 { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
+                { label: "Séminaire Vallée de Chevreuse", href: "/seminaire-vallee-de-chevreuse" },
                 { label: "Séminaire château Oise (60)", href: "/seminaire-chateau-oise-60" },
                 { label: "Séminaire château Yvelines (78)", href: "/seminaire-chateau-yvelines-78" },
                 { label: "Séminaire château Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
