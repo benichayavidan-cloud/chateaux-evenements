@@ -119,11 +119,15 @@ export const geoLandingPages: GeoLandingPage[] = [
       },
       {
         slug: "checklist-organiser-seminaire",
-        title: "La Check-list ultime pour organiser un séminaire sans stress",
+        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
       },
       {
         slug: "seminaire-residentiel-vs-journee",
         title: "Séminaire Résidentiel vs Journée d'Étude : Que choisir ?",
+      },
+      {
+        slug: "budget-seminaire-entreprise-2026-planifier",
+        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
       },
     ],
     faq: [
@@ -253,6 +257,10 @@ export const geoLandingPages: GeoLandingPage[] = [
         slug: "seminaire-au-vert-productivite",
         title: "Séminaire au vert : Pourquoi quitter Paris augmente la productivité de 30%",
       },
+      {
+        slug: "checklist-organiser-seminaire",
+        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
+      },
     ],
     faq: [
       {
@@ -352,6 +360,10 @@ export const geoLandingPages: GeoLandingPage[] = [
     ],
     blogLinks: [
       {
+        slug: "hotel-seminaire-chantilly-comparatif",
+        title: "Hôtel Séminaire Chantilly : Comparatif 6 Lieux [Tarifs 2026]",
+      },
+      {
         slug: "chantilly-destination-royale",
         title: "Chantilly : La destination royale pour impressionner vos clients",
       },
@@ -360,20 +372,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Escape Game Géant : Transformez le château en terrain de jeu",
       },
       {
-        slug: "grands-groupes-100-personnes-chateau",
-        title: "Grands Groupes : Où loger 100+ collaborateurs dans un même château ?",
-      },
-      {
-        slug: "hotel-seminaire-chantilly-comparatif",
-        title: "Hôtel Séminaire Chantilly : Comparatif 6 Lieux [Tarifs 2026]",
-      },
-      {
         slug: "budget-seminaire-entreprise-2026-planifier",
         title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
-      },
-      {
-        slug: "checklist-organiser-seminaire",
-        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
       },
     ],
     faq: [
@@ -494,10 +494,6 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         slug: "chateaux-piscine-spa-bien-etre",
         title: "Châteaux avec Piscine et Spa : Le bien-être au travail",
-      },
-      {
-        slug: "convaincre-direction-budget-seminaire",
-        title: "Convaincre sa direction : 5 arguments pour valider le budget",
       },
       {
         slug: "checklist-organiser-seminaire",
@@ -624,10 +620,6 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Séminaire dans les Yvelines (78) : Luxe et proximité",
       },
       {
-        slug: "seminaire-eco-responsable-rse",
-        title: "RSE et Événementiel : Organiser un séminaire éco-responsable",
-      },
-      {
         slug: "yoga-meditation-bien-etre-seminaire",
         title: "Yoga et Méditation : Intégrer le bien-être au séminaire",
       },
@@ -638,10 +630,6 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         slug: "budget-seminaire-entreprise-2026-planifier",
         title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
-      },
-      {
-        slug: "checklist-organiser-seminaire",
-        title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
       },
     ],
     faq: [
@@ -758,6 +746,10 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         slug: "repas-seminaire-tendances-traiteur-2026",
         title: "Repas de Séminaire : Les tendances traiteur 2026",
+      },
+      {
+        slug: "budget-seminaire-entreprise-2026-planifier",
+        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
       },
     ],
     faq: [
