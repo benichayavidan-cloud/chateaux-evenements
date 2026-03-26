@@ -1,69 +1,52 @@
 # TODO - Prochaine session
 
-## ✅ Session 19 mars 2026 — SEO Phase 3 : Contenu Blog + Optimisation globale
+## Session 26 mars 2026 — SEO Audit + Ranking + MCP Ads
 
-### Analyse concurrentielle ✅
-- [x] Blog Kactus analysé (9 pages, 80+ articles, ton conversationnel, 800-1800 mots)
-- [x] Blog Naboo analysé (35+ articles, guides pratiques, lead magnets PDF)
-- [x] Aleou confirmé : annuaire pur, pas de blog (pas un concurrent contenu)
+### ✅ Fait cette session
 
-### Nouveaux articles ✅
-- [x] Article "Séminaire en Vallée de Chevreuse : l'Abbaye Secrète" (1800 mots, 5 FAQ, liens internes)
-- [x] Article "Séminaire CODIR en Château : Pourquoi la Privatisation" (1600 mots, 4 FAQ, tableaux)
+#### SEO Analyse
+- [x] Rapport ranking réel IDF : 1 seul mot-clé commercial top 10 (château séminaire Oise 60, pos 2)
+- [x] Audit concurrents : chateauform, aleou, kactus, seminaire-collection dominent tout
+- [x] Vérification état des pages geo créées hier → toutes indexées le 25/03 ✅
+- [x] Vérification sitemap → 72 URLs, lu 25/03, 0 erreurs ✅
+- [x] Analyse évolution SEO depuis lancement (8 fév 2026) :
+  - Impressions : +243% en 6 semaines
+  - Clics : +657% en 6 semaines
+  - Position moy : ~30 → ~18-20
+  - Score SEO : 7/10
+- [x] Note RDV SEO mi-avril pour mesurer impact pages geo
 
-### Optimisation article Chantilly ✅
-- [x] Titre optimisé pour "seminaire chantilly" (keyword en 1er)
-- [x] Excerpt avec chiffres concrets (228 chambres, 6300 ha, train direct)
-- [x] Keywords passés de 4 à 6
-- [x] 5 FAQ ajoutées + section FAQ HTML
-- [x] CTA box design avec 2 boutons
+#### Stratégie Backlinks
+- [x] Analyse backlinks adapée au modèle intermédiaire (pas propriétaire des lieux)
+- [x] Pistes : prestataires complémentaires, presse MICE, offices de tourisme, asso pro
 
-### Vidéo ✅
-- [x] Vidéo "Planification de Séminaire" (5m29s) analysée
-- [x] Intégrée dans article checklist avec player HTML5
-- [x] Video Schema JSON-LD ajouté
+#### MCP Ads
+- [x] Vérification MCP Google Ads Select Châteaux = GA4-based (identique à Seattle Chimney)
+- [x] Ajout `google-ads` dans `.mcp.json` SELECT CHATEAUX (manquait)
+- [x] Confirmation Seattle Chimney MCP = même architecture, bien configuré ✅
 
-### Optimisation SEO globale (32 articles) ✅
-- [x] FAQ ajoutées aux 32 articles (~85 questions/réponses)
-- [x] Keywords enrichis sur 26 articles (4 → 6 mots-clés)
-- [x] Schema JSON-LD FAQPage auto dans layout.tsx
-- [x] Schema JSON-LD VideoObject auto dans layout.tsx
-- [x] 3 titres corrigés (RSE, Vexin, Chantilly)
-- [x] 4 excerpts améliorés avec chiffres/stats
-- [x] Pushé sur GitHub (commit ad954a9)
+### ⏳ À faire prochaine session
 
-## Reste à faire — SEO (Phases 3-5)
+#### Actions utilisateur
+- [ ] Relancer Claude Code depuis dossier SELECT CHATEAUX pour activer MCP Ads
+- [ ] GSC : demander indexation /seminaire-vallee-de-chevreuse + 4 nouveaux articles
 
-### Phase 3 : Contenu (Sessions 6-7)
-- [ ] Écrire article #4 : "Les meilleurs hôtels de séminaire à Chantilly"
-- [ ] Écrire article #5 : "Séminaire dans l'Oise : nature et prestige"
-- [ ] Écrire article #6 : "Privatisation de journée d'étude en château"
-- [ ] Écrire article #7 : "Séminaire dans les Yvelines : châteaux et abbayes"
-- [ ] Écrire article #8 : "Budget séminaire d'entreprise 2026"
-- [ ] Écrire article #9 : "Soirée casino, Gatsby ou médiévale en château"
-- [ ] Écrire article #1 : "Guide séminaire résidentiel en château" (page pilier)
+#### 📅 RDV SEO — semaine du 14 avril 2026
+- Mesurer impact pages geo (chantilly, IDF, chevreuse, yvelines, hauts-de-seine, proche-paris)
+- Positions sur gros mots-clés IDF — objectif passer de 7/10 à 8/10
+- Score actuel : impressions +243%, clics +657%, position ~18-20
 
-### Phase 4 : Autorité & Backlinks (Sessions 8-9)
-- [ ] Google Business Profile (CRITIQUE)
-- [ ] Annuaires B2B (1001Salles, Bird Office, Kactus, Bedouk...)
-- [ ] Stratégie LinkedIn → backlinks
-- [ ] Partenariats & échanges de liens
-- [ ] Collecter avis Google (11 → 30+)
+#### SEO Phase 3 (backlinks)
+- [ ] Contacter offices de tourisme Oise, Yvelines, Chantilly
+- [ ] Contacter agences team building IDF (prestataires complémentaires)
+- [ ] Contacter Eventdrive pour être cité dans leur article "10 châteaux IDF"
 
-### Phase 5 : Pages Piliers (Sessions 10-12)
-- [ ] Guide organiser séminaire château (3000+ mots)
-- [ ] Catalogue team building château (50+ activités)
-- [ ] Comparatif lieux séminaire Île-de-France
-
-## Reste à faire — Autres
-- [ ] Vérifier rendu mobile page par page sur vrais appareils
-- [ ] Stats campagne Google Ads (ROI à vérifier)
-- [ ] Images Reine Margot (hero + meeting rooms sur Supabase)
-- [ ] Vidéo planification → poster sur LinkedIn + intégrer page /devis
+#### Reporté
+- [ ] Site Web : nettoyage fichiers supprimés non commités (IMAGES/, GOOGLE ADS/, scripts/)
+- [ ] LinkedIn : logo, couverture, services
+- [ ] CRM : Pusher Vercel, auto-sélection prestataires IA
 
 ## Notes
-- LinkedIn = meilleur canal (29 min durée, 12.5% bounce)
-- ChatGPT/Perplexity référencent le site
-- Baseline SEO : 18 clics/mois, position moy 29.3, objectif 400+ en 6 mois
-- Concurrents : Kactus (blog mature, 80+ articles) et Naboo (levée 20M€, IA)
-- Notre avantage : FAQ schema sur 32 articles (aucun concurrent n'a ça)
+- Site indexé depuis 8 fév 2026 — encore jeune (6 semaines)
+- Ne pas modifier les pages geo avant mi-avril (laisser Google les évaluer)
+- MCP Google Ads = GA4-based pour les 2 projets (Select Châteaux + Seattle Chimney)
