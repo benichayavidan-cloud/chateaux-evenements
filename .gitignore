@@ -42,6 +42,9 @@ next-env.d.ts
 .env*.local
 .env.backup
 
+# Supabase CLI cache
+/supabase/.temp/
+
 # Large archive files
 *.tar.gz
 archives-developpement/
