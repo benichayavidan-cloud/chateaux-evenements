@@ -132,6 +132,7 @@ export const trackPhoneClick = () => {
       window.gtag("consent", "update", {
         ad_storage: "granted",
         ad_user_data: "granted",
+        analytics_storage: "granted",
       });
       const phoneLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_PHONE_CLICK_LABEL;
       window.gtag("event", "conversion", {
@@ -160,6 +161,7 @@ export const trackFormStart = (formName: string) => {
       window.gtag("consent", "update", {
         ad_storage: "granted",
         ad_user_data: "granted",
+        analytics_storage: "granted",
       });
       const formStartLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_FORM_START_LABEL;
       window.gtag("event", "conversion", {

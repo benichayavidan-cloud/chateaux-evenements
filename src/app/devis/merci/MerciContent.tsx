@@ -24,6 +24,7 @@ export default function MerciContent() {
       window.gtag("consent", "update", {
         ad_storage: "granted",
         ad_user_data: "granted",
+        analytics_storage: "granted",
       });
 
       // Préparer les données Enhanced Conversions (hachées SHA-256)
