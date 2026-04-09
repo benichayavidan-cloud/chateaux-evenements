@@ -17,6 +17,7 @@ export async function GET() {
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .slice(0, 50);
 
+
   const items = sortedPosts
     .map(
       (post) => `
@@ -29,13 +30,17 @@ export async function GET() {
       <category>${post.category}</category>
       <enclosure url="${SITE_URL}/api/images/${post.image.replace("/images/", "").replace(".webp", "")}" type="image/png" length="0" />
       <image>${SITE_URL}/api/images/${post.image.replace("/images/", "").replace(".webp", "")}</image>
-      <author>seminaires@selectchateaux.com (${escapeXml(post.author.name)})</author>
+      <author>seminaires@selectchateaux.com (${escapeXml(post.author.name)})</author>${post.social ? `
+      <social:linkedinProfile>${escapeXml(post.social.linkedinProfile)}</social:linkedinProfile>
+      <social:linkedinCompany>${escapeXml(post.social.linkedinCompany)}</social:linkedinCompany>
+      <social:gmb>${escapeXml(post.social.gmb)}</social:gmb>
+      <social:published>${post.social.published ? 'true' : 'false'}</social:published>` : ''}
     </item>`
     )
     .join("");
 
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:social="http://selectchateaux.com/rss/social">
   <channel>
     <title>Select Châteaux — Blog Séminaires &amp; Événements</title>
     <link>${SITE_URL}/blog</link>

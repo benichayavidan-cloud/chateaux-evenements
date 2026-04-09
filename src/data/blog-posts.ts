@@ -43,6 +43,12 @@ export interface BlogPost {
     duration: string; // ISO 8601 (ex: "PT5M29S")
     uploadDate: string;
   };
+  social?: {
+    linkedinProfile: string; // Post LinkedIn ton personnel (max 3000 chars)
+    linkedinCompany: string; // Post LinkedIn ton corporate (max 3000 chars)
+    gmb: string; // Post Google Business Profile (max 1500 chars, avec CTA)
+    published?: boolean; // true si déjà publié sur les réseaux
+  };
 }
 
 // ============================================
