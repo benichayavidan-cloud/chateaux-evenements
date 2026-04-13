@@ -1,52 +1,56 @@
 # TODO - Prochaine session
 
-## Session 26 mars 2026 — SEO Audit + Ranking + MCP Ads
+## Session 14 avril 2026 — Design flip cards
 
 ### ✅ Fait cette session
 
-#### SEO Analyse
-- [x] Rapport ranking réel IDF : 1 seul mot-clé commercial top 10 (château séminaire Oise 60, pos 2)
-- [x] Audit concurrents : chateauform, aleou, kactus, seminaire-collection dominent tout
-- [x] Vérification état des pages geo créées hier → toutes indexées le 25/03 ✅
-- [x] Vérification sitemap → 72 URLs, lu 25/03, 0 erreurs ✅
-- [x] Analyse évolution SEO depuis lancement (8 fév 2026) :
-  - Impressions : +243% en 6 semaines
-  - Clics : +657% en 6 semaines
-  - Position moy : ~30 → ~18-20
-  - Score SEO : 7/10
-- [x] Note RDV SEO mi-avril pour mesurer impact pages geo
+#### Flip Cards Team Building — Centrage
+- [x] Bouton "Devis gratuit" : ajout display inline-flex + alignItems center + justifyContent center
+- [x] Bouton : hauteur fixe 36px + lineHeight 36px pour centrage vertical parfait
+- [x] Footer carte : restructuré en colonne centrée (durée + bouton empilés, centrés)
+- [x] Tout le dos de la carte centré : catégorie, titre, description, tags, footer
+- [x] Tags : justifyContent center ajouté
+- [x] Déployé en prod (3 déploiements successifs)
+- [x] Commit : a6c6de3
 
-#### Stratégie Backlinks
-- [x] Analyse backlinks adapée au modèle intermédiaire (pas propriétaire des lieux)
-- [x] Pistes : prestataires complémentaires, presse MICE, offices de tourisme, asso pro
-
-#### MCP Ads
-- [x] Vérification MCP Google Ads Select Châteaux = GA4-based (identique à Seattle Chimney)
-- [x] Ajout `google-ads` dans `.mcp.json` SELECT CHATEAUX (manquait)
-- [x] Confirmation Seattle Chimney MCP = même architecture, bien configuré ✅
+#### Scrollbar flip cards
+- [x] Diagnostic : `overflowY: 'auto'` sur la description → scrollbar visible sur Windows, masquée sur macOS
+- [x] Décision : on ne touche pas (pas de modification)
 
 ### ⏳ À faire prochaine session
 
-#### Actions utilisateur
-- [ ] Relancer Claude Code depuis dossier SELECT CHATEAUX pour activer MCP Ads
-- [ ] GSC : demander indexation /seminaire-vallee-de-chevreuse + 4 nouveaux articles
+#### URGENT — Indexation GSC
+- [ ] Demander indexation pour : seminaire-chateau-chantilly-guide-2026
+- [ ] Demander indexation pour : seminaire-residentiel-vs-non-residentiel-choisir
 
-#### 📅 RDV SEO — semaine du 14 avril 2026
-- Mesurer impact pages geo (chantilly, IDF, chevreuse, yvelines, hauts-de-seine, proche-paris)
-- Positions sur gros mots-clés IDF — objectif passer de 7/10 à 8/10
-- Score actuel : impressions +243%, clics +657%, position ~18-20
+#### Google Ads — Suivi CPA cible
+- [ ] Vérifier si les impressions sont revenues après ajout du CPA cible 963₪
+- [ ] Si toujours 0 impression → revenir à TARGET_SPEND
+- [ ] Surveiller le CPA réel vs cible 963₪
 
-#### SEO Phase 3 (backlinks)
+#### Re-audit Ads complet (~22 avril)
+- [ ] Vérifier impact MAXIMIZE_CONVERSIONS + CPA cible (2 semaines d'apprentissage)
+- [ ] Comparer : impressions/jour, clics/jour, CPC moyen, conversions
+- [ ] Si les 22 mots-clés dormants n'ont toujours rien → les couper
+- [ ] Vérifier que GA4 capte maintenant les sessions et conversions Ads
+
+#### SEO — Priorités
+- [ ] Backlinks : contacter Conseils-Tourisme.com (2 articles → 3 liens dofollow)
+- [ ] Publier 3 articles Medium + 1 article LinkedIn
+- [ ] Pitcher Ô Mon Château + Voyages en Patrimoine
+- [ ] Pitcher Républik Event + Écho Touristique
+- [ ] Commander Top 5 Boosterlink (154€)
 - [ ] Contacter offices de tourisme Oise, Yvelines, Chantilly
-- [ ] Contacter agences team building IDF (prestataires complémentaires)
-- [ ] Contacter Eventdrive pour être cité dans leur article "10 châteaux IDF"
+- [ ] Optimiser meta descriptions des pages à fort potentiel (hotel seminaire chantilly = 156 imp, pos 48)
 
 #### Reporté
-- [ ] Site Web : nettoyage fichiers supprimés non commités (IMAGES/, GOOGLE ADS/, scripts/)
+- [ ] Nettoyage fichiers _claude_docs (12 fichiers non trackés)
 - [ ] LinkedIn : logo, couverture, services
 - [ ] CRM : Pusher Vercel, auto-sélection prestataires IA
 
 ## Notes
-- Site indexé depuis 8 fév 2026 — encore jeune (6 semaines)
-- Ne pas modifier les pages geo avant mi-avril (laisser Google les évaluer)
-- MCP Google Ads = GA4-based pour les 2 projets (Select Châteaux + Seattle Chimney)
+- Scrollbar flip cards : visible sur Windows (overflowY auto), masquée sur macOS — décision de ne pas modifier
+- Stratégie Ads : MAXIMIZE_CONVERSIONS + tCPA 963₪ (depuis 9 avril)
+- Budget Ads : 350₪/jour (inchangé)
+- 5 conversions historiques
+- CPA cible ajouté le 9 avril — vérifier résultats ~22 avril
