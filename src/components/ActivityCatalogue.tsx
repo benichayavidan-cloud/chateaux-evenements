@@ -117,6 +117,7 @@ function FlipCard({ activity }: { activity: Activity }) {
           <div style={{
             fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' as const,
             letterSpacing: '0.1em', marginBottom: '8px',
+            textAlign: 'center' as const,
             color: isSoiree ? '#6C3FA0' : '#0E7C86',
           }}>
             {isSoiree ? 'Soirée & Afterwork' : 'Team Building'}
@@ -125,17 +126,19 @@ function FlipCard({ activity }: { activity: Activity }) {
             fontFamily: theme.typography.fonts.heading,
             fontSize: '26px', fontWeight: 600, color: '#0F172A',
             marginBottom: '14px', lineHeight: 1.2,
+            textAlign: 'center' as const,
           }}>
             {activity.name}
           </h3>
           <p style={{
             fontSize: '13.5px', lineHeight: 1.75, color: '#475569',
             flex: 1, overflowY: 'auto', marginBottom: '16px',
+            textAlign: 'center' as const,
           }}>
             {activity.description}
           </p>
           {/* Tags */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '16px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '6px', marginBottom: '16px' }}>
             {activity.tags.map((tag, i) => (
               <span key={i} style={{
                 padding: '4px 12px', borderRadius: '100px',
@@ -149,18 +152,19 @@ function FlipCard({ activity }: { activity: Activity }) {
           </div>
           {/* Footer */}
           <div style={{
-            display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
             paddingTop: '14px', borderTop: '1px solid #F1F5F9',
-            fontSize: '12px', color: '#64748B',
           }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: '#64748B' }}>
               <Clock style={{ width: '13px', height: '13px' }} /> {activity.duration} · {activity.location}
             </span>
             <Link
               href="/devis#formulaire"
               onClick={(e) => e.stopPropagation()}
               style={{
-                padding: '10px 22px', borderRadius: '100px',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                height: '36px', padding: '0 22px', borderRadius: '100px',
+                lineHeight: '36px', textAlign: 'center' as const,
                 background: `linear-gradient(135deg, ${theme.colors.primary.gold}, ${theme.colors.primary.bronze})`,
                 color: 'white', fontSize: '13px', fontWeight: 700,
                 textDecoration: 'none',
