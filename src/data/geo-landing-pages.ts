@@ -310,9 +310,9 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-chantilly",
-    title: "Séminaire Chantilly : 2 Châteaux en Forêt [228 Chambres]",
+    title: "Séminaire Chantilly : Hôtel Château 228 Chambres en Forêt",
     description:
-      "Séminaire à Chantilly : 2 châteaux privatisables en forêt de 6 300 ha. 228 chambres, 33 salles, spa 5★. À 35 min de Paris, 15 min de CDG. Devis gratuit.",
+      "Hôtel séminaire à Chantilly : 2 châteaux privatisables en forêt domaniale de 6 300 ha. 228 chambres, 33 salles, spa 5★. À 35 min de Paris, 15 min CDG. Devis gratuit 24h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "chateau seminaire oise", "séminaire forêt chantilly"],
     ogTitle: "Séminaire en Château à Chantilly | Select Châteaux",
     ogDescription:
@@ -438,9 +438,9 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-oise-60",
-    title: "Séminaire Château Oise (60) : 2 Domaines à 35 min de Paris",
+    title: "Séminaire Oise (60) : Hôtel Château 228 Ch. en Forêt Chantilly",
     description:
-      "Séminaire en château dans l'Oise (60) : 2 domaines en forêt de Chantilly. Manoir 280 pers + 5★ 200 pers. 35 min Paris, 15 min CDG. Devis gratuit 24h.",
+      "Salle & hôtel séminaire dans l'Oise (60) : 2 châteaux en forêt de Chantilly. Manoir 280 pers + 5★ 200 pers, spa, 33 salles. 35 min Paris, 15 min CDG. Devis gratuit 24h.",
     keywords: ["seminaire oise", "séminaire oise", "chateau seminaire oise", "château séminaire oise 60", "salle séminaire oise", "hotel séminaire oise", "séminaire forêt chantilly", "lieu séminaire oise", "séminaire entreprise oise"],
     ogTitle: "Séminaire en Château dans l'Oise (60) | Select Châteaux",
     ogDescription:
@@ -566,9 +566,9 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-yvelines-78",
-    title: "Séminaire Château Yvelines (78) : Abbaye en Vallée de Chevreuse",
+    title: "Château Séminaire 78 : Abbaye 144 Ch. en Vallée de Chevreuse",
     description:
-      "Séminaire en château dans les Yvelines (78). Abbaye cistercienne rénovée, 144 chambres, 14 salles sur 80 ha en Vallée de Chevreuse. À 45 min de Paris. Devis gratuit.",
+      "Salle séminaire dans les Yvelines (78) : abbaye cistercienne rénovée 2023, 144 chambres, 14 salles sur 80 ha en Vallée de Chevreuse. À 45 min de Paris. Devis gratuit 24h.",
     keywords: ["seminaire vallee de chevreuse", "séminaire yvelines", "seminaire yvelines", "château séminaire yvelines 78", "salle séminaire yvelines", "abbaye chevreuse séminaire", "séminaire chevreuse", "séminaire 78", "chateau seminaire 78"],
     ogTitle: "Séminaire en Château dans les Yvelines (78) | Select Châteaux",
     ogDescription:

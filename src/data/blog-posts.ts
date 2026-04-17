@@ -58,8 +58,8 @@ export interface BlogPost {
 const article1: BlogPost = {
   id: 1,
   slug: "combien-coute-seminaire-chateau-2026",
-  title: "Prix Séminaire en Château : Tarifs 2026 [150€ à 450€/pers]",
-  excerpt: "Combien coûte un séminaire en château ? Grille tarifaire complète 2026, coûts cachés à éviter et 5 astuces pour optimiser votre budget. Devis gratuit en 24h.",
+  title: "Combien Coûte un Séminaire en Château ? Tarifs 2026",
+  excerpt: "Tarifs 2026 : 150€ à 450€/pers selon le château. Grille complète, coûts cachés à éviter, 5 astuces pour économiser 20%. Devis gratuit en 24h.",
   category: "organisation",
   author: {
     name: "Sophie Durand",
@@ -334,8 +334,8 @@ const article1: BlogPost = {
 const article2: BlogPost = {
   id: 2,
   slug: "checklist-organiser-seminaire",
-  title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
-  excerpt: "Téléchargement gratuit. Checklist en 7 phases (J-90 à J+7) : objectifs, logistique, budget, animation. Ne ratez aucune étape pour votre séminaire d'entreprise.",
+  title: "Checklist Séminaire Entreprise 2026 : 25 Étapes (PDF)",
+  excerpt: "PDF gratuit à télécharger. 7 phases de J-90 à J+7 : objectifs, budget, logistique, animation. La méthode complète pour ne rien oublier.",
   category: "organisation",
   author: {
     name: "Thomas Mercier",
@@ -1963,8 +1963,8 @@ const article9: BlogPost = {
 const article10: BlogPost = {
   id: 37,
   slug: "budget-seminaire-entreprise-2026-planifier",
-  title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
-  excerpt: "Répartition exacte du budget séminaire 2026 : lieu (25-35%), intervenants, transport. Tableaux de coûts pour 10 à 100 personnes et astuces pour économiser jusqu'à 20%.",
+  title: "Budget Séminaire Entreprise 2026 : Calculer le Coût Réel",
+  excerpt: "Répartition exacte : lieu 25-35%, intervenants 40-50%, transport 15-25%. Tableaux de coûts pour 10 à 100 pers et 5 leviers pour économiser 20%.",
   category: "organisation",
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
@@ -4088,8 +4088,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 9,
     slug: "repas-seminaire-tendances-traiteur-2026",
-    title: "Repas de Séminaire : 8 Tendances Traiteur 2026",
-    excerpt: "Buffet healthy, menu locavore, atelier chef : les 8 formats de restauration qui cartonnent en séminaire d'entreprise. Tarifs et prestataires recommandés.",
+    title: "Repas Séminaire 2026 : 8 Tendances Traiteur + Tarifs",
+    excerpt: "Buffet healthy, menu locavore, live cooking : les 8 formats qui cartonnent en 2026. Tarifs précis (45-150€/pers) et prestataires recommandés.",
     category: "organisation",
     author: { name: "Chef Antoine Dubois", role: "Chef Traiteur Événementiel", avatar: "AD" },
     publishedAt: "2025-12-28",
@@ -11932,8 +11932,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 23,
     slug: "escape-game-geant-chateau",
-    title: "Escape Game en Château : Guide & Tarifs 2026",
-    excerpt: "Escape game grandeur nature dans un château : énigmes cachées, mission collaborative en équipe. Prestataires recommandés, budget complet et guide pas à pas.",
+    title: "Escape Game Géant en Château : 10-200 Pers • Tarifs 2026",
+    excerpt: "Le château entier devient le terrain de jeu : énigmes, acteurs, décors d'époque. Budget 30-60€/pers, durée 1h30-2h, guide pas à pas pour réserver.",
     category: "team-building",
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },
     publishedAt: "2025-11-30",
