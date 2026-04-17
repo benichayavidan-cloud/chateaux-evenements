@@ -118,8 +118,11 @@ export function HeroSlider({
               objectPosition: 'center',
             }}
             priority={index === 0}
+            fetchPriority={index === 0 ? 'high' : 'auto'}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
             sizes="100vw"
-            quality={75}
+            quality={index === 0 ? 70 : 65}
           />
 
           {/* Overlay */}

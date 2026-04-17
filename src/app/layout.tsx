@@ -102,6 +102,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googleadservices.com" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
 
         {/* Google Consent Mode v2 - DOIT être chargé AVANT tous les autres scripts Google */}
         <script

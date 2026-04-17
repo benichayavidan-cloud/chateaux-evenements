@@ -932,6 +932,74 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
       )}
 
       {/* ═══════════════════════════════════════════
+          CROSS-LINKS GEO — Autres régions (SEO maillage interne)
+      ═══════════════════════════════════════════ */}
+      <Section spacing="md" background="white">
+        <Container size="xl">
+          <div className="section-header" style={{ textAlign: "center", marginBottom: theme.spacing.xl }}>
+            <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>Découvrez nos séminaires dans d'autres régions</Text>
+            <Text variant="body" color="muted" align="center" style={{ maxWidth: "720px", margin: "0 auto" }}>
+              Explorez nos châteaux à travers toute l'Île-de-France — Chantilly, Chevreuse, Yvelines, Oise, Hauts-de-Seine.
+            </Text>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: theme.spacing.lg,
+            }}
+          >
+            {geoLandingPages
+              .filter((page) => page.slug !== data.slug)
+              .slice(0, 6)
+              .map((page) => (
+                <NextLink
+                  key={page.slug}
+                  href={`/${page.slug}`}
+                  style={{ textDecoration: "none", display: "block" }}
+                >
+                  <div
+                    className="group hover-lift-sm"
+                    style={{
+                      padding: theme.spacing.lg,
+                      borderRadius: theme.effects.borderRadius.xl,
+                      background: theme.colors.neutral.white,
+                      border: `1px solid ${theme.colors.neutral.gray200}`,
+                      transition: theme.components.card.transition,
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div>
+                      <div style={{ display: "flex", alignItems: "center", gap: theme.spacing.sm, marginBottom: theme.spacing.sm }}>
+                        <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze, flexShrink: 0 }} />
+                        <Text variant="caption" color="bronze" style={{ textTransform: "uppercase", letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.semibold }}>
+                          Région
+                        </Text>
+                      </div>
+                      <Text variant="h5" style={{ marginBottom: theme.spacing.sm }}>
+                        {page.h1}
+                      </Text>
+                      <Text variant="bodySmall" color="muted" lineClamp={2}>
+                        {page.heroAccroche}
+                      </Text>
+                    </div>
+                    <div style={{ marginTop: theme.spacing.md, display: "flex", alignItems: "center", gap: theme.spacing.xs, color: theme.colors.primary.bronze }}>
+                      <Text variant="caption" style={{ color: theme.colors.primary.bronze, fontWeight: theme.typography.fontWeight.semibold }}>
+                        Découvrir
+                      </Text>
+                      <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </div>
+                </NextLink>
+              ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* ═══════════════════════════════════════════
           FAQ — 2 colonnes : questions + image équipe
       ═══════════════════════════════════════════ */}
       <Section spacing="lg" background="white">

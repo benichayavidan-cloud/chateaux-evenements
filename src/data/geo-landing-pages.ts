@@ -412,6 +412,26 @@ export const geoLandingPages: GeoLandingPage[] = [
         question: "Quels sont les tarifs d'un séminaire en château à Chantilly en 2026 ?",
         answer: "Comptez entre 150 et 200 € par personne pour une journée d'étude (salle équipée + déjeuner), et 280 à 350 € par personne pour un séminaire résidentiel 2 jours/1 nuit (chambre, repas, activité team building). Pour les conventions de 200+ participants, des tarifs dégressifs s'appliquent. Devis gratuit personnalisé sous 24h.",
       },
+      {
+        question: "Comment organiser un séminaire d'entreprise à Chantilly ?",
+        answer: "5 étapes clés : (1) définir le format (journée d'étude, résidentiel 1 ou 2 nuits, convention), (2) cadrer le nombre de participants (30 à 300), (3) choisir le domaine (château anglo-normand ou InterContinental 5★), (4) sélectionner les activités team building (forêt, escape game, atelier Chantilly), (5) confier la logistique à Select Châteaux — un seul interlocuteur de A à Z. Délai idéal de réservation : 3 à 6 mois avant.",
+      },
+      {
+        question: "Quelles activités pour un séminaire à Chantilly ?",
+        answer: "La forêt de Chantilly (6 344 ha) permet une diversité unique : rallye 2CV, VTT électrique, parcours d'orientation, course d'aventure, chasse au trésor, olympiades sportives, sylvothérapie. En intérieur : escape game privatif (Manoir anglo-normand), atelier crème Chantilly avec chef étoilé, team building œnologie, Immersive Room 240 m² pour conventions. Visite privée du Musée Condé et Grandes Écuries en option.",
+      },
+      {
+        question: "Select Châteaux vs Châteauform à Chantilly : quelle différence ?",
+        answer: "Châteauform propose des lieux standardisés orientés formation. Select Châteaux propose deux adresses uniques : un château anglo-normand avec spa Codage Paris et un InterContinental 5★ avec rooftop — deux hôtels de prestige international privatisables pour vos séminaires. Notre différence : des lieux d'exception (pas des centres de séminaires standardisés), un service hôtelier 5 étoiles, et une orchestration sur-mesure par un interlocuteur unique.",
+      },
+      {
+        question: "Peut-on faire un escape game en château à Chantilly ?",
+        answer: "Oui, notre Manoir anglo-normand à Chantilly dispose d'un escape game géant privatif intégré au domaine. Le château entier devient le terrain de jeu avec acteurs, décors d'époque et énigmes sur-mesure. Capacité 10 à 200 personnes en parallèle (1h30-2h par session). Souvent inclus dans le forfait séminaire résidentiel.",
+      },
+      {
+        question: "Quel est le meilleur moment pour organiser un séminaire à Chantilly ?",
+        answer: "Mars-juin et septembre-novembre sont idéaux : météo favorable aux activités forêt + tarifs négociables (hors haute saison touristique). Éviter : juillet-août (fermetures partielles) et décembre (Noël). Mardi-jeudi = -20% vs lundi/vendredi. Anticiper 3 à 6 mois, surtout pour les groupes 100+.",
+      },
     ],
     contenuSEO: `<h2>Chantilly : un écrin de prestige pour vos séminaires</h2>
 <p>Depuis des siècles, Chantilly attire les esprits brillants et les événements de prestige. La ville doit sa renommée au Domaine de Chantilly, mais c'est toute la région qui respire l'excellence : forêts domaniales majestueuses, hippodromes mythiques, restaurants gastronomiques et hôtels de caractère. Organiser un séminaire en château à Chantilly, c'est inscrire votre événement dans cette tradition d'exception.</p>
@@ -426,7 +446,16 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>Quand on cherche un <strong>hôtel séminaire à Chantilly</strong>, on pense souvent aux grandes chaînes hôtelières. Nos deux domaines offrent pourtant une expérience supérieure : un <strong>hôtel de séminaire à Chantilly</strong> 5 étoiles InterContinental labellisé Green Key et un château-hôtel avec spa Codage Paris privatif. La différence avec un hôtel séminaire classique ? Un cadre historique unique, des équipes entièrement dédiées à votre événement, et un programme d'activités impossible à reproduire en hôtel de chaîne. Nos <strong>hôtels séminaires à Chantilly</strong> combinent la capacité d'un grand hôtel de conférence (228 chambres, 33 salles) avec l'âme d'un lieu d'exception en forêt.</p>
 
 <h2>Tarifs séminaire à Chantilly en 2026</h2>
-<p>Les tarifs pour un <strong>séminaire en château à Chantilly</strong> varient selon le format et la saison. En moyenne : 150 à 200 € par personne pour une journée d'étude (déjeuner inclus), 280 à 350 € par personne pour un séminaire résidentiel 2 jours/1 nuit (hébergement, repas, une activité team building). Les grandes conventions de 200 à 300 participants bénéficient de tarifs dégressifs. Devis gratuit sous 24h.</p>`,
+<p>Les tarifs pour un <strong>séminaire en château à Chantilly</strong> varient selon le format et la saison. En moyenne : 150 à 200 € par personne pour une journée d'étude (déjeuner inclus), 280 à 350 € par personne pour un séminaire résidentiel 2 jours/1 nuit (hébergement, repas, une activité team building). Les grandes conventions de 200 à 300 participants bénéficient de tarifs dégressifs. Devis gratuit sous 24h.</p>
+
+<h2>Hôtel séminaire Chantilly : pourquoi choisir un château plutôt qu'un hôtel de chaîne ?</h2>
+<p>La recherche d'un <strong>hôtel séminaire à Chantilly</strong> amène souvent vers les grandes chaînes hôtelières standardisées. Pourtant, nos deux propriétés cumulent tous les services hôteliers haut de gamme (228 chambres 5 étoiles, 6 restaurants gastronomiques, 3 spas avec piscines intérieures, rooftop panoramique, centre de convention de 700 m²) avec une dimension patrimoniale inégalable. Résultat : un ROI événementiel supérieur, car vos collaborateurs se souviennent d'un cadre exceptionnel, pas d'une salle de conférence lambda. Notre <strong>hôtel de séminaire à Chantilly</strong> InterContinental 5★ labellisé Green Key est à 15 minutes de Roissy-CDG, idéal pour les délégations internationales. Le château anglo-normand (119 chambres, 21 salles, Immersive Room 240 m²) convient aux conventions thématiques et kick-offs annuels nécessitant un cadre immersif.</p>
+
+<h2>Séminaire à Chantilly en forêt : le cadre nature qui booste la cohésion</h2>
+<p>Les neurosciences confirment que le cadre naturel augmente de 40 % la créativité collective. La <strong>forêt domaniale de Chantilly</strong> (6 344 hectares, classée Natura 2000) borde directement nos deux domaines : sylvothérapie guidée, rallye en 2CV, parcours d'orientation GPS, VTT électrique, course d'orientation photo. L'<strong>activité séminaire Chantilly</strong> la plus demandée reste le rallye en forêt avec épreuves de cohésion (3h, 10 à 200 personnes), suivi de l'atelier "crème Chantilly" avec un chef étoilé dans les cuisines du château. Chaque <strong>séminaire en nature à Chantilly</strong> est cadré par un coordinateur Select Châteaux qui assure la logistique, les briefings et la gestion des imprévus météo.</p>
+
+<h2>Comment organiser un séminaire d'entreprise à Chantilly ?</h2>
+<p>La méthode Select Châteaux en 5 étapes : (1) Brief gratuit 30 min — format, budget, objectifs — (2) Propositions comparatives sous 24h avec tarifs des deux domaines, (3) Visite sur site des deux châteaux avec votre équipe interne, (4) Contractualisation et réservation des hébergements, salles, activités et restauration en un seul contrat, (5) Coordination le jour J par un chef de projet dédié. Budget indicatif : 6 000 € (30 pers, journée) à 120 000 € (200 pers, convention 2 jours résidentielle). Délai de réservation : 3 à 6 mois pour les groupes 100+, 2 mois pour les petits comités.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Chantilly", url: "/seminaire-chateau-chantilly" },
