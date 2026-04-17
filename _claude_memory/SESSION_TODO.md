@@ -1,6 +1,56 @@
 # TODO - Prochaine session
 
-## Session 15 avril 2026 (après-midi) — Automatisation complète Google Ads
+## Session 17 avril 2026 — Audit GSC + refonte SEO complète (avant Chabbat)
+
+### ✅ Fait cette session (2 commits SEO déployés)
+
+#### 🔍 Audit GSC complet 90 jours
+- [x] 76 clics / 4177 impressions / CTR 1.8% / pos moy 26.5
+- [x] Détection 6 pages top 10 avec CTR 0% (quick wins)
+- [x] Détection 4 pages géo en page 4-5 avec 200+ impressions
+- [x] Requêtes orphelines identifiées (hôtel séminaire, salle séminaire, etc.)
+
+#### 📝 Vague 1 — Title/meta (commit 5bc14fc)
+- [x] 5 articles blog réécrits (combien-coute, checklist, budget, repas, escape-game)
+- [x] 3 pages géo réécrites (Chantilly, Oise, Yvelines) avec mots-clés matchés
+- [x] 8 URLs soumises indexation manuelle GSC
+
+#### 📝 Vague 2 — Contenu + maillage + CWV (commit 4346660)
+- [x] Page Chantilly : +6 FAQ + 3 H2 + ~800 mots ciblés "hôtel séminaire"
+- [x] Maillage inter-pages géo : nouvelle section "Autres régions" (42 nouveaux liens internes)
+- [x] CWV : fetchPriority=high + decoding=async + quality optimisée
+- [x] dns-prefetch Google Ads / doubleclick
+
+#### 📄 Plan backlinks actionnable
+- [x] `_claude_docs/2026-04-17_plan-backlinks-seo.md` créé
+- [x] 5 priorités + templates emails + calendrier 6 mois
+
+### ⏳ À faire prochaine session
+
+#### 📊 24 avril — Mesure impact SEO (7 jours après déploiement)
+- [ ] Vérifier CTR des 5 articles blog (doit passer de 0% à 2-5%)
+- [ ] Vérifier positions pages géo (Chantilly 44→30, Yvelines 48→35, Oise 35→25)
+- [ ] GSC : `/blog/seminaire-residentiel-vs-journee` toujours "Crawled not indexed" ?
+
+#### 🔗 Backlinks (exécution plan — voir _claude_docs/2026-04-17_plan-backlinks-seo.md)
+- [ ] **Semaine 21-25 avril** : 4 emails offices tourisme + commander Boosterlink 154€
+- [ ] Créer comptes Medium + LinkedIn (si pas fait)
+- [ ] Pitcher 3 médias B2B (Bedouk, Republik Event, L'Écho Touristique)
+
+#### 🎯 22 avril — Mini-audit Google Ads pour décision tCPA
+- [ ] Vérifier CPA stabilisé post-changements (7 jours d'algo)
+- [ ] Si CPA < 600 ₪ → baisser tCPA à 750 ₪ (objectif leads ultra-qualifiés)
+- [ ] Si CPA 600-700 ₪ → baisser tCPA à 800 ₪
+- [ ] Si CPA 700-800 ₪ → baisser tCPA à 850 ₪
+- [ ] Si CPA > 800 ₪ → NE PAS baisser (garder 963 ₪)
+
+#### 📊 30 avril — Re-audit GSC complet
+- [ ] Comparer données avant/après optimisations
+- [ ] Identifier nouvelles opportunités
+
+---
+
+## Historique session 15 avril 2026 (après-midi) — Automatisation complète Google Ads
 
 ### ✅ Fait cette session
 
