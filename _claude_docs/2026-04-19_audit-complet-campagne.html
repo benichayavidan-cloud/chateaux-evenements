@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit complet — SÉMINAIRE CHÂTEAU IDF — 19 avril 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; line-height: 1.6; padding: 40px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); overflow: hidden; }
+  header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; padding: 40px; }
+  header h1 { font-size: 28px; margin-bottom: 8px; }
+  header .meta { opacity: 0.9; font-size: 14px; }
+  .content { padding: 40px; }
+  h2 { color: #1e3a8a; margin: 32px 0 16px; font-size: 22px; border-bottom: 3px solid #e0e7ff; padding-bottom: 8px; }
+  h3 { color: #3730a3; margin: 20px 0 12px; font-size: 17px; }
+  .score-block { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin: 20px 0; }
+  .score-block .big { font-size: 72px; font-weight: 800; line-height: 1; }
+  .score-block .label { font-size: 14px; opacity: 0.9; margin-top: 8px; letter-spacing: 1px; text-transform: uppercase; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0; }
+  .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; }
+  .card .value { font-size: 28px; font-weight: 700; color: #1e3a8a; }
+  .card .label { font-size: 13px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  .card .trend { font-size: 12px; margin-top: 8px; }
+  .trend.up { color: #059669; }
+  .trend.down { color: #dc2626; }
+  .trend.warn { color: #d97706; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th { background: #f1f5f9; padding: 12px; text-align: left; border-bottom: 2px solid #cbd5e1; font-weight: 600; color: #334155; }
+  td { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+  tr:hover { background: #f8fafc; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge.good { background: #d1fae5; color: #065f46; }
+  .badge.mid { background: #fef3c7; color: #92400e; }
+  .badge.bad { background: #fee2e2; color: #991b1b; }
+  .health-bar { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+  .health-item { display: grid; grid-template-columns: 200px 1fr 80px; gap: 16px; align-items: center; }
+  .health-item .bar { height: 12px; background: #e2e8f0; border-radius: 6px; overflow: hidden; }
+  .health-item .fill { height: 100%; border-radius: 6px; transition: width 0.3s; }
+  .fill.good { background: linear-gradient(90deg, #10b981, #059669); }
+  .fill.mid { background: linear-gradient(90deg, #f59e0b, #d97706); }
+  .fill.bad { background: linear-gradient(90deg, #ef4444, #dc2626); }
+  .reco-list { list-style: none; }
+  .reco-list li { padding: 16px; margin: 10px 0; border-left: 4px solid; border-radius: 6px; background: #f8fafc; }
+  .reco-list li.urgent { border-color: #dc2626; background: #fef2f2; }
+  .reco-list li.important { border-color: #d97706; background: #fffbeb; }
+  .reco-list li.nice { border-color: #059669; background: #ecfdf5; }
+  .reco-list .why { font-size: 13px; color: #64748b; margin-top: 6px; }
+  .projection-box { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b; border-radius: 12px; padding: 24px; margin: 20px 0; }
+  .projection-box h3 { color: #92400e; }
+  footer { background: #1e293b; color: #94a3b8; padding: 20px; text-align: center; font-size: 13px; }
+  .emoji { font-size: 20px; }
+  @media (max-width: 640px) {
+    .health-item { grid-template-columns: 1fr; }
+    header { padding: 24px; }
+    .content { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📊 Audit complet — Campagne SÉMINAIRE CHÂTEAU IDF</h1>
+    <div class="meta">Compte 9285151029 · Campagne 23644127670 · Période : 30 derniers jours · Généré le 19 avril 2026</div>
+  </header>
+
+  <div class="content">
+
+    <!-- ÉTAT DE SANTÉ GLOBAL -->
+    <h2>🏥 État de santé global</h2>
+    <div class="score-block">
+      <div class="big">72<span style="font-size: 32px;">/100</span></div>
+      <div class="label">Santé globale — Bonne avec marges d'amélioration</div>
+    </div>
+
+    <div class="health-bar">
+      <div class="health-item">
+        <div><strong>Performance conversions</strong></div>
+        <div class="bar"><div class="fill good" style="width: 95%;"></div></div>
+        <div><span class="badge good">95/100</span></div>
+      </div>
+      <div class="health-item">
+        <div><strong>Qualité des annonces</strong></div>
+        <div class="bar"><div class="fill good" style="width: 80%;"></div></div>
+        <div><span class="badge good">80/100</span></div>
+      </div>
+      <div class="health-item">
+        <div><strong>Pilotage budget</strong></div>
+        <div class="bar"><div class="fill good" style="width: 85%;"></div></div>
+        <div><span class="badge good">85/100</span></div>
+      </div>
+      <div class="health-item">
+        <div><strong>Mots-clés</strong></div>
+        <div class="bar"><div class="fill mid" style="width: 75%;"></div></div>
+        <div><span class="badge mid">75/100</span></div>
+      </div>
+      <div class="health-item">
+        <div><strong>Tracking conversions</strong></div>
+        <div class="bar"><div class="fill mid" style="width: 70%;"></div></div>
+        <div><span class="badge mid">70/100</span></div>
+      </div>
+      <div class="health-item">
+        <div><strong>Quality Score moyen</strong></div>
+        <div class="bar"><div class="fill mid" style="width: 60%;"></div></div>
+        <div><span class="badge mid">60/100</span></div>
+      </div>
+      <div class="health-item">
+        <div><strong>Couverture marché</strong></div>
+        <div class="bar"><div class="fill bad" style="width: 55%;"></div></div>
+        <div><span class="badge bad">55/100</span></div>
+      </div>
+      <div class="health-item">
+        <div><strong>Qualité landing page</strong></div>
+        <div class="bar"><div class="fill bad" style="width: 55%;"></div></div>
+        <div><span class="badge bad">55/100</span></div>
+      </div>
+    </div>
+
+    <!-- KPIs PRINCIPAUX -->
+    <h2>📈 KPIs 30 jours</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="value">8 304 ₪</div>
+        <div class="label">Coût total (~2 256 €)</div>
+      </div>
+      <div class="card">
+        <div class="value">627</div>
+        <div class="label">Impressions</div>
+      </div>
+      <div class="card">
+        <div class="value">87</div>
+        <div class="label">Clics</div>
+      </div>
+      <div class="card">
+        <div class="value" style="color: #059669;">12</div>
+        <div class="label">Conversions</div>
+        <div class="trend up">▲ x6 vs mars (2 conv)</div>
+      </div>
+      <div class="card">
+        <div class="value" style="color: #059669;">13,9%</div>
+        <div class="label">CTR moyen</div>
+        <div class="trend up">▲ 3-4x l'industrie (3-5%)</div>
+      </div>
+      <div class="card">
+        <div class="value">95,45 ₪</div>
+        <div class="label">CPC moyen</div>
+      </div>
+      <div class="card">
+        <div class="value" style="color: #059669;">692 ₪</div>
+        <div class="label">CPA 30j</div>
+        <div class="trend up">▲ -28% sous cible 963 ₪</div>
+      </div>
+      <div class="card">
+        <div class="value" style="color: #059669;">567 ₪</div>
+        <div class="label">CPA avril (partiel)</div>
+        <div class="trend up">▲ -41% sous cible</div>
+      </div>
+      <div class="card">
+        <div class="value" style="color: #d97706;">53,6%</div>
+        <div class="label">Impression Share</div>
+        <div class="trend warn">⚠ 46% des recherches perdues</div>
+      </div>
+      <div class="card">
+        <div class="value" style="color: #d97706;">100%</div>
+        <div class="label">Desktop</div>
+        <div class="trend warn">⚠ 0 impression mobile/tablet</div>
+      </div>
+    </div>
+
+    <!-- ÉVOLUTION MARS → AVRIL -->
+    <h2>🚀 Évolution Mars → Avril 2026</h2>
+    <table>
+      <thead>
+        <tr><th>Métrique</th><th>Mars (partiel)</th><th>Avril (1→17)</th><th>Δ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Coût</td><td>3 138 ₪</td><td><strong>5 669 ₪</strong></td><td><span class="badge mid">+80%</span></td></tr>
+        <tr><td>Impressions</td><td>465</td><td>330</td><td><span class="badge mid">-29%</span></td></tr>
+        <tr><td>Clics</td><td>51</td><td>56</td><td><span class="badge good">+10%</span></td></tr>
+        <tr><td><strong>Conversions</strong></td><td>2</td><td><strong>10</strong></td><td><span class="badge good">+400% 🔥</span></td></tr>
+        <tr><td><strong>CPA</strong></td><td>1 569 ₪</td><td><strong>567 ₪</strong></td><td><span class="badge good">-64% 🔥</span></td></tr>
+        <tr><td>CTR</td><td>~11%</td><td><strong>17%</strong></td><td><span class="badge good">+55%</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- CONVERSIONS DÉTAIL -->
+    <h2>🎯 Détail des 12 conversions</h2>
+    <p><strong>Type unique :</strong> 100% Envoi de formulaire de lead · 0 appel téléphone (3 trackings call configurés mais 0 remontée)</p>
+
+    <h3>Mots-clés qui convertissent (top 6)</h3>
+    <table>
+      <thead>
+        <tr><th>Mot-clé</th><th>Conv</th><th>Coût</th><th>CPA</th><th>Quality Score</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>séminaire proche paris</td><td><strong>3</strong></td><td>780 ₪</td><td><span class="badge good">260 ₪ 🔥</span></td><td>4/10</td></tr>
+        <tr><td>séminaire chantilly</td><td><strong>3</strong></td><td>1 140 ₪</td><td><span class="badge good">380 ₪ 🔥</span></td><td>5/10</td></tr>
+        <tr><td>domaine séminaire ile de france</td><td><strong>3</strong></td><td>1 761 ₪</td><td><span class="badge mid">587 ₪</span></td><td>4/10</td></tr>
+        <tr><td>séminaire 78</td><td>1</td><td>312 ₪</td><td><span class="badge mid">312 ₪</span></td><td>3/10</td></tr>
+        <tr><td>lieu séminaire chantilly</td><td>1</td><td>111 ₪</td><td><span class="badge good">111 ₪ 🔥</span></td><td>7/10</td></tr>
+        <tr><td>chateau seminaire ile de france</td><td>1</td><td>372 ₪</td><td><span class="badge mid">372 ₪</span></td><td>3/10</td></tr>
+      </tbody>
+    </table>
+    <p><em>3 mots-clés concentrent 75% des conversions (9/12).</em></p>
+
+    <h3>Heures qui convertissent</h3>
+    <table>
+      <thead>
+        <tr><th>Heure</th><th>Conversions</th><th>Jours</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>12h</strong></td><td><strong>5,5 🔥 (46%)</strong></td><td>Lun, Mar, Mer, Ven</td></tr>
+        <tr><td>11h</td><td>2</td><td>Lun, Ven</td></tr>
+        <tr><td>17h</td><td>2</td><td>Mer, Ven</td></tr>
+        <tr><td>18h</td><td>1</td><td>Mar</td></tr>
+        <tr><td>16h</td><td>1</td><td>Mer</td></tr>
+        <tr><td>15h</td><td>0,5</td><td>Mer</td></tr>
+      </tbody>
+    </table>
+
+    <!-- PROJECTION -->
+    <h2>🔮 Projection fin avril 2026</h2>
+    <div class="projection-box">
+      <h3>Trajectoire actuelle vs CAP mensuel 8 500 ₪</h3>
+      <table>
+        <tbody>
+          <tr><td><strong>Dépensé au 17/04</strong></td><td>5 669 ₪ (67% du cap)</td></tr>
+          <tr><td><strong>Marge restante avant cap</strong></td><td>2 831 ₪</td></tr>
+          <tr><td><strong>Rythme moyen actif</strong></td><td>~515 ₪ / jour actif</td></tr>
+          <tr><td><strong>Jours actifs restants</strong></td><td>~8 (Lun-Jeu + Ven partiel)</td></tr>
+          <tr><td><strong>⚠️ Cap atteint vers</strong></td><td><strong>Ven 24/04 ou Lun 27/04</strong> → script auto pausera la campagne</td></tr>
+          <tr><td><strong>Projection dépense fin avril</strong></td><td>~8 500 ₪ (cap respecté ✅)</td></tr>
+          <tr><td><strong>Projection conversions fin avril</strong></td><td>~15 conversions (base CPA 567 ₪)</td></tr>
+          <tr><td><strong>Projection conversions annuelle</strong></td><td>~180 leads/an (si rythme tenu)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- POINTS FORTS -->
+    <h2>💪 Points forts</h2>
+    <ul style="padding-left: 20px;">
+      <li><strong>CPA en chute libre</strong> : 1 569 ₪ (mars) → 567 ₪ (avril) = -64% en un mois</li>
+      <li><strong>Stratégie MAXIMIZE_CONVERSIONS validée</strong> : conversions x6 vs mars</li>
+      <li><strong>CTR 13,9%</strong> (x3-4 vs industrie) → annonces excellentes</li>
+      <li><strong>Automatisation robuste</strong> : scripts cap mensuel + jours fériés FR tournent seuls</li>
+      <li><strong>Calendrier optimisé</strong> : Sam/Dim OFF confirmé par 0 conversion le weekend</li>
+      <li><strong>212 négatifs actifs</strong> : filtrage efficace des clics non qualifiés</li>
+      <li><strong>Optimization Score 100%</strong> (vs 63% début avril)</li>
+    </ul>
+
+    <!-- POINTS FAIBLES -->
+    <h2>⚠️ Points à corriger</h2>
+    <ul style="padding-left: 20px;">
+      <li><strong>Landing page BELOW_AVERAGE sur TOUS les mots-clés</strong> (post-click quality) → Google pénalise le Quality Score</li>
+      <li><strong>Quality Score moyen 3,9/10</strong> (faible) → CPC plus élevé que nécessaire</li>
+      <li><strong>Impression Share 53,6%</strong> → on rate 46% des recherches (budget/enchères)</li>
+      <li><strong>0 impression mobile/tablet</strong> → configuration à vérifier d'urgence</li>
+      <li><strong>0 conversion téléphone</strong> en 30j malgré 3 trackings actifs → tracking à diagnostiquer</li>
+      <li><strong>Mot-clé "séminaire nature proche paris"</strong> : 504 ₪ / 0 conv en 30j (EXACT)</li>
+      <li><strong>Aucune conv le jeudi</strong> sur 30j (anomalie à surveiller)</li>
+    </ul>
+
+    <!-- RECOMMANDATIONS -->
+    <h2>🎬 Plan d'action priorisé</h2>
+
+    <h3>🔴 URGENT (cette semaine)</h3>
+    <ul class="reco-list">
+      <li class="urgent">
+        <strong>1. Vérifier pourquoi 0 impression mobile/tablet</strong>
+        <div class="why">Potentiellement 40-50% du marché ignoré. Check : exclusions d'appareils, enchères mobile à -100%, ou conflit ciblage.</div>
+      </li>
+      <li class="urgent">
+        <strong>2. Diagnostiquer le tracking téléphone</strong>
+        <div class="why">3 types de conv call configurés, 0 remontée en 30j. Test manuel : cliquer "Appeler" depuis une annonce et vérifier remontée dans Ads.</div>
+      </li>
+      <li class="urgent">
+        <strong>3. Optimiser la landing page (post-click quality BELOW_AVERAGE sur tous les MC)</strong>
+        <div class="why">Cause principale du QS faible. Actions : temps de chargement, contenu aligné mot-clé, CTA clair, formulaire visible au-dessus de la ligne de flottaison.</div>
+      </li>
+    </ul>
+
+    <h3>🟡 IMPORTANT (22 avril — mini-audit prévu)</h3>
+    <ul class="reco-list">
+      <li class="important">
+        <strong>4. Baisser tCPA 963 → 750 ₪</strong>
+        <div class="why">CPA actuel 567 ₪ = grille "< 600 ₪ → 750 ₪". L'algo a convergé, on peut serrer pour leads plus qualifiés.</div>
+      </li>
+      <li class="important">
+        <strong>5. Ajouter 2 négatifs (406 ₪ gaspillés en 30j)</strong>
+        <div class="why">"lieu atypique" et "au vert" (broad) : 0 conversion alors que cher.</div>
+      </li>
+      <li class="important">
+        <strong>6. Pauser "séminaire nature proche paris" EXACT</strong>
+        <div class="why">504 ₪ dépensés, 0 conv en 30j. Candidat clair à la pause.</div>
+      </li>
+    </ul>
+
+    <h3>🟢 AMÉLIORATION (après 24/04 — mesure SEO)</h3>
+    <ul class="reco-list">
+      <li class="nice">
+        <strong>7. Augmenter le CAP 8 500 → 9 500 ₪</strong>
+        <div class="why">Avec CPA 567 ₪ + IS 53%, chaque 1 000 ₪ injectés = ~1,8 conv supplémentaires. Si DAF accord.</div>
+      </li>
+      <li class="nice">
+        <strong>8. Enchères boost sur les 3 mots-clés stars</strong>
+        <div class="why">séminaire proche paris (CPA 260), séminaire chantilly (CPA 380), domaine séminaire IDF : enchères manuelles +20% pour capter plus d'IS.</div>
+      </li>
+      <li class="nice">
+        <strong>9. Activer mobile en test (si bloqué)</strong>
+        <div class="why">Démarrer avec -50% d'enchères mobile pour mesurer le comportement avant d'ouvrir en grand.</div>
+      </li>
+    </ul>
+
+    <!-- VERDICT FINAL -->
+    <h2>🎯 Verdict final</h2>
+    <div style="background: #ecfdf5; border: 2px solid #10b981; padding: 24px; border-radius: 12px; margin: 20px 0;">
+      <h3 style="color: #065f46; margin-top: 0;">✅ Campagne en pleine santé — Ne pas perturber l'algo avant 22/04</h3>
+      <p>La campagne est dans sa meilleure phase depuis le lancement. Le passage MAXIMIZE_CONVERSIONS du 8 avril + le resserrement du calendrier + les scripts auto ont produit une explosion des résultats. <strong>Toute modification majeure avant le 22 avril casserait l'apprentissage de l'algo.</strong></p>
+      <p style="margin-top: 12px;"><strong>Les 3 urgences (mobile, tracking call, landing page) peuvent être traitées en parallèle sans toucher à la structure de la campagne.</strong></p>
+    </div>
+
+  </div>
+
+  <footer>
+    Rapport généré automatiquement · Source : Google Ads API (GAQL) · Données compte 9285151029 · 19 avril 2026
+  </footer>
+</div>
+</body>
+</html>

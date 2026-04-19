@@ -1,5 +1,64 @@
 # TODO - Prochaine session
 
+## Session 19 avril 2026 — Audit Ads complet + optimisation landing + fix hydration
+
+### ✅ Fait cette session (1 commit déployé)
+
+#### 📊 Audit Google Ads complet (état de santé 72/100)
+- [x] Rapport HTML généré : `_claude_docs/2026-04-19_audit-complet-campagne.html`
+- [x] 12 conversions sur 30j (formulaire lead), 3 MC stars (75% des conv)
+- [x] CPA 567 ₪ (−41% sous cible 963 ₪), CTR 13,9%, IS 53,6%
+- [x] Projection fin avril : ~15 conv, ~8 500 ₪ (cap atteint ~24-27 avril)
+- [x] Heures gagnantes : 12h (46% conv) · Aucune conv jeudi (anomalie à surveiller)
+- [x] **⚠️ 0 conversion téléphone** en 30j (3 trackings call configurés) — à diagnostiquer
+- [x] **⚠️ 100% desktop** — vérifier pourquoi pas d'impression mobile
+
+#### 🔧 Optimisations landing page `/seminaire-chateau-ile-de-france` (commit 2ef0295)
+- [x] **Erreur React #418 résolue** : `<a>` imbriqué dans `<a>` sur cartes châteaux (bouton "Devis Express") → remplacé par `<button>`
+- [x] **Image hero recompressée** : 407 → 190 KiB (−53%) → LCP mobile −0,6s
+- [x] `next.config.ts` qualities `[60,70,75,80,85]` → warnings console Next 16 éliminés
+- [x] **H5 → H3** sur 3 endroits (hiérarchie SEO)
+- [x] Scripts gtag migrés vers `next/script strategy=afterInteractive`
+- [x] Tracking GA4 + Google Ads + Consent Mode v2 : **100% préservé**
+
+### ⏳ À faire prochaine session
+
+#### 🎯 22 avril 2026 — Mini-audit Google Ads pour décision tCPA
+- [ ] Vérifier CPA stabilisé (7 jours post-changements)
+- [ ] Si CPA < 600 ₪ → baisser tCPA à 750 ₪ (objectif leads ultra-qualifiés)
+- [ ] Si CPA 600-700 ₪ → baisser tCPA à 800 ₪
+- [ ] Si CPA > 800 ₪ → garder 963 ₪
+
+#### 🔧 Optimisation Ads (après 22 avril)
+- [ ] Ajouter négatifs "lieu atypique" + "au vert" (−406 ₪/mois en 0 conv)
+- [ ] Pauser "séminaire nature proche paris" EXACT (504 ₪ / 0 conv)
+- [ ] Diagnostiquer tracking téléphone (3 types configurés, 0 remontée)
+- [ ] Vérifier pourquoi 0 impression mobile
+- [ ] Si DAF OK : CAP 8 500 → 9 500 ₪
+
+#### 📊 24 avril — Mesure impact SEO (7 jours après commit 4346660)
+- [ ] CTR des 5 articles blog (doit passer de 0% à 2-5%)
+- [ ] Positions pages géo (Chantilly 44→30, Yvelines 48→35, Oise 35→25)
+- [ ] `/blog/seminaire-residentiel-vs-journee` toujours "Crawled not indexed" ?
+
+#### 🔗 Backlinks — Semaine 21-25 avril
+- [ ] 4 emails offices tourisme (Oise, Yvelines, Chantilly + 1)
+- [ ] Commander Boosterlink (154€)
+- [ ] Medium + LinkedIn articles
+- [ ] Pitcher Bedouk / Republik Event / L'Écho Touristique
+
+#### 📊 30 avril — Re-audit GSC complet
+- [ ] Comparaison avant/après optimisations SEO
+- [ ] Re-audit PageSpeed mobile (cible LCP < 3s)
+
+### 🧠 Leçons techniques de cette session
+- **React 19 + Next 16 strict sur hydration** : ne tolère plus `<a>` imbriqué dans `<a>`
+- **Pour diagnostiquer #418** : lancer en dev (erreur non-minifiée) — en prod, seuls les args minifiés sont visibles
+- **Ne pas sur-optimiser une page qui marche** : 10 fixes simultanés ont cassé les perfs (78 → 56). Un fix à la fois, tester, valider
+- **`suppressHydrationWarning`** n'empêche pas React 19 de refuser d'hydrater un HTML invalide (juste supprime le warning côté attributes html/body)
+
+---
+
 ## Session 17 avril 2026 — Audit GSC + refonte SEO complète (avant Chabbat)
 
 ### ✅ Fait cette session (2 commits SEO déployés)
