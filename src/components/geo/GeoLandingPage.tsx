@@ -573,7 +573,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
                     >
                       <IconComponent className="w-6 h-6" style={{ color: theme.colors.primary.gold }} />
                     </div>
-                    <Text variant="h5" style={{ marginBottom: theme.spacing.sm, color: theme.colors.neutral.white }}>{point.titre}</Text>
+                    <Text variant="h5" as="h3" style={{ marginBottom: theme.spacing.sm, color: theme.colors.neutral.white }}>{point.titre}</Text>
                     <Text variant="bodySmall" style={{ lineHeight: theme.typography.lineHeight.relaxed, color: "rgba(255,255,255,0.8)" }}>
                       {point.description}
                     </Text>
@@ -741,8 +741,8 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
                         )}
                       </div>
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "12px" }}>
-                        <a
-                          href="#devis-express"
+                        <button
+                          type="button"
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
@@ -758,12 +758,13 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
                             borderRadius: "20px",
                             fontWeight: 600,
                             fontSize: theme.typography.fontSize.xs,
-                            textDecoration: "none",
+                            border: "none",
+                            cursor: "pointer",
                             whiteSpace: "nowrap",
                           }}
                         >
                           <Send className="w-3 h-3" /> Devis Express
-                        </a>
+                        </button>
                         <span style={{
                           display: "inline-flex",
                           alignItems: "center",
@@ -914,7 +915,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
                           <Text variant="caption" color="bronze" style={{ textTransform: "uppercase", letterSpacing: theme.typography.letterSpacing.wider, fontWeight: theme.typography.fontWeight.semibold }}>
                             {post.category === "organisation" ? "Organisation" : post.category === "lieux" ? "Lieux" : "Team Building"}
                           </Text>
-                          <Text variant="h5" lineClamp={2} style={{ marginTop: theme.spacing.sm }}>
+                          <Text variant="h5" as="h3" lineClamp={2} style={{ marginTop: theme.spacing.sm }}>
                             {post.title}
                           </Text>
                           <Text variant="bodySmall" color="muted" style={{ marginTop: theme.spacing.sm }}>
@@ -979,7 +980,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
                           Région
                         </Text>
                       </div>
-                      <Text variant="h5" style={{ marginBottom: theme.spacing.sm }}>
+                      <Text variant="h5" as="h3" style={{ marginBottom: theme.spacing.sm }}>
                         {page.h1}
                       </Text>
                       <Text variant="bodySmall" color="muted" lineClamp={2}>

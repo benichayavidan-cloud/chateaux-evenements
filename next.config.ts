@@ -43,8 +43,10 @@ const nextConfig: NextConfig = {
     // 5. Cache agressif (1 an)
     minimumCacheTTL: 31536000,
 
-    // 6. Qualité par défaut (compromise perf/qualité)
-    // Note: Peut être overridé par composant avec prop quality
+    // 6. Qualités autorisées (Next.js 16+ impose cette liste pour sécurité)
+    qualities: [60, 70, 75, 80, 85],
+
+    // 7. SVG (si nécessaire)
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },

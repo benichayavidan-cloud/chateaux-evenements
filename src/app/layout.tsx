@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import "../styles/design-system.css";
 import { Navigation, Footer } from "@/components/sections-v2";
@@ -105,14 +106,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googleadservices.com" />
         <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
 
-        {/* Google Consent Mode v2 - DOIT être chargé AVANT tous les autres scripts Google */}
+        {/* Google Consent Mode v2 - DOIT être chargé AVANT tous les autres scripts Google (inline pour précéder tout) */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
 
-              // Consent Mode v2 - Mode Advanced (envoie des pings anonymes même en "denied")
               gtag('consent', 'default', {
                 'analytics_storage': 'denied',
                 'ad_storage': 'denied',
@@ -128,26 +128,11 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google tag (gtag.js) - Chargé avec l'ID Ads (GA4 ID retourne 404 côté Google) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17912491834" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              gtag('js', new Date());
-              gtag('config', 'G-TRWZDPNN9E', {
-                anonymize_ip: true,
-                cookie_flags: 'SameSite=None;Secure'
-              });
-              gtag('config', 'AW-17912491834');
-            `,
-          }}
-        />
-
         {/* Structured Data - Schema.org */}
         <StructuredData data={structuredData} />
       </head>
       <body className={`${inter.className} antialiased`}>
-        {/* Google Analytics - doit être dans body pour next/script afterInteractive */}
+        {/* Google Analytics - page view tracker SPA */}
         <GoogleAnalytics />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-white focus:text-[#a37e2c] focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold">
           Aller au contenu principal
@@ -256,6 +241,22 @@ export default function RootLayout({
 
         {/* Cookie Consent - 3 variants disponibles: "default" | "small" | "mini" */}
         <CookieConsentLazy variant="mini" />
+
+        {/* Google tag (gtag.js) - Chargé APRÈS hydration pour éviter React error #418 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17912491834"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            gtag('js', new Date());
+            gtag('config', 'G-TRWZDPNN9E', {
+              anonymize_ip: true,
+              cookie_flags: 'SameSite=None;Secure'
+            });
+            gtag('config', 'AW-17912491834');
+          `}
+        </Script>
       </body>
     </html>
   );
