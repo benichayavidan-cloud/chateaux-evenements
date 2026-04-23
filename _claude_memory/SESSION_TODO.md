@@ -1,5 +1,109 @@
 # TODO - Prochaine session
 
+## Session 23 avril 2026 (partie 2) — Audit GSC + refonte SEO + 5 articles niches
+
+### ✅ Fait cette session (2 commits déployés Vercel)
+
+#### 📊 Audit complet Google Search Console (90j + 16 mois)
+- [x] 100+ requêtes analysées, 30 pages top scan
+- [x] Inventaire 58 articles blog existants (blog-posts.ts + blog-posts-seo-2026.ts)
+- [x] Gap analysis : identifié 5 quick wins (articles déjà top 10 avec CTR 0%)
+- [x] 5 niches 2026 détectées via web research (faible concurrence FR)
+
+#### 🚀 Phase 1 — Refonte 5 title/meta quick wins (commit blog-posts.ts)
+- [x] `organiser-codir-confidentiel` → cible "codir château" (53 imp pos 6)
+- [x] `checklist-organiser-seminaire` → cible "check list organisation séminaire" (49 imp pos 8)
+- [x] `escape-game-geant-chateau` → cible "création escape game château" (20 imp pos 11)
+- [x] `privatisation-journee-etude-chateau` → cible "privatisation journée d'étude" (28 imp pos 26)
+- [x] `budget-seminaire-entreprise-2026-planifier` → cible "budget séminaire entreprise" (15 imp pos 10)
+
+#### 📝 Phase 2 — 5 nouveaux articles niches 2026 (nouveau fichier blog-posts-niches-2026.ts)
+- [x] `/blog/workation-chateau-teletravail-premium` (workation B2B)
+- [x] `/blog/retraite-entreprise-vs-seminaire-difference` (corporate retreat)
+- [x] `/blog/seminaire-digital-detox-reconnexion-equipe` (digital detox)
+- [x] `/blog/seminaire-bleisure-melange-travail-decouverte-idf` (bleisure)
+- [x] `/blog/slow-seminar-anti-seminaire-urbain-2026` (slow seminar)
+
+Chaque article : ~2000 mots, FAQ 5Q schema-ready, cross-linking, keywords longue traîne
+
+#### ⚡ Phase 3 — Boost article Chantilly team-building (pos 49 pour "seminaire chantilly" 321 imp)
+- [x] Title recadré : "15 Activités Team Building à Chantilly" → "**Séminaire Chantilly** : 15 Activités Team Building [Guide 2026]"
+- [x] Meta excerpt ciblant "séminaire chantilly"
+- [x] Keywords : ajout "séminaire chantilly", "hotel seminaire chantilly", "chateau seminaire chantilly"
+- [x] Nouvelle intro SEO avec section "Pourquoi Choisir Chantilly" + maillage interne
+
+#### 🛠️ Feedback mémoire ajouté
+- [x] `feedback_ads_b2b_normal.md` : 0 conv téléphone + 100% desktop = normaux pour Select Châteaux, ne plus signaler
+
+### ⏳ À faire prochaine session
+
+#### 📊 Action manuelle GSC — Accélérer indexation (5 min)
+- [ ] Inspection d'URL dans GSC pour les 5 nouveaux articles → "Demander une indexation"
+- [ ] Idem pour les 5 quick wins refondus (nouvelle meta)
+
+#### 📊 30 avril 2026 — Mesure impact quick wins
+- [ ] CTR des 5 quick wins dans GSC (CTR 0% → 5-8% attendu)
+- [ ] Check également : CPA Ads stabilisé post-coupes calendrier → si < 600 ₪ → monter budget à 550 ₪/j
+
+#### 📊 7 mai — Check indexation niches
+- [ ] 5 nouveaux articles apparaissent-ils dans l'index Google ?
+- [ ] Positions initiales sur requêtes cibles (workation, retraite pro, digital detox, bleisure, slow seminar)
+
+#### 📊 15-30 mai — Bilan positionnement
+- [ ] Article Chantilly : est-il remonté de pos 49 vers top 20 ?
+- [ ] Positions des 5 niches 2026
+
+### 🧠 Leçons techniques de cette session
+- **Audit GSC révèle** : 80% des articles ne rankent pas, mais beaucoup de quick wins dormants (top 10 CTR 0%)
+- **Smart bidding Google Ads** : les ajustements manuels (jour/heure/keyword) sont IGNORÉS en MAX_CONV. Seuls budget, calendrier et négatifs comptent
+- **B2B Château** : 0 conv téléphone + 100% desktop = normal, ne pas traiter comme anomalie
+- **Chart.js via CDN** : solution légère pour rapports HTML avec graphiques (vs écrire du SVG)
+- **Niches 2026 faible concurrence** : workation, retraite pro, digital detox, bleisure, slow seminar — FR très peu couvert
+
+---
+
+## Session 23 avril 2026 (partie 1) — Audit Ads complet + optimisations appliquées
+
+### ✅ Fait cette session (sans commit — changements côté Google Ads UI)
+
+#### 📊 Audit complet campagne SÉMINAIRE CHÂTEAU IDF (30j + comparatif 2 régimes)
+- [x] Rapport HTML complet : `_claude_docs/2026-04-23_audit-campagne-complet.html`
+- [x] 10 graphiques Chart.js : progression, CPA evolution, daily, budget cumulé, heures, jours, CPA horaire, keywords, Pareto
+- [x] **Comparatif 15j TARGET_SPEND vs 15j MAX_CONV** :
+  - Conversions 4 → 10 (+150%)
+  - CPA 916 → 544 ₪ (−41%)
+  - Taux conv 8,7% → 21,3% (+145%)
+  - IS 56,7% → 64,9% (+14%)
+- [x] Score santé : 85/100 (+13 pts vs 19/04)
+
+#### 🔧 Optimisations appliquées côté Google Ads (vérifiées en live via GAQL)
+- [x] **Calendrier nettoyé** : Lun-Mer 11h-13h + 16h-18h, Ven 11h-13h, Jeu OFF
+- [x] Créneaux 10h (993 ₪/0 conv) et 15h (947 ₪/0,5 conv) supprimés
+- [x] Jeudi exclu (0 conv en 30j confirmé 2× consécutivement)
+- [x] Ajustement −80% vendredi retiré (l'algo MAX_CONV l'ignorait de toute façon)
+- [x] Keyword `séminaire nature proche paris` (EXACT) → PAUSED
+- [x] 3 négatifs ajoutés à listeUpdate11Fev26 (212 → 215) : "au vert" PHRASE, "atypique" PHRASE, "résidentiel" PHRASE
+
+#### 💰 Budget
+- Maintenu à 450 ₪/jour pour stabilisation 7 jours post-coupes
+- Projection avril : ~7 500 ₪ / CAP 8 500 ₪ (marge 1 000 ₪)
+
+### ⏳ À faire prochaine session Ads
+
+#### 📊 30 avril 2026 — Mesure impact post-optimisations
+- [ ] CPA stabilisé à < 600 ₪ après 7 jours ? → si oui, monter budget à 550 ₪/jour
+- [ ] Jeudi toujours 0 conv ? → confirmer exclusion définitive
+- [ ] Nouveaux gouffres apparus ? → scan search terms
+- [ ] Re-audit GSC complet (SEO)
+
+### 🧠 Apprentissages de cette session
+- **Smart bidding = ne plus toucher aux enchères manuelles** (jour/heure/keyword ignorées par l'algo)
+- **Seuls leviers utiles en MAX_CONV** : budget, calendrier on/off, keywords actifs/pausés, négatifs
+- **LAST_30_DAYS dilue 2 régimes** si bascule récente — toujours comparer période par période
+- **Le −80% vendredi était un fantôme** depuis le 8/04 (ignoré par smart bidding)
+
+---
+
 ## Session 19 avril 2026 — Audit Ads complet + optimisation landing + fix hydration
 
 ### ✅ Fait cette session (1 commit déployé)

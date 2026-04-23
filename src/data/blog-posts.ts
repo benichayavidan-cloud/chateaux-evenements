@@ -8,6 +8,7 @@
  */
 
 import { seoArticles2026 } from "./blog-posts-seo-2026";
+import { nichesArticles2026 } from "./blog-posts-niches-2026";
 
 export type BlogCategory = "organisation" | "lieux" | "team-building";
 
@@ -334,8 +335,8 @@ const article1: BlogPost = {
 const article2: BlogPost = {
   id: 2,
   slug: "checklist-organiser-seminaire",
-  title: "Checklist Séminaire Entreprise 2026 : 25 Étapes (PDF)",
-  excerpt: "PDF gratuit à télécharger. 7 phases de J-90 à J+7 : objectifs, budget, logistique, animation. La méthode complète pour ne rien oublier.",
+  title: "Check-list Séminaire Entreprise 2026 : 25 Étapes (PDF Gratuit)",
+  excerpt: "Check-list complète à télécharger en PDF. 25 étapes réparties sur 7 phases de J-90 à J+7 pour organiser votre séminaire d'entreprise sans rien oublier.",
   category: "organisation",
   author: {
     name: "Thomas Mercier",
@@ -1807,8 +1808,8 @@ const article7: BlogPost = {
 const article8: BlogPost = {
   id: 35,
   slug: "privatisation-journee-etude-chateau",
-  title: "Privatisation de Journée d'Étude en Château : Le Guide Complet",
-  excerpt: "Privatiser un château pour une journée d'étude coûte 120-180€/pers. Salle, pauses, déjeuner inclus. Pourquoi ça change tout vs une salle de réunion classique — et comment organiser la vôtre.",
+  title: "Privatisation Journée d'Étude en Château : Prix & Guide 2026",
+  excerpt: "Privatiser un château pour une journée d'étude : 120-180€/pers tout compris. Salle, pauses, déjeuner inclus. Formats, châteaux IDF et guide pas à pas.",
   category: "organisation",
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
@@ -1963,8 +1964,8 @@ const article9: BlogPost = {
 const article10: BlogPost = {
   id: 37,
   slug: "budget-seminaire-entreprise-2026-planifier",
-  title: "Budget Séminaire Entreprise 2026 : Calculer le Coût Réel",
-  excerpt: "Répartition exacte : lieu 25-35%, intervenants 40-50%, transport 15-25%. Tableaux de coûts pour 10 à 100 pers et 5 leviers pour économiser 20%.",
+  title: "Budget Séminaire Entreprise 2026 : Tarifs Réels par Personne",
+  excerpt: "Combien coûte un séminaire d'entreprise en 2026 ? De 250€ à 500€/pers selon format. Répartition lieu 25-35%, intervenants 40-50%, transport 15-25%.",
   category: "organisation",
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
@@ -2259,8 +2260,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 4,
     slug: "organiser-codir-confidentiel",
-    title: "CODIR en Château : 6 Critères de Confidentialité",
-    excerpt: "Organisez votre comité de direction dans un lieu 100% sécurisé : salles isolées, protocoles NDA, contrôle d'accès. Guide des critères essentiels.",
+    title: "CODIR en Château : Guide Confidentialité & Privatisation 2026",
+    excerpt: "Votre comité de direction mérite un lieu 100% privé. NDA, salles isolées, 0 fuite : les 6 critères testés sur 40+ CODIR organisés en château IDF.",
     category: "organisation",
     author: { name: "Jean-Marc Lefebvre", role: "Expert Sécurité Événementiel", avatar: "JL" },
     publishedAt: "2026-01-08",
@@ -11932,8 +11933,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 23,
     slug: "escape-game-geant-chateau",
-    title: "Escape Game Géant en Château : 10-200 Pers • Tarifs 2026",
-    excerpt: "Le château entier devient le terrain de jeu : énigmes, acteurs, décors d'époque. Budget 30-60€/pers, durée 1h30-2h, guide pas à pas pour réserver.",
+    title: "Créer un Escape Game dans un Château : Guide 2026 (10-200 Pers)",
+    excerpt: "Comment créer un escape game géant en château : énigmes, acteurs, décors d'époque. Budget 30-60€/pers, durée 1h30-2h, guide pas à pas + châteaux IDF.",
     category: "team-building",
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },
     publishedAt: "2025-11-30",
@@ -17353,15 +17354,15 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 203,
     slug: "seminaire-chantilly-activites-team-building",
-    title: "15 Activités Team Building à Chantilly [Testées en 2026]",
-    excerpt: "Spectacle équestre privatisé, rallye 2CV en forêt, escape game en château : 15 activités team building originales à Chantilly. Tarifs, durées et retours d'expérience.",
+    title: "Séminaire Chantilly : 15 Activités Team Building [Guide 2026]",
+    excerpt: "Séminaire à Chantilly : 15 activités team building testées en 2026. Spectacle équestre, rallye 2CV, escape game. Tarifs, châteaux IDF et guide pratique.",
     category: "team-building" as BlogCategory,
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-03-22",
-    readingTime: 11,
+    readingTime: 12,
     image: "/images/team-building-chantilly-activites-equestre-2cv-escape.webp",
-    imageAlt: "15 activités team building à Chantilly - Spectacle équestre, rallye 2CV et escape game",
-    keywords: ["activite seminaire chantilly", "activité séminaire chantilly", "team building chantilly", "team building forêt chantilly", "activité entreprise chantilly", "séminaire chantilly activités", "soirée entreprise chantilly", "spectacle equestre chantilly entreprise"],
+    imageAlt: "Séminaire à Chantilly : 15 activités team building originales en château IDF",
+    keywords: ["séminaire chantilly", "seminaire chantilly", "séminaire entreprise chantilly", "organiser séminaire chantilly", "activite seminaire chantilly", "activité séminaire chantilly", "team building chantilly", "team building forêt chantilly", "activité entreprise chantilly", "séminaire chantilly activités", "soirée entreprise chantilly", "spectacle equestre chantilly entreprise", "hotel seminaire chantilly", "chateau seminaire chantilly"],
     faq: [
       { question: "Quelles activités de team building peut-on faire à Chantilly ?", answer: "Chantilly offre 15+ activités uniques : spectacle équestre privatisé (Grandes Écuries), rallye 2CV dans la forêt de 6 300 ha, escape game en château, olympiades outdoor, sylvothérapie, atelier crème chantilly avec un chef, murder party, défi culinaire, tir à l'arc, chasse au trésor GPS, et visite privatisée du Musée Condé." },
       { question: "Combien coûte un spectacle équestre privatisé à Chantilly ?", answer: "Un spectacle équestre privatisé aux Grandes Écuries coûte 3 000 à 8 000€ selon la durée et le nombre de cavaliers (30 min à 1h). C'est l'activité signature de Chantilly, impossible à reproduire ailleurs. Capacité : jusqu'à 500 spectateurs dans le manège." },
@@ -17370,9 +17371,23 @@ const placeholderArticles: BlogPost[] = [
     ],
     content: `
     <div class="prose prose-lg max-w-none">
-<p class="mb-6"><strong>Chantilly</strong> n'est pas qu'un décor de carte postale pour séminaires. C'est un territoire d'activités uniques, impossibles à reproduire ailleurs en Île-de-France. Forêt de 6 300 hectares, Grandes Écuries monumentales, patrimoine princier, terroir gastronomique : chaque activité a un ancrage local fort qui transforme un simple team building en expérience mémorable.</p>
+<p class="mb-6">Organiser un <strong>séminaire à Chantilly</strong>, c'est choisir le territoire le plus emblématique d'Île-de-France pour combiner travail d'équipe et activités d'exception. À 40 minutes de Paris Nord, Chantilly concentre ce qu'on trouve nulle part ailleurs dans un rayon de 60 km : un château princier, des Grandes Écuries classées monument historique, une forêt de 6 300 hectares, un terroir gastronomique protégé et 3 châteaux-hôtels privatisables pour votre séminaire d'entreprise.</p>
 
-<p class="mb-6">Voici <strong>15 activités testées et validées</strong> par nos clients en 2025-2026, classées par type d'expérience. Pour chacune : description précise, durée, tarif, et notre avis terrain.</p>
+<p class="mb-6">Ce guide complet du <strong>séminaire d'entreprise à Chantilly</strong> détaille les 15 activités team building testées par nos clients en 2025-2026, les options de privatisation, les budgets réels et les conseils pratiques pour réussir votre événement. Que vous organisiez un CODIR de 10 personnes ou un kick-off de 150 collaborateurs, Chantilly offre un cadre mémorable et une logistique maîtrisée.</p>
+
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Pourquoi Choisir Chantilly pour Votre Séminaire</h2>
+
+<ul class="list-disc ml-6 mb-6">
+  <li class="mb-2"><strong>Accès optimal</strong> : 25 min en TGV depuis Paris Gare du Nord, 40 min en voiture. Le plus rapide des grands domaines IDF.</li>
+  <li class="mb-2"><strong>Densité patrimoniale unique</strong> : Château, Grandes Écuries, Musée Condé, forêt royale, hippodrome — tout dans un rayon de 5 km.</li>
+  <li class="mb-2"><strong>Offre hôtelière premium</strong> : 3 châteaux-hôtels 4-5★ privatisables pour séminaire résidentiel.</li>
+  <li class="mb-2"><strong>Signature "équestre"</strong> : capitale mondiale du cheval, activités impossibles à reproduire ailleurs.</li>
+  <li class="mb-2"><strong>Gastronomie labellisée</strong> : crème chantilly d'origine, restaurants étoilés, caves champenoises à proximité.</li>
+</ul>
+
+<div class="alert alert-info">
+<strong>Lecture complémentaire :</strong> Pour hésiter entre Chantilly et une autre destination, consultez notre <a href="/blog/chantilly-vs-fontainebleau-seminaire-comparatif">comparatif Chantilly vs Fontainebleau pour séminaire</a>, ou parcourez notre <a href="/blog/seminaire-chateau-chantilly-guide-2026">guide complet séminaire château Chantilly 2026</a>.
+</div>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🐴 Activités Équestres — L'ADN de Chantilly</h2>
 
@@ -17705,7 +17720,8 @@ export const blogPosts: BlogPost[] = [
   article11,
   article12,
   ...placeholderArticles,
-  ...seoArticles2026
+  ...seoArticles2026,
+  ...nichesArticles2026
 ];
 
 // Helper functions
