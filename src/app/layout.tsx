@@ -9,6 +9,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema, generateLocalBusinessSchema } from "@/utils/seo/structured-data";
 import Image from "next/image";
 import { CookieConsentLazy } from "@/components/CookieConsentLazy";
+import { SiteTracker } from "@/components/SiteTracker";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -134,6 +135,8 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         {/* Google Analytics - page view tracker SPA */}
         <GoogleAnalytics />
+        {/* CRM Analytics - tracking visiteurs site web */}
+        <SiteTracker />
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-white focus:text-[#a37e2c] focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold">
           Aller au contenu principal
         </a>

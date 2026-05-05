@@ -122,15 +122,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Envoyer les emails de notification
+    // Envoyer les emails de notification + lier le visiteur au lead CRM
     if (insertedData && insertedData.length > 0) {
       const newDevis = insertedData[0];
       const sourceLabel = data.sourceLabel || '';
 
-      // Emails envoyés en parallèle, erreurs silencieuses (non-bloquantes)
+      const crmTrackingUrl = process.env.NEXT_PUBLIC_CRM_TRACKING_URL || "https://crm.selectchateaux.com";
+      const fingerprint = request.cookies.get("sc_vid")?.value;
+
+      // Emails + CRM link envoyés en parallèle, erreurs silencieuses (non-bloquantes)
       await Promise.allSettled([
         sendAdminNotification(newDevis, sourceLabel),
         sendClientConfirmation(newDevis),
+        fingerprint
+          ? fetch(`${crmTrackingUrl}/api/site-tracking/collect`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ action: "link_lead", fingerprint, email: data.email }),
+            }).catch(() => {})
+          : Promise.resolve(),
       ]);
     }
 

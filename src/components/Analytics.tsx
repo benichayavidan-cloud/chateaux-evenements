@@ -106,6 +106,7 @@ export const trackFormSubmit = (formName: string) => {
       event_category: "engagement",
     });
   }
+  try { const { trackSiteEvent } = require("./SiteTracker"); trackSiteEvent("FORM_SUBMIT", formName); } catch {}
 };
 
 export const trackDownload = (fileName: string) => {
@@ -118,6 +119,7 @@ export const trackDownload = (fileName: string) => {
 };
 
 export const trackPhoneClick = () => {
+  try { const { trackSiteEvent } = require("./SiteTracker"); trackSiteEvent("CLICK_PHONE", "header-phone"); } catch {}
   if (typeof window !== "undefined" && window.gtag) {
     // GA4 event
     window.gtag("event", "phone_click", {
