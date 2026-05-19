@@ -9,6 +9,7 @@
 
 import { seoArticles2026 } from "./blog-posts-seo-2026";
 import { nichesArticles2026 } from "./blog-posts-niches-2026";
+import { camilleArticles } from "./blog-posts-camille";
 
 export type BlogCategory = "organisation" | "lieux" | "team-building";
 
@@ -17721,7 +17722,8 @@ export const blogPosts: BlogPost[] = [
   article12,
   ...placeholderArticles,
   ...seoArticles2026,
-  ...nichesArticles2026
+  ...nichesArticles2026,
+  ...camilleArticles
 ];
 
 // Helper functions

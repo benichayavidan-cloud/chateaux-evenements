@@ -1,0 +1,12 @@
+{
+  "name": "agent-community-manager-camille",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent blog SEO autonome pour Select Châteaux",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@supabase/supabase-js": "^2.105.4",
+    "googleapis": "^171.4.0",
+    "sharp": "^0.33.5"
+  }
+}
