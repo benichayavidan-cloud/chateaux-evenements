@@ -318,8 +318,16 @@ Directives pour les prompts image :
 - Inclure des indices visuels Île-de-France (architecture classique, jardins à la française, pierre de taille, toits d'ardoise)
 - Lumière chaude dorée, ambiance prestigieuse mais accessible
 - Quand des personnes sont montrées : tenue business casual, mélange de genres et d'âges
-- PAS de texte, PAS de watermark, PAS de logo dans l'image
 - La ville doit correspondre à la zone géographique de l'étude de cas
+
+**RÈGLES CRITIQUES imagePrompt :**
+- Le prompt DOIT être une simple DESCRIPTION VISUELLE de la scène en anglais, rien d'autre
+- INTERDIT d'inclure des termes techniques de photographie comme "Editorial_photography", "Lighting:", "Location:", "Gender_composition:", "Elements_to_avoid:", "Focus:" etc. — Imagen les affiche comme du TEXTE sur l'image
+- INTERDIT tout formatage structuré (listes, labels, catégories) dans le prompt
+- Le prompt doit lire comme une phrase naturelle décrivant une photo
+- Toujours terminer par "no text, no words, no letters, no logos, no watermarks"
+- BON exemple : "Bright modern meeting room inside a French château with stone walls, large windows overlooking a French garden, business people in casual attire around a conference table, golden hour light, no text, no words, no letters, no logos, no watermarks"
+- MAUVAIS exemple : "Editorial_photography. Location: Château classique. Lighting: Golden hour. Focus: Salle de séminaire. Elements_to_avoid: [Text, Logo]"
 
 ### Étape 6 — Publier
 

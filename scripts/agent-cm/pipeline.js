@@ -127,7 +127,7 @@ Chaque objet article doit avoir ces champs :
   "keywords": ["mot-clé-1", "mot-clé-2", "...8-12 keywords"],
   "content": "<h2>Section 1</h2><p>Contenu HTML riche monobloc...</p><h2>Section 2</h2><p>...</p>",
   "faq": [{"question": "Question FAQ ?", "answer": "Réponse FAQ."}],
-  "imagePrompt": "Prompt détaillé pour Imagen (château français, lumière dorée, pas de texte/logo)"
+  "imagePrompt": "Bright conference room inside a prestigious French château, stone walls, tall windows overlooking formal gardens, business people in smart casual attire, golden hour warm light, no text, no words, no letters, no logos, no watermarks"
 }
 
 Pour le champ content : c'est une SEULE chaîne HTML (pas un array). Utiliser des guillemets simples pour les attributs HTML (class='text-primary') pour éviter les problèmes d'échappement.
@@ -215,7 +215,11 @@ Réponds avec UNIQUEMENT le tableau JSON.`;
 
 async function step3_generateImage(article) {
   log(3, `Génération image pour ${article.slug}...`);
-  const prompt = article.imagePrompt || `Professional editorial photo of a prestigious French château seminar venue, golden hour, French gardens, stone architecture, no text, no logos`;
+  let prompt = article.imagePrompt || `Professional editorial photo of a prestigious French château seminar venue, golden hour, French gardens, stone architecture, no text, no logos, no words, no letters, no watermarks`;
+  // Strip structured labels that Imagen renders as visible text
+  prompt = prompt.replace(/\b(Editorial_photography|Location|Lighting|Gender_mix|Gender_composition|Elements_to_avoid|Focus|Composition|Style|Setting|Mood|Atmosphere)[:\s_]/gi, '');
+  prompt = prompt.replace(/\[.*?\]/g, '');
+  if (!/no text/i.test(prompt)) prompt += ', no text, no words, no letters, no logos, no watermarks';
   const tmpPng = `/tmp/${article.slug}.png`;
   const finalWebp = path.join(IMAGES_DIR, `${article.slug}.webp`);
 
