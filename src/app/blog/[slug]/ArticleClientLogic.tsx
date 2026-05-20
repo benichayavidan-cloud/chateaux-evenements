@@ -113,7 +113,7 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
                 </p>
 
                 {/* Content */}
-                <MarkdownRenderer content={article.content} className="prose-lg" />
+                <MarkdownRenderer content={article.content} className="prose-lg" currentSlug={article.slug} />
 
                 {/* Keywords */}
                 <div className="mt-10 sm:mt-12 md:mt-16 pt-4 sm:pt-6 border-t border-gray-200">

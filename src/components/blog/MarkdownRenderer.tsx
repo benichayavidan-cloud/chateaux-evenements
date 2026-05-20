@@ -1,12 +1,13 @@
 "use client";
 
 import { useMemo } from "react";
+import { BLOG_LINK_MAP } from "@/data/internal-link-map";
 
 /**
  * AUTO-LINKER CONFIGURATION
- * Transforme automatiquement certains mots en liens internes
+ * Liens vers pages commerciales (priorité basse, mots génériques)
  */
-const AUTO_LINK_RULES: { keyword: string; url: string; title?: string }[] = [
+const COMMERCIAL_LINK_RULES: { keyword: string; url: string; title?: string }[] = [
   { keyword: "devis", url: "/devis", title: "Demander un devis gratuit" },
   { keyword: "Devis", url: "/devis", title: "Demander un devis gratuit" },
   { keyword: "Chantilly", url: "/seminaire-chateau-chantilly", title: "Séminaire en château à Chantilly" },
@@ -21,11 +22,24 @@ const AUTO_LINK_RULES: { keyword: string; url: string; title?: string }[] = [
   { keyword: "team building", url: "/seminaires-soirees-entreprise", title: "Activités Team Building" },
   { keyword: "séminaire", url: "/seminaires-soirees-entreprise", title: "Organiser un séminaire" },
   { keyword: "Séminaire", url: "/seminaires-soirees-entreprise", title: "Organiser un séminaire" },
-  { keyword: "CODIR", url: "/seminaires-soirees-entreprise", title: "Organiser un CODIR" },
+  { keyword: "événement corporate", url: "/seminaires-soirees-entreprise", title: "Événements corporate" },
   { keyword: "événement d'entreprise", url: "/seminaires-soirees-entreprise", title: "Événements d'entreprise" },
   { keyword: "château", url: "/chateaux", title: "Les châteaux" },
   { keyword: "Château", url: "/chateaux", title: "Les châteaux" },
 ];
+
+function getBlogLinkRules(currentSlug?: string): { keyword: string; url: string; title?: string }[] {
+  return BLOG_LINK_MAP
+    .filter(rule => rule.targetSlug !== currentSlug)
+    .sort((a, b) => b.priority - a.priority)
+    .flatMap(rule =>
+      rule.keywords.map(kw => ({
+        keyword: kw,
+        url: `/blog/${rule.targetSlug}`,
+        title: rule.title,
+      }))
+    );
+}
 
 // Tags et attributs autorisés pour le contenu blog
 const ALLOWED_TAGS = new Set([
@@ -91,40 +105,82 @@ function sanitizeHTML(html: string): string {
   return clean;
 }
 
-/**
- * Fonction d'auto-linking intelligente
- */
-function applyAutoLinking(html: string): string {
+function isInsideTag(html: string, matchIndex: number, tagNames: string[]): boolean {
+  for (const tag of tagNames) {
+    const openPattern = new RegExp(`<${tag}[^>]*>`, "gi");
+    let openMatch;
+    while ((openMatch = openPattern.exec(html)) !== null) {
+      if (openMatch.index > matchIndex) break;
+      const closePattern = new RegExp(`</${tag}>`, "gi");
+      closePattern.lastIndex = openMatch.index;
+      const closeMatch = closePattern.exec(html);
+      if (closeMatch && matchIndex < closeMatch.index + closeMatch[0].length) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+const EXCLUDED_PARENT_TAGS = ["a", "h1", "h2", "h3", "h4", "h5", "h6"];
+
+function applyLinkRules(
+  html: string,
+  rules: { keyword: string; url: string; title?: string }[],
+  maxLinks: number,
+  cssClass: string,
+): { html: string; inserted: number } {
   let result = html;
+  let inserted = 0;
+  const linkedUrls = new Set<string>();
 
-  AUTO_LINK_RULES.forEach((rule) => {
-    const regex = new RegExp(
-      `(?<!<a[^>]*>.*?)\\b(${rule.keyword})\\b(?![^<]*<\\/a>)`,
-      "g"
-    );
-
-    let replaced = false;
-    result = result.replace(regex, (match) => {
-      if (replaced) return match;
-      replaced = true;
-      return `<a href="${rule.url}" class="auto-link" title="${rule.title || match}">${match}</a>`;
+  for (const rule of rules) {
+    if (inserted >= maxLinks) break;
+    if (linkedUrls.has(rule.url)) continue;
+    const escaped = rule.keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const regex = new RegExp(`\\b(${escaped})\\b`, "g");
+    let ruleMatched = false;
+    result = result.replace(regex, (match, _g1, offset) => {
+      if (ruleMatched || inserted >= maxLinks) return match;
+      if (isInsideTag(result, offset, EXCLUDED_PARENT_TAGS)) return match;
+      ruleMatched = true;
+      inserted++;
+      linkedUrls.add(rule.url);
+      return `<a href="${rule.url}" class="${cssClass}" title="${rule.title || match}">${match}</a>`;
     });
-  });
+  }
 
-  return result;
+  return { html: result, inserted };
+}
+
+/**
+ * Auto-linking : blog links (spécifiques, prioritaires) PUIS commercial links (génériques)
+ * Max 5 blog links + 3 commercial links par article
+ * Exclut les matches dans <a>, <h1>-<h6> pour éviter liens imbriqués et SEO penalty
+ */
+function applyAutoLinking(
+  html: string,
+  currentSlug?: string,
+): string {
+  const blogRules = getBlogLinkRules(currentSlug);
+
+  const phase1 = applyLinkRules(html, blogRules, 5, "auto-link blog-link");
+  const phase2 = applyLinkRules(phase1.html, COMMERCIAL_LINK_RULES, 3, "auto-link");
+
+  return phase2.html;
 }
 
 interface MarkdownRendererProps {
   content: string;
   className?: string;
+  currentSlug?: string;
 }
 
-export function MarkdownRenderer({ content, className = "" }: MarkdownRendererProps) {
-  // Sanitize + auto-link en un seul pass mémorisé
+export function MarkdownRenderer({ content, className = "", currentSlug }: MarkdownRendererProps) {
   const safeContent = useMemo(() => {
     const sanitized = sanitizeHTML(content);
-    return applyAutoLinking(sanitized);
-  }, [content]);
+    return applyAutoLinking(sanitized, currentSlug);
+  }, [content, currentSlug]);
 
   return (
     <div

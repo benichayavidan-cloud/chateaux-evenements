@@ -17762,38 +17762,52 @@ export function getSmartRelatedPosts(
   currentArticle: BlogPost,
   limit: number = 3
 ): BlogPost[] {
-  // Create scored list of all posts except current one
   const scoredPosts = blogPosts
     .filter(post => post.id !== currentArticle.id)
     .map(post => {
       let score = 0;
 
-      // +10 points for same category (topic cluster)
       if (post.category === currentArticle.category) {
         score += 10;
       }
 
-      // +3 points per common keyword
       const commonKeywords = post.keywords.filter(keyword =>
         currentArticle.keywords.includes(keyword)
       );
       score += commonKeywords.length * 3;
 
+      // Boost SEO : pages faibles reçoivent +5 pour augmenter leur visibilité interne
+      if (SEO_BOOST_SLUGS.has(post.slug)) {
+        score += 5;
+      }
+
       return { post, score };
     })
-    // Sort by score descending
     .sort((a, b) => {
-      // Primary sort: score descending
       if (b.score !== a.score) {
         return b.score - a.score;
       }
-      // Tie-breaker: most recent first
       return new Date(b.post.publishedAt).getTime() - new Date(a.post.publishedAt).getTime();
     })
-    // Take only requested number of posts
     .slice(0, limit)
-    // Extract just the post objects
     .map(item => item.post);
 
   return scoredPosts;
 }
+
+const SEO_BOOST_SLUGS = new Set([
+  "hotel-seminaire-chantilly-guide",
+  "budget-seminaire-entreprise-2026-planifier",
+  "seminaire-codir-chateau-privatise",
+  "checklist-organiser-seminaire",
+  "seminaire-residentiel-vs-journee",
+  "hotel-seminaire-chantilly-comparatif",
+  "seminaire-vallee-de-chevreuse-guide-complet",
+  "repas-seminaire-tendances-traiteur-2026",
+  "top-chateaux-oise-60",
+  "seminaire-nature-chevreuse-deconnexion",
+  "seminaire-eco-responsable-rse",
+  "convaincre-direction-budget-seminaire",
+  "team-building-chantilly-activites-domaines-2026",
+  "seminaire-chantilly-guide-organisateurs-2026",
+]);
