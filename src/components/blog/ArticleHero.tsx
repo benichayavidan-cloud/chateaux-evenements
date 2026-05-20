@@ -28,7 +28,7 @@ export function ArticleHero({ article }: ArticleHeroProps) {
         sizes="100vw"
         quality={85}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/80 to-white/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/50 to-white/10" />
 
       {/* Back Button */}
       <Link
