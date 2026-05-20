@@ -16,19 +16,45 @@ function logError(step, msg) {
   console.error(`[Step ${step}] ERROR: ${msg}`);
 }
 
-function getExistingSlugs() {
-  const slugs = [];
+function getExistingArticles() {
+  const articles = [];
   const dataDir = path.join(SITE_DIR, 'src/data');
   const files = ['blog-posts.ts', 'blog-posts-seo-2026.ts', 'blog-posts-niches-2026.ts', 'blog-posts-camille.ts'];
   for (const file of files) {
     try {
       const content = fs.readFileSync(path.join(dataDir, file), 'utf-8');
-      const regex = /slug:\s*["']([^"']+)["']/g;
+      const slugRegex = /slug:\s*["']([^"']+)["']/g;
+      const titleRegex = /title:\s*["']([^"']+)["']/g;
+      const slugs = [];
+      const titles = [];
       let m;
-      while ((m = regex.exec(content)) !== null) slugs.push(m[1]);
+      while ((m = slugRegex.exec(content)) !== null) slugs.push(m[1]);
+      while ((m = titleRegex.exec(content)) !== null) titles.push(m[1]);
+      for (let i = 0; i < slugs.length; i++) {
+        articles.push({ slug: slugs[i], title: titles[i] || slugs[i] });
+      }
     } catch {}
   }
-  return slugs;
+  return articles;
+}
+
+function getExistingSlugs() {
+  return getExistingArticles().map(a => a.slug);
+}
+
+function slugWords(slug) {
+  return new Set(slug.split('-').filter(w => w.length > 2));
+}
+
+function isSimilarSlug(newSlug, existingSlugs) {
+  const newWords = slugWords(newSlug);
+  for (const existing of existingSlugs) {
+    const existingWords = slugWords(existing);
+    const common = [...newWords].filter(w => existingWords.has(w));
+    const similarity = common.length / Math.max(newWords.size, existingWords.size);
+    if (similarity >= 0.7) return existing;
+  }
+  return null;
 }
 
 async function step1_gscResearch() {
@@ -63,8 +89,13 @@ async function step2_claudeGenerate(gscData, existingSlugs) {
 DONNÉES GSC (30 derniers jours) :
 ${gscData.substring(0, 8000)}
 
-SLUGS EXISTANTS (${existingSlugs.length} articles — éviter les doublons) :
-${existingSlugs.join(', ')}
+ARTICLES EXISTANTS (${existingSlugs.length} articles — INTERDICTION de doublonner un sujet même avec un slug différent) :
+${getExistingArticles().map(a => `- ${a.slug} → ${a.title}`).join('\n')}
+
+RÈGLE ANTI-DOUBLON CRITIQUE :
+Ne JAMAIS écrire un article sur un sujet déjà couvert, même si tu changes l'ordre des mots du slug.
+Exemple interdit : "team-building-chantilly-activites-domaines" existe → "team-building-chantilly-domaines-activites" est un DOUBLON.
+Choisis des sujets TOTALEMENT DIFFÉRENTS de la liste ci-dessus.
 
 CATÉGORIES VALIDES : ${CATEGORIES.join(', ')}
 
@@ -170,7 +201,11 @@ Réponds avec UNIQUEMENT le tableau JSON.`;
       throw new Error(`Article incomplet, champs manquants : ${JSON.stringify(Object.keys(a))}`);
     }
     if (existingSlugs.includes(a.slug)) {
-      throw new Error(`Slug dupliqué : ${a.slug}`);
+      throw new Error(`Slug dupliqué exact : ${a.slug}`);
+    }
+    const similar = isSimilarSlug(a.slug, existingSlugs);
+    if (similar) {
+      throw new Error(`Slug trop similaire à un article existant : "${a.slug}" ressemble à "${similar}" (mêmes mots réordonnés). Cannibalization SEO bloquée.`);
     }
   }
 
