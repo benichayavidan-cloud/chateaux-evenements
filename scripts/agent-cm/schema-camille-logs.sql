@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS agent_controls (
   id TEXT PRIMARY KEY,
   enabled BOOLEAN DEFAULT true,
   schedule TEXT,
+  publish_hour INTEGER DEFAULT 9,
   updated_at TIMESTAMPTZ DEFAULT NOW(),
   updated_by TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW()

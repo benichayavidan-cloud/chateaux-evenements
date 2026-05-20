@@ -276,7 +276,7 @@ async function checkSchedule() {
   if (!SUPABASE_URL || !SUPABASE_KEY) return true;
 
   try {
-    const resp = await fetch(`${SUPABASE_URL}/rest/v1/agent_controls?id=eq.camille&select=enabled,schedule`, {
+    const resp = await fetch(`${SUPABASE_URL}/rest/v1/agent_controls?id=eq.camille&select=enabled,schedule,publish_hour`, {
       headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
     });
     const [row] = await resp.json();
@@ -284,13 +284,20 @@ async function checkSchedule() {
     if (!row.enabled) { log(0, 'Camille est DÉSACTIVÉE dans agent_controls — sortie'); return false; }
 
     const schedule = row.schedule || '1,4';
-    const parisDay = new Date(new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })).getDay();
+    const parisNow = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Paris' }));
+    const parisDay = parisNow.getDay();
+    const parisHour = parisNow.getHours();
     const allowedDays = schedule.split(',').map(Number);
     if (!allowedDays.includes(parisDay)) {
       log(0, `Aujourd'hui (jour ${parisDay}) pas dans le planning [${schedule}] — on passe`);
       return false;
     }
-    log(0, `Vérification planning OK — jour ${parisDay} dans [${schedule}]`);
+    const targetHour = row.publish_hour != null ? Number(row.publish_hour) : 9;
+    if (parisHour !== targetHour) {
+      log(0, `Heure Paris ${parisHour}h ≠ heure cible ${targetHour}h — on passe`);
+      return false;
+    }
+    log(0, `Vérification planning OK — jour ${parisDay} dans [${schedule}], heure ${parisHour}h`);
     return true;
   } catch (err) {
     log(0, `Vérification planning échouée (${err.message}) — on lance quand même`);

@@ -2,9 +2,8 @@ name: Camille — Blog SEO + GEO Agent
 
 on:
   schedule:
-    # 8:30 AM Paris = 6:30 AM UTC (été CEST) / 7:30 AM UTC (hiver CET)
-    # Pipeline vérifie le planning dans Supabase agent_controls
-    - cron: "30 6 * * *"
+    # Toutes les heures — le pipeline vérifie jour + heure dans Supabase agent_controls
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
