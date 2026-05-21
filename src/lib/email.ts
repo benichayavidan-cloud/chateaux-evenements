@@ -21,6 +21,7 @@ const formatDate = (dateString: string): string => {
     const date = new Date(dateString);
     if (isNaN(date.getTime())) return dateString;
     return date.toLocaleDateString('fr-FR', {
+      timeZone: 'Europe/Paris',
       weekday: 'long',
       day: 'numeric',
       month: 'long',
@@ -273,6 +274,7 @@ const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string): string
               </p>
               <p style="margin: 10px 0 0 0; color: #cbd5e1; font-size: 12px;">
                 Demande reçue le ${new Date(devis.created_at).toLocaleDateString('fr-FR', {
+                  timeZone: 'Europe/Paris',
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric',
@@ -486,7 +488,7 @@ ${devis.commentaire_deroulement ? `MESSAGE\n${devis.commentaire_deroulement}\n\n
 SELECT CHÂTEAUX - Séminaires d'Exception
 60 Rue François 1er, 75008 Paris, France
 seminaires@selectchateaux.com | www.selectchateaux.com
-Demande reçue le ${new Date(devis.created_at).toLocaleDateString('fr-FR')}
+Demande reçue le ${new Date(devis.created_at).toLocaleDateString('fr-FR', { timeZone: 'Europe/Paris' })}
   `.trim();
 };
 

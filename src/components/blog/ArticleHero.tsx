@@ -74,6 +74,7 @@ export function ArticleHero({ article }: ArticleHeroProps) {
                 <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span>
                   {new Date(article.publishedAt).toLocaleDateString('fr-FR', {
+                    timeZone: 'Europe/Paris',
                     day: 'numeric',
                     month: 'long',
                     year: 'numeric'

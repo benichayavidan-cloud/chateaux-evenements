@@ -175,6 +175,7 @@ export default function BlogPage() {
                     <div className="post-meta-item text-xs sm:text-sm">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{new Date(featuredPost.publishedAt).toLocaleDateString('fr-FR', {
+                        timeZone: 'Europe/Paris',
                         day: 'numeric',
                         month: 'long',
                         year: 'numeric'
@@ -246,6 +247,7 @@ export default function BlogPage() {
                     <div className="post-meta-item">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>{new Date(post.publishedAt).toLocaleDateString('fr-FR', {
+                        timeZone: 'Europe/Paris',
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric'
