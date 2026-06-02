@@ -128,7 +128,7 @@ function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
             transition: 'opacity 0.6s ease-in-out',
           }}
         >
-          <Image src={img} alt={`${chateau.seoH1} - vue ${i + 1} du domaine`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+          <Image src={img} alt={`${nom} - vue ${i + 1} du domaine`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
         </div>
       ))}
       {/* Flèches */}
