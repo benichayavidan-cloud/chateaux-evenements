@@ -316,7 +316,7 @@ export default function Home() {
           <Text variant="body" color="muted" align="center" style={{ maxWidth: '720px', margin: `0 auto ${theme.spacing['3xl']}` }}>
             7 destinations d'exception en Île-de-France pour votre prochain séminaire d'entreprise.
           </Text>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: theme.spacing.md }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: theme.spacing.md }}>
             {[
               { href: '/seminaire-chateau-ile-de-france', label: 'Île-de-France', desc: '4 domaines privatisables' },
               { href: '/seminaire-chateau-proche-paris', label: 'Proche Paris', desc: 'À 30 min de la capitale' },
@@ -326,7 +326,7 @@ export default function Home() {
               { href: '/seminaire-chateau-hauts-de-seine-92', label: 'Hauts-de-Seine (92)', desc: 'Hôtel 5★ en métro' },
               { href: '/seminaire-vallee-de-chevreuse', label: 'Vallée de Chevreuse', desc: 'Abbaye millénaire 80 ha' },
             ].map((region) => (
-              <Link key={region.href} href={region.href} style={{ textDecoration: 'none' }}>
+              <Link key={region.href} href={region.href} style={{ textDecoration: 'none', width: 'calc(25% - 12px)', minWidth: '220px' }}>
                 <div style={{
                   padding: theme.spacing.lg,
                   borderRadius: '12px',
