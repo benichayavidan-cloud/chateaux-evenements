@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:
-    "Soirées d'Entreprise en Château près de Paris | Select Châteaux",
+    "Soirées d'Entreprise en Château près de Paris",
   description:
     "Séminaires et soirées à thème en château en Île-de-France : Gatsby, Casino, Murder Party, Bal Masqué. 50 à 280 pers., hébergement sur place. Devis 24h.",
   robots: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Soirées d'Entreprise en Château près de Paris | Select Châteaux",
+      "Soirées d'Entreprise en Château près de Paris",
     description:
       "Soirées à thème (Gatsby, Casino, Murder Party), séminaires résidentiels et galas corporate dans 4 châteaux d'exception en Île-de-France. De 50 à 280 personnes.",
     url: "https://www.selectchateaux.com/seminaires-soirees-entreprise",

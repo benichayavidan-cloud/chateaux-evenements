@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Devis Séminaire Gratuit & Réponse 24h | Select Châteaux",
+  title: "Devis Séminaire Gratuit & Réponse 24h",
   description:
     "Formulaire en 2 min, réponse garantie sous 24h. 4 châteaux privatisables en Île-de-France, de 10 à 500 personnes. 100% gratuit, sans engagement.",
   robots: {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Devis Séminaire Gratuit & Réponse 24h | Select Châteaux",
+    title: "Devis Séminaire Gratuit & Réponse 24h",
     description:
       "Remplissez le formulaire en 2 minutes et recevez votre devis personnalisé pour votre séminaire en château. Sans engagement.",
     url: "https://www.selectchateaux.com/devis",

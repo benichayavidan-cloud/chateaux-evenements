@@ -16,7 +16,7 @@ import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "luci
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Séminaire en Château Île-de-France | 4 Domaines Privatisables | Select Châteaux",
+  title: "Séminaire Château Île-de-France : 4 Domaines Privatisables [Devis 24h]",
   description: "Privatisez l'un de nos 4 châteaux pour votre séminaire près de Paris. De 10 à 500 pers, hébergement inclus. Devis gratuit en 24h, réponse garantie.",
   robots: {
     index: true,
@@ -58,7 +58,7 @@ export default function Home() {
         autoPlay
         autoPlayDuration={3000}
         height="100vh"
-        heading="Châteaux d'Exception pour Séminaires en Île-de-France"
+        heading="Séminaire en Château en Île-de-France — 4 Domaines d'Exception"
       />
 
       {/* Stats Section - Cartes animées */}
@@ -295,6 +295,88 @@ export default function Home() {
                   variant="compact"
                   index={index}
                 />
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* SEO — Séminaires par région */}
+      <section
+        style={{
+          background: '#ffffff',
+          paddingTop: theme.spacing.section.md,
+          paddingBottom: theme.spacing.section.md,
+        }}
+      >
+        <Container size="xl">
+          <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
+            Séminaires en Château par Région
+          </Text>
+          <Text variant="body" color="muted" align="center" style={{ maxWidth: '720px', margin: `0 auto ${theme.spacing['3xl']}` }}>
+            7 destinations d'exception en Île-de-France pour votre prochain séminaire d'entreprise.
+          </Text>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: theme.spacing.md }}>
+            {[
+              { href: '/seminaire-chateau-ile-de-france', label: 'Île-de-France', desc: '4 domaines privatisables' },
+              { href: '/seminaire-chateau-proche-paris', label: 'Proche Paris', desc: 'À 30 min de la capitale' },
+              { href: '/seminaire-chateau-chantilly', label: 'Chantilly', desc: '228 chambres en forêt' },
+              { href: '/seminaire-chateau-oise-60', label: 'Oise (60)', desc: 'Forêt de Chantilly' },
+              { href: '/seminaire-chateau-yvelines-78', label: 'Yvelines (78)', desc: 'Abbaye en Chevreuse' },
+              { href: '/seminaire-chateau-hauts-de-seine-92', label: 'Hauts-de-Seine (92)', desc: 'Hôtel 5★ en métro' },
+              { href: '/seminaire-vallee-de-chevreuse', label: 'Vallée de Chevreuse', desc: 'Abbaye millénaire 80 ha' },
+            ].map((region) => (
+              <Link key={region.href} href={region.href} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  padding: theme.spacing.lg,
+                  borderRadius: '12px',
+                  border: `1px solid ${theme.colors.neutral.gray200}`,
+                  background: theme.colors.neutral.gray50,
+                  transition: 'all 0.2s ease',
+                }}>
+                  <Text variant="h5" style={{ marginBottom: theme.spacing.xs, color: theme.colors.neutral.gray900 }}>{region.label}</Text>
+                  <Text variant="bodySmall" color="muted">{region.desc}</Text>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* SEO — Articles populaires */}
+      <section
+        style={{
+          background: '#f6f9fc',
+          paddingTop: theme.spacing.section.md,
+          paddingBottom: theme.spacing.section.md,
+        }}
+      >
+        <Container size="xl">
+          <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
+            Guides & Ressources
+          </Text>
+          <Text variant="body" color="muted" align="center" style={{ maxWidth: '720px', margin: `0 auto ${theme.spacing['3xl']}` }}>
+            Conseils d'experts pour organiser un séminaire d'exception en château.
+          </Text>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: theme.spacing.lg }}>
+            {[
+              { href: '/blog/seminaire-chantilly-activites-team-building', title: 'Séminaire Chantilly : 15 Activités Team Building', desc: 'Le guide complet des activités à Chantilly — spectacle équestre, rallye 2CV, escape game.' },
+              { href: '/blog/murder-party-chateau-activite-immersive', title: 'Murder Party Château : Enquête Grandeur Nature', desc: 'L\'activité team building la plus demandée en 2026. Comment ça marche, combien ça coûte.' },
+              { href: '/blog/checklist-organiser-seminaire', title: 'Checklist Séminaire 2026 : 25 Étapes Clés', desc: '25 étapes de J-90 à J+7 pour organiser votre séminaire sans rien oublier. PDF gratuit.' },
+            ].map((article) => (
+              <Link key={article.href} href={article.href} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  padding: theme.spacing.xl,
+                  borderRadius: '12px',
+                  border: `1px solid ${theme.colors.neutral.gray200}`,
+                  background: '#ffffff',
+                  transition: 'all 0.2s ease',
+                  height: '100%',
+                }}>
+                  <Text variant="h5" style={{ marginBottom: theme.spacing.sm, color: theme.colors.neutral.gray900 }}>{article.title}</Text>
+                  <Text variant="bodySmall" color="muted" style={{ marginBottom: theme.spacing.md }}>{article.desc}</Text>
+                  <Text variant="caption" style={{ color: theme.colors.primary.bronze, fontWeight: 600 }}>Lire l'article →</Text>
+                </div>
               </Link>
             ))}
           </div>

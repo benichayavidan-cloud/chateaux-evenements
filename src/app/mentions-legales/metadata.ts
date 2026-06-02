@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mentions Légales | Select Châteaux",
+  title: "Mentions Légales",
   description:
     "Mentions légales et informations sur l'éditeur du site Select Châteaux. Informations juridiques, hébergement et propriété intellectuelle.",
   robots: {

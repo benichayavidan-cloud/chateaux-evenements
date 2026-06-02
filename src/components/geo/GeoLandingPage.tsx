@@ -21,11 +21,13 @@ import {
   generateBreadcrumbSchema,
   generateFAQSchema,
   generateGeoLandingSchema,
+  generateAggregateRatingSchema,
 } from "@/utils/seo/structured-data";
 import { useState, useEffect, useRef } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
 import { trackPhoneClick } from "@/components/Analytics";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
+import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
 
 // ── StickySlider — CSS natif (hardware-accelerated, pas de JS scroll listener) ──
 function StickySlider({ children }: { children: React.ReactNode }) {
@@ -202,6 +204,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
       generateGeoLandingSchema(data),
       generateBreadcrumbSchema(data.breadcrumb),
       generateFAQSchema(data.faq),
+      generateAggregateRatingSchema(),
     ],
   };
 
@@ -1190,6 +1193,11 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
           </div>
         </Container>
       </section>
+
+      {/* ═══════════════════════════════════════════
+          AVIS CLIENTS — Reviews (SEO AggregateRating)
+      ═══════════════════════════════════════════ */}
+      <ReviewsSectionLazy />
 
       {/* ═══════════════════════════════════════════
           CTA FINALE — Gradient bronze (comme homepage)

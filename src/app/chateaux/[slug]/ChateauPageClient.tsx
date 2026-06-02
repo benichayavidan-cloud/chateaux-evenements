@@ -128,7 +128,7 @@ function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
             transition: 'opacity 0.6s ease-in-out',
           }}
         >
-          <Image src={img} alt={`${nom} - ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+          <Image src={img} alt={`${chateau.seoH1} - vue ${i + 1} du domaine`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
         </div>
       ))}
       {/* Flèches */}
@@ -273,7 +273,7 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
                     transition: 'opacity 0.8s ease-in-out',
                   }}
                 >
-                  <Image src={img} alt={`${chateau.nom} - chambre ${i + 1}`} fill sizes="50vw" className="object-cover" loading="lazy" quality={80} />
+                  <Image src={img} alt={`${chateau.seoH1} - chambre ${i + 1}`} fill sizes="50vw" className="object-cover" loading="lazy" quality={80} />
                 </div>
               ))}
               {images.length > 1 && (
@@ -403,7 +403,7 @@ function RestaurantSlider({ chateau }: { chateau: Chateau }) {
             transition: 'opacity 0.6s ease-in-out',
           }}
         >
-          <Image src={img} alt={`${chateau.nom} - restauration ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+          <Image src={img} alt={`${chateau.seoH1} - restaurant ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
         </div>
       ))}
       {images.length > 1 && (
@@ -519,7 +519,7 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
             transition: 'opacity 0.6s ease-in-out',
           }}
         >
-          <Image src={img} alt={`${chateau.nom} - salle ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+          <Image src={img} alt={`${chateau.seoH1} - salle de réunion ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
         </div>
       ))}
       {images.length > 1 && (

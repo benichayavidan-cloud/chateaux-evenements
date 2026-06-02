@@ -27,7 +27,10 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "Séminaire en Château près de Paris : 4 Domaines Privatisables",
+  title: {
+    default: "Séminaire en Château près de Paris : 4 Domaines Privatisables",
+    template: "%s | Select Châteaux",
+  },
   description:
     "Privatisez un château pour votre séminaire à 30-45 min de Paris. 4 domaines en Île-de-France, 10 à 300 pers, hébergement et spa inclus. Devis gratuit 24h.",
   robots: {

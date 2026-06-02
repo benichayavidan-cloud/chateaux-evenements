@@ -44,14 +44,18 @@ const faq = [
     question: "Dans quels châteaux organisez-vous des team building près de Paris ?",
     answer: "Nous disposons de 4 domaines d'exception en Île-de-France : un Manoir Anglo-Normand à Chantilly, un Domaine Historique dans les Hauts-de-Seine (92), une Abbaye Millénaire dans la Vallée de Chevreuse et un Palais Royal en Forêt de Chantilly. Tous sont privatisables et situés à moins d'1h de Paris."
   },
+  {
+    question: "Comment organiser un team building en château près de Paris ?",
+    answer: "3 étapes : (1) définir vos objectifs (cohésion, intégration, récompense) et le nombre de participants, (2) choisir le château selon la taille du groupe et le style d'activités souhaité — nos 4 domaines offrent chacun un cadre unique, (3) contacter Select Châteaux pour recevoir un programme sur-mesure avec devis sous 24h. Nous gérons la logistique de A à Z : transport, hébergement, restauration et +40 activités."
+  },
 ];
 
 export const metadata: Metadata = {
-  title: "Team Building en Château près de Paris | +40 Activités | Select Châteaux",
+  title: "Team Building Château près de Paris : +40 Activités [2026]",
   description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. De 20 à 500 pers, à 30 min de Paris. Devis gratuit 24h.",
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Team Building en Château près de Paris | +40 Activités | Select Châteaux",
+    title: "Team Building Château près de Paris : +40 Activités [2026]",
     description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. Devis gratuit en 24h.",
     url: "https://www.selectchateaux.com/team-building-chateau",
     siteName: "Select Châteaux",

@@ -17,6 +17,15 @@ export interface BlogLinkRule {
 }
 
 export const BLOG_LINK_MAP: BlogLinkRule[] = [
+  // ── PRIORITÉ MAXIMALE (pages proches page 1, fort potentiel de trafic) ──
+
+  {
+    keywords: ["séminaire Chantilly", "séminaire à Chantilly", "activités Chantilly", "team building Chantilly", "séminaire entreprise Chantilly"],
+    targetSlug: "seminaire-chantilly-activites-team-building",
+    title: "Séminaire Chantilly : 15 activités team building",
+    priority: 10,
+  },
+
   // ── PRIORITÉ HAUTE (pages avec 100+ imp et pos > 25 ou 0 clics) ──
 
   {

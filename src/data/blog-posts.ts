@@ -336,7 +336,7 @@ const article1: BlogPost = {
 const article2: BlogPost = {
   id: 2,
   slug: "checklist-organiser-seminaire",
-  title: "Check-list Séminaire Entreprise 2026 : 25 Étapes (PDF Gratuit)",
+  title: "Checklist Séminaire 2026 : 25 Étapes Clés [PDF Gratuit]",
   excerpt: "Check-list complète à télécharger en PDF. 25 étapes réparties sur 7 phases de J-90 à J+7 pour organiser votre séminaire d'entreprise sans rien oublier.",
   category: "organisation",
   author: {
@@ -6813,7 +6813,7 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 15,
     slug: "seminaire-yvelines-78-luxe-proximite",
-    title: "Séminaire Yvelines (78) : 28 Châteaux de Versailles à Chevreuse",
+    title: "Séminaire Yvelines (78) : Les Meilleurs Châteaux [Tarifs 2026]",
     excerpt: "De Versailles à la Vallée de Chevreuse : 28 châteaux privatisables pour séminaire dans les Yvelines. RER direct, 30-45 min de Paris, tarifs 180-300€/nuit.",
     category: "lieux",
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
@@ -10126,7 +10126,7 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 21,
     slug: "murder-party-chateau-activite-immersive",
-    title: "Murder Party au Château : L'activité immersive n°1",
+    title: "Murder Party Château : Enquête Grandeur Nature [Guide 2026]",
     excerpt: "Enquête policière grandeur nature dans un château : comment ça marche, combien ça coûte, pourquoi c'est l'activité team building la plus demandée en 2026. Guide complet.",
     category: "team-building",
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },

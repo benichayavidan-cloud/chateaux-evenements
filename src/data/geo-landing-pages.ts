@@ -312,7 +312,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     slug: "seminaire-chateau-chantilly",
     title: "Séminaire Chantilly : Hôtel Château 228 Chambres en Forêt",
     description:
-      "Hôtel séminaire à Chantilly : 2 châteaux privatisables en forêt domaniale de 6 300 ha. 228 chambres, 33 salles, spa 5★. À 35 min de Paris, 15 min CDG. Devis gratuit 24h.",
+      "2 châteaux privatisables à Chantilly en forêt de 6 300 ha. 228 chambres, 33 salles, spa 5★. 35 min de Paris, 15 min CDG. Devis gratuit 24h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "chateau seminaire oise", "séminaire forêt chantilly"],
     ogTitle: "Séminaire en Château à Chantilly | Select Châteaux",
     ogDescription:
@@ -467,9 +467,9 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-oise-60",
-    title: "Séminaire Oise (60) : Hôtel Château 228 Ch. en Forêt Chantilly",
+    title: "Séminaire Château Oise (60) : 228 Chambres Forêt Chantilly",
     description:
-      "Salle & hôtel séminaire dans l'Oise (60) : 2 châteaux en forêt de Chantilly. Manoir 280 pers + 5★ 200 pers, spa, 33 salles. 35 min Paris, 15 min CDG. Devis gratuit 24h.",
+      "2 châteaux séminaire dans l'Oise : manoir 280 pers + palace 5★ 200 pers en forêt de Chantilly. Spa, 33 salles. 35 min Paris. Devis gratuit 24h.",
     keywords: ["seminaire oise", "séminaire oise", "chateau seminaire oise", "château séminaire oise 60", "salle séminaire oise", "hotel séminaire oise", "séminaire forêt chantilly", "lieu séminaire oise", "séminaire entreprise oise"],
     ogTitle: "Séminaire en Château dans l'Oise (60) | Select Châteaux",
     ogDescription:
@@ -595,9 +595,9 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-yvelines-78",
-    title: "Château Séminaire 78 : Abbaye 144 Ch. en Vallée de Chevreuse",
+    title: "Séminaire Yvelines (78) : Abbaye 144 Chambres en Chevreuse",
     description:
-      "Salle séminaire dans les Yvelines (78) : abbaye cistercienne rénovée 2023, 144 chambres, 14 salles sur 80 ha en Vallée de Chevreuse. À 45 min de Paris. Devis gratuit 24h.",
+      "Abbaye cistercienne rénovée 2023 dans les Yvelines : 144 chambres, 14 salles, 80 ha en Vallée de Chevreuse. 45 min de Paris. Devis gratuit 24h.",
     keywords: ["seminaire vallee de chevreuse", "séminaire yvelines", "seminaire yvelines", "château séminaire yvelines 78", "salle séminaire yvelines", "abbaye chevreuse séminaire", "séminaire chevreuse", "séminaire 78", "chateau seminaire 78"],
     ogTitle: "Séminaire en Château dans les Yvelines (78) | Select Châteaux",
     ogDescription:
@@ -717,7 +717,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     slug: "seminaire-chateau-hauts-de-seine-92",
     title: "Séminaire Château Hauts-de-Seine (92) : Hôtel 5★ en Métro",
     description:
-      "Séminaire en château dans les Hauts-de-Seine. MGallery 5★, 83 chambres vue Tour Eiffel, spa 360m², 9 salles, restaurant bio Marguerite 1606. Métro ligne 12. Devis gratuit 24h.",
+      "Château MGallery 5★ dans le 92 : 83 chambres vue Tour Eiffel, spa 360m², 9 salles, restaurant bio. Métro L12. Devis gratuit 24h.",
     keywords: ["seminaire entreprise hauts-de-seine", "séminaire château 92", "hôtel séminaire paris 92", "lieu séminaire hauts-de-seine", "séminaire métro paris", "séminaire entreprise issy"],
     ogTitle: "Séminaire en Château Hauts-de-Seine (92) | Select Châteaux",
     ogDescription:
@@ -831,7 +831,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     slug: "seminaire-vallee-de-chevreuse",
     title: "Séminaire Vallée de Chevreuse : Abbaye 5★ à 45 min Paris [2026]",
     description:
-      "Séminaire en Vallée de Chevreuse dans une abbaye cistercienne du XIIe siècle rénovée 2023. 144 chambres, 80 hectares, 6 restaurants Paris Society. Devis gratuit 24h.",
+      "Abbaye cistercienne du XIIe siècle rénovée 2023 en Vallée de Chevreuse. 144 chambres, 80 ha, 6 restaurants Paris Society. Devis gratuit 24h.",
     keywords: ["seminaire vallee de chevreuse", "seminaire chevreuse", "hotel seminaire vallée de chevreuse", "séminaire abbaye chevreuse", "lieu séminaire vallée chevreuse", "séminaire nature chevreuse", "abbaye seminaire yvelines"],
     ogTitle: "Séminaire Vallée de Chevreuse | Abbaye Cistercienne 5★ | Select Châteaux",
     ogDescription:
