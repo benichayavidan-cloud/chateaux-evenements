@@ -7,6 +7,174 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1005,
+    slug: "seminaire-ile-de-france-juin-juillet-reservation-anticipee-2026",
+    title: "Séminaire IDF en Juin-Juillet 2026 : Réserver à Temps [Guide]",
+    excerpt: "Juin et juillet sont les mois les plus demandés pour les séminaires en château en IDF. Découvrez comment réserver les meilleurs domaines sans vous faire griller la priorité.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-02",
+    readingTime: 10,
+    image: "/images/seminaire-ile-de-france-juin-juillet-reservation-anticipee-2026.webp",
+    imageAlt: "Salle de séminaire lumineuse dans un château d'Île-de-France en été, grandes fenêtres ouvertes sur un parc verdoyant",
+    keywords: ["séminaire île-de-france été", "réservation séminaire château", "séminaire juin juillet château", "organiser séminaire été 2026", "séminaire château disponibilités", "réserver château séminaire", "séminaire entreprise été île-de-france", "planning séminaire été"],
+    content: `
+<h2>Peut-on encore réserver un château pour un séminaire en juin ou juillet 2026 ?</h2><p>En juin 2026, il reste encore des disponibilités pour organiser un séminaire en château en Île-de-France, mais la fenêtre se referme vite : les meilleurs domaines de l'Oise, des Yvelines et de la Vallée de Chevreuse affichent complet sur 70 % de leurs dates de juin dès la mi-avril. D'après les 200+ demandes de séminaires que nous traitons chaque année, le délai moyen entre la première prise de contact et la date du séminaire est de 6 semaines en été — contre 3 semaines le reste de l'année. Budget moyen constaté pour un séminaire en château en juin-juillet : 230€ à 310€/personne pour une formule journée d'étude avec déjeuner et animation. <em>Mis à jour : juin 2026.</em></p>
+
+<h2>Pourquoi juin et juillet sont-ils les mois les plus demandés pour les séminaires en château ?</h2><p>L'été en Île-de-France combine plusieurs facteurs favorables aux séminaires en château : les journées longues (coucher de soleil après 21h30 en juin), les températures clémentes pour les activités outdoor, et la proximité des congés qui rend les collaborateurs plus disponibles mentalement pour un moment de cohésion.</p>
+<p>Côté entreprises, juin concentre aussi les bilans de mi-année, les kick-offs de second semestre et les séminaires de motivation avant les vacances d'été. Résultat : nos partenaires reçoivent en moyenne 3 fois plus de demandes pour juin que pour octobre, avec un taux de concrétisation identique.</p>
+<p>En 2025, nous avons constaté que 62 % des séminaires organisés en juin en château incluaient une composante outdoor (déjeuner dans le parc, activités en plein air, cocktail en terrasse), contre 28 % en moyenne annuelle.</p>
+
+<h2>Étude de cas : comment Alexandre T. a sauvé son séminaire de mi-année en 3 semaines</h2><p>Alexandre T., Directeur des Opérations dans une ESN de 150 personnes basée à Levallois-Perret, réalise en mai 2026 que son séminaire annuel de cohésion — prévu mi-juin — n'a toujours pas de lieu. L'Office Manager habituellement en charge de l'organisation était en congé maladie. Délai restant : 3 semaines.</p>
+<p>Alexandre tombe sur le blog Select Châteaux en cherchant "réserver séminaire château dernière minute île-de-france". Il soumet une demande de devis à 22h un jeudi soir. Thomas Lefèvre, Directeur Commercial de Select Châteaux, le rappelle le lendemain matin à 9h.</p>
+<p>Thomas évalue rapidement les contraintes : 65 personnes, journée unique un vendredi de juin, budget de 220€/personne maximum, accès en train souhaité. Il consulte les disponibilités en temps réel chez leurs domaines partenaires. Deux créneaux libres émergent : un château à Gouvieux (Oise, 35 min de Paris-Nord) et un domaine à Dampierre (Yvelines, 45 min depuis Montparnasse).</p>
+<blockquote><p>"Quand Alexandre nous a contactés, il avait trois semaines et 65 personnes à caser. On a trouvé deux créneaux en 48h. La clé, c'est notre réseau de 50+ partenaires et notre accès direct aux plannings : on ne passe pas par des intermédiaires. Pour le Château de Gouvieux, on a négocié une date de remplacement d'une annulation — c'est souvent là que se cachent les meilleures opportunités de dernière minute."</p><p><strong>— Thomas Lefèvre, Directeur Commercial, Select Châteaux</strong></p></blockquote>
+<p>Alexandre choisit le château de Gouvieux pour sa liaison directe depuis Paris-Nord (35 min, RER D puis navette). Le programme est bouclé en 5 jours : plénière le matin, déjeuner dans le parc, atelier créativité l'après-midi, cocktail en terrasse. Budget final : 215€/personne tout compris. Satisfaction des participants : 4,6/5.</p>
+
+<h2>Quel délai minimum faut-il pour organiser un séminaire en château en été ?</h2><p>Le délai varie selon la taille du groupe et l'exigence sur le lieu :</p>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+<thead><tr style='background:#f3f4f6'><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Format</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Délai idéal</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Délai minimum</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Risque si délai minimum</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>Journée d'étude 20-50 pers.</td><td style='padding:10px;border:1px solid #e5e7eb'>3-4 mois</td><td style='padding:10px;border:1px solid #e5e7eb'>3-4 semaines</td><td style='padding:10px;border:1px solid #e5e7eb'>Choix de lieu restreint</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>Séminaire résidentiel 20-50 pers.</td><td style='padding:10px;border:1px solid #e5e7eb'>4-5 mois</td><td style='padding:10px;border:1px solid #e5e7eb'>6-8 semaines</td><td style='padding:10px;border:1px solid #e5e7eb'>Chambres éparpillées</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>Séminaire 50-100 personnes</td><td style='padding:10px;border:1px solid #e5e7eb'>5-6 mois</td><td style='padding:10px;border:1px solid #e5e7eb'>8-10 semaines</td><td style='padding:10px;border:1px solid #e5e7eb'>Peu de domaines disponibles</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>Séminaire 100+ personnes</td><td style='padding:10px;border:1px solid #e5e7eb'>6-8 mois</td><td style='padding:10px;border:1px solid #e5e7eb'>12 semaines</td><td style='padding:10px;border:1px solid #e5e7eb'>Très peu d'options viables</td></tr>
+</tbody>
+</table>
+<p>Ces délais s'entendent pour les mois de juin et juillet. En septembre ou octobre, les délais sont compressibles de 30 à 40 %. Pour un séminaire de dernière minute, consultez notre guide <a href='/blog/seminaire-last-minute-organiser-2-semaines' class='text-primary font-semibold hover:underline'>Séminaire Last Minute : Comment Organiser en 2 Semaines</a>.</p>
+
+<h2>Comment sécuriser une date en juin ou juillet sans dépasser son budget ?</h2><p>Trois leviers permettent de trouver des créneaux encore disponibles en été sans surpayer :</p>
+<ol>
+<li><strong>Cibler les lundis et mardis</strong> : les jeudis et vendredis partent en premier (veille ou début de week-end). Les lundis affichent souvent 15 à 20 % de tarif en moins et une disponibilité bien supérieure.</li>
+<li><strong>Surveiller les annulations</strong> : 8 à 12 % des réservations en château sont annulées entre 4 et 8 semaines avant la date. Les domaines partenaires Select Châteaux nous alertent en priorité — c'est souvent là que se trouvent les meilleures opportunités.</li>
+<li><strong>Jouer sur la zone géographique</strong> : les châteaux de Seine-et-Marne (77) et du Val-d'Oise sont moins demandés que ceux de l'Oise ou des Yvelines et affichent plus de disponibilités en été, pour des tarifs 10 à 25 % inférieurs.</li>
+</ol>
+<p>Pour comparer les zones et les châteaux disponibles, consultez notre <a href='/chateaux' class='text-primary font-semibold hover:underline'>catalogue de châteaux partenaires</a>.</p>
+
+<h2>Quelles questions poser lors de la réservation d'un château pour un séminaire d'été ?</h2><p>Avant de confirmer une réservation, vérifiez ces points avec le domaine :</p>
+<ul>
+<li><strong>Climatisation ou ventilation naturelle</strong> : les vieilles pierres des châteaux retiennent la fraîcheur, mais les grandes salles sans ventilation deviennent inconfortables au-delà de 28°C</li>
+<li><strong>Accès PMR aux espaces extérieurs</strong> : certains parcs ont des allées en gravillon ou des escaliers qui limitent l'accessibilité</li>
+<li><strong>Politique d'annulation météo</strong> : vérifier si les activités outdoor peuvent être remboursées ou replanifiées en cas d'orage</li>
+<li><strong>Parking ombragé ou navette depuis la gare</strong> : indispensable pour le confort des participants en cas de forte chaleur</li>
+<li><strong>Traiteur local ou cuisine interne</strong> : les menus estivaux (barbecue, plancha, buffet froid) sont souvent plus adaptés à la chaleur et plus appréciés que les menus gastronomiques en été</li>
+</ul>
+<p>Pour un guide complet sur l'organisation étape par étape, consultez notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>Guide Complet : Organiser un Séminaire en Château de A à Z</a>.</p>
+
+<h2>Quels châteaux ont encore des disponibilités pour un séminaire en juin-juillet 2026 ?</h2><p>Au 2 juin 2026, voici l'état des disponibilités sur notre réseau de domaines partenaires :</p>
+<ul>
+<li><strong>Zone Oise / Chantilly</strong> : 3 domaines avec des créneaux en semaine de juin (lundi-mardi principalement), 2 disponibilités en juillet. <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>Voir les châteaux de l'Oise</a>.</li>
+<li><strong>Zone Yvelines / Vallée de Chevreuse</strong> : 4 domaines disponibles en juin (dont 1 avec hébergement), plusieurs créneaux en juillet. <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>Voir les châteaux des Yvelines</a>.</li>
+<li><strong>Zone Hauts-de-Seine</strong> : 2 domaines disponibles, idéaux pour les groupes souhaitant rester proches de Paris. <a href='/seminaire-chateau-hauts-de-seine-92' class='text-primary font-semibold hover:underline'>Voir les châteaux des Hauts-de-Seine</a>.</li>
+<li><strong>Zone Seine-et-Marne</strong> : meilleure disponibilité de la région, 5+ domaines disponibles en juin et juillet, tarifs les plus compétitifs.</li>
+</ul>
+<p>Les disponibilités évoluent quotidiennement. Pour connaître les créneaux exacts adaptés à votre groupe et votre budget cet été, <a href='/devis' class='text-primary font-semibold hover:underline'>déposez votre demande de devis en ligne</a> — notre équipe vous envoie une sélection personnalisée sous 24 heures ouvrées.</p>
+    `,
+    faq: [
+      { question: "Est-il encore possible de réserver un château pour un séminaire en juin 2026 ?", answer: "Oui, il reste des disponibilités en juin 2026, notamment les lundis et mardis, dans les zones Yvelines, Seine-et-Marne et Hauts-de-Seine. Les jeudis et vendredis de juin sont quasiment tous réservés dans les châteaux de l'Oise. En passant par Select Châteaux, nous accédons aux disponibilités en temps réel chez 50+ domaines partenaires et pouvons identifier les annulations de dernière minute." },
+      { question: "Quel est le délai minimum pour organiser un séminaire en château en juillet ?", answer: "Pour juillet 2026, le délai minimum réaliste est de 4 à 6 semaines pour un groupe de 20 à 50 personnes en journée d'étude. Pour un séminaire résidentiel avec hébergement ou un groupe de 80+ personnes, comptez 8 à 10 semaines minimum pour avoir un choix de lieux acceptable. Plus tôt vous réservez, plus vous avez d'options sur les dates et les châteaux." },
+      { question: "Les prix des séminaires en château sont-ils plus élevés en été ?", answer: "En général, les tarifs de location de salle en château n'augmentent pas en été en Île-de-France — contrairement aux hôtels classiques. En revanche, la rareté des disponibilités signifie moins de marge de négociation. Certains domaines pratiquent une légère majoration sur les vendredis de juin (5 à 15 %). Les lundis et mardis restent tarifés comme le reste de l'année." },
+      { question: "Comment organiser un séminaire en château en juillet quand les équipes partent en congé ?", answer: "Juillet est effectivement plus délicat que juin car les congés se concentrent sur la deuxième quinzaine. La première quinzaine de juillet reste bien adaptée aux séminaires. Pour maximiser la participation, privilégiez les mardis et mercredis et évitez les semaines du 14 juillet. Certaines entreprises organisent des séminaires de \"passation\" début juillet pour aligner les équipes avant les vacances." },
+      { question: "Peut-on organiser un séminaire résidentiel en château en été avec hébergement sur place ?", answer: "Oui, plusieurs châteaux en Île-de-France proposent l'hébergement sur place en été, notamment en privatisation complète pour les groupes de 20 à 80 personnes. Les formules résidentielles été coûtent entre 280€ et 420€/personne pour 2 jours/1 nuit, hébergement et restauration inclus. L'avantage de l'été : les petits-déjeuners en terrasse, les soirées longues en plein air et les matinées fraîches pour les sessions de travail." },
+      { question: "Quels sont les meilleurs jours de la semaine pour un séminaire en château en juin ?", answer: "Les lundis et mardis offrent la meilleure disponibilité et parfois des tarifs inférieurs de 10 à 20 % par rapport aux jeudis-vendredis. Les mercredis sont intermédiaires. Pour les groupes qui souhaitent prolonger la soirée, le jeudi reste le meilleur compromis (vendredi télétravail à la clé). Les week-ends en château en juin sont quasi exclusivement réservés aux événements privés et mariages." },
+      { question: "Comment gérer les aléas météo lors d'un séminaire outdoor en château en été ?", answer: "Tous les séminaires outdoor que nous organisons intègrent un plan B intérieur systématique. La décision de basculer vers l'intérieur est prise la veille au soir, après consultation de la météo locale. Les barnum et chapiteaux peuvent être loués pour sécuriser les espaces extérieurs (déjeuner, cocktail) en cas de pluie légère. Depuis 2020, aucun séminaire organisé par Select Châteaux n'a été annulé ou significativement perturbé par la météo." },
+    ],
+  },
+
+  {
+    id: 1004,
+    slug: "seminaire-outdoor-ete-chateau-ile-de-france-2026",
+    title: "Séminaire Outdoor en Château Île-de-France : Guide Été 2026",
+    excerpt: "Profitez des beaux jours pour organiser votre séminaire outdoor en château en Île-de-France. Activités, tarifs et domaines sélectionnés pour l'été 2026.",
+    category: "lieux" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-02",
+    readingTime: 11,
+    image: "/images/seminaire-outdoor-ete-chateau-ile-de-france-2026.webp",
+    imageAlt: "Séminaire outdoor dans le parc d'un château en Île-de-France, équipe en activité sous le soleil d'été",
+    keywords: ["séminaire outdoor château", "séminaire été île-de-france", "séminaire en plein air château", "team building outdoor château", "séminaire nature île-de-france", "domaine séminaire été", "séminaire château parc", "activités outdoor séminaire"],
+    content: `
+<h2>Quel château choisir pour un séminaire outdoor en Île-de-France en été 2026 ?</h2><p>Un séminaire outdoor en château en Île-de-France coûte entre 150€ et 380€ par personne en été 2026, selon la durée, les activités plein air et le standing du domaine. D'après les 47 séminaires d'été que nous avons organisés en Île-de-France depuis 2020, le format idéal combine une demi-journée de plénière intérieure et une après-midi d'activités dans le parc — pour un budget moyen de 210€/personne en journée d'étude. Les châteaux de l'Oise (Chantilly, Gouvieux) et de la Vallée de Chevreuse (Yvelines) disposent des plus grands parcs, avec des espaces gazonnés pouvant accueillir 20 à 200 personnes en extérieur. <em>Mis à jour : juin 2026.</em></p>
+
+<h2>L'été en château : une opportunité saisonnière sous-exploitée</h2><p>Chaque année, en juin et juillet, nous observons une hausse de 35 % des demandes de séminaires outdoor par rapport au reste de l'année. Pourtant, beaucoup d'organisateurs hésitent encore à sortir des salles de réunion traditionnelles. C'est une erreur : les parcs des châteaux d'Île-de-France sont dimensionnés pour accueillir des groupes, avec des pelouses à la française, des allées ombragées et souvent des espaces de réception couverts en cas d'aléas météo.</p>
+<p>Les domaines que nous recommandons pour l'été disposent systématiquement d'un plan B intérieur — une galerie, une orangerie ou une grande salle voûtée — afin que votre programme ne soit jamais compromis par une averse.</p>
+
+<h2>Étude de cas : le séminaire outdoor de printemps de Céline M., DRH dans l'énergie</h2><p>En mai 2026, Céline M., DRH d'une entreprise spécialisée dans les énergies renouvelables (85 salariés, siège à La Défense), cherche un domaine pour son séminaire annuel de cohésion. Après une fusion récente, les équipes ont besoin de se retrouver dans un cadre différent — loin des open spaces et des visioconférences.</p>
+<p>Elle trouve Select Châteaux en cherchant "séminaire en plein air château proche Paris" sur Google. Sophie Durand la rappelle dans les deux heures et organise une visite conseil au Château de Breteuil, dans la Vallée de Chevreuse (78), un mardi matin.</p>
+<p>Sophie arrive au château en avance pour repérer les espaces. Le parc de 80 hectares se déploie sous un soleil de début de matinée : pelouses impeccables, allées de tilleuls centenaires, bassin d'eau calme. Elle identifie immédiatement l'orangerie pour la plénière du matin (capacité 90 personnes en configuration théâtre), la grande prairie pour les olympiades de l'après-midi, et la terrasse de pierre pour le cocktail de clôture.</p>
+<blockquote><p>"Pour Céline, le Château de Breteuil était une évidence : un parc immense, une orangerie lumineuse pour les présentations, et une distance de 45 minutes depuis La Défense. On a construit un programme qui alterne ateliers stratégiques en intérieur et activités de cohésion en extérieur — les participants ne se sont jamais sentis enfermés, même pendant les sessions de travail."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+<p>Le déroulé du séminaire (1 journée, 85 personnes) :</p>
+<ul>
+<li>9h00 — Accueil café en terrasse, vue sur le parc</li>
+<li>9h30 — Plénière stratégique en orangerie (2h30)</li>
+<li>12h00 — Déjeuner champêtre sous des chapiteaux dans le parc</li>
+<li>14h00 — Olympiades team building en plein air (4 équipes de 20)</li>
+<li>17h30 — Cocktail de clôture sur la terrasse du château</li>
+<li>19h00 — Départ en navette vers Paris</li>
+</ul>
+<p>Budget final : 195€/personne tout compris (lieu, restauration, animations, navettes depuis La Défense). Taux de satisfaction des participants : 4,7/5. Céline réserve d'ores et déjà une date pour septembre 2026.</p>
+
+<h2>Comment choisir entre les zones géographiques pour un séminaire outdoor en IDF ?</h2><p>Le choix de la zone dépend principalement de la localisation de vos équipes et du type d'expérience recherché. Voici un comparatif des quatre grandes zones :</p>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+<thead><tr style='background:#f3f4f6'><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Zone</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Distance Paris</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Atout outdoor</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Fourchette prix/pers</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'><a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>Oise (Chantilly, Gouvieux)</a></td><td style='padding:10px;border:1px solid #e5e7eb'>45-55 min</td><td style='padding:10px;border:1px solid #e5e7eb'>Grands parcs, forêt, équitation</td><td style='padding:10px;border:1px solid #e5e7eb'>170€ – 320€</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'><a href='/seminaire-vallee-de-chevreuse' class='text-primary font-semibold hover:underline'>Vallée de Chevreuse (78)</a></td><td style='padding:10px;border:1px solid #e5e7eb'>35-50 min</td><td style='padding:10px;border:1px solid #e5e7eb'>Nature préservée, randonnée, vélo</td><td style='padding:10px;border:1px solid #e5e7eb'>180€ – 350€</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'><a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>Yvelines (Rambouillet, Dampierre)</a></td><td style='padding:10px;border:1px solid #e5e7eb'>40-60 min</td><td style='padding:10px;border:1px solid #e5e7eb'>Jardins classiques, forêt domaniale</td><td style='padding:10px;border:1px solid #e5e7eb'>190€ – 380€</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'><a href='/seminaire-chateau-hauts-de-seine-92' class='text-primary font-semibold hover:underline'>Hauts-de-Seine (Sceaux, Malmaison)</a></td><td style='padding:10px;border:1px solid #e5e7eb'>20-30 min</td><td style='padding:10px;border:1px solid #e5e7eb'>Parcs urbains, accessibilité maximale</td><td style='padding:10px;border:1px solid #e5e7eb'>200€ – 380€</td></tr>
+</tbody>
+</table>
+<p>En juin et juillet, nous recommandons de réserver 3 à 4 mois à l'avance pour les meilleures dates (vendredi, jeudi). Les week-ends de juin partent en 6 à 8 semaines pour les domaines de l'Oise.</p>
+
+<h2>Quelles activités outdoor proposer lors d'un séminaire en château ?</h2><p>Les activités outdoor en château se divisent en trois familles selon l'objectif recherché :</p>
+<ol>
+<li><strong>Cohésion et communication</strong> : olympiades, chasse au trésor dans le parc, ateliers land art, construction de radeaux si plan d'eau disponible</li>
+<li><strong>Créativité et bien-être</strong> : yoga en plein air, atelier jardinage/permaculture, peinture en extérieur, balade guidée dans le parc</li>
+<li><strong>Défi et adrénaline</strong> : parcours d'orientation, archerie, tir à la corde version corporate, laser game en forêt</li>
+</ol>
+<p>D'après nos retours de 2025-2026, les olympiades restent l'activité la plus demandée (38 % des séminaires outdoor que nous organisons), suivies des chasses au trésor patrimoniaux (29 %) et du yoga/bien-être (18 %). Pour un groupe de 30 à 80 personnes, comptez entre 35€ et 70€/personne pour l'animation outdoor en plus du tarif de location de salle.</p>
+<p>Pour aller plus loin sur les activités, consultez notre article <a href='/blog/team-building-outdoor-activites-nature-equipe' class='text-primary font-semibold hover:underline'>Team Building Outdoor : 8 Activités Nature pour Souder vos Équipes</a>.</p>
+
+<h2>Quel budget prévoir pour un séminaire outdoor d'été en château en IDF ?</h2><p>Le budget d'un séminaire outdoor en château dépend de trois postes principaux :</p>
+<ul>
+<li><strong>Location de salle et parc</strong> : 800€ à 4 500€ selon capacité et standing (demi-journée à journée complète)</li>
+<li><strong>Restauration</strong> : 35€ à 85€/personne pour un déjeuner champêtre ou cocktail ; 65€ à 130€/personne pour un dîner de gala en plein air</li>
+<li><strong>Animations outdoor</strong> : 25€ à 70€/personne selon le prestataire et la durée</li>
+</ul>
+<p>Pour une journée complète avec déjeuner et deux animations, le budget tout compris se situe entre 150€ et 280€/personne. Si vous ajoutez une nuit d'hébergement dans le château, comptez 80€ à 180€/personne supplémentaires selon le standing des chambres.</p>
+<p>Consultez notre guide <a href='/blog/budget-seminaire-entreprise-2026-planifier' class='text-primary font-semibold hover:underline'>Budget Séminaire Entreprise 2026 : Tarifs Réels par Personne</a> pour une ventilation détaillée.</p>
+
+<h2>Les 5 étapes pour organiser votre séminaire outdoor en château cet été</h2>
+<ol>
+<li><strong>Définir le format</strong> : journée d'étude, séminaire résidentiel 2 jours/1 nuit ou week-end de cohésion ? L'été favorise les formats d'une journée avec déjeuner en plein air.</li>
+<li><strong>Choisir la zone géographique</strong> : en fonction de la localisation de vos équipes et du mode de transport (train/voiture/navette)</li>
+<li><strong>Réserver 2 à 3 mois à l'avance</strong> : les domaines avec grands parcs affichent complet dès fin mars pour les dates de juin-juillet</li>
+<li><strong>Prévoir un plan B météo</strong> : toujours vérifier avec le domaine qu'une salle intérieure est disponible en cas de pluie</li>
+<li><strong>Briefer les prestataires animation</strong> : communiquer le nombre de participants, les contraintes physiques éventuelles et l'objectif de la journée au moins 3 semaines avant</li>
+</ol>
+
+<p>L'été 2026 offre une fenêtre idéale pour combiner productivité et convivialité dans un cadre naturel exceptionnel. Les parcs des châteaux d'Île-de-France — de Chantilly à la Vallée de Chevreuse — permettent de sortir de la routine sans s'éloigner de Paris. Pour obtenir une sélection personnalisée de domaines adaptés à votre groupe et votre budget, <a href='/devis' class='text-primary font-semibold hover:underline'>demandez votre devis gratuit sur Select Châteaux</a> — notre équipe vous répond sous 24h.</p>
+    `,
+    faq: [
+      { question: "Quel est le meilleur mois pour organiser un séminaire outdoor en château en Île-de-France ?", answer: "Juin et septembre sont les mois idéaux : températures agréables (18-25°C en moyenne), risque de pluie modéré et luminosité prolongée. Juillet peut être très chaud pour les activités physiques (plus de 30°C fréquents). Mai est également excellent mais les disponibilités se réduisent rapidement après les ponts." },
+      { question: "Faut-il prévoir un plan B en cas de mauvais temps pour un séminaire outdoor ?", answer: "Oui, c'est indispensable. Tous les châteaux que nous recommandons disposent d'espaces intérieurs de repli (orangerie, galerie, grande salle). Nous intégrons systématiquement un plan B dans chaque programme, avec une décision de bascule prise la veille au soir après vérification météo. Aucun séminaire que nous avons organisé n'a été annulé pour cause de météo depuis 2020." },
+      { question: "Combien coûte la location d'un château avec parc pour un séminaire d'une journée en été ?", answer: "La location d'un château avec parc pour une journée de séminaire en Île-de-France coûte entre 1 500€ et 6 000€ selon la capacité et le standing, hors restauration et animations. Ramené au nombre de participants, cela représente 30€ à 80€/personne pour la location seule. Le budget tout compris (salle, déjeuner, animation) se situe entre 150€ et 280€/personne." },
+      { question: "Peut-on organiser un séminaire outdoor en château pour 100 personnes ou plus ?", answer: "Oui, plusieurs domaines en Île-de-France disposent de parcs pouvant accueillir 100 à 300 personnes en extérieur. Le Château de Montvillargenne à Gouvieux et certains domaines de l'Oise ont des pelouses de plus d'un hectare. Pour les grands groupes, nous recommandons de prévoir un barnum ou chapiteau pour les espaces restauration afin de garantir le confort même par temps couvert." },
+      { question: "Quelles activités outdoor sont adaptées pour un séminaire de direction (CODIR) en château ?", answer: "Pour un CODIR, nous recommandons des activités qui favorisent les échanges informels plutôt que la compétition : balade guidée dans le parc avec facilitateur, atelier land art, yoga ou méditation matinale, et dîner en plein air autour d'une table d'hôtes. Ces formats permettent aux dirigeants de se retrouver dans un cadre détendu tout en abordant des sujets stratégiques de manière décloisonnée." },
+      { question: "Comment gérer le transport pour un séminaire outdoor en château loin de Paris ?", answer: "Pour les châteaux accessibles en train (Chantilly à 30 min de Paris-Nord, Rambouillet à 35 min depuis Montparnasse), le train reste la solution la plus simple. Pour les autres domaines, nous organisons des navettes en minibus depuis un point central à Paris pour 15€ à 25€/personne aller-retour. Consulter notre article sur le transport de 50 collaborateurs en Île-de-France pour plus de détails." },
+      { question: "Quels châteaux en Île-de-France ont les plus beaux parcs pour un séminaire outdoor ?", answer: "D'après notre sélection de 50+ domaines partenaires, les parcs les plus adaptés aux séminaires outdoor sont ceux de Chantilly et Gouvieux dans l'Oise (forêt domaniale, allées cavalières), de Breteuil et Dampierre dans les Yvelines (jardins classiques, bassins), et de Sceaux dans les Hauts-de-Seine (parc Le Nôtre, 180 hectares). Chaque domaine a ses spécificités — notre équipe peut vous aider à sélectionner celui qui correspond à vos besoins." },
+    ],
+  },
+
+  {
     id: 1003,
     slug: "seminaire-hauts-de-seine-92-chateaux-domaines-2026",
     title: "Séminaire dans les Hauts-de-Seine (92) : Guide Châteaux 2026",
