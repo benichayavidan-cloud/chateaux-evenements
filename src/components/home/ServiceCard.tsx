@@ -81,6 +81,7 @@ export function ServiceCard({
           src={displayImage || ''}
           alt={imageAlt}
           fill
+          loading="lazy"
           style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
           sizes="(max-width: 768px) 100vw, 25vw"
           className="service-card-img"

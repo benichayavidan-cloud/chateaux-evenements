@@ -248,12 +248,12 @@ export default function RootLayout({
         {/* Cookie Consent - 3 variants disponibles: "default" | "small" | "mini" */}
         <CookieConsentLazy variant="mini" />
 
-        {/* Google tag (gtag.js) - Chargé APRÈS hydration pour éviter React error #418 */}
+        {/* Google tag (gtag.js) - Chargé en lazy pour ne pas bloquer FCP/LCP */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17912491834"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`
             gtag('js', new Date());
             gtag('config', 'G-TRWZDPNN9E', {

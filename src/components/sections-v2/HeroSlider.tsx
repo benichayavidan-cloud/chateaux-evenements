@@ -97,45 +97,52 @@ export function HeroSlider({
       }}
       /* Pas de pause au hover — le slider continue en continu */
     >
-      {/* Slides — all rendered, only current is visible */}
-      {slides.map((slide, index) => (
-        <div
-          key={slide.id}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            opacity: index === currentIndex ? 1 : 0,
-            transition: 'opacity 0.7s ease-in-out',
-            zIndex: index === currentIndex ? 1 : 0,
-          }}
-        >
-          <Image
-            src={slide.image}
-            alt={slide.title}
-            fill
-            style={{
-              objectFit: 'cover',
-              objectPosition: 'center',
-            }}
-            priority={index === 0}
-            fetchPriority={index === 0 ? 'high' : 'auto'}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-            sizes="100vw"
-            quality={index === 0 ? 70 : 65}
-          />
+      {/* Slides — only current + adjacent rendered for performance */}
+      {slides.map((slide, index) => {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+        const shouldRender = index === currentIndex || index === nextIndex || index === prevIndex || index === 0;
+        if (!shouldRender) return null;
 
-          {/* Overlay */}
+        return (
           <div
+            key={slide.id}
             style={{
               position: 'absolute',
               inset: 0,
-              background: theme.gradients.overlayBottom,
-              opacity: 0.6,
+              opacity: index === currentIndex ? 1 : 0,
+              transition: 'opacity 0.7s ease-in-out',
+              zIndex: index === currentIndex ? 1 : 0,
             }}
-          />
-        </div>
-      ))}
+          >
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'center',
+              }}
+              priority={index === 0}
+              fetchPriority={index === 0 ? 'high' : 'auto'}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              sizes="100vw"
+              quality={index === 0 ? 70 : 65}
+            />
+
+            {/* Overlay */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: theme.gradients.overlayBottom,
+                opacity: 0.6,
+              }}
+            />
+          </div>
+        );
+      })}
 
       {/* Content — re-animated on slide change via key */}
       <div

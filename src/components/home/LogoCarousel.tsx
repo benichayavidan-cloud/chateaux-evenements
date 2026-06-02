@@ -13,8 +13,8 @@ interface LogoCarouselProps {
 }
 
 export function LogoCarousel({ logos }: LogoCarouselProps) {
-  // Dupliquer les logos pour créer un effet de défilement infini
-  const duplicatedLogos = [...logos, ...logos, ...logos];
+  // Dupliquer 2x suffit pour l'effet de défilement infini (au lieu de 3x)
+  const duplicatedLogos = [...logos, ...logos];
 
   return (
     <div style={{ overflow: 'hidden', width: '100%' }}>
@@ -49,6 +49,7 @@ export function LogoCarousel({ logos }: LogoCarouselProps) {
               src={logo.url}
               alt={`Logo ${logo.nom} - Client Select Châteaux`}
               fill
+              loading="lazy"
               sizes="140px"
               style={{ objectFit: 'contain' }}
             />
