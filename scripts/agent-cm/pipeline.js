@@ -134,14 +134,30 @@ Pour le champ content : c'est une SEULE chaîne HTML (pas un array). Utiliser de
 
 Réponds avec UNIQUEMENT le tableau JSON.`;
 
-  const stream = await client.messages.stream({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 32000,
-    system: systemPrompt,
-    messages: [{ role: 'user', content: 'Génère 2 articles de blog SEO en français pour Select Châteaux. Retourne UNIQUEMENT du JSON valide — un seul tableau avec 2 objets. Utilise des guillemets simples pour les attributs HTML. Vérifie que ton JSON est valide avant de répondre.' }],
-  });
-
-  const response = await stream.finalMessage();
+  const MAX_RETRIES = 3;
+  let response;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const stream = await client.messages.stream({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 32000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: 'Génère 2 articles de blog SEO en français pour Select Châteaux. Retourne UNIQUEMENT du JSON valide — un seul tableau avec 2 objets. Utilise des guillemets simples pour les attributs HTML. Vérifie que ton JSON est valide avant de répondre.' }],
+      });
+      response = await stream.finalMessage();
+      break;
+    } catch (apiError) {
+      const isOverloaded = apiError.status === 529 || apiError.message?.includes('Overloaded') || apiError.error?.type === 'overloaded_error';
+      const isRateLimit = apiError.status === 429;
+      if ((isOverloaded || isRateLimit) && attempt < MAX_RETRIES) {
+        const delay = attempt * 30;
+        log(2, `API ${isOverloaded ? 'overloaded' : 'rate limited'} — retry ${attempt}/${MAX_RETRIES} dans ${delay}s`);
+        await new Promise(r => setTimeout(r, delay * 1000));
+        continue;
+      }
+      throw apiError;
+    }
+  }
   const text = response.content.filter(b => b.type === 'text').map(b => b.text).join('');
   log(2, `Réponse Claude : ${text.length} chars`);
 
@@ -332,11 +348,25 @@ async function checkSchedule() {
       return false;
     }
     const targetHour = row.publish_hour != null ? Number(row.publish_hour) : 9;
-    if (parisHour !== targetHour) {
-      log(0, `Heure Paris ${parisHour}h ≠ heure cible ${targetHour}h — on passe`);
+    if (parisHour < targetHour) {
+      log(0, `Heure Paris ${parisHour}h < heure cible ${targetHour}h — trop tôt, on passe`);
       return false;
     }
-    log(0, `Vérification planning OK — jour ${parisDay} dans [${schedule}], heure ${parisHour}h`);
+
+    // Vérifier qu'on n'a pas déjà publié aujourd'hui
+    const todayStr = parisNow.toISOString().split('T')[0];
+    try {
+      const logsResp = await fetch(`${SUPABASE_URL}/rest/v1/camille_session_logs?created_at=gte.${todayStr}T00:00:00Z&status=eq.success&select=id&limit=1`, {
+        headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },
+      });
+      const todayLogs = await logsResp.json();
+      if (Array.isArray(todayLogs) && todayLogs.length > 0) {
+        log(0, `Déjà publié aujourd'hui (${todayStr}) — on passe`);
+        return false;
+      }
+    } catch {}
+
+    log(0, `Vérification planning OK — jour ${parisDay} dans [${schedule}], heure ${parisHour}h (≥${targetHour}h), pas encore publié`);
     return true;
   } catch (err) {
     log(0, `Vérification planning échouée (${err.message}) — on lance quand même`);
