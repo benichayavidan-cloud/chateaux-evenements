@@ -7,6 +7,253 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1009,
+    slug: "seminaire-yvelines-lieu-atypique-domaine-2026",
+    title: "Séminaire Atypique dans les Yvelines : Domaines Insolites 2026",
+    excerpt: "Au-delà des hôtels classiques, les Yvelines cachent des domaines exceptionnels pour vos séminaires : abbayes, manoirs forestiers, jardins royaux. Tarifs, lieux et conseils d'organisation.",
+    category: "lieux" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-04",
+    readingTime: 12,
+    image: "/images/seminaire-yvelines-lieu-atypique-domaine-2026.webp",
+    imageAlt: "Domaine atypique dans les Yvelines, abbaye ou manoir forestier, salle de séminaire voûtée, lumière naturelle tamisée",
+    keywords: ["séminaire Yvelines", "lieu séminaire Yvelines", "séminaire 78 atypique", "séminaire château Yvelines", "domaine séminaire 78", "salle séminaire Yvelines", "séminaire Rambouillet", "séminaire Vallée de Chevreuse", "séminaire Dampierre", "organiser séminaire Yvelines", "lieu atypique séminaire Île-de-France"],
+    content: `
+<h2>Séminaire dans les Yvelines en 2026 : les lieux atypiques qui font la différence</h2>
+<p><em>Mis à jour : juin 2026</em></p>
+<p>Les Yvelines (département 78) abritent certains des <strong>lieux de séminaire les plus insolites d'Île-de-France</strong> : abbayes médiévales reconverties, manoirs forestiers en lisière de Rambouillet, domaines classés dans la Vallée de Chevreuse. Les tarifs pour un séminaire résidentiel dans ce département oscillent entre <strong>240€ et 450€ par personne</strong> pour 2 jours / 1 nuit tout compris — un positionnement premium justifié par la qualité architecturale des lieux et leur proximité avec Paris (35 à 55 km). Sur les 38 séminaires organisés par Select Châteaux dans les Yvelines depuis 2021, <strong>72 % des clients demandent un lieu « qui sort de l'ordinaire »</strong> — un hôtel traditionnel ne suffit plus pour marquer les esprits.</p>
+
+<h2>Comment Marc T. a organisé le séminaire stratégique de son ESN dans un manoir des Yvelines</h2>
+<p>Mars 2026. Marc T., Directeur Général d'une ESN (entreprise de services numériques) parisienne de 200 collaborateurs, doit organiser le séminaire annuel de son CODIR élargi — 35 personnes, 2 nuits, un vrai moment de rupture avec le quotidien. Les années précédentes : hôtel standardisé en périphérie de Paris. Cette fois, il veut quelque chose de mémorable.</p>
+<p>C'est sa DAF qui a lu un article sur le blog Select Châteaux et lui a transmis le lien. Marc appelle un jeudi, Sophie Durand rappelle dans l'heure.</p>
+<p>« Quand quelqu'un me dit 'atypique', je commence toujours par leur demander ce que ça signifie concrètement pour eux, » explique Sophie. « Pour certains, c'est une salle voûtée avec de la pierre apparente. Pour d'autres, c'est pouvoir faire une réunion en plein air dans un jardin classé. Pour Marc, c'était les deux. »</p>
+<p>Sophie propose une visite dans la <strong>Vallée de Chevreuse</strong>, à 35 km de Paris. Un ancien prieuré du XIIe siècle reconverti en domaine événementiel : 28 chambres réparties dans les ailes historiques, une grande salle de séminaire dans l'ancienne grange cathédrale (120 m², poutres apparentes, lumière zénithale), un jardin de curé de 2 hectares. En mars, les premiers bourgeons apparaissent sur les buis taillés — la lumière du matin dans la salle capitulaire est saisissante.</p>
+<p>Sophie montre à Marc comment programmer les deux jours : plénière stratégique dans la salle principale, ateliers de travail en sous-groupes dans trois salles moyennes (30 à 50 m² chacune), pause déjeuner en terrasse chauffée donnant sur le jardin, soirée dîner dans le réfectoire voûté avec éclairage aux chandelles. <strong>35 participants, 2 nuits sur place, budget final : 390€ par personne</strong> tout compris.</p>
+<p>Le résultat ? Marc écrit à Sophie trois jours après le séminaire : <em>« On a eu des échanges qu'on n'avait jamais eu en six ans de direction. Je pense que le lieu y est pour quelque chose — quand tu es dans un bâtiment de 800 ans, tu relativises naturellement. »</em></p>
+
+<blockquote><p>« Les lieux atypiques des Yvelines — abbayes, manoirs, domaines classés — ne sont pas juste une question d'esthétique. Ils changent la dynamique de groupe : les participants sortent de leurs postures habituelles, les discussions deviennent plus franches. C'est mesurable dans les retours post-séminaire. »</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<h2>Quels types de lieux atypiques trouve-t-on dans les Yvelines ?</h2>
+<p>Le département 78 offre une diversité de patrimoines architecturaux exceptionnelle pour des séminaires d'entreprise. Voici les catégories de lieux disponibles selon nos partenariats :</p>
+
+<table style='width:100%; border-collapse:collapse; margin:24px 0;'>
+  <thead>
+    <tr style='background:#f3f0e8;'>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Type de lieu</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Exemples de secteurs</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Capacité max.</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Budget indicatif/pers.</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Ambiance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px; border:1px solid #ddd;'>Abbaye / Prieuré</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Vallée de Chevreuse, Chevreuse</td>
+      <td style='padding:10px; border:1px solid #ddd;'>20–60 pers.</td>
+      <td style='padding:10px; border:1px solid #ddd;'>320–450€</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Recueillement, créativité, rupture</td>
+    </tr>
+    <tr style='background:#fafaf7;'>
+      <td style='padding:10px; border:1px solid #ddd;'>Manoir forestier</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Forêt de Rambouillet, Montfort</td>
+      <td style='padding:10px; border:1px solid #ddd;'>30–100 pers.</td>
+      <td style='padding:10px; border:1px solid #ddd;'>260–380€</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Nature, outdoor, ressourcement</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #ddd;'>Château classé</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Dampierre, Breteuil, Rambouillet</td>
+      <td style='padding:10px; border:1px solid #ddd;'>40–150 pers.</td>
+      <td style='padding:10px; border:1px solid #ddd;'>280–420€</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Prestige, jardins royaux, représentation</td>
+    </tr>
+    <tr style='background:#fafaf7;'>
+      <td style='padding:10px; border:1px solid #ddd;'>Domaine viticole / Ferme de prestige</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Plaine de Versailles</td>
+      <td style='padding:10px; border:1px solid #ddd;'>20–80 pers.</td>
+      <td style='padding:10px; border:1px solid #ddd;'>240–340€</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Authentique, terroir, convivial</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Quel est le budget réel pour un séminaire dans les Yvelines en 2026 ?</h2>
+<p>Le budget varie fortement selon le type de lieu. Voici la ventilation constatée sur les 38 séminaires organisés dans les Yvelines depuis 2021 :</p>
+<ul>
+  <li><strong>Location salles de réunion</strong> : 20 à 45€/personne/jour (les lieux atypiques facturent plus cher que les hôtels classiques, mais la valeur perçue est bien supérieure)</li>
+  <li><strong>Hébergement</strong> : 100 à 175€/chambre/nuit — les abbayes et manoirs pratiquent des tarifs chambres plus élevés en raison des aménagements historiques</li>
+  <li><strong>Restauration</strong> : 85 à 150€/personne (dîner + déjeuner + petits-déjeuners)</li>
+  <li><strong>Animations</strong> : 35 à 90€/personne selon la formule choisie</li>
+</ul>
+<p>Pour un <strong>groupe de 30 personnes en formule 2 jours / 1 nuit</strong> dans un lieu atypique des Yvelines, comptez entre <strong>9 500€ et 15 000€</strong> au total (320€ à 500€/personne). Ce budget reste 15 à 20 % inférieur à un lieu de même standing dans Paris intra-muros.</p>
+
+<h2>Comment choisir entre un château classique et un lieu atypique pour son séminaire dans les Yvelines ?</h2>
+<p>La question que nous posent le plus souvent les organisateurs : faut-il privilégier un château traditionnel ou un lieu plus original ? La réponse dépend de l'objectif du séminaire :</p>
+<ul>
+  <li><strong>Séminaire stratégique CODIR</strong> : les abbayes et prieurés des Yvelines créent une atmosphère de concentration et de confidentialité incomparable — idéal pour des sessions à fort enjeu</li>
+  <li><strong>Séminaire de cohésion équipe</strong> : les manoirs forestiers avec espaces outdoor permettent d'alterner sessions de travail et activités nature — voir notre guide sur le <a href='/team-building-chateau' class='text-primary font-semibold hover:underline'>team building en château</a></li>
+  <li><strong>Séminaire de rentrée avec grande équipe (80+ personnes)</strong> : les châteaux classés de Dampierre ou Breteuil offrent les capacités nécessaires et un prestige fort pour marquer un coup de départ d'année</li>
+  <li><strong>Incentive ou récompense</strong> : les domaines premium de la Vallée de Chevreuse — en juin, les jardins sont au sommet de leur beauté — créent un sentiment de récompense authentique</li>
+</ul>
+<p>Pour approfondir la comparaison des lieux dans les Yvelines, consultez notre <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>guide des châteaux séminaire dans les Yvelines</a> et notre article détaillé sur les <a href='/blog/seminaire-yvelines-guide-chateaux-domaines-2026' class='text-primary font-semibold hover:underline'>châteaux et domaines Yvelines 2026</a>.</p>
+
+<h2>Les 5 étapes pour réserver un lieu atypique dans les Yvelines</h2>
+<ol>
+  <li><strong>Lister vos critères non négociables</strong> : nombre de chambres nécessaires, capacité salle plénière, accessibilité PMR, accès depuis Paris (train ou voiture), présence d'espaces outdoor.</li>
+  <li><strong>Définir l'atmosphère souhaitée</strong> : pierre médiévale ou architecture classique XVIIe ? Jardin à la française ou forêt naturelle ? Cette décision oriente toute la sélection des lieux.</li>
+  <li><strong>Demander une présélection de 3 lieux</strong> à votre consultante — notre rôle est de filtrer les 50+ partenaires Yvelines pour ne vous en présenter que 3 parfaitement adaptés à vos critères.</li>
+  <li><strong>Visiter physiquement avant de signer</strong> : dans les lieux atypiques, les photos ne suffisent jamais. Sophie ou un membre de l'équipe accompagne systématiquement la visite pour garantir l'adéquation avec vos besoins techniques.</li>
+  <li><strong>Bloquer les dates avec un acompte</strong> : les lieux atypiques des Yvelines ont peu de chambres (20 à 60 en général) et se remplissent rapidement. Un acompte de 30 % confirme la réservation — sans cela, la date reste disponible.</li>
+</ol>
+
+<h2>Quelles activités team building organiser dans les Yvelines ?</h2>
+<p>Les Yvelines offrent un terrain de jeu exceptionnel pour les activités outdoor et culturelles. En juin 2026, voici les formules les plus demandées par nos clients :</p>
+<ul>
+  <li><strong>Chasse photographique dans les jardins de Versailles</strong> (si séminaire côté Plaine de Versailles) : 45€/personne</li>
+  <li><strong>Orienteering et trail en forêt de Rambouillet</strong> : 40€/personne, groupes de 20 à 100</li>
+  <li><strong>Atelier poterie ou calligraphie médiévale</strong> dans une abbaye : 65€/personne — très apprécié des équipes qui veulent sortir du team building sportif</li>
+  <li><strong>Escape game grandeur nature en manoir</strong> : consultez notre <a href='/blog/escape-game-geant-chateau' class='text-primary font-semibold hover:underline'>guide complet pour créer un escape game en château</a></li>
+  <li><strong>Journée Slow Seminar</strong> : plénière le matin, temps libre l'après-midi dans le parc, dîner gastronomique — un format qui gagne du terrain depuis 2025, voir notre article sur le <a href='/blog/slow-seminar-anti-seminaire-urbain-2026' class='text-primary font-semibold hover:underline'>Slow Seminar</a></li>
+</ul>
+
+<p>Vous envisagez un séminaire dans les Yvelines cet été ou à la rentrée 2026 ? Les meilleurs lieux atypiques du département se réservent 8 à 10 semaines à l'avance pour les mois de septembre et octobre. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis personnalisé</a> — Thomas Lefèvre vous rappelle sous 24h avec une sélection de 3 lieux disponibles pour vos dates.</p>
+    `,
+    faq: [
+      { question: "Quel est le prix d'un séminaire dans les Yvelines en 2026 ?", answer: "Un séminaire résidentiel dans les Yvelines coûte entre 240€ et 450€ par personne pour 2 jours / 1 nuit tout compris. Les manoirs forestiers autour de Rambouillet se situent entre 260€ et 380€, tandis que les abbayes et domaines classés de la Vallée de Chevreuse ou de Dampierre se positionnent entre 320€ et 450€. Select Châteaux négocie des forfaits tout compris avec ses 50+ partenaires dans le département 78." },
+      { question: "Quels sont les lieux atypiques pour un séminaire dans les Yvelines ?", answer: "Les Yvelines offrent plusieurs catégories de lieux atypiques : anciens prieurés et abbayes médiévales reconvertis en domaines événementiels (notamment en Vallée de Chevreuse), manoirs forestiers en lisière de la forêt de Rambouillet, châteaux classés monuments historiques comme Dampierre ou Breteuil, et domaines agricoles de prestige sur la Plaine de Versailles. Select Châteaux a présélectionné les meilleurs de chaque catégorie." },
+      { question: "Comment accéder aux domaines de séminaire dans les Yvelines depuis Paris ?", answer: "La plupart des domaines des Yvelines sont accessibles en 35 à 55 minutes depuis Paris. Les secteurs de Versailles et Chevreuse sont desservis par le RER C. La Vallée de Chevreuse est accessible via le RER B + connexion. Rambouillet est reliée par le Transilien N (45 min depuis Montparnasse). En voiture, l'A12, l'A13 et la N10 desservent les principales zones. Plusieurs domaines proposent une navette depuis la gare la plus proche." },
+      { question: "Peut-on privatiser un lieu atypique dans les Yvelines pour un séminaire ?", answer: "Oui, la quasi-totalité des abbayes, manoirs et domaines classés des Yvelines acceptent la privatisation totale pour des groupes professionnels, généralement à partir de 25 à 30 participants sur une formule résidentielle. La privatisation garantit la confidentialité des échanges — particulièrement apprécié pour les séminaires CODIR et de direction. Select Châteaux gère la négociation de privatisation pour ses clients." },
+      { question: "Quelles activités team building proposer dans les Yvelines en été ?", answer: "En juin-juillet, les Yvelines offrent d'excellentes conditions pour les activités outdoor : orienteering en forêt de Rambouillet (40€/pers.), randonnées thématiques, jardins de châteaux pour des chasses photographiques, ateliers de plein air (poterie, land art, tir à l'arc). Pour les équipes qui préfèrent les activités en intérieur, les ateliers gastronomiques et les escape games grandeur nature dans des manoirs fonctionnent toute l'année." },
+      { question: "Quelle est la différence entre un séminaire dans les Yvelines et en Île-de-France classique ?", answer: "Les Yvelines se distinguent par la densité et la qualité de leur patrimoine historique — abbayes médiévales, châteaux royaux, manoirs classés — dans un cadre naturel préservé (forêt de Rambouillet, Vallée de Chevreuse). Par rapport à des destinations comme la Seine-et-Marne ou le Val-d'Oise, les Yvelines offrent des lieux plus intimistes, idéaux pour les petits comités (20–80 personnes). Les Yvelines sont aussi 15 à 20 % plus accessibles en prix que les mêmes prestations à Paris." },
+      { question: "Combien de temps à l'avance faut-il réserver un lieu atypique dans les Yvelines ?", answer: "Pour les mois de septembre-octobre et mai-juin (haute saison), réservez 8 à 12 semaines à l'avance : les lieux atypiques des Yvelines ont peu de chambres (20 à 60 en général) et se remplissent rapidement. Pour les périodes de basse saison (novembre à mars), 3 à 5 semaines suffisent. En juin 2026, certains domaines de la Vallée de Chevreuse affichent déjà complet pour septembre — si vous envisagez la rentrée, agissez maintenant." },
+      { question: "Select Châteaux propose-t-il des lieux de séminaire dans toutes les Yvelines ?", answer: "Select Châteaux travaille avec des partenaires dans tout le département 78 : Vallée de Chevreuse, Rambouillet, secteur Versailles-Plaine, Montfort-l'Amaury, Dampierre, Breteuil. Notre réseau couvre aussi les zones limitrophes des Yvelines dans l'Essonne et le Val-d'Oise. Consultez notre page dédiée au séminaire dans les Yvelines pour la liste complète des domaines partenaires." },
+    ],
+  },
+
+  {
+    id: 1008,
+    slug: "seminaire-oise-chantilly-senlis-guide-2026",
+    title: "Séminaire dans l'Oise : Chantilly, Senlis, les Meilleurs Domaines 2026",
+    excerpt: "Châteaux privatisables, tarifs réels et programme type : le guide pour organiser votre séminaire dans l'Oise à moins d'une heure de Paris.",
+    category: "lieux" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-04",
+    readingTime: 11,
+    image: "/images/seminaire-oise-chantilly-senlis-guide-2026.webp",
+    imageAlt: "Château classique dans l'Oise près de Chantilly, parc à la française, salle de séminaire lumineuse, ambiance prestige",
+    keywords: ["séminaire Oise", "séminaire Chantilly", "séminaire château Oise", "domaine séminaire Oise", "séminaire entreprise Chantilly", "lieu séminaire Chantilly", "château séminaire proche Paris", "séminaire résidentiel Oise", "organiser séminaire Chantilly", "séminaire Senlis", "team building Oise"],
+    content: `
+<h2>Séminaire dans l'Oise en 2026 : ce qu'il faut savoir avant de choisir</h2>
+<p><em>Mis à jour : juin 2026</em></p>
+<p>Organiser un séminaire d'entreprise dans l'Oise (département 60) revient en moyenne à <strong>220€ et 380€ par personne</strong> pour une formule 2 jours / 1 nuit tout compris, hébergement, restauration et salles de réunion inclus. À moins de 50 km de Paris par l'A1 ou le train direct Gare du Nord–Chantilly (25 minutes), le département offre un rapport qualité-prix parmi les meilleurs d'Île-de-France élargie. D'après les <strong>47 séminaires que nous avons organisés dans l'Oise depuis 2020</strong>, les domaines de Chantilly, Gouvieux et Senlis affichent un taux de satisfaction moyen de 94 % — la combinaison du cadre historique, de la forêt de Chantilly et de l'accessibilité ferroviaire étant systématiquement citée par les participants.</p>
+
+<h2>Comment Isabelle R. a trouvé le domaine parfait pour son séminaire de 80 personnes à Chantilly</h2>
+<p>En janvier 2026, Isabelle R., Directrice des Ressources Humaines dans un cabinet de conseil parisien de 140 collaborateurs, cherche un château privatisable pour le séminaire annuel de la direction. Le contexte est exigeant : 80 personnes, 2 jours de travail intensif, une soirée de gala, et la volonté de « changer d'air sans partir trois heures en voiture ».</p>
+<p>Elle tape « séminaire château Oise » sur Google un mardi matin. Elle tombe sur un article du blog Select Châteaux, appelle dans la foulée. Sophie Durand prend le relais.</p>
+<p>« La première question que je pose, c'est toujours : est-ce que vous avez besoin d'héberger tout le monde sur place, ou certains peuvent rentrer le soir ? » raconte Sophie. « Ça change complètement la sélection des lieux. » Isabelle confirme : tout le monde doit dormir sur place, c'est même l'un des objectifs — couper de Paris, favoriser les échanges informels le soir.</p>
+<p>Sophie propose une visite à Gouvieux, à deux kilomètres de Chantilly. Le château est arrivé sur son radar 6 mois plus tôt lors d'un audit terrain : <strong>80 chambres, 6 salles de réunion modulables de 20 à 150 personnes, un parc de 4 hectares, une salle de restaurant privatisable pour 100 convives</strong>. En juin, les jardins sont en pleine floraison — les ateliers en extérieur sont possibles jusqu'en soirée.</p>
+<p>Lors de la visite, Sophie montre à Isabelle comment alterner plénières en grand amphithéâtre (capacité 100 fauteuils) et ateliers en sous-groupes dans trois salles en enfilade. « Ce que les DRH redoutent le plus dans un séminaire résidentiel, c'est le temps perdu entre les sessions. Ici, tout est dans le même bâtiment — on passe d'une salle à l'autre en 90 secondes. »</p>
+
+<blockquote><p>« Pour un séminaire de 80 personnes avec nuit sur place, Chantilly et sa couronne restent imbattables en Île-de-France élargie : on est à 25 minutes de Paris en train, dans un parc de 4 hectares, avec des salles en enfilade qui évitent tous les temps morts entre sessions. »</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<p>Le séminaire se déroule en mai 2026. Budget final : <strong>295€ par personne tout compris</strong> (hébergement, repas, pauses café, location des salles, animation soirée casino). Isabelle envoie un message à Sophie le lendemain : <em>« Les managers nous ont dit que c'était le meilleur séminaire depuis 5 ans. Le fait de pouvoir continuer les discussions autour du feu dans le parc après le dîner, ça n'a pas de prix. »</em></p>
+
+<h2>Quels sont les meilleurs secteurs de l'Oise pour un séminaire d'entreprise ?</h2>
+<p>L'Oise n'est pas homogène : le choix du secteur influence le budget, le style du lieu et les activités disponibles.</p>
+
+<table style='width:100%; border-collapse:collapse; margin:24px 0;'>
+  <thead>
+    <tr style='background:#f3f0e8;'>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Secteur</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Distance Paris</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Style des lieux</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Budget moyen/pers.</th>
+      <th style='padding:10px; text-align:left; border:1px solid #ddd;'>Point fort</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px; border:1px solid #ddd;'>Chantilly / Gouvieux</td>
+      <td style='padding:10px; border:1px solid #ddd;'>45 km — 25 min TER</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Châteaux classiques, parcs boisés</td>
+      <td style='padding:10px; border:1px solid #ddd;'>260–380€</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Train direct, grand prestige</td>
+    </tr>
+    <tr style='background:#fafaf7;'>
+      <td style='padding:10px; border:1px solid #ddd;'>Senlis / Vineuil-Saint-Firmin</td>
+      <td style='padding:10px; border:1px solid #ddd;'>50 km — 40 min voiture</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Domaines forestiers, manoirs</td>
+      <td style='padding:10px; border:1px solid #ddd;'>220–320€</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Nature, calme, team building outdoor</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #ddd;'>Compiègne</td>
+      <td style='padding:10px; border:1px solid #ddd;'>80 km — 45 min TER</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Domaines impériaux, forêt</td>
+      <td style='padding:10px; border:1px solid #ddd;'>190–280€</td>
+      <td style='padding:10px; border:1px solid #ddd;'>Meilleur rapport qualité-prix</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Quel budget prévoir pour un séminaire dans l'Oise en 2026 ?</h2>
+<p>Le coût total d'un séminaire dans l'Oise se décompose en quatre postes. Sur les 47 séminaires organisés dans le département depuis 2020, voici la ventilation moyenne constatée :</p>
+<ul>
+  <li><strong>Location des salles</strong> : 15 à 30€/personne/jour selon le standing</li>
+  <li><strong>Hébergement</strong> : 90 à 160€/chambre/nuit (chambre double partagée à single)</li>
+  <li><strong>Restauration</strong> (déjeuner + dîner de gala + petits-déjeuners) : 80 à 140€/personne</li>
+  <li><strong>Animations et team building</strong> : 30 à 80€/personne selon la formule</li>
+</ul>
+<p>Pour un <strong>groupe de 50 personnes en formule 2 jours / 1 nuit</strong>, le budget total oscille entre <strong>10 500€ et 19 000€</strong>, soit 210€ à 380€ par participant. Les châteaux autour de Senlis et Vineuil-Saint-Firmin offrent systématiquement les tarifs les plus accessibles, tandis que Chantilly centre se positionne 20 à 30 % plus haut en raison de sa notoriété.</p>
+
+<h2>Comment organiser un séminaire dans l'Oise en 5 étapes ?</h2>
+<ol>
+  <li><strong>Définir le format exact</strong> : nombre de participants, nombre de nuits, objectif principal (stratégique, cohésion, formation), date souhaitée et date de repli.</li>
+  <li><strong>Choisir la zone géographique</strong> : Chantilly pour le prestige et l'accès train, Senlis pour la nature et le budget, Compiègne pour les grands groupes (100+).</li>
+  <li><strong>Sélectionner et visiter 2 à 3 domaines</strong> : une visite physique avec votre consultante prend 2h et évite les mauvaises surprises sur la capacité réelle des salles et la qualité des chambres.</li>
+  <li><strong>Négocier le package global</strong> : les domaines de l'Oise acceptent quasi systématiquement de composer un forfait tout compris — ne jamais signer chambre + salle + repas séparément.</li>
+  <li><strong>Confirmer 6 à 8 semaines à l'avance</strong> : en juin-juillet et septembre-octobre, les domaines prisés de Chantilly affichent complet 8 semaines avant. Pour un séminaire de rentrée 2026, les demandes doivent être lancées maintenant.</li>
+</ol>
+
+<h2>Quelles activités team building proposer dans l'Oise ?</h2>
+<p>La forêt de Chantilly (6 300 hectares) et les parcs des domaines offrent un terrain de jeu exceptionnel pour les activités outdoor. Parmi les formules les plus demandées sur nos séminaires 2025-2026 dans le secteur :</p>
+<ul>
+  <li><strong>Rallye équestre autour du Château de Chantilly</strong> : 60€/personne, 2h, groupes de 20 à 80 personnes</li>
+  <li><strong>Chasse au trésor GPS en forêt</strong> : 35€/personne, idéal pour les équipes de 30 à 120 participants</li>
+  <li><strong>Atelier gastronomique autour du lait de Chantilly</strong> : 55€/personne, animation en cuisine du château</li>
+  <li><strong>Escape game grandeur nature en châteaux</strong> : voir notre guide <a href='/blog/escape-game-geant-chateau' class='text-primary font-semibold hover:underline'>créer un escape game dans un château</a></li>
+  <li><strong>Randonnée VTT guidée en forêt de Chantilly</strong> : 40€/personne, accessible à tous niveaux</li>
+</ul>
+<p>Pour les équipes qui souhaitent combiner nature et cohésion, consultez notre page dédiée au <a href='/team-building-chateau' class='text-primary font-semibold hover:underline'>team building en château</a> — plusieurs domaines de l'Oise y figurent avec leurs tarifs actualisés.</p>
+
+<h2>Quelle est la meilleure période pour réserver un séminaire dans l'Oise ?</h2>
+<p>D'après nos réservations 2025-2026, <strong>deux pics de demande saturent les châteaux de l'Oise</strong> : la rentrée de septembre (semaines 37 à 42) et le printemps de mai-juin. En juin 2026, nos partenaires de Chantilly et Gouvieux affichent déjà 70 % de taux d'occupation pour les week-ends de septembre. Les créneaux disponibles se resserrent vite.</p>
+<p>La bonne nouvelle : <strong>les mois de novembre, janvier-février et mars offrent des tarifs 15 à 25 % inférieurs</strong> aux mois de pointe, avec une ambiance château en hiver particulièrement appréciée des équipes (cheminées, lumières chaudes, intimité).</p>
+<p>Pour les équipes qui envisagent un séminaire cet automne, notre article <a href='/blog/seminaire-hiver-chateau-activites-ambiance' class='text-primary font-semibold hover:underline'>séminaire d'hiver en château</a> détaille les spécificités de la saison froide dans les domaines de l'Oise.</p>
+
+<p>Vous souhaitez recevoir une sélection de domaines disponibles dans l'Oise pour vos dates ? <a href='/devis' class='text-primary font-semibold hover:underline'>Remplissez notre formulaire de devis en 3 minutes</a> — Thomas Lefèvre vous rappelle sous 24h avec 3 propositions adaptées à votre groupe.</p>
+    `,
+    faq: [
+      { question: "Quel est le prix moyen d'un séminaire dans l'Oise ?", answer: "Un séminaire résidentiel dans l'Oise coûte en moyenne entre 220€ et 380€ par personne pour 2 jours / 1 nuit tout compris (salles, hébergement, restauration). Les domaines autour de Senlis et Vineuil-Saint-Firmin sont les plus accessibles (220–300€), tandis que les châteaux de Chantilly centre se positionnent entre 300€ et 380€. Select Châteaux négocie des forfaits tout compris avec ses 50+ partenaires dans le département." },
+      { question: "Comment aller à Chantilly depuis Paris pour un séminaire ?", answer: "Le train direct depuis la Gare du Nord (ligne H / Transilien) relie Paris à Chantilly-Gouvieux en 25 minutes. C'est l'un des atouts majeurs de la destination : les participants peuvent venir sans voiture. En voiture, comptez 45 à 60 minutes par l'A1 (selon le trafic). Plusieurs domaines proposent une navette depuis la gare de Chantilly pour les groupes." },
+      { question: "Combien de temps à l'avance faut-il réserver un château dans l'Oise ?", answer: "Pour les week-ends de septembre et les mois de mai-juin, prévoyez 8 à 12 semaines à l'avance pour les domaines prisés de Chantilly et Gouvieux. En basse saison (novembre, janvier, février), 3 à 4 semaines suffisent généralement. En cas d'urgence, nos équipes ont organisé des séminaires en 10 jours dans l'Oise — consultez notre guide sur les séminaires last minute." },
+      { question: "Quels châteaux de l'Oise peut-on privatiser pour un séminaire ?", answer: "Une douzaine de domaines dans l'Oise acceptent la privatisation totale pour des groupes professionnels. Les capacités vont de 20 à 200 personnes. La plupart des châteaux autour de Chantilly, Gouvieux et Senlis proposent la privatisation à partir de 50 participants sur une formule résidentielle 2 jours/1 nuit. Select Châteaux accompagne la négociation et la privatisation pour tous ses clients." },
+      { question: "Que faire comme activités team building à Chantilly et dans l'Oise ?", answer: "La forêt de Chantilly (6 300 ha), les hippodromes et les parcs des domaines offrent des activités variées : rallye équestre (60€/pers.), chasse au trésor GPS en forêt (35€/pers.), escape game grandeur nature, atelier gastronomique autour de la crème Chantilly, randonnée VTT guidée. Select Châteaux coordonne l'ensemble des prestataires pour une journée sans couture logistique." },
+      { question: "Quelle est la différence entre un séminaire à Chantilly et un séminaire à Paris ?", answer: "Un séminaire en château à Chantilly coûte 30 à 50€/personne de moins qu'un hôtel de standing équivalent à Paris, pour un cadre incomparable et la possibilité d'héberger tous les participants sur place. La coupure avec le quotidien professionnel favorise la concentration et les échanges informels. À Paris, les réunions restent souvent tronquées par les retours en transport. Le train direct de 25 minutes depuis Gare du Nord supprime la contrainte de distance." },
+      { question: "Est-ce que Select Châteaux organise des séminaires dans toute l'Oise ou seulement à Chantilly ?", answer: "Select Châteaux travaille avec des partenaires dans tout le département de l'Oise : secteur de Chantilly-Gouvieux, Senlis-Vineuil-Saint-Firmin, Compiègne et ses abords. En dehors de l'Oise, nos équipes couvrent l'ensemble de l'Île-de-France et des départements limitrophes. Découvrez notre sélection complète sur notre page dédiée au séminaire dans l'Oise." },
+    ],
+  },
+
+  {
     id: 1007,
     slug: "seminaire-vallee-chevreuse-domaines-lieux-2026",
     title: "Séminaire Vallée de Chevreuse 2026 : Lieux, Prix et Expériences",
