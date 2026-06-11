@@ -17,8 +17,8 @@ import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "luci
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Séminaire Château Île-de-France : 4 Domaines Privatisables [Devis 24h]",
-  description: "Privatisez l'un de nos 4 châteaux pour votre séminaire près de Paris. De 10 à 500 pers, hébergement inclus. Devis gratuit en 24h, réponse garantie.",
+  title: "Séminaire Château Île-de-France : 4 Domaines dès 150€/pers [Devis 24h]",
+  description: "Privatisez l'un de nos 4 châteaux pour votre séminaire près de Paris dès 150€/pers. De 10 à 500 pers, hébergement inclus. Devis gratuit en 24h, réponse garantie.",
   robots: {
     index: true,
     follow: true,

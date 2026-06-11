@@ -52,11 +52,11 @@ const faq = [
 ];
 
 export const metadata: Metadata = {
-  title: "Team Building Château près de Paris : +40 Activités [2026]",
-  description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. De 20 à 500 pers, à 30 min de Paris. Devis gratuit 24h.",
+  title: "Team Building Château près de Paris : +40 Activités dès 45€/pers",
+  description: "+40 activités de cohésion en château privatisé dès 45€/pers : olympiades, escape game, murder party, atelier cuisine. De 20 à 500 pers, à 30 min de Paris. Devis 24h.",
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Team Building Château près de Paris : +40 Activités [2026]",
+    title: "Team Building Château près de Paris : +40 Activités dès 45€/pers",
     description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. Devis gratuit en 24h.",
     url: "https://www.selectchateaux.com/team-building-chateau",
     siteName: "Select Châteaux",

@@ -39,6 +39,8 @@ export interface GeoLandingPage {
   heroImage: string;
   introduction: string;
   introTitre: string;
+  // GEO : override éditorial du bloc "réponse directe" (sinon généré depuis les données châteaux)
+  reponseDirecte?: string;
   // Pourquoi cette région
   pourquoiTitre: string;
   pointsForts: GeoPointFort[];
@@ -310,7 +312,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-chantilly",
-    title: "Séminaire Chantilly : Hôtel Château 228 Chambres en Forêt",
+    title: "Séminaire à Chantilly : 2 Châteaux dès 150€/pers [Devis 24h]",
     description:
       "2 châteaux privatisables à Chantilly en forêt de 6 300 ha. 228 chambres, 33 salles, spa 5★. 35 min de Paris, 15 min CDG. Devis gratuit 24h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "chateau seminaire oise", "séminaire forêt chantilly"],
@@ -467,7 +469,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-oise-60",
-    title: "Séminaire Château Oise (60) : 228 Chambres Forêt Chantilly",
+    title: "Séminaire Château Oise (60) : 2 Domaines dès 150€/pers",
     description:
       "2 châteaux séminaire dans l'Oise : manoir 280 pers + palace 5★ 200 pers en forêt de Chantilly. Spa, 33 salles. 35 min Paris. Devis gratuit 24h.",
     keywords: ["seminaire oise", "séminaire oise", "chateau seminaire oise", "château séminaire oise 60", "salle séminaire oise", "hotel séminaire oise", "séminaire forêt chantilly", "lieu séminaire oise", "séminaire entreprise oise"],
@@ -595,7 +597,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-yvelines-78",
-    title: "Séminaire Yvelines (78) : Abbaye 144 Chambres en Chevreuse",
+    title: "Séminaire Yvelines (78) : Abbaye 144 Chambres dès 150€/pers",
     description:
       "Abbaye cistercienne rénovée 2023 dans les Yvelines : 144 chambres, 14 salles, 80 ha en Vallée de Chevreuse. 45 min de Paris. Devis gratuit 24h.",
     keywords: ["seminaire vallee de chevreuse", "séminaire yvelines", "seminaire yvelines", "château séminaire yvelines 78", "salle séminaire yvelines", "abbaye chevreuse séminaire", "séminaire chevreuse", "séminaire 78", "chateau seminaire 78"],
