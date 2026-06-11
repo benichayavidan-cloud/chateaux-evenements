@@ -48,8 +48,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     periodeFlexible: '',
     message: '',
   });
-  // Validation inline (✓ vert au blur) pour email + téléphone
-  const [validFields, setValidFields] = useState<{ email?: boolean; telephone?: boolean }>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -104,20 +102,14 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
   const isEmailValid = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const isPhoneValid = (v: string) => v.replace(/\D/g, '').length >= 10;
 
-  const handleEmailBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.currentTarget.style.borderColor = theme.colors.neutral.gray300;
-    e.currentTarget.style.boxShadow = 'none';
-    const v = e.currentTarget.value;
-    setValidFields((p) => ({ ...p, email: v.length > 0 && isEmailValid(v) }));
-    deriveCompanyFromEmail(v);
-  };
-
-  const handlePhoneBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    e.currentTarget.style.borderColor = theme.colors.neutral.gray300;
-    e.currentTarget.style.boxShadow = 'none';
-    const v = e.currentTarget.value;
-    setValidFields((p) => ({ ...p, telephone: v.length > 0 && isPhoneValid(v) }));
-  };
+  // Pré-remplissage entreprise déclenché par la VALEUR de l'email (autofill navigateur inclus),
+  // avec un léger debounce pour ne pas déduire en cours de frappe.
+  useEffect(() => {
+    if (!formData.email || formData.entreprise.trim() || !isEmailValid(formData.email)) return;
+    const t = setTimeout(() => deriveCompanyFromEmail(formData.email), 500);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData.email, formData.entreprise]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -323,16 +315,16 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
             <div>
               <label htmlFor="mini-email" style={labelStyle}>
                 Email professionnel *
-                {validFields.email && <CheckCircle2 style={{ width: 14, height: 14, color: '#16A34A', display: 'inline', marginLeft: 6, verticalAlign: '-2px' }} />}
+                {isEmailValid(formData.email) && <CheckCircle2 style={{ width: 14, height: 14, color: '#16A34A', display: 'inline', marginLeft: 6, verticalAlign: '-2px' }} />}
               </label>
-              <input id="mini-email" name="email" type="email" autoComplete="email" required placeholder="jean@entreprise.com" value={formData.email} onChange={handleChange} style={inputStyle} onFocus={focusHandlers.onFocus} onBlur={handleEmailBlur} />
+              <input id="mini-email" name="email" type="email" autoComplete="email" required placeholder="jean@entreprise.com" value={formData.email} onChange={handleChange} style={inputStyle} {...focusHandlers} />
             </div>
             <div>
               <label htmlFor="mini-tel" style={labelStyle}>
                 Téléphone *
-                {validFields.telephone && <CheckCircle2 style={{ width: 14, height: 14, color: '#16A34A', display: 'inline', marginLeft: 6, verticalAlign: '-2px' }} />}
+                {isPhoneValid(formData.telephone) && <CheckCircle2 style={{ width: 14, height: 14, color: '#16A34A', display: 'inline', marginLeft: 6, verticalAlign: '-2px' }} />}
               </label>
-              <input id="mini-tel" name="telephone" type="tel" autoComplete="tel" required placeholder="06 12 34 56 78" value={formData.telephone} onChange={handleChange} style={inputStyle} onFocus={focusHandlers.onFocus} onBlur={handlePhoneBlur} />
+              <input id="mini-tel" name="telephone" type="tel" autoComplete="tel" required placeholder="06 12 34 56 78" value={formData.telephone} onChange={handleChange} style={inputStyle} {...focusHandlers} />
             </div>
           </div>
 
