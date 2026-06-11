@@ -30,6 +30,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
   const [error, setError] = useState<string | null>(null);
   const [formStartTracked, setFormStartTracked] = useState(false);
   const [today, setToday] = useState('');
+  // Mode de saisie des dates : 'exact' (date-pickers) ou 'flexible' (période)
+  const [dateMode, setDateMode] = useState<'exact' | 'flexible'>('exact');
 
   useEffect(() => {
     setToday(new Date().toISOString().split('T')[0]);
@@ -43,6 +45,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     nombreParticipants: '',
     dateArrivee: '',
     dateDepart: '',
+    periodeFlexible: '',
     message: '',
   });
 
@@ -57,12 +60,30 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleDateModeChange = (mode: 'exact' | 'flexible') => {
+    // La bascule de mode compte comme un engagement → micro-conversion form_start
+    if (!formStartTracked) {
+      trackFormStart("devis_mini");
+      setFormStartTracked(true);
+    }
+    setDateMode(mode);
+    setError(null);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
 
-    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || !formData.dateArrivee || !formData.dateDepart) {
-      setError('Veuillez remplir tous les champs obligatoires.');
+    const datesRenseignees = dateMode === 'exact'
+      ? Boolean(formData.dateArrivee && formData.dateDepart)
+      : Boolean(formData.periodeFlexible);
+
+    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || !datesRenseignees) {
+      setError(
+        dateMode === 'exact'
+          ? 'Veuillez remplir tous les champs obligatoires (dont vos dates).'
+          : 'Veuillez remplir tous les champs obligatoires (dont votre période souhaitée).'
+      );
       return;
     }
 
@@ -76,8 +97,10 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
       const payload = {
         typeEvenement: 'seminaire' as const,
-        dateArrivee: formData.dateArrivee,
-        dateDepart: formData.dateDepart,
+        // Mode 'exact' : dates fermes — Mode 'flexible' : période libre via datesSouhaitees
+        ...(dateMode === 'exact'
+          ? { dateArrivee: formData.dateArrivee, dateDepart: formData.dateDepart }
+          : { datesSouhaitees: formData.periodeFlexible }),
         duree: '1-jour' as const,
         chateauIds: allIds,
         entreprise: formData.entreprise || '-',
@@ -252,7 +275,48 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
             </div>
           </div>
 
-          {/* Ligne 2 : Participants, Date arrivée, Date départ */}
+          {/* Toggle : dates précises OU période flexible */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
+            <span style={{ ...labelStyle, marginBottom: 0 }}>Vos dates *</span>
+            <div
+              style={{
+                display: 'inline-flex',
+                gap: '4px',
+                padding: '3px',
+                background: theme.colors.neutral.gray100,
+                borderRadius: theme.effects.borderRadius.full,
+              }}
+            >
+              {([
+                { mode: 'exact' as const, label: 'Je connais mes dates' },
+                { mode: 'flexible' as const, label: 'Période flexible' },
+              ]).map(({ mode, label }) => {
+                const active = dateMode === mode;
+                return (
+                  <button
+                    key={mode}
+                    type="button"
+                    onClick={() => handleDateModeChange(mode)}
+                    style={{
+                      padding: '6px 14px',
+                      borderRadius: theme.effects.borderRadius.full,
+                      border: 'none',
+                      cursor: 'pointer',
+                      fontSize: theme.typography.fontSize.xs,
+                      fontWeight: theme.typography.fontWeight.semibold,
+                      background: active ? theme.colors.primary.bronze : 'transparent',
+                      color: active ? theme.colors.neutral.white : theme.colors.neutral.gray600,
+                      transition: 'background 0.2s ease, color 0.2s ease',
+                    }}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Ligne 2 : Participants + (dates précises OU période flexible) */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '12px' }}>
             <div>
               <label htmlFor="mini-participants" style={labelStyle}>Participants *</label>
@@ -281,36 +345,66 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
                 <option value="400">300 - 500 personnes</option>
               </select>
             </div>
-            <div>
-              <label htmlFor="mini-date-arrivee" style={labelStyle}>Date d&apos;arrivée *</label>
-              <input
-                id="mini-date-arrivee"
-                name="dateArrivee"
-                type="date"
-                required
-                value={formData.dateArrivee}
-                onChange={handleChange}
-                onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
-                min={today}
-                style={{ ...inputStyle, cursor: 'pointer' }}
-                {...focusHandlers}
-              />
-            </div>
-            <div>
-              <label htmlFor="mini-date-depart" style={labelStyle}>Date de départ *</label>
-              <input
-                id="mini-date-depart"
-                name="dateDepart"
-                type="date"
-                required
-                value={formData.dateDepart}
-                onChange={handleChange}
-                onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
-                min={formData.dateArrivee || today}
-                style={{ ...inputStyle, cursor: 'pointer' }}
-                {...focusHandlers}
-              />
-            </div>
+
+            {dateMode === 'exact' ? (
+              <>
+                <div>
+                  <label htmlFor="mini-date-arrivee" style={labelStyle}>Date d&apos;arrivée *</label>
+                  <input
+                    id="mini-date-arrivee"
+                    name="dateArrivee"
+                    type="date"
+                    value={formData.dateArrivee}
+                    onChange={handleChange}
+                    onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
+                    min={today}
+                    style={{ ...inputStyle, cursor: 'pointer' }}
+                    {...focusHandlers}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="mini-date-depart" style={labelStyle}>Date de départ *</label>
+                  <input
+                    id="mini-date-depart"
+                    name="dateDepart"
+                    type="date"
+                    value={formData.dateDepart}
+                    onChange={handleChange}
+                    onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
+                    min={formData.dateArrivee || today}
+                    style={{ ...inputStyle, cursor: 'pointer' }}
+                    {...focusHandlers}
+                  />
+                </div>
+              </>
+            ) : (
+              <div style={{ gridColumn: '1 / -1' }}>
+                <label htmlFor="mini-periode" style={labelStyle}>Période souhaitée *</label>
+                <select
+                  id="mini-periode"
+                  name="periodeFlexible"
+                  value={formData.periodeFlexible}
+                  onChange={handleChange}
+                  style={{
+                    ...inputStyle,
+                    appearance: 'none',
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 12px center',
+                    paddingRight: '36px',
+                    color: formData.periodeFlexible ? theme.colors.neutral.gray900 : theme.colors.neutral.gray400,
+                  }}
+                  {...focusHandlers}
+                >
+                  <option value="" disabled>Sélectionnez une période</option>
+                  <option value="Dès que possible">Dès que possible</option>
+                  <option value="Sous 1 à 3 mois">Sous 1 à 3 mois</option>
+                  <option value="Sous 3 à 6 mois">Sous 3 à 6 mois</option>
+                  <option value="Dans plus de 6 mois">Dans plus de 6 mois</option>
+                  <option value="Dates encore à définir">Dates encore à définir</option>
+                </select>
+              </div>
+            )}
           </div>
 
           {/* Ligne 3 : Message + Bouton — stacké sur mobile */}
@@ -344,6 +438,16 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               >
                 {isSubmitting ? 'Envoi...' : 'Envoyer ma demande'}
               </Button>
+              <span
+                style={{
+                  fontSize: theme.typography.fontSize.xs,
+                  color: theme.colors.neutral.gray500,
+                  textAlign: 'center',
+                  lineHeight: 1.4,
+                }}
+              >
+                Réponse sous 24h · Sans engagement · Devis gratuit
+              </span>
             </div>
           </div>
 
