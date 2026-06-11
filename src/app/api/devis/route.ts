@@ -31,6 +31,7 @@ const formSchema = z.object({
   chambresTwin: z.boolean().optional(),
   budget: z.string().optional().default(''),
   commentaireDeroulement: z.string().optional(),
+  datesFlexibles: z.boolean().optional().default(false),
   sourceLabel: z.string().optional(),
   gclid: z.string().optional(),
 }).refine(
@@ -104,6 +105,7 @@ export async function POST(request: NextRequest) {
       chambres_twin: data.chambresTwin || false,
       budget: data.budget,
       commentaire_deroulement: data.commentaireDeroulement || '',
+      dates_flexibles: data.datesFlexibles ?? false,
       fichier_url: null,
       gclid: data.gclid || null,
     };

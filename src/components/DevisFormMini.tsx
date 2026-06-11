@@ -162,10 +162,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         nombreParticipants: parseInt(formData.nombreParticipants, 10),
         nombreChambres: 1,
         budget: '',
-        commentaireDeroulement: [
-          datesFlexibles ? '⚠️ Dates indiquées NON DÉFINITIVES (flexibles).' : '',
-          formData.message,
-        ].filter(Boolean).join(' — '),
+        commentaireDeroulement: formData.message || '',
+        datesFlexibles,
         sourceLabel: formLabel,
         gclid: gclid || undefined,
       };

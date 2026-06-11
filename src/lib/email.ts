@@ -204,6 +204,11 @@ const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string): string
                       <strong style="color: #1e3a8a;">Date de départ:</strong> ${formatDate(depart)}
                     </p>
                     ` : ''}
+                    ${devis.dates_flexibles ? `
+                    <p style="margin: 12px 0 0 0; padding: 10px 12px; background-color: #fffbeb; border-left: 3px solid #f59e0b; border-radius: 4px; color: #92400e; font-size: 15px;">
+                      <strong>⚠️ Dates flexibles :</strong> le client a indiqué que ces dates ne sont pas encore définitives.
+                    </p>
+                    ` : ''}
                   </td>
                 </tr>
               </table>
@@ -479,7 +484,7 @@ Téléphone: ${devis.telephone_mobile}
 ÉVÉNEMENT
 Participants: ${formatParticipantsRange(devis.nombre_participants)}
 Date d'arrivée: ${formatDate(arrivee)}
-${depart ? `Date de départ: ${formatDate(depart)}\n` : ''}
+${depart ? `Date de départ: ${formatDate(depart)}\n` : ''}${devis.dates_flexibles ? `⚠️ Dates flexibles: le client a indiqué que ces dates ne sont pas encore définitives.\n` : ''}
 CHÂTEAUX SÉLECTIONNÉS
 ${getChateauxNomsText(devis.chateau_id)}
 

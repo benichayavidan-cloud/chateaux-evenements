@@ -29,6 +29,7 @@ export type Database = {
           chambres_twin: boolean;
           budget: string;
           commentaire_deroulement: string;
+          dates_flexibles: boolean;
           fichier_url: string | null;
           statut: 'nouveau' | 'en-cours' | 'traite' | 'annule';
           created_at: string;
