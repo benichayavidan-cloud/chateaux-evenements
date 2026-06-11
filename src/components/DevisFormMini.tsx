@@ -30,8 +30,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
   const [error, setError] = useState<string | null>(null);
   const [formStartTracked, setFormStartTracked] = useState(false);
   const [today, setToday] = useState('');
-  // Case "dates pas encore fixées" : permet de soumettre sans dates fermes
-  const [datesNonFixees, setDatesNonFixees] = useState(false);
 
   useEffect(() => {
     setToday(new Date().toISOString().split('T')[0]);
@@ -84,16 +82,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     });
   };
 
-  const handleDatesNonFixeesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Cocher la case compte comme un engagement → micro-conversion form_start
-    if (!formStartTracked) {
-      trackFormStart("devis_mini");
-      setFormStartTracked(true);
-    }
-    setDatesNonFixees(e.target.checked);
-    setError(null);
-  };
-
   // Domaines email personnels → on ne pré-remplit PAS l'entreprise
   const GENERIC_EMAIL_DOMAINS = new Set([
     'gmail.com', 'googlemail.com', 'outlook.com', 'outlook.fr', 'hotmail.com', 'hotmail.fr',
@@ -132,10 +120,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     e.preventDefault();
     if (isSubmitting) return;
 
-    const datesRenseignees = datesNonFixees || Boolean(formData.dateArrivee && formData.dateDepart);
-
-    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || !datesRenseignees) {
-      setError('Veuillez remplir tous les champs obligatoires — indiquez vos dates ou cochez « dates pas encore fixées ».');
+    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || !formData.dateArrivee || !formData.dateDepart) {
+      setError('Veuillez remplir tous les champs obligatoires (dont vos dates).');
       return;
     }
 
@@ -155,10 +141,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
       const payload = {
         typeEvenement: 'seminaire' as const,
-        // Mode 'exact' : dates fermes — Mode 'flexible' : période libre via datesSouhaitees
-        ...((formData.dateArrivee && formData.dateDepart)
-          ? { dateArrivee: formData.dateArrivee, dateDepart: formData.dateDepart }
-          : { datesSouhaitees: 'Dates à définir' }),
+        dateArrivee: formData.dateArrivee,
+        dateDepart: formData.dateDepart,
         duree: '1-jour' as const,
         chateauIds: allIds,
         entreprise: formData.entreprise || '-',
@@ -383,7 +367,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
             </div>
 
             <div>
-              <label htmlFor="mini-date-arrivee" style={labelStyle}>Date d&apos;arrivée{datesNonFixees ? '' : ' *'}</label>
+              <label htmlFor="mini-date-arrivee" style={labelStyle}>Date d&apos;arrivée *</label>
               <input
                 id="mini-date-arrivee"
                 name="dateArrivee"
@@ -397,7 +381,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               />
             </div>
             <div>
-              <label htmlFor="mini-date-depart" style={labelStyle}>Date de départ{datesNonFixees ? '' : ' *'}</label>
+              <label htmlFor="mini-date-depart" style={labelStyle}>Date de départ *</label>
               <input
                 id="mini-date-depart"
                 name="dateDepart"
@@ -411,39 +395,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               />
             </div>
           </div>
-
-          {/* Case : dates pas encore fixées (échappatoire sans dates fermes) */}
-          <label
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              cursor: 'pointer',
-              marginBottom: '16px',
-              fontSize: theme.typography.fontSize.sm,
-              color: theme.colors.neutral.gray600,
-            }}
-          >
-            <input
-              type="checkbox"
-              checked={datesNonFixees}
-              onChange={handleDatesNonFixeesChange}
-              style={{
-                appearance: 'auto',
-                width: 16,
-                height: 16,
-                minWidth: 16,
-                flexShrink: 0,
-                margin: 0,
-                padding: 0,
-                accentColor: theme.colors.primary.bronze,
-                cursor: 'pointer',
-                transition: 'none',
-                boxShadow: 'none',
-              }}
-            />
-            Mes dates ne sont pas encore fixées
-          </label>
 
           {/* Ligne 3 : Message + Bouton — stacké sur mobile */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto]" style={{ gap: '12px', alignItems: 'end' }}>
