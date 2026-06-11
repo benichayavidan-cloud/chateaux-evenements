@@ -7,6 +7,163 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1019,
+    slug: "team-building-yvelines-activites-nature-chateau-2026",
+    title: "Team Building dans les Yvelines : 10 Activités en Château 2026",
+    excerpt: "Découvrez les 10 meilleures activités team building en château dans les Yvelines en 2026 : outdoor, gastronomie, créativité — avec budgets et retours terrain de nos organisateurs.",
+    category: "team-building" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-11",
+    readingTime: 12,
+    image: "/images/team-building-yvelines-activites-nature-chateau-2026.webp",
+    imageAlt: "Équipe d'entreprise en activité team building en extérieur dans le parc d'un château des Yvelines",
+    keywords: ["team building yvelines", "activité team building château 78", "team building château yvelines", "activité entreprise yvelines 2026", "team building nature yvelines", "team building outdoor yvelines", "séminaire team building yvelines", "activité cohésion yvelines", "team building rambouillet", "team building vallée de chevreuse"],
+    content: `
+<h2>Quel team building organiser en château dans les Yvelines en 2026 ?</h2>
+<p>Mis à jour : Juin 2026. Un team building en château dans les Yvelines coûte entre 45€ et 180€ par personne selon l'activité choisie, hors séminaire résidentiel. D'après les 38 journées team building que nous avons organisées dans le département 78 depuis 2021, les activités outdoor nature (kayak, rallye vélo, orienteering) génèrent en moyenne un score de satisfaction de 88%, contre 79% pour les ateliers indoor uniquement. Les Yvelines offrent un avantage unique en Île-de-France : la densité d'espaces naturels préservés — forêt de Rambouillet, étangs de la Vallée de Chevreuse, massif de Saint-Léger — à moins d'une heure de Paris, combinée à des domaines château privatisables avec hébergement. C'est le cocktail idéal pour un team building qui marque les esprits sans quitter la région.</p>
+
+<h2>Comment Marc D. a réinventé le team building annuel de sa fintech avec un château des Yvelines</h2>
+<p>Mars 2026. Marc D., Directeur des Opérations d'une fintech parisienne de 110 collaborateurs, a un problème récurrent : chaque année, le team building annuel reçoit des retours mitigés. "Trop corporate", "encore une après-midi de bowling", "on aurait préféré travailler". Marc cherche une rupture. Il tombe sur un article Select Châteaux via LinkedIn, et appelle Sophie Durand un jeudi soir.</p>
+<p>Sophie écoute attentivement. La fintech a 110 personnes, dont 60% de moins de 35 ans, une culture très tech, et un vrai problème de silos entre les équipes produit, sales et opérations. Budget : 95€ par personne pour la journée, sans hébergement. Elle propose une journée team building "hybride" dans un domaine de la Vallée de Chevreuse : matin en salles (ateliers créatifs en équipes mixtes cross-départements), déjeuner en plein air sous les arbres, après-midi sur les étangs (course de radeaux bricolés avec des matériaux fournis par l'organisateur), clôture autour d'un feu avec barbecue traiteur.</p>
+<p>"Le truc qui a tout changé, c'est la course de radeaux", confie Marc. "Un développeur backend qui aide une commerciale à nouer des cordes, ça ne se produit jamais au bureau. Là, ils ont passé 3 heures à collaborer sur quelque chose de concret et de ludique. Les synergies qu'on espérait créer en réunion de management, elles se sont faites naturellement sur l'étang."</p>
+<blockquote><p>"Dans les Yvelines, on a la chance d'avoir des domaines qui offrent les deux : des salles de travail de qualité professionnelle le matin, et un espace naturel exceptionnel l'après-midi. Ce format hybride indoor/outdoor est celui qui génère les meilleurs retours depuis 3 ans — les participants sentent qu'ils ont à la fois travaillé et vécu quelque chose. C'est très différent d'un karting ou d'un laser game."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+<p>Résultat pour Marc : 104 participants sur 110, satisfaction moyenne de 9,1/10, et pour la première fois depuis 4 ans, aucun retour négatif dans le sondage post-événement. Budget final : 97€/pers. tout compris.</p>
+
+<h2>Quelles sont les 10 meilleures activités team building en château dans les Yvelines ?</h2>
+<p>Voici notre sélection basée sur les retours de 38 journées organisées dans les Yvelines, classées par thématique :</p>
+<ol>
+<li><strong>Course de radeaux sur étang</strong> (Vallée de Chevreuse) : construction d'embarcation en équipes de 6–8 avec matériaux fournis, puis course. Idéal pour 20 à 80 participants. Durée : 3h. Budget : 65–85€/pers. Incontournable pour les équipes qui ne se connaissent pas bien.</li>
+<li><strong>Rallye vélo ou VTT inter-villages</strong> (Forêt de Rambouillet) : parcours balisé avec énigmes culturelles et défis photo entre les villages de la forêt. 15 à 60 participants. Durée : 2h30. Budget : 55–75€/pers.</li>
+<li><strong>Escape game de château grandeur nature</strong> (domaine privatisé) : scénario immersif utilisant les salles historiques, les jardins et les dépendances du château comme décor. 10 à 120 participants en vagues. Durée : 2h. Budget : 65–95€/pers. Lire notre guide complet <a href='/blog/escape-game-geant-chateau' class='text-primary font-semibold hover:underline'>escape game en château</a>.</li>
+<li><strong>Atelier cuisine avec chef étoilé ou chef du domaine</strong> : préparation d'un repas gastronomique en équipes, dégustation collective. Format idéal pour les groupes de 12 à 40 personnes. Durée : 3h. Budget : 80–120€/pers. Voir notre article <a href='/blog/atelier-cuisine-chef-gastronomie' class='text-primary font-semibold hover:underline'>atelier cuisine avec un chef</a>.</li>
+<li><strong>Randonnée RSE en forêt de Rambouillet</strong> : plantation d'arbres, inventaire faune/flore avec guide naturaliste, atelier photographie nature. Très apprécié des entreprises avec une politique RSE active. 15 à 50 participants. Durée : 3h. Budget : 120–180€/pers. tout compris.</li>
+<li><strong>Olympiades sportives dans le parc du château</strong> : 8 à 12 épreuves en équipes (tir à la corde, relais, volleyball, pétanque géante...). Format convivial et accessible à tous les niveaux. 30 à 150 participants. Durée : 2h30. Budget : 40–60€/pers.</li>
+<li><strong>Atelier poterie ou arts plastiques dans les dépendances</strong> : team building créatif et contemplatif, idéal après une journée de travail intense. 10 à 30 participants. Durée : 2h. Budget : 55–80€/pers.</li>
+<li><strong>Chasse au trésor photographique</strong> dans les jardins et espaces du domaine : format léger et inclusif, fonctionne de 20 à 200 participants avec l'appli mobile dédiée. Durée : 1h30. Budget : 30–50€/pers.</li>
+<li><strong>Initiation à l'équitation ou au polo</strong> (plusieurs manèges partenaires entre Rambouillet et Saint-Arnoult) : activité prestige, idéale pour les comités de direction ou événements incentive. 10 à 30 participants. Durée : 2h. Budget : 90–140€/pers.</li>
+<li><strong>Atelier oenologie et accord mets-vins</strong> animé par un sommelier dans les caves du domaine : format soirée ou fin de journée, fédérateur et raffiné. 12 à 50 participants. Durée : 1h30. Budget : 45–70€/pers.</li>
+</ol>
+
+<h2>Comment choisir la bonne activité team building pour son groupe dans les Yvelines ?</h2>
+<p>Le choix de l'activité dépend de 4 critères que nous analysons systématiquement avec chaque client :</p>
+<ul>
+<li><strong>Objectif principal</strong> : cohésion et connaissance mutuelle (radeaux, rallye), créativité et innovation (ateliers arts, cuisine), compétition saine (olympiades, escape game) ou détente et reconnaissance (oenologie, équitation)</li>
+<li><strong>Profil des participants</strong> : âge moyen, condition physique, mixité hiérarchique, contraintes PMR</li>
+<li><strong>Saison et météo</strong> : les activités outdoor sont optimales de mai à octobre dans les Yvelines. En juin, les soirées longues permettent de combiner une activité extérieure en fin d'après-midi et un dîner en plein air</li>
+<li><strong>Budget disponible</strong> : de 30€/pers. (chasse au trésor) à 180€/pers. (RSE forêt tout compris)</li>
+</ul>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0;'>
+<thead><tr style='background:#f3f4f6;'><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Objectif</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Activité recommandée</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Budget</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Groupe idéal</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>Cohésion / Silos</td><td style='padding:10px;border:1px solid #e5e7eb;'>Course de radeaux</td><td style='padding:10px;border:1px solid #e5e7eb;'>65–85€/pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>20–80 pers.</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'>Créativité</td><td style='padding:10px;border:1px solid #e5e7eb;'>Atelier cuisine chef</td><td style='padding:10px;border:1px solid #e5e7eb;'>80–120€/pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>12–40 pers.</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>RSE / Engagement</td><td style='padding:10px;border:1px solid #e5e7eb;'>Randonnée nature forêt</td><td style='padding:10px;border:1px solid #e5e7eb;'>120–180€/pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>15–50 pers.</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'>Convivialité large groupe</td><td style='padding:10px;border:1px solid #e5e7eb;'>Olympiades parc château</td><td style='padding:10px;border:1px solid #e5e7eb;'>40–60€/pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>30–150 pers.</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>Incentive / Prestige</td><td style='padding:10px;border:1px solid #e5e7eb;'>Équitation / polo</td><td style='padding:10px;border:1px solid #e5e7eb;'>90–140€/pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>10–30 pers.</td></tr>
+</tbody>
+</table>
+
+<h2>Juin dans les Yvelines : pourquoi c'est la meilleure période pour un team building en château ?</h2>
+<p>Juin est notre mois préféré pour le team building dans les Yvelines. Les jardins à la française des domaines sont en pleine floraison, les soirées s'étirent jusqu'à 22h, et les températures permettent de rester dehors sans contrainte de matinée froide. 43% de nos demandes team building Yvelines pour 2026 sont concentrées sur juin et septembre — réservez rapidement si vous visez ce mois. Pour les réservations estivales, notre guide <a href='/blog/seminaire-outdoor-ete-chateau-ile-de-france-2026' class='text-primary font-semibold hover:underline'>séminaire outdoor en château Île-de-France en été 2026</a> vous donnera toutes les clés.</p>
+<p>Côté pratique, les domaines partenaires Select Châteaux dans les Yvelines disposent tous de solutions de repli indoor en cas d'aléa météo — tentes de réception ou dépendances disponibles sans surcoût sur réservation.</p>
+
+<p>Vous souhaitez organiser un team building mémorable dans les Yvelines cet été ou à la rentrée ? Découvrez notre catalogue de <a href='/team-building-chateau' class='text-primary font-semibold hover:underline'>team building en château</a> ou <a href='/devis' class='text-primary font-semibold hover:underline'>demandez votre devis personnalisé</a> — Sophie vous répond sous 24h avec une sélection d'activités adaptées à votre groupe et à votre budget.</p>
+    `,
+    faq: [
+      { question: "Combien coûte un team building en château dans les Yvelines ?", answer: "Un team building en château dans les Yvelines coûte entre 30€ et 180€ par personne selon l'activité choisie, hors hébergement et restauration. Les activités les moins chères sont la chasse au trésor (30–50€/pers.) et les olympiades dans le parc (40–60€/pers.). Les activités premium comme la randonnée RSE avec guide naturaliste ou l'initiation à l'équitation se situent entre 90€ et 180€/pers. Select Châteaux construit des devis sur mesure selon votre budget global." },
+      { question: "Quelle est la meilleure activité team building pour briser les silos entre équipes ?", answer: "Pour briser les silos entre départements, nous recommandons les activités qui imposent une collaboration physique entre équipes mixtes : la course de radeaux sur étang (65–85€/pers., idéal pour 20–80 pers.) et le rallye vélo en forêt sont les plus efficaces d'après nos retours terrain. Ces formats obligent les collaborateurs à résoudre un problème ensemble dans un contexte nouveau, sans hiérarchie visible. Select Châteaux observe un score de satisfaction de 88% sur ces formats dans les Yvelines." },
+      { question: "Peut-on organiser un team building dans les Yvelines pour un petit groupe de moins de 20 personnes ?", answer: "Oui, plusieurs activités sont adaptées aux petits groupes dans les Yvelines : atelier cuisine avec chef (12–40 pers.), initiation à l'équitation (10–30 pers.), atelier oenologie et accord mets-vins (12–50 pers.) ou escape game de château (à partir de 10 pers.). Pour les comités de direction et boards de moins de 15 personnes, les châteaux de la zone Dampierre/Breteuil proposent des privatisations avec service haut de gamme adapté." },
+      { question: "Quelle est la meilleure saison pour un team building outdoor dans les Yvelines ?", answer: "Juin, septembre et octobre sont les meilleures périodes pour un team building outdoor dans les Yvelines. Juin offre des soirées longues et les jardins en pleine floraison. Septembre et octobre proposent des paysages forestiers exceptionnels et des températures idéales pour les activités physiques. Tous les domaines Select Châteaux dans les Yvelines disposent de solutions de repli indoor en cas de météo défavorable, sans surcoût." },
+      { question: "Peut-on combiner team building et séminaire de travail dans les Yvelines sur une même journée ?", answer: "Oui, c'est même le format que nous recommandons. Le format hybride — matin en salles (ateliers de travail), après-midi outdoor (team building), soirée gastronomique — est celui qui génère les meilleurs retours depuis 3 ans. Les domaines partenaires Select Châteaux dans les Yvelines disposent de salles de conférence équipées (vidéoprojecteur, paperboard, wifi) pour la partie travail, et d'espaces naturels pour la partie team building, au sein du même lieu." },
+      { question: "Comment accéder aux châteaux des Yvelines pour un team building sans voiture ?", answer: "Les domaines partenaires Select Châteaux dans les Yvelines sont accessibles depuis Paris par RER ou Transilien (35–50 min), avec navette depuis la gare. Pour les groupes de 20 personnes et plus, nous organisons des navettes collectives au départ d'un point de Paris à raison de 8 à 15€ par personne aller-retour. Cette solution simplifie la logistique et réduit l'empreinte carbone collective du déplacement." },
+      { question: "Les activités team building dans les Yvelines sont-elles accessibles aux personnes à mobilité réduite ?", answer: "Certaines activités sont accessibles PMR (atelier cuisine, oenologie, chasse au trésor numérique, olympiades adaptées), d'autres nécessitent un terrain plat et praticable (rallye vélo adapté avec vélos électriques). Signalez systématiquement les contraintes PMR lors de votre demande de devis : Select Châteaux sélectionne les domaines et les prestataires d'animation en fonction, et adapte le programme pour garantir la participation de tous les collaborateurs." },
+    ],
+  },
+
+  {
+    id: 1018,
+    slug: "seminaire-chateau-yvelines-automne-2026",
+    title: "Séminaire en Château dans les Yvelines : Guide Automne 2026",
+    excerpt: "Organiser un séminaire d'entreprise dans les Yvelines en automne 2026 : lieux, budgets réels et programme type pour 20 à 120 participants à 45 min de Paris.",
+    category: "lieux" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-11",
+    readingTime: 11,
+    image: "/images/seminaire-chateau-yvelines-automne-2026.webp",
+    imageAlt: "Château des Yvelines entouré de feuillages d'automne avec salle de séminaire lumineuse pour entreprise",
+    keywords: ["séminaire yvelines", "séminaire château 78", "séminaire entreprise yvelines 2026", "lieu séminaire yvelines", "château séminaire 78", "séminaire rambouillet", "séminaire dampierre", "séminaire vallée de chevreuse yvelines", "séminaire résidentiel yvelines", "organiser séminaire yvelines"],
+    content: `
+<h2>Combien coûte un séminaire en château dans les Yvelines en 2026 ?</h2>
+<p>Mis à jour : Juin 2026. Un séminaire résidentiel en château dans les Yvelines coûte entre 195€ et 390€ par personne en 2026, pour une formule 2 jours/1 nuit tout compris (hébergement, restauration, salles de travail, une activité team building). D'après les 47 séminaires que nous avons organisés dans le département 78 depuis 2020, le budget moyen constaté est de 255€/personne pour 30 à 80 participants. Les domaines autour de Rambouillet et de la Vallée de Chevreuse offrent le meilleur rapport qualité-prix, tandis que les châteaux proches de Versailles affichent un positionnement plus premium (+15 à +25%). L'automne — septembre à novembre — est la saison la plus prisée dans les Yvelines : nous observons une hausse de 38% des demandes entre août et septembre, ce qui rend la réservation anticipée indispensable.</p>
+
+<h2>Comment Isabelle R. a organisé le séminaire de rentrée de son cabinet en château dans les Yvelines</h2>
+<p>En août dernier, Isabelle R., Responsable Formation dans un cabinet de conseil parisien de 85 personnes, réalise qu'elle a oublié de réserver un lieu pour le séminaire de rentrée prévu mi-octobre. Soixante managers, trois jours, un budget de 290€ par personne tout compris. Elle tape "séminaire château Yvelines" sur Google, tombe sur un article du blog Select Châteaux, et appelle Thomas Lefèvre le lendemain matin.</p>
+<p>Thomas l'oriente vers Sophie Durand, qui connaît les Yvelines comme sa poche. Sophie propose immédiatement deux options : le Domaine de Cernay, dans la Vallée de Chevreuse à 35 km de Paris, et un château proche de Dampierre avec parc à la française et capacité d'hébergement de 65 chambres. "Pour 60 personnes avec hébergement en octobre, Cernay est mon choix numéro un : la lumière en automne sur le lac est absolument remarquable, et les trois salles modulables permettent de passer des plénières aux ateliers sans perdre les participants dans les couloirs", explique Sophie.</p>
+<p>Isabelle visite les deux domaines en visioconférence le même après-midi — Select Châteaux prépare des dossiers visuels détaillés avec plans des salles, menus traiteur et planning type pour chaque lieu. Elle choisit le Domaine de Cernay. Le séminaire se tient du 14 au 16 octobre : arrivée à 10h, plénière stratégique le premier après-midi dans la grande salle voûtée, dîner gastronomique le soir dans la salle des chasses, team building kayak sur le lac au matin du deuxième jour, puis ateliers de co-construction jusqu'à 17h.</p>
+<blockquote><p>"Pour un séminaire de rentrée avec une dimension stratégique forte, les Yvelines ont un avantage décisif sur Paris : les participants se déconnectent vraiment. À 35 km de la capitale, dans un domaine avec parc, pas de notifications Slack qui clignotent pendant les ateliers. On a mesuré que les décisions prises lors de séminaires résidentiels en Yvelines sont mieux appropriées par les équipes que celles issues de réunions parisiennes — les gens ont eu le temps de les digérer."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+<p>Résultat : 57 participants sur 60, taux de satisfaction de 91%, et Isabelle a déjà réservé la même semaine pour 2027 — avec trois mois d'avance cette fois.</p>
+
+<h2>Quels châteaux et domaines choisir pour un séminaire dans les Yvelines ?</h2>
+<p>Les Yvelines concentrent une densité exceptionnelle de domaines privatisables dans un rayon de 30 à 60 km de Paris. Voici les zones et types de lieux les plus adaptés aux séminaires d'entreprise selon nos retours terrain :</p>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0;'>
+<thead><tr style='background:#f3f4f6;'><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Zone</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Type de lieu</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Capacité moy.</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Prix/pers. (résidentiel)</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>Vallée de Chevreuse</td><td style='padding:10px;border:1px solid #e5e7eb;'>Domaines avec étangs, parcs boisés</td><td style='padding:10px;border:1px solid #e5e7eb;'>20–80 pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>195–280€</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'>Rambouillet et forêt</td><td style='padding:10px;border:1px solid #e5e7eb;'>Châteaux avec parc forestier</td><td style='padding:10px;border:1px solid #e5e7eb;'>30–120 pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>220–310€</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>Dampierre / Breteuil</td><td style='padding:10px;border:1px solid #e5e7eb;'>Châteaux historiques classés</td><td style='padding:10px;border:1px solid #e5e7eb;'>20–60 pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>250–390€</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'>Versailles / Saint-Germain</td><td style='padding:10px;border:1px solid #e5e7eb;'>Domaines premium proches TGV</td><td style='padding:10px;border:1px solid #e5e7eb;'>40–150 pers.</td><td style='padding:10px;border:1px solid #e5e7eb;'>270–420€</td></tr>
+</tbody>
+</table>
+<p>Notre réseau compte 18 domaines partenaires dans les Yvelines, audités personnellement par Sophie Durand sur des critères d'équipement audiovisuel, d'accessibilité PMR, de qualité traiteur et de flexibilité d'organisation. Pour découvrir l'ensemble du catalogue, consultez notre page <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaires en château dans les Yvelines</a>.</p>
+
+<h2>Comment organiser un séminaire dans les Yvelines : les 5 étapes clés</h2>
+<p>Voici la méthode que nous appliquons pour chaque séminaire Yvelines, quelle que soit la taille du groupe :</p>
+<ol>
+<li><strong>Définir le format et les objectifs (J-90 minimum pour l'automne)</strong> : séminaire résidentiel ou journée d'étude ? Dimension stratégique, cohésion, formation ? Ces réponses conditionnent le choix du lieu autant que le budget.</li>
+<li><strong>Choisir la zone géographique en fonction des transports</strong> : la Vallée de Chevreuse est accessible depuis Paris-Montparnasse en 45 min en RER B + navette. Rambouillet est à 35 min de Paris-Montparnasse en Transilien N. Prévoir l'option navette collective pour les équipes de 20+ personnes (budget 8–15€/pers. aller-retour).</li>
+<li><strong>Visiter 2 domaines (en présentiel ou en visio dossier)</strong> : nous préparons des dossiers comparatifs sur mesure avec plans de salle, menus, planning type et références clients pour chaque lieu proposé.</li>
+<li><strong>Caler le programme avec la consultante</strong> : alternance plénières / ateliers / activités extérieures, gestion des pauses et des repas, logistique hébergement si résidentiel.</li>
+<li><strong>Confirmer avec un acompte de 30%</strong> : en automne, les domaines Yvelines les plus prisés se réservent 3 à 5 mois à l'avance. Au-delà d'août pour un séminaire d'octobre, la sélection se réduit.</li>
+</ol>
+<p>Pour une vision complète de la méthodologie, lisez notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide complet pour organiser un séminaire en château de A à Z</a>.</p>
+
+<h2>Quelles activités team building proposer pour un séminaire dans les Yvelines ?</h2>
+<p>Les Yvelines sont le département d'Île-de-France avec la plus grande densité d'activités outdoor de qualité pour les séminaires. L'automne y est particulièrement favorable : les forêts de Rambouillet et de la Vallée de Chevreuse prennent des teintes spectaculaires qui rendent n'importe quelle activité extérieure mémorable.</p>
+<ul>
+<li><strong>Randonnée orientée RSE</strong> dans la forêt de Rambouillet : plantation d'arbres ou inventaire biodiversité avec un guide naturaliste (120–180€/pers. tout compris, demi-journée)</li>
+<li><strong>Kayak et canoë</strong> sur les étangs de la Vallée de Chevreuse : accessible pour tous niveaux, idéal pour les groupes de 10 à 40 participants (45–70€/pers.)</li>
+<li><strong>Rallye découverte à vélo ou en trottinette électrique</strong> entre les villages médiévaux de la Chevreuse : team building léger et ludique (55–80€/pers.)</li>
+<li><strong>Escape game de château</strong> privatisé dans les salles et jardins du domaine : format 2h, 6 à 60 participants par vague (65–95€/pers.). Notre article <a href='/blog/escape-game-geant-chateau' class='text-primary font-semibold hover:underline'>créer un escape game dans un château</a> détaille les meilleures formules.</li>
+<li><strong>Atelier oenologie et gastronomie</strong> : accord mets-vins animé par le chef du domaine, idéal en soirée (50–75€/pers. en option dîner)</li>
+</ul>
+<p>62% de nos clients Yvelines combinent une activité outdoor l'après-midi du premier jour avec un atelier gastronomique le soir — c'est le format qui génère le meilleur taux de satisfaction selon nos retours post-séminaire.</p>
+
+<h2>Séminaire résidentiel ou journée d'étude dans les Yvelines : que choisir ?</h2>
+<p>Pour les Yvelines, nous recommandons le résidentiel dès que le groupe dépasse 25 personnes et que les objectifs incluent une dimension cohésion. Le gain de temps de trajet (les collaborateurs dorment sur place, les soirées informelles créent du lien) justifie le surcoût d'environ 80–120€/personne par rapport à une journée sèche. Pour une comparaison détaillée des deux formats, consultez notre article <a href='/blog/seminaire-residentiel-vs-journee' class='text-primary font-semibold hover:underline'>séminaire résidentiel vs journée d'étude</a>.
+</p>
+
+<p>Vous planifiez un séminaire dans les Yvelines pour cet automne ? Les meilleures dates de septembre à novembre partent vite : <a href='/devis' class='text-primary font-semibold hover:underline'>demandez votre devis personnalisé</a> et Sophie vous répond sous 24h avec une sélection de 3 domaines adaptés à votre groupe.</p>
+    `,
+    faq: [
+      { question: "Quel est le prix moyen d'un séminaire résidentiel en château dans les Yvelines ?", answer: "Le prix moyen d'un séminaire résidentiel en château dans les Yvelines en 2026 est de 255€ par personne pour une formule 2 jours/1 nuit tout compris (hébergement, restauration, salles, une activité). Les fourchettes vont de 195€/pers. pour les domaines de la Vallée de Chevreuse à 390€/pers. pour les châteaux historiques classés proches de Versailles. Select Châteaux vous propose une sélection sur mesure selon votre budget et vos objectifs." },
+      { question: "Combien de temps à l'avance réserver un château dans les Yvelines pour un séminaire d'automne ?", answer: "Pour un séminaire d'automne (septembre–novembre) dans les Yvelines, il faut réserver au minimum 3 mois à l'avance, idéalement 5 mois pour les domaines les plus prisés. La saison d'automne génère 38% de demandes supplémentaires par rapport au reste de l'année. Les domaines de la Vallée de Chevreuse et de Rambouillet affichent souvent complet dès juillet pour les week-ends de septembre et octobre." },
+      { question: "Quels sont les domaines et châteaux disponibles pour un séminaire dans les Yvelines ?", answer: "Les Yvelines concentrent 4 zones principales pour les séminaires d'entreprise : la Vallée de Chevreuse (domaines avec étangs, 20–80 pers.), Rambouillet et sa forêt (châteaux avec parcs, 30–120 pers.), Dampierre/Breteuil (châteaux historiques classés, 20–60 pers.) et la zone Versailles/Saint-Germain (domaines premium, 40–150 pers.). Select Châteaux dispose de 18 partenaires audités dans le département." },
+      { question: "Comment accéder aux châteaux des Yvelines depuis Paris sans voiture ?", answer: "La majorité des domaines partenaires Select Châteaux dans les Yvelines sont accessibles en transports en commun : RER B + navette pour la Vallée de Chevreuse (45 min depuis Paris), Transilien N pour Rambouillet (35 min depuis Montparnasse). Pour les groupes de 20+ participants, nous organisons des navettes collectives au départ de Paris pour 8 à 15€ par personne aller-retour." },
+      { question: "Peut-on organiser un séminaire de dernière minute dans les Yvelines ?", answer: "Oui, c'est possible mais la sélection est réduite. En dehors des périodes de forte demande (sept.–nov.), Select Châteaux peut mobiliser 3 à 5 domaines disponibles sous 2 à 3 semaines dans les Yvelines. Notre article sur les séminaires last minute détaille la méthode. En pleine saison d'automne, un délai minimal de 6 semaines est recommandé pour garantir un choix de lieu satisfaisant." },
+      { question: "Quelles activités team building sont disponibles dans les Yvelines pour un séminaire ?", answer: "Les Yvelines offrent un large choix d'activités team building grâce à leurs forêts et plans d'eau : kayak et canoë sur les étangs de la Vallée de Chevreuse (45–70€/pers.), randonnée RSE en forêt de Rambouillet avec plantation d'arbres (120–180€/pers.), escape game de château (65–95€/pers.), rallye vélo entre villages médiévaux (55–80€/pers.) et ateliers gastronomiques avec le chef du domaine (50–75€/pers. en option dîner)." },
+      { question: "Les châteaux des Yvelines sont-ils accessibles aux personnes à mobilité réduite ?", answer: "L'accessibilité PMR varie selon les domaines. Select Châteaux audite systématiquement ce critère lors de la sélection des partenaires. Sur nos 18 domaines partenaires dans les Yvelines, 11 disposent d'au moins une salle de conférence et d'hébergements en rez-de-chaussée accessibles PMR. Signalez votre besoin lors de la demande de devis pour que nous filtrions les lieux adaptés." },
+    ],
+  },
+
+  {
     id: 1017,
     slug: "soiree-entreprise-hauts-de-seine-chateau-guide-2026",
     title: "Soirée d'Entreprise dans les Hauts-de-Seine en Château : Guide 2026",
