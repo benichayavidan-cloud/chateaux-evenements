@@ -30,6 +30,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
   const [error, setError] = useState<string | null>(null);
   const [formStartTracked, setFormStartTracked] = useState(false);
   const [today, setToday] = useState('');
+  // Drapeau "dates non définitives" — n'affecte PAS l'obligation des dates
+  const [datesFlexibles, setDatesFlexibles] = useState(false);
 
   useEffect(() => {
     setToday(new Date().toISOString().split('T')[0]);
@@ -80,6 +82,14 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
       }
       return { ...prev, [name]: value };
     });
+  };
+
+  const handleDatesFlexiblesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!formStartTracked) {
+      trackFormStart("devis_mini");
+      setFormStartTracked(true);
+    }
+    setDatesFlexibles(e.target.checked);
   };
 
   // Domaines email personnels → on ne pré-remplit PAS l'entreprise
@@ -152,7 +162,10 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         nombreParticipants: parseInt(formData.nombreParticipants, 10),
         nombreChambres: 1,
         budget: '',
-        commentaireDeroulement: formData.message || '',
+        commentaireDeroulement: [
+          datesFlexibles ? '⚠️ Dates indiquées NON DÉFINITIVES (flexibles).' : '',
+          formData.message,
+        ].filter(Boolean).join(' — '),
         sourceLabel: formLabel,
         gclid: gclid || undefined,
       };
@@ -395,6 +408,39 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               />
             </div>
           </div>
+
+          {/* Drapeau : dates non définitives — n'affecte PAS l'obligation des dates */}
+          <label
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              cursor: 'pointer',
+              marginBottom: '16px',
+              fontSize: theme.typography.fontSize.sm,
+              color: theme.colors.neutral.gray600,
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={datesFlexibles}
+              onChange={handleDatesFlexiblesChange}
+              style={{
+                appearance: 'auto',
+                width: 16,
+                height: 16,
+                minWidth: 16,
+                flexShrink: 0,
+                margin: 0,
+                padding: 0,
+                accentColor: theme.colors.primary.bronze,
+                cursor: 'pointer',
+                transition: 'none',
+                boxShadow: 'none',
+              }}
+            />
+            Ces dates ne sont pas encore définitives
+          </label>
 
           {/* Ligne 3 : Message + Bouton — stacké sur mobile */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto]" style={{ gap: '12px', alignItems: 'end' }}>
