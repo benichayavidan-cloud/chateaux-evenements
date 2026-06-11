@@ -5,6 +5,7 @@
 
 import type { Metadata } from "next";
 import { StructuredData } from "@/components/StructuredData";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 import {
   generateFAQSchema,
   generateBreadcrumbSchema,
@@ -149,6 +150,7 @@ export default function TeamBuildingPage() {
       <TeamBuildingPageClient faq={faq} />
       <LogoCarousel />
       <ReviewsSection />
+      <StickyCtaBar />
     </>
   );
 }

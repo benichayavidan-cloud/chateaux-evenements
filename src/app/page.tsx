@@ -6,6 +6,7 @@ import { Container } from "@/components/layout-v2";
 import { Text, Card, Button, Badge } from "@/components/ui-v2";
 import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
 import { StructuredData } from "@/components/StructuredData";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { theme } from "@/design-system/tokens";
 import { chateaux, testimonials, chiffresCles, clientLogos, typesEvenements } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/home/LogoCarousel";
@@ -510,6 +511,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* CTA persistant mobile/desktop — apparaît au scroll, route vers /devis#formulaire */}
+      <StickyCtaBar />
     </>
   );
 }
