@@ -49,6 +49,24 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     message: '',
   });
 
+  // 2ᵉ vague — visiteur de retour : pré-remplir les coordonnées déjà saisies (localStorage)
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('sc_devis_contact');
+      if (!raw) return;
+      const saved = JSON.parse(raw) as Partial<{ nomPrenom: string; entreprise: string; email: string; telephone: string }>;
+      setFormData((prev) => ({
+        ...prev,
+        nomPrenom: prev.nomPrenom || saved.nomPrenom || '',
+        entreprise: prev.entreprise || saved.entreprise || '',
+        email: prev.email || saved.email || '',
+        telephone: prev.telephone || saved.telephone || '',
+      }));
+    } catch {
+      // localStorage indisponible — non bloquant
+    }
+  }, []);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -190,6 +208,18 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         sessionStorage.setItem('ec_hashed', JSON.stringify(hashed));
       } catch {
         // sessionStorage indisponible — non bloquant
+      }
+
+      // 2ᵉ vague — mémoriser les coordonnées pour pré-remplir le prochain devis (visiteur de retour)
+      try {
+        localStorage.setItem('sc_devis_contact', JSON.stringify({
+          nomPrenom: formData.nomPrenom,
+          entreprise: formData.entreprise,
+          email: formData.email,
+          telephone: formData.telephone,
+        }));
+      } catch {
+        // localStorage indisponible — non bloquant
       }
 
       trackFormSubmit('devis-express');
