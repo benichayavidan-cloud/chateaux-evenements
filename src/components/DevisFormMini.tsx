@@ -90,12 +90,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
       trackFormStart("devis_mini");
       setFormStartTracked(true);
     }
-    const checked = e.target.checked;
-    setDatesNonFixees(checked);
+    setDatesNonFixees(e.target.checked);
     setError(null);
-    if (checked) {
-      setFormData((prev) => ({ ...prev, dateArrivee: '', dateDepart: '' }));
-    }
   };
 
   // Domaines email personnels → on ne pré-remplit PAS l'entreprise
@@ -160,9 +156,9 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
       const payload = {
         typeEvenement: 'seminaire' as const,
         // Mode 'exact' : dates fermes — Mode 'flexible' : période libre via datesSouhaitees
-        ...(datesNonFixees
-          ? { datesSouhaitees: 'Dates à définir' }
-          : { dateArrivee: formData.dateArrivee, dateDepart: formData.dateDepart }),
+        ...((formData.dateArrivee && formData.dateDepart)
+          ? { dateArrivee: formData.dateArrivee, dateDepart: formData.dateDepart }
+          : { datesSouhaitees: 'Dates à définir' }),
         duree: '1-jour' as const,
         chateauIds: allIds,
         entreprise: formData.entreprise || '-',
@@ -392,12 +388,11 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
                 id="mini-date-arrivee"
                 name="dateArrivee"
                 type="date"
-                disabled={datesNonFixees}
                 value={formData.dateArrivee}
                 onChange={handleChange}
-                onClick={(e) => { if (!datesNonFixees) (e.currentTarget as HTMLInputElement).showPicker?.(); }}
+                onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
                 min={today}
-                style={{ ...inputStyle, cursor: datesNonFixees ? 'not-allowed' : 'pointer', opacity: datesNonFixees ? 0.5 : 1, background: datesNonFixees ? theme.colors.neutral.gray100 : theme.colors.neutral.white }}
+                style={{ ...inputStyle, cursor: 'pointer' }}
                 {...focusHandlers}
               />
             </div>
@@ -407,12 +402,11 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
                 id="mini-date-depart"
                 name="dateDepart"
                 type="date"
-                disabled={datesNonFixees}
                 value={formData.dateDepart}
                 onChange={handleChange}
-                onClick={(e) => { if (!datesNonFixees) (e.currentTarget as HTMLInputElement).showPicker?.(); }}
+                onClick={(e) => { (e.currentTarget as HTMLInputElement).showPicker?.(); }}
                 min={formData.dateArrivee || today}
-                style={{ ...inputStyle, cursor: datesNonFixees ? 'not-allowed' : 'pointer', opacity: datesNonFixees ? 0.5 : 1, background: datesNonFixees ? theme.colors.neutral.gray100 : theme.colors.neutral.white }}
+                style={{ ...inputStyle, cursor: 'pointer' }}
                 {...focusHandlers}
               />
             </div>
@@ -434,7 +428,20 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               type="checkbox"
               checked={datesNonFixees}
               onChange={handleDatesNonFixeesChange}
-              style={{ width: 16, height: 16, accentColor: theme.colors.primary.bronze, cursor: 'pointer' }}
+              style={{
+                appearance: 'auto',
+                WebkitAppearance: 'auto',
+                width: 16,
+                height: 16,
+                minWidth: 16,
+                flexShrink: 0,
+                margin: 0,
+                padding: 0,
+                accentColor: theme.colors.primary.bronze,
+                cursor: 'pointer',
+                transition: 'none',
+                boxShadow: 'none',
+              }}
             />
             Mes dates ne sont pas encore fixées
           </label>
