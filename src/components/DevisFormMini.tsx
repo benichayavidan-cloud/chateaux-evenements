@@ -430,7 +430,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               onChange={handleDatesNonFixeesChange}
               style={{
                 appearance: 'auto',
-                WebkitAppearance: 'auto',
                 width: 16,
                 height: 16,
                 minWidth: 16,
