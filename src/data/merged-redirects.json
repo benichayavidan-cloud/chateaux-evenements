@@ -1,0 +1,17 @@
+{
+  "_doc": "SOURCE UNIQUE des fusions anti-cannibalisation (audit SEO 2026-06-11). Consommé par next.config.ts (redirects 301) ET src/data/blog-posts.ts (filtre MERGED_SLUGS). Ajouter une fusion ICI ET SEULEMENT ICI : { from: slug blog, to: chemin destination }. Le contenu des articles reste dans les data files (réversible) et les slugs restent détectés par le gate anti-cannibalisation.",
+  "merges": [
+    { "from": "seminaire-chateau-chantilly-guide-2026", "to": "/seminaire-chateau-chantilly" },
+    { "from": "seminaire-chantilly-guide-organisateurs-2026", "to": "/seminaire-chateau-chantilly" },
+    { "from": "hotel-seminaire-chantilly-guide", "to": "/blog/hotel-seminaire-chantilly-comparatif" },
+    { "from": "team-building-chantilly-activites-domaines-2026", "to": "/blog/seminaire-chantilly-activites-team-building" },
+    { "from": "seminaire-team-building-chantilly-oise-programme-type-2026", "to": "/blog/seminaire-chantilly-activites-team-building" },
+    { "from": "seminaire-oise-chantilly-senlis-guide-2026", "to": "/seminaire-chateau-oise-60" },
+    { "from": "seminaire-yvelines-guide-chateaux-domaines-2026", "to": "/seminaire-chateau-yvelines-78" },
+    { "from": "seminaire-yvelines-chateaux-abbayes", "to": "/seminaire-chateau-yvelines-78" },
+    { "from": "seminaire-vallee-de-chevreuse-guide-complet", "to": "/seminaire-vallee-de-chevreuse" },
+    { "from": "seminaire-vallee-chevreuse-domaines-lieux-2026", "to": "/seminaire-vallee-de-chevreuse" },
+    { "from": "seminaire-hauts-de-seine-92-chateaux-domaines-2026", "to": "/seminaire-chateau-hauts-de-seine-92" },
+    { "from": "seminaire-hauts-de-seine-domaine-privatise-guide-2026", "to": "/seminaire-chateau-hauts-de-seine-92" }
+  ]
+}

@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import mergedRedirects from "./src/data/merged-redirects.json";
 
 /**
  * Configuration Next.js optimisée pour Core Web Vitals
@@ -153,6 +154,16 @@ const nextConfig: NextConfig = {
         destination: "/chateaux/abbaye-millenaire-vallee-chevreuse",
         permanent: true,
       },
+
+      // ── FUSIONS ANTI-CANNIBALISATION (audit SEO 2026-06-11) ──
+      // SOURCE UNIQUE : src/data/merged-redirects.json — le même fichier
+      // alimente le filtre MERGED_SLUGS dans blog-posts.ts. Ajouter une fusion
+      // là-bas génère automatiquement le 301 ici (zéro désynchronisation).
+      ...mergedRedirects.merges.map((m) => ({
+        source: `/blog/${m.from}`,
+        destination: m.to,
+        permanent: true,
+      })),
     ];
   },
 };

@@ -6813,7 +6813,7 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 15,
     slug: "seminaire-yvelines-78-luxe-proximite",
-    title: "Séminaire Yvelines (78) : Les Meilleurs Châteaux [Tarifs 2026]",
+    title: "Les Meilleurs Châteaux des Yvelines : Comparatif & Tarifs 2026",
     excerpt: "De Versailles à la Vallée de Chevreuse : 28 châteaux privatisables pour séminaire dans les Yvelines. RER direct, 30-45 min de Paris, tarifs 180-300€/nuit.",
     category: "lieux",
     author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
@@ -17355,8 +17355,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 203,
     slug: "seminaire-chantilly-activites-team-building",
-    title: "Séminaire Chantilly : 15 Activités Team Building [Guide 2026]",
-    excerpt: "Séminaire à Chantilly : 15 activités team building testées en 2026. Spectacle équestre, rallye 2CV, escape game. Tarifs, châteaux IDF et guide pratique.",
+    title: "15 Activités Team Building à Chantilly : Tarifs 2026 dès 45€/pers",
+    excerpt: "15 activités team building testées à Chantilly en 2026 : spectacle équestre, rallye 2CV, escape game. Tarifs détaillés de 45€ à 180€/pers et guide pratique.",
     category: "team-building" as BlogCategory,
     author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-03-22",
@@ -17387,7 +17387,7 @@ const placeholderArticles: BlogPost[] = [
 </ul>
 
 <div class="alert alert-info">
-<strong>Lecture complémentaire :</strong> Pour hésiter entre Chantilly et une autre destination, consultez notre <a href="/blog/chantilly-vs-fontainebleau-seminaire-comparatif">comparatif Chantilly vs Fontainebleau pour séminaire</a>, ou parcourez notre <a href="/blog/seminaire-chateau-chantilly-guide-2026">guide complet séminaire château Chantilly 2026</a>.
+<strong>Lecture complémentaire :</strong> Pour hésiter entre Chantilly et une autre destination, consultez notre <a href="/blog/chantilly-vs-fontainebleau-seminaire-comparatif">comparatif Chantilly vs Fontainebleau pour séminaire</a>, ou parcourez notre <a href="/seminaire-chateau-chantilly">guide complet séminaire château Chantilly 2026</a>.
 </div>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🐴 Activités Équestres — L'ADN de Chantilly</h2>
@@ -17707,6 +17707,17 @@ const placeholderArticles: BlogPost[] = [
 // EXPORT FINAL
 // ============================================
 
+/**
+ * ARTICLES FUSIONNÉS (anti-cannibalisation — audit SEO 2026-06-11)
+ * SOURCE UNIQUE : src/data/merged-redirects.json (consommé aussi par
+ * next.config.ts pour les 301 — impossible de désynchroniser filtre et redirect).
+ * Le contenu reste dans les data files (réversible) et les slugs restent
+ * détectés par le gate anti-cannibalisation, ce qui empêche leur recréation.
+ */
+import mergedRedirects from "./merged-redirects.json";
+
+export const MERGED_SLUGS = new Set(mergedRedirects.merges.map((m) => m.from));
+
 export const blogPosts: BlogPost[] = [
   article1,
   article2,
@@ -17724,7 +17735,7 @@ export const blogPosts: BlogPost[] = [
   ...seoArticles2026,
   ...nichesArticles2026,
   ...camilleArticles
-];
+].filter(post => !MERGED_SLUGS.has(post.slug));
 
 // Helper functions
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
@@ -17796,18 +17807,14 @@ export function getSmartRelatedPosts(
 }
 
 const SEO_BOOST_SLUGS = new Set([
-  "hotel-seminaire-chantilly-guide",
   "budget-seminaire-entreprise-2026-planifier",
   "seminaire-codir-chateau-privatise",
   "checklist-organiser-seminaire",
   "seminaire-residentiel-vs-journee",
   "hotel-seminaire-chantilly-comparatif",
-  "seminaire-vallee-de-chevreuse-guide-complet",
   "repas-seminaire-tendances-traiteur-2026",
   "top-chateaux-oise-60",
   "seminaire-nature-chevreuse-deconnexion",
   "seminaire-eco-responsable-rse",
   "convaincre-direction-budget-seminaire",
-  "team-building-chantilly-activites-domaines-2026",
-  "seminaire-chantilly-guide-organisateurs-2026",
 ]);

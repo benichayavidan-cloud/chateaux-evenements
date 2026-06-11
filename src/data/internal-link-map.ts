@@ -11,28 +11,72 @@
 
 export interface BlogLinkRule {
   keywords: string[];
-  targetSlug: string;
+  targetSlug?: string;  // article blog → /blog/<slug>
+  targetPath?: string;  // page landing/service (prioritaire sur targetSlug)
   title: string;
   priority: number;
 }
 
 export const BLOG_LINK_MAP: BlogLinkRule[] = [
-  // ── PRIORITÉ MAXIMALE (pages proches page 1, fort potentiel de trafic) ──
+  // ══════════════════════════════════════════════════════════════════════
+  // RÈGLE CANONIQUE (anti-cannibalisation — voir scripts/agent-cm/seo-clusters.json)
+  // Les mots-clés "tête" de cluster pointent vers les LANDING PAGES,
+  // JAMAIS vers des articles de blog. Les articles sont des satellites.
+  // ══════════════════════════════════════════════════════════════════════
 
   {
-    keywords: ["séminaire Chantilly", "séminaire à Chantilly", "activités Chantilly", "team building Chantilly", "séminaire entreprise Chantilly"],
-    targetSlug: "seminaire-chantilly-activites-team-building",
-    title: "Séminaire Chantilly : 15 activités team building",
+    keywords: ["séminaire Chantilly", "séminaire à Chantilly", "séminaire entreprise Chantilly", "séminaire en château à Chantilly", "organiser séminaire Chantilly", "guide organisateur Chantilly", "séminaire Chantilly guide"],
+    targetPath: "/seminaire-chateau-chantilly",
+    title: "Séminaire en château à Chantilly",
     priority: 10,
+  },
+  {
+    keywords: ["séminaire Yvelines", "séminaire dans les Yvelines", "séminaire château Yvelines"],
+    targetPath: "/seminaire-chateau-yvelines-78",
+    title: "Séminaire en château dans les Yvelines",
+    priority: 10,
+  },
+  {
+    keywords: ["séminaire Oise", "séminaire dans l'Oise", "château séminaire Oise"],
+    targetPath: "/seminaire-chateau-oise-60",
+    title: "Séminaire en château dans l'Oise",
+    priority: 10,
+  },
+  {
+    keywords: ["séminaire vallée de Chevreuse", "séminaire en vallée de Chevreuse"],
+    targetPath: "/seminaire-vallee-de-chevreuse",
+    title: "Séminaire en Vallée de Chevreuse",
+    priority: 10,
+  },
+  {
+    keywords: ["séminaire Hauts-de-Seine", "séminaire château 92"],
+    targetPath: "/seminaire-chateau-hauts-de-seine-92",
+    title: "Séminaire en château dans les Hauts-de-Seine",
+    priority: 10,
+  },
+  {
+    keywords: ["team building en château", "team building château"],
+    targetPath: "/team-building-chateau",
+    title: "Team building en château",
+    priority: 10,
+  },
+
+  // ── PRIORITÉ MAXIMALE (articles satellites proches page 1) ──
+
+  {
+    keywords: ["activités Chantilly", "team building Chantilly", "activités team building à Chantilly", "activités team building Chantilly", "domaines Chantilly", "team building forêt Chantilly"],
+    targetSlug: "seminaire-chantilly-activites-team-building",
+    title: "15 activités team building à Chantilly",
+    priority: 9,
   },
 
   // ── PRIORITÉ HAUTE (pages avec 100+ imp et pos > 25 ou 0 clics) ──
 
   {
     keywords: ["hôtel séminaire Chantilly", "hotel seminaire chantilly", "hébergement Chantilly", "hôtels à Chantilly", "dormir à Chantilly"],
-    targetSlug: "hotel-seminaire-chantilly-guide",
-    title: "Guide hôtels séminaire à Chantilly",
-    priority: 10,
+    targetSlug: "hotel-seminaire-chantilly-comparatif",
+    title: "Comparatif hôtels séminaire à Chantilly",
+    priority: 9,
   },
   {
     keywords: ["budget séminaire", "coût séminaire", "prix séminaire", "tarif séminaire", "combien coûte un séminaire"],
@@ -68,9 +112,9 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
   // ── PRIORITÉ MOYENNE (pages avec potentiel, pos 5-15) ──
 
   {
-    keywords: ["séminaire vallée de Chevreuse", "Chevreuse séminaire nature"],
-    targetSlug: "seminaire-vallee-de-chevreuse-guide-complet",
-    title: "Guide séminaire vallée de Chevreuse",
+    keywords: ["Chevreuse séminaire nature", "nature en vallée de Chevreuse"],
+    targetSlug: "seminaire-nature-chevreuse-deconnexion",
+    title: "Séminaire nature en vallée de Chevreuse",
     priority: 7,
   },
   {
@@ -173,18 +217,8 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
     priority: 3,
   },
 
-  // ── ARTICLES CAMILLE (nouveaux, besoin d'indexation) ──
-
-  {
-    keywords: ["activités team building Chantilly", "domaines Chantilly", "team building forêt Chantilly"],
-    targetSlug: "team-building-chantilly-activites-domaines-2026",
-    title: "Team building à Chantilly : activités et domaines 2026",
-    priority: 7,
-  },
-  {
-    keywords: ["guide organisateur Chantilly", "organiser séminaire Chantilly", "séminaire Chantilly guide"],
-    targetSlug: "seminaire-chantilly-guide-organisateurs-2026",
-    title: "Séminaire Chantilly : guide organisateurs 2026",
-    priority: 7,
-  },
+  // NOTE : les anciens doublons Camille (team-building-chantilly-activites-domaines-2026,
+  // seminaire-chantilly-guide-organisateurs-2026…) ont été fusionnés en 301 —
+  // source unique : src/data/merged-redirects.json. Leurs mots-clés ont été
+  // réintégrés dans les règles canoniques ci-dessus.
 ];

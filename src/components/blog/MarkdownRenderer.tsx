@@ -35,7 +35,9 @@ function getBlogLinkRules(currentSlug?: string): { keyword: string; url: string;
     .flatMap(rule =>
       rule.keywords.map(kw => ({
         keyword: kw,
-        url: `/blog/${rule.targetSlug}`,
+        // targetPath (landing/service page) prioritaire sur targetSlug (article blog) :
+        // les mots-clés "tête" pointent vers les pages canoniques, pas vers des articles
+        url: rule.targetPath ?? `/blog/${rule.targetSlug}`,
         title: rule.title,
       }))
     );
