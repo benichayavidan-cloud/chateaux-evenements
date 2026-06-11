@@ -1,0 +1,151 @@
+{
+  "_doc": "Registre des clusters SEO — SOURCE DE VÉRITÉ de la propriété des mots-clés. Chaque requête appartient à UNE page canonique. Le gate anti-cannibalisation.js bloque tout article qui cible un mot-clé protégé dans son title/slug. zoneWords = si un article mentionne ces mots, il DOIT contenir un lien vers la page canonique (rôle satellite).",
+  "clusters": [
+    {
+      "id": "chantilly",
+      "canonical": "/seminaire-chateau-chantilly",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire chantilly",
+        "seminaire chateau chantilly",
+        "lieu seminaire chantilly",
+        "seminaire entreprise chantilly",
+        "chateauform chantilly",
+        "organiser seminaire chantilly"
+      ],
+      "zoneWords": ["chantilly", "senlis", "gouvieux", "vineuil"],
+      "anchorText": "séminaire en château à Chantilly"
+    },
+    {
+      "id": "oise",
+      "canonical": "/seminaire-chateau-oise-60",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire oise",
+        "chateau seminaire oise",
+        "seminaire chateau oise",
+        "chateau hotel oise"
+      ],
+      "zoneWords": ["oise", "compiegne", "pierrefonds"],
+      "anchorText": "séminaire en château dans l'Oise"
+    },
+    {
+      "id": "yvelines",
+      "canonical": "/seminaire-chateau-yvelines-78",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire yvelines",
+        "chateau seminaire 78",
+        "seminaire chateau yvelines",
+        "chateau seminaire yvelines",
+        "chateauform yvelines",
+        "seminaire entreprise yvelines"
+      ],
+      "zoneWords": ["yvelines", "rambouillet", "dampierre", "breteuil"],
+      "anchorText": "séminaire en château dans les Yvelines"
+    },
+    {
+      "id": "chevreuse",
+      "canonical": "/seminaire-vallee-de-chevreuse",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire vallee de chevreuse",
+        "seminaire vallee chevreuse",
+        "abbaye vallee de chevreuse",
+        "abbaye chevreuse",
+        "seminaire chevreuse"
+      ],
+      "zoneWords": ["chevreuse"],
+      "anchorText": "séminaire en Vallée de Chevreuse"
+    },
+    {
+      "id": "hauts-de-seine",
+      "canonical": "/seminaire-chateau-hauts-de-seine-92",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire hauts seine",
+        "seminaire chateau 92",
+        "chateau seminaire 92",
+        "seminaire entreprise 92"
+      ],
+      "zoneWords": ["sceaux", "malmaison", "levallois"],
+      "anchorText": "séminaire en château dans les Hauts-de-Seine"
+    },
+    {
+      "id": "ile-de-france",
+      "canonical": "/seminaire-chateau-ile-de-france",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire chateau ile france",
+        "chateau seminaire ile france",
+        "seminaire chateau idf"
+      ],
+      "zoneWords": [],
+      "anchorText": "séminaire en château en Île-de-France"
+    },
+    {
+      "id": "proche-paris",
+      "canonical": "/seminaire-chateau-proche-paris",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire chateau proche paris",
+        "chateau seminaire paris",
+        "seminaire chateau pres paris",
+        "chateau seminaire pres paris"
+      ],
+      "zoneWords": [],
+      "anchorText": "séminaire en château proche de Paris"
+    },
+    {
+      "id": "team-building",
+      "canonical": "/team-building-chateau",
+      "type": "landing",
+      "primaryKeywords": [
+        "team building chateau",
+        "chateau team building",
+        "activite team building chateau",
+        "teambuilding chateau"
+      ],
+      "zoneWords": [],
+      "anchorText": "team building en château"
+    },
+    {
+      "id": "soirees-entreprise",
+      "canonical": "/seminaires-soirees-entreprise",
+      "type": "landing",
+      "primaryKeywords": [
+        "soiree entreprise chateau",
+        "soiree gala entreprise chateau",
+        "soiree entreprise ile france"
+      ],
+      "zoneWords": [],
+      "anchorText": "soirée d'entreprise en château"
+    },
+    {
+      "id": "hotel-chantilly",
+      "canonical": "/blog/hotel-seminaire-chantilly-comparatif",
+      "type": "pillar",
+      "primaryKeywords": [
+        "hotel seminaire chantilly",
+        "hotel chateau chantilly seminaire"
+      ],
+      "zoneWords": [],
+      "anchorText": "comparatif des hôtels séminaire à Chantilly"
+    },
+    {
+      "id": "prix-seminaire",
+      "canonical": "/blog/combien-coute-seminaire-chateau-2026",
+      "type": "pillar",
+      "primaryKeywords": [
+        "prix seminaire chateau",
+        "combien coute seminaire chateau",
+        "budget seminaire chateau",
+        "cout seminaire chateau",
+        "tarif seminaire chateau",
+        "budget seminaire entreprise"
+      ],
+      "zoneWords": [],
+      "anchorText": "combien coûte un séminaire en château"
+    }
+  ]
+}

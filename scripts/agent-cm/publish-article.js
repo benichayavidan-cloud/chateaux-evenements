@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const { ARTICLES_PATH } = require('./config');
+const { checkArticle, formatReport, getExistingArticles } = require('./anti-cannibalisation');
 
 const CAMILLE_FILE_TEMPLATE = `import type { BlogPost } from "./blog-posts";
 
@@ -68,7 +69,7 @@ function formatArticleTS(article) {
   return ts;
 }
 
-function publishArticle(article) {
+function publishArticle(article, opts = {}) {
   ensureCamilleFile();
   const content = fs.readFileSync(ARTICLES_PATH, 'utf-8');
 
@@ -77,8 +78,24 @@ function publishArticle(article) {
   for (const f of required) {
     if (!(f in article)) throw new Error(`Missing required field: ${f}`);
   }
-  if (content.includes(`slug: "${article.slug}"`)) {
+  // Doublon exact de slug — vérifié sur les 4 fichiers de données (pas
+  // seulement blog-posts-camille.ts) : deux BlogPost avec le même slug dans
+  // des fichiers différents rendraient le routing non-déterministe.
+  const existing = getExistingArticles();
+  if (existing.some(a => a.slug === article.slug)) {
     throw new Error(`Article with slug "${article.slug}" already exists`);
+  }
+
+  // GATE ANTI-CANNIBALISATION — défense en profondeur : ce check couvre TOUS
+  // les chemins de publication (pipeline auto + publication manuelle).
+  // Bypass conscient uniquement : --force (réécritures validées humainement —
+  // les réécritures ne passent pas par ce script d'insertion, elles se valident
+  // via `node anti-cannibalisation.js --file … --exclude-slug <slug>`).
+  if (!opts.force) {
+    const gate = checkArticle(article, existing);
+    if (!gate.ok) {
+      throw new Error(`Publication bloquée par le gate anti-cannibalisation :\n${formatReport(article.slug, gate)}\n(--force pour bypasser en connaissance de cause)`);
+    }
   }
 
   if (!article.id) {
@@ -112,7 +129,7 @@ async function main() {
   try {
     const article = JSON.parse(input);
     delete article.imagePrompt;
-    const result = publishArticle(article);
+    const result = publishArticle(article, { force: args.includes('--force') });
     console.log(JSON.stringify(result));
   } catch (err) {
     console.error(JSON.stringify({ error: err.message }));

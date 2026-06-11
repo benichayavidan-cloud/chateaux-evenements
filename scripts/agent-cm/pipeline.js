@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { ARTICLES_PATH, IMAGES_DIR, CATEGORIES } = require('./config');
+const { checkArticle, loadClusters, formatReport, getExistingArticles, prepareExisting } = require('./anti-cannibalisation');
 
 const AGENT_DIR = __dirname;
 const SITE_DIR = path.resolve(AGENT_DIR, '../..');
@@ -16,45 +17,21 @@ function logError(step, msg) {
   console.error(`[Step ${step}] ERROR: ${msg}`);
 }
 
-function getExistingArticles() {
-  const articles = [];
-  const dataDir = path.join(SITE_DIR, 'src/data');
-  const files = ['blog-posts.ts', 'blog-posts-seo-2026.ts', 'blog-posts-niches-2026.ts', 'blog-posts-camille.ts'];
-  for (const file of files) {
-    try {
-      const content = fs.readFileSync(path.join(dataDir, file), 'utf-8');
-      const slugRegex = /slug:\s*["']([^"']+)["']/g;
-      const titleRegex = /title:\s*["']([^"']+)["']/g;
-      const slugs = [];
-      const titles = [];
-      let m;
-      while ((m = slugRegex.exec(content)) !== null) slugs.push(m[1]);
-      while ((m = titleRegex.exec(content)) !== null) titles.push(m[1]);
-      for (let i = 0; i < slugs.length; i++) {
-        articles.push({ slug: slugs[i], title: titles[i] || slugs[i] });
-      }
-    } catch {}
-  }
-  return articles;
-}
+// getExistingArticles est importé de ./anti-cannibalisation (source unique —
+// les deux modules doivent scanner exactement les mêmes fichiers de données).
 
 function getExistingSlugs() {
   return getExistingArticles().map(a => a.slug);
 }
 
-function slugWords(slug) {
-  return new Set(slug.split('-').filter(w => w.length > 2));
-}
-
-function isSimilarSlug(newSlug, existingSlugs) {
-  const newWords = slugWords(newSlug);
-  for (const existing of existingSlugs) {
-    const existingWords = slugWords(existing);
-    const common = [...newWords].filter(w => existingWords.has(w));
-    const similarity = common.length / Math.max(newWords.size, existingWords.size);
-    if (similarity >= 0.7) return existing;
-  }
-  return null;
+/** Résumé du registre de clusters pour injection dans le system prompt */
+function clustersPromptBlock() {
+  const clusters = loadClusters();
+  const lines = clusters.map(c =>
+    `- ${c.canonical} possède : ${c.primaryKeywords.map(k => `"${k}"`).join(', ')}` +
+    (c.zoneWords && c.zoneWords.length ? ` | zone : ${c.zoneWords.join(', ')} → lien obligatoire avec ancre "${c.anchorText}"` : '')
+  );
+  return lines.join('\n');
 }
 
 async function step1_gscResearch() {
@@ -97,6 +74,15 @@ Ne JAMAIS écrire un article sur un sujet déjà couvert, même si tu changes l'
 Exemple interdit : "team-building-chantilly-activites-domaines" existe → "team-building-chantilly-domaines-activites" est un DOUBLON.
 Choisis des sujets TOTALEMENT DIFFÉRENTS de la liste ci-dessus.
 
+MOTS-CLÉS PROTÉGÉS (registre seo-clusters.json — chaque requête appartient à UNE page canonique) :
+${clustersPromptBlock()}
+
+RÈGLES DE PROPRIÉTÉ DES MOTS-CLÉS (appliquées par un validateur de code AVANT publication — toute violation = article REJETÉ) :
+1. INTERDIT d'écrire un article dont le title ou le slug cible un mot-clé protégé ci-dessus. Ces requêtes appartiennent aux pages canoniques.
+2. Dans les données GSC, chaque requête a un champ "ownedBy" (la page qui ranke déjà dessus). Une requête possédée n'est JAMAIS un sujet de nouvel article — c'est la page propriétaire qu'il faut renforcer.
+3. Si ton article mentionne une zone géographique (Chantilly, Yvelines, Oise, Chevreuse...), il DOIT contenir un lien vers la page canonique de la zone avec l'ancre indiquée, dans le premier tiers du contenu. L'article est un SATELLITE qui pousse sa landing page.
+4. Les nouveaux articles couvrent des sujets VIERGES : intentions de recherche que NI les landing pages NI les articles existants ne couvrent.
+
 CATÉGORIES VALIDES : ${CATEGORIES.join(', ')}
 
 AUJOURD'HUI : ${today}
@@ -134,33 +120,115 @@ Pour le champ content : c'est une SEULE chaîne HTML (pas un array). Utiliser de
 
 Réponds avec UNIQUEMENT le tableau JSON.`;
 
-  const MAX_RETRIES = 3;
-  let response;
-  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-    try {
-      const stream = await client.messages.stream({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 32000,
-        system: systemPrompt,
-        messages: [{ role: 'user', content: 'Génère 2 articles de blog SEO en français pour Select Châteaux. Retourne UNIQUEMENT du JSON valide — un seul tableau avec 2 objets. Utilise des guillemets simples pour les attributs HTML. Vérifie que ton JSON est valide avant de répondre.' }],
-      });
-      response = await stream.finalMessage();
-      break;
-    } catch (apiError) {
-      const isOverloaded = apiError.status === 529 || apiError.message?.includes('Overloaded') || apiError.error?.type === 'overloaded_error';
-      const isRateLimit = apiError.status === 429;
-      if ((isOverloaded || isRateLimit) && attempt < MAX_RETRIES) {
-        const delay = attempt * 30;
-        log(2, `API ${isOverloaded ? 'overloaded' : 'rate limited'} — retry ${attempt}/${MAX_RETRIES} dans ${delay}s`);
-        await new Promise(r => setTimeout(r, delay * 1000));
-        continue;
+  async function callClaude(userMessage) {
+    const MAX_RETRIES = 3;
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        const stream = await client.messages.stream({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 32000,
+          system: systemPrompt,
+          messages: [{ role: 'user', content: userMessage }],
+        });
+        return await stream.finalMessage();
+      } catch (apiError) {
+        const isOverloaded = apiError.status === 529 || apiError.message?.includes('Overloaded') || apiError.error?.type === 'overloaded_error';
+        const isRateLimit = apiError.status === 429;
+        if ((isOverloaded || isRateLimit) && attempt < MAX_RETRIES) {
+          const delay = attempt * 30;
+          log(2, `API ${isOverloaded ? 'overloaded' : 'rate limited'} — retry ${attempt}/${MAX_RETRIES} dans ${delay}s`);
+          await new Promise(r => setTimeout(r, delay * 1000));
+          continue;
+        }
+        throw apiError;
       }
-      throw apiError;
     }
   }
-  const text = response.content.filter(b => b.type === 'text').map(b => b.text).join('');
-  log(2, `Réponse Claude : ${text.length} chars`);
 
+  const TARGET_COUNT = 2;
+  const baseUserMessage = 'Génère 2 articles de blog SEO en français pour Select Châteaux. Retourne UNIQUEMENT du JSON valide — un seul tableau avec 2 objets. Utilise des guillemets simples pour les attributs HTML. Vérifie que ton JSON est valide avant de répondre.';
+
+  // GATE ANTI-CANNIBALISATION : jusqu'à 2 tentatives de génération.
+  // Les violations de la tentative 1 sont renvoyées à Claude en feedback.
+  // Données chargées UNE fois (les data files font ~1,6 Mo — pas de re-scan par candidat).
+  const clusters = loadClusters();
+  const baseExisting = prepareExisting(getExistingArticles());
+
+  let validArticles = [];
+  let lastViolationsFeedback = '';
+  let gateRejectionCount = 0;
+  for (let genAttempt = 1; genAttempt <= 2; genAttempt++) {
+    const acceptedNote = validArticles.length > 0
+      ? `\n\nARTICLE(S) DÉJÀ ACCEPTÉ(S) DANS CE RUN (ne PAS recouvrir ces sujets) :\n${validArticles.map(a => `- ${a.slug} → ${a.title}`).join('\n')}\nGénère uniquement ${TARGET_COUNT - validArticles.length} article(s) sur un sujet TOTALEMENT différent.`
+      : '';
+    const userMessage = genAttempt === 1
+      ? baseUserMessage
+      : `${baseUserMessage}
+
+ATTENTION — ta tentative précédente a été REJETÉE par le validateur anti-cannibalisation :
+${lastViolationsFeedback}
+
+Choisis des sujets RADICALEMENT différents : ni les mots-clés protégés, ni les sujets des articles existants. Et inclus les liens canoniques obligatoires si une zone est mentionnée.${acceptedNote}`;
+
+    // Une tentative qui échoue (API ou parsing) ne doit JAMAIS jeter les
+    // articles déjà validés à la tentative précédente.
+    let articles;
+    try {
+      const response = await callClaude(userMessage);
+      const text = response.content.filter(b => b.type === 'text').map(b => b.text).join('');
+      log(2, `Réponse Claude (tentative ${genAttempt}) : ${text.length} chars`);
+      articles = parseArticlesJSON(text);
+    } catch (err) {
+      logError(2, `Tentative ${genAttempt} échouée (${err.message})`);
+      if (validArticles.length > 0) break; // on garde l'acquis
+      throw err;
+    }
+
+    // Validation structurelle + gate anti-cannibalisation.
+    // CRITIQUE : chaque candidat est aussi comparé aux articles ACCEPTÉS dans ce
+    // run (batch + tentative précédente) — sinon 2 articles du même run peuvent
+    // se cannibaliser entre eux sans que le gate ne voie rien.
+    const feedbacks = [];
+    for (const a of articles) {
+      if (validArticles.length >= TARGET_COUNT) break; // cap strict
+      if (!a.slug || !a.title || !a.content) {
+        feedbacks.push(`- Article incomplet, champs manquants : ${JSON.stringify(Object.keys(a))}`);
+        continue;
+      }
+      if (existingSlugs.includes(a.slug) || validArticles.some(v => v.slug === a.slug)) {
+        feedbacks.push(`- Slug dupliqué exact : ${a.slug}`);
+        continue;
+      }
+      const existingPlusRun = baseExisting.concat(
+        prepareExisting(validArticles.map(v => ({ slug: v.slug, title: v.title })))
+      );
+      const gate = checkArticle(a, existingPlusRun, clusters);
+      if (!gate.ok) {
+        gateRejectionCount++;
+        log(2, formatReport(a.slug, gate));
+        feedbacks.push(formatReport(a.slug, gate));
+        continue;
+      }
+      validArticles.push(a);
+    }
+
+    if (feedbacks.length === 0 || validArticles.length >= TARGET_COUNT) break;
+    lastViolationsFeedback = feedbacks.join('\n');
+    if (genAttempt === 2) {
+      log(2, `Tentative 2 : ${validArticles.length} article(s) valide(s) au total, violations restantes ignorées — on publie uniquement les valides.`);
+    }
+  }
+
+  if (validArticles.length === 0) {
+    throw new Error('Gate anti-cannibalisation : aucun article valide après 2 tentatives. Aucune publication (comportement voulu — mieux vaut 0 article qu\'un article cannibalisant).');
+  }
+
+  log(2, `${validArticles.length} article(s) validé(s) : ${validArticles.map(a => a.slug).join(', ')} (${gateRejectionCount} rejet(s) gate)`);
+  return { articles: validArticles, gateRejectionCount };
+}
+
+/** Parse la réponse JSON de Claude avec stratégies de fallback */
+function parseArticlesJSON(text) {
   let cleaned = text.trim();
   if (cleaned.startsWith('```')) {
     cleaned = cleaned.replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '');
@@ -212,20 +280,6 @@ Réponds avec UNIQUEMENT le tableau JSON.`;
     throw new Error('Claude a retourné une réponse vide ou non-tableau');
   }
 
-  for (const a of articles) {
-    if (!a.slug || !a.title || !a.content) {
-      throw new Error(`Article incomplet, champs manquants : ${JSON.stringify(Object.keys(a))}`);
-    }
-    if (existingSlugs.includes(a.slug)) {
-      throw new Error(`Slug dupliqué exact : ${a.slug}`);
-    }
-    const similar = isSimilarSlug(a.slug, existingSlugs);
-    if (similar) {
-      throw new Error(`Slug trop similaire à un article existant : "${a.slug}" ressemble à "${similar}" (mêmes mots réordonnés). Cannibalization SEO bloquée.`);
-    }
-  }
-
-  log(2, `${articles.length} articles parsés : ${articles.map(a => a.slug).join(', ')}`);
   return articles;
 }
 
@@ -396,7 +450,7 @@ async function main() {
 
     const gscData = await step1_gscResearch();
 
-    const articles = await step2_claudeGenerate(gscData, existingSlugs);
+    const { articles, gateRejectionCount } = await step2_claudeGenerate(gscData, existingSlugs);
 
     for (const article of articles) {
       const imageOk = await step3_generateImage(article);
@@ -422,9 +476,15 @@ async function main() {
     }
 
     log('DONE', `${publishedSlugs.length} articles publiés : ${publishedSlugs.join(', ')}`);
-    step6_logSession('success', publishedSlugs, null, null);
+    // Signal de monitoring : les rejets gate et les échecs partiels de publication
+    // sont tracés même en succès — sinon une dérive du registre de clusters
+    // (qui rejetterait la majorité des articles) resterait invisible pendant des semaines.
+    const warnings = [];
+    if (gateRejectionCount > 0) warnings.push(`${gateRejectionCount} rejet(s) gate anti-cannibalisation`);
+    if (failedStep) warnings.push(`échec partiel: ${failedStep}`);
+    step6_logSession('success', publishedSlugs, warnings.length > 0 ? warnings.join(' | ') : null, null);
 
-    console.log(JSON.stringify({ status: 'success', slugs: publishedSlugs }));
+    console.log(JSON.stringify({ status: 'success', slugs: publishedSlugs, gateRejections: gateRejectionCount }));
   } catch (err) {
     logError('FATAL', err.message);
     failedStep = failedStep || 'pipeline';

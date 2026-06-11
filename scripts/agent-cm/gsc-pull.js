@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 const { google } = require('googleapis');
-const fs = require('fs');
 const {
   GSC_SITE_URL, GSC_CLIENT_ID, GSC_CLIENT_SECRET, GSC_REFRESH_TOKEN,
-  ARTICLES_PATH,
 } = require('./config');
 
 function getAuthClient() {
@@ -21,17 +19,12 @@ function formatDate(daysAgo) {
   return d.toISOString().split('T')[0];
 }
 
+// Source unique : scanne les 4 fichiers de données blog (pas seulement
+// blog-posts-camille.ts — sinon l'agent croit "vierges" ~150 sujets déjà couverts).
+const { getExistingArticles } = require('./anti-cannibalisation');
+
 function getExistingSlugs() {
-  try {
-    const content = fs.readFileSync(ARTICLES_PATH, 'utf-8');
-    const slugs = [];
-    const regex = /slug:\s*["']([^"']+)["']/g;
-    let match;
-    while ((match = regex.exec(content)) !== null) slugs.push(match[1]);
-    return slugs;
-  } catch {
-    return [];
-  }
+  return getExistingArticles().map(a => a.slug);
 }
 
 async function pullGSCData(period = '30days', limit = 200) {
@@ -41,7 +34,7 @@ async function pullGSCData(period = '30days', limit = 200) {
   const startDate = formatDate(days);
   const endDate = formatDate(0);
 
-  const [queriesRes, pagesRes] = await Promise.all([
+  const [queriesRes, pagesRes, ownershipRes] = await Promise.all([
     sc.searchanalytics.query({
       siteUrl: GSC_SITE_URL,
       requestBody: { startDate, endDate, dimensions: ['query'], rowLimit: limit, type: 'web' },
@@ -50,15 +43,47 @@ async function pullGSCData(period = '30days', limit = 200) {
       siteUrl: GSC_SITE_URL,
       requestBody: { startDate, endDate, dimensions: ['page'], rowLimit: limit, type: 'web' },
     }),
+    // CRITIQUE ANTI-CANNIBALISATION : mapping requête → pages qui rankent dessus.
+    // Sans ce mapping, chaque requête "opportunité" devenait un nouvel article
+    // concurrent de la page qui générait déjà ses impressions.
+    sc.searchanalytics.query({
+      siteUrl: GSC_SITE_URL,
+      requestBody: { startDate, endDate, dimensions: ['query', 'page'], rowLimit: Math.min(limit * 5, 25000), type: 'web' },
+    }),
   ]);
 
-  const queries = (queriesRes.data.rows || []).map(r => ({
+  const stripBase = (url) => url.replace(GSC_SITE_URL.replace(/\/$/, ''), '') || '/';
+
+  // Pour chaque requête : la page propriétaire (+ détection de cannibalisation si 2+ pages)
+  const ownership = {};
+  for (const r of (ownershipRes.data.rows || [])) {
+    const [query, pageUrl] = r.keys;
+    const page = stripBase(pageUrl);
+    if (!ownership[query]) ownership[query] = [];
+    ownership[query].push({ page, impressions: r.impressions, position: +r.position.toFixed(1) });
+  }
+  for (const q of Object.keys(ownership)) {
+    ownership[q].sort((a, b) => b.impressions - a.impressions);
+  }
+
+  const annotate = (q) => {
+    const owners = ownership[q.query] || [];
+    return {
+      ...q,
+      ownedBy: owners[0]?.page || null,
+      ownerPosition: owners[0]?.position ?? null,
+      ownerIsLanding: owners[0] ? !owners[0].page.startsWith('/blog') : false,
+      cannibalized: owners.length >= 2 ? owners.slice(0, 4).map(o => o.page) : null,
+    };
+  };
+
+  const queries = (queriesRes.data.rows || []).map(r => annotate({
     query: r.keys[0], clicks: r.clicks, impressions: r.impressions,
     ctr: +(r.ctr * 100).toFixed(1), position: +r.position.toFixed(1),
   }));
 
   const pages = (pagesRes.data.rows || []).map(r => ({
-    page: r.keys[0].replace(GSC_SITE_URL.replace(/\/$/, ''), '') || '/',
+    page: stripBase(r.keys[0]),
     clicks: r.clicks, impressions: r.impressions,
     ctr: +(r.ctr * 100).toFixed(1), position: +r.position.toFixed(1),
   }));
@@ -68,15 +93,43 @@ async function pullGSCData(period = '30days', limit = 200) {
 
 function analyzeOpportunities(data) {
   const existingSlugs = getExistingSlugs();
+  const byImpressions = (a, b) => b.impressions - a.impressions;
+
+  // PARADIGME ANTI-CANNIBALISATION :
+  // Toute requête avec impressions a déjà une page propriétaire (ownedBy).
+  // → On RENFORCE la page propriétaire (réécriture, maillage, title CTR).
+  // → On n'écrit JAMAIS un nouvel article sur une requête possédée.
+  // Les nouveaux articles viennent de sujets vierges (recherche externe),
+  // validés par anti-cannibalisation.js.
   return {
-    optimize: data.queries.filter(q => q.position >= 5 && q.position <= 25 && q.impressions >= 3)
-      .sort((a, b) => b.impressions - a.impressions),
-    newTerritory: data.queries.filter(q => q.position > 25 && q.impressions >= 2)
-      .sort((a, b) => b.impressions - a.impressions),
-    topPerformers: data.queries.filter(q => q.position <= 5)
-      .sort((a, b) => b.impressions - a.impressions),
-    underperformingPages: data.pages.filter(p => p.clicks === 0 && p.impressions >= 5)
-      .sort((a, b) => b.impressions - a.impressions),
+    // Requêtes possédées par une LANDING/service page → renforcer la landing
+    // (maillage interne depuis le blog avec ancre exacte, jamais de nouvel article)
+    strengthenLanding: data.queries
+      .filter(q => q.impressions >= 3 && q.ownedBy && q.ownerIsLanding)
+      .sort(byImpressions),
+    // Requêtes possédées par un ARTICLE (ownedBy /blog/…) en position 5-25
+    // → candidat réécriture GEO de CET article
+    rewriteCandidates: data.queries
+      .filter(q => q.impressions >= 3 && q.ownedBy && !q.ownerIsLanding && (q.ownerPosition ?? q.position) >= 5 && (q.ownerPosition ?? q.position) <= 25)
+      .sort(byImpressions),
+    // Requêtes possédées mais loin (position > 25) → renforcer le propriétaire
+    // par du maillage interne ; toujours PAS de nouvel article
+    lowVisibilityOwned: data.queries
+      .filter(q => q.impressions >= 2 && q.ownedBy && (q.ownerPosition ?? q.position) > 25)
+      .sort(byImpressions),
+    // Requêtes sans propriétaire identifié (hors du join query+page, capé) :
+    // NE PAS agir dessus sans vérification manuelle — le propriétaire existe
+    // probablement mais n'est pas dans l'échantillon GSC
+    unknownOwnership: data.queries
+      .filter(q => q.impressions >= 3 && !q.ownedBy)
+      .sort(byImpressions),
+    // ALERTE : requêtes où 2+ pages du site rankent en même temps (cannibalisation active)
+    cannibalizationAlerts: data.queries
+      .filter(q => q.cannibalized && q.impressions >= 5)
+      .sort(byImpressions)
+      .map(q => ({ query: q.query, impressions: q.impressions, position: q.position, pages: q.cannibalized })),
+    topPerformers: data.queries.filter(q => q.position <= 5).sort(byImpressions),
+    underperformingPages: data.pages.filter(p => p.clicks === 0 && p.impressions >= 5).sort(byImpressions),
     existingSlugs,
     totalQueries: data.queries.length,
     totalPages: data.pages.length,
