@@ -7,7 +7,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Send, Clock, Shield } from 'lucide-react';
+import { Send, Clock, Shield, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui-v2';
 import { Text } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
@@ -48,6 +48,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     periodeFlexible: '',
     message: '',
   });
+  // Validation inline (✓ vert au blur) pour email + téléphone
+  const [validFields, setValidFields] = useState<{ email?: boolean; telephone?: boolean }>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -57,7 +59,14 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
       trackFormStart("devis_mini");
       setFormStartTracked(true);
     }
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      // Date d'arrivée → pré-remplit le départ au même jour (gère les séminaires 1 jour), si vide
+      if (name === 'dateArrivee' && !prev.dateDepart) {
+        return { ...prev, dateArrivee: value, dateDepart: value };
+      }
+      return { ...prev, [name]: value };
+    });
   };
 
   const handleDateModeChange = (mode: 'exact' | 'flexible') => {
@@ -68,6 +77,46 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     }
     setDateMode(mode);
     setError(null);
+  };
+
+  // Domaines email personnels → on ne pré-remplit PAS l'entreprise
+  const GENERIC_EMAIL_DOMAINS = new Set([
+    'gmail.com', 'googlemail.com', 'outlook.com', 'outlook.fr', 'hotmail.com', 'hotmail.fr',
+    'live.com', 'live.fr', 'yahoo.com', 'yahoo.fr', 'ymail.com', 'free.fr', 'orange.fr',
+    'wanadoo.fr', 'sfr.fr', 'laposte.net', 'icloud.com', 'me.com', 'mac.com', 'gmx.com',
+    'gmx.fr', 'proton.me', 'protonmail.com', 'aol.com', 'bbox.fr', 'neuf.fr', 'numericable.fr',
+  ]);
+
+  // Pré-remplit l'entreprise à partir du domaine d'un email professionnel (modifiable)
+  const deriveCompanyFromEmail = (email: string) => {
+    const at = email.indexOf('@');
+    if (at < 0) return;
+    const domain = email.slice(at + 1).toLowerCase().trim();
+    if (!domain || GENERIC_EMAIL_DOMAINS.has(domain)) return;
+    const parts = domain.split('.');
+    if (parts.length < 2) return;
+    const sld = parts[parts.length - 2];
+    if (!sld || sld.length < 2) return;
+    const name = sld.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    setFormData((prev) => (prev.entreprise.trim() ? prev : { ...prev, entreprise: name }));
+  };
+
+  const isEmailValid = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  const isPhoneValid = (v: string) => v.replace(/\D/g, '').length >= 10;
+
+  const handleEmailBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.currentTarget.style.borderColor = theme.colors.neutral.gray300;
+    e.currentTarget.style.boxShadow = 'none';
+    const v = e.currentTarget.value;
+    setValidFields((p) => ({ ...p, email: v.length > 0 && isEmailValid(v) }));
+    deriveCompanyFromEmail(v);
+  };
+
+  const handlePhoneBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.currentTarget.style.borderColor = theme.colors.neutral.gray300;
+    e.currentTarget.style.boxShadow = 'none';
+    const v = e.currentTarget.value;
+    setValidFields((p) => ({ ...p, telephone: v.length > 0 && isPhoneValid(v) }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -84,6 +133,12 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
           ? 'Veuillez remplir tous les champs obligatoires (dont vos dates).'
           : 'Veuillez remplir tous les champs obligatoires (dont votre période souhaitée).'
       );
+      return;
+    }
+
+    const participants = parseInt(formData.nombreParticipants, 10);
+    if (Number.isNaN(participants) || participants < 10 || participants > 500) {
+      setError('Le nombre de participants doit être compris entre 10 et 500. Pour un autre volume, précisez-le dans le message.');
       return;
     }
 
@@ -259,19 +314,25 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '12px' }}>
             <div>
               <label htmlFor="mini-nom" style={labelStyle}>Nom & Prénom *</label>
-              <input id="mini-nom" name="nomPrenom" type="text" required placeholder="Jean Dupont" value={formData.nomPrenom} onChange={handleChange} style={inputStyle} {...focusHandlers} />
+              <input id="mini-nom" name="nomPrenom" type="text" autoComplete="name" required placeholder="Jean Dupont" value={formData.nomPrenom} onChange={handleChange} style={inputStyle} {...focusHandlers} />
             </div>
             <div>
               <label htmlFor="mini-entreprise" style={labelStyle}>Entreprise</label>
-              <input id="mini-entreprise" name="entreprise" type="text" placeholder="Nom de l'entreprise" value={formData.entreprise} onChange={handleChange} style={inputStyle} {...focusHandlers} />
+              <input id="mini-entreprise" name="entreprise" type="text" autoComplete="organization" placeholder="Nom de l'entreprise" value={formData.entreprise} onChange={handleChange} style={inputStyle} {...focusHandlers} />
             </div>
             <div>
-              <label htmlFor="mini-email" style={labelStyle}>Email professionnel *</label>
-              <input id="mini-email" name="email" type="email" required placeholder="jean@entreprise.com" value={formData.email} onChange={handleChange} style={inputStyle} {...focusHandlers} />
+              <label htmlFor="mini-email" style={labelStyle}>
+                Email professionnel *
+                {validFields.email && <CheckCircle2 style={{ width: 14, height: 14, color: '#16A34A', display: 'inline', marginLeft: 6, verticalAlign: '-2px' }} />}
+              </label>
+              <input id="mini-email" name="email" type="email" autoComplete="email" required placeholder="jean@entreprise.com" value={formData.email} onChange={handleChange} style={inputStyle} onFocus={focusHandlers.onFocus} onBlur={handleEmailBlur} />
             </div>
             <div>
-              <label htmlFor="mini-tel" style={labelStyle}>Téléphone *</label>
-              <input id="mini-tel" name="telephone" type="tel" required placeholder="06 12 34 56 78" value={formData.telephone} onChange={handleChange} style={inputStyle} {...focusHandlers} />
+              <label htmlFor="mini-tel" style={labelStyle}>
+                Téléphone *
+                {validFields.telephone && <CheckCircle2 style={{ width: 14, height: 14, color: '#16A34A', display: 'inline', marginLeft: 6, verticalAlign: '-2px' }} />}
+              </label>
+              <input id="mini-tel" name="telephone" type="tel" autoComplete="tel" required placeholder="06 12 34 56 78" value={formData.telephone} onChange={handleChange} style={inputStyle} onFocus={focusHandlers.onFocus} onBlur={handlePhoneBlur} />
             </div>
           </div>
 
@@ -320,30 +381,31 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '12px' }}>
             <div>
               <label htmlFor="mini-participants" style={labelStyle}>Participants *</label>
-              <select
+              <input
                 id="mini-participants"
                 name="nombreParticipants"
+                type="number"
+                inputMode="numeric"
+                min={10}
+                max={500}
                 required
+                placeholder="Ex : 30"
                 value={formData.nombreParticipants}
                 onChange={handleChange}
-                style={{
-                  ...inputStyle,
-                  appearance: 'none',
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'right 12px center',
-                  paddingRight: '36px',
-                  color: formData.nombreParticipants ? theme.colors.neutral.gray900 : theme.colors.neutral.gray400,
-                }}
+                style={inputStyle}
                 {...focusHandlers}
+              />
+              <span
+                style={{
+                  display: 'block',
+                  marginTop: '4px',
+                  fontSize: theme.typography.fontSize.xs,
+                  color: theme.colors.neutral.gray500,
+                  lineHeight: 1.3,
+                }}
               >
-                <option value="" disabled>Sélectionnez</option>
-                <option value="20">10 - 30 personnes</option>
-                <option value="50">30 - 80 personnes</option>
-                <option value="100">80 - 150 personnes</option>
-                <option value="200">150 - 300 personnes</option>
-                <option value="400">300 - 500 personnes</option>
-              </select>
+                Une estimation suffit — c&apos;est pour établir votre devis
+              </span>
             </div>
 
             {dateMode === 'exact' ? (
