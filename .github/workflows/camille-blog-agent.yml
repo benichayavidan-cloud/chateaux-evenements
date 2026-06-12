@@ -56,6 +56,31 @@ jobs:
             echo "Publié et pushé !"
           fi
 
+      - name: Ping IndexNow
+        run: |
+          SLUGS=$(node -e "try{const r=JSON.parse(require('fs').readFileSync('/tmp/pipeline-result.json','utf8').split('\n').filter(l=>l.startsWith('{')).pop());console.log((r.slugs||[]).join(' '))}catch{console.log('')}")
+          if [ -z "$SLUGS" ]; then
+            echo "Aucun article publié — pas de ping IndexNow"
+            exit 0
+          fi
+          # Le push déclenche l'auto-deploy Vercel — attendre que le 1er article soit en ligne avant de pinger
+          FIRST=$(echo $SLUGS | cut -d' ' -f1)
+          for i in $(seq 1 30); do
+            CODE=$(curl -s -o /dev/null -w '%{http_code}' "https://www.selectchateaux.com/blog/$FIRST")
+            if [ "$CODE" = "200" ]; then
+              echo "Article en ligne après ${i}0s"
+              break
+            fi
+            echo "Tentative $i/30 — HTTP $CODE, on attend le deploy Vercel..."
+            sleep 10
+          done
+          if [ "$CODE" != "200" ]; then
+            echo "::warning::Article pas en ligne après 5 min — ping IndexNow annulé (à refaire manuellement : node scripts/indexnow-ping.js /blog/$FIRST)"
+            exit 0
+          fi
+          PATHS=$(for s in $SLUGS; do echo -n "/blog/$s "; done)
+          node scripts/indexnow-ping.js $PATHS || echo "::warning::Ping IndexNow échoué (non-fatal)"
+
       - name: Summary
         if: always()
         run: |
