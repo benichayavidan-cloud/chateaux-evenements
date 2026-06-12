@@ -1,5 +1,30 @@
 # TODO - Prochaine session (SITE-WEB)
 
+## Session 12 juin 2026 — Indexation Bing/IndexNow + annuaires B2B + plan keywords — DÉPLOYÉE ✅
+
+### Fait cette session (2 commits, auto-deploy Vercel actif)
+- [x] Indexation GSC demandée manuellement (article Châteauform + 7 pages prioritaires) — fait par Avidan
+- [x] **Bing Webmaster Tools** : site inscrit (import GSC), sitemap.xml soumis, Site Scan lancé
+- [x] **IndexNow opérationnel** : clé + fichier `public/0d627a0f….txt` + script `scripts/indexnow-ping.js` — 22 URLs pingées (10 stratégiques + 12 fusionnées 301)
+- [x] **Hook IndexNow dans le pipeline Camille** (`camille-blog-agent.yml`) : poll l'URL en 200 (attente auto-deploy) puis ping — chaque futur article auto-soumis à Bing
+- [x] **Découverte : auto-deploy GitHub→Vercel re-fonctionne** (vérifié API Vercel, source: git) — point TODO résolu, mémoire mise à jour
+- [x] GSC « Bloquée par robots.txt » (3 URLs paramétrées) analysé → blocage volontaire, rien à faire
+- [x] **Annuaires B2B** : liste corrigée pour intermédiaire (PAS de château en propre) — 9 annuaires vérifiés avec URLs d'inscription + kit copier-coller : `_claude_docs/2026-06-12_kit-inscription-annuaires.md`
+- [x] **Plan keywords SEO + IA mode** : 363 keywords / 15 patterns validés (data GSC + termes Ads réels + Keyword Planner) : `_claude_docs/2026-06-12_keyword-plan.md` (+ patterns rejetés : insolite/original, nature, sportif)
+
+### TODO prochaine session
+- [ ] **Inscriptions annuaires** (Avidan, ~10-15 min chacun) : kit prêt, 9 URLs dans le kit. Une fois fait → donner les URLs des fiches à Claude pour vérif NAP/backlinks
+- [ ] **Exploiter le keyword plan** : croiser avec seo-clusters.json → assigner chaque pattern à une page existante (renfort) ou contenu à créer ; prioriser par volume/conversion. Pépites identifiées : `codir château` (pos 3,7 !), `seminaire chateau nature` (pos 9,7), `lieu séminaire` (590/mois)
+- [ ] **Bing WMT à surveiller** : résultats Site Scan, soumissions IndexNow visibles, menu AI Performance (visibilité Copilot)
+- [ ] Vérifier indexation Google de l'article Châteauform (inspection URL, ~J+3)
+- [ ] Surveiller le 1er run Camille avec hook IndexNow (logs GitHub Actions)
+- [ ] Corriger prix article `budget-seminaire-entreprise-2026-planifier` (250-500€ vs pilier 150-450€) — référence : `src/data/pricing.ts`
+- [ ] GBP : posts hebdo + avis (API en attente, dossier 7-1582000039874)
+- [ ] Baromètre prix séminaires IDF depuis data CRM (citations IA + backlinks)
+- [ ] **MESURE S+2 (~25 juin)** : events GA4 funnel CRO vs baseline + check GSC positions landing (effet fusions) + canal "AI Assistant" GA4
+
+---
+
 ## Session 11 juin 2026 (soir) — Audit SEO/GEO + fix racine cannibalisation — DÉPLOYÉE ✅
 
 ### ⚡ Action immédiate (Avidan, 2 min)
