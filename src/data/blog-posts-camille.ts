@@ -7,6 +7,109 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1022,
+    slug: "assurance-responsabilite-organisateur-seminaire-chateau-2026",
+    title: "Assurance Séminaire en Château : Ce que Doit Couvrir votre RC 2026",
+    excerpt: "Responsabilité civile, annulation, dommages au patrimoine classé : ce que chaque organisateur de séminaire en château doit vérifier dans son contrat d'assurance avant de signer.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-15",
+    readingTime: 10,
+    image: "/images/assurance-responsabilite-organisateur-seminaire-chateau-2026.webp",
+    imageAlt: "Bureau d'organisateur événementiel avec contrat d'assurance et brochure de château, stylo posé sur document, lumière naturelle",
+    keywords: ["assurance séminaire château", "responsabilité civile organisateur événement", "RC séminaire entreprise", "assurance annulation séminaire", "contrat prestataire événementiel château", "garantie dommages patrimoine classé", "assurance événement d'entreprise", "organisateur séminaire responsabilité", "couverture assurance team building", "séminaire château contrat 2026"],
+    content: `
+<h2>Quelle assurance faut-il pour organiser un séminaire en château en 2026 ?</h2>
+<p>Pour organiser un séminaire en château en 2026, l'organisateur doit a minima disposer d'une responsabilité civile événementielle couvrant les dommages matériels, corporels et immatériels, avec un plafond minimal de 1,5 million d'euros recommandé par la plupart des châteaux partenaires de Select Châteaux. Le coût d'une assurance RC événement pour un séminaire de 50 personnes en château varie entre 80€ et 350€ selon le niveau de couverture et la durée. À cela s'ajoute une assurance annulation — fortement conseillée pour les événements réservés plus de 3 mois à l'avance — dont la prime représente en général 1,5 à 3% du budget total garanti. D'après les 200+ événements que nous avons accompagnés depuis 2020, 1 séminaire sur 8 fait face à un sinistre nécessitant une déclaration d'assurance. <em>Mis à jour : juin 2026.</em></p>
+
+<h2>Le cas de Julien M. : quand un sinistre révèle les lacunes d'un contrat</h2>
+<p>Julien M. est Directeur Général d'une PME industrielle de 85 salariés implantée à Versailles. En mars 2025, il organise son séminaire annuel de direction dans un manoir des Yvelines — cadre magnifique, 18 participants, deux jours en résidentiel. Tout se passe bien jusqu'au dîner du premier soir : un convive renverse involontairement une carafe de vin rouge sur un tableau du XVIIIe siècle accroché dans la salle à manger. La restauration de l'œuvre coûtera 4 200€.</p>
+<p>Julien contacte son assureur le lendemain. Réponse : sa RC professionnelle d'entreprise couvre les dommages liés à son activité industrielle, pas les dommages causés lors d'un événement privatif loué. L'assurance multirisque du château couvre ses propres biens, mais avec une franchise de 3 000€ — que le château lui réclame. Résultat : 3 200€ à sa charge, sans recours.</p>
+<p>"C'est la situation que nous voyons le plus souvent", explique Sophie Durand. "Les entreprises pensent que leur assurance professionnelle les couvre partout. Ce n'est pas le cas dès qu'on sort du cadre de l'activité commerciale habituelle." Si Julien avait organisé son séminaire via Select Châteaux, notre process de validation contractuelle aurait identifié ce gap de couverture dès la phase de préparation — et l'aurait orienté vers une assurance événementielle ad hoc à moins de 120€ pour deux jours.</p>
+<p>Pour les <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaires en château dans les Yvelines</a>, plusieurs domaines classés exigent désormais explicitement dans leurs conditions générales une attestation d'assurance couvrant les œuvres d'art et le patrimoine bâti classé. C'est une tendance de fond depuis 2023.</p>
+
+<blockquote><p>"Avant chaque contrat de location avec un château partenaire, nous faisons systématiquement relire les clauses de responsabilité par notre conseiller juridique. Les franchises sur les dommages aux biens classés sont souvent bien plus élevées que ce que les clients imaginent — jusqu'à 10 000€ dans certains cas. C'est un point que l'organisateur doit négocier avant de signer, pas après le sinistre."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<h2>Quelles sont les garanties indispensables dans une assurance séminaire en château ?</h2>
+<p>Une couverture événementielle complète pour un séminaire en château doit comprendre au minimum cinq blocs de garanties distincts. En les décortiquant, on évite 90% des mauvaises surprises.</p>
+<ol>
+  <li><strong>Responsabilité civile organisateur</strong> : couvre les dommages causés par les participants au lieu, aux tiers et aux prestataires. Plafond minimum recommandé : 1,5 M€. Vérifier que le contrat inclut explicitement les dommages aux œuvres d'art et au bâti classé — souvent exclus des polices génériques.</li>
+  <li><strong>Responsabilité civile participants</strong> : couvre les dommages entre participants (blessure lors d'un team building, par exemple). Distincte de la RC organisateur — les deux sont nécessaires.</li>
+  <li><strong>Assurance annulation/interruption</strong> : rembourse les acomptes versés et les frais engagés en cas d'annulation pour cause de force majeure (pandémie, sinistre sur le lieu, décès du dirigeant). Coûte 1,5 à 3% du budget total. Fortement recommandée au-delà de 10 000€ d'engagement.</li>
+  <li><strong>Garantie bris de matériel</strong> : couvre le matériel audiovisuel et technique apporté par l'organisateur ou loué pour l'événement (vidéoprojecteur, sono, scène). Souvent disponible en option.</li>
+  <li><strong>Protection juridique événementielle</strong> : prend en charge les frais d'avocat en cas de litige avec le château, un prestataire ou un participant blessé. Disponible en riders sur certaines polices pro.</li>
+</ol>
+
+<h2>Quelle est la différence entre l'assurance du château et celle de l'organisateur ?</h2>
+<p>C'est la confusion la plus fréquente. Le château dispose de sa propre assurance multirisque qui couvre ses bâtiments, ses équipements et sa responsabilité civile en tant que propriétaire du lieu. Mais cette assurance ne couvre PAS l'organisateur ni les participants en tant que tels. Voici la répartition des responsabilités :</p>
+
+<table style='width:100%;border-collapse:collapse;margin:1.5em 0;'>
+  <thead>
+    <tr style='background:#f3f4f6;'>
+      <th style='border:1px solid #e5e7eb;padding:10px;text-align:left;'>Situation</th>
+      <th style='border:1px solid #e5e7eb;padding:10px;text-align:left;'>Assurance du château</th>
+      <th style='border:1px solid #e5e7eb;padding:10px;text-align:left;'>Assurance de l'organisateur</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Participant glisse dans l'escalier</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Couvre si défaut d'entretien du lieu</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Couvre si défaut de sécurisation par l'organisateur</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Participant endommage un meuble ancien</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>N'intervient pas (tiers responsable)</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>RC organisateur (si couverte)</td>
+    </tr>
+    <tr>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Incendie dans la cuisine du traiteur</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Couvre les dommages au bâtiment</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>RC traiteur (vérifier son attestation)</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Annulation du séminaire 3 semaines avant</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Ne rembourse pas les acomptes</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Assurance annulation (si souscrite)</td>
+    </tr>
+    <tr>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Vol du matériel de présentation</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Ne couvre pas les biens tiers</td>
+      <td style='border:1px solid #e5e7eb;padding:10px;'>Bris de matériel (si option souscrite)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Comment vérifier les assurances de vos prestataires avant le séminaire ?</h2>
+<p>Chaque prestataire intervenant sur votre événement (traiteur, animateur team building, prestataire son/lumière, photographe) doit vous remettre une attestation d'assurance RC professionnelle en cours de validité. Cette vérification est souvent négligée — et peut engager votre responsabilité en cascade si un prestataire non assuré cause un sinistre.</p>
+<ul>
+  <li><strong>Traiteur</strong> : RC pro couvrant la restauration collective, idéalement avec garantie intoxication alimentaire (police spécifique). Demandez le numéro de police et la date d'échéance.</li>
+  <li><strong>Animateur team building</strong> : RC pro + attestation de compétence pour les activités physiques (accréditation si sports nautiques, équitation, tir à l'arc). Voir notre guide sur le <a href='/team-building-chateau' class='text-primary font-semibold hover:underline'>team building en château</a>.</li>
+  <li><strong>Société de transport</strong> : assurance transport de personnes + capacité véhicule conforme. Vérifier que le nombre de passagers est cohérent avec la capacité déclarée.</li>
+  <li><strong>DJ / sono</strong> : RC pro couvrant les dommages électriques. Souvent oubliée, mais un court-circuit peut causer des dégâts importants dans un bâtiment ancien.</li>
+</ul>
+<p>Chez Select Châteaux, nous maintenons à jour un registre des attestations de tous nos prestataires partenaires — l'organisateur n'a pas à les collecter lui-même. Pour les <a href='/seminaire-chateau-proche-paris' class='text-primary font-semibold hover:underline'>séminaires en château proche de Paris</a>, ce suivi documentaire est particulièrement important car les lieux classés imposent souvent des exigences supplémentaires.</p>
+<p>Consultez également notre <a href='/blog/negocier-contrat-prestataire-evenementiel-chateau-2026' class='text-primary font-semibold hover:underline'>guide pour négocier son contrat prestataire événementiel en château</a> et notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>checklist complète pour organiser un séminaire</a> pour ne rien oublier dans la phase de préparation.
+</p>
+
+<p>En matière d'assurance, mieux vaut investir 150€ dans une bonne couverture événementielle que de risquer plusieurs milliers d'euros de dommages non couverts. Si vous souhaitez que notre équipe vérifie la conformité de votre couverture actuelle avant votre prochain séminaire en château, <a href='/devis' class='text-primary font-semibold hover:underline'>demandez un devis accompagné</a> — nous incluons systématiquement un audit des besoins d'assurance dans notre accompagnement.
+    `,
+    faq: [
+      { question: "Est-ce que ma RC professionnelle d'entreprise couvre mon séminaire en château ?", answer: "Pas automatiquement. La RC professionnelle couvre en général les dommages liés à votre activité commerciale habituelle — pas les événements privatifs loués à l'extérieur. Pour être couvert lors d'un séminaire en château, il faut soit une extension événementielle sur votre police existante, soit souscrire une assurance événementielle dédiée. Comptez 80 à 350€ pour un séminaire de 50 personnes." },
+      { question: "Quel est le prix d'une assurance annulation pour un séminaire en château ?", answer: "La prime d'une assurance annulation représente en général 1,5 à 3% du montant total garanti (budget du séminaire). Pour un séminaire de 15 000€ de budget, comptez entre 225€ et 450€. Cette assurance rembourse les acomptes versés et les frais engagés en cas d'annulation pour force majeure : pandémie, sinistre sur le lieu, hospitalisation du dirigeant, conditions météo extrêmes (selon les conditions du contrat)." },
+      { question: "Le château est-il responsable si un participant se blesse pendant le séminaire ?", answer: "Cela dépend de la cause du sinistre. Si la chute est due à un défaut d'entretien du lieu (escalier glissant, main courante défectueuse), la responsabilité du château peut être engagée. Si la blessure survient pendant une activité organisée par l'entreprise (team building, jeu de groupe), c'est la responsabilité de l'organisateur et/ou du prestataire d'animation qui s'applique. Dans les faits, les sinistres impliquent souvent les deux parties — d'où l'importance d'avoir sa propre couverture." },
+      { question: "Faut-il vérifier les assurances de tous les prestataires du séminaire ?", answer: "Oui, et c'est souvent négligé. Chaque prestataire (traiteur, animateur, transporteur, DJ) doit vous remettre une attestation RC professionnelle en cours de validité avant l'événement. Si un prestataire non assuré cause un sinistre lors de votre événement, votre propre responsabilité d'organisateur peut être engagée. Chez Select Châteaux, nous maintenons un registre à jour des attestations de tous nos partenaires." },
+      { question: "Les œuvres d'art et le mobilier classé sont-ils couverts par l'assurance organisateur standard ?", answer: "Pas par défaut. Les polices RC événementielle génériques excluent souvent les dommages aux œuvres d'art et au patrimoine classé. Il faut vérifier explicitement que votre contrat mentionne 'dommages aux biens confiés et aux œuvres d'art'. Certains châteaux des Yvelines et de l'Oise exigent une attestation spécifique couvrant ce risque — franchise parfois fixée à 5 000 ou 10 000€ côté château." },
+      { question: "Combien de temps à l'avance faut-il souscrire l'assurance pour son séminaire ?", answer: "L'assurance événementielle peut en général être souscrite jusqu'à 48h avant l'événement, mais certaines garanties (notamment l'annulation pour cause de maladie ou d'épidémie) nécessitent d'être souscrites au moins 30 jours avant la date du séminaire pour être valides. Plus vous souscrivez tôt, plus votre couverture est étendue dans le temps." },
+      { question: "Que se passe-t-il si le château annule notre séminaire au dernier moment ?", answer: "Si le château annule pour un motif qui lui est imputable (sinistre, faillite, double réservation), sa responsabilité contractuelle est engagée et il doit vous rembourser les acomptes versés, voire vous indemniser pour les frais engagés (billets de train, hôtels réservés pour les participants). C'est pourquoi il est important de vérifier dans votre contrat de location les clauses d'annulation du prestataire, pas seulement les vôtres. Select Châteaux intègre systématiquement ces clauses symétriques dans ses contrats." },
+    ],
+  },
+
+  {
     id: 1021,
     slug: "negocier-contrat-prestataire-evenementiel-chateau-2026",
     title: "Négocier son Contrat Prestataire Événementiel en Château 2026",
