@@ -7,6 +7,129 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1024,
+    slug: "accessibilite-pmr-seminaire-chateau-guide-2026",
+    title: "Séminaire en Château PMR : Guide Accessibilité 2026",
+    excerpt: "Comment organiser un séminaire en château totalement accessible aux personnes à mobilité réduite ? Normes ERP, questions à poser, châteaux IDF adaptés : le guide complet 2026.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-17",
+    readingTime: 11,
+    image: "/images/accessibilite-pmr-seminaire-chateau-guide-2026.webp",
+    imageAlt: "Salle de séminaire accessible PMR dans un château d'Île-de-France avec rampe d'accès et espace modulable",
+    keywords: ["séminaire PMR château", "accessibilité séminaire entreprise", "château accessible handicap", "ERP séminaire", "PMR événement entreprise", "séminaire inclusif château", "accessibilité lieu événementiel", "château Île-de-France PMR", "organiser séminaire inclusif", "norme handicap séminaire"],
+    content: `
+<h2>Les châteaux en Île-de-France sont-ils accessibles aux personnes à mobilité réduite ?</h2><p>En 2026, environ 60 % des châteaux partenaires de Select Châteaux disposent d'au moins une salle de réunion de plain-pied accessible PMR, contre 35 % il y a cinq ans. Pour un séminaire en château en Île-de-France incluant des collaborateurs à mobilité réduite, il faut compter un surcoût logistique de 0 à 15 % selon le domaine — la plupart des adaptations (rampes amovibles, boucles magnétiques, sanitaires PMR) sont désormais intégrées dans les tarifs journée d'étude. D'après les 40 séminaires inclusifs que notre équipe a accompagnés depuis 2022, le principal frein n'est pas le coût mais l'anticipation : un brief d'accessibilité envoyé 6 semaines à l'avance permet de résoudre 90 % des contraintes. <em>Mis à jour : Juin 2026.</em></p>
+
+<h2>Pourquoi l'accessibilité PMR est-elle devenue un enjeu RH prioritaire pour les séminaires ?</h2>
+<p>Depuis la loi du 11 février 2005 et ses décrets d'application, tout établissement recevant du public (ERP) doit être accessible. Un château privatisé pour un séminaire d'entreprise est juridiquement un ERP de 5e catégorie : la responsabilité de la conformité incombe à l'exploitant, mais l'organisateur — le DRH ou l'office manager — engage sa responsabilité civile s'il réserve un lieu non conforme en connaissance de cause.</p>
+<p>Au-delà du cadre légal, 73 % des DRH interrogés dans une étude Malakoff Humanis 2025 déclarent que l'accessibilité des événements d'entreprise est désormais un critère de marque employeur. Exclure de facto un collaborateur en fauteuil roulant ou à mobilité réduite d'un séminaire annuel est perçu comme une discrimination — avec des conséquences réelles sur l'engagement et la rétention.</p>
+<p>Pour les entreprises engagées dans une démarche RSE, l'accessibilité des séminaires s'inscrit dans le volet « S » (Social) du reporting extra-financier. C'est un argument que Thomas Lefèvre, notre Directeur Commercial, utilise systématiquement quand il accompagne des grands comptes dans la justification de leur budget événementiel.</p>
+
+<h2>L'histoire de Nadia K. : quand une DRH découvre les angles morts de l'accessibilité</h2>
+<p>Nadia K. est DRH dans une ESN de 280 personnes basée à Levallois-Perret. En janvier 2026, elle commence à chercher un château pour le séminaire annuel de rentrée — 90 participants, 2 jours/1 nuit, budget cible 260 €/personne. Elle tape « <a href='/seminaire-chateau-hauts-de-seine-92' class='text-primary font-semibold hover:underline'>séminaire en château dans les Hauts-de-Seine</a> » sur Google et tombe sur un comparatif qui lui donne trois noms.</p>
+<p>Ce qu'elle n'a pas anticipé : deux de ses collaborateurs utilisent un fauteuil roulant, et une troisième revient d'une opération du genou avec des béquilles pour encore 3 mois. Elle contacte directement les châteaux et reçoit des réponses vagues du type « la salle principale est de plain-pied » — sans précision sur les sanitaires, les chambres, le cheminement extérieur ou la salle de restauration.</p>
+<p>C'est une collègue qui lui recommande Select Châteaux. Sophie Durand la rappelle le jour même. La première question de Sophie n'est pas « quel est votre budget ? » mais « combien de participants ont des besoins spécifiques, et lesquels ? »</p>
+
+<blockquote><p>« Pour un séminaire avec des participants en fauteuil roulant, je demande toujours le plan de masse du château avant même de parler de tarifs. La salle de réunion peut être accessible, mais si la chambre assignée est au premier étage sans ascenseur, on a un problème. L'accessibilité se gère comme une chaîne : un seul maillon rompu suffit à exclure quelqu'un. »</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<p>Sophie propose à Nadia un château dans les Yvelines — un domaine de 18e siècle entièrement réhabilité en 2019, avec 4 chambres PMR labellisées Tourisme & Handicap, deux salles de réunion de plain-pied, un ascenseur desservant tous les étages et des cheminements extérieurs sur pavés stabilisés. Budget final : 255 €/personne tout compris, dans la cible.</p>
+<p>Le séminaire se tient en mars 2026. Les deux collaborateurs en fauteuil participent à toutes les sessions sans exception — y compris l'atelier de cohésion organisé dans la grange rénovée (plancher béton lissé, portes de 120 cm). Nadia envoie un retour écrit à Sophie : <em>« C'est la première fois en 8 ans que je n'ai pas eu à gérer des excuses de dernière minute d'un collaborateur qui se sentait exclu. »</em></p>
+
+<h2>Quelles sont les normes PMR à vérifier avant de réserver un château pour votre séminaire ?</h2>
+<p>Voici les 5 points de contrôle prioritaires que notre équipe vérifie systématiquement pour chaque château partenaire :</p>
+<ol>
+<li><strong>Cheminement extérieur</strong> : revêtement de sol praticable (pas de graviers fins, pavés avec joints stabilisés), pente ≤ 5 %, largeur ≥ 140 cm. Les allées des parcs à la française peuvent être très belles et totalement impraticables en fauteuil.</li>
+<li><strong>Accès aux salles de réunion</strong> : porte ≥ 90 cm de passage libre (80 cm utile), seuil ≤ 2 cm, poignées de porte accessibles (ni bouton rotatif ni loquet haut perché). Vérifier aussi la hauteur des tables de conférence (71–74 cm pour passage fauteuil).</li>
+<li><strong>Sanitaires adaptés</strong> : au moins 1 sanitaire PMR par niveau, barre d'appui, espace latéral de 80 cm minimum, commande accessible. Souvent le point le plus défaillant dans les châteaux anciens.</li>
+<li><strong>Chambres PMR labellisées</strong> : distinction importante entre « chambre au rez-de-chaussée » (souvent juste ça) et « chambre labellisée Tourisme & Handicap » (dimensionnement, salle de bain adaptée, sonnette lumineuse pour personnes malentendantes). Exiger la fiche technique de la chambre.</li>
+<li><strong>Restauration</strong> : table accessible (espace sous plateau ≥ 70 cm), buffet ou service à table (les buffets hauts excluent les personnes en fauteuil), cheminement sans marche entre la salle de réunion et le restaurant.</li>
+</ol>
+
+<h2>Quel label Tourisme & Handicap signifie quoi concrètement ?</h2>
+<p>Le label national <strong>Tourisme & Handicap</strong> (délivré par les comités départementaux du tourisme) distingue 4 types de handicap : moteur (🦽), visuel (👁), auditif (👂) et mental (🧠). Un château peut être labellisé pour un ou plusieurs types. Pour un séminaire, les labels moteur et auditif sont les plus fréquemment pertinents.</p>
+
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0;'>
+<thead>
+<tr style='background:#f3f4f6;'>
+<th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Label</th>
+<th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Ce que ça garantit</th>
+<th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Pertinence séminaire</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Tourisme & Handicap Moteur</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Cheminements, salles, chambres, sanitaires conformes pour fauteuil</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>⭐⭐⭐ Prioritaire</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Tourisme & Handicap Auditif</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Boucle magnétique, signalétique visuelle, alarme lumineuse</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>⭐⭐⭐ Prioritaire si malentendants</td>
+</tr>
+<tr>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Tourisme & Handicap Visuel</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Guidage podotactile, contrastes visuels, documents en gros caractères</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>⭐⭐ Utile si malvoyants</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Tourisme & Handicap Mental</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Signalétique simplifiée, environnement calme, personnel formé</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>⭐ Cas spécifiques</td>
+</tr>
+<tr>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Clef Verte</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>Label éco-responsabilité (pas d'accessibilité)</td>
+<td style='padding:10px;border:1px solid #e5e7eb;'>RSE uniquement</td>
+</tr>
+</tbody>
+</table>
+
+<p>Attention : l'absence de label ne signifie pas qu'un lieu est inaccessible — beaucoup de châteaux récemment rénovés sont conformes sans avoir demandé la labellisation. Notre équipe vérifie la conformité réelle sur place lors de nos visites annuelles des <a href='/chateaux' class='text-primary font-semibold hover:underline'>châteaux partenaires</a>.</p>
+
+<h2>Quelles questions poser au château avant de signer le contrat ?</h2>
+<p>Voici la liste des questions précises à envoyer par email au directeur de l'établissement (garder les réponses comme pièce jointe au contrat) :</p>
+<ul>
+<li>Le cheminement depuis le parking jusqu'aux salles de réunion est-il de plain-pied ou dispose-t-il d'une rampe conforme (pente ≤ 8 %) ?</li>
+<li>Quelle est la largeur des portes des salles de réunion principales ? Y a-t-il des seuils ?</li>
+<li>Combien de chambres PMR disposez-vous, et ont-elles une salle de bain adaptée (douche à l'italienne, barre d'appui, siège de douche) ?</li>
+<li>Les sanitaires PMR sont-ils accessibles depuis la salle de réunion sans changer de niveau ?</li>
+<li>La salle de restauration et le buffet sont-ils accessibles en fauteuil roulant ?</li>
+<li>Disposez-vous d'une boucle magnétique dans la salle principale ?</li>
+<li>Votre personnel est-il formé à l'accueil des personnes en situation de handicap ?</li>
+<li>Avez-vous le label Tourisme & Handicap ? Si non, avez-vous une attestation de conformité ERP ?</li>
+</ul>
+<p>Pour les séminaires dans les <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>Yvelines</a> ou dans <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>l'Oise</a>, nos consultantes transmettent directement les fiches d'accessibilité de chaque domaine — un gain de temps considérable par rapport aux démarches en direct.</p>
+
+<h2>Quel budget prévoir pour un séminaire inclusif en château ?</h2>
+<p>D'après les 40 séminaires inclusifs organisés par Select Châteaux depuis 2022, le surcoût lié à l'accessibilité est souvent nul ou marginal :</p>
+<ul>
+<li><strong>Chambre PMR</strong> : tarif identique aux chambres standard dans 80 % des cas (obligation légale pour les ERP classés). Dans 20 % des cas, surcoût de 20 à 40 €/nuit lié à la taille supérieure de la chambre.</li>
+<li><strong>Boucle magnétique</strong> : proposée en location par certains AV providers à 80-120 € la journée si le château n'en dispose pas en fixe.</li>
+<li><strong>Rampe d'accès amovible</strong> : fournie gratuitement par la plupart des châteaux partenaires sur demande.</li>
+<li><strong>Interprète en langue des signes</strong> (LSF) : 350-500 €/demi-journée si besoin — budget à prévoir séparément.</li>
+</ul>
+<p>Le budget global pour un séminaire inclusif en château en Île-de-France reste dans la même fourchette qu'un séminaire standard : entre 180 € et 380 €/personne en formule 2 jours/1 nuit selon le standing du domaine.</p>
+
+<p>Vous organisez un séminaire et souhaitez vérifier l'accessibilité PMR des châteaux disponibles à vos dates ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis personnalisé</a> — notre équipe intègre systématiquement un bilan d'accessibilité dans chaque proposition.</p>
+    `,
+    faq: [
+      { question: "Les châteaux en Île-de-France sont-ils accessibles aux personnes en fauteuil roulant ?", answer: "Environ 60 % des châteaux partenaires de Select Châteaux disposent en 2026 d'au moins une salle de réunion de plain-pied accessible PMR et de sanitaires adaptés. Les domaines rénovés après 2015 sont généralement entièrement conformes. Il est recommandé de demander explicitement le plan d'accessibilité et les fiches techniques des chambres PMR avant de signer le contrat." },
+      { question: "Quel label garantit qu'un château est accessible pour un séminaire d'entreprise ?", answer: "Le label national Tourisme & Handicap (moteur) est la référence la plus fiable : il garantit la conformité des cheminements, salles, sanitaires et chambres pour les personnes en fauteuil roulant. Cependant, beaucoup de châteaux récemment rénovés sont conformes sans avoir demandé la labellisation. L'absence de label ne signifie donc pas inaccessibilité — une visite de vérification ou une fiche technique détaillée est indispensable." },
+      { question: "Un château classé ERP est-il obligatoirement accessible ?", answer: "Oui. Tout château privatisé pour un événement d'entreprise est juridiquement un Établissement Recevant du Public (ERP) de 5e catégorie. La conformité à la loi du 11 février 2005 est obligatoire. L'exploitant en est légalement responsable, mais l'organisateur engage sa responsabilité civile s'il réserve un lieu non conforme en connaissance de cause." },
+      { question: "Combien coûte une chambre PMR dans un château pour un séminaire ?", answer: "Dans 80 % des châteaux partenaires de Select Châteaux, les chambres PMR sont facturées au même tarif que les chambres standard (obligation ERP). Dans les 20 % restants, un surcoût de 20 à 40 €/nuit peut s'appliquer en raison de la surface supérieure. Le budget global d'un séminaire inclusif reste entre 180 € et 380 €/personne en formule résidentielle 2 jours." },
+      { question: "Quelle est la différence entre une chambre de plain-pied et une chambre labellisée PMR ?", answer: "Une chambre de plain-pied signifie simplement qu'elle est au rez-de-chaussée — sans garantie d'accessibilité réelle. Une chambre labellisée PMR (ou labellisée Tourisme & Handicap Moteur) garantit des critères précis : largeur de porte ≥ 90 cm, salle de bain avec douche à l'italienne, barre d'appui, espace de rotation de 150 cm, sonnette lumineuse. Toujours demander la fiche technique de la chambre." },
+      { question: "Comment s'assurer qu'un séminaire en château est accessible aux malentendants ?", answer: "Le label Tourisme & Handicap Auditif garantit la présence d'une boucle magnétique en salle, d'une signalétique visuelle et d'alarmes lumineuses. Si le château n'est pas labellisé, une boucle magnétique portable peut être louée auprès d'un prestataire AV pour environ 80 à 120 € la journée. Un interprète en langue des signes (LSF) coûte entre 350 et 500 € par demi-journée." },
+      { question: "Combien de temps à l'avance faut-il briefer le château sur les besoins PMR des participants ?", answer: "6 semaines minimum avant le séminaire. Ce délai permet au château de préparer les rampes amovibles, d'assigner les chambres PMR adaptées, de planifier les cheminements et de former le personnel si nécessaire. Notre expérience montre qu'un brief d'accessibilité envoyé 6 semaines à l'avance permet de résoudre 90 % des contraintes sans surcoût ni stress de dernière minute." },
+    ],
+  },
+
+  {
     id: 1023,
     slug: "rituel-cohesion-equipe-avant-seminaire-exercices-2026",
     title: "Rituels de Cohésion d'Équipe avant un Séminaire : 7 Exercices Efficaces 2026",
