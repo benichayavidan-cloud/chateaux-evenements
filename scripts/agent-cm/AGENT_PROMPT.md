@@ -77,7 +77,8 @@ Chaque article DOIT respecter cette interface TypeScript :
     role: "Experte Événementiel",
     avatar: "SD"
   };
-  publishedAt: string;     // YYYY-MM-DD (aujourd'hui)
+  publishedAt: string;     // YYYY-MM-DD — NOUVEL article : aujourd'hui. RÉÉCRITURE : garder la date d'origine.
+  updatedAt?: string;      // YYYY-MM-DD — UNIQUEMENT en réécriture GEO : aujourd'hui (alimente dateModified, signal de fraîcheur)
   readingTime: number;     // Minutes (entier)
   image: string;           // "/images/{slug}.webp"
   imageAlt: string;        // Descriptif, inclure mot-clé + lieu
@@ -85,6 +86,10 @@ Chaque article DOIT respecter cette interface TypeScript :
   content: string;         // HTML riche MONOBLOC (template literal, pas un array)
   featured?: boolean;      // false par défaut pour les articles agent
   faq?: FaqItem[];         // 5-8 FAQs pour schema JSON-LD
+  howTo?: {                // OBLIGATOIRE — mêmes étapes que le <ol> du Bloc 3, en structuré (schema HowTo, extraction IA)
+    name: string;          // Ex: "Organiser un séminaire en château en Île-de-France"
+    steps: { name: string; text: string }[]; // 3-5 étapes concrètes (name court + text 1-2 phrases)
+  };
   imagePrompt: string;     // Prompt Imagen (supprimé avant publication)
 }
 ```
@@ -144,6 +149,7 @@ C'est la partie technique de l'article. Structurer chaque H2 comme une **questio
 - Inclure au moins 1 tableau HTML (comparatif prix, grille équipements, planning type, etc.)
 - Inclure au moins 1 liste à puces
 - **Inclure au moins 1 liste numérotée** (`<ol>`) avec 3-5 étapes concrètes. Les moteurs IA favorisent fortement les listes "quoi faire". Exemple : "Les 5 étapes pour organiser votre séminaire en château : 1. Définir le format... 2. Choisir la zone... 3. Visiter les lieux..."
+- **Recopier ces mêmes étapes dans le champ structuré `howTo`** (`{ name, steps: [{ name, text }] }`). Le `<ol>` est pour l'humain, `howTo` est pour la machine (schema HowTo). Les deux DOIVENT décrire les mêmes étapes — c'est le format que ChatGPT/Perplexity citent le plus volontiers.
 - Référencer des spécificités locales : distances depuis Paris, accès gare/autoroute, capacités des châteaux
 - Référencer des labels : Qualité Tourisme, Clef Verte, classement étoiles
 - Inclure des liens internes vers les pages services et les articles liés
@@ -282,10 +288,11 @@ Depuis les données GSC, identifier le meilleur candidat :
 
 - **Garder le même slug** — ne PAS changer l'URL
 - **Garder la même image** — sauf si cassée
-- **Mettre à jour la date** (`publishedAt`) à aujourd'hui
+- **Dates** : NE PAS toucher `publishedAt` (date d'origine = preuve d'antériorité) ; poser `updatedAt` = aujourd'hui. C'est `updatedAt` qui alimente `dateModified` (signal de fraîcheur pour les moteurs IA).
 - **Mettre à jour le titre** avec l'année en cours (2026)
 - **Réécrire TOUT le contenu** en suivant la structure GEO 5 blocs
 - **Ajouter une étude de cas** avec storytelling (le changement le plus important)
+- **Ajouter le champ structuré `howTo`** s'il est absent (mêmes étapes que le `<ol>`)
 - **Mettre à jour les FAQs** en style conversationnel
 - **Ajouter des signaux de données propriétaires**
 - **Conserver les liens internes existants** et en ajouter si pertinent
@@ -396,7 +403,7 @@ node log-session.js --status=failed --step="{etape}" --error="{description}"
 - [ ] 2+ liens internes vers articles blog
 - [ ] Au moins 1 tableau
 - [ ] Au moins 1 liste à puces
-- [ ] Au moins 1 liste numérotée
+- [ ] Au moins 1 liste numérotée (`<ol>`) ET champ `howTo` structuré reprenant les mêmes étapes
 - [ ] Année "2026" dans le titre
 - [ ] Pas de slug dupliqué
 - [ ] Image générée, optimisée et géotaggée

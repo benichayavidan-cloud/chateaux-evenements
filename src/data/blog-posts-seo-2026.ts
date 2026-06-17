@@ -472,7 +472,7 @@ const article46: BlogPost = {
       <li><strong>Idéal pour :</strong> CODIR privatisés, réunions confidentielles</li>
     </ul>
 
-    <p>Pour un <a href="/blog/codir-chateau-privatise-guide-direction">guide complet du CODIR en château privatisé</a>, consultez notre article dédié.</p>
+    <p>Pour un <a href="/blog/seminaire-codir-chateau-privatise">guide complet du CODIR en château privatisé</a>, consultez notre article dédié.</p>
 
     <h3>5. Château de Montvillargenne — Oise (60)</h3>
     <ul>
@@ -1389,7 +1389,7 @@ const article51: BlogPost = {
       <li>13h30 — Fin du séminaire</li>
     </ul>
 
-    <p>Pour un séminaire de direction, adaptez le format : <a href="/blog/codir-chateau-privatise-guide-direction">guide du CODIR en château privatisé</a>.</p>
+    <p>Pour un séminaire de direction, adaptez le format : <a href="/blog/seminaire-codir-chateau-privatise">guide du CODIR en château privatisé</a>.</p>
 
     <h3>Étape 7 : Choisir les Activités</h3>
 
@@ -1659,7 +1659,7 @@ const article52: BlogPost = {
       </tbody>
     </table>
 
-    <p>Pour un CODIR, consultez notre <a href="/blog/codir-chateau-privatise-guide-direction">guide du CODIR en château privatisé</a>. Pour les grands groupes, lisez <a href="/blog/seminaire-200-personnes-grands-groupes-idf">séminaire 200+ personnes en château</a>.</p>
+    <p>Pour un CODIR, consultez notre <a href="/blog/seminaire-codir-chateau-privatise">guide du CODIR en château privatisé</a>. Pour les grands groupes, lisez <a href="/blog/seminaire-200-personnes-grands-groupes-idf">séminaire 200+ personnes en château</a>.</p>
 
     <h3>6. L'Impact du Budget sur la Durée</h3>
 
@@ -2161,7 +2161,7 @@ const article55: BlogPost = {
       <li><strong>Budget :</strong> 320-420€/pers (2j/1n privatisé)</li>
     </ul>
 
-    <p>Pour un CODIR en château privatisé, lisez notre <a href="/blog/codir-chateau-privatise-guide-direction">guide du séminaire de direction</a>.</p>
+    <p>Pour un CODIR en château privatisé, lisez notre <a href="/blog/seminaire-codir-chateau-privatise">guide du séminaire de direction</a>.</p>
 
     <h4>Domaine de Bellevue</h4>
     <ul>

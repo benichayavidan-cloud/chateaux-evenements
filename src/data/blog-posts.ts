@@ -30,6 +30,7 @@ export interface BlogPost {
     avatar: string;
   };
   publishedAt: string;
+  updatedAt?: string; // Date de dernière réécriture GEO — alimente dateModified (signal de fraîcheur). Fallback = publishedAt.
   readingTime: number; // minutes
   image: string;
   imageAlt: string;
@@ -37,6 +38,10 @@ export interface BlogPost {
   content: string; // HTML rich content
   featured?: boolean;
   faq?: FaqItem[]; // FAQ structurée pour Schema JSON-LD
+  howTo?: {
+    name: string; // Ex: "Organiser un séminaire en château en Île-de-France"
+    steps: { name: string; text: string }[]; // 3-5 étapes concrètes — alimente le schema HowTo (extraction IA)
+  };
   video?: {
     name: string;
     description: string;
@@ -1332,11 +1337,12 @@ const article4: BlogPost = {
 const article5: BlogPost = {
   id: 32,
   slug: "seminaire-codir-chateau-privatise",
-  title: "Séminaire CODIR en Château : Pourquoi les Dirigeants Choisissent la Privatisation",
-  excerpt: "Concentration, confidentialité, impact : découvrez pourquoi 78% des CODIR les plus efficaces se tiennent hors des murs de l'entreprise — et pourquoi un château privatisé fait la différence.",
+  title: "Séminaire CODIR en Château Privatisé : Guide 2026 (dès 120€/pers)",
+  excerpt: "Concentration, confidentialité, impact : découvrez pourquoi 78% des CODIR les plus efficaces se tiennent hors des murs de l'entreprise — et pourquoi un château privatisé fait la différence. Budget, formats et châteaux IDF à jour 2026.",
   category: "organisation",
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
+  updatedAt: "2026-06-17",
   readingTime: 10,
   image: "/images/generated-image-january-20-2026-10-19pm-chateau.webp",
   imageAlt: "Séminaire CODIR en château privatisé - Comité de direction dans un cadre d'exception",
@@ -1347,6 +1353,16 @@ const article5: BlogPost = {
     { question: "Quel est le meilleur format pour un séminaire de direction ?", answer: "Le format résidentiel d'une nuit est le plus efficace : arrivée J1 après-midi pour un premier atelier et un dîner d'échange, puis J2 matin pour les décisions et le plan d'action. Le dîner du soir est crucial — c'est là que les positions se rapprochent et que les consensus se construisent." },
     { question: "Quels châteaux près de Paris pour un CODIR de 10-20 personnes ?", answer: "En Île-de-France, nous recommandons : l'Abbaye de la Vallée de Chevreuse (45 min, déconnexion totale), le Château 5★ de Chantilly (35 min, prestige international), ou le MGallery des Hauts-de-Seine (15 min, 2 arrêts métro). Chacun offre la privatisation et des salles adaptées aux petits comités." }
   ],
+  howTo: {
+    name: "Organiser un séminaire CODIR en château en Île-de-France",
+    steps: [
+      { name: "Définir le format", text: "Choisissez entre une journée (1-2 sujets ciblés), un résidentiel 1 nuit (le format le plus efficace) ou une retraite 2 nuits, selon l'enjeu stratégique et le nombre de directeurs." },
+      { name: "Choisir la zone et le château", text: "Sélectionnez un domaine privatisable à 15-45 min de Paris : Vallée de Chevreuse pour la déconnexion totale, Chantilly pour le prestige, Hauts-de-Seine pour la proximité immédiate." },
+      { name: "Verrouiller la privatisation", text: "Réservez le lieu en exclusivité pour garantir une confidentialité totale du CODIR — aucun autre client sur le domaine, ce que ne permet pas un hôtel classique." },
+      { name: "Construire le programme", text: "Placez les plénières de décision le matin (esprit frais) et les ateliers ou temps informels l'après-midi ; faites du dîner le moment clé d'alignement des positions." },
+      { name: "Cadrer le budget", text: "Comptez 120-180€/pers en journée et 240-350€/pers en résidentiel 1 nuit ; demandez un devis tout compris pour éviter les coûts cachés (transport, technique, activités)." }
+    ]
+  },
   content: `
     <div class="prose prose-lg max-w-none">
 
@@ -1546,6 +1562,21 @@ const article5: BlogPost = {
 
 <p class="mb-6"><strong>Perspective :</strong> Le coût d'un CODIR résidentiel pour 10 directeurs (3 000-4 000€) représente quelques heures de salaire cumulé de l'équipe de direction. Si ce séminaire permet de prendre une seule meilleure décision stratégique, le ROI est immédiat.</p>
 
+<h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Les 5 Étapes pour Organiser Votre CODIR en Château</h2>
+
+<ol class="list-decimal ml-6 mb-6">
+  <li class="mb-2"><strong>Définir le format</strong> — Journée (1-2 sujets ciblés), résidentiel 1 nuit (le plus efficace) ou retraite 2 nuits, selon l'enjeu stratégique et le nombre de directeurs.</li>
+  <li class="mb-2"><strong>Choisir la zone et le château</strong> — Un domaine privatisable à 15-45 min de Paris : Vallée de Chevreuse pour la déconnexion, Chantilly pour le prestige, Hauts-de-Seine pour la proximité.</li>
+  <li class="mb-2"><strong>Verrouiller la privatisation</strong> — Réserver le lieu en exclusivité pour une confidentialité totale du comité de direction, impossible en hôtel classique.</li>
+  <li class="mb-2"><strong>Construire le programme</strong> — Plénières de décision le matin, ateliers et temps informels l'après-midi ; le dîner comme moment d'alignement.</li>
+  <li class="mb-2"><strong>Cadrer le budget</strong> — 120-180€/pers en journée, 240-350€/pers en résidentiel 1 nuit ; exiger un devis tout compris pour éviter les coûts cachés.</li>
+</ol>
+
+<blockquote class="border-l-4 border-[--bronze-antique] pl-6 italic text-gray-700 my-8">
+  <p class="mb-2">"Sur un CODIR, le format résidentiel d'une nuit en château privatisé change tout : la confidentialité libère la parole, et c'est au dîner — pas en plénière — que les décisions difficiles se débloquent vraiment."</p>
+  <p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p>
+</blockquote>
+
 <div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
   <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Organisez Votre Prochain CODIR en Château</h3>
   <p style="color: #d1d5db; margin-bottom: 1.5rem;">Devis personnalisé sous 24h. Nous vous aidons à choisir le lieu et le format adaptés à votre comité de direction.</p>
@@ -1590,7 +1621,7 @@ const article5: BlogPost = {
 
 <p class="mb-6"><strong>À lire aussi :</strong></p>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="text-blue-600 hover:underline">Comment organiser un CODIR confidentiel : critères de sécurité</a></li>
+  <li class="mb-2"><a href="/seminaire-vallee-de-chevreuse" class="text-blue-600 hover:underline">Séminaire en Vallée de Chevreuse : déconnexion totale pour votre CODIR</a></li>
   <li class="mb-2"><a href="/blog/combien-coute-seminaire-chateau-2026" class="text-blue-600 hover:underline">Combien coûte un séminaire en château en 2026 ?</a></li>
   <li class="mb-2"><a href="/chateaux" class="text-blue-600 hover:underline">Découvrir nos 4 châteaux d'exception</a></li>
 </ul>
@@ -4582,7 +4613,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Consultez notre guide sur l'organisation de CODIR confidentiels</a></li>
+  <li class="mb-2"><a href="/blog/seminaire-codir-chateau-privatise" class="auto-link">Consultez notre guide sur l'organisation de CODIR confidentiels</a></li>
   <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Découvrez les châteaux adaptés aux petits comités</a></li>
 </ul>
 
@@ -5154,7 +5185,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Consultez notre guide CODIR confidentiel</a></li>
+  <li class="mb-2"><a href="/blog/seminaire-codir-chateau-privatise" class="auto-link">Consultez notre guide CODIR confidentiel</a></li>
   <li class="mb-2"><a href="/blog/petits-comites-lieux-intimes-board" class="auto-link">Découvrez d'autres lieux intimistes</a></li>
 </ul>
 
@@ -5434,7 +5465,7 @@ const placeholderArticles: BlogPost[] = [
   <li class="mb-2"><a href="/blog/vexin-nouvelle-destination-seminaire" class="auto-link">Le Vexin français : destination séminaire émergente en 2026</a></li>
   <li class="mb-2"><a href="/blog/lieux-atypiques-manoir-forteresse" class="auto-link">Manoirs et forteresses : les lieux atypiques qui surprennent</a></li>
   <li class="mb-2"><a href="/blog/combien-coute-seminaire-chateau-2026" class="auto-link">Combien coûte un séminaire en château en 2026 ? Budget détaillé</a></li>
-  <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Organiser un CODIR confidentiel : le guide pratique</a></li>
+  <li class="mb-2"><a href="/blog/seminaire-codir-chateau-privatise" class="auto-link">Organiser un CODIR confidentiel : le guide pratique</a></li>
   <li class="mb-2"><a href="/seminaire-chateau-oise-60" class="auto-link">Nos châteaux partenaires dans l'Oise (60)</a></li>
 </ul>
 
@@ -6049,7 +6080,7 @@ const placeholderArticles: BlogPost[] = [
 </table><strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Comparez avec les autres châteaux de l'Oise</a></li>
-  <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Découvrez comment organiser un CODIR confidentiel</a></li>
+  <li class="mb-2"><a href="/blog/seminaire-codir-chateau-privatise" class="auto-link">Découvrez comment organiser un CODIR confidentiel</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Activités Signature : Le Cheval au Cœur de l'Expérience</h2>
@@ -8681,7 +8712,7 @@ const placeholderArticles: BlogPost[] = [
   </tbody>
 </table><strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Consultez notre guide CODIR confidentiel avec critères sécurité</a></li>
+  <li class="mb-2"><a href="/blog/seminaire-codir-chateau-privatise" class="auto-link">Consultez notre guide CODIR confidentiel avec critères sécurité</a></li>
   <li class="mb-2"><a href="/blog/grands-groupes-100-personnes-chateau" class="auto-link">Comparez avec les lieux grands groupes, l'autre extrême</a></li>
 </ul>
 
@@ -8850,7 +8881,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/organiser-codir-confidentiel" class="auto-link">Consultez notre article sur la confidentialité CODIR</a></li>
+  <li class="mb-2"><a href="/blog/seminaire-codir-chateau-privatise" class="auto-link">Consultez notre article sur la confidentialité CODIR</a></li>
   <li class="mb-2"><a href="/blog/convaincre-direction-budget-seminaire" class="auto-link">Découvrez comment convaincre votre direction d'investir dans la qualité</a></li>
 </ul>
 

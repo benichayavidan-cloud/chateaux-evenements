@@ -286,7 +286,7 @@ const retraiteProArticle: BlogPost = {
 <p class="mb-6">Les comités de direction qui construisent un plan stratégique triennal ou quinquennal en 2 jours produisent des plans superficiels. Les retraites CODIR de 3-5 jours (pratiquées chez BlaBlaCar, Back Market, Qonto) permettent un niveau de profondeur incomparable.</p>
 
 <div class="alert alert-info">
-<strong>Connexion :</strong> Pour un CODIR confidentiel, consultez notre <a href="/blog/organiser-codir-confidentiel">guide Confidentialité CODIR en château</a>.
+<strong>Connexion :</strong> Pour un CODIR confidentiel, consultez notre <a href="/blog/seminaire-codir-chateau-privatise">guide Confidentialité CODIR en château</a>.
 </div>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Anatomie d'une Retraite Réussie : Le Planning Type 4 Jours</h2>

@@ -43,6 +43,25 @@ export function generateOrganizationSchema() {
     ],
     foundingDate: "2009",
     slogan: "La Collection Confidentielle",
+    // Autorité thématique au niveau entité : déclare explicitement aux moteurs IA
+    // les sujets sur lesquels Select Châteaux fait référence (signal GEO d'expertise).
+    knowsAbout: [
+      "Séminaire d'entreprise en château",
+      "Organisation d'événements professionnels en Île-de-France",
+      "Team building en château",
+      "Soirée d'entreprise et dîner de gala",
+      "Journée d'étude et convention",
+      "Privatisation de château pour événement corporate",
+      "Séminaire résidentiel avec hébergement",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "seminaires@selectchateaux.com",
+      telephone: "+33757991146",
+      areaServed: "FR",
+      availableLanguage: ["French"],
+    },
     areaServed: {
       "@type": "GeoCircle",
       geoMidpoint: {

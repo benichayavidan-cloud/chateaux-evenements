@@ -74,7 +74,8 @@ export default async function BlogArticleLayout({ children, params }: Props) {
     "description": article.excerpt,
     "image": `https://www.selectchateaux.com${article.image}`,
     "datePublished": article.publishedAt,
-    "dateModified": article.publishedAt,
+    // Signal de fraîcheur GEO : date de dernière réécriture si présente, sinon publication.
+    "dateModified": article.updatedAt ?? article.publishedAt,
     "author": {
       "@type": "Person",
       "name": article.author.name,
@@ -93,11 +94,37 @@ export default async function BlogArticleLayout({ children, params }: Props) {
       "@type": "WebPage",
       "@id": `https://www.selectchateaux.com/blog/${article.slug}`
     },
+    // Liage d'entités (knowledge graph GEO) : l'article fait partie du blog et porte sur l'entreprise.
+    "isPartOf": {
+      "@type": "Blog",
+      "@id": "https://www.selectchateaux.com/blog#blog",
+      "name": "Blog Select Châteaux"
+    },
+    "about": {
+      "@type": "Organization",
+      "@id": "https://www.selectchateaux.com/#organization"
+    },
     "keywords": article.keywords.join(", "),
     "articleSection": article.category,
     "wordCount": Math.floor(article.content.length / 6), // Estimation
     "inLanguage": "fr-FR"
   };
+
+  // Schema JSON-LD HowTo — émis si l'article fournit des étapes structurées.
+  // Les moteurs de réponse IA favorisent fortement le format "comment faire".
+  const howToSchema = article.howTo && article.howTo.steps.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": article.howTo.name,
+        "step": article.howTo.steps.map((step, index) => ({
+          "@type": "HowToStep",
+          "position": index + 1,
+          "name": step.name,
+          "text": step.text
+        }))
+      }
+    : null;
 
   // Schema JSON-LD Breadcrumb
   const breadcrumbSchema = {
@@ -155,6 +182,14 @@ export default async function BlogArticleLayout({ children, params }: Props) {
               }
             }))
           }) }}
+        />
+      )}
+
+      {/* Schema JSON-LD HowTo - Format "comment faire" privilégié par les moteurs de réponse IA */}
+      {howToSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
         />
       )}
 

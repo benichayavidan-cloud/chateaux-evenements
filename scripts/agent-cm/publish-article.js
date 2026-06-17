@@ -51,6 +51,9 @@ function formatArticleTS(article) {
   ts += `${ii}  avatar: "${escapeString(article.author?.avatar || 'SD')}",\n`;
   ts += `${ii}},\n`;
   ts += `${ii}publishedAt: "${article.publishedAt}",\n`;
+  if (article.updatedAt) {
+    ts += `${ii}updatedAt: "${article.updatedAt}",\n`;
+  }
   ts += `${ii}readingTime: ${article.readingTime || 10},\n`;
   ts += `${ii}image: "${article.image}",\n`;
   ts += `${ii}imageAlt: "${escapeString(article.imageAlt)}",\n`;
@@ -63,6 +66,17 @@ function formatArticleTS(article) {
       ts += `${ii}  { question: "${escapeString(faq.question)}", answer: "${escapeString(faq.answer)}" },\n`;
     }
     ts += `${ii}],\n`;
+  }
+
+  if (article.howTo && Array.isArray(article.howTo.steps) && article.howTo.steps.length > 0) {
+    ts += `${ii}howTo: {\n`;
+    ts += `${ii}  name: "${escapeString(article.howTo.name)}",\n`;
+    ts += `${ii}  steps: [\n`;
+    for (const step of article.howTo.steps) {
+      ts += `${ii}    { name: "${escapeString(step.name)}", text: "${escapeString(step.text)}" },\n`;
+    }
+    ts += `${ii}  ],\n`;
+    ts += `${ii}},\n`;
   }
 
   ts += `${i}},\n`;

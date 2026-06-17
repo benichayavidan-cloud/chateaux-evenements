@@ -41,7 +41,7 @@
         "chateauform yvelines",
         "seminaire entreprise yvelines"
       ],
-      "zoneWords": ["yvelines", "rambouillet", "dampierre", "breteuil"],
+      "zoneWords": ["yvelines", "rambouillet", "dampierre", "breteuil", "versailles", "velizy"],
       "anchorText": "séminaire en château dans les Yvelines"
     },
     {
@@ -78,7 +78,10 @@
       "primaryKeywords": [
         "seminaire chateau ile france",
         "chateau seminaire ile france",
-        "seminaire chateau idf"
+        "seminaire chateau idf",
+        "lieu seminaire ile de france",
+        "lieu de seminaire ile de france",
+        "lieu seminaire idf"
       ],
       "zoneWords": [],
       "anchorText": "séminaire en château en Île-de-France"
@@ -131,6 +134,23 @@
       ],
       "zoneWords": [],
       "anchorText": "comparatif des hôtels séminaire à Chantilly"
+    },
+    {
+      "id": "codir",
+      "canonical": "/blog/seminaire-codir-chateau-privatise",
+      "type": "pillar",
+      "primaryKeywords": [
+        "codir chateau",
+        "seminaire codir",
+        "séminaire codir",
+        "codir domaine",
+        "comex chateau",
+        "seminaire comex",
+        "seminaire comite de direction",
+        "seminaire direction chateau"
+      ],
+      "zoneWords": [],
+      "anchorText": "séminaire CODIR en château"
     },
     {
       "id": "prix-seminaire",

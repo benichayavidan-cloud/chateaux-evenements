@@ -12,6 +12,9 @@
     { "from": "seminaire-vallee-de-chevreuse-guide-complet", "to": "/seminaire-vallee-de-chevreuse" },
     { "from": "seminaire-vallee-chevreuse-domaines-lieux-2026", "to": "/seminaire-vallee-de-chevreuse" },
     { "from": "seminaire-hauts-de-seine-92-chateaux-domaines-2026", "to": "/seminaire-chateau-hauts-de-seine-92" },
-    { "from": "seminaire-hauts-de-seine-domaine-privatise-guide-2026", "to": "/seminaire-chateau-hauts-de-seine-92" }
+    { "from": "seminaire-hauts-de-seine-domaine-privatise-guide-2026", "to": "/seminaire-chateau-hauts-de-seine-92" },
+    { "from": "codir-chateau-privatise-guide-direction", "to": "/blog/seminaire-codir-chateau-privatise" },
+    { "from": "seminaire-direction-codir-chateau-exception", "to": "/blog/seminaire-codir-chateau-privatise" },
+    { "from": "organiser-codir-confidentiel", "to": "/blog/seminaire-codir-chateau-privatise" }
   ]
 }
