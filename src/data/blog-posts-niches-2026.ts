@@ -808,7 +808,7 @@ const slowSeminarArticle: BlogPost = {
 <p class="mb-6"><strong>Total : 23 500 à 34 000€</strong>, soit <strong>390-565€/jour/pers</strong>. 20% plus cher qu'un séminaire classique équivalent, mais la rétention mémoire de 5x supérieure justifie largement l'investissement.</p>
 
 <div class="alert alert-info">
-<strong>Approfondir :</strong> Consultez notre <a href="/blog/seminaire-au-vert-productivite">article sur la productivité en nature</a> pour comprendre pourquoi le cadre impacte autant les résultats.
+<strong>Approfondir :</strong> Consultez notre <a href="/blog/seminaire-nature-chevreuse-deconnexion">article sur la productivité en nature</a> pour comprendre pourquoi le cadre impacte autant les résultats.
 </div>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Le Slow Seminar, Signal de Maturité Organisationnelle</h2>

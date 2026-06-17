@@ -466,7 +466,7 @@ export const camilleArticles: BlogPost[] = [
 
 <p>Sur les événements que nous accompagnons, nous observons que seulement 38 % des entreprises vérifient systématiquement leur couverture RC avant un événement en château. C'est un angle mort coûteux : un vase Ming renversé dans la galerie d'un château peut vite atteindre des sommes considérables.</p>
 
-<p>Pour vos événements dans les <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaires en château dans l'Oise</a> ou dans les <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>châteaux des Yvelines</a>, nos consultants peuvent vous recommander des courtiers spécialisés événementiel avec qui nous travaillons régulièrement. Consultez également notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide complet pour organiser un séminaire en château de A à Z</a> et notre article sur la <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>checklist des 25 étapes clés</a>.</p>
+<p>Pour vos événements dans les <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaires en château dans l'Oise</a> ou dans les <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>châteaux des Yvelines</a>, nos consultants peuvent vous recommander des courtiers spécialisés événementiel avec qui nous travaillons régulièrement. Consultez également notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>checklist des 25 étapes clés pour organiser un séminaire en château de A à Z</a>.</p>
 
 <p>Organiser un séminaire en château sans maîtriser les aspects contractuels, c'est prendre un risque financier évitable. Une lecture attentive du contrat avant signature, deux clauses renégociées, et une assurance annulation : voilà ce qui sépare un événement serein d'un litige coûteux. Pour être accompagné dès la phase contractuelle, <a href='/devis' class='text-primary font-semibold hover:underline'>demandez un devis personnalisé</a> — notre équipe intègre systématiquement la revue contractuelle dans son accompagnement.</p>
     `,
@@ -637,7 +637,7 @@ export const camilleArticles: BlogPost[] = [
 <li><strong>Caler le programme avec la consultante</strong> : alternance plénières / ateliers / activités extérieures, gestion des pauses et des repas, logistique hébergement si résidentiel.</li>
 <li><strong>Confirmer avec un acompte de 30%</strong> : en automne, les domaines Yvelines les plus prisés se réservent 3 à 5 mois à l'avance. Au-delà d'août pour un séminaire d'octobre, la sélection se réduit.</li>
 </ol>
-<p>Pour une vision complète de la méthodologie, lisez notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide complet pour organiser un séminaire en château de A à Z</a>.</p>
+<p>Pour une vision complète de la méthodologie, lisez notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>guide complet pour organiser un séminaire en château de A à Z</a>.</p>
 
 <h2>Quelles activités team building proposer pour un séminaire dans les Yvelines ?</h2>
 <p>Les Yvelines sont le département d'Île-de-France avec la plus grande densité d'activités outdoor de qualité pour les séminaires. L'automne y est particulièrement favorable : les forêts de Rambouillet et de la Vallée de Chevreuse prennent des teintes spectaculaires qui rendent n'importe quelle activité extérieure mémorable.</p>
@@ -1745,7 +1745,7 @@ export const camilleArticles: BlogPost[] = [
 <li><strong>Parking ombragé ou navette depuis la gare</strong> : indispensable pour le confort des participants en cas de forte chaleur</li>
 <li><strong>Traiteur local ou cuisine interne</strong> : les menus estivaux (barbecue, plancha, buffet froid) sont souvent plus adaptés à la chaleur et plus appréciés que les menus gastronomiques en été</li>
 </ul>
-<p>Pour un guide complet sur l'organisation étape par étape, consultez notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>Guide Complet : Organiser un Séminaire en Château de A à Z</a>.</p>
+<p>Pour un guide complet sur l'organisation étape par étape, consultez notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>Guide Complet : Organiser un Séminaire en Château de A à Z</a>.</p>
 
 <h2>Quels châteaux ont encore des disponibilités pour un séminaire en juin-juillet 2026 ?</h2><p>Au 2 juin 2026, voici l'état des disponibilités sur notre réseau de domaines partenaires :</p>
 <ul>
@@ -2100,7 +2100,7 @@ export const camilleArticles: BlogPost[] = [
   <li><strong>Confirmer 3 semaines avant</strong> : envoi du programme définitif aux participants, confirmation du traiteur, test audiovisuel, liste des contraintes alimentaires collectée. Tout ce qui n'est pas confirmé 3 semaines avant est un risque le jour J.</li>
 </ol>
 
-<p>Pour aller plus loin, notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>checklist complète d'organisation de séminaire</a> couvre chaque étape en détail. Vous pouvez aussi consulter notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide A-Z pour organiser un séminaire en château</a>.</p>
+<p>Pour aller plus loin, notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>checklist complète d'organisation de séminaire</a> couvre chaque étape en détail, du cadrage à l'évaluation.</p>
 
 <h2>Quelles activités proposer lors d'un séminaire à Chantilly ?</h2>
 <p>Chantilly offre un éventail d'activités qu'aucune autre destination IDF ne peut égaler sur un même territoire. En mai 2026, nos recommandations selon la taille du groupe :</p>

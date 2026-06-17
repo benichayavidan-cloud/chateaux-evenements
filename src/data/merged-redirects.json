@@ -15,6 +15,8 @@
     { "from": "seminaire-hauts-de-seine-domaine-privatise-guide-2026", "to": "/seminaire-chateau-hauts-de-seine-92" },
     { "from": "codir-chateau-privatise-guide-direction", "to": "/blog/seminaire-codir-chateau-privatise" },
     { "from": "seminaire-direction-codir-chateau-exception", "to": "/blog/seminaire-codir-chateau-privatise" },
-    { "from": "organiser-codir-confidentiel", "to": "/blog/seminaire-codir-chateau-privatise" }
+    { "from": "organiser-codir-confidentiel", "to": "/blog/seminaire-codir-chateau-privatise" },
+    { "from": "seminaire-au-vert-productivite", "to": "/blog/seminaire-nature-chevreuse-deconnexion" },
+    { "from": "guide-complet-organiser-seminaire-chateau-a-z", "to": "/blog/checklist-organiser-seminaire" }
   ]
 }

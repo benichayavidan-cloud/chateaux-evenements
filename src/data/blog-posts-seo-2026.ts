@@ -540,7 +540,7 @@ const article46: BlogPost = {
 
     <h3>Comment choisir parmi ces 10 châteaux ?</h3>
 
-    <p>Le meilleur château est celui qui correspond à <strong>votre groupe, votre budget et vos objectifs</strong>. Pour un guide complet sur l'organisation, consultez notre <a href="/blog/guide-complet-organiser-seminaire-chateau-a-z">guide de A à Z pour organiser un séminaire en château</a>.</p>
+    <p>Le meilleur château est celui qui correspond à <strong>votre groupe, votre budget et vos objectifs</strong>. Pour un guide complet sur l'organisation, consultez notre <a href="/blog/checklist-organiser-seminaire">guide de A à Z pour organiser un séminaire en château</a>.</p>
 
     <p>Chez <strong>Select Châteaux</strong>, nous visitons chaque domaine et négocions les tarifs pour vous. Une seule demande, plusieurs propositions sur mesure.</p>
 
@@ -853,7 +853,7 @@ const article48: BlogPost = {
       <li><strong>Tarifs négociés</strong> — Nos accords-cadres nous permettent d'obtenir des tarifs compétitifs même en urgence</li>
     </ul>
 
-    <p>Pour un guide d'organisation plus complet (quand vous avez le temps), consultez notre <a href="/blog/guide-complet-organiser-seminaire-chateau-a-z">guide complet de A à Z</a>.</p>
+    <p>Pour un guide d'organisation plus complet (quand vous avez le temps), consultez notre <a href="/blog/checklist-organiser-seminaire">guide complet de A à Z</a>.</p>
 
     <h3>Votre Séminaire en 2 Semaines, C'est Possible</h3>
 
@@ -3238,7 +3238,7 @@ Découvrez notre guide complet et demandez votre devis gratuit.`,
       <li>✅ <strong>Jour J</strong> : crème solaire, chapeaux et bouteilles d'eau à l'accueil</li>
     </ul>
 
-    <p>Pour plus de conseils sur l'organisation complète, consultez notre <a href="/blog/guide-complet-organiser-seminaire-chateau-a-z">guide A-Z d'organisation de séminaire en château</a>.</p>
+    <p>Pour plus de conseils sur l'organisation complète, consultez notre <a href="/blog/checklist-organiser-seminaire">guide A-Z d'organisation de séminaire en château</a>.</p>
 
     <p>Découvrez aussi nos <a href="/blog/team-building-outdoor-activites-nature-equipe">activités team building outdoor</a> spécialement conçues pour les beaux jours.</p>
 
