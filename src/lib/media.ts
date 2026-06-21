@@ -17,8 +17,8 @@ export const storage = (path: string): string =>
 /** Image de contenu servie depuis /public/images (éditorial, blog, services). */
 export const media = (path: string): string => `/images/${path.replace(/^\/+/, "")}`;
 
-/** Logo Select Châteaux (header) — servi depuis Supabase. */
-export const LOGO_URL = storage("logo.png");
+/** Logo Select Châteaux (header) — asset local groupé dans /public/brand. */
+export const LOGO_URL = "/brand/logo.png";
 
 /** Mapping dossier « métier » → dossier bucket Supabase (galeries châteaux). */
 const CHATEAU_FOLDER: Record<string, string> = {
