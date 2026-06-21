@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/og-blog.jpg",
+        url: "/brand/og-blog.jpg",
         width: 1200,
         height: 630,
         alt: "Blog Select Châteaux - L'Inspiration Événementiel",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "L'Inspiration Événementiel | Blog Select Châteaux",
     description: "Guides, conseils, et tendances pour vos séminaires en château.",
-    images: ["/og-blog.jpg"],
+    images: ["/brand/og-blog.jpg"],
   },
 };
 

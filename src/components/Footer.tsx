@@ -15,7 +15,7 @@ export function Footer() {
           <div>
             <div className="mb-6">
               <img
-                src="/logo.png"
+                src="/brand/logo.png"
                 alt="Select Chateaux"
                 className="h-20 w-auto object-contain"
                 style={{

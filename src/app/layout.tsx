@@ -41,14 +41,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Select Châteaux" }],
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
+      { url: '/brand/icon.svg', type: 'image/svg+xml' },
+      { url: '/brand/favicon-16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/brand/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/brand/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/brand/icon.png', sizes: '192x192', type: 'image/png' },
     ],
-    shortcut: '/favicon-48.png',
-    apple: '/apple-icon.png',
+    shortcut: '/brand/favicon-48.png',
+    apple: '/brand/apple-icon.png',
   },
   metadataBase: new URL('https://www.selectchateaux.com'),
   alternates: {
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/brand/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Select Châteaux - Lieux de séminaire d'exception",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Select Châteaux | Lieux Secrets pour Séminaires",
     description: "Découvrez des domaines privés d'exception pour vos événements d'entreprise.",
-    images: ["/og-image.jpg"]
+    images: ["/brand/og-image.jpg"]
   },
 };
 

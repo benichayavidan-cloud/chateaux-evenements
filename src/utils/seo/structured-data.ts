@@ -21,11 +21,11 @@ export function generateOrganizationSchema() {
     url: BASE_URL,
     logo: {
       "@type": "ImageObject",
-      url: `${BASE_URL}/logo.png`,
+      url: `${BASE_URL}/brand/logo.png`,
       width: 512,
       height: 512,
     },
-    image: `${BASE_URL}/og-image.jpg`,
+    image: `${BASE_URL}/brand/og-image.jpg`,
     description:
       "Accès confidentiel aux plus beaux châteaux d'Île-de-France pour vos événements d'entreprise. Séminaires, team building, soirées corporate sur-mesure.",
     email: "seminaires@selectchateaux.com",
@@ -246,8 +246,8 @@ export function generateLocalBusinessSchema() {
     name: "Select Châteaux",
     alternateName: "Select Chateaux",
     url: BASE_URL,
-    logo: `${BASE_URL}/logo.png`,
-    image: `${BASE_URL}/og-image.jpg`,
+    logo: `${BASE_URL}/brand/logo.png`,
+    image: `${BASE_URL}/brand/og-image.jpg`,
     description:
       "Select Châteaux est l'agence spécialiste de la location de châteaux et la privatisation de lieux d'exception pour vos événements professionnels. Séminaires, CODIR, lancements de produits, team building et soirées de gala à Paris, en Île-de-France et partout en France.",
     telephone: "+33757991146",

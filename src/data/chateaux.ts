@@ -526,14 +526,14 @@ export const chiffresCles: ChiffreCle[] = [
 
 // Logos clients (grandes entreprises réelles) - Vrais logos officiels avec couleurs
 export const clientLogos = [
-  { nom: "Microsoft", url: "/logos/microsoft.svg" },
-  { nom: "Amazon", url: "/logos/amazon.svg" },
-  { nom: "Apple", url: "/logos/apple.svg" },
-  { nom: "Mercedes-Benz", url: "/logos/mercedes-benz.svg" },
-  { nom: "Airbus", url: "/logos/airbus.svg" },
-  { nom: "L'Oréal", url: "/logos/loreal.svg" },
-  { nom: "Orange", url: "/logos/orange.svg" },
-  { nom: "BNP Paribas", url: "/logos/bnp-paribas.svg" },
-  { nom: "LVMH", url: "/logos/lvmh.svg" },
-  { nom: "Danone", url: "/logos/danone.svg" },
+  { nom: "Microsoft", url: "/brand/clients/microsoft.svg" },
+  { nom: "Amazon", url: "/brand/clients/amazon.svg" },
+  { nom: "Apple", url: "/brand/clients/apple.svg" },
+  { nom: "Mercedes-Benz", url: "/brand/clients/mercedes-benz.svg" },
+  { nom: "Airbus", url: "/brand/clients/airbus.svg" },
+  { nom: "L'Oréal", url: "/brand/clients/loreal.svg" },
+  { nom: "Orange", url: "/brand/clients/orange.svg" },
+  { nom: "BNP Paribas", url: "/brand/clients/bnp-paribas.svg" },
+  { nom: "LVMH", url: "/brand/clients/lvmh.svg" },
+  { nom: "Danone", url: "/brand/clients/danone.svg" },
 ];

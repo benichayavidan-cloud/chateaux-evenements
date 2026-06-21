@@ -87,7 +87,7 @@ export default async function BlogArticleLayout({ children, params }: Props) {
       "name": "Select Châteaux",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.selectchateaux.com/logo.png"
+        "url": "https://www.selectchateaux.com/brand/logo.png"
       }
     },
     "mainEntityOfPage": {
@@ -211,7 +211,7 @@ export default async function BlogArticleLayout({ children, params }: Props) {
               "name": "Select Châteaux",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.selectchateaux.com/logo.png"
+                "url": "https://www.selectchateaux.com/brand/logo.png"
               }
             }
           }) }}

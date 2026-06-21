@@ -19,7 +19,7 @@ export default function DevisLayout({
       provider: {
         "@type": "Organization",
         name: "Select Châteaux",
-        image: "https://www.selectchateaux.com/logo.png",
+        image: "https://www.selectchateaux.com/brand/logo.png",
       },
       potentialAction: {
         "@type": "QuoteAction",

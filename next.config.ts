@@ -165,6 +165,20 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── BRAND REGROUP : assets identité déplacés dans /public/brand ──
+      // Les anciennes URLs (logo, OG) sont connues de Google (schema.org, RSS,
+      // partages sociaux) et des PWA installées : 301 pour zéro 404/perte SEO.
+      { source: "/logo.png", destination: "/brand/logo.png", permanent: true },
+      { source: "/og-image.jpg", destination: "/brand/og-image.jpg", permanent: true },
+      { source: "/og-blog.jpg", destination: "/brand/og-blog.jpg", permanent: true },
+      { source: "/icon.png", destination: "/brand/icon.png", permanent: true },
+      { source: "/icon.svg", destination: "/brand/icon.svg", permanent: true },
+      { source: "/apple-icon.png", destination: "/brand/apple-icon.png", permanent: true },
+      { source: "/favicon-16.png", destination: "/brand/favicon-16.png", permanent: true },
+      { source: "/favicon-32.png", destination: "/brand/favicon-32.png", permanent: true },
+      { source: "/favicon-48.png", destination: "/brand/favicon-48.png", permanent: true },
+      { source: "/logos/:file", destination: "/brand/clients/:file", permanent: true },
+
       // ── FUSIONS ANTI-CANNIBALISATION (audit SEO 2026-06-11) ──
       // SOURCE UNIQUE : src/data/merged-redirects.json — le même fichier
       // alimente le filtre MERGED_SLUGS dans blog-posts.ts. Ajouter une fusion
