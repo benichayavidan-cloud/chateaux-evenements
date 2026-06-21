@@ -8,6 +8,7 @@ import { GoogleAnalytics } from "@/components/Analytics";
 import { StructuredData } from "@/components/StructuredData";
 import { generateOrganizationSchema, generateWebSiteSchema, generateServiceSchema, generateLocalBusinessSchema } from "@/utils/seo/structured-data";
 import Image from "next/image";
+import { LOGO_URL } from "@/lib/media";
 import { CookieConsentLazy } from "@/components/CookieConsentLazy";
 import { SiteTracker } from "@/components/SiteTracker";
 
@@ -146,7 +147,7 @@ export default function RootLayout({
         <Navigation
           logo={
             <Image
-              src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
+              src={LOGO_URL}
               alt="Select Châteaux - Châteaux pour séminaires d'entreprise en Île-de-France"
               width={180}
               height={60}
@@ -187,7 +188,7 @@ export default function RootLayout({
         <Footer
           logo={
             <Image
-              src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/logo.png"
+              src={LOGO_URL}
               alt="Select Châteaux - Châteaux pour séminaires d'entreprise en Île-de-France"
               width={180}
               height={60}

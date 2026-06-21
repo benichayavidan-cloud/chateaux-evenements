@@ -3,6 +3,7 @@
 import { useInView } from '@/hooks/useInView';
 import { Check, ArrowRight } from 'lucide-react';
 import { theme } from '@/design-system/tokens';
+import { storage } from '@/lib/media';
 import Image from 'next/image';
 
 interface ServiceCardProps {
@@ -18,11 +19,11 @@ interface ServiceCardProps {
 // Images de personnes heureuses pour chaque type de service
 const happyPeopleImages: Record<string, { src: string; alt: string }> = {
   'presentation': {
-    src: 'https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/montvillargene/evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp',
+    src: storage('montvillargene/evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp'),
     alt: 'Séminaire résidentiel - chambre prestige château Montvillargenne pour hébergement premium'
   },
   'book-open': {
-    src: 'https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/montvillargene/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp',
+    src: storage('montvillargene/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp'),
     alt: 'Journée d\'étude entreprise - salle plénière pierre apparente château Montvillargenne'
   },
   'champagne': {
