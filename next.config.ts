@@ -155,6 +155,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── MÉDIA OFFLOAD : vidéo déplacée vers Supabase Storage (hors repo) ──
+      // L'ancienne URL /videos/...mp4 était dans le schema VideoObject : on la
+      // redirige pour ne pas créer de 404 sur d'anciens liens/indexation.
+      {
+        source: "/videos/Planification_de_Seminaire_SelectChateaux.mp4",
+        destination:
+          "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/video/Planification_de_Seminaire_SelectChateaux.mp4",
+        permanent: true,
+      },
+
       // ── FUSIONS ANTI-CANNIBALISATION (audit SEO 2026-06-11) ──
       // SOURCE UNIQUE : src/data/merged-redirects.json — le même fichier
       // alimente le filtre MERGED_SLUGS dans blog-posts.ts. Ajouter une fusion

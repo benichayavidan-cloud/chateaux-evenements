@@ -370,7 +370,7 @@ const article2: BlogPost = {
     name: "Planification de Séminaire — Les 4 Phases du Succès",
     description: "Guide vidéo complet : de la stratégie à la mesure du succès. Découvrez les 4 phases clés pour planifier un séminaire d'entreprise avec un ROI de 4,8x.",
     thumbnailUrl: "https://www.selectchateaux.com/images/reunion-entreprise-chateau-elegant.webp",
-    contentUrl: "https://www.selectchateaux.com/videos/Planification_de_Seminaire_SelectChateaux.mp4",
+    contentUrl: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/video/Planification_de_Seminaire_SelectChateaux.mp4",
     duration: "PT5M29S",
     uploadDate: "2026-03-15"
   },
@@ -412,7 +412,7 @@ const article2: BlogPost = {
         poster="/images/reunion-entreprise-chateau-elegant.webp"
         style="width: 100%; display: block; border-radius: 1rem;"
       >
-        <source src="/videos/Planification_de_Seminaire_SelectChateaux.mp4" type="video/mp4" />
+        <source src="https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/video/Planification_de_Seminaire_SelectChateaux.mp4" type="video/mp4" />
         Votre navigateur ne supporte pas la lecture vidéo.
       </video>
       <div style="background: #f8fafc; padding: 1rem 1.5rem; border-top: 1px solid #e2e8f0;">
