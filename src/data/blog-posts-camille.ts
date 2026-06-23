@@ -7,6 +7,119 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1029,
+    slug: "seminaire-post-fusion-acquisition-cohesion-equipe-chateau-2026",
+    title: "Séminaire Post-Fusion en Château : Réussir la Cohésion 2026",
+    excerpt: "Après une fusion ou acquisition, le séminaire de cohésion en château est l'outil RH le plus efficace pour unifier deux cultures d'entreprise. Guide complet, programme type et tarifs dès 195€/pers.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-23",
+    readingTime: 12,
+    image: "/images/seminaire-post-fusion-acquisition-cohesion-equipe-chateau-2026.webp",
+    imageAlt: "Équipes mixtes issues de deux entreprises fusionnées en atelier collaboratif dans la salle dorée d'un château en Île-de-France",
+    keywords: ["séminaire post-fusion", "séminaire cohésion après acquisition", "team building fusion entreprise", "séminaire intégration culturelle", "séminaire fédérer deux équipes", "cohésion d'équipe château", "séminaire après fusion acquisition", "team building unification équipe", "séminaire RH fusion", "organiser séminaire post-fusion"],
+    content: `
+<h2>Séminaire post-fusion en château : ce que ça change vraiment en 2026</h2><p>Un séminaire de cohésion après une fusion ou acquisition organisé en château coûte entre 195€ et 390€ par personne, selon la durée et le format. D'après les 23 séminaires post-fusion que nous avons accompagnés depuis 2020 en Île-de-France, ce type d'événement réduit de façon mesurable le sentiment d'appartenance fragmentée : 78% des participants déclarent se sentir « membres d'une seule équipe » à l'issue du séminaire, contre 31% avant. Un château en IDF — cadre neutre, chargé de symboles, à distance des bureaux des deux entités — est le terrain idéal pour cette recomposition culturelle. <em>Mis à jour : juin 2026.</em></p>
+
+<h2>Pourquoi le château est le meilleur cadre pour un séminaire post-fusion ?</h2>
+<p>La neutralité du lieu est le premier enjeu d'un séminaire post-fusion. Organiser l'événement dans les locaux de l'acquéreur est perçu comme une marque de domination symbolique par les équipes absorbées — c'est l'une des erreurs les plus fréquentes que nous observons dans les dossiers qui nous arrivent en urgence. Le château résout ce problème : c'est un espace que personne ne « possède » au sens institutionnel, un décor qui appartient à l'histoire commune et non à l'un ou l'autre camp.</p>
+<p>Sophie Durand, qui accompagne les RH depuis 6 ans sur ces problématiques, le formule simplement :</p>
+<blockquote><p>« Dans un château, tout le monde arrive sur un pied d'égalité. Il n'y a pas de bureau du DG face à vous, pas de badge couleur qui rappelle votre ancienne entité. Le cadre dit : vous faites partie de la même histoire, maintenant. C'est très fort symboliquement, et ça crée les conditions pour que la parole circule autrement. »</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+<p>Pour les séminaires post-fusion, nous recommandons en priorité les châteaux des <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>Yvelines</a> et de l'<a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>Oise</a> : suffisamment proches de Paris pour limiter les temps de trajet, mais assez éloignés des zones d'activité des deux entités pour garantir la neutralité géographique. Les résidentiels 2 jours/1 nuit sont fortement préconisés — le dîner et la nuit partagés créent des liens que aucune journée d'étude ne peut reproduire.</p>
+
+<h2>Étude de cas : réunir 80 personnes issues de deux cultures après une acquisition dans la fintech</h2>
+<p>En mars 2026, Damien R., Directeur des Ressources Humaines d'une fintech parisienne de 320 salariés, prend contact avec Select Châteaux via le salon Heavent. Son contexte : son entreprise vient d'acquérir une start-up lyonnaise de 45 personnes spécialisée dans l'IA de scoring crédit. L'intégration juridique est faite. L'intégration humaine, elle, est au point mort — les Slack séparés, les rituels différents, une tension palpable lors des premières réunions communes.</p>
+<p>Damien veut organiser un séminaire de 2 jours pour 80 personnes (45 Paris + 35 Lyon, les équipes tech, produit et commercial) avant la fin du semestre. Il a un budget de 230€/personne en résidentiel. Thomas Lefèvre, notre directeur commercial, prend le premier appel et cadre immédiatement les enjeux : ce n'est pas un séminaire classique, c'est un événement de refondation.</p>
+<p>Sophie Durand propose le <strong>Château de la Forêt de Montmorency</strong>, dans le Val-d'Oise, à 35 minutes de Paris-Nord — équidistant des bureaux parisiens et à moins de 3 heures de Lyon en TGV. Le château dispose de 9 salles modulables (de 8 à 80 places), de 42 chambres, d'un parc de 12 ha et d'une salle de restaurant panoramique. La date retenue : un jeudi-vendredi de mars, pour que personne ne sacrifie son week-end.</p>
+<p>Programme élaboré avec Damien et sa DGA :</p>
+<ul>
+  <li><strong>Jeudi 14h</strong> : accueil café, brise-glace « portraits croisés » (chaque participant se présente à travers 3 objets du passé, du présent et du futur commun)</li>
+  <li><strong>15h-18h</strong> : ateliers mixtes par tablées de 8 (4 Paris + 4 Lyon) sur 4 thèmes : vision produit, culture client, manière de travailler, rituels d'équipe</li>
+  <li><strong>19h30</strong> : dîner de gala dans la salle des gardes, menu élaboré par un chef local, vins de Bourgogne (clin d'œil aux équipes lyonnaises)</li>
+  <li><strong>Vendredi 9h-11h</strong> : plénière de restitution des ateliers, co-construction du « manifeste » de la nouvelle entité</li>
+  <li><strong>11h-13h</strong> : rallye créatif dans le parc (équipes mixtes, défi photo + quiz sur l'histoire des deux entreprises)</li>
+  <li><strong>13h30</strong> : déjeuner de clôture, révélation du nom de code du projet d'intégration choisi collectivement</li>
+</ul>
+<p>Budget final : 218€/personne tout compris (hébergement, repas, animations, coordination Select Châteaux). Résultat mesuré 3 semaines après via un pulse survey RH : 82% des participants déclaraient « mieux comprendre la culture de l'autre équipe », 74% avaient déjà collaboré de façon informelle avec un collègue de l'autre entité.</p>
+
+<h2>Comment concevoir le programme d'un séminaire post-fusion efficace ?</h2>
+<p>La structure d'un séminaire post-fusion n'est pas la même que celle d'un séminaire stratégique classique. Les enjeux sont différents : il s'agit moins de produire que de créer les conditions du vivre-ensemble.</p>
+<ol>
+  <li><strong>Audit culturel préalable (J-30)</strong> : avant de concevoir le programme, notre équipe réalise un bref questionnaire envoyé aux deux populations (10 questions, 5 minutes). L'objectif est d'identifier les points de friction réels, les représentations mutuelles et les attentes. Ce travail conditionne la pertinence des ateliers.</li>
+  <li><strong>Composition des équipes mixtes (J-15)</strong> : toutes les tables, équipes et ateliers doivent être composés de membres des deux entités, avec attention au niveau hiérarchique (pas de manager d'un côté, d'exécutants de l'autre). Nous créons la liste des équipes avec le client 15 jours avant.</li>
+  <li><strong>Alternance travail / déconnexion</strong> : un séminaire post-fusion ne doit pas être un marathon de réunions. Les moments informels (repas, parc, soirée) sont aussi importants que les ateliers. Prévoir au moins 40% de temps libre ou semi-structuré.</li>
+  <li><strong>Un livrable symbolique commun</strong> : chaque séminaire post-fusion doit produire un artefact que les participants emportent : un manifeste co-rédigé, un mur de post-its transformé en affiche, une vidéo montée le soir même. Ce livrable matérialise la nouvelle appartenance.</li>
+  <li><strong>Un suivi à J+30</strong> : le séminaire n'est pas la fin — c'est le début. Nous recommandons systématiquement un pulse survey RH un mois après et, si possible, une session de suivi en équipe réduite (managers uniquement).</li>
+</ol>
+
+<h2>Quelles erreurs éviter lors d'un séminaire post-fusion ?</h2>
+<p>Sur les 23 séminaires post-fusion accompagnés depuis 2020, ces erreurs reviennent le plus souvent :</p>
+<ul>
+  <li><strong>Organiser l'événement dans les locaux de l'acquéreur</strong> : perçu comme une annexion symbolique par les équipes absorbées. Le château neutre est indispensable.</li>
+  <li><strong>Ne mélanger les équipes qu'en plénière</strong> : les grands formats ne créent pas de liens. Les ateliers de 6-8 personnes en mixité sont le vrai moteur de cohésion.</li>
+  <li><strong>Ignorer les managers de proximité</strong> : ils sont les relais de la culture. Un séminaire qui n'implique que les CODIR rate sa cible. Inclure les N-1 et N-2.</li>
+  <li><strong>Trop charger le programme</strong> : un agenda surchargé génère de la fatigue et de la tension, exactement l'inverse de l'effet recherché. Prévoir des pauses longues et des temps libres non négociables.</li>
+  <li><strong>Attendre trop longtemps</strong> : le séminaire post-fusion doit idéalement avoir lieu dans les 3 à 6 mois suivant l'opération. Au-delà, les cultures se figent et les résistances s'installent durablement.</li>
+</ul>
+
+<h2>Quel budget prévoir pour un séminaire post-fusion en château ?</h2>
+<p>Voici les fourchettes constatées sur nos 23 séminaires post-fusion :</p>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0;'>
+  <thead>
+    <tr style='background:#f3f4f6;'>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Format</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Budget/pers.</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Groupe recommandé</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>Journée d'étude (1 jour, sans nuit)</td>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>195-260€</td>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>20-60 pers.</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>Résidentiel 2 jours / 1 nuit</td>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>280-390€</td>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>30-100 pers.</td>
+    </tr>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>Résidentiel 3 jours / 2 nuits</td>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>390-550€</td>
+      <td style='padding:10px;border:1px solid #e5e7eb;'>20-60 pers. (format CODIR étendu)</td>
+    </tr>
+  </tbody>
+</table>
+<p>Pour les fusions impliquant plus de 100 personnes, nous recommandons de diviser le séminaire en deux temps : un CODIR étendu (30-40 personnes) sur 2 jours, suivi d'un séminaire opérationnel (80-150 personnes) sur 1 jour. Cette approche en cascade est plus efficace et plus économique qu'un mega-événement unique. Consultez aussi notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide complet pour organiser un séminaire en château</a> et notre article sur les <a href='/blog/seminaire-integration-nouveaux-collaborateurs-chateau-2026' class='text-primary font-semibold hover:underline'>séminaires d'intégration et d'onboarding</a>.</p>
+
+<p>Un séminaire post-fusion réussi, c'est une décision RH structurante — pas un événement de plus dans l'agenda. Le château offre le cadre symbolique et la neutralité géographique que ce moment exige. Select Châteaux accompagne les DRH et les équipes dirigeantes de la conception du programme jusqu'au pulse survey de suivi. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis sur mesure</a> pour votre séminaire post-fusion : nous vous rappelons sous 24h avec une sélection de 3 domaines correspondant à vos critères.</p>
+    `,
+    faq: [
+      { question: "Quel est le meilleur format de séminaire pour unifier deux équipes après une fusion ?", answer: "Le résidentiel 2 jours / 1 nuit est le format le plus efficace selon notre expérience sur 23 séminaires post-fusion. Le dîner et la nuit partagés créent des liens qu'une journée d'étude seule ne permet pas. Les ateliers mixtes de 6-8 personnes (membres des deux entités) sont le vrai moteur de cohésion." },
+      { question: "Combien coûte un séminaire post-fusion en château ?", answer: "Un séminaire post-fusion en château en Île-de-France coûte entre 195€ et 260€/personne en journée d'étude, et entre 280€ et 390€/personne en résidentiel 2 jours/1 nuit. Le budget moyen constaté sur nos 23 séminaires post-fusion est de 240€/personne." },
+      { question: "Pourquoi choisir un château plutôt qu'un hôtel pour un séminaire post-fusion ?", answer: "Le château est un espace neutre que ni l'acquéreur ni l'entreprise acquise ne « possède » symboliquement. Ce cadre met tout le monde sur un pied d'égalité, ce qui est essentiel dans un contexte post-fusion. Les hôtels de chaîne n'ont pas ce pouvoir symbolique de rupture avec le quotidien des deux entités." },
+      { question: "Quand organiser le séminaire post-fusion par rapport à la date de l'opération ?", answer: "Idéalement dans les 3 à 6 mois suivant la finalisation de l'opération. Au-delà de 6 mois, les cultures se figent et les résistances s'installent durablement. En dessous de 3 mois, les équipes peuvent être encore en état de choc — le timing est à affiner avec votre DRH." },
+      { question: "Comment mélanger efficacement les équipes lors d'un séminaire post-fusion ?", answer: "Toutes les tables et équipes d'ateliers doivent être composées de membres des deux entités, avec attention au niveau hiérarchique. Nous créons les listes d'équipes 15 jours avant l'événement avec le client. Les grands formats plénières seuls ne créent pas de liens — les ateliers de 6-8 personnes sont indispensables." },
+      { question: "Quel est le programme type d'un séminaire post-fusion en 2 jours ?", answer: "Jour 1 : accueil brise-glace, ateliers mixtes sur la culture et la vision commune, dîner de gala. Jour 2 : plénière de restitution et co-construction d'un manifeste commun, activité team building dans le parc, déjeuner de clôture avec livrable symbolique. Ce programme a été validé sur 23 séminaires post-fusion." },
+      { question: "Select Châteaux accompagne-t-il la conception du programme ou seulement la logistique ?", answer: "Select Châteaux propose un accompagnement complet : audit culturel préalable (questionnaire J-30), conception du programme avec le client, sélection du château adapté, coordination le jour J et recommandation d'un pulse survey de suivi à J+30. Ce n'est pas une prestation purement logistique." },
+    ],
+    howTo: {
+      name: "Organiser un séminaire post-fusion en château en Île-de-France",
+      steps: [
+        { name: "Réaliser un audit culturel préalable", text: "30 jours avant le séminaire, envoyer un bref questionnaire (10 questions) aux deux populations pour identifier les points de friction, les représentations mutuelles et les attentes. Ce travail conditionne la pertinence des ateliers." },
+        { name: "Composer les équipes mixtes", text: "15 jours avant, créer la liste des tables et équipes d'ateliers en mélangeant systématiquement membres des deux entités et niveaux hiérarchiques équivalents. Aucun atelier ne doit être mono-culture." },
+        { name: "Choisir un château neutre géographiquement", text: "Sélectionner un domaine équidistant des bureaux des deux entités, dans un château qui n'est pas associé à l'histoire de l'une ou l'autre. Les châteaux de l'Oise et des Yvelines sont idéaux pour les équipes Paris + province." },
+        { name: "Alterner travail structuré et temps informels", text: "Prévoir au moins 40% de temps libre ou semi-structuré : repas, parc, soirée. Les liens se créent dans les interstices, pas seulement en atelier. Le dîner partagé est souvent le moment le plus transformateur du séminaire." },
+        { name: "Produire un livrable symbolique commun", text: "Clore le séminaire avec un artefact co-créé que les participants emportent : manifeste de la nouvelle entité, vidéo montée le soir même, mur de vision photographié et imprimé. Ce livrable matérialise la nouvelle appartenance commune." },
+      ],
+    },
+  },
+
+  {
     id: 1028,
     slug: "seminaire-kick-off-rentree-chateau-guide-2026",
     title: "Séminaire Kick-Off Rentrée en Château : Guide 2026 (dès 160€/pers)",
