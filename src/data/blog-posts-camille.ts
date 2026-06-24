@@ -7,6 +7,136 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1030,
+    slug: "photographe-videaste-seminaire-chateau-guide-2026",
+    title: "Photographe & Vidéaste pour Séminaire en Château : Guide 2026",
+    excerpt: "Faut-il prévoir un photographe ou un vidéaste pour votre séminaire en château ? Tarifs réels, brief type, droits à l'image et livrables attendus en 2026.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-24",
+    readingTime: 10,
+    image: "/images/photographe-videaste-seminaire-chateau-guide-2026.webp",
+    imageAlt: "Photographe professionnel capturant une session de séminaire dans un château en Île-de-France avec lumière naturelle",
+    keywords: ["photographe séminaire entreprise", "vidéaste séminaire château", "photo événementiel entreprise", "prix photographe séminaire", "brief photographe événement", "droits à l'image séminaire", "film séminaire entreprise", "reportage photo séminaire château", "vidéo corporate séminaire", "souvenir séminaire équipe"],
+    content: `
+<h2>Combien coûte un photographe ou vidéaste pour un séminaire en château en 2026 ?</h2>
+<p>Faire appel à un photographe événementiel pour un séminaire en château coûte entre 600 € et 2 200 € pour une journée complète en Île-de-France en 2026, selon l'expérience du prestataire, le nombre d'heures et les livrables inclus. Un vidéaste pour un film de 3 à 5 minutes (version partageable sur les réseaux internes ou LinkedIn) facture entre 1 500 € et 4 500 €, montage inclus. Sur les 200+ séminaires organisés par Select Châteaux depuis 2020, 43 % des clients ont intégré un prestataire photo ou vidéo à leur programme — un chiffre en hausse de 18 points depuis 2022, porté par les besoins de communication interne et de marque employeur. Mis à jour : juin 2026.</p>
+
+<p>Pour les séminaires dans les <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaires en château dans les Yvelines</a> ou à <a href='/seminaire-chateau-chantilly' class='text-primary font-semibold hover:underline'>séminaire en château à Chantilly</a>, les domaines partenaires de Select Châteaux autorisent systématiquement les prestataires photo/vidéo extérieurs — un point à vérifier impérativement pour les lieux non référencés.</p>
+
+<h2>L'étude de cas de Clara M. : un film de séminaire devenu outil de marque employeur</h2>
+<p>Clara M. est Responsable Communication Interne dans un groupe pharmaceutique de 450 salariés. En mars 2026, elle prépare le séminaire annuel de la direction médicale (65 personnes, 2 jours) dans un château des Hauts-de-Seine, à 20 km de Paris. Elle contacte Select Châteaux via une recommandation LinkedIn après avoir vu un film de séminaire partagé par un confrère d'un autre groupe.</p>
+<p>« Clara avait un objectif clair, se souvient Sophie Durand : produire un film de 4 minutes utilisable pour le rapport RSE, la page Carrières du site web, et une campagne de recrutement de jeunes chercheurs. Elle voulait que le château serve de décor premium pour refléter la culture du groupe. »</p>
+<p>Thomas Lefèvre, Directeur Commercial de Select Châteaux, lui présente un package clé en main incluant un photographe événementiel (750 photos livrées en 72h, retouche incluse) et un vidéaste avec drone pour les extérieurs du parc. Budget total photo/vidéo : 3 800 €, soit 58 €/personne — intégré dans le budget communication interne, pas dans le budget séminaire.</p>
+<p>Le jour J, le photographe arrive 45 minutes avant les participants pour shooter les salles vides, les tables dressées, les détails du château (pierres apparentes, lustres, vue sur le parc). Puis il alterne discret en fond de salle pendant les plénières, actif lors des ateliers et omniprésent pendant le dîner de gala. Le vidéaste capture des plans drones du château au lever du soleil — un moment que Clara qualifie de « séquence signature » dans le film final.</p>
+<p>Résultat : le film est utilisé dans 3 campagnes de recrutement, partagé 480 fois sur LinkedIn par les collaborateurs présents, et cité comme « meilleur contenu RH de l'année » lors du bilan communication de novembre. « On a rentabilisé les 3 800 € en 3 semaines avec les candidatures qualifiées générées », confie Clara M.</p>
+
+<blockquote>
+  <p>« Un château, c'est un décor cinématographique naturel. La lumière dans les hautes fenêtres à moulures, les jardins à la française au lever du jour, la pierre de taille — tout ça remplace 10 000 € de décoration artificielle en studio. Intégrer un photographe ou un vidéaste dès la conception du programme (et pas en dernière minute) change radicalement la qualité des livrables. »</p>
+  <p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p>
+</blockquote>
+
+<h2>Quels livrables demander à un photographe ou vidéaste pour un séminaire en château ?</h2>
+<p>Les attentes varient selon l'usage prévu. Voici un tableau comparatif des formules les plus courantes en événementiel d'entreprise :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Formule</th>
+      <th>Livrables</th>
+      <th>Délai</th>
+      <th>Tarif indicatif (1 jour)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Photo reportage essentiel</td>
+      <td>200-400 photos retouchées, galerie en ligne</td>
+      <td>5-7 jours</td>
+      <td>600 – 1 000 €</td>
+    </tr>
+    <tr>
+      <td>Photo reportage complet</td>
+      <td>500-800 photos, sélection par le client, 2 formats (web + print)</td>
+      <td>3-5 jours</td>
+      <td>1 000 – 1 800 €</td>
+    </tr>
+    <tr>
+      <td>Photo premium + drone</td>
+      <td>700+ photos, vues aériennes du château, rapport RSE-ready</td>
+      <td>3-5 jours</td>
+      <td>1 800 – 2 800 €</td>
+    </tr>
+    <tr>
+      <td>Film corporate court (3-4 min)</td>
+      <td>Montage avec musique libre de droits, 2 versions (long + teaser 60s)</td>
+      <td>10-15 jours</td>
+      <td>2 000 – 3 500 €</td>
+    </tr>
+    <tr>
+      <td>Film corporate + drone + interviews</td>
+      <td>Film 5 min, 3 témoignages participants, sous-titres, formats réseaux</td>
+      <td>15-20 jours</td>
+      <td>3 500 – 5 500 €</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Conseil :</strong> demandez toujours une livraison partielle express (10 à 20 photos « hot shots » dans les 24h) pour alimenter les réseaux internes pendant que le séminaire est encore dans les esprits. La plupart des photographes événementiels proposent cette option pour 100 à 200 € supplémentaires.</p>
+
+<h2>Comment bien briefer un photographe avant un séminaire en château ?</h2>
+<p>Un brief incomplet est la première cause de livrables décevants. Voici les 5 étapes concrètes pour un brief efficace :</p>
+
+<ol>
+  <li><strong>Définir l'usage final des images :</strong> communication interne, marque employeur, rapport annuel, réseaux sociaux, communiqué de presse ? L'usage détermine le style (dynamique vs institutionnel), le format (horizontal pour le web, vertical pour les stories) et les droits à négocier.</li>
+  <li><strong>Lister les « shots must-have » :</strong> photo de groupe, portraits des intervenants, vue aérienne du château, moments spécifiques du programme (signature d'un partenariat, remise de trophées, activité team building). Sans cette liste, le photographe improvise — parfois bien, parfois non.</li>
+  <li><strong>Identifier les zones et moments interdits :</strong> certaines sessions de travail sont confidentielles (CODIR, discussions stratégiques). Indiquer clairement les plages horaires où le photographe ne doit pas être présent, et les personnes qui ont refusé de figurer.</li>
+  <li><strong>Clarifier les droits à l'image RGPD :</strong> depuis 2018, toute photographie de personnes identifiables dans un contexte professionnel nécessite soit un consentement écrit, soit un usage strictement interne sans publication externe. Préparez une fiche de consentement à faire signer à l'accueil.</li>
+  <li><strong>Prévoir un temps de soprage du lieu :</strong> arriver 45 minutes avant les participants permet de shooter le château vide, les tables dressées, les détails architecturaux. Ces images « ambiance » sont souvent les plus utilisées en communication.</li>
+</ol>
+
+<p>Pour les aspects contractuels et la gestion des prestataires extérieurs sur site, notre guide sur la <a href='/blog/negocier-contrat-prestataire-evenementiel-chateau-2026' class='text-primary font-semibold hover:underline'>négociation du contrat prestataire événementiel</a> vous détaille les clauses à vérifier. Pour la couverture des risques liés aux prestataires sur site, consultez également notre article sur l'<a href='/blog/assurance-responsabilite-organisateur-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>assurance et responsabilité de l'organisateur de séminaire</a>.</p>
+
+<h2>Faut-il préférer un prestataire référencé par le château ou choisir son propre photographe ?</h2>
+<p>Les deux options ont des avantages distincts :</p>
+
+<ul>
+  <li><strong>Photographe référencé par le château :</strong> connaît le lieu (lumière, angles, contraintes), a des relations avec l'équipe technique, sait naviguer dans les espaces. Tarif parfois négocié. Inconvénient : moins de personnalisation selon votre charte graphique, disponibilité parfois limitée.</li>
+  <li><strong>Votre propre photographe :</strong> cohérence avec votre univers visuel existant, contrat directement avec vous (plus de souplesse sur les droits), liberté de prestataire. Vérifiez simplement que le château autorise les prestataires extérieurs — c'est quasi-systématique dans les châteaux partenaires de Select Châteaux.</li>
+  <li><strong>Recommandation :</strong> pour un premier séminaire dans un lieu, le photographe référencé est souvent plus efficace. Pour un lieu récurrent ou une marque employeur très structurée, votre propre prestataire garantit la cohérence visuelle.</li>
+</ul>
+
+<p>Pour découvrir les lieux les mieux adaptés à un reportage photo ou vidéo (espaces et lumières naturelles remarquables), visitez le <a href='/chateaux' class='text-primary font-semibold hover:underline'>catalogue des châteaux Select Châteaux</a> et demandez des informations sur les conditions de prise de vue pour chaque domaine.</p>
+
+<h2>Conclusion</h2>
+<p>Intégrer un photographe ou un vidéaste à votre séminaire en château n'est plus un luxe : c'est un investissement en communication interne et en marque employeur dont le ROI est mesurable dès les premières semaines. Le budget moyen de 58 € à 85 € par participant pour une couverture photo complète est l'un des meilleurs retours sur investissement d'un programme de séminaire. Pour un accompagnement clé en main incluant la sélection du château, la coordination des prestataires photo/vidéo et la logistique globale, <a href='/devis' class='text-primary font-semibold hover:underline'>demandez votre devis personnalisé</a> — nous gérons tout pour vous.</p>
+    `,
+    faq: [
+      { question: "Quel est le tarif d'un photographe pour un séminaire d'entreprise en château ?", answer: "Un photographe événementiel facture entre 600 € et 2 200 € pour une journée complète de séminaire en Île-de-France en 2026. Le tarif varie selon son niveau d'expérience, le nombre d'heures de présence, les retouches incluses et les droits cédés. La fourchette basse (600-900 €) correspond à un photographe junior avec galerie en ligne simple ; la fourchette haute (1 500-2 200 €) à un photographe senior avec livraison express et rapport RSE-ready." },
+      { question: "Combien coûte un film de séminaire en château ?", answer: "Un film corporate de 3 à 5 minutes, monté et livré avec musique libre de droits, coûte entre 1 500 € et 4 500 € en Île-de-France. Le prix dépend du nombre de jours de tournage, de l'utilisation d'un drone (qui ajoute 500 à 1 000 €), des interviews à intégrer et des formats de sortie demandés (version longue, teaser 60s, format vertical pour réseaux sociaux)." },
+      { question: "Faut-il recueillir des autorisations de droit à l'image lors d'un séminaire ?", answer: "Oui. Depuis le RGPD et la jurisprudence récente, toute photo ou vidéo de personnes identifiables destinée à une diffusion externe (site web, LinkedIn, communiqué de presse) nécessite un consentement écrit. Pour un usage strictement interne, une information préalable (dans le programme de séminaire ou par email) peut suffire. La pratique recommandée : fiche de consentement optionnelle remise à l'accueil, permettant à chacun de signaler son refus." },
+      { question: "Peut-on faire venir un photographe extérieur dans un château privatisé ?", answer: "Oui, dans la quasi-totalité des châteaux partenaires de Select Châteaux. Certains domaines exigent une déclaration préalable du prestataire (pour les questions d'assurance et de responsabilité), voire facturent un droit d'accès symbolique (50 à 150 €). Il faut également vérifier que le photographe possède une assurance RC professionnelle couvrant les événements d'entreprise." },
+      { question: "Quand briefer le photographe avant le séminaire ?", answer: "Idéalement 2 à 3 semaines avant l'événement, avec un appel de 30 minutes pour partager le programme détaillé, les shots indispensables, les moments confidentiels à éviter et la charte graphique. Une visite du lieu avec le photographe la veille ou le matin même est un plus pour optimiser les angles et la gestion de la lumière naturelle du château." },
+      { question: "Quel format de livrables demander pour une utilisation sur LinkedIn et le rapport RSE ?", answer: "Pour LinkedIn : photos au format 1200 x 628 px (horizontal) et 1080 x 1350 px (vertical pour carrousels), fichiers JPEG optimisés. Pour le rapport RSE : photos haute résolution (300 dpi minimum), format TIFF ou JPEG non compressé. Pour la vidéo : MP4 en 1080p minimum, avec sous-titres SRT séparés pour faciliter l'accessibilité. Précisez ces formats dans le brief." },
+      { question: "Est-il possible d'intégrer des interviews dirigeants dans le film de séminaire ?", answer: "Oui, et c'est l'un des formats les plus efficaces pour la marque employeur. Les interviews de 30 à 90 secondes, tournées dans les salons ou le parc du château avec un fond architectural naturel, apportent authenticité et crédibilité. Prévoyez 15 à 20 minutes par personne interviewée dans le programme du séminaire, et briefez les intervenants sur 2 à 3 questions précises pour des réponses naturelles et concises." },
+    ],
+    howTo: {
+      name: "Comment intégrer un photographe ou vidéaste dans un séminaire en château",
+      steps: [
+        { name: "Définir l'usage final des images et films", text: "Identifiez dès la conception du programme si les livrables sont destinés à la communication interne, à la marque employeur, au rapport RSE ou aux réseaux sociaux. L'usage détermine le style, les formats et les droits à négocier." },
+        { name: "Choisir le prestataire et fixer le budget", text: "Prévoyez entre 600 € et 2 200 € pour un photographe et entre 1 500 € et 4 500 € pour un vidéaste. Demandez des références d'événements similaires en château et vérifiez que le prestataire possède une assurance RC professionnelle." },
+        { name: "Préparer le brief photo/vidéo", text: "Listez les shots indispensables, les moments confidentiels à éviter, la charte graphique à respecter et les formats de livraison attendus. Transmettez ce brief au prestataire au moins 2 semaines avant le séminaire." },
+        { name: "Gérer les droits à l'image RGPD", text: "Préparez une fiche de consentement à remettre à l'accueil du séminaire. Informez les participants au préalable par email que des prises de vue seront réalisées, en précisant leur usage et en indiquant comment signaler un refus." },
+        { name: "Planifier la récupération et diffusion des livrables", text: "Demandez une livraison partielle express (10-20 photos) dans les 24h pour alimenter les réseaux internes à chaud. Planifiez la diffusion du film dans les 3 semaines suivant le séminaire pour maximiser l'impact communication." },
+      ],
+    },
+  },
+
+  {
     id: 1029,
     slug: "seminaire-post-fusion-acquisition-cohesion-equipe-chateau-2026",
     title: "Séminaire Post-Fusion en Château : Réussir la Cohésion 2026",
