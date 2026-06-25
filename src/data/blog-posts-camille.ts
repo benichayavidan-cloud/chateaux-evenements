@@ -7,6 +7,119 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1031,
+    slug: "drh-guide-juridique-contrat-seminaire-chateau-2026",
+    title: "DRH : Guide Juridique du Contrat Séminaire en Château 2026",
+    excerpt: "Clauses indispensables, responsabilités légales et pièges à éviter dans vos contrats de séminaire en château. Le guide pratique pour les DRH et responsables formation.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-06-25",
+    readingTime: 11,
+    image: "/images/drh-guide-juridique-contrat-seminaire-chateau-2026.webp",
+    imageAlt: "DRH et responsable événementiel en réunion autour d'un contrat dans un château en Île-de-France",
+    keywords: ["contrat séminaire entreprise", "clauses contrat prestataire événementiel", "responsabilité organisateur séminaire", "acompte annulation séminaire", "force majeure contrat événement", "assurance séminaire château", "DRH organisation séminaire", "droit événementiel entreprise", "conditions générales vente traiteur", "litige prestataire séminaire"],
+    content: `
+<h2>Contrat de séminaire en château : ce que dit vraiment le droit en 2026</h2><p>Un contrat de séminaire en château mal rédigé expose l'entreprise à des pertes allant de 5 000 € à 80 000 € en cas d'annulation, de sinistre ou de litige prestataire. En 2026, d'après les 200+ séminaires que nous avons organisés en Île-de-France, 3 litiges sur 4 auraient pu être évités avec des clauses contractuelles précises dès la réservation. Les points critiques : l'acompte (généralement 30 à 50 % du devis total), les conditions d'annulation (délai, pénalités, cas de force majeure), la responsabilité civile et la chaîne de sous-traitance des prestataires (traiteur, animateur, transporteur). Cet article, mis à jour en juin 2026, détaille chaque clause à négocier — et celles à refuser.</p>
+
+<h2>L'histoire de Julien M. : quand un contrat flou coûte 18 000 €</h2><p>Julien M. est Responsable Formation dans une ESN de 350 collaborateurs basée à La Défense. En mars 2025, il réserve un château dans les Yvelines pour le séminaire annuel de la BU Tech : 80 personnes, 2 jours/1 nuit, budget validé à 240 €/personne. Il signe rapidement le contrat du domaine sans le lire en détail — le document fait 4 pages, le délai de signature est court, le lieu est parfait.</p><p>Six semaines avant l'événement, la direction lui annonce une restructuration : le séminaire est annulé. Julien appelle le château. Mauvaise surprise : le contrat prévoit 75 % du montant total en cas d'annulation à moins de 60 jours. Résultat : 14 400 € perdus, plus les frais de traiteur déjà engagés (3 600 €). Total : 18 000 € pour un séminaire qui n'a pas eu lieu.</p><p>C'est dans ce contexte que Julien contacte Select Châteaux pour son prochain séminaire. Thomas Lefèvre, Directeur Commercial, l'accueille et lui explique d'emblée : <strong>"Le contrat est la pièce maîtresse d'un séminaire. Avant même de choisir un château, il faut savoir ce que vous signez."</strong></p>
+
+<blockquote><p>"Dans 80 % des litiges que nous avons vus, le problème n'était pas le château — c'était le contrat. Une clause d'annulation mal rédigée, une responsabilité civile non définie, et l'entreprise se retrouve à payer pour un événement annulé. Nous accompagnons systématiquement nos clients dans la lecture du contrat avant signature."</p><p><strong>— Thomas Lefèvre, Directeur Commercial, Select Châteaux</strong></p></blockquote>
+
+<p>Thomas accompagne Julien dans la sélection d'un <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a> avec des conditions contractuelles négociées : acompte à 30 %, annulation sans frais jusqu'à J-45, clause de report (et non d'annulation) en cas de force majeure documentée. Julien signe en confiance. Le séminaire a lieu six mois plus tard — sans accroc.</p>
+
+<h2>Quelles clauses sont indispensables dans un contrat de séminaire en château ?</h2><p>Un contrat de séminaire comprend généralement 8 à 12 clauses. Voici celles qui sont non négociables selon notre expérience.</p>
+
+<table style='width:100%; border-collapse:collapse; margin:24px 0;'>
+<thead><tr style='background:#f3f4f6;'>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Clause</th>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Risque si absente</th>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Ce qu'il faut négocier</th>
+</tr></thead>
+<tbody>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Acompte à la réservation</td><td style='padding:10px; border:1px solid #e5e7eb;'>Perte totale si annulation tardive</td><td style='padding:10px; border:1px solid #e5e7eb;'>30 % max, solde à J-30</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Conditions d'annulation</td><td style='padding:10px; border:1px solid #e5e7eb;'>Pénalités jusqu'à 100 % du devis</td><td style='padding:10px; border:1px solid #e5e7eb;'>Barème dégressif + délai minimal 60 jours</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Force majeure</td><td style='padding:10px; border:1px solid #e5e7eb;'>Litige si événement imprévisible</td><td style='padding:10px; border:1px solid #e5e7eb;'>Définition précise + clause de report</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Responsabilité civile prestataire</td><td style='padding:10px; border:1px solid #e5e7eb;'>L'entreprise supporte les dommages</td><td style='padding:10px; border:1px solid #e5e7eb;'>Attestation RC Pro du château et du traiteur</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Sous-traitance</td><td style='padding:10px; border:1px solid #e5e7eb;'>Rupture de chaîne en cas de défaillance</td><td style='padding:10px; border:1px solid #e5e7eb;'>Liste des sous-traitants + responsabilité solidaire</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Modification des effectifs</td><td style='padding:10px; border:1px solid #e5e7eb;'>Surcoût si +/- 15 % de participants</td><td style='padding:10px; border:1px solid #e5e7eb;'>Tolérance ±10 % sans pénalité</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Confidentialité</td><td style='padding:10px; border:1px solid #e5e7eb;'>Fuite d'informations stratégiques</td><td style='padding:10px; border:1px solid #e5e7eb;'>NDA spécifique pour les séminaires CODIR</td></tr>
+</tbody></table>
+
+<h2>Que dit la loi sur la force majeure dans les contrats événementiels ?</h2><p>En droit français (article 1218 du Code civil), la force majeure exonère le débiteur de sa responsabilité si l'événement est imprévisible, irrésistible et extérieur. Dans les contrats de séminaire, trois situations sont fréquemment invoquées : épidémie/pandémie, catastrophe naturelle, interdiction administrative. Mais la définition légale ne couvre pas automatiquement ce que chaque partie entend par "force majeure".</p>
+
+<ul>
+<li><strong>Pandémie :</strong> après 2020, la plupart des châteaux ont intégré une clause spécifique. Vérifier qu'elle couvre aussi les restrictions partielles (jauges, protocoles sanitaires).</li>
+<li><strong>Grève de transport :</strong> non reconnue comme force majeure sauf si elle rend l'accès au château physiquement impossible.</li>
+<li><strong>Annulation pour motif interne à l'entreprise :</strong> restructuration, fusion, départ du DG — ces motifs NE sont PAS de la force majeure. L'entreprise reste redevable des pénalités contractuelles.</li>
+<li><strong>Intempéries :</strong> sauf dommages physiques au lieu, l'annulation pour météo est à la charge de l'organisateur.</li>
+</ul>
+
+<p><strong>Notre conseil :</strong> privilégier une clause de "report garanti" plutôt qu'une clause d'annulation. Si votre séminaire est annulé pour motif interne, pouvoir le reporter à 6 mois sans frais supplémentaires vous permet de ne pas perdre l'acompte tout en gardant la flexibilité.</p>
+
+<h2>Comment vérifier la chaîne de responsabilité avec les sous-traitants (traiteur, transport, animateur) ?</h2><p>Un château qui organise votre séminaire fait systématiquement appel à des sous-traitants : traiteur externe, société de transport, animateur de team building, technicien son/lumière. Si l'un d'eux défaille le jour J, qui est responsable ? La réponse dépend entièrement de ce que dit votre contrat.</p>
+
+<ol>
+<li><strong>Demander la liste exhaustive des sous-traitants</strong> avant signature. Pour chaque sous-traitant, obtenir le nom, le SIRET et la couverture RC Pro.</li>
+<li><strong>Vérifier la clause de responsabilité solidaire :</strong> le château doit rester responsable vis-à-vis de vous même si la défaillance vient d'un sous-traitant. Sans cette clause, vous devrez poursuivre le sous-traitant directement.</li>
+<li><strong>Exiger les attestations d'assurance :</strong> RC Pro du château (minimum 2 M€ par sinistre), RC Pro du traiteur, assurance événementielle si l'animateur intervient avec du matériel.</li>
+<li><strong>Vérifier la classification ERP :</strong> le château doit être classé Établissement Recevant du Public (ERP) de catégorie adaptée à votre effectif. Un château non classifié vous expose à une fermeture administrative le jour J.</li>
+<li><strong>Anticiper la clause de substitution :</strong> si un sous-traitant est défaillant à moins de 72h, le château doit proposer une solution de remplacement équivalente ou rembourser la prestation concernée.</li>
+</ol>
+
+<p>Ces cinq vérifications prennent 2 heures mais évitent 90 % des litiges que nous observons. Sur les <a href='/chateaux' class='text-primary font-semibold hover:underline'>50+ châteaux partenaires</a> que nous référençons, chacun a signé une charte de qualité incluant ces obligations.</p>
+
+<h2>Quelles sont les spécificités du contrat pour un séminaire résidentiel avec hébergement ?</h2><p>Le séminaire résidentiel ajoute une couche contractuelle : le contrat d'hébergement (qui relève du droit hôtelier) se superpose au contrat événementiel. Les points d'attention spécifiques :</p>
+
+<ul>
+<li><strong>Garantie du nombre de chambres :</strong> négocier un "room block" garanti jusqu'à J-21 — évite de payer des chambres vides si des participants se désistent.</li>
+<li><strong>Heure de check-in/check-out :</strong> pour un séminaire débutant à 9h, négocier un accès aux chambres dès 14h la veille (et non 16h standard).</li>
+<li><strong>Responsabilité des objets personnels :</strong> le château n'est responsable que des objets déposés à la réception. Informer vos participants.</li>
+<li><strong>Dommages dans les chambres :</strong> prévoir dans votre budget une provision pour dommages (généralement 500 à 1 500 € retenue à titre de caution).</li>
+<li><strong>Open bar et responsabilité alcool :</strong> en France, l'organisateur peut être tenu co-responsable d'un accident de la route impliquant un participant ayant consommé de l'alcool lors de l'événement. Prévoir dans le contrat la désignation d'un "responsable de soirée" et la mise à disposition de transports.</li>
+</ul>
+
+<p>Pour les <a href='/seminaire-chateau-proche-paris' class='text-primary font-semibold hover:underline'>séminaires en château proche de Paris</a>, la question du transport retour est particulièrement critique : un château à 45 min de Paris peut être inaccessible en transports en commun après 23h. Anticiper covoiturage organisé ou navette.</p>
+
+<h2>Les 5 étapes pour sécuriser juridiquement votre séminaire en château</h2>
+
+<ol>
+<li><strong>Demander le contrat type avant toute visite</strong> : ne visitez pas un château si vous n'avez pas pu lire ses conditions générales. Un domaine qui refuse de les communiquer en amont est un signal d'alerte.</li>
+<li><strong>Faire relire par le service juridique ou un avocat</strong> : pour les séminaires au-dessus de 30 000 €, la relecture juridique (500 à 1 500 € d'honoraires) est un investissement systématiquement rentable.</li>
+<li><strong>Négocier les clauses critiques avant signature</strong> : acompte, annulation, force majeure, substitution sous-traitant. La plupart des châteaux acceptent des ajustements si la demande est formulée avant signature.</li>
+<li><strong>Constituer un dossier de preuves</strong> : conserver tous les échanges email, le devis initial, les modifications demandées et les confirmations écrites. En cas de litige, c'est votre seule protection.</li>
+<li><strong>Souscrire une assurance événement</strong> : pour les séminaires résidentiels de plus de 50 personnes, une assurance annulation/interruption d'événement (entre 1,5 % et 3 % du budget total) couvre les cas non pris en charge par la force majeure contractuelle.</li>
+</ol>
+
+<p>Depuis 2020, nous avons accompagné plus de 200 séminaires en Île-de-France. Dans 100 % des cas où un litige a émergé, au moins une de ces cinq étapes avait été sautée. La bonne nouvelle : elles sont toutes accessibles à n'importe quelle équipe RH, sans formation juridique spécifique.</p>
+
+<p>Vous préparez un séminaire et souhaitez un accompagnement sur les aspects contractuels ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis accompagné</a> — notre équipe vérifie les contrats pour vous avant signature.</p>
+    `,
+    faq: [
+      { question: "Quel est le montant d'acompte normal pour un séminaire en château ?", answer: "L'acompte standard en France pour une réservation de séminaire en château est de 30 % du devis total à la signature. Certains domaines demandent jusqu'à 50 %, ce qui est négociable, surtout pour les gros volumes (50 personnes et plus). Le solde est généralement dû entre J-30 et J-15. Chez Select Châteaux, nous négocions systématiquement des conditions d'acompte favorables pour nos clients." },
+      { question: "Que se passe-t-il si j'annule un séminaire en château à moins de 30 jours ?", answer: "À moins de 30 jours, la majorité des contrats prévoient des pénalités entre 75 % et 100 % du montant total TTC. C'est pourquoi il est essentiel de négocier une clause de report plutôt qu'une clause d'annulation sèche : vous pouvez reporter le séminaire à 6 mois sans perdre votre acompte. Une assurance annulation événement (1,5 à 3 % du budget) peut aussi couvrir les annulations de dernière minute pour motif grave." },
+      { question: "Le château est-il responsable si un sous-traitant (traiteur, animateur) fait défaut ?", answer: "Cela dépend du contrat. Si votre contrat inclut une clause de responsabilité solidaire, le château est responsable de la prestation de tous ses sous-traitants, même s'il ne les emploie pas directement. Sans cette clause, vous devrez poursuivre le sous-traitant défaillant directement. Exiger systématiquement cette clause et les attestations RC Pro de chaque prestataire avant signature." },
+      { question: "Faut-il une assurance spécifique pour un séminaire en château ?", answer: "Pour les séminaires résidentiels de plus de 50 personnes ou au-dessus de 30 000 € de budget, une assurance événementielle est fortement recommandée. Elle couvre l'annulation, l'interruption de l'événement et les dommages matériels non couverts par la RC Pro du château. Le coût est de 1,5 à 3 % du budget total, soit 450 à 900 € pour un séminaire de 30 000 €." },
+      { question: "Comment vérifier qu'un château est bien autorisé à accueillir mon séminaire ?", answer: "Demandez le numéro de classification ERP (Établissement Recevant du Public) du château et vérifiez que la catégorie correspond à votre effectif. Un château non classifié ERP ou dont la jauge autorisée est inférieure à votre nombre de participants s'expose à une fermeture administrative. Vérifiez aussi que le château est à jour de sa visite de commission de sécurité (obligatoire tous les 3 à 5 ans selon la catégorie)." },
+      { question: "L'entreprise est-elle responsable si un participant a un accident lors du séminaire ?", answer: "Oui, en partie. L'entreprise organisatrice peut être tenue responsable sur le fondement de son obligation de sécurité envers ses salariés (article L4121-1 du Code du travail). Il faut vérifier que votre RC Pro employeur couvre bien les événements hors des locaux de l'entreprise. Pour les soirées avec alcool, désigner un responsable de soirée et prévoir des transports de retour est une précaution juridique et humaine indispensable." },
+      { question: "Peut-on inclure une clause de confidentialité dans un contrat de séminaire ?", answer: "Absolument, et c'est vivement recommandé pour les séminaires CODIR ou stratégiques. Un NDA (Non-Disclosure Agreement) spécifique au séminaire couvre le personnel du château, les prestataires et les sous-traitants. Il doit préciser la durée de l'obligation de confidentialité (généralement 2 à 5 ans), les informations concernées et les pénalités en cas de violation. Select Châteaux fournit un modèle de NDA adapté aux séminaires de direction sur demande." },
+    ],
+    howTo: {
+      name: "Sécuriser juridiquement un contrat de séminaire en château",
+      steps: [
+        { name: "Demander le contrat type avant toute visite", text: "Ne visitez pas un château sans avoir lu ses conditions générales. Un domaine qui refuse de les communiquer en amont est un signal d'alerte." },
+        { name: "Faire relire par le service juridique", text: "Pour les séminaires au-dessus de 30 000 €, une relecture juridique (500 à 1 500 € d'honoraires) est systématiquement rentable." },
+        { name: "Négocier les clauses critiques avant signature", text: "Acompte (30 % max), annulation (barème dégressif), force majeure (clause de report), substitution sous-traitant — la plupart des châteaux acceptent ces ajustements." },
+        { name: "Constituer un dossier de preuves écrites", text: "Conserver tous les échanges email, le devis initial et les confirmations écrites. En cas de litige, c'est votre seule protection devant les tribunaux." },
+        { name: "Souscrire une assurance événement si besoin", text: "Pour les séminaires résidentiels de 50+ personnes, une assurance annulation/interruption d'événement (1,5 à 3 % du budget) couvre les cas non pris en charge par la force majeure contractuelle." },
+      ],
+    },
+  },
+
+  {
     id: 1030,
     slug: "photographe-videaste-seminaire-chateau-guide-2026",
     title: "Photographe & Vidéaste pour Séminaire en Château : Guide 2026",
