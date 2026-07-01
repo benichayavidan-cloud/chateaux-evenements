@@ -7,6 +7,97 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1033,
+    slug: "mobilier-decoration-salle-seminaire-chateau-guide-2026",
+    title: "Mobilier et Décoration Salle Séminaire Château 2026",
+    excerpt: "Le mobilier et la scénographie d'une salle de séminaire en château influencent directement l'engagement des participants. Découvrez les configurations, les tendances décoration 2026 et les budgets réels pour transformer une salle d'apparat en espace de travail inspirant.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-01",
+    readingTime: 10,
+    image: "/images/mobilier-decoration-salle-seminaire-chateau-guide-2026.webp",
+    imageAlt: "Salle de séminaire dans un château français avec tables en configuration U, éclairage chaud et décoration florale élégante",
+    keywords: ["décoration salle séminaire château", "mobilier séminaire entreprise", "configuration salle séminaire", "scénographie séminaire château", "aménagement salle conférence château", "décoration événement entreprise", "configuration salle réunion château", "mise en scène séminaire", "salle plénière château aménagement", "design salle séminaire 2026", "mobilier événementiel château"],
+    content: `
+<h2>Quel mobilier et quelle configuration pour une salle de séminaire en château en 2026 ?</h2><p>Aménager une salle de séminaire en château coûte entre 15€ et 80€ par personne en supplément du tarif de location, selon le niveau de personnalisation et les configurations choisies. D'après les 200+ séminaires organisés par Select Châteaux en Île-de-France depuis 2020, la configuration en U est la plus plébiscitée pour les groupes de 20 à 50 participants (62% des demandes), tandis que le théâtre s'impose au-delà de 80 personnes. Ce qui change tout dans un château : les contraintes patrimoniales (parquets classés, murs en pierre) limitent certains aménagements, mais l'architecture elle-même est déjà un décor. Mis à jour : juillet 2026.</p>
+<p>Que vous organisiez un séminaire dans les Yvelines ou un événement plus au nord, nos consultants adaptent systématiquement la configuration au bâtiment. Pour les domaines proches de Paris, consultez notre page <a href='/seminaire-chateau-proche-paris' class='text-primary font-semibold hover:underline'>séminaire en château proche de Paris</a>.</p>
+
+<h2>Comment Julien R. a réinventé la salle plénière de son séminaire stratégique</h2>
+<p>Julien R. est Directeur Général d'une PME industrielle de 180 salariés basée à Massy. En mars 2026, il organise le séminaire stratégique annuel de son CODIR élargi — 35 personnes, 2 jours. Il cherche un lieu « qui inspire autrement qu'une salle de réunion blanche ». Il contacte Select Châteaux après avoir lu un article du blog, et prend rendez-vous avec Sophie Durand.</p>
+<p>Sophie lui propose une visite du Château de Vaux-le-Vicomte, en Seine-et-Marne, un jeudi matin de mars. Le soleil rase les dorures du salon principal. « On voyait exactement pourquoi Fouquet avait voulu impressionner Louis XIV », raconte Julien. Mais la salle est longue, avec des colonnes en son centre — pas idéale pour un U classique.</p>
+<p>Sophie propose une configuration mixte : îlots de 5 tables rondes pour les ateliers de la matinée, facilement transformables en théâtre pour la plénière de l'après-midi grâce à des chaises pliantes haut de gamme. Détail clé : les tables rondes sont recouvertes d'une nappe en lin naturel ivoire — sobre, en accord avec les boiseries, sans copier le côté « dîner de gala ». Les écrans de projection sont intégrés dans des cadres dorés amovibles pour ne pas dénaturer les murs classés.</p>
+<blockquote><p>« Dans un château classé, on ne décore pas par-dessus l'architecture — on la révèle. La règle d'or : choisir du mobilier neutre (bois naturel, lin, noir mat) qui dialogue avec la pierre et les boiseries sans les concurrencer. Le mobilier qui 'fait château' en surajoutant du doré ou du velours bordeaux est toujours une erreur. »</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+<p>Budget scénographie et mobilier additionnel pour les 35 participants : 1 890€ TTC, soit 54€ par personne. Résultat : les 35 managers ont plébiscité la configuration à 91% dans le questionnaire post-séminaire, citant spécifiquement « l'ambiance qui favorisait la prise de parole ».</p>
+
+<h2>Quelles sont les configurations de salle disponibles dans les châteaux, et lesquelles choisir ?</h2>
+<p>Chaque configuration produit des dynamiques de groupe différentes. Voici le guide pratique basé sur notre expérience terrain :</p>
+<table style='width:100%; border-collapse:collapse; margin:1.5rem 0;'>
+<thead><tr style='background:#f3f4f6;'><th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Configuration</th><th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Capacité idéale</th><th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Objectif</th><th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Contrainte château</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>U ou fer à cheval</td><td style='padding:10px; border:1px solid #e5e7eb;'>12 – 50 pers.</td><td style='padding:10px; border:1px solid #e5e7eb;'>Discussion, CODIR, ateliers</td><td style='padding:10px; border:1px solid #e5e7eb;'>Nécessite une grande salle carrée ou rectangulaire</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Théâtre (rangées)</td><td style='padding:10px; border:1px solid #e5e7eb;'>40 – 300 pers.</td><td style='padding:10px; border:1px solid #e5e7eb;'>Plénière, conférence, keynote</td><td style='padding:10px; border:1px solid #e5e7eb;'>Colonnes patrimoniales peuvent gêner la visibilité</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Îlots (tables rondes)</td><td style='padding:10px; border:1px solid #e5e7eb;'>20 – 80 pers.</td><td style='padding:10px; border:1px solid #e5e7eb;'>Ateliers, co-construction, brainstorming</td><td style='padding:10px; border:1px solid #e5e7eb;'>Acoustique — bruit plus fort qu'en classe</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Classe (rangées de tables)</td><td style='padding:10px; border:1px solid #e5e7eb;'>20 – 60 pers.</td><td style='padding:10px; border:1px solid #e5e7eb;'>Formation, prise de notes intensive</td><td style='padding:10px; border:1px solid #e5e7eb;'>Peu recommandé en château (dynamique scolaire)</td></tr>
+<tr><td style='padding:10px; border:1px solid #e5e7eb;'>Banquet (longues tables)</td><td style='padding:10px; border:1px solid #e5e7eb;'>30 – 200 pers.</td><td style='padding:10px; border:1px solid #e5e7eb;'>Dîner de cohésion, soirée</td><td style='padding:10px; border:1px solid #e5e7eb;'>Format naturel en château — très adapté</td></tr>
+</tbody>
+</table>
+
+<h2>Quelles tendances décoration marquer son séminaire en château en 2026 ?</h2>
+<p>En 2026, les tendances observées sur nos 40+ événements depuis janvier vont vers moins d'artifice et plus d'authenticité :</p>
+<ul style='margin:1rem 0; padding-left:1.5rem;'>
+<li style='margin-bottom:0.75rem;'><strong>Végétal intégré</strong> : plantes vertes XXL (ficus, monstera, bananiers décoratifs) qui réchauffent les pierres froides sans cacher l'architecture. Les fleuristes événementiels pratiquent entre 400€ et 2 500€ pour une scénographie végétale complète.</li>
+<li style='margin-bottom:0.75rem;'><strong>Éclairage bougie/LED chaud</strong> : les spots froids sont bannis. Les bougies LED haute fidélité (à partir de 3€/unité la location) recréent l'ambiance d'un château habité sans risque d'incendie.</li>
+<li style='margin-bottom:0.75rem;'><strong>Signalétique en bois gravé</strong> : les panneaux de programme imprimés sur papier sont remplacés par des planches en bois gravées ou des ardoises — plus cohérent avec le standing du lieu, récupérables pour d'autres événements.</li>
+<li style='margin-bottom:0.75rem;'><strong>Mobilier lounge en complément</strong> : des canapés et fauteuils disposés en alcôves dans les couloirs permettent de créer des espaces de conversation informelle entre les sessions.</li>
+<li style='margin-bottom:0.75rem;'><strong>Projection mapping sur les murs</strong> : la grande tendance 2026 pour les plénières de lancement — projeter le logo, les valeurs ou des visuels sur les murs de pierre crée un effet spectaculaire. Prévoir 1 500€ à 4 000€ pour cette prestation.</li>
+</ul>
+
+<h2>Quelles étapes suivre pour scénographier une salle de séminaire en château ?</h2>
+<ol style='margin:1rem 0; padding-left:1.5rem;'>
+<li style='margin-bottom:0.75rem;'><strong>Obtenir les contraintes patrimoniales du château</strong> : certains châteaux classés interdisent les perforations murales, le scotch sur les boiseries et tout ce qui peut marquer les parquets. Demander la liste écrite au gérant avant toute commande de décoration.</li>
+<li style='margin-bottom:0.75rem;'><strong>Mesurer précisément la salle et noter les obstacles</strong> : colonnes, cheminées, portes-fenêtres, hauteur sous plafond. Créer un plan à l'échelle (même sommaire) avant de commander du mobilier additionnel.</li>
+<li style='margin-bottom:0.75rem;'><strong>Choisir la configuration principale selon l'objectif de la journée</strong> : une même salle peut servir en îlots le matin et en théâtre l'après-midi à condition d'avoir prévu un prestataire montage/démontage (comptez 200€ à 500€ pour 2 configurations en 1 journée).</li>
+<li style='margin-bottom:0.75rem;'><strong>Commander le mobilier additionnel chez un loueur événementiel local</strong> : les châteaux ont du mobilier de base, mais pour personnaliser, faire appel à un loueur IDF (livraison et reprise incluses en général). Prévoir la livraison J-1 pour monter sereinement.</li>
+<li style='margin-bottom:0.75rem;'><strong>Tester l'éclairage le soir précédent</strong> : la lumière naturelle d'un château change radicalement entre la matinée et l'après-midi. Une visite nocturne (ou en fin de journée) avec les éclairages en place révèle ce qu'une visite de 10h du matin ne montre pas.</li>
+</ol>
+
+<h2>Quels budgets prévoir pour la scénographie d'un séminaire en château ?</h2>
+<p>Sur les séminaires que nous accompagnons, voici les fourchettes observées pour la scénographie et le mobilier additionnel :</p>
+<ul style='margin:1rem 0; padding-left:1.5rem;'>
+<li><strong>Scénographie légère</strong> (éclairage bougie, signalétique, fleurs de table) : 8€ – 15€ par personne</li>
+<li><strong>Scénographie intermédiaire</strong> (mobilier lounge, végétal, projecteur additionnel) : 20€ – 45€ par personne</li>
+<li><strong>Scénographie premium</strong> (projection mapping, décoration florale XXL, mobilier haut de gamme) : 50€ – 120€ par personne</li>
+</ul>
+<p>Ces budgets sont indépendants du coût de la salle et du traiteur. Pour des séminaires dans les Yvelines, la plupart de nos partenaires châteaux disposent déjà d'un mobilier de qualité inclus dans la location. Découvrez les domaines disponibles sur notre page <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a>. Pour les domaines plus proches de Paris avec des salles d'apparat entièrement équipées, consultez notre <a href='/chateaux' class='text-primary font-semibold hover:underline'>catalogue de châteaux partenaires</a>.</p>
+<p>Les amateurs de cadres naturels préféreront les domaines de l'Oise — certains offrent des salles avec vue directe sur les jardins à la française, idéales pour un séminaire de printemps ou d'été. Voir notre page <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a>. Vous pouvez aussi lire nos articles sur le <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide complet d'organisation de séminaire en château</a> et sur le <a href='/blog/repas-seminaire-tendances-traiteur-2026' class='text-primary font-semibold hover:underline'>choix du traiteur pour votre séminaire 2026</a>.</p>
+<p>Votre séminaire est prévu cet automne et vous souhaitez un accompagnement pour la scénographie ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis personnalisé</a> — nos consultants vous proposent une présélection de châteaux avec plan de salle et options décoration adaptées à votre budget.</p>
+    `,
+    faq: [
+      { question: "Peut-on modifier librement la disposition du mobilier dans un château classé ?", answer: "Cela dépend du classement et des conditions de privatisation. Les châteaux classés Monuments Historiques imposent souvent des restrictions : interdiction de perforations murales, de colle sur les boiseries ou de charges lourdes sur les parquets anciens. En pratique, 80% des châteaux partenaires de Select Châteaux autorisent le déplacement des meubles avec dépôt de garantie et accord préalable. Nos consultants obtiennent la liste complète des contraintes avant chaque réservation." },
+      { question: "Quelle configuration de salle est la plus efficace pour un séminaire de CODIR ?", answer: "Pour un CODIR de 8 à 25 personnes, la configuration en U est unanimement recommandée : elle favorise le contact visuel entre tous les participants et permet à l'animateur de se déplacer au centre. Pour un CODIR élargi de 25 à 50 personnes, les îlots de 5-6 tables rondes permettent les discussions en sous-groupes avec facilité. La configuration en théâtre est déconseillée pour un CODIR car elle crée une dynamique hiérarchique défavorable à la délibération." },
+      { question: "Combien coûte la location de mobilier événementiel pour un séminaire en château ?", answer: "La location de mobilier événementiel (tables, chaises, nappes, mobilier lounge) pour un séminaire de 50 personnes en Île-de-France coûte entre 800€ et 3 000€ selon les prestations, livraison et montage inclus. Beaucoup de châteaux partenaires disposent déjà de mobilier de réunion de qualité inclus dans leur tarif journalier — ce qui rend le mobilier additionnel optionnel plutôt qu'obligatoire." },
+      { question: "Comment utiliser les espaces extérieurs d'un château pour son séminaire ?", answer: "Les parcs et terrasses des châteaux peuvent accueillir des pauses café, des cocktails dinatoires et des ateliers team building en plein air. En juillet 2026, les demandes pour des ateliers en extérieur (yoga, brainstorming en jardins) représentent 35% de nos demandes estivales. Il faut toujours prévoir un plan B intérieur : une tente de réception éphémère (1 500€ à 4 000€ pour 2 jours) ou une salle de repli identifiée dès la visite." },
+      { question: "Peut-on faire de la projection vidéo sur les murs en pierre d'un château ?", answer: "Oui — la projection mapping sur murs de pierre est techniquement possible et produit un effet spectaculaire. Elle nécessite un vidéoprojecteur à courte focale ou un projecteur haute luminosité (minimum 10 000 lumens pour une grande surface), et une surface de pierre sans fenêtres ni moulures complexes. Le budget pour une installation complète en château varie de 1 500€ à 4 000€. Nos prestataires techniques partenaires ont l'habitude des contraintes de ce type de bâtiment." },
+      { question: "Quels éléments de décoration sont à éviter dans un château pour un séminaire ?", answer: "Les éléments à éviter : nappes synthétiques brillantes (visuellement agressives face aux boiseries), fleurs artificielles, mobilier en plastique ou en aluminium mat, éclairages froids (blancs LED type néon), banderoles imprimées en couleurs vives. En général, tout ce qui 'copie' l'esthétique château (dorures sur mobilier moderne, velours bordeaux sur chaises en plastique) crée un résultat visuellement incohérent. L'élégance en château vient de la sobriété." },
+      { question: "Comment gérer les transitions de configuration entre deux sessions dans la même journée ?", answer: "La transition de configuration (par exemple îlots le matin, théâtre l'après-midi) prend entre 20 et 45 minutes selon la taille de la salle et le nombre de tables. Prévoir un prestataire montage dédié (200€ à 500€) et placer cette transition lors d'une pause déjeuner. Nos consultants intègrent systématiquement ce temps de transformation dans le rétro-planning — une erreur fréquente est de sous-estimer ce délai et de démarrer l'après-midi en retard." },
+    ],
+    howTo: {
+      name: "Scénographier une salle de séminaire dans un château",
+      steps: [
+        { name: "Obtenir les contraintes patrimoniales du château", text: "Demander au gérant la liste écrite des interdictions (perforations, scotch, charges sur parquet) avant toute commande de décoration ou mobilier." },
+        { name: "Mesurer la salle et noter les obstacles architecturaux", text: "Relever les dimensions, la position des colonnes, cheminées et portes-fenêtres. Créer un plan à l'échelle avant de commander du mobilier additionnel." },
+        { name: "Choisir la configuration selon l'objectif de la journée", text: "U pour les discussions et CODIR, îlots pour les ateliers collaboratifs, théâtre pour les plénières. Prévoir un prestataire montage si deux configurations sont prévues dans la journée." },
+        { name: "Commander le mobilier additionnel chez un loueur IDF", text: "Prévoir la livraison J-1 pour monter sereinement. Vérifier que le loueur gère aussi la reprise le lendemain de l'événement." },
+        { name: "Tester l'éclairage en fin de journée avant l'événement", text: "La lumière naturelle d'un château varie considérablement entre matin et après-midi. Valider les éclairages additionnels lors d'une visite en fin de journée ou en soirée la veille." },
+      ],
+    },
+  },
+
+  {
     id: 1032,
     slug: "questionnaire-evaluation-seminaire-entreprise-guide-2026",
     title: "Évaluer son Séminaire d'Entreprise : Questionnaire & Méthode 2026",
