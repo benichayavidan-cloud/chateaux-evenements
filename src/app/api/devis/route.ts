@@ -132,6 +132,11 @@ export async function POST(request: NextRequest) {
       const crmTrackingUrl = process.env.NEXT_PUBLIC_CRM_TRACKING_URL || "https://crm.selectchateaux.com";
       const fingerprint = request.cookies.get("sc_vid")?.value;
 
+      // CRM V2 : le lead devient directement un dossier « Nouvelle demande »
+      // (société + contact + événement créés côté CRM). Secret partagé serveur→serveur.
+      const crmLeadsUrl = process.env.CRM_LEADS_URL;
+      const crmLeadsSecret = process.env.CRM_LEADS_SECRET;
+
       // Emails + CRM link envoyés en parallèle, erreurs silencieuses (non-bloquantes)
       await Promise.allSettled([
         sendAdminNotification(newDevis, sourceLabel),
@@ -141,6 +146,13 @@ export async function POST(request: NextRequest) {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ action: "link_lead", fingerprint, email: data.email }),
+            }).catch(() => {})
+          : Promise.resolve(),
+        crmLeadsUrl && crmLeadsSecret
+          ? fetch(crmLeadsUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json", "x-lead-secret": crmLeadsSecret },
+              body: JSON.stringify(data),
             }).catch(() => {})
           : Promise.resolve(),
       ]);
