@@ -70,7 +70,9 @@ export function Footer({
         background: `linear-gradient(to bottom, ${theme.colors.neutral.gray50}, ${theme.colors.neutral.white})`,
         borderTop: `1px solid ${theme.colors.neutral.gray200}`,
         paddingTop: theme.spacing.xl,
-        paddingBottom: theme.spacing.md,
+        // Réserve la hauteur de la StickyCtaBar (fixed bottom) : la dernière ligne
+        // (copyright, crédit, liens légaux) ne doit jamais passer dessous.
+        paddingBottom: `calc(${theme.spacing.md} + 84px)`,
       }}
     >
       <Container size="xl">
@@ -78,14 +80,14 @@ export function Footer({
         <div className="footer-grid" style={{ marginBottom: theme.spacing.xl, alignItems: 'flex-start' }}>
           {/* About Section */}
           <div>
-            {/* Logo */}
+            {/* Logo — jamais de marge négative : le texte ne doit pas mordre sur le logo */}
             {logo && (
-              <div style={{ marginBottom: theme.spacing.lg }}>
+              <div style={{ marginBottom: theme.spacing.sm }}>
                 {logo}
               </div>
             )}
 
-            <Text variant="body" color="muted" style={{ marginTop: '-50px' }}>
+            <Text variant="body" color="muted">
               {description}
             </Text>
           </div>
