@@ -5,6 +5,7 @@
 
 'use client';
 
+import Image from 'next/image';
 import { Link, Text } from '@/components/ui-v2';
 import { Container } from '@/components/layout-v2';
 import { theme } from '@/design-system/tokens';
@@ -203,18 +204,30 @@ export function Footer({
               {copyright || `© ${currentYear} SelectChateaux. Tous droits réservés.`}
             </Text>
 
-            {/* Crédit agence */}
-            <Text variant="caption" color="muted">
-              Site conçu par{' '}
-              <a
-                href="https://rankweld.com"
-                target="_blank"
-                rel="noopener"
-                style={{ color: 'inherit', textDecoration: 'underline' }}
-              >
-                RankWeld
-              </a>
-            </Text>
+            {/* Crédit agence — backlink avec logo */}
+            <a
+              href="https://rankweld.com"
+              target="_blank"
+              rel="noopener"
+              title="RankWeld — agence web & SEO"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: theme.spacing.sm,
+                textDecoration: 'none',
+              }}
+            >
+              <Text variant="caption" color="muted">
+                Site conçu par
+              </Text>
+              <Image
+                src="/images/rankweld-logo.png"
+                alt="RankWeld"
+                width={52}
+                height={28}
+                style={{ height: '28px', width: 'auto', opacity: 0.85 }}
+              />
+            </a>
 
             {/* Legal Links */}
             {legalLinks.length > 0 && (
