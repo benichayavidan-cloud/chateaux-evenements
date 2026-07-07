@@ -92,6 +92,7 @@ const article1: BlogPost = {
   featured: true,
   faq: [
     { question: "Combien coûte un séminaire en château par personne ?", answer: "De 150€ à 450€ par personne selon la formule : journée d'étude (120-180€), résidentiel 1 nuit (240-350€), ou séminaire 2 nuits tout compris (400-550€). Le prix inclut hébergement, restauration et salles de réunion." },
+    { question: "Comment présenter le budget séminaire à sa direction ?", answer: "Présentez-le comme un investissement avec un ROI mesurable (4,8x en moyenne) : comparez le coût du séminaire (environ 300€/pers) au coût d'un turnover évité (15 000 à 25 000€ par employé). Un seul départ évité rembourse le séminaire." },
     { question: "Quels sont les coûts cachés d'un séminaire en château ?", answer: "Les principaux coûts souvent oubliés : transport (bus 800-1 500€), activités team building (30-80€/pers), équipement technique (500-2 000€), et la privatisation exclusive (+15-25%). Demandez toujours un devis tout compris pour éviter les surprises." },
     { question: "Comment réduire le budget d'un séminaire sans sacrifier la qualité ?", answer: "Choisissez un jour de semaine (mardi-jeudi, -20%), réservez 3-6 mois à l'avance, optez pour un forfait tout compris plutôt qu'à la carte, et privilégiez les châteaux proches de Paris pour réduire les coûts de transport." },
     { question: "Un séminaire en château est-il plus cher qu'un hôtel ?", answer: "Le surcoût est de 15-20% par rapport à un hôtel 4★, mais l'impact est incomparable : privatisation exclusive, cadre mémorable, espaces extérieurs vastes. Rapporté au ROI (productivité, cohésion), c'est un investissement rentable." },
@@ -204,6 +205,29 @@ const article1: BlogPost = {
         </tr>
       </tfoot>
     </table>
+
+    <h3>Budget total selon la taille du groupe</h3>
+
+    <p>Pour vous projeter d'un coup d'œil, voici les budgets totaux constatés sur nos 200+ séminaires, par format et taille de groupe :</p>
+
+    <table class="breakdown-table">
+      <thead>
+        <tr>
+          <th>Format</th>
+          <th>10 pers</th>
+          <th>30 pers</th>
+          <th>50 pers</th>
+          <th>100 pers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Journée d'étude</td><td>1 500€</td><td>4 000€</td><td>6 500€</td><td>12 000€</td></tr>
+        <tr><td>Résidentiel 1 nuit</td><td>3 500€</td><td>9 000€</td><td>15 000€</td><td>28 000€</td></tr>
+        <tr><td>2 nuits + activités</td><td>6 000€</td><td>16 000€</td><td>26 000€</td><td>50 000€</td></tr>
+      </tbody>
+    </table>
+
+    <p>À ces montants s'ajoute le cas échéant un intervenant ou facilitateur externe (2 000 à 5 000€ par jour), premier poste variable d'un budget séminaire.</p>
 
     <h3>3. Les Coûts Cachés à Anticiper</h3>
 

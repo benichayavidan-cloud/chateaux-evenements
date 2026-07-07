@@ -498,7 +498,7 @@ export const camilleArticles: BlogPost[] = [
   <li>Le groupe dépasse 25 personnes ou mélange des niveaux hiérarchiques très différents</li>
 </ul>
 
-<p>Dans nos châteaux partenaires, nous pouvons recommander des facilitateurs certifiés (IAF, Art of Hosting) habitués aux contextes château. Leur tarif moyen est de 800 à 1 500 € pour une demi-journée, à intégrer dans votre budget séminaire global. Pour une vue d'ensemble des coûts, consultez notre article sur le <a href='/blog/budget-seminaire-entreprise-2026-planifier' class='text-primary font-semibold hover:underline'>budget séminaire entreprise 2026</a>.</p>
+<p>Dans nos châteaux partenaires, nous pouvons recommander des facilitateurs certifiés (IAF, Art of Hosting) habitués aux contextes château. Leur tarif moyen est de 800 à 1 500 € pour une demi-journée, à intégrer dans votre budget séminaire global. Pour une vue d'ensemble des coûts, consultez notre article sur le <a href='/blog/combien-coute-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>budget séminaire entreprise 2026</a>.</p>
 
 <p>Vous organisez un séminaire résidentiel avec plusieurs ateliers sur deux jours ? Notre guide sur le <a href='/blog/planning-ideal-seminaire-2-jours' class='text-primary font-semibold hover:underline'>planning idéal d'un séminaire de 2 jours</a> détaille comment répartir les temps de travail et de pause pour maintenir l'engagement.</p>
 
@@ -592,7 +592,7 @@ export const camilleArticles: BlogPost[] = [
 <li><strong>Scénographie premium</strong> (projection mapping, décoration florale XXL, mobilier haut de gamme) : 50€ – 120€ par personne</li>
 </ul>
 <p>Ces budgets sont indépendants du coût de la salle et du traiteur. Pour des séminaires dans les Yvelines, la plupart de nos partenaires châteaux disposent déjà d'un mobilier de qualité inclus dans la location. Découvrez les domaines disponibles sur notre page <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a>. Pour les domaines plus proches de Paris avec des salles d'apparat entièrement équipées, consultez notre <a href='/chateaux' class='text-primary font-semibold hover:underline'>catalogue de châteaux partenaires</a>.</p>
-<p>Les amateurs de cadres naturels préféreront les domaines de l'Oise — certains offrent des salles avec vue directe sur les jardins à la française, idéales pour un séminaire de printemps ou d'été. Voir notre page <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a>. Vous pouvez aussi lire nos articles sur le <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide complet d'organisation de séminaire en château</a> et sur le <a href='/blog/repas-seminaire-tendances-traiteur-2026' class='text-primary font-semibold hover:underline'>choix du traiteur pour votre séminaire 2026</a>.</p>
+<p>Les amateurs de cadres naturels préféreront les domaines de l'Oise — certains offrent des salles avec vue directe sur les jardins à la française, idéales pour un séminaire de printemps ou d'été. Voir notre page <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a>. Vous pouvez aussi lire nos articles sur le <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>guide complet d'organisation de séminaire en château</a> et sur le <a href='/blog/repas-seminaire-tendances-traiteur-2026' class='text-primary font-semibold hover:underline'>choix du traiteur pour votre séminaire 2026</a>.</p>
 <p>Votre séminaire est prévu cet automne et vous souhaitez un accompagnement pour la scénographie ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis personnalisé</a> — nos consultants vous proposent une présélection de châteaux avec plan de salle et options décoration adaptées à votre budget.</p>
     `,
     faq: [
@@ -1088,7 +1088,7 @@ export const camilleArticles: BlogPost[] = [
     </tr>
   </tbody>
 </table>
-<p>Pour les fusions impliquant plus de 100 personnes, nous recommandons de diviser le séminaire en deux temps : un CODIR étendu (30-40 personnes) sur 2 jours, suivi d'un séminaire opérationnel (80-150 personnes) sur 1 jour. Cette approche en cascade est plus efficace et plus économique qu'un mega-événement unique. Consultez aussi notre <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>guide complet pour organiser un séminaire en château</a> et notre article sur les <a href='/blog/seminaire-integration-nouveaux-collaborateurs-chateau-2026' class='text-primary font-semibold hover:underline'>séminaires d'intégration et d'onboarding</a>.</p>
+<p>Pour les fusions impliquant plus de 100 personnes, nous recommandons de diviser le séminaire en deux temps : un CODIR étendu (30-40 personnes) sur 2 jours, suivi d'un séminaire opérationnel (80-150 personnes) sur 1 jour. Cette approche en cascade est plus efficace et plus économique qu'un mega-événement unique. Consultez aussi notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>guide complet pour organiser un séminaire en château</a> et notre article sur les <a href='/blog/seminaire-integration-nouveaux-collaborateurs-chateau-2026' class='text-primary font-semibold hover:underline'>séminaires d'intégration et d'onboarding</a>.</p>
 
 <p>Un séminaire post-fusion réussi, c'est une décision RH structurante — pas un événement de plus dans l'agenda. Le château offre le cadre symbolique et la neutralité géographique que ce moment exige. Select Châteaux accompagne les DRH et les équipes dirigeantes de la conception du programme jusqu'au pulse survey de suivi. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis sur mesure</a> pour votre séminaire post-fusion : nous vous rappelons sous 24h avec une sélection de 3 domaines correspondant à vos critères.</p>
     `,
@@ -1271,7 +1271,7 @@ export const camilleArticles: BlogPost[] = [
 <li style='margin-bottom:0.75rem;'><strong>Confirmer la logistique transport et les prestataires (J-21)</strong> : navette depuis la gare la plus proche, plan de table, brief traiteur, matériel team building. Envoyer une convocation avec plan d'accès et programme aux participants.</li>
 </ol>
 
-<p>Pour approfondir la phase budgétaire, consultez notre article <a href='/blog/budget-seminaire-entreprise-2026-planifier' class='text-primary font-semibold hover:underline'>budget séminaire entreprise 2026</a> et notre <a href='/blog/planning-ideal-seminaire-2-jours' class='text-primary font-semibold hover:underline'>planning idéal d'un séminaire de 2 jours</a>.</p>
+<p>Pour approfondir la phase budgétaire, consultez notre article <a href='/blog/combien-coute-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>budget séminaire entreprise 2026</a> et notre <a href='/blog/planning-ideal-seminaire-2-jours' class='text-primary font-semibold hover:underline'>planning idéal d'un séminaire de 2 jours</a>.</p>
 
 <h2>Pourquoi septembre est-il le meilleur mois pour un kick-off en château ?</h2>
 
@@ -3446,7 +3446,7 @@ export const camilleArticles: BlogPost[] = [
 <li><strong>Animations outdoor</strong> : 25€ à 70€/personne selon le prestataire et la durée</li>
 </ul>
 <p>Pour une journée complète avec déjeuner et deux animations, le budget tout compris se situe entre 150€ et 280€/personne. Si vous ajoutez une nuit d'hébergement dans le château, comptez 80€ à 180€/personne supplémentaires selon le standing des chambres.</p>
-<p>Consultez notre guide <a href='/blog/budget-seminaire-entreprise-2026-planifier' class='text-primary font-semibold hover:underline'>Budget Séminaire Entreprise 2026 : Tarifs Réels par Personne</a> pour une ventilation détaillée.</p>
+<p>Consultez notre guide <a href='/blog/combien-coute-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>Combien Coûte un Séminaire en Château ? Tarifs 2026</a> pour une ventilation détaillée.</p>
 
 <h2>Les 5 étapes pour organiser votre séminaire outdoor en château cet été</h2>
 <ol>

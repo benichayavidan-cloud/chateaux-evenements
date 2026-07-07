@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option B — Preuves & Confiance | Select Châteaux</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bronze: #A37E2C;
+      --bronze-light: #C09448;
+      --bronze-dark: #8A6823;
+      --gold: #D4AF37;
+      --black: #050505;
+      --white: #ffffff;
+      --gray-50: #FAFAFA;
+      --gray-100: #F5F5F5;
+      --gray-200: #E5E5E5;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-900: #171717;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: #1a1f36; background: var(--white); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 300; line-height: 1.2; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* HERO */
+    .hero {
+      position: relative; width: 100%; height: 75vh; min-height: 500px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&auto=format&fit=crop&q=80') center/cover;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6));
+    }
+    .hero-inner { position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem; }
+    .hero .badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 28px; background: rgba(0,0,0,0.4); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 50px;
+      color: #fff; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+    }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-style: italic; color: #fff; text-shadow: 0 2px 20px rgba(0,0,0,0.4); margin-bottom: 1.5rem; }
+    .hero p { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.9); max-width: 750px; margin: 0 auto 2.5rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: var(--bronze); color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-primary:hover { background: var(--bronze-light); transform: translateY(-2px); box-shadow: 0 0 40px rgba(163,126,44,0.3); }
+
+    /* SECTIONS */
+    .section { padding: 15px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+    .section-header { text-align: center; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+    .section-header h2 { font-size: clamp(2rem, 5vw, 3rem); font-style: italic; color: #1a1f36; margin-bottom: 1rem; }
+    .section-header p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--gray-600); max-width: 700px; margin: 0 auto; }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; background: rgba(163,126,44,0.08);
+      border: 1px solid rgba(163,126,44,0.2); border-radius: 50px;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--bronze); margin-bottom: 1rem;
+    }
+    .bg-white { background: #fff; }
+    .bg-gray { background: #f6f9fc; }
+
+    /* STATS BAND */
+    .stats-band { background: linear-gradient(135deg, #1a1a1a, #0a0a0a); padding: 15px 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .stat-item { padding: 1.5rem; }
+    .stat-number { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.5rem); font-style: italic; color: var(--bronze); margin-bottom: 0.5rem; }
+    .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+
+    /* ====== PROMESSE SECTION - Grande bannière texte + preuve ====== */
+    .promesse {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 500px;
+    }
+    .promesse-image {
+      background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&auto=format&fit=crop&q=80') center/cover;
+      min-height: 400px;
+    }
+    .promesse-content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: clamp(2rem, 5vw, 4rem);
+      background: #f6f9fc;
+    }
+    .promesse-content h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-style: italic; color: #1a1f36; margin-bottom: 1.5rem; }
+    .promesse-content p { font-size: 1.05rem; color: var(--gray-600); margin-bottom: 1.5rem; line-height: 1.7; }
+    .promesse-content .highlight {
+      display: inline; background: linear-gradient(to bottom, transparent 60%, rgba(163,126,44,0.2) 60%);
+      font-weight: 600; color: #1a1f36;
+    }
+
+    /* ====== 3 PILIERS (Grandes cartes avec icône + nombre) ====== */
+    .piliers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .pilier-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 20px;
+      padding: 2.5rem 2rem; text-align: center; position: relative; overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .pilier-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--bronze), var(--gold)); opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .pilier-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(0,0,0,0.08); }
+    .pilier-card:hover::before { opacity: 1; }
+    .pilier-number {
+      font-family: var(--font-heading); font-size: 3.5rem; font-style: italic;
+      color: var(--bronze); margin-bottom: 0.5rem; line-height: 1;
+    }
+    .pilier-card h3 { font-size: 1.3rem; font-style: italic; color: #1a1f36; margin-bottom: 0.75rem; }
+    .pilier-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; margin: 0; }
+
+    /* ====== TEMOIGNAGES (Social proof fort) ====== */
+    .temoignages-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .temoignage-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 16px;
+      padding: 2rem; position: relative; transition: all 0.3s ease;
+    }
+    .temoignage-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-color: rgba(163,126,44,0.3); }
+    .temoignage-quote {
+      font-family: var(--font-heading); font-size: 4rem; color: var(--bronze);
+      opacity: 0.3; position: absolute; top: 10px; right: 20px; line-height: 1;
+    }
+    .temoignage-text { font-size: 0.95rem; color: var(--gray-600); line-height: 1.7; font-style: italic; margin-bottom: 1.25rem; }
+    .temoignage-author { display: flex; align-items: center; gap: 0.75rem; }
+    .temoignage-avatar {
+      width: 44px; height: 44px; border-radius: 50%; background: rgba(163,126,44,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--bronze); font-weight: 700;
+    }
+    .temoignage-name { font-weight: 600; color: #1a1f36; font-size: 0.9rem; }
+    .temoignage-role { font-size: 0.8rem; color: var(--gray-500); }
+    .stars { color: #F59E0B; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
+
+    /* ====== CE QUI NOUS DISTINGUE (Comparaison) ====== */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto; }
+    .compare-card { border-radius: 16px; padding: 2rem; }
+    .compare-bad {
+      background: #fef2f2; border: 1px solid #fecaca;
+    }
+    .compare-good {
+      background: #f0fdf4; border: 1px solid #bbf7d0;
+    }
+    .compare-card h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; }
+    .compare-bad h3 { color: #dc2626; }
+    .compare-good h3 { color: #16a34a; }
+    .compare-list { list-style: none; padding: 0; }
+    .compare-list li { padding: 0.6rem 0; font-size: 0.9rem; color: var(--gray-600); display: flex; align-items: flex-start; gap: 0.75rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .compare-list li:last-child { border-bottom: none; }
+    .compare-icon-bad { color: #dc2626; font-size: 1.1rem; flex-shrink: 0; }
+    .compare-icon-good { color: #16a34a; font-size: 1.1rem; flex-shrink: 0; }
+
+    /* ====== EQUIPE (Version plus complète) ====== */
+    .equipe-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .equipe-image { border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+    .equipe-image img { width: 100%; height: 100%; object-fit: cover; }
+    .equipe-names { margin-top: 1.5rem; }
+    .equipe-member { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--gray-200); }
+    .equipe-member:last-child { border-bottom: none; }
+    .equipe-member-avatar {
+      width: 56px; height: 56px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      border: 2px solid rgba(163,126,44,0.2);
+    }
+    .equipe-member-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .equipe-member-name { font-weight: 600; color: #1a1f36; font-size: 0.95rem; }
+    .equipe-member-role { font-size: 0.8rem; color: var(--bronze); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+    .equipe-member-desc { font-size: 0.85rem; color: var(--gray-500); margin-top: 2px; }
+
+    /* ====== GARANTIES ====== */
+    .garanties-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .garantie-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 16px;
+      padding: 1.75rem; text-align: center; transition: all 0.3s ease;
+    }
+    .garantie-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.06); border-color: rgba(163,126,44,0.3); }
+    .garantie-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .garantie-card h4 { font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; color: #1a1f36; margin-bottom: 0.5rem; }
+    .garantie-card p { font-size: 0.8rem; color: var(--gray-500); margin: 0; line-height: 1.5; }
+
+    /* CTA FINAL */
+    .cta-final { background: linear-gradient(135deg, #1a1a1a, #0a0a0a); padding: 15px 0; text-align: center; }
+    .cta-final h2 { color: #fff; margin-bottom: 1rem; font-size: clamp(2rem, 5vw, 3rem); font-style: italic; }
+    .cta-final p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 2rem; font-size: 1.05rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.4); border-radius: 8px;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .stats-grid, .garanties-grid { grid-template-columns: repeat(2, 1fr); }
+      .piliers-grid, .temoignages-grid, .compare-grid { grid-template-columns: 1fr; }
+      .promesse, .equipe-row { grid-template-columns: 1fr; }
+      .promesse-image { min-height: 250px; }
+    }
+
+    .option-label {
+      position: fixed; top: 20px; right: 20px; z-index: 999;
+      background: #16a34a; color: #fff; padding: 10px 20px;
+      border-radius: 8px; font-weight: 700; font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(22,163,74,0.4);
+    }
+  </style>
+</head>
+<body>
+
+<div class="option-label">OPTION B — Preuves & Confiance</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">
+      <span>&#9733;</span>
+      <span>4.8/5 &bull; 500+ événements réussis</span>
+    </div>
+    <h1>Les Entreprises qui Visent l'Excellence Nous Choisissent</h1>
+    <p>Depuis 2009, nous transformons les séminaires et soirées d'entreprise en expériences mémorables dans les plus beaux châteaux d'Île-de-France.</p>
+    <a href="/devis#formulaire" class="btn-primary">Obtenir Mon Devis Gratuit en 24h &rarr;</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">15 ans</div>
+        <div class="stat-label">d'expérience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">événements réussis</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">de satisfaction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.8/5</div>
+        <div class="stat-label">note moyenne</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMESSE FORTE (Image + Texte) -->
+<section class="section bg-white">
+  <div class="promesse">
+    <div class="promesse-image"></div>
+    <div class="promesse-content">
+      <div class="section-badge">&#9830; Notre Promesse</div>
+      <h2>Votre Événement Clé en Main, Zéro Stress</h2>
+      <p>
+        Organiser un séminaire ou une soirée d'entreprise dans un château, c'est souvent un parcours du combattant :
+        trouver le lieu, négocier avec le traiteur, coordonner les animations, gérer la logistique...
+      </p>
+      <p>
+        <span class="highlight">Nous prenons tout en charge.</span> Un seul interlocuteur, un budget maîtrisé, et la garantie d'un événement qui dépasse vos attentes. C'est notre métier depuis 15 ans.
+      </p>
+      <a href="/devis#formulaire" class="btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">Parlons de Votre Projet &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3 PILIERS -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#127970; Ce Que Nous Faisons</div>
+      <h2>3 Expertises, 1 Interlocuteur Unique</h2>
+    </div>
+
+    <div class="piliers-grid">
+      <div class="pilier-card">
+        <div class="pilier-number">4</div>
+        <h3>Châteaux Sélectionnés</h3>
+        <p>Des domaines d'exception en Île-de-France, à 30-60 min de Paris, avec hébergement de 50 à 280 personnes. Triés sur le volet pour leur charme, leurs équipements et leur accessibilité.</p>
+      </div>
+      <div class="pilier-card">
+        <div class="pilier-number">8+</div>
+        <h3>Thématiques de Soirées</h3>
+        <p>Gatsby, Casino Royale, Murder Party, Bal Masqué, White Party... Des scénarios immersifs clé en main avec décoration, animations et mise en scène professionnelle.</p>
+      </div>
+      <div class="pilier-card">
+        <div class="pilier-number">100%</div>
+        <h3>Sur-Mesure</h3>
+        <p>Chaque événement est unique. Nous concevons votre programme sur-mesure : séminaire de travail, team building, soirée de gala, cocktail dînatoire... Tout est possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#9733; Ils Nous Font Confiance</div>
+      <h2>Ce Que Disent Nos Clients</h2>
+      <p>4.8/5 sur la base de nos 500+ événements organisés</p>
+    </div>
+
+    <div class="temoignages-grid">
+      <div class="temoignage-card">
+        <div class="temoignage-quote">"</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="temoignage-text">Un séminaire de 3 jours organisé à la perfection. L'équipe a su comprendre nos besoins et proposer un programme sur-mesure qui a dépassé nos attentes. Le château était sublime.</p>
+        <div class="temoignage-author">
+          <div class="temoignage-avatar">SG</div>
+          <div>
+            <div class="temoignage-name">Sophie G.</div>
+            <div class="temoignage-role">DRH — Groupe Média (120 pers.)</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignage-card">
+        <div class="temoignage-quote">"</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="temoignage-text">Notre soirée Gatsby a été un vrai succès ! Décor incroyable, animations professionnelles, et surtout une coordination sans faille. Nos collaborateurs en parlent encore.</p>
+        <div class="temoignage-author">
+          <div class="temoignage-avatar">ML</div>
+          <div>
+            <div class="temoignage-name">Marc L.</div>
+            <div class="temoignage-role">Directeur Commercial — Startup Tech (80 pers.)</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignage-card">
+        <div class="temoignage-quote">"</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="temoignage-text">Le rapport qualité/prix est excellent. Tout était inclus, pas de mauvaise surprise. Le chef de projet a été d'une réactivité exemplaire du début à la fin.</p>
+        <div class="temoignage-author">
+          <div class="temoignage-avatar">CW</div>
+          <div>
+            <div class="temoignage-name">Claire W.</div>
+            <div class="temoignage-role">Office Manager — Cabinet Conseil (60 pers.)</div>
+          </div>
+        </div>
+      </div>
+      <div class="temoignage-card">
+        <div class="temoignage-quote">"</div>
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="temoignage-text">Deuxième année consécutive que nous organisons notre team building annuel avec Select Châteaux. La qualité est constante et l'équipe se renouvelle à chaque fois.</p>
+        <div class="temoignage-author">
+          <div class="temoignage-avatar">PD</div>
+          <div>
+            <div class="temoignage-name">Philippe D.</div>
+            <div class="temoignage-role">CEO — Agence Digitale (45 pers.)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CE QUI NOUS DISTINGUE (Comparaison) -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#9876; La Différence Select Châteaux</div>
+      <h2>Pourquoi Nous Plutôt qu'un Autre ?</h2>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card compare-bad">
+        <h3>&#10060; Le Parcours Classique</h3>
+        <ul class="compare-list">
+          <li><span class="compare-icon-bad">&#10007;</span> Chercher un lieu pendant des semaines</li>
+          <li><span class="compare-icon-bad">&#10007;</span> Négocier séparément avec 5+ prestataires</li>
+          <li><span class="compare-icon-bad">&#10007;</span> Gérer les imprévus logistiques seul</li>
+          <li><span class="compare-icon-bad">&#10007;</span> Budget qui dérape sans contrôle</li>
+          <li><span class="compare-icon-bad">&#10007;</span> Stress permanent jusqu'au jour J</li>
+        </ul>
+      </div>
+      <div class="compare-card compare-good">
+        <h3>&#10004; Avec Select Châteaux</h3>
+        <ul class="compare-list">
+          <li><span class="compare-icon-good">&#10003;</span> 4 châteaux présélectionnés, visite possible</li>
+          <li><span class="compare-icon-good">&#10003;</span> Un interlocuteur unique qui coordonne tout</li>
+          <li><span class="compare-icon-good">&#10003;</span> Chef de projet présent le jour J</li>
+          <li><span class="compare-icon-good">&#10003;</span> Tarif tout compris, sans mauvaise surprise</li>
+          <li><span class="compare-icon-good">&#10003;</span> Devis en 24h, zéro stress garanti</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPE -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="equipe-row">
+      <div>
+        <div class="section-badge">&#128101; Qui Sommes-Nous ?</div>
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-style: italic; color: #1a1f36; margin-bottom: 1rem;">
+          Une Équipe de Passionnés,<br>Experts de l'Événementiel de Luxe
+        </h2>
+        <p style="font-size: 1rem; color: var(--gray-600); margin-bottom: 2rem;">
+          Depuis 2009, nous combinons passion du patrimoine et expertise événementielle pour créer des moments uniques. De la PME innovante aux groupes du CAC 40, notre équipe a su gagner la confiance de plus de 500 entreprises.
+        </p>
+
+        <div class="equipe-names">
+          <div class="equipe-member">
+            <div class="equipe-member-avatar"><img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=200&auto=format&fit=crop&q=80" alt="Rebecca"></div>
+            <div>
+              <div class="equipe-member-name">Rebecca Ben Attar</div>
+              <div class="equipe-member-role">Directrice Générale</div>
+              <div class="equipe-member-desc">15 ans d'expertise en événementiel de luxe</div>
+            </div>
+          </div>
+          <div class="equipe-member">
+            <div class="equipe-member-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format&fit=crop&q=80" alt="Jonathan"></div>
+            <div>
+              <div class="equipe-member-name">Jonathan Ben Attar</div>
+              <div class="equipe-member-role">Directeur Opérations</div>
+              <div class="equipe-member-desc">Expert en gestion hôtelière et coordination</div>
+            </div>
+          </div>
+          <div class="equipe-member">
+            <div class="equipe-member-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=80" alt="Avidan"></div>
+            <div>
+              <div class="equipe-member-name">Avidan Benichay</div>
+              <div class="equipe-member-role">Responsable Événementiel</div>
+              <div class="equipe-member-desc">Spécialiste des événements sur-mesure</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="equipe-image">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=80" alt="Équipe Select Châteaux">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIES -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#128170; Nos Garanties</div>
+      <h2>Vos Certitudes Avec Nous</h2>
+    </div>
+
+    <div class="garanties-grid">
+      <div class="garantie-card">
+        <div class="garantie-icon">&#9889;</div>
+        <h4>Devis en 24h</h4>
+        <p>Proposition détaillée et personnalisée sous 24 heures, sans engagement.</p>
+      </div>
+      <div class="garantie-card">
+        <div class="garantie-icon">&#128176;</div>
+        <h4>Tarif Tout Compris</h4>
+        <p>Un budget maîtrisé incluant lieu, hébergement, restauration et animations.</p>
+      </div>
+      <div class="garantie-card">
+        <div class="garantie-icon">&#128100;</div>
+        <h4>Chef de Projet Dédié</h4>
+        <p>Un interlocuteur unique de la conception à la réalisation, présent le jour J.</p>
+      </div>
+      <div class="garantie-card">
+        <div class="garantie-icon">&#127775;</div>
+        <h4>Satisfaction 98%</h4>
+        <p>15 ans de retours positifs et de recommandations de nos clients entreprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="container">
+    <div class="section-badge" style="background: rgba(163,126,44,0.15); border-color: rgba(163,126,44,0.3); color: var(--bronze-light); margin-bottom: 1.5rem;">&#10022; Rejoignez les 500+</div>
+    <h2>Prêt à Vivre l'Expérience Select Châteaux ?</h2>
+    <p>Devis gratuit en 24h, sans engagement. Dites-nous votre projet, on s'occupe du reste.</p>
+    <div class="cta-buttons">
+      <a href="/devis#formulaire" class="btn-primary">Demander Mon Devis Gratuit &rarr;</a>
+      <a href="tel:+33757991146" class="btn-outline">&#9742; 07 57 99 11 46</a>
+    </div>
+  </div>
+</section>
+
+<div style="background: #050505; padding: 2rem; text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem;">
+  [Logo Carousel + Avis + Footer ici]
+</div>
+
+</body>
+</html>

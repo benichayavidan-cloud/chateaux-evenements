@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option A — Storytelling Immersif | Select Châteaux</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bronze: #A37E2C;
+      --bronze-light: #C09448;
+      --bronze-dark: #8A6823;
+      --gold: #D4AF37;
+      --black: #050505;
+      --white: #ffffff;
+      --gray-50: #FAFAFA;
+      --gray-100: #F5F5F5;
+      --gray-200: #E5E5E5;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --gray-700: #404040;
+      --gray-900: #171717;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: #1a1f36; background: var(--white); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 300; line-height: 1.2; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative; width: 100%; height: 75vh; min-height: 500px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&auto=format&fit=crop&q=80') center/cover no-repeat;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.55) 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 2; text-align: center; max-width: 900px; padding: 0 2rem;
+    }
+    .hero .badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 28px; background: rgba(0,0,0,0.4); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 50px;
+      color: #fff; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem); font-style: italic; color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4); margin-bottom: 1.5rem; letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.9);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.3); max-width: 700px; margin: 0 auto 2.5rem;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: var(--bronze); color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-primary:hover { background: var(--bronze-light); transform: translateY(-2px); box-shadow: 0 0 40px rgba(163,126,44,0.3); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.4); border-radius: 8px;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+    /* ============ SECTIONS ============ */
+    .section { padding: 15px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+    .section-header { text-align: center; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+    .section-header h2 { font-size: clamp(2rem, 5vw, 3rem); font-style: italic; color: #1a1f36; margin-bottom: 1rem; }
+    .section-header p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--gray-600); max-width: 700px; margin: 0 auto; }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; background: rgba(163,126,44,0.08);
+      border: 1px solid rgba(163,126,44,0.2); border-radius: 50px;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--bronze); margin-bottom: 1rem;
+    }
+    .bg-white { background: #fff; }
+    .bg-gray { background: #f6f9fc; }
+    .bg-dark { background: var(--black); }
+
+    /* ============ PROMESSE - Bandeau chiffres ============ */
+    .stats-band {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      padding: 15px 0;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
+    .stat-item { padding: 1.5rem; }
+    .stat-number {
+      font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-style: italic; color: var(--bronze); font-weight: 300; margin-bottom: 0.5rem;
+    }
+    .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+
+    /* ============ NOTRE HISTOIRE (Timeline) ============ */
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(to bottom, transparent, var(--bronze), transparent);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      display: flex; align-items: flex-start; gap: 2rem;
+      margin-bottom: 3rem; position: relative;
+    }
+    .timeline-item:nth-child(odd) { flex-direction: row-reverse; text-align: right; }
+    .timeline-year {
+      flex: 0 0 auto; width: 80px; height: 80px;
+      background: var(--bronze); color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading); font-size: 1.1rem; font-weight: 500;
+      position: relative; z-index: 2; box-shadow: 0 0 30px rgba(163,126,44,0.3);
+    }
+    .timeline-content {
+      flex: 1; background: #fff; border: 1px solid var(--gray-200);
+      border-radius: 16px; padding: 1.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04); transition: all 0.3s ease;
+    }
+    .timeline-content:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); border-color: rgba(163,126,44,0.3); }
+    .timeline-content h3 { font-size: 1.3rem; font-style: italic; color: #1a1f36; margin-bottom: 0.5rem; }
+    .timeline-content p { font-size: 0.9rem; color: var(--gray-600); margin: 0; }
+
+    /* ============ CE QUE NOUS FAISONS ============ */
+    .metier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .metier-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 16px;
+      padding: 2rem; text-align: center; transition: all 0.3s ease; cursor: default;
+    }
+    .metier-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); border-color: rgba(163,126,44,0.3); }
+    .metier-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(163,126,44,0.08); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem; font-size: 1.8rem; transition: transform 0.3s ease;
+    }
+    .metier-card:hover .metier-icon { transform: scale(1.1); }
+    .metier-card h3 { font-size: 1.2rem; font-style: italic; color: #1a1f36; margin-bottom: 0.75rem; }
+    .metier-card p { font-size: 0.9rem; color: var(--gray-600); margin: 0; line-height: 1.6; }
+
+    /* ============ ENGAGEMENT / VALEURS ============ */
+    .valeurs-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .valeurs-image {
+      border-radius: 20px; overflow: hidden; aspect-ratio: 4/3;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    .valeurs-image img { width: 100%; height: 100%; object-fit: cover; }
+    .valeur-item { display: flex; gap: 1rem; margin-bottom: 2rem; }
+    .valeur-bullet {
+      flex: 0 0 48px; height: 48px; border-radius: 12px;
+      background: rgba(163,126,44,0.08); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--bronze);
+    }
+    .valeur-item h4 { font-size: 1.05rem; font-weight: 600; color: #1a1f36; margin-bottom: 0.25rem; font-family: var(--font-body); }
+    .valeur-item p { font-size: 0.9rem; color: var(--gray-600); margin: 0; }
+
+    /* ============ EQUIPE ============ */
+    .equipe-grid { display: flex; gap: 1.5rem; justify-content: center; }
+    .equipe-card {
+      flex: 1; max-width: 320px; background: #fff; border: 1px solid var(--gray-200);
+      border-radius: 16px; overflow: hidden; transition: all 0.3s ease; text-align: center;
+    }
+    .equipe-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .equipe-photo {
+      width: 100px; height: 100px; border-radius: 50%; margin: 2rem auto 1rem;
+      overflow: hidden; border: 3px solid rgba(163,126,44,0.2);
+    }
+    .equipe-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .equipe-info { padding: 0 1.5rem 2rem; }
+    .equipe-info h3 { font-size: 1.2rem; font-style: italic; color: #1a1f36; margin-bottom: 0.25rem; }
+    .equipe-info .poste { font-size: 0.8rem; color: var(--bronze); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .equipe-info p { font-size: 0.85rem; color: var(--gray-600); margin: 0; }
+
+    /* ============ PROCESSUS ============ */
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute; top: 45px; left: 12%; right: 12%;
+      height: 2px; background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+    }
+    .process-step { text-align: center; position: relative; z-index: 2; }
+    .process-number {
+      width: 90px; height: 90px; border-radius: 50%; background: var(--bronze);
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading); font-size: 1.8rem; font-weight: 500;
+      margin: 0 auto 1.25rem; box-shadow: 0 0 30px rgba(163,126,44,0.2);
+    }
+    .process-step h3 { font-size: 1rem; font-weight: 600; color: #1a1f36; margin-bottom: 0.5rem; font-family: var(--font-body); }
+    .process-step p { font-size: 0.85rem; color: var(--gray-600); max-width: 200px; margin: 0 auto; }
+
+    /* ============ CTA FINAL ============ */
+    .cta-final {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      padding: 15px 0; text-align: center;
+    }
+    .cta-final h2 { color: #fff; margin-bottom: 1rem; }
+    .cta-final p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 2rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .metier-grid { grid-template-columns: 1fr; }
+      .valeurs-row { grid-template-columns: 1fr; }
+      .equipe-grid { flex-direction: column; align-items: center; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .process-steps::before { display: none; }
+      .timeline::before { left: 20px; }
+      .timeline-item, .timeline-item:nth-child(odd) { flex-direction: row; text-align: left; }
+      .timeline-year { width: 40px; height: 40px; font-size: 0.7rem; flex-shrink: 0; }
+    }
+
+    /* ============ LABEL OPTION ============ */
+    .option-label {
+      position: fixed; top: 20px; right: 20px; z-index: 999;
+      background: var(--bronze); color: #fff; padding: 10px 20px;
+      border-radius: 8px; font-weight: 700; font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(163,126,44,0.4);
+    }
+  </style>
+</head>
+<body>
+
+<div class="option-label">OPTION A — Storytelling Immersif</div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">
+      <span>&#10022;</span>
+      <span>Depuis 2009 &bull; Ile-de-France</span>
+    </div>
+    <h1>L'Art de Sublimer Vos Événements d'Entreprise</h1>
+    <p>Nous ouvrons les portes des plus beaux châteaux d'Île-de-France pour transformer vos séminaires, soirées et team buildings en moments d'exception.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/devis#formulaire" class="btn-primary">Demander un Devis Gratuit &rarr;</a>
+      <a href="#notre-histoire" class="btn-outline">Découvrir notre histoire</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHIFFRES CLES ==================== -->
+<section class="stats-band">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">15</div>
+        <div class="stat-label">Années d'expérience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Châteaux d'exception</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Événements organisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Clients satisfaits</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NOTRE HISTOIRE (Timeline) ==================== -->
+<section class="section bg-white" id="notre-histoire">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#9830; Notre Histoire</div>
+      <h2>15 Ans au Service de l'Excellence</h2>
+      <p>De la passion du patrimoine à la référence de l'événementiel d'entreprise en château</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2009</div>
+        <div class="timeline-content">
+          <h3>La Naissance d'une Vision</h3>
+          <p>Convaincus que le patrimoine français peut devenir le cadre idéal des événements d'entreprise, nous ouvrons les portes de notre premier château en Île-de-France.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2014</div>
+        <div class="timeline-content">
+          <h3>L'Expansion du Réseau</h3>
+          <p>Forts de nos 200 premiers événements réussis, nous élargissons notre sélection à 4 domaines d'exception, chacun avec son caractère unique.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-content">
+          <h3>La Référence Événementielle</h3>
+          <p>PME innovantes comme groupes du CAC 40 nous font confiance. Nous dépassons les 400 événements avec un taux de satisfaction de 98%.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h3>L'Ère du Sur-Mesure Total</h3>
+          <p>Soirées à thème immersives, séminaires résidentiels, team buildings créatifs : nous repoussons les limites de l'événementiel d'entreprise en château.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CE QUE NOUS FAISONS ==================== -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#9733; Notre Métier</div>
+      <h2>Bien Plus qu'un Simple Lieu de Réception</h2>
+      <p>Nous sommes votre partenaire unique : du choix du château à la coordination le jour J, tout est orchestré par notre équipe.</p>
+    </div>
+
+    <div class="metier-grid">
+      <div class="metier-card">
+        <div class="metier-icon">&#127970;</div>
+        <h3>Sélection de Lieux</h3>
+        <p>4 châteaux d'exception triés sur le volet en Île-de-France. Chacun offre un cadre architectural unique, des capacités de 50 à 280 personnes, et un hébergement sur place.</p>
+      </div>
+      <div class="metier-card">
+        <div class="metier-icon">&#127890;</div>
+        <h3>Conception Sur-Mesure</h3>
+        <p>Séminaires résidentiels, soirées à thème (Gatsby, Casino, Murder Party), team buildings, galas corporate... Nous imaginons et scénarisons votre événement de A à Z.</p>
+      </div>
+      <div class="metier-card">
+        <div class="metier-icon">&#9889;</div>
+        <h3>Coordination Complète</h3>
+        <p>Traiteur, animations, logistique, scénographie, technique son et lumière : un interlocuteur unique coordonne tous les prestataires pour une exécution sans faille.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NOS ENGAGEMENTS / VALEURS ==================== -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="valeurs-row">
+      <div class="valeurs-image">
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&auto=format&fit=crop&q=80" alt="Événement élégant en château">
+      </div>
+      <div>
+        <div class="section-badge">&#9829; Nos Engagements</div>
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); font-style: italic; color: #1a1f36; margin-bottom: 2rem;">Pourquoi Nous Faire Confiance ?</h2>
+
+        <div class="valeur-item">
+          <div class="valeur-bullet">&#10003;</div>
+          <div>
+            <h4>Devis Gratuit en 24h</h4>
+            <p>Recevez une proposition détaillée et personnalisée sous 24 heures, sans engagement.</p>
+          </div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-bullet">&#10003;</div>
+          <div>
+            <h4>Un Interlocuteur Unique</h4>
+            <p>Un chef de projet dédié vous accompagne de la conception à la réalisation de votre événement.</p>
+          </div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-bullet">&#10003;</div>
+          <div>
+            <h4>Tarifs Tout Compris</h4>
+            <p>Location, hébergement, restauration, animations : un budget maîtrisé sans surprise.</p>
+          </div>
+        </div>
+        <div class="valeur-item">
+          <div class="valeur-bullet">&#10003;</div>
+          <div>
+            <h4>Flexibilité Totale</h4>
+            <p>Chaque événement est conçu sur-mesure. Nous nous adaptons à votre cahier des charges, votre budget et vos envies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NOTRE EQUIPE ==================== -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#128101; L'Équipe</div>
+      <h2>Des Experts Passionnés à Votre Service</h2>
+      <p>Chaque membre de notre équipe partage la même passion : créer des événements mémorables</p>
+    </div>
+
+    <div class="equipe-grid">
+      <div class="equipe-card">
+        <div class="equipe-photo">
+          <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&auto=format&fit=crop&q=80" alt="Rebecca Ben Attar">
+        </div>
+        <div class="equipe-info">
+          <h3>Rebecca Ben Attar</h3>
+          <div class="poste">Directrice Générale</div>
+          <p>15 ans dans l'événementiel de luxe. Rebecca sélectionne chaque château avec exigence et supervise la qualité de chaque prestation.</p>
+        </div>
+      </div>
+      <div class="equipe-card">
+        <div class="equipe-photo">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80" alt="Jonathan Ben Attar">
+        </div>
+        <div class="equipe-info">
+          <h3>Jonathan Ben Attar</h3>
+          <div class="poste">Directeur Opérations</div>
+          <p>Expert en gestion hôtelière, Jonathan coordonne la logistique et garantit l'excellence opérationnelle de chaque événement.</p>
+        </div>
+      </div>
+      <div class="equipe-card">
+        <div class="equipe-photo">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80" alt="Avidan Benichay">
+        </div>
+        <div class="equipe-info">
+          <h3>Avidan Benichay</h3>
+          <div class="poste">Responsable Événementiel</div>
+          <p>Spécialiste du sur-mesure, Avidan conçoit les scénarios créatifs et pilote chaque projet de la conception au jour J.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESSUS ==================== -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#128736; Notre Processus</div>
+      <h2>De Votre Idée à la Réalité</h2>
+      <p>Un accompagnement clé en main en 4 étapes simples</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-number">1</div>
+        <h3>Écoute & Conseil</h3>
+        <p>Échange sur vos objectifs, votre budget et vos envies pour cibler le château idéal.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">2</div>
+        <h3>Proposition Sur-Mesure</h3>
+        <p>Devis détaillé sous 24h avec programme, logistique et budget tout compris.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">3</div>
+        <h3>Coordination Totale</h3>
+        <p>Votre chef de projet pilote tous les prestataires et la logistique complète.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">4</div>
+        <h3>Jour J Impeccable</h3>
+        <p>Présence sur place pour garantir un déroulement fluide et mémorable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA FINAL ==================== -->
+<section class="cta-final">
+  <div class="container">
+    <div class="section-badge" style="background: rgba(163,126,44,0.15); border-color: rgba(163,126,44,0.3); color: var(--bronze-light); margin-bottom: 1.5rem;">&#10022; Prêt à Commencer ?</div>
+    <h2 style="font-size: clamp(2rem, 5vw, 3rem); font-style: italic;">Créons Ensemble Votre Événement d'Exception</h2>
+    <p>Rejoignez les 500+ entreprises qui nous ont fait confiance. Devis gratuit, réponse sous 24h.</p>
+    <div class="cta-buttons">
+      <a href="/devis#formulaire" class="btn-primary">Demander un Devis Gratuit &rarr;</a>
+      <a href="tel:+33757991146" class="btn-outline">&#9742; 07 57 99 11 46</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER PLACEHOLDER ==================== -->
+<div style="background: #050505; padding: 2rem; text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem;">
+  [Logo Carousel + Avis + Footer ici]
+</div>
+
+</body>
+</html>

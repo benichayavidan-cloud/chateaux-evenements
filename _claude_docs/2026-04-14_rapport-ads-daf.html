@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>דוח Google Ads — סמינר שאטו IDF | אפריל 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #1a3a52;
+    --accent: #c9a961;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 20px 40px -10px rgb(26 58 82 / 0.15);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Heebo', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    min-height: 100vh;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, #0f2537 100%);
+    color: white;
+    padding: 60px 0 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "";
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,169,97,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .header-meta {
+    font-size: 15px;
+    opacity: 0.85;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+  .header-meta span::before { content: "•"; margin-left: 20px; opacity: 0.5; }
+  .header-meta span:first-child::before { content: ""; margin: 0; }
+  main { padding: 40px 0 80px; }
+  .tldr {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-right: 5px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+  }
+  .tldr-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #92400e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .tldr-text { font-size: 18px; line-height: 1.6; color: #1a1a1a; }
+  .tldr-text strong { color: var(--primary); }
+  section {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    background: var(--accent);
+    color: var(--primary);
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 800;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 24px 0 14px;
+  }
+  p { margin-bottom: 14px; color: #374151; }
+  ul, ol { margin: 14px 30px 16px; }
+  li { margin-bottom: 8px; color: #374151; }
+  strong { color: var(--primary); font-weight: 700; }
+  .problem-card {
+    background: #fef2f2;
+    border-right: 4px solid var(--danger);
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+  .problem-card-title {
+    font-weight: 700;
+    color: #991b1b;
+    margin-bottom: 6px;
+    font-size: 16px;
+  }
+  .problem-card p { margin-bottom: 0; font-size: 15px; }
+  .success-card {
+    background: #ecfdf5;
+    border-right: 4px solid var(--success);
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+  .success-card-title {
+    font-weight: 700;
+    color: #065f46;
+    margin-bottom: 6px;
+    font-size: 16px;
+  }
+  .success-card p { margin-bottom: 0; font-size: 15px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 15px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  thead { background: var(--primary); color: white; }
+  th {
+    padding: 12px 16px;
+    text-align: right;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+  }
+  td {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+  }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  tbody tr:hover { background: #f3f4f6; }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .metric-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+  .metric-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .metric-card.highlight {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: var(--success);
+  }
+  .metric-card.highlight .metric-value { color: var(--success); }
+  .recommendation-box {
+    background: linear-gradient(135deg, var(--primary) 0%, #0f2537 100%);
+    color: white;
+    padding: 36px;
+    border-radius: 14px;
+    margin: 20px 0;
+    box-shadow: var(--shadow-lg);
+  }
+  .recommendation-box h3 {
+    color: var(--accent);
+    font-size: 22px;
+    margin: 0 0 14px;
+  }
+  .recommendation-box p { color: rgba(255,255,255,0.9); }
+  .step {
+    background: rgba(255,255,255,0.08);
+    border-right: 3px solid var(--accent);
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin: 12px 0;
+  }
+  .step strong { color: var(--accent); }
+  .step p { color: rgba(255,255,255,0.85); margin: 0; }
+  .decision-cta {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid var(--accent);
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin: 30px 0;
+    text-align: center;
+  }
+  .decision-cta-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #92400e;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+  .decision-cta-text {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--primary);
+    line-height: 1.5;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 3px;
+  }
+  .tag-danger { background: #fee2e2; color: #991b1b; }
+  .tag-success { background: #d1fae5; color: #065f46; }
+  .tag-warning { background: #fef3c7; color: #92400e; }
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    background: white;
+  }
+  .footer-note {
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  @media (max-width: 640px) {
+    section { padding: 24px 20px; }
+    h1 { font-size: 26px; }
+    h2 { font-size: 20px; }
+    .metric-value { font-size: 26px; }
+    table { font-size: 13px; }
+    th, td { padding: 10px 8px; }
+    .recommendation-box, .decision-cta { padding: 24px 20px; }
+  }
+  @media print {
+    body { background: white; }
+    section { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+    header { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <span class="header-badge">דוח למחלקת כספים · DAF</span>
+    <h1>קמפיין Google Ads<br>"SÉMINAIRE CHÂTEAU IDF"</h1>
+    <div class="header-meta">
+      <span>📅 15 באפריל 2026</span>
+      <span>🎯 בקשת אישור תקציב</span>
+      <span>📊 נתונים מ-Google Ads API</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="container">
+
+  <div class="tldr">
+    <div class="tldr-title">⚡ תמצית מנהלים</div>
+    <div class="tldr-text">
+      הקמפיין שלנו <strong>רווחי ועובד היטב</strong>: CPA אמיתי של <strong>662 ₪</strong> — נמוך ב-<strong>31%</strong> מהיעד שהוגדר (963 ₪). הדבר היחיד שמגביל את הצמיחה — <strong>התקציב היומי</strong>. אנו מבקשים אישור להעלות את התקציב מ-<strong>350 ₪ ל-500 ₪ ליום</strong> כדי להגדיל את מספר הלידים ב-<strong>+50%</strong> מבלי לפגוע באיכות.
+    </div>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span>הבעיות שזוהו</h2>
+
+    <div class="problem-card">
+      <div class="problem-card-title">🚨 בעיה #1 — "הקמפיין מוגבל על ידי התקציב"</div>
+      <p>סטטוס רשמי של Google Ads: <span class="tag tag-danger">LIMITED_BY_BUDGET</span>. משמעות: Google רוצה להציג את המודעות יותר, אבל התקציב לא מספיק. <strong>Google מעריך שאנחנו מפספסים 77% מהלידים הפוטנציאליים.</strong></p>
+    </div>
+
+    <div class="problem-card">
+      <div class="problem-card-title">🚨 בעיה #2 — ימים שבהם איבדנו חשיפות בגלל התקציב</div>
+      <p>בימים של ביקוש גבוה, Google נאלץ להפסיק להציג את המודעות באמצע היום:</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>תאריך</th>
+          <th>חשיפות אבודות בגלל תקציב</th>
+          <th>הוצאה</th>
+          <th>המרות</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2 באפריל</td><td><span class="tag tag-danger">54%</span></td><td>302 ₪</td><td>0</td></tr>
+        <tr><td>1 באפריל</td><td><span class="tag tag-danger">28%</span></td><td>414 ₪</td><td>2 ⭐</td></tr>
+        <tr><td>7 באפריל</td><td><span class="tag tag-warning">7%</span></td><td>700 ₪</td><td>1</td></tr>
+        <tr><td>13 באפריל</td><td><span class="tag tag-success">0%</span></td><td>693 ₪</td><td>1</td></tr>
+        <tr><td>14 באפריל</td><td><span class="tag tag-success">0%</span></td><td>696 ₪</td><td>0</td></tr>
+      </tbody>
+    </table>
+
+    <div class="problem-card">
+      <div class="problem-card-title">🚨 בעיה #3 — Google "מפצה" על ידי חריגה מהתקציב</div>
+      <p>ב-6 ימים מתוך 14 אחרונים, Google דחף את ההוצאה היומית ל-<strong>200%</strong> מהתקציב (~700 ₪ במקום 350 ₪). זה מותר עד פי 2, אבל מראה שהביקוש <strong>הרבה יותר גבוה</strong> מהתקציב שהגדרנו.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>ביצועי הקמפיין (14 יום)</h2>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-value">233</div>
+        <div class="metric-label">חשיפות</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">41</div>
+        <div class="metric-label">קליקים</div>
+      </div>
+      <div class="metric-card highlight">
+        <div class="metric-value">6</div>
+        <div class="metric-label">המרות (לידים)</div>
+      </div>
+      <div class="metric-card highlight">
+        <div class="metric-value">662 ₪</div>
+        <div class="metric-label">CPA אמיתי</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">963 ₪</div>
+        <div class="metric-label">יעד CPA</div>
+      </div>
+      <div class="metric-card highlight">
+        <div class="metric-value">17.6%</div>
+        <div class="metric-label">CTR (ממוצע ענף: 3-5%)</div>
+      </div>
+    </div>
+
+    <h3>📈 מגמה חיובית וברורה</h3>
+    <ul>
+      <li><strong>פברואר 2026</strong>: 0 המרות</li>
+      <li><strong>מרץ 2026</strong>: 2 המרות</li>
+      <li><strong>אפריל 2026 (14 יום)</strong>: 6 המרות ← <span class="tag tag-success">האצה של x3</span></li>
+      <li><strong>תחזית אפריל מלא</strong>: ~13 המרות</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>יתרונות להגדלת התקציב</h2>
+
+    <div class="success-card">
+      <div class="success-card-title">✅ יתרון #1 — הקמפיין רווחי מוכח</div>
+      <p>CPA אמיתי של 662 ₪ לליד, לעומת יעד של 963 ₪. <strong>אנחנו משיגים לידים ב-31% פחות מהיעד</strong> — יש "מקום" להשקיע יותר.</p>
+    </div>
+
+    <div class="success-card">
+      <div class="success-card-title">✅ יתרון #2 — אלגוריתם הלמידה מתוקן</div>
+      <p>בדיקה ישירה ב-API של Google: תקופת הלמידה הסתיימה. האלגוריתם מחפש לידים איכותיים זהים לאלה שכבר המירו. <strong>יותר תקציב = יותר לידים באותה איכות.</strong></p>
+    </div>
+
+    <div class="success-card">
+      <div class="success-card-title">✅ יתרון #3 — איכות לידים גבוהה</div>
+      <p>מילת המפתח האלופה "séminaire proche paris" → 3 המרות, <strong>CPA של 154 ₪ בלבד</strong>. ציון איכות 7/10 על "lieu séminaire chantilly".</p>
+    </div>
+
+    <div class="success-card">
+      <div class="success-card-title">✅ יתרון #4 — עונתיות חיובית</div>
+      <p>אפריל-יוני = עונת תכנון סמינרי הקיץ והסתיו לחברות. <strong>הפוטנציאל העכשווי הוא השיא של השנה.</strong></p>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span>היסודות החוסמים</h2>
+
+    <div class="decision-cta">
+      <div class="decision-cta-title">חסם יחיד</div>
+      <div class="decision-cta-text">🎯 התקציב היומי (350 ₪) הוא המגבלה היחידה.</div>
+    </div>
+
+    <p>אין שום בעיה טכנית אחרת:</p>
+    <ul>
+      <li>✅ האתר ממיר טוב (2.6% CVR)</li>
+      <li>✅ מילות המפתח מעולות (CTR 17.6%)</li>
+      <li>✅ יעד ה-CPA מושג בקלות (662 ₪ מול 963 ₪ יעד)</li>
+      <li>✅ אלגוריתם ההצעות מוכן (אין תקופת למידה)</li>
+    </ul>
+
+    <p style="margin-top: 18px;"><strong>⚠️ הערה על הצעת Google:</strong> Google מציע להעלות את התקציב ל-1,100 ₪/יום — <strong>אנחנו לא ממליצים על זה</strong>. עלייה חדה מדי תגרום לאלגוריתם לחפש קהלים פחות איכותיים. עלייה הדרגתית היא האסטרטגיה הנכונה.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">5</span>ההמלצה — תוכנית מדורגת</h2>
+
+    <div class="recommendation-box">
+      <h3>🎯 שלב 1 — מיידי (15 באפריל)</h3>
+      <div class="step">
+        <strong>תקציב: 500 ₪/יום</strong> (עלייה של +43%)
+        <p>גידול בטוח שומר על איכות הלידים. מאפשר ל-Google לדחוף עד 1,000 ₪ בימים חזקים. לא פוגע באלגוריתם.</p>
+      </div>
+
+      <h3 style="margin-top: 24px;">🎯 שלב 2 — 22 באפריל (מותנה בביצועים)</h3>
+      <div class="step">
+        <strong>תקציב: 700 ₪/יום</strong> (עלייה של +40% נוספים)
+        <p>תנאי: CPA יישאר מתחת ל-900 ₪. הצדקה: ניצול מלא של שיא העונה.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">6</span>תחזית כלכלית — 30 יום קדימה</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>תרחיש</th>
+          <th>תקציב יומי</th>
+          <th>הוצאה חודשית</th>
+          <th>המרות צפויות</th>
+          <th>CPA צפוי</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>סטטוס קוו (היום)</td>
+          <td>350 ₪</td>
+          <td>~7,100 ₪</td>
+          <td>11</td>
+          <td>645 ₪</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+          <td><strong>שלב 1</strong></td>
+          <td><strong>500 ₪</strong></td>
+          <td><strong>~10,000 ₪</strong></td>
+          <td><strong>16-17</strong></td>
+          <td><strong>625 ₪</strong></td>
+        </tr>
+        <tr style="background: #d1fae5;">
+          <td><strong>שלב 2</strong></td>
+          <td><strong>700 ₪</strong></td>
+          <td><strong>~14,000 ₪</strong></td>
+          <td><strong>22-24</strong></td>
+          <td><strong>600 ₪</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>💰 ROI משוער</h3>
+    <ul>
+      <li>עלות ליד כיום: <strong>662 ₪</strong></li>
+      <li>שווי ממוצע של אירוע שנסגר (אומדן סמינר לחברה): <strong>~15,000-25,000 ₪</strong></li>
+      <li>גם עם שיעור סגירה של 10% בלבד → <strong>ROI חיובי מאוד</strong></li>
+    </ul>
+
+    <h3>📈 הוצאה חודשית תוספתית</h3>
+    <ul>
+      <li><strong>שלב 1</strong>: +2,900 ₪/חודש → +5-6 לידים חדשים</li>
+      <li><strong>שלב 2</strong>: +6,900 ₪/חודש → +11-13 לידים חדשים</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">7</span>בקשה לאישור + אמצעי ביטחון</h2>
+
+    <div class="decision-cta">
+      <div class="decision-cta-title">מה דרוש מהדאף</div>
+      <div class="decision-cta-text">
+        אישור להגדלת התקציב החודשי:<br>
+        <span style="color: var(--danger);">7,100 ₪</span> → <span style="color: var(--success);">10,000 ₪</span> (שלב 1)<br>
+        ולאחר 7 ימים חיוביים → <span style="color: var(--success);">14,000 ₪</span> (שלב 2)
+      </div>
+    </div>
+
+    <h3>🛡️ אמצעי ביטחון</h3>
+    <ul>
+      <li>ביקורת ביצועים מלאה ב-<strong>22 באפריל 2026</strong></li>
+      <li>אם CPA יעלה מעל 900 ₪ → חזרה לתקציב הנמוך</li>
+      <li>אין מחויבות ארוכת טווח — אפשר להוריד תקציב בכל רגע</li>
+      <li>כל הנתונים שקופים ונשלפים ישירות מ-Google Ads API</li>
+    </ul>
+
+    <div class="decision-cta" style="margin-top: 30px;">
+      <div class="decision-cta-title">המסר המרכזי</div>
+      <div class="decision-cta-text">
+        הקמפיין רווחי ומוכיח את עצמו.<br>
+        הדבר היחיד שמגביל עוד לידים באותה איכות — הוא התקציב.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-note">
+      <strong>מקור הנתונים:</strong> כל הנתונים בדוח זה נשלפו ישירות מ-Google Ads API (GAQL) ב-15 באפריל 2026.<br>
+      Customer ID: 9285151029 · Campaign ID: 23644127670<br>
+      <br>
+      Select Châteaux · selectchateaux.com · דוח פנימי
+    </div>
+  </footer>
+
+</div>
+</main>
+
+</body>
+</html>

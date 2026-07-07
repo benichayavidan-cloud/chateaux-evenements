@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vue d'ensemble — 5 Options de Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #333; }
+
+  /* Navigation sticky entre les options */
+  .options-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,10,10,0.95); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(163,126,44,0.3);
+    padding: 12px 0;
+  }
+  .options-nav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .options-nav h3 {
+    font-family: 'Playfair Display', serif; color: #D4AF37;
+    font-size: 14px; margin-right: 12px; white-space: nowrap;
+  }
+  .options-nav a {
+    padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 500;
+    text-decoration: none; color: #999; border: 1px solid #333;
+    transition: all 0.3s;
+  }
+  .options-nav a:hover, .options-nav a.active {
+    color: #D4AF37; border-color: #A37E2C; background: rgba(163,126,44,0.1);
+  }
+
+  /* Séparateur entre options */
+  .option-separator {
+    padding: 80px 20px 40px;
+    text-align: center;
+  }
+  .option-separator h2 {
+    font-family: 'Playfair Display', serif; font-size: 28px; color: #D4AF37;
+    margin-bottom: 8px;
+  }
+  .option-separator p {
+    color: #888; font-size: 14px; max-width: 500px; margin: 0 auto;
+  }
+  .option-separator .tag {
+    display: inline-block; padding: 4px 14px; border-radius: 100px;
+    background: rgba(163,126,44,0.15); color: #A37E2C;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 16px;
+  }
+
+  /* Images placeholder */
+  .img-placeholder {
+    background: linear-gradient(135deg, #2a2117, #1a1510);
+    display: flex; align-items: center; justify-content: center;
+    color: #A37E2C; font-size: 13px; font-style: italic;
+    overflow: hidden; position: relative;
+  }
+  .img-placeholder::after {
+    content: ''; position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80') center/cover;
+    opacity: 0.6;
+  }
+  .img-placeholder.img2::after {
+    background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80');
+  }
+  .img-placeholder.img3::after {
+    background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80');
+  }
+  .img-placeholder.img4::after {
+    background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80');
+  }
+
+  /* Atouts badges */
+  .badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 100px;
+    font-size: 12px; font-weight: 500;
+  }
+  .badge svg { width: 14px; height: 14px; }
+
+  /* Le lieu badge */
+  .lieu-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 16px;
+  }
+
+  /* Texte commun */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600; line-height: 1.2;
+  }
+  .body-text {
+    line-height: 1.8; font-size: 15px;
+  }
+  .body-text p { margin-bottom: 16px; }
+  .body-text p:last-child { margin-bottom: 0; }
+
+  /* ==================== OPTION 1 ==================== */
+  .option1 {
+    background: #F8F7F4; padding: 80px 0;
+  }
+  .option1 .container {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .option1 .top-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    align-items: start; margin-bottom: 48px;
+  }
+  .option1 .image-stack {
+    position: relative; height: 420px;
+  }
+  .option1 .image-stack .main-img {
+    width: 85%; height: 380px; border-radius: 16px;
+    position: relative; z-index: 1;
+  }
+  .option1 .image-stack .float-img {
+    width: 55%; height: 220px; border-radius: 12px;
+    position: absolute; bottom: -20px; right: 0; z-index: 2;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 4px solid #F8F7F4;
+  }
+  .option1 .intro-col {
+    padding-top: 20px;
+  }
+  .option1 .lieu-badge {
+    background: rgba(163,126,44,0.08); border: 1px solid rgba(163,126,44,0.2);
+    color: #A37E2C;
+  }
+  .option1 .section-title { font-size: 36px; color: #1a1a1a; margin-bottom: 24px; }
+  .option1 .body-text { color: #555; }
+  .option1 .body-text .first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; float: left; line-height: 1;
+    margin-right: 8px; margin-top: 4px;
+    color: #A37E2C; font-weight: 700;
+  }
+  .option1 .bottom-text {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    border-top: 1px solid rgba(163,126,44,0.15);
+    padding-top: 40px;
+  }
+  .option1 .bottom-text .body-text { color: #666; }
+  .option1 .badge {
+    background: rgba(163,126,44,0.06); border: 1px solid rgba(163,126,44,0.15);
+    color: #555;
+  }
+  .option1 .badge svg { color: #A37E2C; }
+
+  /* ==================== OPTION 2 ==================== */
+  .option2 {
+    background: #FAFAF8; padding: 0;
+  }
+  .option2 .hero-img {
+    width: 100%; height: 500px; position: relative;
+  }
+  .option2 .hero-img::before {
+    content: ''; position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(to bottom, transparent 40%, #FAFAF8 100%);
+  }
+  .option2 .hero-img .floating-card {
+    position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%);
+    z-index: 3;
+    background: white; border-radius: 20px;
+    padding: 32px 40px; max-width: 700px; width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+  .option2 .floating-card .lieu-badge {
+    background: rgba(163,126,44,0.08); border: 1px solid rgba(163,126,44,0.2);
+    color: #A37E2C;
+  }
+  .option2 .floating-card .section-title {
+    font-size: 32px; color: #1a1a1a; margin-bottom: 0;
+  }
+  .option2 .content-area {
+    max-width: 900px; margin: 0 auto; padding: 100px 24px 80px;
+  }
+  .option2 .text-columns {
+    column-count: 2; column-gap: 40px;
+    font-size: 15px; color: #555; line-height: 1.85;
+  }
+  .option2 .text-columns p { margin-bottom: 16px; break-inside: avoid; }
+  .option2 .pull-quote {
+    column-span: all;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: #A37E2C; font-style: italic;
+    text-align: center; padding: 32px 40px; margin: 24px 0;
+    border-top: 1px solid rgba(163,126,44,0.2);
+    border-bottom: 1px solid rgba(163,126,44,0.2);
+    line-height: 1.5;
+  }
+  .option2 .badge-row { justify-content: center; margin-top: 32px; }
+  .option2 .badge {
+    background: rgba(163,126,44,0.06); border: 1px solid rgba(163,126,44,0.15);
+    color: #555;
+  }
+  .option2 .badge svg { color: #A37E2C; }
+
+  /* ==================== OPTION 3 ==================== */
+  .option3 {
+    background: #111; padding: 80px 0;
+    color: white;
+  }
+  .option3 .container {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+  }
+  .option3 .header {
+    text-align: center; margin-bottom: 60px;
+  }
+  .option3 .lieu-badge {
+    background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3);
+    color: #D4AF37;
+  }
+  .option3 .section-title {
+    font-size: 42px; color: white;
+    background: linear-gradient(135deg, #D4AF37, #A37E2C);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .option3 .blocks {
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .option3 .block-row {
+    display: grid; grid-template-columns: 1fr 1fr; min-height: 320px;
+  }
+  .option3 .block-row:nth-child(even) .block-img { order: 2; }
+  .option3 .block-row:nth-child(even) .block-text { order: 1; }
+  .option3 .block-img {
+    position: relative; min-height: 320px;
+  }
+  .option3 .block-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 48px 48px;
+  }
+  .option3 .block-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 700;
+    color: rgba(212,175,55,0.15); line-height: 1; margin-bottom: 12px;
+  }
+  .option3 .block-text .body-text { color: rgba(255,255,255,0.75); font-size: 15px; }
+  .option3 .block-text .body-text p { margin-bottom: 0; }
+  .option3 .badge-row { justify-content: center; margin-top: 40px; }
+  .option3 .badge {
+    background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.2);
+    color: rgba(255,255,255,0.8);
+  }
+  .option3 .badge svg { color: #D4AF37; }
+
+  /* ==================== OPTION 4 ==================== */
+  .option4 {
+    background: #F5F3EE; padding: 80px 0;
+  }
+  .option4 .container {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  }
+  .option4 .top-section {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px;
+    align-items: start; margin-bottom: 60px;
+  }
+  .option4 .sticky-img {
+    position: sticky; top: 100px;
+    height: 500px; border-radius: 24px;
+    overflow: hidden;
+  }
+  .option4 .text-side { padding-top: 10px; }
+  .option4 .lieu-badge {
+    background: rgba(163,126,44,0.08); border: 1px solid rgba(163,126,44,0.2);
+    color: #A37E2C;
+  }
+  .option4 .section-title { font-size: 34px; color: #1a1a1a; margin-bottom: 28px; }
+  .option4 .para-card {
+    background: white; border-radius: 16px; padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border-left: 3px solid #D4AF37;
+    transition: all 0.3s;
+  }
+  .option4 .para-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transform: translateX(4px);
+  }
+  .option4 .para-card .para-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #A37E2C; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .option4 .para-card .para-label .icon {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(163,126,44,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+  }
+  .option4 .body-text { color: #555; font-size: 14.5px; }
+  .option4 .body-text p { margin-bottom: 0; }
+  .option4 .badge {
+    background: white; border: 1px solid rgba(163,126,44,0.15);
+    color: #555; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .option4 .badge svg { color: #A37E2C; }
+
+  /* ==================== OPTION 5 ==================== */
+  .option5 {
+    background: white; padding: 80px 0; position: relative;
+    overflow: hidden;
+  }
+  .option5::before {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 45%; height: 100%;
+    background: #F8F6F1;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .option5 .container {
+    max-width: 1200px; margin: 0 auto; padding: 0 24px;
+    position: relative; z-index: 1;
+  }
+  .option5 .header-row {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 48px; gap: 40px;
+  }
+  .option5 .header-left { max-width: 500px; }
+  .option5 .lieu-badge {
+    background: rgba(163,126,44,0.08); border: 1px solid rgba(163,126,44,0.2);
+    color: #A37E2C;
+  }
+  .option5 .section-title { font-size: 40px; color: #1a1a1a; }
+  .option5 .header-right {
+    font-size: 15px; color: #777; line-height: 1.8; max-width: 440px;
+  }
+  .option5 .bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+  .option5 .bento-img {
+    grid-column: span 5; border-radius: 20px;
+    min-height: 340px; overflow: hidden;
+  }
+  .option5 .bento-text-1 {
+    grid-column: span 7;
+    background: #F8F6F1; border-radius: 20px; padding: 36px 32px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .option5 .bento-text-2 {
+    grid-column: span 7;
+    background: #1a1a1a; border-radius: 20px; padding: 36px 32px;
+    display: flex; flex-direction: column; justify-content: center;
+    color: white;
+  }
+  .option5 .bento-text-2 .body-text { color: rgba(255,255,255,0.75); }
+  .option5 .bento-img2 {
+    grid-column: span 5; border-radius: 20px;
+    min-height: 300px; overflow: hidden;
+  }
+  .option5 .bento-full {
+    grid-column: span 12;
+    background: linear-gradient(135deg, #1a1510, #2a2117);
+    border-radius: 20px; padding: 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    align-items: center;
+  }
+  .option5 .bento-full .body-text { color: rgba(255,255,255,0.75); }
+  .option5 .bento-full .badge-row .badge {
+    background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.2);
+    color: rgba(255,255,255,0.8);
+  }
+  .option5 .bento-full .badge svg { color: #D4AF37; }
+  .option5 .body-text { color: #555; font-size: 14.5px; }
+  .option5 .body-text p { margin-bottom: 0; }
+  .option5 .bento-text-1 .para-tag,
+  .option5 .bento-text-2 .para-tag {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #A37E2C; margin-bottom: 12px;
+  }
+  .option5 .badge {
+    background: rgba(163,126,44,0.06); border: 1px solid rgba(163,126,44,0.15);
+    color: #555;
+  }
+  .option5 .badge svg { color: #A37E2C; }
+
+  /* Check SVG inline */
+  .check-svg { width: 14px; height: 14px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="options-nav">
+  <div class="options-nav-inner">
+    <h3>5 Options Design</h3>
+    <a href="#option1">1 — Magazine</a>
+    <a href="#option2">2 — Editorial</a>
+    <a href="#option3">3 — Dark Cinematic</a>
+    <a href="#option4">4 — Cards Scroll</a>
+    <a href="#option5">5 — Bento Grid</a>
+  </div>
+</nav>
+
+<!-- ============================================ -->
+<!-- OPTION 1 — MAGAZINE LAYOUT -->
+<!-- ============================================ -->
+<div id="option1" class="option-separator" style="padding-top: 100px;">
+  <span class="tag">Option 1</span>
+  <h2>Magazine Layout</h2>
+  <p>Image superposée + lettrine + texte en 2 colonnes pour aérer la lecture</p>
+</div>
+
+<section class="option1">
+  <div class="container">
+    <div class="top-row">
+      <div class="image-stack">
+        <div class="img-placeholder main-img"></div>
+        <div class="img-placeholder float-img img2"></div>
+      </div>
+      <div class="intro-col">
+        <div class="lieu-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2"><path d="M12 3l1.5 4.5H18l-3.5 2.5L16 14.5 12 12l-4 2.5 1.5-4.5L6 7.5h4.5z"/></svg>
+          <span>Le lieu</span>
+        </div>
+        <h2 class="section-title">Une expérience d'exception</h2>
+        <div class="body-text">
+          <p><span class="first-letter">O</span>ffrez à vos collaborateurs un cadre de travail prestigieux et dépaysant. Ce boutique-hôtel 5 étoiles de la collection MGallery est idéalement situé proche Paris, dans le 92 Hauts-de-Seine. À seulement deux arrêts de métro du centre de la capitale (ligne 12, station Mairie d'Issy), ce domaine historique a été pensé pour faire de votre séminaire entreprise ou de votre journée d'étude un moment véritablement au vert, alliant concentration, confort haut de gamme et déconnexion.</p>
+          <p>Profitez d'un environnement enchanteur doté d'une vue imprenable sur la Tour Eiffel depuis ses terrasses. Avec son vaste jardin botanique et potager de 5 000 m², c'est le décor parfait pour stimuler la cohésion de vos équipes à travers des activités de team building en plein air.</p>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-text">
+      <div class="body-text">
+        <p>Pour l'organisation d'un séminaire résidentiel, l'établissement met à disposition 83 chambres et suites au design contemporain et apaisant. Vos collaborateurs pourront pleinement lâcher prise dans notre spa immersif de 360 m², équipé d'une piscine, d'un sauna, d'un hammam et d'un studio de yoga. À la tombée de la nuit, marquez les esprits lors d'une soirée d'entreprise inoubliable au sein de notre chapelle désacralisée, métamorphosée en un bar à rhum intimiste et atypique.</p>
+      </div>
+      <div>
+        <div class="body-text">
+          <p>Doté de 9 espaces de réunion modulables baignés de lumière naturelle et d'un restaurant bistronomique mettant à l'honneur les produits bio et locaux de saison, ce lieu labellisé Clef Verte est l'adresse confidentielle par excellence. Que ce soit pour un CODIR en format intimiste (jusqu'à 17 personnes dans nos salons dédiés) ou pour des événements de plus grande envergure réunissant jusqu'à 180 convives, profitez de la rareté d'un domaine d'exception alliant prestige, éco-responsabilité et accessibilité directe en transports en commun.</p>
+        </div>
+        <div class="badge-row">
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> MGallery 5 Étoiles</span>
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Vue Tour Eiffel</span>
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Accessible Métro</span>
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Spa 360m²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- OPTION 2 — EDITORIAL CENTRÉ -->
+<!-- ============================================ -->
+<div id="option2" class="option-separator">
+  <span class="tag">Option 2</span>
+  <h2>Editorial Centré</h2>
+  <p>Grande image hero + carte flottante titre + texte en 2 colonnes style magazine avec citation au centre</p>
+</div>
+
+<section class="option2">
+  <div class="hero-img img-placeholder" style="border-radius: 0;">
+    <div class="floating-card">
+      <div class="lieu-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2"><path d="M12 3l1.5 4.5H18l-3.5 2.5L16 14.5 12 12l-4 2.5 1.5-4.5L6 7.5h4.5z"/></svg>
+        <span>Le lieu</span>
+      </div>
+      <h2 class="section-title">Une expérience d'exception</h2>
+    </div>
+  </div>
+  <div class="content-area">
+    <div class="text-columns">
+      <p>Offrez à vos collaborateurs un cadre de travail prestigieux et dépaysant. Ce boutique-hôtel 5 étoiles de la collection MGallery est idéalement situé proche Paris, dans le 92 Hauts-de-Seine. À seulement deux arrêts de métro du centre de la capitale (ligne 12, station Mairie d'Issy), ce domaine historique a été pensé pour faire de votre séminaire entreprise ou de votre journée d'étude un moment véritablement au vert, alliant concentration, confort haut de gamme et déconnexion.</p>
+      <p>Profitez d'un environnement enchanteur doté d'une vue imprenable sur la Tour Eiffel depuis ses terrasses. Avec son vaste jardin botanique et potager de 5 000 m², c'est le décor parfait pour stimuler la cohésion de vos équipes à travers des activités de team building en plein air.</p>
+      <div class="pull-quote">
+        « L'adresse confidentielle par excellence — un domaine d'exception alliant prestige, éco-responsabilité et accessibilité. »
+      </div>
+      <p>Pour l'organisation d'un séminaire résidentiel, l'établissement met à disposition 83 chambres et suites au design contemporain et apaisant. Vos collaborateurs pourront pleinement lâcher prise dans notre spa immersif de 360 m², équipé d'une piscine, d'un sauna, d'un hammam et d'un studio de yoga. À la tombée de la nuit, marquez les esprits lors d'une soirée d'entreprise inoubliable au sein de notre chapelle désacralisée, métamorphosée en un bar à rhum intimiste et atypique.</p>
+      <p>Doté de 9 espaces de réunion modulables baignés de lumière naturelle et d'un restaurant bistronomique mettant à l'honneur les produits bio et locaux de saison, ce lieu labellisé Clef Verte est l'adresse confidentielle par excellence. Que ce soit pour un CODIR en format intimiste (jusqu'à 17 personnes dans nos salons dédiés) ou pour des événements de plus grande envergure réunissant jusqu'à 180 convives, profitez de la rareté d'un domaine d'exception alliant prestige, éco-responsabilité et accessibilité directe en transports en commun.</p>
+    </div>
+    <div class="badge-row">
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> MGallery 5 Étoiles</span>
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Vue Tour Eiffel</span>
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Accessible Métro</span>
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Spa 360m²</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- OPTION 3 — DARK CINEMATIC -->
+<!-- ============================================ -->
+<div id="option3" class="option-separator">
+  <span class="tag">Option 3</span>
+  <h2>Dark Cinematic</h2>
+  <p>Fond noir premium, chaque paragraphe en alternance texte/image avec numérotation dorée</p>
+</div>
+
+<section class="option3">
+  <div class="container">
+    <div class="header">
+      <div class="lieu-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2"><path d="M12 3l1.5 4.5H18l-3.5 2.5L16 14.5 12 12l-4 2.5 1.5-4.5L6 7.5h4.5z"/></svg>
+        <span>Le lieu</span>
+      </div>
+      <h2 class="section-title">Une expérience d'exception</h2>
+    </div>
+    <div class="blocks">
+      <div class="block-row">
+        <div class="block-img img-placeholder"></div>
+        <div class="block-text">
+          <div class="block-num">01</div>
+          <div class="body-text">
+            <p>Offrez à vos collaborateurs un cadre de travail prestigieux et dépaysant. Ce boutique-hôtel 5 étoiles de la collection MGallery est idéalement situé proche Paris, dans le 92 Hauts-de-Seine. À seulement deux arrêts de métro du centre de la capitale (ligne 12, station Mairie d'Issy), ce domaine historique a été pensé pour faire de votre séminaire entreprise ou de votre journée d'étude un moment véritablement au vert, alliant concentration, confort haut de gamme et déconnexion.</p>
+          </div>
+        </div>
+      </div>
+      <div class="block-row">
+        <div class="block-img img-placeholder img2"></div>
+        <div class="block-text">
+          <div class="block-num">02</div>
+          <div class="body-text">
+            <p>Profitez d'un environnement enchanteur doté d'une vue imprenable sur la Tour Eiffel depuis ses terrasses. Avec son vaste jardin botanique et potager de 5 000 m², c'est le décor parfait pour stimuler la cohésion de vos équipes à travers des activités de team building en plein air.</p>
+          </div>
+        </div>
+      </div>
+      <div class="block-row">
+        <div class="block-img img-placeholder img3"></div>
+        <div class="block-text">
+          <div class="block-num">03</div>
+          <div class="body-text">
+            <p>Pour l'organisation d'un séminaire résidentiel, l'établissement met à disposition 83 chambres et suites au design contemporain et apaisant. Vos collaborateurs pourront pleinement lâcher prise dans notre spa immersif de 360 m², équipé d'une piscine, d'un sauna, d'un hammam et d'un studio de yoga. À la tombée de la nuit, marquez les esprits lors d'une soirée d'entreprise inoubliable au sein de notre chapelle désacralisée, métamorphosée en un bar à rhum intimiste et atypique.</p>
+          </div>
+        </div>
+      </div>
+      <div class="block-row">
+        <div class="block-img img-placeholder img4"></div>
+        <div class="block-text">
+          <div class="block-num">04</div>
+          <div class="body-text">
+            <p>Doté de 9 espaces de réunion modulables baignés de lumière naturelle et d'un restaurant bistronomique mettant à l'honneur les produits bio et locaux de saison, ce lieu labellisé Clef Verte est l'adresse confidentielle par excellence. Que ce soit pour un CODIR en format intimiste (jusqu'à 17 personnes dans nos salons dédiés) ou pour des événements de plus grande envergure réunissant jusqu'à 180 convives, profitez de la rareté d'un domaine d'exception alliant prestige, éco-responsabilité et accessibilité directe en transports en commun.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> MGallery 5 Étoiles</span>
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Vue Tour Eiffel</span>
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Accessible Métro</span>
+      <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Spa 360m²</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- OPTION 4 — CARDS SCROLL STICKY IMAGE -->
+<!-- ============================================ -->
+<div id="option4" class="option-separator">
+  <span class="tag">Option 4</span>
+  <h2>Cards + Image Sticky</h2>
+  <p>Image fixe à gauche pendant le scroll, chaque paragraphe dans une carte avec icône thématique à droite</p>
+</div>
+
+<section class="option4">
+  <div class="container">
+    <div class="top-section">
+      <div class="sticky-img img-placeholder" style="border-radius: 24px;"></div>
+      <div class="text-side">
+        <div class="lieu-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2"><path d="M12 3l1.5 4.5H18l-3.5 2.5L16 14.5 12 12l-4 2.5 1.5-4.5L6 7.5h4.5z"/></svg>
+          <span>Le lieu</span>
+        </div>
+        <h2 class="section-title">Une expérience d'exception</h2>
+
+        <div class="para-card">
+          <div class="para-label">
+            <span class="icon">&#9733;</span>
+            Un cadre prestigieux
+          </div>
+          <div class="body-text">
+            <p>Offrez à vos collaborateurs un cadre de travail prestigieux et dépaysant. Ce boutique-hôtel 5 étoiles de la collection MGallery est idéalement situé proche Paris, dans le 92 Hauts-de-Seine. À seulement deux arrêts de métro du centre de la capitale (ligne 12, station Mairie d'Issy), ce domaine historique a été pensé pour faire de votre séminaire entreprise ou de votre journée d'étude un moment véritablement au vert, alliant concentration, confort haut de gamme et déconnexion.</p>
+          </div>
+        </div>
+
+        <div class="para-card">
+          <div class="para-label">
+            <span class="icon">&#9752;</span>
+            Un écrin de verdure
+          </div>
+          <div class="body-text">
+            <p>Profitez d'un environnement enchanteur doté d'une vue imprenable sur la Tour Eiffel depuis ses terrasses. Avec son vaste jardin botanique et potager de 5 000 m², c'est le décor parfait pour stimuler la cohésion de vos équipes à travers des activités de team building en plein air.</p>
+          </div>
+        </div>
+
+        <div class="para-card">
+          <div class="para-label">
+            <span class="icon">&#9790;</span>
+            Séjour & bien-être
+          </div>
+          <div class="body-text">
+            <p>Pour l'organisation d'un séminaire résidentiel, l'établissement met à disposition 83 chambres et suites au design contemporain et apaisant. Vos collaborateurs pourront pleinement lâcher prise dans notre spa immersif de 360 m², équipé d'une piscine, d'un sauna, d'un hammam et d'un studio de yoga. À la tombée de la nuit, marquez les esprits lors d'une soirée d'entreprise inoubliable au sein de notre chapelle désacralisée, métamorphosée en un bar à rhum intimiste et atypique.</p>
+          </div>
+        </div>
+
+        <div class="para-card">
+          <div class="para-label">
+            <span class="icon">&#9670;</span>
+            Excellence & éco-responsabilité
+          </div>
+          <div class="body-text">
+            <p>Doté de 9 espaces de réunion modulables baignés de lumière naturelle et d'un restaurant bistronomique mettant à l'honneur les produits bio et locaux de saison, ce lieu labellisé Clef Verte est l'adresse confidentielle par excellence. Que ce soit pour un CODIR en format intimiste (jusqu'à 17 personnes dans nos salons dédiés) ou pour des événements de plus grande envergure réunissant jusqu'à 180 convives, profitez de la rareté d'un domaine d'exception alliant prestige, éco-responsabilité et accessibilité directe en transports en commun.</p>
+          </div>
+        </div>
+
+        <div class="badge-row">
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> MGallery 5 Étoiles</span>
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Vue Tour Eiffel</span>
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Accessible Métro</span>
+          <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Spa 360m²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- OPTION 5 — BENTO GRID -->
+<!-- ============================================ -->
+<div id="option5" class="option-separator">
+  <span class="tag">Option 5</span>
+  <h2>Bento Grid</h2>
+  <p>Layout asymétrique style Apple/Linear — images et textes mélangés dans une grille moderne</p>
+</div>
+
+<section class="option5">
+  <div class="container">
+    <div class="header-row">
+      <div class="header-left">
+        <div class="lieu-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A37E2C" stroke-width="2"><path d="M12 3l1.5 4.5H18l-3.5 2.5L16 14.5 12 12l-4 2.5 1.5-4.5L6 7.5h4.5z"/></svg>
+          <span>Le lieu</span>
+        </div>
+        <h2 class="section-title">Une expérience d'exception</h2>
+      </div>
+      <div class="header-right">
+        Offrez à vos collaborateurs un cadre de travail prestigieux et dépaysant. Ce boutique-hôtel 5 étoiles de la collection MGallery est idéalement situé proche Paris, dans le 92 Hauts-de-Seine.
+      </div>
+    </div>
+
+    <div class="bento">
+      <!-- Row 1 -->
+      <div class="bento-img img-placeholder"></div>
+      <div class="bento-text-1">
+        <div class="para-tag" style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #A37E2C; margin-bottom: 12px;">Localisation idéale</div>
+        <div class="body-text">
+          <p>À seulement deux arrêts de métro du centre de la capitale (ligne 12, station Mairie d'Issy), ce domaine historique a été pensé pour faire de votre séminaire entreprise ou de votre journée d'étude un moment véritablement au vert, alliant concentration, confort haut de gamme et déconnexion.</p>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="bento-text-2">
+        <div class="para-tag" style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #D4AF37; margin-bottom: 12px;">Jardin & Team Building</div>
+        <div class="body-text">
+          <p>Profitez d'un environnement enchanteur doté d'une vue imprenable sur la Tour Eiffel depuis ses terrasses. Avec son vaste jardin botanique et potager de 5 000 m², c'est le décor parfait pour stimuler la cohésion de vos équipes à travers des activités de team building en plein air.</p>
+        </div>
+      </div>
+      <div class="bento-img2 img-placeholder img3"></div>
+
+      <!-- Row 3 — Full width -->
+      <div class="bento-full">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #D4AF37; margin-bottom: 12px;">Séjour & Bien-être</div>
+          <div class="body-text">
+            <p>Pour l'organisation d'un séminaire résidentiel, l'établissement met à disposition 83 chambres et suites au design contemporain et apaisant. Vos collaborateurs pourront pleinement lâcher prise dans notre spa immersif de 360 m², équipé d'une piscine, d'un sauna, d'un hammam et d'un studio de yoga. À la tombée de la nuit, marquez les esprits lors d'une soirée d'entreprise inoubliable au sein de notre chapelle désacralisée, métamorphosée en un bar à rhum intimiste et atypique.</p>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #D4AF37; margin-bottom: 12px;">Excellence & Éco-responsabilité</div>
+          <div class="body-text">
+            <p>Doté de 9 espaces de réunion modulables baignés de lumière naturelle et d'un restaurant bistronomique mettant à l'honneur les produits bio et locaux de saison, ce lieu labellisé Clef Verte est l'adresse confidentielle par excellence. Que ce soit pour un CODIR en format intimiste (jusqu'à 17 personnes dans nos salons dédiés) ou pour des événements de plus grande envergure réunissant jusqu'à 180 convives, profitez de la rareté d'un domaine d'exception alliant prestige, éco-responsabilité et accessibilité directe en transports en commun.</p>
+          </div>
+          <div class="badge-row">
+            <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> MGallery 5 Étoiles</span>
+            <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Vue Tour Eiffel</span>
+            <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Accessible Métro</span>
+            <span class="badge"><svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Spa 360m²</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height: 100px;"></div>
+
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('[id^="option"]');
+  const navLinks = document.querySelectorAll('.options-nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top < 200) current = section.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>

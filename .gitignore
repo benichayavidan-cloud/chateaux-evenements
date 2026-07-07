@@ -51,3 +51,4 @@ archives-developpement/
 backup/
 public/images-backup/
 image-positions.json
+.unlighthouse/

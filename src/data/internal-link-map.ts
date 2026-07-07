@@ -80,8 +80,8 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
   },
   {
     keywords: ["budget séminaire", "coût séminaire", "prix séminaire", "tarif séminaire", "combien coûte un séminaire"],
-    targetSlug: "budget-seminaire-entreprise-2026-planifier",
-    title: "Budget séminaire entreprise 2026",
+    targetSlug: "combien-coute-seminaire-chateau-2026",
+    title: "Combien coûte un séminaire en château ? Tarifs 2026",
     priority: 9,
   },
   {

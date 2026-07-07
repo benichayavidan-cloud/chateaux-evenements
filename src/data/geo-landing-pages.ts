@@ -128,8 +128,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Séminaire Résidentiel vs Journée d'Étude : Que choisir ?",
       },
       {
-        slug: "budget-seminaire-entreprise-2026-planifier",
-        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+        slug: "seminaire-codir-chateau-privatise",
+        title: "Séminaire CODIR en château privatisé : le guide 2026",
       },
     ],
     faq: [
@@ -258,8 +258,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Le planning idéal d'un séminaire de 2 jours",
       },
       {
-        slug: "seminaire-au-vert-productivite",
-        title: "Séminaire au vert : Pourquoi quitter Paris augmente la productivité de 30%",
+        slug: "seminaire-nature-chevreuse-deconnexion",
+        title: "Séminaire nature en vallée de Chevreuse : la déconnexion productive",
       },
       {
         slug: "checklist-organiser-seminaire",
@@ -376,8 +376,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Escape Game Géant : Transformez le château en terrain de jeu",
       },
       {
-        slug: "budget-seminaire-entreprise-2026-planifier",
-        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+        slug: "combien-coute-seminaire-chateau-2026",
+        title: "Combien coûte un séminaire en château en 2026 ?",
       },
     ],
     faq: [
@@ -533,8 +533,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Checklist Séminaire 2026 : 25 Étapes [Gratuit]",
       },
       {
-        slug: "budget-seminaire-entreprise-2026-planifier",
-        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+        slug: "combien-coute-seminaire-chateau-2026",
+        title: "Combien coûte un séminaire en château en 2026 ?",
       },
     ],
     faq: [
@@ -661,8 +661,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Séminaire au Vert près de Paris : La Vallée de Chevreuse à 35 min",
       },
       {
-        slug: "budget-seminaire-entreprise-2026-planifier",
-        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+        slug: "combien-coute-seminaire-chateau-2026",
+        title: "Combien coûte un séminaire en château en 2026 ?",
       },
     ],
     faq: [
@@ -769,8 +769,8 @@ export const geoLandingPages: GeoLandingPage[] = [
     ],
     blogLinks: [
       {
-        slug: "organiser-codir-confidentiel",
-        title: "Comment organiser un CODIR confidentiel : Les critères de sécurité",
+        slug: "seminaire-codir-chateau-privatise",
+        title: "Séminaire CODIR en château privatisé : le guide 2026",
       },
       {
         slug: "petits-comites-lieux-intimes-board",
@@ -781,8 +781,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Repas de Séminaire : Les tendances traiteur 2026",
       },
       {
-        slug: "budget-seminaire-entreprise-2026-planifier",
-        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+        slug: "combien-coute-seminaire-chateau-2026",
+        title: "Combien coûte un séminaire en château en 2026 ?",
       },
     ],
     faq: [
@@ -895,8 +895,8 @@ export const geoLandingPages: GeoLandingPage[] = [
         title: "Escape Game en Château : Guide & Tarifs 2026",
       },
       {
-        slug: "budget-seminaire-entreprise-2026-planifier",
-        title: "Budget Séminaire 2026 : Coût Réel par Tête & Économies",
+        slug: "combien-coute-seminaire-chateau-2026",
+        title: "Combien coûte un séminaire en château en 2026 ?",
       },
     ],
     faq: [

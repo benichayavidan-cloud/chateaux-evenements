@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Campagne Active — SÉMINAIRE CHÂTEAU IDF — 14 avril 2026</title>
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #f5e6b8;
+    --navy: #1a1a2e;
+    --navy-light: #2d2d44;
+    --green: #22c55e;
+    --green-bg: #f0fdf4;
+    --red: #ef4444;
+    --red-bg: #fef2f2;
+    --blue: #3b82f6;
+    --blue-bg: #eff6ff;
+    --orange: #f59e0b;
+    --orange-bg: #fffbeb;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+  }
+  .header {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+  .header .subtitle {
+    font-size: 16px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+  }
+  .header .date {
+    font-size: 13px;
+    opacity: 0.6;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 8px 4px 0;
+  }
+  .badge-green { background: var(--green); color: white; }
+  .badge-gold { background: var(--gold); color: var(--navy); }
+  .badge-blue { background: var(--blue); color: white; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+  .section { margin-bottom: 40px; }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    border-bottom: 3px solid var(--gold);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  /* KPI Cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .kpi-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--gold);
+  }
+  .kpi-card.green { border-top-color: var(--green); }
+  .kpi-card.red { border-top-color: var(--red); }
+  .kpi-card.blue { border-top-color: var(--blue); }
+  .kpi-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .kpi-label {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .kpi-sub {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    background: var(--navy);
+    color: white;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--gray-200);
+    white-space: nowrap;
+  }
+  tbody tr:nth-child(even) { background: var(--gray-50); }
+  tbody tr:hover { background: var(--gold-light); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .text-green { color: var(--green); font-weight: 700; }
+  .text-red { color: var(--red); font-weight: 700; }
+  .text-orange { color: var(--orange); font-weight: 700; }
+  .text-blue { color: var(--blue); font-weight: 600; }
+  .text-gold { color: var(--gold); font-weight: 700; }
+  .text-muted { color: var(--gray-500); }
+  /* Bar charts */
+  .chart-container { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .bar-row { display: flex; align-items: center; margin-bottom: 8px; }
+  .bar-label { width: 80px; font-size: 12px; color: var(--gray-700); text-align: right; padding-right: 12px; flex-shrink: 0; }
+  .bar-track { flex: 1; background: var(--gray-100); border-radius: 6px; height: 28px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 600; color: white; min-width: 2px; transition: width 0.3s; }
+  .bar-fill.gold { background: linear-gradient(90deg, var(--gold), #d4af37); }
+  .bar-fill.green { background: linear-gradient(90deg, var(--green), #16a34a); }
+  .bar-fill.blue { background: linear-gradient(90deg, var(--blue), #2563eb); }
+  .bar-fill.red { background: linear-gradient(90deg, var(--red), #dc2626); }
+  .bar-fill.navy { background: linear-gradient(90deg, var(--navy), var(--navy-light)); }
+  .bar-value { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 11px; font-weight: 600; color: var(--gray-700); }
+  /* Info boxes */
+  .info-box {
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .info-box.green { background: var(--green-bg); border-left: 4px solid var(--green); }
+  .info-box.red { background: var(--red-bg); border-left: 4px solid var(--red); }
+  .info-box.blue { background: var(--blue-bg); border-left: 4px solid var(--blue); }
+  .info-box.orange { background: var(--orange-bg); border-left: 4px solid var(--orange); }
+  .info-box strong { display: block; margin-bottom: 4px; }
+  /* Two columns */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+  /* Pill status */
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .pill-enabled { background: #dcfce7; color: #166534; }
+  .pill-paused { background: #fef9c3; color: #854d0e; }
+  .pill-zero { background: var(--red-bg); color: var(--red); }
+  /* Progress bar */
+  .progress { background: var(--gray-200); border-radius: 8px; height: 10px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 8px; }
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--gray-500);
+    font-size: 12px;
+    border-top: 1px solid var(--gray-200);
+    margin-top: 40px;
+  }
+  .star { color: var(--gold); }
+  .highlight-row { background: var(--gold-light) !important; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SÉMINAIRE CHÂTEAU IDF</h1>
+  <div class="subtitle">Audit complet de la campagne active</div>
+  <div class="date">Période : 16 mars — 14 avril 2026 (30 jours)</div>
+  <div>
+    <span class="badge badge-green">ACTIVE</span>
+    <span class="badge badge-gold">MAXIMIZE_CONVERSIONS</span>
+    <span class="badge badge-blue">tCPA 963 ₪ (depuis 9 avril)</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- KPIs -->
+  <div class="section">
+    <h2 class="section-title">Vue d'ensemble — KPIs</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-value">698</div>
+        <div class="kpi-label">Impressions</div>
+        <div class="kpi-sub">~23/jour</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">92</div>
+        <div class="kpi-label">Clics</div>
+        <div class="kpi-sub">~3.1/jour</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-value">13,2%</div>
+        <div class="kpi-label">CTR</div>
+        <div class="kpi-sub">Bon pour le secteur</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">7 109 ₪</div>
+        <div class="kpi-label">Dépense totale</div>
+        <div class="kpi-sub">~1 955 € · 237 ₪/jour</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-value" style="color: var(--green);">8</div>
+        <div class="kpi-label">Conversions</div>
+        <div class="kpi-sub">Leads formulaire devis</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">889 ₪</div>
+        <div class="kpi-label">CPA moyen</div>
+        <div class="kpi-sub">~245 € par lead</div>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-value">77 ₪</div>
+        <div class="kpi-label">CPC moyen</div>
+        <div class="kpi-sub">~21 €</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">48%</div>
+        <div class="kpi-label">Part d'impression</div>
+        <div class="kpi-sub">Search Impression Share</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Evolution hebdo -->
+  <div class="section">
+    <h2 class="section-title">Evolution hebdomadaire</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Semaine</th>
+            <th class="num">Impressions</th>
+            <th class="num">Clics</th>
+            <th class="num">CTR</th>
+            <th class="num">Dépense</th>
+            <th class="num">CPC moy.</th>
+            <th class="num">Conversions</th>
+            <th class="num">CPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>S1</strong> · 16-22 mars</td>
+            <td class="num">172</td>
+            <td class="num">20</td>
+            <td class="num">11,6%</td>
+            <td class="num">503 ₪</td>
+            <td class="num">25 ₪</td>
+            <td class="num text-muted">0</td>
+            <td class="num text-muted">—</td>
+          </tr>
+          <tr>
+            <td><strong>S2</strong> · 23-29 mars</td>
+            <td class="num">170</td>
+            <td class="num">17</td>
+            <td class="num">10,0%</td>
+            <td class="num">1 399 ₪</td>
+            <td class="num">82 ₪</td>
+            <td class="num text-green">2</td>
+            <td class="num">700 ₪</td>
+          </tr>
+          <tr>
+            <td><strong>S3</strong> · 30 mars - 5 avr</td>
+            <td class="num">176</td>
+            <td class="num">26</td>
+            <td class="num">14,8%</td>
+            <td class="num">1 962 ₪</td>
+            <td class="num">75 ₪</td>
+            <td class="num text-green">2</td>
+            <td class="num">981 ₪</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>S4</strong> · 7-14 avril</td>
+            <td class="num">180</td>
+            <td class="num">29</td>
+            <td class="num">16,1%</td>
+            <td class="num">3 244 ₪</td>
+            <td class="num">112 ₪</td>
+            <td class="num text-green">4</td>
+            <td class="num text-green">811 ₪</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div class="info-box green">
+        <strong>Tendance positive</strong>
+        Les conversions accélèrent : 0 → 2 → 2 → 4 par semaine. Le CTR progresse (11,6% → 16,1%). L'algorithme MAXIMIZE_CONVERSIONS apprend et s'améliore.
+      </div>
+      <div class="info-box orange">
+        <strong>Point d'attention : CPC en hausse</strong>
+        Le CPC moyen passe de 25 ₪ (S1) à 112 ₪ (S4). L'algo enchérit plus agressivement pour cibler les profils à forte probabilité de conversion. C'est normal avec MAXIMIZE_CONVERSIONS, mais à surveiller.
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact tCPA -->
+  <div class="section">
+    <h2 class="section-title">Impact du CPA cible (depuis le 9 avril)</h2>
+    <div class="grid-2">
+      <div class="chart-container">
+        <h3 style="margin-bottom: 12px; font-size: 15px;">Avant tCPA <span class="text-muted">(16 mars — 8 avril · 24 jours)</span></h3>
+        <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr); gap: 10px;">
+          <div style="text-align:center"><div style="font-size:24px; font-weight:700;">75</div><div style="font-size:11px; color:var(--gray-500)">clics</div></div>
+          <div style="text-align:center"><div style="font-size:24px; font-weight:700;">5</div><div style="font-size:11px; color:var(--gray-500)">conversions</div></div>
+          <div style="text-align:center"><div style="font-size:24px; font-weight:700;">1 053 ₪</div><div style="font-size:11px; color:var(--gray-500)">CPA</div></div>
+        </div>
+        <div style="margin-top:8px; font-size:12px; color:var(--gray-500)">Dépense : 5 264 ₪ · CPC moy : 70 ₪</div>
+      </div>
+      <div class="chart-container" style="border: 2px solid var(--green);">
+        <h3 style="margin-bottom: 12px; font-size: 15px;">Avec tCPA 963 ₪ <span class="text-muted">(9-14 avril · 6 jours)</span></h3>
+        <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr); gap: 10px;">
+          <div style="text-align:center"><div style="font-size:24px; font-weight:700;">17</div><div style="font-size:11px; color:var(--gray-500)">clics</div></div>
+          <div style="text-align:center"><div style="font-size:24px; font-weight:700; color:var(--green);">3</div><div style="font-size:11px; color:var(--gray-500)">conversions</div></div>
+          <div style="text-align:center"><div style="font-size:24px; font-weight:700; color:var(--green);">615 ₪</div><div style="font-size:11px; color:var(--gray-500)">CPA</div></div>
+        </div>
+        <div style="margin-top:8px; font-size:12px; color:var(--green); font-weight:600;">Dépense : 1 844 ₪ · CPC moy : 108 ₪ · CPA -42% vs avant</div>
+      </div>
+    </div>
+    <div class="info-box green" style="margin-top: 16px;">
+      <strong>Le tCPA semble efficace (mais trop tôt pour conclure)</strong>
+      En 6 jours, le CPA a baissé de 1 053 ₪ à 615 ₪ (-42%), soit bien en-dessous du CPA cible de 963 ₪. La période d'apprentissage (2 semaines) n'est pas terminée — re-évaluer vers le 22 avril.
+    </div>
+  </div>
+
+  <!-- Groupes d'annonces -->
+  <div class="section">
+    <h2 class="section-title">Groupes d'annonces</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Groupe</th>
+            <th>Statut</th>
+            <th class="num">Impressions</th>
+            <th class="num">Clics</th>
+            <th class="num">CTR</th>
+            <th class="num">Dépense</th>
+            <th class="num">CPC moy.</th>
+            <th class="num">Conversions</th>
+            <th class="num">CPA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Intention Séminaire</strong></td>
+            <td><span class="pill pill-enabled">ACTIF</span></td>
+            <td class="num">461</td>
+            <td class="num">61</td>
+            <td class="num">13,2%</td>
+            <td class="num">4 995 ₪</td>
+            <td class="num">82 ₪</td>
+            <td class="num text-green">5</td>
+            <td class="num">999 ₪</td>
+          </tr>
+          <tr>
+            <td><strong>Sniper Géo</strong></td>
+            <td><span class="pill pill-enabled">ACTIF</span></td>
+            <td class="num">237</td>
+            <td class="num">31</td>
+            <td class="num">13,1%</td>
+            <td class="num">2 114 ₪</td>
+            <td class="num">68 ₪</td>
+            <td class="num text-green">3</td>
+            <td class="num text-green">705 ₪</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-box blue" style="margin-top: 16px;">
+      <strong>Sniper Géo est plus rentable</strong>
+      CPA 705 ₪ vs 999 ₪ pour Intention Séminaire. CPC aussi plus bas (68 ₪ vs 82 ₪). Les deux groupes ont un CTR quasi identique (~13%).
+    </div>
+  </div>
+
+  <!-- Mots-clés -->
+  <div class="section">
+    <h2 class="section-title">Mots-clés actifs — Performance</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mot-clé [exact]</th>
+            <th class="num">QS</th>
+            <th class="num">Imp.</th>
+            <th class="num">Clics</th>
+            <th class="num">CTR</th>
+            <th class="num">Dépense</th>
+            <th class="num">CPC</th>
+            <th class="num">Conv.</th>
+            <th class="num">CPA</th>
+            <th>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-row">
+            <td><strong>séminaire proche paris</strong></td>
+            <td class="num">4</td>
+            <td class="num">24</td>
+            <td class="num">4</td>
+            <td class="num">16,7%</td>
+            <td class="num">462 ₪</td>
+            <td class="num">116 ₪</td>
+            <td class="num text-green">3</td>
+            <td class="num text-green">154 ₪</td>
+            <td><span class="star">&#9733;&#9733;&#9733;</span> CHAMPION</td>
+          </tr>
+          <tr>
+            <td><strong>séminaire chantilly</strong></td>
+            <td class="num">5</td>
+            <td class="num">62</td>
+            <td class="num">13</td>
+            <td class="num">21,0%</td>
+            <td class="num">913 ₪</td>
+            <td class="num">70 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num">913 ₪</td>
+            <td><span class="star">&#9733;&#9733;</span> Volume + QS</td>
+          </tr>
+          <tr>
+            <td><strong>domaine séminaire ile de france</strong></td>
+            <td class="num">4</td>
+            <td class="num">61</td>
+            <td class="num">10</td>
+            <td class="num">16,4%</td>
+            <td class="num">1 214 ₪</td>
+            <td class="num">121 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num text-orange">1 214 ₪</td>
+            <td><span class="star">&#9733;</span> CPA élevé</td>
+          </tr>
+          <tr>
+            <td><strong>chateau seminaire ile de france</strong></td>
+            <td class="num">3</td>
+            <td class="num">25</td>
+            <td class="num">4</td>
+            <td class="num">16,0%</td>
+            <td class="num">372 ₪</td>
+            <td class="num">93 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num">372 ₪</td>
+            <td><span class="star">&#9733;&#9733;</span> Bon CPA</td>
+          </tr>
+          <tr>
+            <td><strong>séminaire 78</strong></td>
+            <td class="num">3</td>
+            <td class="num">46</td>
+            <td class="num">4</td>
+            <td class="num">8,7%</td>
+            <td class="num">260 ₪</td>
+            <td class="num">65 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num text-green">260 ₪</td>
+            <td><span class="star">&#9733;&#9733;</span> Bon rapport</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>lieu séminaire chantilly</strong></td>
+            <td class="num text-green">7</td>
+            <td class="num">1</td>
+            <td class="num">1</td>
+            <td class="num">100%</td>
+            <td class="num">111 ₪</td>
+            <td class="num">111 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num text-green">111 ₪</td>
+            <td><span class="star">&#9733;&#9733;&#9733;</span> QS 7 !</td>
+          </tr>
+          <tr>
+            <td>séminaire nature proche paris</td>
+            <td class="num text-muted">—</td>
+            <td class="num">7</td>
+            <td class="num">1</td>
+            <td class="num">14,3%</td>
+            <td class="num">50 ₪</td>
+            <td class="num">50 ₪</td>
+            <td class="num">0</td>
+            <td class="num">—</td>
+            <td class="text-muted">A surveiller</td>
+          </tr>
+          <tr>
+            <td>séminaire oise</td>
+            <td class="num">5</td>
+            <td class="num">30</td>
+            <td class="num text-red">0</td>
+            <td class="num text-red">0%</td>
+            <td class="num">0 ₪</td>
+            <td class="num">—</td>
+            <td class="num">0</td>
+            <td class="num">—</td>
+            <td class="text-orange">Impressions sans clic</td>
+          </tr>
+          <tr>
+            <td>séminaire 60</td>
+            <td class="num text-muted">—</td>
+            <td class="num">10</td>
+            <td class="num text-red">0</td>
+            <td class="num text-red">0%</td>
+            <td class="num">0 ₪</td>
+            <td class="num">—</td>
+            <td class="num">0</td>
+            <td class="num">—</td>
+            <td class="text-orange">Impressions sans clic</td>
+          </tr>
+          <tr>
+            <td>séminaire rambouillet</td>
+            <td class="num text-red">2</td>
+            <td class="num">3</td>
+            <td class="num text-red">0</td>
+            <td class="num text-red">0%</td>
+            <td class="num">0 ₪</td>
+            <td class="num">—</td>
+            <td class="num">0</td>
+            <td class="num">—</td>
+            <td class="text-red">QS 2, 0 clic</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div class="info-box green">
+        <strong>Top 3 mots-clés par CPA</strong>
+        1. <strong>lieu séminaire chantilly</strong> — 111 ₪/conv (QS 7, mais 1 seule impression)<br>
+        2. <strong>séminaire proche paris</strong> — 154 ₪/conv (3 conversions !)<br>
+        3. <strong>séminaire 78</strong> — 260 ₪/conv
+      </div>
+      <div class="info-box orange">
+        <strong>25 mots-clés ENABLED avec 0 impression</strong>
+        De nombreux mots-clés longue traîne n'ont aucun volume : séminaire hauts de seine, lieu séminaire senlis, offsite entreprise paris, séminaire avec hébergement... Pas de coût associé, mais ils diluent la structure. Envisager de les pausser ou regrouper.
+      </div>
+    </div>
+  </div>
+
+  <!-- Termes de recherche -->
+  <div class="section">
+    <h2 class="section-title">Termes de recherche (30 jours) — Top 15</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Terme recherché</th>
+            <th>Mot-clé déclencheur</th>
+            <th class="num">Imp.</th>
+            <th class="num">Clics</th>
+            <th class="num">Dépense</th>
+            <th class="num">Conv.</th>
+            <th class="num">CTR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>séminaire chantilly</td>
+            <td class="text-muted">séminaire chantilly</td>
+            <td class="num">15</td>
+            <td class="num">3</td>
+            <td class="num">202 ₪</td>
+            <td class="num">0</td>
+            <td class="num">20,0%</td>
+          </tr>
+          <tr>
+            <td>lieu atypique séminaire île de france</td>
+            <td class="text-muted">lieu atypique séminaire ile de france</td>
+            <td class="num">11</td>
+            <td class="num">3</td>
+            <td class="num">354 ₪</td>
+            <td class="num">0</td>
+            <td class="num">27,3%</td>
+          </tr>
+          <tr>
+            <td>séminaire vallée de chevreuse</td>
+            <td class="text-muted">séminaire vallée de chevreuse</td>
+            <td class="num">7</td>
+            <td class="num">2</td>
+            <td class="num">67 ₪</td>
+            <td class="num">0</td>
+            <td class="num">28,6%</td>
+          </tr>
+          <tr>
+            <td>chantilly séminaire</td>
+            <td class="text-muted">séminaire chantilly</td>
+            <td class="num">6</td>
+            <td class="num">2</td>
+            <td class="num">62 ₪</td>
+            <td class="num">0</td>
+            <td class="num">33,3%</td>
+          </tr>
+          <tr>
+            <td>seminaire ile de france</td>
+            <td class="text-muted">séminaire entreprise ile de france</td>
+            <td class="num">10</td>
+            <td class="num">2</td>
+            <td class="num">217 ₪</td>
+            <td class="num">0</td>
+            <td class="num">20,0%</td>
+          </tr>
+          <tr>
+            <td>seminaire résidentiel</td>
+            <td class="text-muted">séminaire résidentiel</td>
+            <td class="num">1</td>
+            <td class="num">2</td>
+            <td class="num">55 ₪</td>
+            <td class="num">0</td>
+            <td class="num">—</td>
+          </tr>
+          <tr>
+            <td>seminaire au vert paris</td>
+            <td class="text-muted">séminaire au vert ile de france</td>
+            <td class="num">3</td>
+            <td class="num">2</td>
+            <td class="num">56 ₪</td>
+            <td class="num">0</td>
+            <td class="num">66,7%</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>séminaire 78</strong></td>
+            <td class="text-muted">séminaire 78</td>
+            <td class="num">11</td>
+            <td class="num">1</td>
+            <td class="num">36 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num">9,1%</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>séminaire à chantilly</strong></td>
+            <td class="text-muted">séminaire chantilly</td>
+            <td class="num">2</td>
+            <td class="num">1</td>
+            <td class="num">115 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num">50,0%</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>séminaire proche paris</strong></td>
+            <td class="text-muted">séminaire proche paris</td>
+            <td class="num">6</td>
+            <td class="num">1</td>
+            <td class="num">40 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num">16,7%</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><strong>seminaire idf</strong></td>
+            <td class="text-muted">domaine séminaire ile de france</td>
+            <td class="num">2</td>
+            <td class="num">1</td>
+            <td class="num">126 ₪</td>
+            <td class="num text-green">1</td>
+            <td class="num">50,0%</td>
+          </tr>
+          <tr>
+            <td>séminaire entreprise ile de france</td>
+            <td class="text-muted">séminaire entreprise ile de france</td>
+            <td class="num">15</td>
+            <td class="num text-red">0</td>
+            <td class="num">0 ₪</td>
+            <td class="num">0</td>
+            <td class="num text-red">0%</td>
+          </tr>
+          <tr>
+            <td>séminaire ile de france</td>
+            <td class="text-muted">séminaire entreprise ile de france</td>
+            <td class="num">16</td>
+            <td class="num text-red">0</td>
+            <td class="num">0 ₪</td>
+            <td class="num">0</td>
+            <td class="num text-red">0%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-box blue" style="margin-top: 16px;">
+      <strong>Termes convertissants</strong>
+      Les recherches qui convertissent sont précises et géographiques : "séminaire 78", "séminaire à chantilly", "séminaire proche paris", "seminaire idf". Les termes plus génériques ("ile de france", "entreprise") ne convertissent pas.
+    </div>
+  </div>
+
+  <!-- Performance par appareil -->
+  <div class="section">
+    <h2 class="section-title">Performance par appareil (30 jours)</h2>
+    <div class="grid-2">
+      <div class="chart-container">
+        <h3 style="margin-bottom: 16px; font-size: 15px;">Répartition des clics</h3>
+        <div class="bar-row">
+          <div class="bar-label">Desktop</div>
+          <div class="bar-track">
+            <div class="bar-fill navy" style="width: 95%;">83 clics (95%)</div>
+          </div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Mobile</div>
+          <div class="bar-track">
+            <div class="bar-fill gold" style="width: 5%"></div>
+            <span class="bar-value">4 clics (5%)</span>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Appareil</th>
+              <th class="num">Imp.</th>
+              <th class="num">Clics</th>
+              <th class="num">CTR</th>
+              <th class="num">Dépense</th>
+              <th class="num">CPC</th>
+              <th class="num">Conv.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Desktop</strong></td>
+              <td class="num">652</td>
+              <td class="num">83</td>
+              <td class="num">12,7%</td>
+              <td class="num">6 340 ₪</td>
+              <td class="num">76 ₪</td>
+              <td class="num text-green">8</td>
+            </tr>
+            <tr>
+              <td><strong>Mobile</strong></td>
+              <td class="num">35</td>
+              <td class="num">4</td>
+              <td class="num">11,4%</td>
+              <td class="num">73 ₪</td>
+              <td class="num">18 ₪</td>
+              <td class="num text-red">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="info-box red" style="margin-top: 16px;">
+      <strong>Mobile quasi absent</strong>
+      Seulement 5% des impressions et 0 conversion. Le ciblage B2B (séminaires entreprise) explique la dominance desktop, mais il peut être pertinent de vérifier l'expérience mobile de la landing page et d'ajuster les enchères mobile.
+    </div>
+  </div>
+
+  <!-- Performance quotidienne -->
+  <div class="section">
+    <h2 class="section-title">Performance quotidienne</h2>
+    <div class="chart-container" style="margin-bottom: 20px;">
+      <h3 style="margin-bottom: 12px; font-size: 15px;">Clics par jour</h3>
+      <div class="bar-row">
+        <div class="bar-label">16/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:87.5%">7</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">17/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:75%">6</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">18/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:62.5%">5</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">19/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:25%">2</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">20-22</div>
+        <div class="bar-track"><div class="bar-fill" style="width:2%; background:#ddd"></div><span class="bar-value text-muted">0</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">23/03</div>
+        <div class="bar-track"><div class="bar-fill green" style="width:37.5%">3 · 1 conv</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">24/03</div>
+        <div class="bar-track"><div class="bar-fill green" style="width:37.5%">3 · 1 conv</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">25/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:62.5%">5</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">26/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:50%">4</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">27-29</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:25%">2</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">30/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:75%">6</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">31/03</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:100%">8</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">01/04</div>
+        <div class="bar-track"><div class="bar-fill green" style="width:75%">6 · 2 conv</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">02/04</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:62.5%">5</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">03-06</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:12.5%">1</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">07/04</div>
+        <div class="bar-track"><div class="bar-fill green" style="width:75%">6 · 1 conv</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">08/04</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:75%">6</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">09/04</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:12.5%">1</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">10/04</div>
+        <div class="bar-track"><div class="bar-fill green" style="width:37.5%">3 · 2 conv</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">11-12</div>
+        <div class="bar-track"><div class="bar-fill" style="width:2%; background:#ddd"></div><span class="bar-value text-muted">0</span></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">13/04</div>
+        <div class="bar-track"><div class="bar-fill green" style="width:100%">8 · 1 conv</div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">14/04</div>
+        <div class="bar-track"><div class="bar-fill navy" style="width:62.5%">5 (en cours)</div></div>
+      </div>
+    </div>
+    <div class="info-box orange">
+      <strong>Pattern week-end</strong>
+      Les vendredis et samedis sont régulièrement à 0-1 clic. Normal pour du B2B. Les lundis et mercredis sont les meilleurs jours. Considérer un ajustement d'enchères pour réduire les dépenses le week-end.
+    </div>
+  </div>
+
+  <!-- Diagnostic -->
+  <div class="section">
+    <h2 class="section-title">Diagnostic &amp; Recommandations</h2>
+
+    <div class="info-box green">
+      <strong>Ce qui fonctionne bien</strong>
+      <ul style="margin-top:8px; padding-left:20px;">
+        <li>8 conversions en 30 jours — la campagne génère des leads</li>
+        <li>CTR 13,2% — excellent pour de la recherche B2B événementiel</li>
+        <li>Le tCPA (depuis le 9 avril) semble améliorer l'efficacité : CPA 615 ₪ vs 1 053 ₪</li>
+        <li>"séminaire proche paris" = meilleur mot-clé (3 conv, CPA 154 ₪)</li>
+        <li>Tendance croissante : S1 (0 conv) → S4 (4 conv)</li>
+      </ul>
+    </div>
+
+    <div class="info-box red">
+      <strong>Points de vigilance</strong>
+      <ul style="margin-top:8px; padding-left:20px;">
+        <li><strong>CPC très élevé</strong> : 77 ₪ moyen, jusqu'à 139 ₪. MAXIMIZE_CONVERSIONS enchérit agressivement</li>
+        <li><strong>Budget sous-utilisé</strong> : 237 ₪/jour dépensé vs 350 ₪/jour de budget. Le tCPA peut freiner les dépenses</li>
+        <li><strong>Impression share 48%</strong> : on rate la moitié des recherches. Marge de croissance, mais au prix de CPC élevés</li>
+        <li><strong>Mobile = 0 conversion</strong> : vérifier la landing page mobile</li>
+        <li><strong>25+ mots-clés sans aucune impression</strong> : structure à nettoyer</li>
+      </ul>
+    </div>
+
+    <div class="info-box blue">
+      <strong>Actions recommandées</strong>
+      <ol style="margin-top:8px; padding-left:20px;">
+        <li><strong>Attendre le 22 avril</strong> pour évaluer pleinement le tCPA (2 sem. d'apprentissage)</li>
+        <li><strong>Pausser les 25 mots-clés à 0 impression</strong> pour simplifier la structure</li>
+        <li><strong>Augmenter les enchères</strong> sur "séminaire proche paris" (champion : CPA 154 ₪)</li>
+        <li><strong>Réduire les enchères week-end</strong> (-50% vendredi-samedi)</li>
+        <li><strong>Surveiller "domaine séminaire ile de france"</strong> : CPA 1 214 ₪ (trop cher). Si pas d'amélioration → pausser</li>
+        <li><strong>Vérifier la landing page mobile</strong> : 0 conv sur mobile, potentiellement un problème UX</li>
+        <li><strong>Tester une annonce dédiée Chantilly</strong> : les termes "chantilly" ont le meilleur CTR (21%)</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Select Châteaux — Rapport généré le 14 avril 2026 · Données GAQL Google Ads (compte 9285151029)
+</div>
+
+</body>
+</html>

@@ -1,5 +1,24 @@
 # TODO - Prochaine session (SITE-WEB)
 
+## Session 17 juin 2026 — SEO/GEO « moteur agent » — DÉPLOYÉE ✅ (commit 9d3e7ed)
+
+### Fait (1 commit, push main → auto-deploy Vercel)
+- [x] **Moteur Camille → GEO** (signaux garantis en code, 4 couches) : `dateModified` réel via `updatedAt` (+ fix : la réécriture n'écrase plus `publishedAt`) · schema **HowTo** · liage d'entités (`isPartOf`/`about`) sur tous les articles · `knowsAbout` + `contactPoint` sur Organization
+- [x] **Consolidation CODIR** (data GSC : 4 articles cannibalisaient le pilier pos 3,7) : 3×301 → `/blog/seminaire-codir-chateau-privatise`, cluster `codir` enregistré, upgrade GEO du pilier (titre 2026+prix, howTo, `<ol>`+blockquote), 11 liens internes repointés
+- [x] **Registre keywords** enrichi : pépite `lieu séminaire` → IDF, zoneWords Versailles/Vélizy (régression vérifiée : 0 nouveau blocage)
+- [x] **Baseline GEO** : GA4 canal AI Assistant = 3 sess/90j (0% rebond, 161s) · GSC pépites confirmées
+- [x] Doc : `_claude_docs/2026-06-17_geo-keyword-assignment.md` (matrice + backlog)
+
+### TODO prochaine session
+- [x] **Deploy live vérifié** (titre 2026, schema HowTo, dateModified, knowsAbout, 3×308→canonique) + **IndexNow pingé** (canonique + 3 URLs redirigées, 200 OK) — 17/06
+- [ ] **Backlog GEO #2** : créer pilier `séminaire au vert proche Paris` (Ads-prouvé, vierge) — puis enregistrer cluster
+- [ ] **Backlog GEO #3** : contenu info P15 (`programme séminaire exemple/modèle`, cahier des charges) — vérifier d'abord que `checklist-organiser-seminaire` ne couvre pas
+- [ ] **`sameAs` Maps** dès accès API GBP accordé (dossier 7-1582000039874) → ajouter URL fiche à `structured-data.ts`
+- [ ] **MESURE S+2 (~1er juil)** : position `codir château` (effet consolidation 3,7 → page 1 ?) + canal AI Assistant GA4
+- [ ] Vérifier rich results : tester un article avec `howTo` (après prochain run Camille) dans le Rich Results Test Google
+
+---
+
 ## Session 12 juin 2026 — Indexation Bing/IndexNow + annuaires B2B + plan keywords — DÉPLOYÉE ✅
 
 ### Fait cette session (2 commits, auto-deploy Vercel actif)

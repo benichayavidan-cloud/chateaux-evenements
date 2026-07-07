@@ -66,9 +66,8 @@ function buildLlmsTxt(): string {
   const essentialSlugs = [
     'combien-coute-seminaire-chateau-2026',
     'checklist-organiser-seminaire',
-    'guide-complet-organiser-seminaire-chateau-a-z',
     'seminaire-residentiel-vs-journee',
-    'budget-seminaire-entreprise-2026-planifier',
+    'seminaire-codir-chateau-privatise',
   ]
   for (const slug of essentialSlugs) {
     const post = blogPosts.find((p) => p.slug === slug)

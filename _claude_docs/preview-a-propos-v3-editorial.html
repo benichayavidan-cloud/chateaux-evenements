@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option C — Editorial Premium | Select Châteaux</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bronze: #A37E2C;
+      --bronze-light: #C09448;
+      --bronze-dark: #8A6823;
+      --gold: #D4AF37;
+      --black: #050505;
+      --white: #ffffff;
+      --gray-200: #E5E5E5;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: #1a1f36; background: var(--white); line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 300; line-height: 1.2; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* HERO — Plein écran avec citation forte */
+    .hero {
+      position: relative; width: 100%; height: 80vh; min-height: 550px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&auto=format&fit=crop&q=80') center/cover;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.65));
+    }
+    .hero-inner { position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem; }
+    .hero .badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 28px; background: rgba(0,0,0,0.4); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 50px;
+      color: #fff; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem); font-style: italic; color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4); margin-bottom: 1.5rem; letter-spacing: -0.02em;
+    }
+    .hero .divider {
+      width: 80px; height: 2px; margin: 0 auto 1.5rem;
+      background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+    }
+    .hero p { font-size: clamp(1.05rem, 2vw, 1.25rem); color: rgba(255,255,255,0.85); max-width: 700px; margin: 0 auto 2.5rem; font-weight: 300; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: var(--bronze); color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-primary:hover { background: var(--bronze-light); transform: translateY(-2px); box-shadow: 0 0 40px rgba(163,126,44,0.3); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.4); border-radius: 8px;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+    /* SECTIONS */
+    .section { padding: 15px 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+    .section-header { text-align: center; margin-bottom: clamp(2rem, 4vw, 3.5rem); }
+    .section-header h2 { font-size: clamp(2rem, 5vw, 3rem); font-style: italic; color: #1a1f36; margin-bottom: 1rem; }
+    .section-header p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--gray-600); max-width: 700px; margin: 0 auto; }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; background: rgba(163,126,44,0.08);
+      border: 1px solid rgba(163,126,44,0.2); border-radius: 50px;
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--bronze); margin-bottom: 1rem;
+    }
+    .divider-section {
+      width: 60px; height: 2px; margin: 1.5rem auto 0;
+      background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+    }
+
+    /* ====== MANIFESTE — Grande section texte aérée ====== */
+    .manifeste {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 550px;
+    }
+    .manifeste-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: clamp(2.5rem, 5vw, 5rem); background: #fff;
+    }
+    .manifeste-text .big-quote {
+      font-family: var(--font-heading); font-size: 6rem; color: var(--bronze);
+      opacity: 0.2; line-height: 0.8; margin-bottom: -0.5rem;
+    }
+    .manifeste-text h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-style: italic; color: #1a1f36; margin-bottom: 1.5rem; }
+    .manifeste-text p { font-size: 1.05rem; color: var(--gray-600); line-height: 1.8; margin-bottom: 1rem; }
+    .manifeste-text p strong { color: #1a1f36; }
+    .manifeste-image {
+      background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1200&auto=format&fit=crop&q=80') center/cover;
+      min-height: 400px;
+    }
+
+    /* ====== CHIFFRES - Style horizontal premium ====== */
+    .chiffres-band {
+      background: var(--black); padding: 15px 0;
+    }
+    .chiffres-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    }
+    .chiffre-item {
+      text-align: center; padding: 2rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .chiffre-item:last-child { border-right: none; }
+    .chiffre-number {
+      font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-style: italic; color: var(--bronze); margin-bottom: 0.5rem;
+    }
+    .chiffre-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+
+    /* ====== NOTRE VISION — 2 colonnes alternées (Zigzag) ====== */
+    .zigzag-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+      margin-bottom: 3rem;
+    }
+    .zigzag-row.reverse { direction: rtl; }
+    .zigzag-row.reverse > * { direction: ltr; }
+    .zigzag-image {
+      border-radius: 20px; overflow: hidden; aspect-ratio: 5/4;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    .zigzag-image img { width: 100%; height: 100%; object-fit: cover; }
+    .zigzag-content h3 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-style: italic; color: #1a1f36; margin-bottom: 1rem; }
+    .zigzag-content p { font-size: 1rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 0.75rem; }
+    .zigzag-content .bronze-bar { width: 40px; height: 3px; background: var(--bronze); border-radius: 2px; margin-bottom: 1.25rem; }
+
+    /* ====== VALEURS - Cartes minimalistes horizontales ====== */
+    .valeurs-list { max-width: 900px; margin: 0 auto; }
+    .valeur-row {
+      display: flex; align-items: flex-start; gap: 2rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--gray-200);
+      transition: all 0.3s ease;
+    }
+    .valeur-row:last-child { border-bottom: none; }
+    .valeur-row:hover { padding-left: 1rem; }
+    .valeur-number {
+      font-family: var(--font-heading); font-size: 2.5rem; font-style: italic;
+      color: var(--bronze); flex-shrink: 0; width: 60px; text-align: center; line-height: 1;
+    }
+    .valeur-row h3 { font-family: var(--font-body); font-size: 1.05rem; font-weight: 700; color: #1a1f36; margin-bottom: 0.5rem; }
+    .valeur-row p { font-size: 0.9rem; color: var(--gray-600); margin: 0; line-height: 1.6; }
+
+    /* ====== EQUIPE — Style magazine ====== */
+    .equipe-intro {
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;
+      margin-bottom: 3rem;
+    }
+    .equipe-text h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-style: italic; color: #1a1f36; margin-bottom: 1.25rem; }
+    .equipe-text p { font-size: 1rem; color: var(--gray-600); line-height: 1.7; }
+    .equipe-photo-main {
+      border-radius: 20px; overflow: hidden; aspect-ratio: 3/4;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+    .equipe-photo-main img { width: 100%; height: 100%; object-fit: cover; }
+
+    .equipe-members { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .member-card {
+      background: #fff; border: 1px solid var(--gray-200); border-radius: 16px;
+      padding: 2rem; text-align: center; transition: all 0.3s ease;
+    }
+    .member-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.06); border-color: rgba(163,126,44,0.3); }
+    .member-avatar {
+      width: 80px; height: 80px; border-radius: 50%; overflow: hidden;
+      margin: 0 auto 1rem; border: 3px solid rgba(163,126,44,0.15);
+    }
+    .member-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .member-card h3 { font-size: 1.15rem; font-style: italic; color: #1a1f36; margin-bottom: 0.25rem; }
+    .member-role { font-size: 0.75rem; color: var(--bronze); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .member-card p { font-size: 0.85rem; color: var(--gray-500); margin: 0; }
+
+    /* ====== ENGAGEMENT - Bannière pleine largeur ====== */
+    .engagement-banner {
+      background: linear-gradient(135deg, rgba(163,126,44,0.05) 0%, rgba(163,126,44,0.02) 100%);
+      border-top: 1px solid rgba(163,126,44,0.1);
+      border-bottom: 1px solid rgba(163,126,44,0.1);
+      padding: 15px 0;
+    }
+    .engagement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .engagement-item { text-align: center; padding: 1.5rem; }
+    .engagement-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(163,126,44,0.08); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.5rem; color: var(--bronze);
+      transition: transform 0.3s ease;
+    }
+    .engagement-item:hover .engagement-icon { transform: scale(1.1); }
+    .engagement-item h4 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; color: #1a1f36; margin-bottom: 0.5rem; }
+    .engagement-item p { font-size: 0.85rem; color: var(--gray-500); margin: 0; line-height: 1.5; }
+
+    /* ====== CITATION CLIENT ====== */
+    .citation-section {
+      background: var(--black); padding: 15px 0; text-align: center;
+    }
+    .citation-mark {
+      font-family: var(--font-heading); font-size: 5rem; color: var(--bronze);
+      opacity: 0.4; line-height: 0.5; margin-bottom: 1rem;
+    }
+    .citation-text {
+      font-family: var(--font-heading); font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-style: italic; color: #fff; max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.6;
+    }
+    .citation-author { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .citation-author strong { color: var(--bronze); }
+    .citation-stars { color: #F59E0B; font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 1.5rem; }
+
+    /* CTA FINAL */
+    .cta-final { background: #f6f9fc; padding: 15px 0; text-align: center; }
+    .cta-final h2 { font-size: clamp(2rem, 5vw, 3rem); font-style: italic; color: #1a1f36; margin-bottom: 1rem; }
+    .cta-final p { color: var(--gray-600); max-width: 600px; margin: 0 auto 2rem; font-size: 1.05rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary-dark {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: #1a1f36; color: #fff;
+      border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-primary-dark:hover { background: var(--bronze); transform: translateY(-2px); box-shadow: 0 0 40px rgba(163,126,44,0.3); }
+    .btn-outline-dark {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 40px; background: transparent; color: #1a1f36;
+      border: 2px solid var(--gray-200); border-radius: 8px;
+      font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-outline-dark:hover { border-color: var(--bronze); color: var(--bronze); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .manifeste { grid-template-columns: 1fr; }
+      .manifeste-image { min-height: 250px; }
+      .chiffres-row { grid-template-columns: repeat(2, 1fr); }
+      .chiffre-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .chiffre-item:nth-child(2) { border-right: none; }
+      .zigzag-row, .zigzag-row.reverse { grid-template-columns: 1fr; }
+      .zigzag-row.reverse { direction: ltr; }
+      .equipe-intro { grid-template-columns: 1fr; }
+      .equipe-members { grid-template-columns: 1fr; }
+      .engagement-grid { grid-template-columns: 1fr; }
+    }
+
+    .option-label {
+      position: fixed; top: 20px; right: 20px; z-index: 999;
+      background: #7c3aed; color: #fff; padding: 10px 20px;
+      border-radius: 8px; font-weight: 700; font-size: 0.85rem;
+      box-shadow: 0 4px 20px rgba(124,58,237,0.4);
+    }
+  </style>
+</head>
+<body>
+
+<div class="option-label">OPTION C — Editorial Premium</div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="badge">
+      <span>&#10022;</span>
+      <span>Organisateur d'événements en châteaux depuis 2009</span>
+    </div>
+    <h1>Nous Créons des Souvenirs,<br>Pas de Simples Événements</h1>
+    <div class="divider"></div>
+    <p>Select Châteaux ouvre les portes des plus beaux domaines d'Île-de-France pour transformer vos séminaires et soirées d'entreprise en expériences inoubliables.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/devis#formulaire" class="btn-primary">Devis Gratuit en 24h &rarr;</a>
+      <a href="tel:+33757991146" class="btn-outline">&#9742; 07 57 99 11 46</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CHIFFRES ==================== -->
+<section class="chiffres-band">
+  <div class="container">
+    <div class="chiffres-row">
+      <div class="chiffre-item">
+        <div class="chiffre-number">15</div>
+        <div class="chiffre-label">Années d'expérience</div>
+      </div>
+      <div class="chiffre-item">
+        <div class="chiffre-number">4</div>
+        <div class="chiffre-label">Châteaux d'exception</div>
+      </div>
+      <div class="chiffre-item">
+        <div class="chiffre-number">500+</div>
+        <div class="chiffre-label">Événements organisés</div>
+      </div>
+      <div class="chiffre-item">
+        <div class="chiffre-number">98%</div>
+        <div class="chiffre-label">Clients satisfaits</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MANIFESTE ==================== -->
+<section class="section" style="padding: 0;">
+  <div class="manifeste">
+    <div class="manifeste-text">
+      <div class="big-quote">&ldquo;</div>
+      <h2>Notre Conviction : Le Lieu Fait l'Événement</h2>
+      <p>
+        Un séminaire dans une salle de conférence, c'est un séminaire. Un séminaire dans un château du XVIIIe siècle entouré de jardins à la française, <strong>c'est une expérience qui transforme les équipes</strong>.
+      </p>
+      <p>
+        Depuis 2009, nous avons fait de cette conviction notre métier. Nous ne sommes pas un simple annuaire de lieux. <strong>Nous sommes votre partenaire de A à Z</strong> : sélection du château, conception du programme, coordination des prestataires, présence le jour J.
+      </p>
+      <p>
+        Notre mission est simple : que chaque entreprise qui nous fait confiance vive un moment qu'elle n'oubliera pas.
+      </p>
+    </div>
+    <div class="manifeste-image"></div>
+  </div>
+</section>
+
+<!-- ==================== NOTRE EXPERTISE (Zigzag) ==================== -->
+<section class="section" style="background: #fff;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#9733; Notre Expertise</div>
+      <h2>Trois Savoir-Faire, Un Seul Interlocuteur</h2>
+      <div class="divider-section"></div>
+    </div>
+
+    <!-- Zigzag 1 -->
+    <div class="zigzag-row">
+      <div class="zigzag-image">
+        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&auto=format&fit=crop&q=80" alt="Château sélectionné pour séminaire">
+      </div>
+      <div class="zigzag-content">
+        <div class="bronze-bar"></div>
+        <h3>La Sélection de Lieux d'Exception</h3>
+        <p>4 châteaux et domaines triés sur le volet en Île-de-France. Chacun a été sélectionné pour son caractère architectural, ses espaces de réunion modulables, son hébergement de charme et son accessibilité depuis Paris (30 à 60 min).</p>
+        <p>Capacité de 50 à 280 personnes, avec hébergement sur place.</p>
+      </div>
+    </div>
+
+    <!-- Zigzag 2 -->
+    <div class="zigzag-row reverse">
+      <div class="zigzag-image">
+        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&auto=format&fit=crop&q=80" alt="Soirée à thème en château">
+      </div>
+      <div class="zigzag-content">
+        <div class="bronze-bar"></div>
+        <h3>La Conception d'Événements Sur-Mesure</h3>
+        <p>Séminaires résidentiels, soirées à thème immersives (Gatsby, Casino Royale, Murder Party, Bal Masqué...), team buildings créatifs, galas corporate, cocktails dînatoires.</p>
+        <p>Nous imaginons, scénarisons et produisons chaque événement en fonction de vos objectifs et de votre culture d'entreprise.</p>
+      </div>
+    </div>
+
+    <!-- Zigzag 3 -->
+    <div class="zigzag-row">
+      <div class="zigzag-image">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&auto=format&fit=crop&q=80" alt="Coordination événementielle château">
+      </div>
+      <div class="zigzag-content">
+        <div class="bronze-bar"></div>
+        <h3>La Coordination Clé en Main</h3>
+        <p>Un chef de projet dédié pilote l'intégralité de votre événement : traiteur gastronomique, animations, scénographie, technique son et lumière, logistique transport.</p>
+        <p>Vous avez un seul interlocuteur, un budget tout compris, et la certitude d'un déroulement parfait.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CITATION CLIENT ==================== -->
+<section class="citation-section">
+  <div class="container">
+    <div class="citation-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="citation-mark">&ldquo;</div>
+    <p class="citation-text">
+      Un séminaire de 3 jours organisé à la perfection. L'équipe Select Châteaux a su comprendre nos besoins et proposer un programme sur-mesure qui a dépassé toutes nos attentes. Le château était sublime, nos équipes en parlent encore.
+    </p>
+    <p class="citation-author"><strong>Sophie G.</strong> — DRH, Groupe Média (120 personnes)</p>
+  </div>
+</section>
+
+<!-- ==================== NOS VALEURS ==================== -->
+<section class="section" style="background: #fff;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-badge">&#9829; Nos Valeurs</div>
+      <h2>Ce Qui Guide Chacune de Nos Actions</h2>
+      <div class="divider-section"></div>
+    </div>
+
+    <div class="valeurs-list">
+      <div class="valeur-row">
+        <div class="valeur-number">01</div>
+        <div>
+          <h3>Excellence sans Compromis</h3>
+          <p>Chaque détail compte. De la qualité du traiteur à la disposition des chaises, nous visons l'irréprochable pour que votre événement soit à la hauteur de votre image.</p>
+        </div>
+      </div>
+      <div class="valeur-row">
+        <div class="valeur-number">02</div>
+        <div>
+          <h3>Authenticité du Patrimoine</h3>
+          <p>Nous sélectionnons des lieux chargés d'histoire et de caractère. Pas de décors artificiels : la beauté de nos châteaux est réelle, préservée et entretenue avec passion.</p>
+        </div>
+      </div>
+      <div class="valeur-row">
+        <div class="valeur-number">03</div>
+        <div>
+          <h3>Sur-Mesure Radical</h3>
+          <p>Aucun événement ne se ressemble. Nous partons de votre vision, vos objectifs et votre culture d'entreprise pour concevoir quelque chose qui vous ressemble vraiment.</p>
+        </div>
+      </div>
+      <div class="valeur-row">
+        <div class="valeur-number">04</div>
+        <div>
+          <h3>Transparence Totale</h3>
+          <p>Tarifs tout compris, devis détaillé en 24h, pas de frais cachés. Vous savez exactement ce que vous payez et ce que vous obtenez. Notre relation est fondée sur la confiance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EQUIPE ==================== -->
+<section class="section" style="background: #f6f9fc;">
+  <div class="container">
+    <div class="equipe-intro">
+      <div class="equipe-text">
+        <div class="section-badge">&#128101; L'Équipe</div>
+        <h2>Des Visages Derrière Chaque Événement</h2>
+        <p>
+          Nous sommes une équipe à taille humaine, où chaque membre connaît personnellement chaque château, chaque prestataire, chaque recoin de nos domaines. Cette proximité fait notre force : quand vous travaillez avec nous, vous ne parlez pas à un call center, mais à des passionnés qui ont à cœur la réussite de votre événement.
+        </p>
+        <p style="margin-top: 1rem;">
+          De la PME innovante aux grands groupes, nous avons accompagné plus de 500 entreprises avec la même exigence et le même enthousiasme.
+        </p>
+      </div>
+      <div class="equipe-photo-main">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80" alt="Équipe Select Châteaux">
+      </div>
+    </div>
+
+    <div class="equipe-members">
+      <div class="member-card">
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&auto=format&fit=crop&q=80" alt="Rebecca Ben Attar"></div>
+        <h3>Rebecca Ben Attar</h3>
+        <div class="member-role">Directrice Générale</div>
+        <p>15 ans d'expertise en événementiel de luxe. Rebecca sélectionne chaque château et supervise la qualité de chaque prestation.</p>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format&fit=crop&q=80" alt="Jonathan Ben Attar"></div>
+        <h3>Jonathan Ben Attar</h3>
+        <div class="member-role">Directeur Opérations</div>
+        <p>Expert en gestion hôtelière, Jonathan coordonne la logistique et garantit l'excellence opérationnelle de chaque événement.</p>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format&fit=crop&q=80" alt="Avidan Benichay"></div>
+        <h3>Avidan Benichay</h3>
+        <div class="member-role">Responsable Événementiel</div>
+        <p>Spécialiste du sur-mesure, Avidan conçoit les scénarios créatifs et pilote chaque projet de la conception au jour J.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ENGAGEMENTS ==================== -->
+<section class="engagement-banner">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <div class="section-badge">&#128170; Nos Engagements</div>
+      <h2>Ce Que Vous Pouvez Attendre de Nous</h2>
+    </div>
+
+    <div class="engagement-grid">
+      <div class="engagement-item">
+        <div class="engagement-icon">&#9889;</div>
+        <h4>Réponse en 24h</h4>
+        <p>Devis détaillé et personnalisé sous 24 heures, sans aucun engagement de votre part.</p>
+      </div>
+      <div class="engagement-item">
+        <div class="engagement-icon">&#128100;</div>
+        <h4>Interlocuteur Unique</h4>
+        <p>Un chef de projet dédié vous accompagne de bout en bout et reste présent le jour J.</p>
+      </div>
+      <div class="engagement-item">
+        <div class="engagement-icon">&#128176;</div>
+        <h4>Budget Maîtrisé</h4>
+        <p>Tarif tout compris : lieu, hébergement, restauration, animations. Zéro surprise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA FINAL ==================== -->
+<section class="cta-final">
+  <div class="container">
+    <div class="section-badge">&#10022; Votre Prochain Événement</div>
+    <h2>Créons Ensemble Quelque Chose de Mémorable</h2>
+    <p>Dites-nous votre projet. Nous vous répondons sous 24h avec une proposition sur-mesure, sans engagement.</p>
+    <div class="cta-buttons">
+      <a href="/devis#formulaire" class="btn-primary-dark">Demander un Devis Gratuit &rarr;</a>
+      <a href="tel:+33757991146" class="btn-outline-dark">&#9742; 07 57 99 11 46</a>
+    </div>
+  </div>
+</section>
+
+<div style="background: #050505; padding: 2rem; text-align: center; color: rgba(255,255,255,0.3); font-size: 0.8rem;">
+  [Logo Carousel + Avis + Footer ici]
+</div>
+
+</body>
+</html>

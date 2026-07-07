@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 Propositions Design — Catalogue Team Building</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bronze: #A37E2C;
+    --gold: #C09448;
+    --gold-light: #D4AF37;
+    --black: #0a0a0a;
+    --gray-50: #F8FAFC;
+    --gray-100: #F1F5F9;
+    --gray-200: #E2E8F0;
+    --gray-300: #CBD5E1;
+    --gray-500: #64748B;
+    --gray-600: #475569;
+    --gray-800: #1E293B;
+    --gray-900: #0F172A;
+    --teal: #0E7C86;
+    --teal-dark: #0A5E66;
+    --violet-dark: #1a1035;
+    --violet: #6C3FA0;
+    --neon-blue: #00D4FF;
+    --neon-pink: #FF3CAC;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0ece4;
+    color: var(--gray-900);
+  }
+
+  h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; }
+
+  /* ── NAV BETWEEN PROPOSALS ── */
+  .proposal-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    background: rgba(10,10,10,0.92); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex; justify-content: center; gap: 8px;
+    padding: 12px 20px;
+  }
+  .proposal-nav a {
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em;
+    padding: 8px 20px; border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s;
+  }
+  .proposal-nav a:hover, .proposal-nav a.active {
+    color: var(--gold); border-color: var(--gold);
+    background: rgba(192,148,72,0.1);
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .proposal-header {
+    padding: 100px 40px 60px;
+    text-align: center;
+    position: relative;
+  }
+  .proposal-header::before {
+    content: '';
+    position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+    width: 60px; height: 2px; background: var(--bronze);
+  }
+  .proposal-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--bronze);
+    margin-bottom: 12px;
+  }
+  .proposal-title {
+    font-size: clamp(28px, 4vw, 42px); font-weight: 600;
+    color: var(--gray-900); line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .proposal-desc {
+    font-size: 16px; color: var(--gray-500);
+    max-width: 600px; margin: 0 auto; line-height: 1.7;
+  }
+
+  /* ═══════════════════════════════════════════════
+     PROPOSITION 1 — CARTES FLIP ÉLÉGANTES
+     ═══════════════════════════════════════════════ */
+  .p1-wrap {
+    background: var(--gray-50);
+    padding: 60px 20px 80px;
+  }
+  .p1-section-title {
+    text-align: center; margin-bottom: 48px;
+  }
+  .p1-section-title h3 {
+    font-size: 32px; font-weight: 600; color: var(--gray-900);
+    position: relative; display: inline-block;
+  }
+  .p1-section-title h3::after {
+    content: ''; position: absolute; bottom: -8px; left: 20%; right: 20%;
+    height: 2px; background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+  }
+  .p1-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .p1-card {
+    perspective: 1000px;
+    height: 420px;
+    cursor: pointer;
+  }
+  .p1-card-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .p1-card:hover .p1-card-inner,
+  .p1-card.flipped .p1-card-inner {
+    transform: rotateY(180deg);
+  }
+  .p1-front, .p1-back {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .p1-front {
+    background: var(--gray-200);
+  }
+  .p1-front-img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .p1-front-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 70%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px;
+  }
+  .p1-badge {
+    position: absolute; top: 16px; left: 16px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border-radius: 100px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .p1-badge.tb { background: rgba(14,124,134,0.9); color: white; }
+  .p1-badge.soiree { background: rgba(108,63,160,0.9); color: white; }
+  .p1-front-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 600; color: white;
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  .p1-front-meta {
+    display: flex; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.7);
+  }
+  .p1-flip-hint {
+    position: absolute; top: 16px; right: 16px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 18px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .p1-back {
+    transform: rotateY(180deg);
+    background: white;
+    border: 1px solid var(--gray-200);
+    display: flex; flex-direction: column;
+    padding: 32px;
+  }
+  .p1-back-cat {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 12px;
+  }
+  .p1-back-cat.tb { color: var(--teal); }
+  .p1-back-cat.soiree { color: var(--violet); }
+  .p1-back-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 600; color: var(--gray-900);
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .p1-back-desc {
+    font-size: 14px; line-height: 1.8; color: var(--gray-600);
+    flex: 1; overflow-y: auto;
+    margin-bottom: 20px;
+  }
+  .p1-back-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 16px;
+  }
+  .p1-back-tags span {
+    padding: 4px 12px; border-radius: 100px;
+    font-size: 11px; font-weight: 600;
+    background: var(--gray-100); color: var(--gray-600);
+    border: 1px solid var(--gray-200);
+  }
+  .p1-back-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 16px; border-top: 1px solid var(--gray-100);
+    font-size: 13px; color: var(--gray-500);
+  }
+  .p1-back-cta {
+    padding: 8px 20px; border-radius: 100px;
+    background: linear-gradient(135deg, var(--gold), var(--bronze));
+    color: white; font-size: 13px; font-weight: 600;
+    border: none; cursor: pointer; text-decoration: none;
+  }
+
+  /* ═══════════════════════════════════════════════
+     PROPOSITION 2 — BENTO GRID IMMERSIVE DARK
+     ═══════════════════════════════════════════════ */
+  .p2-wrap {
+    background: var(--gray-900);
+    padding: 60px 20px 80px;
+  }
+  .p2-filters {
+    display: flex; justify-content: center; gap: 8px;
+    margin-bottom: 48px; flex-wrap: wrap;
+  }
+  .p2-filter-btn {
+    padding: 10px 24px; border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: transparent; color: rgba(255,255,255,0.5);
+  }
+  .p2-filter-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .p2-filter-btn.active {
+    background: linear-gradient(135deg, var(--gold), var(--bronze));
+    color: white; border-color: transparent;
+  }
+
+  .p2-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 12px;
+  }
+  .p2-card {
+    position: relative; border-radius: 16px; overflow: hidden;
+    cursor: pointer;
+  }
+  .p2-card.large { grid-column: span 2; grid-row: span 2; }
+  .p2-card.wide { grid-column: span 2; }
+  .p2-card.tall { grid-row: span 2; }
+
+  .p2-card-bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .p2-card:hover .p2-card-bg { transform: scale(1.08); }
+
+  .p2-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.15) 100%);
+    transition: background 0.4s;
+  }
+  .p2-card:hover .p2-card-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, rgba(0,0,0,0.05) 100%);
+  }
+
+  .p2-card-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 24px;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .p2-card:hover .p2-card-content { transform: translateY(0); }
+
+  .p2-card-badge {
+    display: inline-block; padding: 4px 10px; border-radius: 6px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; margin-bottom: 8px;
+  }
+  .p2-card-badge.tb { background: var(--teal); color: white; }
+  .p2-card-badge.soiree { background: var(--violet); color: white; }
+
+  .p2-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; color: white;
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  .p2-card.large .p2-card-name { font-size: 32px; }
+
+  .p2-card-desc {
+    font-size: 13px; color: rgba(255,255,255,0.7);
+    line-height: 1.6; max-height: 0; overflow: hidden;
+    transition: max-height 0.5s, opacity 0.4s;
+    opacity: 0;
+  }
+  .p2-card:hover .p2-card-desc { max-height: 120px; opacity: 1; }
+
+  .p2-card-meta {
+    display: flex; gap: 12px; margin-top: 10px;
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    max-height: 0; overflow: hidden; opacity: 0;
+    transition: max-height 0.4s 0.1s, opacity 0.3s 0.1s;
+  }
+  .p2-card:hover .p2-card-meta { max-height: 40px; opacity: 1; }
+  .p2-card-meta span {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 3px 10px; border-radius: 100px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ═══════════════════════════════════════════════
+     PROPOSITION 3 — SCROLL HORIZONTAL "NETFLIX"
+     ═══════════════════════════════════════════════ */
+  .p3-wrap {
+    background: #FAF8F5;
+    padding: 60px 0 80px;
+  }
+  .p3-section {
+    margin-bottom: 56px;
+  }
+  .p3-section-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 clamp(20px, 4vw, 60px);
+    margin-bottom: 24px;
+  }
+  .p3-section-title {
+    font-size: 28px; font-weight: 600; color: var(--gray-900);
+  }
+  .p3-section-count {
+    font-size: 13px; color: var(--gray-500);
+    padding: 6px 16px; border-radius: 100px;
+    background: var(--gray-100); border: 1px solid var(--gray-200);
+  }
+  .p3-scroll {
+    display: flex; gap: 20px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 10px clamp(20px, 4vw, 60px) 20px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .p3-scroll::-webkit-scrollbar { display: none; }
+
+  .p3-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    border-radius: 20px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--gray-200);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+  }
+  .p3-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    border-color: var(--bronze);
+  }
+  .p3-card-img {
+    position: relative; height: 220px; overflow: hidden;
+  }
+  .p3-card-img-bg {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s;
+  }
+  .p3-card:hover .p3-card-img-bg { transform: scale(1.08); }
+
+  .p3-card-badges {
+    position: absolute; top: 12px; left: 12px;
+    display: flex; gap: 6px;
+  }
+  .p3-card-badge {
+    padding: 5px 12px; border-radius: 8px;
+    font-size: 11px; font-weight: 700;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .p3-card-badge.duration {
+    background: rgba(0,0,0,0.6); color: white;
+  }
+  .p3-card-badge.lieu {
+    background: rgba(255,255,255,0.85); color: var(--gray-800);
+  }
+
+  .p3-card-body {
+    padding: 20px 24px 24px;
+  }
+  .p3-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; color: var(--gray-900);
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .p3-card-text {
+    font-size: 13px; line-height: 1.7; color: var(--gray-600);
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .p3-card-tags {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    margin-bottom: 16px;
+  }
+  .p3-card-tags span {
+    padding: 3px 10px; border-radius: 100px;
+    font-size: 10px; font-weight: 600;
+    background: var(--gray-50); color: var(--gray-500);
+    border: 1px solid var(--gray-200);
+  }
+  .p3-card-cta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; width: 100%; padding: 12px;
+    border-radius: 12px; border: 2px solid var(--bronze);
+    background: transparent; color: var(--bronze);
+    font-size: 13px; font-weight: 700;
+    cursor: pointer; transition: all 0.3s;
+    opacity: 0; transform: translateY(8px);
+  }
+  .p3-card:hover .p3-card-cta {
+    opacity: 1; transform: translateY(0);
+  }
+  .p3-card-cta:hover {
+    background: linear-gradient(135deg, var(--gold), var(--bronze));
+    color: white; border-color: transparent;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .p2-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 200px;
+    }
+    .p2-card.large { grid-column: span 2; grid-row: span 2; }
+    .p2-card.wide { grid-column: span 2; }
+    .p2-card.tall { grid-row: span 1; }
+    .p3-card { flex: 0 0 260px; }
+  }
+  @media (max-width: 600px) {
+    .proposal-nav { gap: 4px; padding: 10px 12px; }
+    .proposal-nav a { font-size: 11px; padding: 6px 12px; }
+    .p1-grid { grid-template-columns: 1fr; }
+    .p2-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: 180px;
+    }
+    .p2-card.large { grid-column: span 2; grid-row: span 1; }
+    .p2-card.wide { grid-column: span 2; }
+    .p3-card { flex: 0 0 240px; }
+  }
+
+  /* ── Placeholder images ── */
+  .ph {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.9);
+    text-align: center; padding: 20px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .ph.tb { background: linear-gradient(135deg, #0E7C86, #0A5E66, #087E6E); }
+  .ph.soiree { background: linear-gradient(135deg, #1a1035, #6C3FA0, #3B1F7C); }
+</style>
+</head>
+<body>
+
+<!-- NAV FIXE -->
+<nav class="proposal-nav">
+  <a href="#prop1" class="active">Proposition 1 — Flip Cards</a>
+  <a href="#prop2">Proposition 2 — Bento Dark</a>
+  <a href="#prop3">Proposition 3 — Scroll Netflix</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════
+     PROPOSITION 1 — CARTES FLIP ÉLÉGANTES
+     ═══════════════════════════════════════════════════════ -->
+<div id="prop1">
+  <div class="proposal-header">
+    <div class="proposal-number">Proposition 1</div>
+    <h2 class="proposal-title">Cartes Flip Élégantes</h2>
+    <p class="proposal-desc">Grille de cartes avec effet flip 3D au hover. Face avant : image plein cadre + nom. Face arrière : description, tags, durée. Classique et efficace.</p>
+  </div>
+
+  <div class="p1-wrap">
+    <!-- Team Building -->
+    <div class="p1-section-title"><h3>Team Building Journée</h3></div>
+    <div class="p1-grid">
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph tb">Murder Party</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge tb">Team Building</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Murder Party</div>
+              <div class="p1-front-meta"><span>⏱ 1h45 – 2h30</span><span>📍 Indoor / Outdoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat tb">Team Building</div>
+            <div class="p1-back-name">Murder Party</div>
+            <div class="p1-back-desc">Un odieux crime vient d'être commis et le commissaire a besoin de votre aide ! Inspection de la scène de crime, relevé des empreintes, interrogatoires des suspects et témoins... La seule règle : découvrir la vérité avant qu'il ne soit trop tard.</div>
+            <div class="p1-back-tags">
+              <span>Meurtre au Château</span>
+              <span>Meurtre au Dancing</span>
+              <span>Murder 80's Disco</span>
+              <span>La Mort est dans le pré</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h45 – 2h30 · Indoor/Outdoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph tb">Challenge Koh-Lectif</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge tb">Team Building</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Challenge Koh-Lectif</div>
+              <div class="p1-front-meta"><span>⏱ 1h30 – 2h30</span><span>📍 Outdoor / Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat tb">Team Building</div>
+            <div class="p1-back-name">Challenge Koh-Lectif</div>
+            <div class="p1-back-desc">Pimentez votre séminaire avec une dose d'aventure ! Plongez vos participants dans ce Challenge digne de l'émission télévisée pour développer la cohésion d'équipe.</div>
+            <div class="p1-back-tags">
+              <span>Koh-Lation</span><span>Koh-Esion</span><span>Koh-Mestible</span><span>Koh-Loss</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h30 – 2h30 · Out/Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph tb">Escape Game</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge tb">Team Building</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Nos « Escape Game »</div>
+              <div class="p1-front-meta"><span>⏱ 1h30 – 2h30</span><span>📍 Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat tb">Team Building</div>
+            <div class="p1-back-name">Nos « Escape Game »</div>
+            <div class="p1-back-desc">Plongez dans l'univers des Escape Game grâce à nos missions itinérantes : un Team Building collaboratif unique. 10 à 200 personnes peuvent jouer en simultané.</div>
+            <div class="p1-back-tags">
+              <span>Le Casse du siècle</span><span>Destination 2178</span><span>Travel Bag</span><span>La Médaille d'or</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h30 – 2h30 · Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph tb">Le Défi du Fort</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge tb">Team Building</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Le Défi du Fort</div>
+              <div class="p1-front-meta"><span>⏱ 1h30 – 2h30</span><span>📍 Outdoor / Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat tb">Team Building</div>
+            <div class="p1-back-name">Le Défi du Fort</div>
+            <div class="p1-back-desc">Inspiré du célèbre jeu télévisé, participez à notre Team Building solidaire. Les énigmes du Père Fouras, les épreuves des maîtres du temps... force, rapidité, stratégie.</div>
+            <div class="p1-back-tags">
+              <span>Épreuves physiques</span><span>Énigmes</span><span>Projet solidaire</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h30 – 2h30 · Out/Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph tb">Master Cooking</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge tb">Team Building</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Master Cooking Challenge</div>
+              <div class="p1-front-meta"><span>⏱ 1h30</span><span>📍 Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat tb">Team Building</div>
+            <div class="p1-back-name">Master Cooking Challenge</div>
+            <div class="p1-back-desc">Une brigade de chefs professionnels, des équipes, des ustensiles et un panier mystère de denrées nobles. Relevez le défi de réaliser vos pièces cocktails salées en 60 minutes top chrono.</div>
+            <div class="p1-back-tags">
+              <span>Version Salée</span><span>Version Sucrée</span><span>Version Chocolat</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h30 · Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph tb">Build and Race</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge tb">Team Building</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Build and Race</div>
+              <div class="p1-front-meta"><span>⏱ 2h – 2h30</span><span>📍 Outdoor / Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat tb">Team Building</div>
+            <div class="p1-back-name">Build and Race</div>
+            <div class="p1-back-desc">Construire en équipe le véhicule de demain entièrement écologique en carton recyclable et le faire participer à une grande course. Ambiance digne des 24h du Mans !</div>
+            <div class="p1-back-tags">
+              <span>Formule 1</span><span>Avion</span><span>2CV</span><span>Tracteur</span><span>Pirogue</span><span>Pimp my shoe</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 2h – 2h30 · Out/Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Soirées -->
+    <div class="p1-section-title" style="margin-top:64px"><h3>Soirées & Afterwork</h3></div>
+    <div class="p1-grid">
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph soiree">Casino Show</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge soiree">Soirée</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Casino Show</div>
+              <div class="p1-front-meta"><span>⏱ 1h30 – 2h30</span><span>📍 Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat soiree">Soirée</div>
+            <div class="p1-back-name">Casino Show</div>
+            <div class="p1-back-desc">Plongez dans l'ambiance feutrée et mythique des salles de jeux d'un Casino. Roulette, Blackjack, Poker et bien d'autres. Direction Las Vegas !</div>
+            <div class="p1-back-tags">
+              <span>Roulette</span><span>Blackjack</span><span>Poker</span><span>Vente aux enchères</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h30 – 2h30 · Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph soiree">DJ · Blind Test · Karaoké</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge soiree">Soirée</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">DJ · Blind Test · Karaoké</div>
+              <div class="p1-front-meta"><span>⏱ 1h – 1h30</span><span>📍 Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat soiree">Soirée</div>
+            <div class="p1-back-name">DJ · Blind Test · Karaoké</div>
+            <div class="p1-back-desc">Créez une ambiance musicale personnalisée pour votre événement grâce à nos DJ expérimentés. Large choix de musique et animations type Blind test et Karaoké.</div>
+            <div class="p1-back-tags">
+              <span>Formule DJ</span><span>Blind test + DJ</span><span>Blind test + DJ + Karaoké</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h – 1h30 · Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p1-card" onclick="this.classList.toggle('flipped')">
+        <div class="p1-card-inner">
+          <div class="p1-front">
+            <div class="ph soiree">Magicien / Mentaliste</div>
+            <div class="p1-front-overlay">
+              <div class="p1-badge soiree">Soirée</div>
+              <div class="p1-flip-hint">↻</div>
+              <div class="p1-front-name">Magicien / Mentaliste</div>
+              <div class="p1-front-meta"><span>⏱ 1h – 2h30</span><span>📍 Outdoor / Indoor</span></div>
+            </div>
+          </div>
+          <div class="p1-back">
+            <div class="p1-back-cat soiree">Soirée</div>
+            <div class="p1-back-name">Magicien / Mentaliste</div>
+            <div class="p1-back-desc">Tours de magie incroyables et lecture de pensées... Votre signe astrologique, votre date de naissance, rien ne lui échappera ! Un moment de partage et de convivialité.</div>
+            <div class="p1-back-tags">
+              <span>Close-up</span><span>Mentalisme</span><span>Table en table</span>
+            </div>
+            <div class="p1-back-footer">
+              <span>⏱ 1h – 2h30 · Out/Indoor</span>
+              <a href="#" class="p1-back-cta">Devis gratuit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     PROPOSITION 2 — BENTO GRID IMMERSIVE DARK
+     ═══════════════════════════════════════════════════════ -->
+<div id="prop2">
+  <div class="proposal-header" style="background: var(--gray-900);">
+    <div class="proposal-number" style="color:var(--gold)">Proposition 2</div>
+    <h2 class="proposal-title" style="color:white">Bento Grid Immersive</h2>
+    <p class="proposal-desc" style="color:rgba(255,255,255,0.5)">Layout asymétrique dark & premium. Les activités phares sont en grand format. Overlay au hover révèle la description. Filtres par catégorie.</p>
+  </div>
+
+  <div class="p2-wrap">
+    <div class="p2-filters">
+      <button class="p2-filter-btn active" onclick="filterP2('all', this)">Toutes les activités</button>
+      <button class="p2-filter-btn" onclick="filterP2('tb', this)">Team Building</button>
+      <button class="p2-filter-btn" onclick="filterP2('soiree', this)">Soirées & Afterwork</button>
+    </div>
+
+    <div class="p2-grid" id="p2Grid">
+
+      <!-- LARGE: Murder Party -->
+      <div class="p2-card large" data-cat="tb">
+        <div class="p2-card-bg ph tb" style="font-size:24px">Murder Party</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge tb">Team Building</div>
+          <div class="p2-card-name">Murder Party</div>
+          <div class="p2-card-desc">Un odieux crime vient d'être commis ! Inspection de scène, empreintes, interrogatoires des suspects... 6 scénarios au choix et 1 coupable parmi eux !</div>
+          <div class="p2-card-meta"><span>⏱ 1h45–2h30</span><span>📍 Out/Indoor</span></div>
+        </div>
+      </div>
+
+      <!-- Casino Show -->
+      <div class="p2-card" data-cat="soiree">
+        <div class="p2-card-bg ph soiree">Casino Show</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge soiree">Soirée</div>
+          <div class="p2-card-name">Casino Show</div>
+          <div class="p2-card-desc">Roulette, Blackjack, Poker... Direction Las Vegas !</div>
+          <div class="p2-card-meta"><span>⏱ 1h30–2h30</span><span>📍 Indoor</span></div>
+        </div>
+      </div>
+
+      <!-- Escape Game -->
+      <div class="p2-card" data-cat="tb">
+        <div class="p2-card-bg ph tb">Escape Game</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge tb">Team Building</div>
+          <div class="p2-card-name">Escape Game</div>
+          <div class="p2-card-desc">4 scénarios, 1 seule façon de réussir : collaborer.</div>
+          <div class="p2-card-meta"><span>⏱ 1h30–2h30</span><span>📍 Indoor</span></div>
+        </div>
+      </div>
+
+      <!-- Mystery Cocktail -->
+      <div class="p2-card wide" data-cat="soiree">
+        <div class="p2-card-bg ph soiree" style="font-size:18px">Mystery Cocktail Box</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge soiree">Soirée</div>
+          <div class="p2-card-name">Mystery Cocktail Box</div>
+          <div class="p2-card-desc">Initiez-vous à la mixologie en équipe à partir d'une box mystère. Avec ou sans alcool.</div>
+          <div class="p2-card-meta"><span>⏱ 1h–1h30</span><span>📍 Out/Indoor</span></div>
+        </div>
+      </div>
+
+      <!-- Challenge Koh-Lectif -->
+      <div class="p2-card tall" data-cat="tb">
+        <div class="p2-card-bg ph tb">Koh-Lectif</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge tb">Team Building</div>
+          <div class="p2-card-name">Challenge Koh-Lectif</div>
+          <div class="p2-card-desc">Digne de l'émission TV, développez la cohésion d'équipe avec Koh-Lation, Koh-Esion, Koh-Mestible.</div>
+          <div class="p2-card-meta"><span>⏱ 1h30–2h30</span></div>
+        </div>
+      </div>
+
+      <!-- Build and Race -->
+      <div class="p2-card" data-cat="tb">
+        <div class="p2-card-bg ph tb">Build & Race</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge tb">Team Building</div>
+          <div class="p2-card-name">Build and Race</div>
+          <div class="p2-card-desc">Construisez un véhicule en carton recyclable et faites la course !</div>
+          <div class="p2-card-meta"><span>⏱ 2h–2h30</span></div>
+        </div>
+      </div>
+
+      <!-- Défi du Fort -->
+      <div class="p2-card" data-cat="tb">
+        <div class="p2-card-bg ph tb">Défi du Fort</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge tb">Team Building</div>
+          <div class="p2-card-name">Le Défi du Fort</div>
+          <div class="p2-card-desc">Les énigmes du Père Fouras et la célèbre cage aux pièces d'or.</div>
+          <div class="p2-card-meta"><span>⏱ 1h30–2h30</span></div>
+        </div>
+      </div>
+
+      <!-- LARGE: DJ Blind Test -->
+      <div class="p2-card large" data-cat="soiree">
+        <div class="p2-card-bg ph soiree" style="font-size:24px">DJ · Blind Test · Karaoké</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge soiree">Soirée</div>
+          <div class="p2-card-name">DJ · Blind Test · Karaoké</div>
+          <div class="p2-card-desc">Ambiance musicale personnalisée avec nos DJ expérimentés. Large choix de musique et animations interactives pour une soirée mémorable.</div>
+          <div class="p2-card-meta"><span>⏱ 1h–1h30</span><span>📍 Indoor</span></div>
+        </div>
+      </div>
+
+      <!-- Lego Challenge -->
+      <div class="p2-card" data-cat="tb">
+        <div class="p2-card-bg ph tb">Lego Challenge</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge tb">Team Building</div>
+          <div class="p2-card-name">Lego Challenge</div>
+          <div class="p2-card-desc">Un challenge (ré)-créatif et insolite avec des briques à assembler.</div>
+          <div class="p2-card-meta"><span>⏱ 1h30</span></div>
+        </div>
+      </div>
+
+      <!-- Master Cooking -->
+      <div class="p2-card" data-cat="tb">
+        <div class="p2-card-bg ph tb">Master Cooking</div>
+        <div class="p2-card-overlay"></div>
+        <div class="p2-card-content">
+          <div class="p2-card-badge tb">Team Building</div>
+          <div class="p2-card-name">Master Cooking</div>
+          <div class="p2-card-desc">Panier mystère, chefs professionnels, 60 min top chrono.</div>
+          <div class="p2-card-meta"><span>⏱ 1h30</span><span>📍 Indoor</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     PROPOSITION 3 — SCROLL HORIZONTAL "NETFLIX"
+     ═══════════════════════════════════════════════════════ -->
+<div id="prop3">
+  <div class="proposal-header" style="background: #FAF8F5;">
+    <div class="proposal-number">Proposition 3</div>
+    <h2 class="proposal-title">Scroll Horizontal « Netflix »</h2>
+    <p class="proposal-desc">Chaque catégorie en scroll horizontal. Cards verticales avec image, description et CTA au hover. Navigation intuitive au swipe.</p>
+  </div>
+
+  <div class="p3-wrap">
+
+    <!-- Team Building -->
+    <div class="p3-section">
+      <div class="p3-section-header">
+        <h3 class="p3-section-title">Team Building Journée</h3>
+        <span class="p3-section-count">28 activités</span>
+      </div>
+      <div class="p3-scroll">
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Murder Party</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h45 – 2h30</span><span class="p3-card-badge lieu">Indoor / Outdoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Murder Party</div>
+            <div class="p3-card-text">Un odieux crime vient d'être commis ! Inspection de scène, interrogatoires... 6 scénarios au choix.</div>
+            <div class="p3-card-tags"><span>Château</span><span>Dancing</span><span>80's Disco</span><span>Hippodrome</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Challenge Koh-Lectif</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30 – 2h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Challenge Koh-Lectif</div>
+            <div class="p3-card-text">Pimentez votre séminaire avec une dose d'aventure digne de l'émission télévisée !</div>
+            <div class="p3-card-tags"><span>Koh-Lation</span><span>Koh-Esion</span><span>Koh-Mestible</span><span>Koh-Loss</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Escape Game</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30 – 2h30</span><span class="p3-card-badge lieu">Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Nos « Escape Game »</div>
+            <div class="p3-card-text">Missions itinérantes, aventure ludique et originale. 10 à 200 personnes en simultané.</div>
+            <div class="p3-card-tags"><span>Le Casse du siècle</span><span>Destination 2178</span><span>Travel Bag</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Le Défi du Fort</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30 – 2h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Le Défi du Fort</div>
+            <div class="p3-card-text">Inspiré du célèbre jeu télévisé. Énigmes du Père Fouras, épreuves des maîtres du temps. Projet solidaire inclus.</div>
+            <div class="p3-card-tags"><span>Épreuves</span><span>Énigmes</span><span>Solidaire</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Build and Race</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">2h – 2h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Build and Race</div>
+            <div class="p3-card-text">Construire en équipe le véhicule de demain en carton recyclable. Ambiance 24h du Mans !</div>
+            <div class="p3-card-tags"><span>F1</span><span>Avion</span><span>2CV</span><span>Tracteur</span><span>Pirogue</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Master Cooking</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30</span><span class="p3-card-badge lieu">Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Master Cooking Challenge</div>
+            <div class="p3-card-text">Brigade de chefs, panier mystère, 60 minutes top chrono. Mettez la main à la pâte !</div>
+            <div class="p3-card-tags"><span>Salée</span><span>Sucrée</span><span>Chocolat</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Lego Challenge</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Lego Challenge</div>
+            <div class="p3-card-text">Concentration, logique, imagination et précision. Une multitude de briques à assembler !</div>
+            <div class="p3-card-tags"><span>Tour Infernale</span><span>Le Pont</span><span>La Course</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Drum Batucada</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h – 1h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Drum Team Batucada</div>
+            <div class="p3-card-text">Management et musique sont intimement liés. Faites battre le cœur de votre entreprise !</div>
+            <div class="p3-card-tags"><span>Percussions</span><span>Body Percussions</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph tb" style="height:220px">Squid Cohesion</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30 – 2h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Challenge Squid Cohesion</div>
+            <div class="p3-card-text">Univers intense et immersif inspiré de la célèbre série. Stimuler la coopération et l'esprit d'équipe.</div>
+            <div class="p3-card-tags"><span>Lumière rouge</span><span>Brain Zone</span><span>Dalgona Candy</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Soirées & Afterwork -->
+    <div class="p3-section">
+      <div class="p3-section-header">
+        <h3 class="p3-section-title">Soirées & Afterwork</h3>
+        <span class="p3-section-count">13 activités</span>
+      </div>
+      <div class="p3-scroll">
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph soiree" style="height:220px">Casino Show</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30 – 2h30</span><span class="p3-card-badge lieu">Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Casino Show</div>
+            <div class="p3-card-text">Roulette, Blackjack, Poker et plus. L'argent est fictif mais les lots sont réels. Direction Las Vegas !</div>
+            <div class="p3-card-tags"><span>Roulette</span><span>Blackjack</span><span>Poker</span><span>Enchères</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph soiree" style="height:220px">DJ · Blind Test</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h – 1h30</span><span class="p3-card-badge lieu">Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">DJ · Blind Test · Karaoké</div>
+            <div class="p3-card-text">Ambiance musicale personnalisée avec animations type Blind test et Karaoké. Expérience mémorable !</div>
+            <div class="p3-card-tags"><span>DJ seul</span><span>Blind test + DJ</span><span>+ Karaoké</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph soiree" style="height:220px">Mystery Cocktail Box</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h – 1h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Mystery Cocktail Box</div>
+            <div class="p3-card-text">Initiez-vous à la mixologie en équipe. Imaginez et réalisez un cocktail unique à partir d'une box mystère.</div>
+            <div class="p3-card-tags"><span>Tequila</span><span>Vodka</span><span>Sans alcool</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph soiree" style="height:220px">Dégustation Œnologique</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h – 1h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Dégustation Œnologique</div>
+            <div class="p3-card-text">Animation ludique, dynamique et conviviale autour du vin. 4 à 5 vins avec un sommelier expert.</div>
+            <div class="p3-card-tags"><span>Wine Show</span><span>Wine & Cheese</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph soiree" style="height:220px">Magicien / Mentaliste</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h – 2h30</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Magicien / Mentaliste</div>
+            <div class="p3-card-text">Tours de magie incroyables et lecture de pensées. Mystères fascinants de table en table.</div>
+            <div class="p3-card-tags"><span>Close-up</span><span>Mentalisme</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph soiree" style="height:220px">Photobooth</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">4h max</span><span class="p3-card-badge lieu">Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Photobooth au choix</div>
+            <div class="p3-card-text">Borne photos, miroir selfie ou 360° Spinner. Tirage illimité. Souvenirs instantanés !</div>
+            <div class="p3-card-tags"><span>Borne photos</span><span>Miroir selfie</span><span>360° Spinner</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+        <div class="p3-card">
+          <div class="p3-card-img"><div class="ph soiree" style="height:220px">Bar à Vinyles</div>
+            <div class="p3-card-badges"><span class="p3-card-badge duration">1h30 – 2h</span><span class="p3-card-badge lieu">Outdoor / Indoor</span></div>
+          </div>
+          <div class="p3-card-body">
+            <div class="p3-card-name">Bar à Vinyles</div>
+            <div class="p3-card-text">Vaste collection de vinyles. Vos invités piochent les disques et le DJ les intègre dans la playlist. Effet vintage garanti.</div>
+            <div class="p3-card-tags"><span>DJ vintage</span><span>Collection vinyles</span></div>
+            <button class="p3-card-cta">Demander un devis →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── P2 Filters ──
+function filterP2(cat, btn) {
+  document.querySelectorAll('.p2-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.p2-card').forEach(card => {
+    if (cat === 'all' || card.dataset.cat === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// ── Active nav on scroll ──
+const sections = { prop1: document.getElementById('prop1'), prop2: document.getElementById('prop2'), prop3: document.getElementById('prop3') };
+const navLinks = document.querySelectorAll('.proposal-nav a');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 200;
+  let current = 'prop1';
+  for (const [id, el] of Object.entries(sections)) {
+    if (el.offsetTop <= y) current = id;
+  }
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+
+// Smooth scroll
+document.querySelectorAll('.proposal-nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
