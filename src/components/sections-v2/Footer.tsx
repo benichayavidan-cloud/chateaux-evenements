@@ -203,6 +203,19 @@ export function Footer({
               {copyright || `© ${currentYear} SelectChateaux. Tous droits réservés.`}
             </Text>
 
+            {/* Crédit agence */}
+            <Text variant="caption" color="muted">
+              Site conçu par{' '}
+              <a
+                href="https://rankweld.com"
+                target="_blank"
+                rel="noopener"
+                style={{ color: 'inherit', textDecoration: 'underline' }}
+              >
+                RankWeld
+              </a>
+            </Text>
+
             {/* Legal Links */}
             {legalLinks.length > 0 && (
               <div style={{ display: 'flex', gap: theme.spacing.lg, flexWrap: 'wrap', justifyContent: 'center' }}>
