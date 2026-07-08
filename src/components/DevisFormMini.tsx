@@ -11,9 +11,7 @@ import { Send, Clock, Shield, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui-v2';
 import { Text } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
-import { trackFormSubmit, trackDevisRequest, trackFormStart } from '@/components/Analytics';
-import { getGclid } from '@/lib/gclid';
-import { hashUserData } from '@/lib/hash-user-data';
+import { trackFormSubmit, trackFormStart } from '@/components/Analytics';
 
 interface DevisFormMiniProps {
   chateauId?: string;
@@ -145,7 +143,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     setError(null);
 
     try {
-      const gclid = getGclid();
       const allIds = chateauIds || (chateauId ? [chateauId] : []);
       const formLabel = sourceLabel || chateauNom || 'Séminaire';
 
@@ -165,7 +162,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         commentaireDeroulement: formData.message || '',
         datesFlexibles,
         sourceLabel: formLabel,
-        gclid: gclid || undefined,
       };
 
       const response = await fetch('/api/devis', {
@@ -182,22 +178,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         return;
       }
 
-      try {
-        const hashed = await hashUserData({
-          email: formData.email,
-          phone: formData.telephone,
-          fullName: formData.nomPrenom,
-        });
-        sessionStorage.setItem('ec_data', JSON.stringify({
-          email: formData.email,
-          phone: formData.telephone,
-          fullName: formData.nomPrenom,
-        }));
-        sessionStorage.setItem('ec_hashed', JSON.stringify(hashed));
-      } catch {
-        // sessionStorage indisponible — non bloquant
-      }
-
       // 2ᵉ vague — mémoriser les coordonnées pour pré-remplir le prochain devis (visiteur de retour)
       try {
         localStorage.setItem('sc_devis_contact', JSON.stringify({
@@ -211,7 +191,6 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
       }
 
       trackFormSubmit('devis-express');
-      trackDevisRequest(allIds);
 
       const ref = Math.random().toString(36).substr(2, 9).toUpperCase();
       router.push(`/devis/merci?ref=${ref}`);

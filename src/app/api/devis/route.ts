@@ -33,7 +33,6 @@ const formSchema = z.object({
   commentaireDeroulement: z.string().optional(),
   datesFlexibles: z.boolean().optional().default(false),
   sourceLabel: z.string().optional(),
-  gclid: z.string().optional(),
 }).refine(
   (data) => data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
   { message: "Veuillez sélectionner une date", path: ["datesSouhaitees"] }
@@ -107,7 +106,6 @@ export async function POST(request: NextRequest) {
       commentaire_deroulement: data.commentaireDeroulement || '',
       dates_flexibles: data.datesFlexibles ?? false,
       fichier_url: null,
-      gclid: data.gclid || null,
     };
 
     // Insérer dans Supabase

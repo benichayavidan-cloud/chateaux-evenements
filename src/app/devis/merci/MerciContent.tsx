@@ -1,77 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Check, Sparkles, PartyPopper, Zap, ArrowLeft } from "lucide-react";
-import { hashUserData, type HashedUserData } from "@/lib/hash-user-data";
-import { getGclid } from "@/lib/gclid";
 
 export default function MerciContent() {
   const searchParams = useSearchParams();
   const ref = searchParams.get("ref") || Math.random().toString(36).substr(2, 9).toUpperCase();
-
-  useEffect(() => {
-    if (typeof window === "undefined" || !window.gtag) return;
-
-    const fireConversion = async () => {
-      const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
-      const convLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
-
-      // FIX: Forcer ad_storage granted AVANT de fire la conversion
-      // Sans ça, le Consent Mode bloque 100% des conversions (il faut 700 clics/7j pour la modélisation)
-      // La conversion publicitaire first-party est un intérêt légitime (le visiteur a cliqué sur notre annonce)
-      window.gtag("consent", "update", {
-        ad_storage: "granted",
-        ad_user_data: "granted",
-        analytics_storage: "granted",
-      });
-
-      // Préparer les données Enhanced Conversions (hachées SHA-256)
-      let userData: HashedUserData | undefined;
-      try {
-        const raw = sessionStorage.getItem("ec_data");
-        if (raw) {
-          const ecData = JSON.parse(raw);
-          userData = await hashUserData(ecData);
-          sessionStorage.removeItem("ec_data");
-        }
-      } catch {
-        // Données indisponibles — conversion fire quand même sans user_data
-      }
-
-      // Récupérer le GCLID stocké dans notre cookie first-party
-      const gclid = getGclid();
-
-      // Track conversion Google Ads avec Enhanced Conversions
-      if (adsId && convLabel) {
-        const conversionParams: Record<string, unknown> = {
-          send_to: `${adsId}/${convLabel}`,
-          value: 1.0,
-          currency: "EUR",
-          transaction_id: ref,
-        };
-        if (userData) {
-          conversionParams.user_data = userData;
-        }
-        // Passer le GCLID explicitement pour l'attribution même si le cookie Google n'a pas été set
-        if (gclid) {
-          conversionParams.gclid = gclid;
-        }
-        window.gtag("event", "conversion", conversionParams);
-      }
-
-      // Track conversion GA4
-      window.gtag("event", "generate_lead", {
-        event_category: "form",
-        event_label: "devis_submitted",
-        value: 1,
-        currency: "EUR",
-      });
-    };
-
-    fireConversion();
-  }, [ref]);
 
   return (
     <div style={{ minHeight: "100vh", background: "#FFFFFF", paddingTop: "80px" }}>
