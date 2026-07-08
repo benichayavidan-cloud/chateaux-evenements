@@ -106,7 +106,8 @@ export default async function BlogArticleLayout({ children, params }: Props) {
     },
     "keywords": article.keywords.join(", "),
     "articleSection": article.category,
-    "wordCount": Math.floor(article.content.length / 6), // Estimation
+    // Comptage réel : on retire le balisage HTML puis on compte les mots.
+    "wordCount": article.content.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().split(" ").filter(Boolean).length,
     "inLanguage": "fr-FR"
   };
 

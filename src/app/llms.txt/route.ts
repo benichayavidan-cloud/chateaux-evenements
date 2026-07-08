@@ -25,6 +25,8 @@ function buildLlmsTxt(): string {
     "> Select Châteaux organise des séminaires d'entreprise, journées d'étude, soirées d'entreprise et team building dans 4 châteaux privatisables en Île-de-France (Chantilly/Oise, Yvelines/Vallée de Chevreuse, Hauts-de-Seine), de 10 à 500 personnes, avec hébergement sur place. Devis gratuit avec réponse garantie sous 24h."
   )
   lines.push('')
+  lines.push(`Version complète (contenu détaillé des châteaux, zones, tarifs et guides) : ${BASE_URL}/llms-full.txt`)
+  lines.push('')
   // Chiffres GÉNÉRÉS depuis les data files (capacités/chambres : chateaux.ts,
   // prix : pricing.ts) — une mise à jour des données met à jour ce fichier.
   const capMax = Math.max(...chateaux.map((c) => c.capacite.max))

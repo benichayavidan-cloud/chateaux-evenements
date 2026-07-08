@@ -315,7 +315,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     title: "Séminaire à Chantilly : 2 Châteaux dès 150€/pers [Devis 24h]",
     description:
       "2 châteaux privatisables à Chantilly en forêt de 6 300 ha. 228 chambres, 33 salles, spa 5★. 35 min de Paris, 15 min CDG. Devis gratuit 24h.",
-    keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "chateau seminaire oise", "séminaire forêt chantilly"],
+    keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "organiser séminaire chantilly", "séminaire forêt chantilly"],
     ogTitle: "Séminaire en Château à Chantilly | Select Châteaux",
     ogDescription:
       "2 châteaux de prestige à Chantilly pour vos séminaires. Forêt domaniale, spa, amphithéâtre. À 35 min de Paris.",

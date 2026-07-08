@@ -14,6 +14,43 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "";
 
 /**
+ * Sources de trafic IA (GEO) — hostname du référent → libellé de source.
+ * Permet de mesurer explicitement le trafic venu des moteurs de réponse IA
+ * (au-delà du canal "AI Assistant" auto de GA4) via un événement dédié.
+ */
+const AI_REFERRERS: { match: RegExp; source: string }[] = [
+  { match: /(^|\.)chatgpt\.com$|(^|\.)chat\.openai\.com$/, source: "chatgpt" },
+  { match: /(^|\.)perplexity\.ai$/, source: "perplexity" },
+  { match: /(^|\.)gemini\.google\.com$|(^|\.)bard\.google\.com$/, source: "gemini" },
+  { match: /(^|\.)copilot\.microsoft\.com$|(^|\.)copilot\.cloud\.microsoft$/, source: "copilot" },
+  { match: /(^|\.)claude\.ai$/, source: "claude" },
+  { match: /(^|\.)you\.com$/, source: "you" },
+  { match: /(^|\.)poe\.com$/, source: "poe" },
+];
+
+/**
+ * Détecte une arrivée depuis un assistant IA et émet un événement GA4 `ai_referral`
+ * (une seule fois par session). À exposer en dimension/segment dans GA4.
+ */
+function trackAiReferral() {
+  if (typeof window === "undefined" || !window.gtag || !document.referrer) return;
+  try {
+    if (sessionStorage.getItem("sc_ai_ref")) return;
+    const host = new URL(document.referrer).hostname;
+    const hit = AI_REFERRERS.find((r) => r.match.test(host));
+    if (!hit) return;
+    sessionStorage.setItem("sc_ai_ref", hit.source);
+    window.gtag("event", "ai_referral", {
+      event_category: "acquisition",
+      ai_source: hit.source,
+      page_referrer: document.referrer,
+    });
+  } catch {
+    // URL invalide ou sessionStorage indisponible — sans impact.
+  }
+}
+
+/**
  * Track SPA page views on route change
  */
 function PageViewTracker() {
@@ -23,6 +60,9 @@ function PageViewTracker() {
   useEffect(() => {
     // Capturer le GCLID Google Ads depuis l'URL (stocké en cookie 90j)
     captureGclid();
+
+    // Mesurer le trafic venu des assistants IA (GEO) — 1×/session
+    trackAiReferral();
 
     if (typeof window === "undefined" || !window.gtag) return;
 

@@ -229,7 +229,7 @@ export function generateAggregateRatingSchema() {
       name: "Select Châteaux",
     },
     ratingValue: "4.8",
-    reviewCount: "11",
+    reviewCount: "12",
     bestRating: "5",
     worstRating: "1",
   };

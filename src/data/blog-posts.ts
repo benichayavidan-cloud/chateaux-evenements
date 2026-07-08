@@ -6908,7 +6908,7 @@ const placeholderArticles: BlogPost[] = [
     readingTime: 11,
     image: "/images/seminaire-yvelines-78-chateau-luxe-proximite-paris.webp",
     imageAlt: "Séminaire dans les Yvelines 78 - Châteaux de luxe à proximité de Paris",
-    keywords: ["séminaire yvelines", "seminaire yvelines", "château yvelines séminaire", "séminaire 78", "versailles séminaire", "seminaire vallee de chevreuse", "vallée chevreuse séminaire", "château séminaire proche paris 78", "salle séminaire yvelines"],
+    keywords: ["meilleurs châteaux yvelines séminaire", "château yvelines séminaire", "comparatif château séminaire yvelines", "versailles séminaire", "vallée chevreuse séminaire", "château séminaire proche paris 78", "salle séminaire yvelines", "château séminaire rambouillet"],
     faq: [
       { question: "Quels châteaux dans les Yvelines pour un séminaire ?", answer: "28 châteaux privatisables : de Versailles à l'Abbaye de la Vallée de Chevreuse (144 chambres, fondée en 1118), en passant par Rambouillet et Thoiry. Tous à 30-45 min de Paris en RER ou voiture." },
       { question: "Les Yvelines sont-elles accessibles en transports en commun ?", answer: "Oui, excellente desserte : RER A (Saint-Germain-en-Laye, 25 min), RER C (Versailles, 30 min), RER B (Vallée de Chevreuse, 45 min). Rare pour des destinations château en pleine nature." },
@@ -6919,6 +6919,10 @@ const placeholderArticles: BlogPost[] = [
 <p class="mb-6">Les <strong>Yvelines (78)</strong> incarnent le paradoxe parfait pour les organisateurs de séminaires exigeants : le prestige absolu de Versailles, la nature préservée de Rambouillet et de la Vallée de Chevreuse, l'excellence hôtelière de Thoiry ou Saint-Germain-en-Laye... le tout à 30-45 minutes de Paris. Alors que d'autres départements d'Île-de-France jouent la carte de l'authenticité rurale (Vexin) ou du patrimoine équestre (Oise), les <strong>Yvelines</strong> assument pleinement leur positionnement luxe et prestige.</p>
 
 <p class="mb-6">Ce guide explore pourquoi les Yvelines s'imposent comme la destination premium par excellence pour séminaires d'entreprise, quelles zones privilégier selon vos objectifs (Versailles pour le prestige institutionnel, Rambouillet pour la nature aristocratique, Vallée de Chevreuse pour l'équilibre parfait), quels châteaux et domaines sélectionner, et comment structurer un événement qui allie excellence, proximité, et efficacité. Basé sur 250+ séminaires organisés dans les Yvelines entre 2020 et 2026, nous décryptons les atouts de ce département qui refuse tout compromis entre qualité et accessibilité.</p>
+
+<div class="alert alert-info">
+<strong>Vous organisez déjà ?</strong> Découvrez notre <a href="/seminaire-chateau-yvelines-78">guide complet du séminaire en château dans les Yvelines</a> et notre domaine phare en <a href="/seminaire-vallee-de-chevreuse">séminaire en Vallée de Chevreuse</a> : une abbaye cistercienne rénovée en 2023, 144 chambres et 80 hectares à 45 min de Paris.
+</div>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🏛️ Les Yvelines, Département du Prestige à Portée de Main</h2>
 
@@ -17450,7 +17454,7 @@ const placeholderArticles: BlogPost[] = [
     readingTime: 12,
     image: "/images/team-building-chantilly-activites-equestre-2cv-escape.webp",
     imageAlt: "Séminaire à Chantilly : 15 activités team building originales en château IDF",
-    keywords: ["séminaire chantilly", "seminaire chantilly", "séminaire entreprise chantilly", "organiser séminaire chantilly", "activite seminaire chantilly", "activité séminaire chantilly", "team building chantilly", "team building forêt chantilly", "activité entreprise chantilly", "séminaire chantilly activités", "soirée entreprise chantilly", "spectacle equestre chantilly entreprise", "hotel seminaire chantilly", "chateau seminaire chantilly"],
+    keywords: ["team building chantilly", "activités team building chantilly", "activite seminaire chantilly", "activité séminaire chantilly", "team building forêt chantilly", "activité entreprise chantilly", "séminaire chantilly activités", "spectacle equestre chantilly entreprise", "escape game chantilly entreprise", "soirée entreprise chantilly"],
     faq: [
       { question: "Quelles activités de team building peut-on faire à Chantilly ?", answer: "Chantilly offre 15+ activités uniques : spectacle équestre privatisé (Grandes Écuries), rallye 2CV dans la forêt de 6 300 ha, escape game en château, olympiades outdoor, sylvothérapie, atelier crème chantilly avec un chef, murder party, défi culinaire, tir à l'arc, chasse au trésor GPS, et visite privatisée du Musée Condé." },
       { question: "Combien coûte un spectacle équestre privatisé à Chantilly ?", answer: "Un spectacle équestre privatisé aux Grandes Écuries coûte 3 000 à 8 000€ selon la durée et le nombre de cavaliers (30 min à 1h). C'est l'activité signature de Chantilly, impossible à reproduire ailleurs. Capacité : jusqu'à 500 spectateurs dans le manège." },
