@@ -34,7 +34,7 @@ const formSchema = z.object({
   datesFlexibles: z.boolean().optional().default(false),
   sourceLabel: z.string().optional(),
 }).refine(
-  (data) => data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
+  (data) => data.datesFlexibles || data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
   { message: "Veuillez sélectionner une date", path: ["datesSouhaitees"] }
 );
 
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     // Construire dates_souhaitees selon le format reçu
     const datesSouhaitees = data.dateArrivee && data.dateDepart
       ? `${data.dateArrivee}|${data.dateDepart}`
-      : data.datesSouhaitees || '';
+      : data.datesSouhaitees || (data.datesFlexibles ? 'Dates flexibles' : '');
 
     // Créer un client Supabase avec le service role key pour plus de sécurité
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;

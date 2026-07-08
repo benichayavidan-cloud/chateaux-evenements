@@ -128,8 +128,11 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     e.preventDefault();
     if (isSubmitting) return;
 
-    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || !formData.dateArrivee || !formData.dateDepart) {
-      setError('Veuillez remplir tous les champs obligatoires (dont vos dates).');
+    const datesRequises = !datesFlexibles;
+    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || (datesRequises && (!formData.dateArrivee || !formData.dateDepart))) {
+      setError(datesRequises
+        ? 'Veuillez remplir tous les champs obligatoires (dont vos dates).'
+        : 'Veuillez remplir vos coordonnées et le nombre de participants.');
       return;
     }
 
@@ -357,7 +360,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
             </div>
 
             <div>
-              <label htmlFor="mini-date-arrivee" style={labelStyle}>Date d&apos;arrivée *</label>
+              <label htmlFor="mini-date-arrivee" style={labelStyle}>Date d&apos;arrivée {!datesFlexibles && '*'}</label>
               <input
                 id="mini-date-arrivee"
                 name="dateArrivee"
@@ -371,7 +374,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               />
             </div>
             <div>
-              <label htmlFor="mini-date-depart" style={labelStyle}>Date de départ *</label>
+              <label htmlFor="mini-date-depart" style={labelStyle}>Date de départ {!datesFlexibles && '*'}</label>
               <input
                 id="mini-date-depart"
                 name="dateDepart"
@@ -386,7 +389,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
             </div>
           </div>
 
-          {/* Drapeau : dates non définitives — n'affecte PAS l'obligation des dates */}
+          {/* Dates non définitives : rend les dates optionnelles (devis possible sans date ferme) */}
           <label
             style={{
               display: 'inline-flex',
