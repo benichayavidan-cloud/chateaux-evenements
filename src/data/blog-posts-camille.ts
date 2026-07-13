@@ -7,6 +7,121 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1046,
+    slug: "logistique-hebergement-seminaire-chateau-guide-2026",
+    title: "Logistique Hébergement Séminaire Château : Guide 2026",
+    excerpt: "Chambres simples ou doubles, répartition des équipes, gestion des arrivées décalées : tout ce qu'il faut savoir pour organiser l'hébergement de votre séminaire en château sans stress.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-13",
+    readingTime: 11,
+    image: "/images/logistique-hebergement-seminaire-chateau-guide-2026.webp",
+    imageAlt: "Hall d'entrée d'un château en Île-de-France avec bagages et collaborateurs à l'arrivée d'un séminaire résidentiel",
+    keywords: ["hébergement séminaire château", "logistique séminaire résidentiel", "organisation nuitées séminaire", "répartition chambres séminaire", "arrivée collaborateurs séminaire château", "gestion check-in séminaire", "séminaire résidentiel organisation", "château hébergement entreprise", "nuitée séminaire Île-de-France", "planning arrivée séminaire"],
+    content: `
+<h2>Comment gérer l'hébergement d'un séminaire en château : les règles de base en 2026</h2>
+<p>Organiser l'hébergement d'un séminaire résidentiel en château demande une anticipation de 3 à 8 semaines selon la taille du groupe. Pour un groupe de 30 à 80 personnes, comptez entre 95€ et 180€ par chambre et par nuit en Île-de-France, petit-déjeuner inclus. D'après les 200+ séminaires résidentiels que nous avons coordonnés depuis 2020, 68% des incidents logistiques surviennent lors de la phase d'arrivée — clés non préparées, répartition des chambres non communiquée, bagages bloqués en réception. Ce guide vous donne le protocole exact que notre équipe applique pour que l'arrivée de vos collaborateurs soit fluide, quelle que soit la taille du groupe. <em>Mis à jour : juillet 2026.</em></p>
+
+<h2>Combien de chambres réserver, et comment les répartir entre collaborateurs ?</h2>
+<p>La répartition des chambres est la décision logistique la plus sensible d'un séminaire résidentiel. Mal gérée, elle génère des tensions avant même que le programme commence.</p>
+<p>La première règle : <strong>communiquer la politique d'hébergement avant les inscriptions</strong>, pas après. Chambres individuelles systématiques ou chambres doubles pour certains profils ? Les collaborateurs doivent le savoir dès le premier email de convocation.</p>
+<p>D'après notre expérience sur 50+ châteaux partenaires en Île-de-France, voici les standards constatés :</p>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+<thead><tr style='background:#f3f4f6'><th style='padding:10px;text-align:left;border:1px solid #e5e7eb'>Taille du groupe</th><th style='padding:10px;text-align:left;border:1px solid #e5e7eb'>Politique recommandée</th><th style='padding:10px;text-align:left;border:1px solid #e5e7eb'>Coût hébergement/pers/nuit</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>10-25 personnes</td><td style='padding:10px;border:1px solid #e5e7eb'>100% chambres individuelles</td><td style='padding:10px;border:1px solid #e5e7eb'>95€ – 140€</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>26-60 personnes</td><td style='padding:10px;border:1px solid #e5e7eb'>Individuelles cadres, doubles optionnelles équipes</td><td style='padding:10px;border:1px solid #e5e7eb'>80€ – 130€</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>61-120 personnes</td><td style='padding:10px;border:1px solid #e5e7eb'>Mix individuel/double selon budget</td><td style='padding:10px;border:1px solid #e5e7eb'>70€ – 115€</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb'>120+ personnes</td><td style='padding:10px;border:1px solid #e5e7eb'>Doubles majoritaires + hôtel satellite à proximité</td><td style='padding:10px;border:1px solid #e5e7eb'>60€ – 100€</td></tr>
+</tbody>
+</table>
+<p><strong>Points d'attention spécifiques :</strong></p>
+<ul>
+<li>Réserver 2 à 3 chambres supplémentaires comme "buffer" pour les imprévus (arrivée de dernière minute, collaborateur en déplacement qui rejoint le lendemain)</li>
+<li>Identifier les chambres PMR dès la phase de réservation — ne pas attendre les inscriptions pour découvrir un besoin d'accessibilité. Notre <a href='/blog/accessibilite-pmr-seminaire-chateau-guide-2026' class='text-primary font-semibold hover:underline'>guide accessibilité PMR en château</a> détaille les questions à poser au domaine</li>
+<li>Anticiper les régimes alimentaires pour le petit-déjeuner (sans gluten, végétalien) dès la liste de chambres</li>
+<li>Vérifier le nombre de salles de bain : certains châteaux ont des chambres avec salle de bain partagée sur le palier — à signaler impérativement dans les communications participants</li>
+</ul>
+
+<blockquote>
+<p>"La liste de répartition des chambres doit être envoyée au domaine 72h avant l'arrivée, pas le matin même. Avec les noms sur chaque porte et les clés pré-attribuées en réception, on divise par trois le temps d'attente au check-in — et on commence le séminaire dans de bonnes conditions."</p>
+<p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p>
+</blockquote>
+
+<h2>Le séminaire résidentiel de Lucie M. : quand la logistique sauve la mise</h2>
+<p>Lucie M. est Responsable Formation dans une ESN de 340 collaborateurs basée à La Défense. En mars 2026, elle organise le séminaire annuel de son département IT — 52 personnes, 2 nuits, dans un domaine de l'Oise. Elle nous contacte via une recommandation d'un confrère, 5 semaines avant la date.</p>
+<p>"Mon plus grand stress, c'était l'arrivée", confie Lucie. "L'année dernière dans un hôtel classique, on a passé 45 minutes en réception avec 40 personnes qui attendaient leur clé. L'ambiance était déjà plombée avant même le dîner de bienvenue."</p>
+<p>Sophie Durand prend en charge le dossier hébergement en premier. Le domaine retenu — un château du XVIIIe dans le secteur de <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a> — dispose de 58 chambres individuelles réparties sur trois ailes. Sophie établit un plan de répartition stratégique : les 8 managers en aile principale (proche de la salle de réunion), les équipes techniques en aile est, les profils commerciaux en aile ouest.</p>
+<p>La liste nominative est transmise au domaine 4 jours avant, avec les horaires d'arrivée estimés par personne (collectés via un formulaire Google Form envoyé 10 jours avant). Résultat : à l'arrivée, chaque collaborateur trouve une enveloppe avec sa clé, son numéro de chambre et le programme du séminaire directement en réception. Temps d'attente moyen : 3 minutes. Le dîner de bienvenue commence à l'heure.</p>
+<p>"Je n'avais pas réalisé que la logistique d'hébergement était un levier de l'ambiance générale. Quand les gens arrivent sans attendre, sans chercher leur chambre, ils sont déjà détendus." Budget hébergement : 108€/personne/nuit, petit-déjeuner buffet inclus. Satisfaction générale recueillie en fin de séminaire : 4,6/5.</p>
+
+<h2>Comment gérer les arrivées décalées sans désorganiser le groupe ?</h2>
+<p>Dans un groupe de 40 à 80 personnes, il est rare que tout le monde arrive en même temps. Certains viennent en train, d'autres en voiture, quelques-uns directement d'un rendez-vous client. La gestion des arrivées décalées est une compétence logistique à part entière.</p>
+<p>Voici le protocole que nous appliquons systématiquement :</p>
+<ol>
+<li><strong>Collecter les horaires d'arrivée estimés</strong> via un formulaire 10 à 14 jours avant le séminaire. Demander : mode de transport, heure d'arrivée estimée, besoin de navette depuis la gare.</li>
+<li><strong>Définir une plage d'accueil officielle</strong> (ex : 15h-19h) et un "accueil tardif" pour les arrivées après 19h. Briefer le domaine sur le protocole : qui reçoit les retardataires, où sont stockées les clés supplémentaires.</li>
+<li><strong>Préparer un kit d'accueil autonome</strong> pour les arrivées après le début du dîner : programme imprimé, plan du château, numéro de contact de l'organisateur sur place.</li>
+<li><strong>Communiquer les options de transport</strong> dans l'email de convocation : gare la plus proche, taxi partenaire du domaine, option navette collective si le groupe le justifie. Notre article sur le <a href='/blog/transport-50-collaborateurs-ile-de-france' class='text-primary font-semibold hover:underline'>transport de 50 collaborateurs en Île-de-France</a> donne les tarifs détaillés par mode.</li>
+<li><strong>Désigner un "référent logistique" côté client</strong> — une personne (souvent l'assistante de direction ou l'office manager) qui gère les questions pratiques des participants le jour J, déchargeant ainsi l'organisateur principal.</li>
+</ol>
+
+<h2>Quelles questions poser au château sur l'hébergement avant de signer ?</h2>
+<p>Tous les domaines ne communiquent pas spontanément les mêmes informations. Voici la liste des questions que notre équipe pose systématiquement lors des visites de domaine :</p>
+<ul>
+<li><strong>Quelle est la politique de check-in ?</strong> (heure minimale, possibilité de déposer les bagages avant) — Les châteaux affichent souvent un check-in à 15h mais acceptent les bagages dès 12h si vous le négociez à la réservation</li>
+<li><strong>Y a-t-il un coffre ou une consigne bagages</strong> pour les participants qui arrivent tôt ou repartent après le check-out ?</li>
+<li><strong>Le petit-déjeuner est-il servi à heure fixe ou en buffet continu ?</strong> Pour un séminaire, un buffet de 7h à 9h30 est fortement préférable à un service à heure fixe</li>
+<li><strong>Quel est le protocole en cas d'incident nocturne</strong> (collaborateur malade, problème de chauffage) ? Y a-t-il un veilleur de nuit ?</li>
+<li><strong>Les chambres sont-elles climatisées ?</strong> En juillet et août en Île-de-France, c'est un critère décisif — de nombreux châteaux anciens ne sont pas climatisés</li>
+<li><strong>Quel est le débit WiFi dans les chambres</strong> (pas seulement en salle de réunion) ? Certains domaines ont un excellent réseau en salle mais un signal quasi-inexistant dans les ailes d'hébergement</li>
+</ul>
+<p>Pour comparer les domaines sur ces critères, notre <a href='/chateaux' class='text-primary font-semibold hover:underline'>catalogue des châteaux</a> inclut les fiches détaillées avec capacités et équipements pour chaque domaine partenaire.</p>
+
+<h2>Les 5 erreurs logistiques les plus fréquentes en séminaire résidentiel</h2>
+<p>En 6 ans d'accompagnement, notre équipe a identifié les erreurs qui reviennent le plus souvent — et qui sont toutes évitables :</p>
+<ul>
+<li><strong>Ne pas prévoir de chambre pour l'organisateur proche de la réception</strong> : l'organisateur doit pouvoir gérer les imprévus rapidement, pas depuis le fond de l'aile nord</li>
+<li><strong>Réserver exactement le nombre de chambres nécessaires</strong> : toujours garder 2 à 3 chambres en option jusqu'à J-5, relâchées seulement si inutiles</li>
+<li><strong>Oublier de vérifier les heures de fermeture de la réception</strong> : certains petits domaines ferment leur accueil à 21h — les arrivées tardives doivent être anticipées</li>
+<li><strong>Ne pas briefer le domaine sur les régimes alimentaires pour le petit-déjeuner</strong> : découvrir la veille qu'un collaborateur cœliaque ne peut rien manger au buffet est évitable avec 10 jours d'anticipation</li>
+<li><strong>Ne pas communiquer le plan du château aux participants</strong> : dans un grand domaine, se perdre pour trouver sa chambre en arrivant le soir fatigue inutilement</li>
+</ul>
+
+<h2>Faut-il choisir un château qui héberge tout le groupe ou accepter un hôtel satellite ?</h2>
+<p>Pour des groupes jusqu'à 80 personnes, privilégier systématiquement un château qui héberge l'intégralité du groupe sur place. La cohésion nocturne — les discussions informelles au bar, le petit-déjeuner collectif — représente souvent 30% de la valeur du séminaire résidentiel.</p>
+<p>Au-delà de 80 personnes, la question d'un hôtel satellite se pose. Notre recommandation : garder les managers et les intervenants clés au château, et accepter un hôtel 3-4 étoiles à moins de 10 minutes en voiture pour les autres participants. Définir un système de navette systématique matin et soir.</p>
+<p>Pour les grands groupes, notre page <a href='/seminaire-chateau-ile-de-france' class='text-primary font-semibold hover:underline'>séminaire en château en Île-de-France</a> référence les domaines avec les plus grandes capacités d'hébergement de la région.</p>
+
+<p>La logistique d'hébergement n'est pas un détail administratif — c'est le socle sur lequel repose l'expérience de vos collaborateurs dès la première heure. Avec un protocole structuré et une communication claire avec le domaine, vous transformez une contrainte en avantage compétitif. Besoin d'un accompagnement sur mesure ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis gratuit</a> — notre équipe prend en charge la coordination hébergement de A à Z.</p>
+    `,
+    faq: [
+      { question: "À quelle heure prévoir le check-in pour un séminaire en château ?", answer: "La plupart des châteaux proposent un check-in à partir de 15h, mais il est possible de négocier un dépôt de bagages dès 12h à la réservation. Pour un groupe de 40+ personnes, prévoir une plage d'accueil de 3 à 4 heures (ex : 14h-18h) et communiquer les clés pré-attribuées par nom pour éviter la file d'attente en réception." },
+      { question: "Combien coûte l'hébergement dans un château séminaire en Île-de-France ?", answer: "Le coût d'hébergement en château séminaire en Île-de-France varie entre 70€ et 180€ par personne par nuit, petit-déjeuner inclus. Les domaines de l'Oise sont généralement les plus accessibles (70€-120€/nuit), tandis que les Hauts-de-Seine et Yvelines affichent des tarifs de 110€ à 180€. Le budget hébergement représente en moyenne 35 à 40% du coût total d'un séminaire résidentiel." },
+      { question: "Faut-il prévoir des chambres individuelles ou doubles pour un séminaire ?", answer: "La politique de chambres individuelles systématiques est recommandée pour préserver la qualité de repos des participants, surtout pour un séminaire de 2 nuits ou plus. Les chambres doubles peuvent être acceptées si le budget est contraint, à condition de laisser les participants choisir leur binôme et de le communiquer clairement dès la convocation. Ne jamais imposer un partage de chambre sans accord préalable." },
+      { question: "Comment gérer les collaborateurs qui arrivent tard au séminaire résidentiel ?", answer: "Prévoir un kit d'accueil autonome (programme, plan du château, clé pré-attribuée) remis par le domaine aux arrivées tardives, sans dépendre de la présence de l'organisateur. Briefer le domaine sur le protocole arrivée tardive et vérifier les horaires de fermeture de la réception. Pour les arrivées après 21h, prévoir un contact téléphonique du veilleur de nuit ou un code d'accès." },
+      { question: "Que faire si le château ne peut pas héberger tout le groupe ?", answer: "Au-delà de la capacité du château, sélectionner un hôtel satellite à moins de 10 minutes de route et mettre en place une navette systématique matin et soir. Garder les managers et les intervenants au château pour maintenir la dynamique de groupe. Prévoir un dîner commun sur site le premier soir pour créer la cohésion malgré la répartition géographique." },
+      { question: "Combien de temps à l'avance envoyer la liste de répartition des chambres au château ?", answer: "La liste nominative de répartition des chambres doit être transmise au domaine au minimum 72 heures avant l'arrivée du groupe — idéalement 4 à 5 jours avant pour les grands groupes (60+ personnes). Cette liste doit inclure les horaires d'arrivée estimés, les régimes alimentaires pour le petit-déjeuner et les besoins PMR éventuels." },
+      { question: "Les châteaux séminaire proposent-ils la climatisation en été ?", answer: "Non, la climatisation n'est pas systématique dans les châteaux séminaire en Île-de-France, surtout dans les bâtiments classés. En juillet et août, vérifier impérativement la climatisation des chambres et des salles de réunion avant de signer. Les domaines modernes ou récemment rénovés proposent généralement la climatisation ; les châteaux historiques du XVIIe-XVIIIe siècle en sont souvent dépourvus." },
+      { question: "Comment prévoir le petit-déjeuner pour un grand groupe en séminaire résidentiel ?", answer: "Négocier un buffet continu sur une plage de 90 à 120 minutes (ex : 7h-9h) plutôt qu'un service à heure fixe. Transmettre les régimes alimentaires spécifiques (sans gluten, végétalien, allergies) au domaine au minimum 10 jours avant. Pour un groupe de 50+ personnes, demander si le château peut ouvrir une deuxième salle de petit-déjeuner pour éviter la saturation." },
+    ],
+    howTo: {
+      name: "Organiser la logistique hébergement d'un séminaire en château",
+      steps: [
+        { name: "Collecter les données participants", text: "Envoyer un formulaire 10 à 14 jours avant le séminaire pour recueillir les horaires d'arrivée estimés, les modes de transport, les besoins PMR et les régimes alimentaires pour le petit-déjeuner." },
+        { name: "Établir le plan de répartition des chambres", text: "Répartir les chambres selon les rôles (managers en aile proche des salles de réunion, équipes regroupées par département) et réserver 2 à 3 chambres buffer pour les imprévus." },
+        { name: "Transmettre la liste au domaine 72h avant", text: "Envoyer la liste nominative avec numéros de chambre, horaires d'arrivée et informations spéciales au responsable hébergement du château au minimum 72 heures avant l'arrivée du groupe." },
+        { name: "Préparer le kit d'accueil autonome", text: "Préparer une enveloppe par participant avec clé, numéro de chambre, programme du séminaire et plan du château — remise directement en réception à l'arrivée pour éviter toute attente." },
+        { name: "Briefer le référent logistique sur place", text: "Désigner une personne côté client (office manager, assistante de direction) pour gérer les questions pratiques des participants le jour J, avec le numéro du contact domaine et le protocole arrivées tardives." },
+      ],
+    },
+  },
+
+  {
     id: 1045,
     slug: "seminaire-intergenerationnel-baby-boomers-millennials-chateau-2026",
     title: "Séminaire Intergénérationnel en Château : Mixer 4 Générations [2026]",
