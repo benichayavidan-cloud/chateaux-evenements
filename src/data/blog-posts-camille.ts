@@ -7,6 +7,111 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1070,
+    slug: "podcast-contenu-interne-seminaire-chateau-guide-2026",
+    title: "Produire un Podcast d'Entreprise en Château : Guide 2026",
+    excerpt: "Un séminaire en château est l'occasion rêvée pour produire un podcast ou des vidéos internes en 2026. Découvrez comment capter la parole de vos experts et dirigeants dans un cadre qui valorise chaque prise de parole, dès 800€ de production.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-18",
+    readingTime: 10,
+    image: "/images/podcast-contenu-interne-seminaire-chateau-guide-2026.webp",
+    imageAlt: "Studio podcast improvisé dans une bibliothèque de château avec deux dirigeants face à des micros professionnels, rayonnages de livres anciens en arrière-plan, lumière dorée de fin d'après-midi",
+    keywords: ["podcast entreprise séminaire", "produire podcast entreprise", "contenu interne séminaire château", "podcast dirigeant château", "communication interne vidéo séminaire", "interview dirigeant séminaire", "captation contenu séminaire", "studio podcast événement entreprise", "production podcast séminaire", "média interne entreprise château"],
+    content: `
+<h2>Produire un podcast d'entreprise lors d'un séminaire en château : combien ça coûte et comment faire ?</h2><p>Produire un podcast ou des vidéos internes lors d'un séminaire en château coûte entre 800€ et 4 500€ de prestation technique en 2026, selon le nombre d'épisodes, la durée et le niveau de post-production souhaité. D'après les 25 séminaires que nous avons accompagnés avec captation de contenu en 2024-2025, un épisode de podcast de 20 minutes capté et monté en séminaire revient en moyenne à 350-600€ tout compris (technicien son, montage, habillage). Le cadre d'un château — bibliothèques, salles voûtées, jardins — génère des contenus visuellement distinctifs que les open spaces parisiens ne peuvent pas offrir. <em>Mis à jour : Juillet 2026.</em></p>
+
+<h2>Pourquoi un séminaire en château est le moment idéal pour créer du contenu interne ?</h2><p>Les séminaires concentrent en 2 jours ce qui serait impossible à organiser en temps normal : vos dirigeants sont disponibles, l'ambiance est propice à la confidence, et le cadre château crée naturellement une aura d'autorité autour de la parole des intervenants. C'est une fenêtre de production de contenu que la plupart des entreprises ne saisissent pas.</p>
+<p>Trois raisons concrètes de capter du contenu lors de votre prochain séminaire :</p>
+<ul>
+<li><strong>Disponibilité des décideurs</strong> : votre DG, votre DRH, vos directeurs régionaux sont dans le même lieu pendant 48h — impossible à reproduire à Paris sans bloquer des agendas depuis 3 mois</li>
+<li><strong>Authenticité accrue</strong> : hors du bureau, les dirigeants sont plus détendus, plus naturels. Les interviews captées en séminaire sonnent moins «&nbsp;corporate&nbsp;» que les prises en studio</li>
+<li><strong>Rentabilisation du déplacement</strong> : le coût logistique du séminaire est déjà absorbé — produire 4 épisodes de podcast en marge ne coûte que la prestation technique (technicien + matériel)</li>
+<li><strong>Cadre différenciateur</strong> : une interview filmée devant les rayonnages d'une bibliothèque de château ou dans un jardin à la française positionne différemment votre marque employeur qu'un fond vert en open space</li>
+</ul>
+<p>Pour les entreprises qui utilisent déjà le contenu interne dans leur stratégie RH, coupler cela avec un <a href='/blog/recrutement-onboarding-seminaire-chateau-attirer-fidéliser-talents-2026' class='text-primary font-semibold hover:underline'>séminaire RH en château</a> crée une cohérence narrative puissante entre l'événement et les supports de communication qui en découlent.</p>
+
+<h2>L'histoire de Camille R. : comment un séminaire dans les Yvelines a généré 12 épisodes de podcast interne</h2>
+<p>En juin 2025, Camille R., Responsable Communication Interne d'une ESN de 800 personnes, cherche un moyen de renouveler le podcast d'entreprise lancé 18 mois plus tôt. Le format initial — enregistrements hebdomadaires dans une salle de réunion parisienne — était devenu «&nbsp;ennuyeux, même pour les participants&nbsp;», de son propre aveu.</p>
+<p>Sa collègue l'Event Manager lui recommande Select Châteaux via un article lu sur notre blog. Camille appelle Thomas Lefèvre avec une idée précise : organiser leur séminaire annuel de 80 personnes dans un château des Yvelines, et en profiter pour enregistrer une saison complète du podcast interne en 2 jours.</p>
+<p>Thomas valide immédiatement le concept et propose le <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a> — un domaine du XVIIIe siècle près de Rambouillet avec une bibliothèque de 80 m² aux boiseries d'époque. «&nbsp;Cette bibliothèque, c'est votre studio naturel&nbsp;», explique-t-il à Camille lors de la visite. La salle est suffisamment isolée acoustiquement du reste du château, et sa lumière naturelle est parfaite pour la vidéo jusqu'à 17h.</p>
+
+<blockquote><p>"Le séminaire et le podcast ne sont pas deux projets distincts — c'est le même projet. Le séminaire crée les conditions de la parole authentique, et le podcast la capture pour la rendre pérenne. Le château est le décor qui donne de la valeur aux deux."</p><p><strong>— Thomas Lefèvre, Directeur Commercial, Select Châteaux</strong></p></blockquote>
+
+<p>En pratique, l'organisation était simple : un technicien son freelance était présent les 2 jours avec deux micros statiques, un enregistreur portable et un kit lumière LED compact. Les interviews (12 au total, de 15 à 35 minutes chacune) étaient planifiées dans les créneaux libres entre les ateliers — pauses déjeuner, avant-dîner, matinée J+2.</p>
+<p>Résultat : <strong>12 épisodes produits en 2 jours</strong>, dont 9 publiés dans les 3 mois suivants. Coût technique total : 1 800€ (technicien 2 jours + matériel + montage externalisé). Taux d'écoute des épisodes «&nbsp;château&nbsp;» : +67% par rapport aux épisodes enregistrés à Paris. Le fond de bibliothèque avait clairement aidé.</p>
+<p>«&nbsp;On a résolu en 2 jours notre problème de contenu pour 6 mois. Et en prime, les gens de l'équipe qui n'avaient jamais été interviewés se sont portés volontaires parce que le cadre était beau. Le château a fait la moitié du travail de conviction.&nbsp;» — Camille R., Responsable Communication Interne</p>
+
+<h2>Comment organiser un studio podcast dans un château lors de votre séminaire ?</h2>
+<p>Pas besoin d'un équipement professionnel lourd. Voici la démarche en 5 étapes.</p>
+<ol>
+<li><strong>Identifier les espaces acoustiquement propices</strong> — Bibliothèques (absorption naturelle par les livres), caves voûtées (acoustique feutrée), salons avec moquette et rideaux. Évitez les grandes salles en pierre nue (forte réverbération) et les espaces proches de la cuisine ou du groupe électrogène.</li>
+<li><strong>Planifier les interviews dans le programme du séminaire</strong> — Bloquez des créneaux de 30-45 min par interviewé (20 min d'interview + installation/démontage). Placez-les en dehors des plénières et des repas. La pause déjeuner (13h30-14h30) et l'avant-dîner (18h-19h) sont les créneaux les plus disponibles.</li>
+<li><strong>Briefer les interviewés 48h avant</strong> — Envoyez 3 à 5 questions ouvertes par email. Précisez que ce n'est pas une performance mais une conversation. Les interviewés non préparés donnent de meilleures réponses que ceux qui ont appris un script.</li>
+<li><strong>Choisir entre captation audio seule ou vidéo</strong> — L'audio seul est 3x moins cher (pas de régie lumière, pas de colorimétrie) et suffit pour un podcast interne. La vidéo vaut l'investissement si vous diffusez sur l'intranet ou si vous utilisez les extraits pour du recrutement (LinkedIn, page carrières).</li>
+<li><strong>Intégrer la production dans le contrat château</strong> — Mentionnez explicitement au château la présence d'un prestataire technique et demandez l'autorisation de filmer dans les espaces communs. La plupart des domaines acceptent — c'est aussi de la valorisation pour eux.</li>
+</ol>
+
+<h2>Quel matériel pour enregistrer un podcast en château ?</h2>
+<p>Deux configurations selon le budget :</p>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+<thead><tr style='background:#f3f0eb'><th style='padding:10px;border:1px solid #ddd;text-align:left'>Configuration</th><th style='padding:10px;border:1px solid #ddd;text-align:left'>Matériel</th><th style='padding:10px;border:1px solid #ddd;text-align:left'>Coût technicien/jour</th><th style='padding:10px;border:1px solid #ddd;text-align:left'>Qualité</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #ddd'>DIY (interne)</td><td style='padding:10px;border:1px solid #ddd'>2 micros USB + Zoom H6 + trépieds</td><td style='padding:10px;border:1px solid #ddd'>0€ (matériel loué : 80-120€/j)</td><td style='padding:10px;border:1px solid #ddd'>Bonne (suffisante pour usage interne)</td></tr>
+<tr><td style='padding:10px;border:1px solid #ddd'>Semi-pro (prestataire)</td><td style='padding:10px;border:1px solid #ddd'>Micros statiques + mixette + monitoring</td><td style='padding:10px;border:1px solid #ddd'>400-600€/jour</td><td style='padding:10px;border:1px solid #ddd'>Très bonne (publiable en externe)</td></tr>
+<tr><td style='padding:10px;border:1px solid #ddd'>Pro vidéo (prestataire)</td><td style='padding:10px;border:1px solid #ddd'>Caméra 4K + éclairage 3 points + son XLR</td><td style='padding:10px;border:1px solid #ddd'>700-1 200€/jour</td><td style='padding:10px;border:1px solid #ddd'>Excellente (marque employeur, recrutement)</td></tr>
+</tbody>
+</table>
+<p>Pour la majorité des usages internes (intranet, newsletter RH, onboarding), la configuration semi-pro est le bon équilibre. Le montage post-production est externalisable à des monteurs freelances pour 80-150€ par épisode de 20 minutes.</p>
+
+<h2>Quels types de contenus produire lors d'un séminaire en château ?</h2>
+<p>Au-delà du podcast, un séminaire en château offre des opportunités de production de contenu variées :</p>
+<ul>
+<li><strong>Podcast long format</strong> (20-45 min) : interviews de dirigeants, débats entre experts métiers, retours d'expérience projets — idéal pour l'intranet ou une chaîne podcast interne</li>
+<li><strong>Short vidéos verticales</strong> (60-90 secondes) : extraits d'ateliers, moments informels dans le parc, réactions post-séminaire — parfaits pour l'intranet mobile ou LinkedIn carrières</li>
+<li><strong>Témoignages collaborateurs</strong> (2-3 min) : parole de terrain, retours sur les formations, vision du métier — puissants pour le recrutement et l'onboarding</li>
+<li><strong>Capsules de formation</strong> (5-10 min) : enregistrement d'une intervention clé du séminaire pour les collaborateurs absents — valorise l'investissement pédagogique du séminaire</li>
+</ul>
+<p>Si votre séminaire inclut déjà une séance photo professionnelle, demandez au photographe s'il propose également la vidéo. Notre <a href='/blog/photographe-videaste-seminaire-chateau-guide-2026' class='text-primary font-semibold hover:underline'>guide photographe et vidéaste pour séminaire en château</a> détaille comment coordonner les deux prestations sans surcoût logistique.</p>
+
+<h2>Comment intégrer la production de contenu dans le programme officiel du séminaire ?</h2>
+<p>La principale erreur est de traiter la production de contenu comme un projet parallèle invisible. Pour que ça fonctionne, il faut l'intégrer explicitement dans le programme :</p>
+<ul>
+<li>Mentionnez «&nbsp;Studio podcast / interviews&nbsp;» dans le programme officiel distribué aux participants — la transparence enlève toute anxiété</li>
+<li>Désignez un «&nbsp;producteur séminaire&nbsp;» interne (souvent la communication interne ou l'event manager) qui gère le planning des interviews sans perturber les plénières</li>
+<li>Créez un espace de production fixe et visible : un coin de la bibliothèque ou du salon installé avec deux fauteuils et un micro donne envie aux collaborateurs de participer spontanément</li>
+<li>Prévoyez des interviews non planifiées : les meilleures prises sont souvent des conversations spontanées captées pendant un café ou une balade dans le parc</li>
+</ul>
+<p>Pour une communication interne cohérente avant, pendant et après le séminaire, notre article sur la <a href='/blog/communication-interne-seminaire-avant-pendant-apres-2026' class='text-primary font-semibold hover:underline'>communication interne de séminaire</a> vous donnera un cadre complet.</p>
+
+<p>Votre prochain séminaire pourrait produire à la fois des décisions stratégiques et 6 mois de contenu interne. Nos consultants peuvent vous accompagner dans la sélection d'un château avec les espaces acoustiques adaptés et la mise en relation avec des prestataires techniques événementiels. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis en ligne</a> et précisez votre projet de captation — nous l'intégrerons dès la recherche de lieu.</p>
+    `,
+    faq: [
+      { question: "Combien coûte la production d'un podcast lors d'un séminaire en château ?", answer: "Un épisode de podcast de 20 minutes capté et monté lors d'un séminaire coûte entre 350€ et 600€ tout compris (technicien son, matériel, montage externalisé). Pour 2 jours de séminaire avec un technicien présent en continu, le budget technique oscille entre 800€ et 1 800€ selon la configuration choisie, ce qui permet de produire 5 à 12 épisodes. C'est significativement moins cher qu'un studio de podcast parisien à la journée (800-1 500€/jour hors montage)." },
+      { question: "Faut-il une autorisation spéciale pour filmer dans un château ?", answer: "Oui, il faut systématiquement demander l'autorisation au château avant toute captation. La grande majorité des domaines partenaires de Select Châteaux acceptent la photographie et la vidéo à usage interne. Pour une diffusion externe (chaîne YouTube, LinkedIn), certains châteaux classés monuments historiques peuvent demander une redevance. Mentionnez explicitement le projet de captation lors de la réservation pour éviter toute surprise le jour J." },
+      { question: "Quelle pièce d'un château est idéale pour enregistrer un podcast ?", answer: "Les bibliothèques sont idéales pour l'enregistrement audio : les livres absorbent les fréquences hautes et réduisent naturellement la réverbération. Les salons avec moquette et rideaux lourds fonctionnent très bien aussi. À éviter : les grandes salles en pierre nue (écho prononcé) et tout espace adjacent à la cuisine, au groupe électrogène ou aux climatiseurs. Une simple mesure avec une application smartphone (ex : Spectroid) permet de vérifier l'acoustique en 2 minutes." },
+      { question: "Peut-on diffuser publiquement un podcast enregistré dans un château ?", answer: "Oui, si l'autorisation de captation inclut la diffusion externe et si aucun monument historique classé n'est identifiable de façon exclusive dans les visuels. Pour un podcast audio pur, la question ne se pose pas. Pour une vidéo avec plans larges du château, demandez une clause de droit à l'image du lieu dans votre contrat de privatisation. Select Châteaux peut vous aider à formuler cette demande lors de la négociation avec le domaine." },
+      { question: "Combien d'interviews peut-on réaliser en 2 jours de séminaire ?", answer: "Avec un technicien présent et des créneaux bien planifiés, 8 à 15 interviews de 15 à 30 minutes sont réalisables sur 2 jours de séminaire, sans empiéter sur le programme. La clé est de planifier les interviews dans les temps libres : pause déjeuner (13h30-14h30), avant-dîner (18h-19h) et début de matinée J+2. Un tableau de planning partagé avec les interviewés pressentis suffit à organiser la logistique." },
+      { question: "Faut-il prévenir les participants que des interviews seront réalisées pendant le séminaire ?", answer: "Oui, c'est fortement recommandé pour deux raisons. D'abord juridiquement : le droit à l'image impose un accord explicite pour toute diffusion (interne ou externe). Ensuite pratiquement : les participants prévenus sont plus disponibles et moins surpris. Mentionnez le projet dans l'invitation au séminaire et prévoyez une fiche de consentement signée par les interviewés le premier jour." },
+      { question: "Peut-on utiliser les enregistrements de séminaire pour du recrutement ?", answer: "Oui, et c'est l'un des usages les plus efficaces. Les témoignages de collaborateurs filmés dans un cadre château ont un impact significatif sur la marque employeur : ils montrent à la fois la culture d'entreprise et les conditions de travail valorisantes. Ces contenus fonctionnent particulièrement bien sur LinkedIn, les pages carrières et les campagnes d'offres d'emploi. Prévoyez des accords spécifiques de droit à l'image pour les collaborateurs dont les témoignages seront utilisés en recrutement externe." },
+    ],
+    howTo: {
+      name: "Produire un podcast d'entreprise lors d'un séminaire en château",
+      steps: [
+        { name: "Identifier les espaces acoustiques du château", text: "Repérez les bibliothèques, salons avec moquette et caves voûtées — ce sont les meilleurs espaces pour l'enregistrement. Évitez les grandes salles en pierre nue à forte réverbération." },
+        { name: "Planifier les interviews dans les créneaux libres", text: "Bloquez 30-45 min par interviewé dans les pauses déjeuner et avant-dîner. Intégrez explicitement le studio podcast dans le programme officiel distribué aux participants." },
+        { name: "Briefer les interviewés 48h avant", text: "Envoyez 3 à 5 questions ouvertes par email. Précisez que c'est une conversation, pas une performance. Les interviewés non scriptés donnent les meilleures prises." },
+        { name: "Choisir la configuration technique adaptée", text: "Pour un usage interne, une configuration semi-pro (technicien 400-600€/jour) suffit. Pour la marque employeur et le recrutement externe, investissez dans la vidéo 4K avec éclairage 3 points." },
+        { name: "Obtenir les autorisations et droits à l'image", text: "Mentionnez le projet de captation lors de la réservation du château et faites signer une fiche de consentement aux interviewés le premier jour du séminaire." },
+      ],
+    },
+  },
+
+  {
     id: 1069,
     slug: "spectacle-artistes-soiree-seminaire-chateau-2026",
     title: "Artistes & Spectacles pour Soirée Séminaire en Château 2026",
