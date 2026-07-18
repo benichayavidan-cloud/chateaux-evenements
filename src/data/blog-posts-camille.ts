@@ -7,6 +7,135 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1073,
+    slug: "securite-juridique-assurance-evenement-entreprise-chateau-2026",
+    title: "Assurance Événement Entreprise en Château : Guide Juridique 2026",
+    excerpt: "Responsabilité civile, annulation, intempéries : tout ce que votre entreprise doit vérifier avant de signer un contrat de séminaire en château en Île-de-France.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-18",
+    readingTime: 11,
+    image: "/images/securite-juridique-assurance-evenement-entreprise-chateau-2026.webp",
+    imageAlt: "Salle de réunion élégante dans un château en Île-de-France, table de conférence en bois, fenêtres donnant sur un parc à la française, lumière naturelle dorée",
+    keywords: ["assurance événement entreprise château", "responsabilité civile séminaire", "annulation séminaire château", "contrat séminaire château", "assurance organisateur événement", "garantie annulation séminaire", "couverture RC entreprise séminaire", "sécurité juridique séminaire château", "assurance intempéries séminaire", "contrat prestataire événementiel château"],
+    content: `
+<h2>Quelles assurances sont indispensables pour un séminaire en château en 2026 ?</h2>
+<p>Pour un séminaire en château en Île-de-France, trois garanties sont strictement indispensables en 2026 : la responsabilité civile organisateur (RC), la garantie annulation/interruption, et l'assurance dommages aux biens du lieu. La RC organisateur couvre entre 1 et 5 millions d'euros selon les formules, pour un coût compris entre 80 et 350 € selon la durée et le nombre de participants. D'après les 200+ séminaires que nous avons accompagnés en Île-de-France depuis 2020, 1 événement sur 8 a nécessité l'activation d'une clause contractuelle — annulation météo, participant blessé, prestataire défaillant. Ignorer ces garanties expose l'entreprise à des litiges pouvant dépasser 50 000 €. Mis à jour : juillet 2026.</p>
+
+<h2>Le séminaire de Claire M. : quand une clause d'annulation évite le désastre</h2>
+<p>Claire M., Responsable Formation dans une ESN de 200 collaborateurs, nous contacte en mars 2026 après avoir lu un article sur le blog Select Châteaux. Elle cherche un château privatisable dans les Yvelines pour un séminaire de 85 personnes sur deux jours, avec hébergement et repas inclus. Budget cible : 230 à 280 € par personne.</p>
+<p>Sophie Durand lui propose le <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a> avec visite de deux domaines à Rambouillet et Dampierre. Lors du premier rendez-vous conseil, Sophie aborde immédiatement la question contractuelle — un réflexe que Claire n'avait pas anticipé.</p>
+<p>«&nbsp;Le château de Dampierre que nous visitons est magnifique : grande galerie voûtée pour la plénière, six salles en pierre pour les ateliers, parc de 12 hectares pour les activités outdoor. Mais le contrat du domaine comprenait une clause de force majeure très restrictive : en cas d'annulation moins de 30 jours avant l'événement, 80 % des arrhes (soit 19 600 €) restaient acquis au château, quelle qu'en soit la raison.&nbsp;»</p>
+
+<blockquote><p>«&nbsp;J'explique systématiquement à mes clients que le contrat du lieu et leur propre assurance annulation sont deux choses distinctes. Le château se protège — c'est légitime. Mais l'entreprise doit se protéger aussi. Une RC organisateur à 180 € peut éviter de perdre 20 000 € d'arrhes si un dirigeant est hospitalisé la semaine précédant l'événement.&nbsp;»</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<p>Sophie recommande à Claire de souscrire une garantie annulation auprès de son assureur d'entreprise avant de verser les arrhes. Coût : 210 € pour une couverture à hauteur de 25 000 €. Trois semaines avant le séminaire, le directeur technique de l'ESN est hospitalisé d'urgence. L'événement est reporté de six semaines. La garantie annulation rembourse intégralement les arrhes. Le séminaire se tient finalement en mai, dans le même château, avec 92 participants. Budget final : 261 € par personne tout compris.</p>
+<p>«&nbsp;Sans Sophie, on perdait 20 000 € et on cherchait un autre prestataire en urgence. Là, on a juste reporté les dates — le château nous a gardé notre réservation.&nbsp;» — Claire M., Responsable Formation, ESN Paris La Défense.</p>
+
+<h2>Quelles sont les différences entre RC organisateur, assurance annulation et assurance dommages ?</h2>
+<p>Ces trois garanties couvrent des risques distincts et aucune ne remplace les deux autres. Voici un tableau comparatif des couvertures et coûts constatés en 2026 :</p>
+
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0;'>
+<thead>
+<tr style='background:#f3f4f6;'>
+<th style='border:1px solid #e5e7eb;padding:10px 14px;text-align:left;'>Type d'assurance</th>
+<th style='border:1px solid #e5e7eb;padding:10px 14px;text-align:left;'>Ce qu'elle couvre</th>
+<th style='border:1px solid #e5e7eb;padding:10px 14px;text-align:left;'>Coût moyen</th>
+<th style='border:1px solid #e5e7eb;padding:10px 14px;text-align:left;'>Obligatoire ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>RC Organisateur</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Dommages corporels ou matériels causés à des tiers (participants, château, voisins)</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>80 – 350 €</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Souvent exigée par le château</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Garantie annulation</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Remboursement des arrhes et acomptes en cas d'annulation pour cause légitime (maladie, grève, intempéries exceptionnelles)</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>150 – 600 €</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Fortement recommandée</td>
+</tr>
+<tr>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Assurance dommages</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Dégradations du mobilier, équipements du château, œuvres d'art en cas d'accident</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>50 – 200 €</td>
+<td style='border:1px solid #e5e7eb;padding:10px 14px;'>Exigée par certains châteaux classés</td>
+</tr>
+</tbody>
+</table>
+
+<p>Nota bene : la RC de l'entreprise (souscrite pour son activité quotidienne) couvre rarement les événements organisés hors des locaux. Vérifiez toujours les exclusions de votre contrat actuel avant de supposer que vous êtes couvert.</p>
+
+<h2>Quelles clauses contractuelles faut-il absolument négocier avec un château ?</h2>
+<p>D'après notre expérience sur les 50+ châteaux partenaires que nous avons visités et auprès desquels nous avons négocié des contrats, cinq clauses font la différence entre un événement serein et un litige coûteux :</p>
+<ul style='margin:1rem 0;padding-left:1.5rem;'>
+<li style='margin-bottom:.6rem;'><strong>Clause de report gratuit</strong> : possibilité de reporter l'événement dans les 12 mois suivants sans frais, en cas de force majeure avérée (état d'urgence sanitaire, catastrophe naturelle, décision gouvernementale).</li>
+<li style='margin-bottom:.6rem;'><strong>Grille d'arrhes progressive</strong> : idéalement 20 % à la signature, 30 % à J-90, solde à J-7. Méfiez-vous des châteaux qui exigent 50 % dès la réservation.</li>
+<li style='margin-bottom:.6rem;'><strong>Plafond de responsabilité matérielle</strong> : négocier un plafond d'indemnisation en cas de dégradation accidentelle (mobilier ancien, œuvres d'art). Certains châteaux demandent un dépôt de garantie de 2 000 à 10 000 €.</li>
+<li style='margin-bottom:.6rem;'><strong>Clause météorologique</strong> : pour les événements partiellement outdoor (garden party, team building parc), définir contractuellement les conditions de report ou de repli intérieur.</li>
+<li style='margin-bottom:.6rem;'><strong>Liste des prestataires exclusifs</strong> : certains châteaux imposent leur traiteur ou leur sono. Vérifier en amont pour ne pas avoir de surprise budgétaire.</li>
+</ul>
+
+<h2>Quelles sont les 5 étapes pour sécuriser juridiquement votre séminaire en château ?</h2>
+<ol style='margin:1rem 0;padding-left:1.5rem;'>
+<li style='margin-bottom:.8rem;'><strong>Auditer votre RC d'entreprise existante</strong> : demandez à votre assureur si votre contrat couvre les événements hors site avec participants tiers. Obtenez une attestation spécifique si oui, souscrivez une RC événement si non.</li>
+<li style='margin-bottom:.8rem;'><strong>Souscrire une garantie annulation avant de verser les arrhes</strong> : le timing est crucial — l'assurance doit être souscrite AVANT le paiement pour être valide. Prévoyez une couverture égale au total des arrhes + acomptes prévisionnels.</li>
+<li style='margin-bottom:.8rem;'><strong>Négocier les clauses clés du contrat château</strong> : report gratuit, grille d'arrhes progressive, plafond de responsabilité matérielle. Ne signez pas sans avoir relu les conditions d'annulation et de force majeure.</li>
+<li style='margin-bottom:.8rem;'><strong>Collecter les attestations RC de chaque prestataire externe</strong> : traiteur, animateur team building, DJ, photographe — chacun doit fournir son attestation RC avant l'événement. C'est vous qui êtes responsable de leur contrôle.</li>
+<li style='margin-bottom:.8rem;'><strong>Préparer un dossier juridique de l'événement</strong> : rassembler tous les contrats signés, attestations RC, confirmation d'assurance annulation et contacts d'urgence dans un fichier unique accessible le jour J.</li>
+</ol>
+
+<h2>Que couvre (ou ne couvre pas) la garantie annulation en cas d'intempéries ?</h2>
+<p>En juillet et août, les orages violents et la canicule sont les deux aléas climatiques les plus fréquents en Île-de-France. En 2025, nous avons constaté une hausse de 22 % des demandes de report liées à la météo pour les événements outdoor. Voici ce que couvrent généralement les garanties annulation :</p>
+<ul style='margin:1rem 0;padding-left:1.5rem;'>
+<li style='margin-bottom:.6rem;'><strong>Couverts</strong> : tempête classée (vents > 100 km/h avec bulletin Météo France), inondation reconnue catastrophe naturelle, alerte rouge départementale rendant l'accès impossible.</li>
+<li style='margin-bottom:.6rem;'><strong>Non couverts (en général)</strong> : pluie ordinaire, chaleur excessive, orage classique sans alerte officielle, mauvais temps prévu mais non exceptionnel.</li>
+<li style='margin-bottom:.6rem;'><strong>Zone grise</strong> : canicule avec alerte orange — certains assureurs acceptent, d'autres refusent. Lisez les conditions générales avant de signer.</li>
+</ul>
+<p>Pour les événements partiellement outdoor dans l'<a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a> ou en <a href='/seminaire-vallee-de-chevreuse' class='text-primary font-semibold hover:underline'>séminaire en Vallée de Chevreuse</a>, nous recommandons systématiquement de prévoir un plan de repli intérieur formalisé dans le contrat château, indépendamment de l'assurance.</p>
+
+<h2>Qui est responsable si un participant se blesse pendant le séminaire ?</h2>
+<p>La responsabilité dépend du lieu et de l'activité. En règle générale :</p>
+<ul style='margin:1rem 0;padding-left:1.5rem;'>
+<li style='margin-bottom:.6rem;'><strong>Dans les locaux du château</strong> : la responsabilité du propriétaire (château) peut être engagée pour un défaut d'entretien (dalle glissante, marche non signalée). L'entreprise organisatrice peut être co-responsable si elle a choisi le lieu.</li>
+<li style='margin-bottom:.6rem;'><strong>Pendant une activité team building encadrée</strong> : la RC du prestataire d'animation est en première ligne. Vérifiez qu'il dispose d'une RC professionnelle couvrant les activités physiques.</li>
+<li style='margin-bottom:.6rem;'><strong>Accident de trajet domicile-château</strong> : en cas de transport organisé par l'entreprise, la RC de l'entreprise s'applique. En cas de transport individuel, c'est l'assurance auto personnelle du salarié qui prend en charge.</li>
+</ul>
+<p>D'après 60 % de nos clients en entreprise de plus de 100 personnes, cette question de responsabilité n'est jamais abordée en amont — c'est pourtant l'un des risques les plus exposés lors d'un <a href='/team-building-chateau' class='text-primary font-semibold hover:underline'>team building en château</a>.</p>
+
+<p>Pour aller plus loin sur la gestion contractuelle, consultez notre article dédié aux <a href='/blog/contrat-organisateur-evenementiel-clauses-essentielles-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>clauses essentielles du contrat organisateur</a>, ou notre guide sur la <a href='/blog/assurance-responsabilite-organisateur-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>RC organisateur de séminaire en château</a>.</p>
+
+<h2>Conclusion : sécurisez votre événement avant de rêver au château</h2>
+<p>Un séminaire en château est une expérience mémorable — à condition que la partie administrative et juridique soit verrouillée avant la première bougie allumée. RC organisateur, garantie annulation, clauses contractuelles négociées : ces trois piliers transforment un beau projet en événement serein. Nos consultants vérifient systématiquement ces points avec vous dès le premier rendez-vous conseil, sans surcoût. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis personnalisé</a> et parlez-en à Sophie ou Thomas dès cette semaine.</p>
+    `,
+    faq: [
+      { question: "Est-ce que la RC de mon entreprise couvre un séminaire en château ?", answer: "Pas forcément. La RC d'entreprise standard couvre l'activité professionnelle dans vos locaux, mais exclut souvent les événements organisés hors site avec des participants tiers. Demandez à votre assureur une attestation spécifique pour l'événement, ou souscrivez une RC événement dédiée (comptez entre 80 et 350 € selon la durée et le nombre de participants)." },
+      { question: "Combien coûte une assurance annulation pour un séminaire en château ?", answer: "Une garantie annulation pour un séminaire de 50 à 100 personnes en château coûte généralement entre 150 et 600 € selon le montant total des arrhes à couvrir et les risques inclus (maladie, grève, intempéries). Elle doit être souscrite AVANT le versement des arrhes pour être valide." },
+      { question: "Quelles clauses contractuelles négocier avec un château pour un séminaire ?", answer: "Les cinq clauses essentielles sont : clause de report gratuit en cas de force majeure, grille d'arrhes progressive (évitez les 50 % dès la signature), plafond de responsabilité matérielle, clause météorologique pour les événements outdoor, et liste des prestataires exclusifs imposés. Select Châteaux accompagne cette négociation dans le cadre de son service de conseil." },
+      { question: "Qui est responsable si un participant se blesse pendant un team building en château ?", answer: "La responsabilité se partage selon l'activité : le château pour un défaut d'entretien des locaux, le prestataire d'animation pour une activité encadrée, l'entreprise organisatrice si elle a choisi le prestataire sans vérifier sa RC. Collectez les attestations RC de chaque prestataire avant l'événement." },
+      { question: "La garantie annulation couvre-t-elle les annulations pour intempéries ?", answer: "Cela dépend du niveau de l'aléa climatique. Une tempête classée par Météo France ou une inondation reconnue catastrophe naturelle sont généralement couvertes. La pluie ordinaire ou la chaleur sans alerte officielle ne le sont pas. En été en Île-de-France, vérifiez toujours les conditions générales de votre contrat d'assurance annulation." },
+      { question: "Faut-il collecter les attestations RC des prestataires (traiteur, DJ, animateur) ?", answer: "Oui, c'est indispensable. En tant qu'organisateur, vous êtes responsable de vérifier que chaque prestataire externe dispose d'une RC professionnelle valide. Un traiteur ou un animateur sans RC valide vous expose à des poursuites en cas d'accident. Demandez les attestations au moins 15 jours avant l'événement." },
+      { question: "Quel dépôt de garantie demandent les châteaux en Île-de-France ?", answer: "Les châteaux en Île-de-France demandent généralement un dépôt de garantie entre 1 000 et 10 000 € pour couvrir les éventuelles dégradations de mobilier ou d'œuvres d'art. Ce dépôt est restitué après état des lieux contradictoire. Certains châteaux classés monuments historiques peuvent demander une assurance dommages spécifique en complément." },
+    ],
+    howTo: {
+      name: "Sécuriser juridiquement un séminaire en château en Île-de-France",
+      steps: [
+        { name: "Auditer votre RC d'entreprise existante", text: "Demandez à votre assureur si votre contrat couvre les événements hors site. Obtenez une attestation spécifique ou souscrivez une RC événement dédiée si nécessaire." },
+        { name: "Souscrire une garantie annulation avant de verser les arrhes", text: "L'assurance annulation doit être souscrite AVANT le paiement pour être valide. Prévoyez une couverture égale au total des arrhes et acomptes prévisionnels." },
+        { name: "Négocier les clauses clés du contrat château", text: "Vérifiez la clause de report gratuit, la grille d'arrhes progressive, le plafond de responsabilité matérielle et les conditions météorologiques avant de signer." },
+        { name: "Collecter les attestations RC de chaque prestataire externe", text: "Traiteur, animateur, DJ, photographe : chacun doit fournir son attestation RC valide au moins 15 jours avant l'événement." },
+        { name: "Constituer un dossier juridique de l'événement", text: "Rassemblez tous les contrats, attestations RC, confirmation d'assurance annulation et contacts d'urgence dans un fichier unique accessible le jour J." },
+      ],
+    },
+  },
+
+  {
     id: 1001,
     slug: "interpreter-feedback-360-seminaire-chateau-guide-2026",
     title: "Feedback 360° en Séminaire Château : Guide Pratique 2026",
