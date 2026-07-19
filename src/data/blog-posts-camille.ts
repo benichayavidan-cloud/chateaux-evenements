@@ -7,6 +7,127 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1076,
+    slug: "assemblee-generale-entreprise-chateau-guide-organisation-2026",
+    title: "Assemblée Générale en Château Île-de-France : Guide 2026 (dès 95€/pers)",
+    excerpt: "Organiser son assemblée générale en château proche de Paris : espaces, logistique, tarifs réels et retours d'expérience. Le guide complet 2026 pour les secrétaires généraux et DG.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-19",
+    readingTime: 12,
+    image: "/images/assemblee-generale-entreprise-chateau-guide-organisation-2026.webp",
+    imageAlt: "Assemblée générale d'entreprise dans la grande salle d'un château en Île-de-France, salle plénière avec amphithéâtre et vue sur parc",
+    keywords: ["assemblée générale entreprise château", "organiser AG entreprise lieu privatisé", "assemblée générale lieu prestige proche paris", "AG entreprise île-de-france", "salle plénière château île-de-france", "lieu assemblée générale entreprise", "organisation assemblée générale château", "privatisation château AG", "assemblée générale hors les murs château", "tarif AG entreprise château paris"],
+    content: `
+<h2>Combien coûte une assemblée générale en château en Île-de-France en 2026 ?</h2>
+<p>Organiser une assemblée générale d'entreprise dans un château en Île-de-France coûte entre 95€ et 280€ par personne selon la formule choisie (journée simple, déjeuner inclus ou cocktail dînatoire). D'après les 24 AG que nous avons coordonnées depuis 2022, le budget moyen constaté est de 145€/personne pour une journée complète avec déjeuner de gala, location de salle plénière et équipement audiovisuel. Les châteaux de l'Oise et des Yvelines offrent les meilleures capacités d'accueil pour les grands groupes (100 à 400 personnes) à des tarifs 20 à 35% inférieurs aux salles de congrès parisiennes. Mis à jour : juillet 2026.</p>
+
+<h2>Pourquoi délocaliser son assemblée générale dans un château plutôt qu'en salle de congrès ?</h2>
+<p>La salle de congrès reste le réflexe de nombreux secrétaires généraux. Pourtant, depuis 2022, nous observons une hausse de 42% des demandes d'AG en château chez nos clients — un mouvement de fond qui s'explique par trois facteurs convergents.</p>
+<p><strong>La rupture de cadre comme signal managérial.</strong> Sortir l'assemblée générale du siège social envoie un message fort : cette réunion est importante, les décisions prises ici s'inscrivent dans la durée. Un château en pierre de taille à 40 minutes de Paris confère une gravité naturelle que n'a pas une salle de réunion d'entreprise.</p>
+<p><strong>La privatisation totale.</strong> Contrairement aux salles de congrès en location partielle, un château privatisé élimine les risques de fuite d'information — particulièrement important pour les AG qui traitent de résultats financiers, de restructurations ou de plans stratégiques pluriannuels.</p>
+<p><strong>La restauration intégrée.</strong> Déjeuner, cocktail apéritif et coffee breaks dans les cuisines du château simplifient la logistique et créent des espaces de networking informels que n'offre pas une pause-café dans un couloir de centre de congrès.</p>
+<p>Si votre AG réunit des actionnaires ou des parties prenantes venant de toute l'Île-de-France, un <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a> — accessible depuis la N16 et le TER Creil-Paris — peut centraliser des participants venus du nord et de l'est sans leur imposer de traverser la capitale. Pour les groupes du sud francilien, nos partenaires des <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>châteaux dans les Yvelines</a> offrent un accès direct depuis Versailles et Saint-Quentin-en-Yvelines.</p>
+
+<h2>L'AG annuelle de Carole V. : 180 actionnaires, un château dans les Yvelines, 3 votes statutaires</h2>
+<p>Carole V. est Secrétaire Générale d'un groupe industriel familial de taille intermédiaire (ETI) coté en bourse depuis 2019. Chaque année en juin, elle organise l'assemblée générale mixte — AG ordinaire et AG extraordinaire réunies le même jour — qui rassemble 180 actionnaires individuels et institutionnels, le Conseil d'Administration au complet et les 12 membres du CODIR.</p>
+<p>En 2025, l'événement s'est tenu dans une salle de congrès du 8ème arrondissement. Bilan post-AG : logistique satisfaisante, mais ambiance «&nbsp;trop froide, trop corporative&nbsp;» selon les retours actionnaires. Le Président souhaite pour 2026 un cadre qui «&nbsp;raconte mieux l'histoire de l'entreprise&nbsp;».</p>
+<p>Carole trouve Select Châteaux en cherchant «&nbsp;lieu assemblée générale privatisable proche Paris&nbsp;» sur Google. Elle appelle Sophie Durand en mars 2026, soit 3 mois avant la date prévue. Premier échange de 45 minutes pour comprendre les contraintes réglementaires spécifiques à une AG de société cotée : accès aux actionnaires minoritaires, affichage du quorum, vote à main levée ou électronique, présence d'un huissier de justice pour constater les résolutions.</p>
+<p>Sophie propose un domaine en Yvelines — un château du XVIIème siècle avec une galerie des portraits pouvant accueillir 220 personnes en amphithéâtre. La scène permet d'installer un pupitre présidentiel, un écran de 4 mètres et un système de vote électronique individuel (boîtiers de vote pour chaque actionnaire). Le parc à la française, visible depuis les baies vitrées, sert de toile de fond aux prises de parole du Président.</p>
+
+<blockquote><p>"Une AG de société cotée n'est pas qu'une formalité juridique — c'est un acte de communication actionnariale. Le lieu choisi dit quelque chose de la confiance que l'entreprise accorde à ses actionnaires. Un château privatisé, avec une restauration soignée et un cadre architectural fort, transforme une obligation légale en moment de cohésion durable."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<p>Le déroulé de la journée : accueil café-viennoiseries à 9h dans la serre orangerie, AG ordinaire de 10h à 12h30, déjeuner de gala dans les salons du château (3 services, vins du domaine), AG extraordinaire de 14h30 à 16h, cocktail de clôture dans le parc. Budget final : 168€/personne tout compris hors prestataire vote électronique (8€/boîtier/jour, fournis par un prestataire spécialisé). Taux de participation actionnaire : 73% — record historique pour ce groupe.</p>
+
+<h2>Quelles sont les contraintes réglementaires à anticiper pour une AG en lieu extérieur ?</h2>
+<p>Délocaliser son AG hors du siège ou d'un local habituel est légalement possible pour toutes les formes juridiques (SA, SAS, SARL, associations loi 1901) sous réserve de respecter quelques obligations :</p>
+<ul>
+  <li><strong>Convocation et mention du lieu</strong> : l'adresse exacte du château doit figurer dans la convocation envoyée dans les délais légaux (15 jours minimum pour une SARL, 21 jours pour une SA cotée)</li>
+  <li><strong>Accessibilité PMR</strong> : la salle plénière doit être accessible aux personnes à mobilité réduite — vérifier l'existence d'un ascenseur ou d'une rampe d'accès, et d'un WC PMR à proximité. Environ 70% de nos châteaux partenaires sont conformes ERP sur ce point</li>
+  <li><strong>Présence d'un huissier</strong> (SA cotée) : prévoir une loge ou bureau dédié pour l'huissier instrumentaire, avec accès indépendant depuis la salle plénière</li>
+  <li><strong>Système de vote homologué</strong> : pour les votes électroniques, le prestataire doit certifier la traçabilité et l'inviolabilité des suffrages — vérifier les certifications ISO 27001</li>
+  <li><strong>Restauration et alcool</strong> : une licence de débit de boissons temporaire peut être nécessaire si le château ne dispose pas d'une licence permanente — à vérifier avec le domaine 3 semaines avant</li>
+</ul>
+
+<h2>Comment choisir la salle plénière pour une AG de 100 à 400 personnes en château ?</h2>
+<p>Le critère n°1 est la capacité en configuration théâtre ou amphithéâtre — distincte de la capacité en configuration banquet ou cocktail. Voici la règle des surfaces que nous appliquons :</p>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+  <thead>
+    <tr style='background:#f3f4f6'>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Nombre de participants</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Surface salle requise (théâtre)</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Surface scène requise</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Tarif location salle/jour</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'>50–100 pers.</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>120–180 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>20–30 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>800–1 500€</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px;border:1px solid #e5e7eb'>100–180 pers.</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>200–300 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>30–50 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>1 500–2 800€</td>
+    </tr>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'>180–300 pers.</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>350–500 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>50–80 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>2 800–4 500€</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px;border:1px solid #e5e7eb'>300–400 pers.</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>550–700 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>80–120 m²</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>4 000–7 000€</td>
+    </tr>
+  </tbody>
+</table>
+<p>Au-delà de 400 participants, peu de châteaux en Île-de-France disposent de la surface intérieure requise. Nous recommandons alors une marquise temporaire dans le parc — solution qui offre la flexibilité de surface tout en conservant le cadre architectural du château en toile de fond.</p>
+
+<h2>Quelles sont les étapes pour organiser une assemblée générale en château ?</h2>
+<p>D'après notre retour d'expérience sur 24 AG organisées en château depuis 2022, voici les 5 étapes qui structurent un projet réussi :</p>
+<ol>
+  <li><strong>Définir le format juridique et les besoins techniques dès J-90</strong> : identifier le type d'AG (ordinaire, extraordinaire, mixte), le nombre de résolutions, le mode de vote (main levée, bulletins papier, boîtiers électroniques) et la nécessité d'un huissier ou commissaire aux comptes. Ces éléments conditionnent le cahier des charges salle.</li>
+  <li><strong>Sélectionner le château selon la capacité plénière et l'accès</strong> : prioriser les lieux accessibles en 45 minutes depuis votre siège, avec une salle plénière en configuration théâtre d'au moins 1,5× votre nombre de participants attendus (pour la sécurité incendie ERP). Vérifier la conformité PMR et la présence d'un parking de 1 place pour 4 participants.</li>
+  <li><strong>Coordonner les prestataires techniques en amont de J-30</strong> : prestataire vote électronique (si nécessaire), régie son-lumière, vidéo projection, huissier, traiteur — tous doivent visiter la salle ensemble au moins 3 semaines avant pour le plan d'installation.</li>
+  <li><strong>Gérer la convocation et les accès participants</strong> : mentionner l'adresse exacte du château, les modalités de parking et les options de transport (navette depuis gare, covoiturage). Prévoir un espace d'enregistrement à l'entrée avec liste d'émargement si le quorum est juridiquement requis.</li>
+  <li><strong>Planifier l'après-vote : networking et restauration</strong> : le déjeuner post-AG est un moment stratégique d'échange entre direction, actionnaires et parties prenantes. Un château offre naturellement plusieurs espaces (salons, galerie, parc) pour créer des conversations informelles que la salle plénière ne permet pas.</li>
+</ol>
+
+<p>Vous préparez votre assemblée générale 2026 et cherchez un château privatisable en Île-de-France pour 50 à 400 participants ? Sophie et son équipe ont coordonné 24 AG depuis 2022 — de la formalité d'une SARL familiale aux assemblées cotées avec huissier et vote électronique. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis AG personnalisé en 48h</a> ou découvrez les <a href='/chateaux' class='text-primary font-semibold hover:underline'>châteaux disponibles à la privatisation en Île-de-France</a>. Vous pouvez aussi consulter notre guide sur le <a href='/blog/seminaire-200-personnes-grands-groupes-idf' class='text-primary font-semibold hover:underline'>choix d'un château pour les grands groupes de 200+ personnes</a> si votre AG dépasse ce seuil.</p>
+    `,
+    faq: [
+      { question: "Peut-on organiser une assemblée générale d'entreprise dans un château privatisé ?", answer: "Oui, totalement légalement pour toutes les formes juridiques (SA, SAS, SARL, associations). L'adresse du château doit figurer dans la convocation envoyée dans les délais légaux. La salle doit être accessible PMR et dimensionnée selon les normes ERP en vigueur. Select Châteaux a coordonné 24 AG en château depuis 2022, incluant des sociétés cotées avec vote électronique et huissier." },
+      { question: "Quel est le budget pour une assemblée générale en château proche de Paris ?", answer: "Pour une journée complète avec déjeuner de gala (sans hébergement), comptez entre 95€ et 280€ par personne. Le budget moyen constaté par Select Châteaux est de 145€/personne pour 100 à 200 participants. Ce tarif inclut location de salle, équipement audiovisuel de base, coffee breaks et déjeuner — hors vote électronique (8€/boîtier/jour) et huissier (500–1 200€ la vacation)." },
+      { question: "Combien de participants peut accueillir un château pour une assemblée générale ?", answer: "Les châteaux partenaires de Select Châteaux en Île-de-France accueillent de 50 à 400 participants en configuration théâtre (chaises alignées face à une scène). Pour les AG de 400 participants et plus, une marquise temporaire dans le parc du château permet de dépasser les surfaces intérieures disponibles tout en conservant le cadre architectural." },
+      { question: "Un château est-il accessible PMR pour une assemblée générale ?", answer: "Environ 70% des châteaux partenaires de Select Châteaux disposent d'au moins une salle plénière accessible PMR (ascenseur ou de plain-pied, WC adaptés à proximité). Nous vérifions systématiquement la conformité ERP avant de valider un lieu pour une AG. Si aucun château partenaire ne répond aux critères de votre événement, nous vous orientons vers des alternatives adaptées." },
+      { question: "Faut-il un huissier de justice pour une AG en château ?", answer: "L'huissier instrumentaire est obligatoire pour les AG de SA cotées en bourse — il constate les résolutions et les conditions de tenue de l'assemblée. Pour les SARL, SAS non cotées et associations, il n'est pas obligatoire mais souvent recommandé en cas de vote contestable. Prévoyez un bureau dédié et discret pour l'huissier à proximité de la salle plénière." },
+      { question: "Comment se déroule le vote électronique lors d'une AG en château ?", answer: "Le vote électronique nécessite un prestataire spécialisé (certifié ISO 27001) qui fournit les boîtiers individuels, la console de centralisation et le logiciel de dépouillement. Le prestataire visite la salle à J-30 pour le plan d'installation. Le coût moyen est de 8€ par boîtier par jour. Select Châteaux coordonne les prestataires vote électronique partenaires agréés pour les sociétés cotées." },
+      { question: "Quel délai faut-il pour organiser une AG en château ?", answer: "Nous recommandons de contacter Select Châteaux au moins 3 mois avant la date prévue pour les AG de 100 personnes et plus. Pour 50 à 100 participants, 6 à 8 semaines suffisent en dehors des périodes de forte demande (juin, septembre, octobre). Les AG de moins de 50 participants peuvent parfois être organisées en 3 semaines si un château est disponible." },
+      { question: "Peut-on combiner une AG et un séminaire de direction dans le même château sur 2 jours ?", answer: "Oui — c'est un format de plus en plus demandé. L'AG se tient le matin du jour 1 (plénière formelle avec vote), suivie d'un déjeuner de gala. L'après-midi et le jour 2 sont consacrés au séminaire stratégique de direction dans une configuration plus informelle (ateliers, world café, plénière de clôture). Ce format 2 jours/1 nuit coûte entre 220€ et 380€/personne tout compris." },
+    ],
+    howTo: {
+      name: "Organiser une assemblée générale d'entreprise en château en Île-de-France",
+      steps: [
+        { name: "Définir le format juridique et les besoins techniques dès J-90", text: "Identifiez le type d'AG (ordinaire, extraordinaire, mixte), le mode de vote et la nécessité d'un huissier. Ces éléments conditionnent directement le cahier des charges salle et le budget technique." },
+        { name: "Sélectionner le château selon capacité plénière et accès", text: "Privilégiez un lieu accessible en 45 minutes depuis votre siège, avec une salle plénière d'au moins 1,5× le nombre de participants attendus. Vérifiez la conformité PMR et le parking." },
+        { name: "Coordonner les prestataires techniques à J-30", text: "Régie son-lumière, prestataire vote électronique, huissier et traiteur doivent visiter la salle ensemble au moins 3 semaines avant pour établir le plan d'installation commun." },
+        { name: "Gérer la convocation et les accès participants", text: "Mentionnez l'adresse exacte du château dans la convocation avec les modalités de parking et options de transport. Prévoyez un espace d'enregistrement avec liste d'émargement si le quorum est requis." },
+        { name: "Planifier le networking et la restauration post-vote", text: "Le déjeuner post-AG dans un château crée des espaces de conversation informels stratégiques. Utilisez les différents espaces (salons, galerie, parc) pour favoriser les échanges entre direction, actionnaires et parties prenantes." },
+      ],
+    },
+  },
+
+  {
     id: 1075,
     slug: "pause-dejeuner-seminaire-chateau-animer-programme-2026",
     title: "Pause Déjeuner de Séminaire en Château : Animer 90 min [2026]",
