@@ -7,6 +7,154 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1079,
+    slug: "universite-entreprise-chateau-guide-2026",
+    title: "Université d'Entreprise en Château Île-de-France : Guide 2026 (dès 175€/pers)",
+    excerpt: "Organiser une université d'entreprise ou d'été en château en Île-de-France : formats résidentiels, budgets réels et conseils pédagogiques pour un programme formation mémorable.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-19",
+    readingTime: 12,
+    image: "/images/universite-entreprise-chateau-guide-2026.webp",
+    imageAlt: "Atelier formation en château Île-de-France, groupe de managers en session de travail dans une salle lumineuse avec vue sur parc",
+    keywords: ["université d'entreprise château", "université d'été entreprise", "formation résidentielle château", "université interne entreprise", "organiser université d'entreprise", "programme formation château", "séminaire formation château", "learning expedition château", "formation managers château île-de-france", "université d'entreprise île-de-france"],
+    content: `
+<h2>Qu'est-ce qu'une université d'entreprise en château et combien ça coûte en 2026 ?</h2>
+<p><em>Mis à jour : Juillet 2026</em></p>
+<p>Une université d'entreprise organisée en château en Île-de-France coûte entre 175€ et 450€ par personne et par jour en 2026, hébergement, restauration et animation pédagogique inclus. Il s'agit d'un format résidentiel de 2 à 5 jours dans lequel une organisation regroupe ses managers ou experts pour un programme intensif de formation, de partage de pratiques et de développement des compétences. D'après les 28 universités d'entreprise que nous avons accompagnées depuis 2021, le format le plus courant est une université d'été de 3 jours, organisée entre mi-juin et fin juillet, pour des cohortes de 25 à 80 participants. Les châteaux de l'<a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>Oise</a> et des <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>Yvelines</a> sont les destinations les plus demandées pour ce format, grâce à leurs capacités d'hébergement intégrées et leurs parcs adaptés aux sessions outdoor.</p>
+
+<h2>Comment Frédéric M. a lancé la première université d'entreprise de son groupe industriel</h2>
+<p>En janvier 2026, Frédéric M., Directeur de la Formation d'un groupe industriel agroalimentaire de 1 400 collaborateurs, appelle Sophie Durand avec un projet ambitieux : créer une université d'été pour les 60 managers de proximité de l'entreprise, sans budget formation exorbitant, dans un cadre qui sorte vraiment du quotidien des usines.</p>
+
+<p>Sophie l'emmène visiter le <strong>Château de Breteuil</strong>, dans les <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>Yvelines</a>, à 50 minutes de Paris. Le domaine dispose de 32 chambres, d'une grande salle de plénière de 80 places et de trois salles atelier de 15-20 places chacune — exactement ce qu'il faut pour alterner sessions en grand groupe et ateliers par promotion. Sophie remarque dès la visite que le parc de 180 hectares permettra d'organiser les sessions de l'après-midi en outdoor, avec des sous-groupes dispersés dans des kiosques à la française.</p>
+
+<p>Le programme retenu pour l'université de juin 2026 :</p>
+<ul>
+<li><strong>Jour 1</strong> : arrivée déjeuner, conférence inaugurale par le DG, 3 ateliers thématiques en rotation (leadership situationnel, gestion des conflits, communication opérationnelle)</li>
+<li><strong>Jour 2</strong> : learning expedition dans le parc (mise en situation réelle de gestion d'équipe sur un chantier simulé), grand débat du soir autour d'un dîner à la bougie dans la grande salle des gardes</li>
+<li><strong>Jour 3</strong> : restitutions des équipes, plan d'engagement individuel, remise des certificats de participation, déjeuner de clôture</li>
+</ul>
+
+<p>Budget total : 198€ par personne et par jour, hébergement en chambre double inclus, soit 594€ sur 3 jours. "Je m'attendais à dépasser les 700€. Sophie a négocié le château en semaine de juin, hors période de pointe, et ça a tout changé sur le budget," témoigne Frédéric.</p>
+
+<blockquote>
+<p>"L'université d'entreprise en château fonctionne parce que le cadre historique impose naturellement un autre rapport au temps. Les participants ne regardent plus leur téléphone entre les sessions. Il y a quelque chose dans la pierre, dans les jardins, dans le fait d'être ensemble 24h/24 qui libère une qualité d'attention qu'on n'obtient jamais dans une salle de formation en entreprise."</p>
+<p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p>
+</blockquote>
+
+<h2>Quelle différence entre une université d'entreprise et un séminaire de formation classique ?</h2>
+<p>La distinction est à la fois pédagogique et symbolique. Un séminaire de formation classique dure 1 à 2 jours et traite d'un sujet précis. Une université d'entreprise est un dispositif récurrent, souvent annuel, qui s'inscrit dans une stratégie RH à long terme.</p>
+
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+<thead>
+<tr style='background:#f3f4f6'>
+<th style='padding:10px;text-align:left;border:1px solid #e5e7eb'>Critère</th>
+<th style='padding:10px;text-align:left;border:1px solid #e5e7eb'>Séminaire formation</th>
+<th style='padding:10px;text-align:left;border:1px solid #e5e7eb'>Université d'entreprise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='padding:10px;border:1px solid #e5e7eb'>Durée typique</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>1-2 jours</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>3-5 jours</td>
+</tr>
+<tr style='background:#f9fafb'>
+<td style='padding:10px;border:1px solid #e5e7eb'>Récurrence</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Ponctuelle</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Annuelle ou bi-annuelle</td>
+</tr>
+<tr>
+<td style='padding:10px;border:1px solid #e5e7eb'>Public</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Variable</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Cohorte définie (managers, experts, hauts potentiels)</td>
+</tr>
+<tr style='background:#f9fafb'>
+<td style='padding:10px;border:1px solid #e5e7eb'>Objectif principal</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Acquérir une compétence</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Développer une culture commune + compétences</td>
+</tr>
+<tr>
+<td style='padding:10px;border:1px solid #e5e7eb'>Format pédagogique</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Cours, ateliers</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>Ateliers, conférences, mises en situation, networking</td>
+</tr>
+<tr style='background:#f9fafb'>
+<td style='padding:10px;border:1px solid #e5e7eb'>Budget moyen/pers.</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>160-280€/jour</td>
+<td style='padding:10px;border:1px solid #e5e7eb'>175-450€/jour</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Comment concevoir le programme pédagogique d'une université d'entreprise en château ?</h2>
+<p>La conception du programme est l'étape la plus critique. Un cadre exceptionnel comme un château ne compense pas un programme mal structuré — il l'amplifie dans les deux sens.</p>
+
+<ul>
+<li><strong>Alterner les formats</strong> : ne pas empiler plus de 90 minutes de cours magistral d'affilée. Les participants en château s'attendent à un rythme différent. Prévoir au moins 40% du temps en ateliers pratiques ou en outdoor.</li>
+<li><strong>Exploiter le château lui-même</strong> : une visite guidée de l'histoire du domaine en soirée, une session de brainstorming dans le parc, un dîner dans les cuisines avec le chef — ces moments "hors programme" sont souvent cités comme les plus marquants.</li>
+<li><strong>Intégrer des intervenants externes</strong> : conférencier inspirant, expert métier, coach certifié. Budget moyen : 1 500 à 6 000€ pour une intervention d'une demi-journée.</li>
+<li><strong>Prévoir des temps libres assumés</strong> : 45 à 60 minutes de pause non structurée dans l'après-midi favorisent les échanges informels qui renforcent la culture commune.</li>
+<li><strong>Clôturer avec des engagements individuels</strong> : chaque participant repart avec un plan d'action personnel de 3 points. C'est ce qui transforme une expérience en changement durable.</li>
+</ul>
+
+<h2>Quelles sont les étapes pour organiser une université d'entreprise en château ?</h2>
+<ol>
+<li><strong>Définir la vision et les objectifs RH</strong> : clarifier pourquoi l'université est créée (développement des managers, acculturation à une nouvelle stratégie, fidélisation des hauts potentiels), qui y participe et quelle sera sa récurrence. Cette étape implique la DRH et la direction générale.</li>
+<li><strong>Concevoir le programme pédagogique</strong> : lister les blocs de contenu (thèmes, formats, intervenants), construire le rythme jour par jour, identifier les moments "signature" qui rendront cette université reconnaissable d'une édition à l'autre.</li>
+<li><strong>Choisir le château et le réserver</strong> : idéalement 5 à 8 mois à l'avance pour les universités d'été. Vérifier la capacité d'hébergement (chambres), le nombre de salles atelier, la qualité de la connexion wifi et l'accessibilité depuis les sites de l'entreprise. Une <a href='/devis' class='text-primary font-semibold hover:underline'>demande de devis multi-lieux</a> permet de comparer rapidement.</li>
+<li><strong>Coordonner les intervenants et prestataires</strong> : confirmer les conférenciers, coachs et animateurs au moins 3 mois à l'avance. Préparer un conducteur précis pour chaque journée.</li>
+<li><strong>Communiquer et impliquer les participants en amont</strong> : envoyer un programme, des lectures préparatoires, un questionnaire de positionnement. La préparation en amont double l'engagement pendant l'université.</li>
+</ol>
+
+<h2>Peut-on financer une université d'entreprise via l'OPCO ?</h2>
+<p>Partiellement oui. La partie pédagogique (intervenants, animation, conception du programme) est éligible à la prise en charge OPCO si elle entre dans le plan de développement des compétences (PDC) de l'entreprise. En revanche, les frais d'hébergement, de restauration et de location du château ne sont généralement pas pris en charge par l'OPCO — ils restent à la charge de l'employeur.</p>
+
+<p>En pratique, sur nos 28 universités d'entreprise accompagnées, 18 ont bénéficié d'une prise en charge partielle OPCO couvrant en moyenne 35% du coût total de l'événement. La clé est d'avoir un organisme de formation référencé Qualiopi comme co-organisateur de la partie pédagogique. Notre réseau inclut plusieurs organismes de formation partenaires capables de prendre en charge ce rôle.</p>
+
+<h2>Les meilleurs mois pour organiser son université d'entreprise en château</h2>
+<p>En juillet 2026, les châteaux de l'Oise et des Yvelines ont encore des disponibilités pour des créneaux de mi-juillet à fin août — souvent sous-demandés car les entreprises hésitent à mobiliser leurs managers en plein été. C'est pourtant une période idéale : les jardins sont au maximum de leur splendeur, les soirées sont longues, et les participants sont dans un état d'esprit plus détendu et créatif. 72% des participants à nos universités d'été déclarent que le contexte estival a favorablement influencé leur ouverture aux apprentissages.</p>
+
+<p>Pour planifier sereinement, voici les fenêtres de disponibilité et leur niveau de tension :</p>
+
+<ul>
+<li><strong>Mi-juin à mi-juillet</strong> : forte tension, réserver 5-6 mois à l'avance</li>
+<li><strong>Mi-juillet à fin août</strong> : disponibilités plus larges, idéal pour une réservation de dernière minute (2-3 mois)</li>
+<li><strong>Septembre</strong> : très forte tension — c'est la rentrée de tous les séminaires. Réserver en janvier-février pour septembre.</li>
+<li><strong>Octobre-novembre</strong> : bonne disponibilité, ambiance forestière et lumière d'automne particulièrement adaptées aux sessions introspectives</li>
+</ul>
+
+<p>Consultez notre page dédiée au <a href='/seminaire-chateau-ile-de-france' class='text-primary font-semibold hover:underline'>séminaire en château en Île-de-France</a> pour explorer l'ensemble des domaines disponibles selon vos dates.</p>
+
+<h2>Conclusion : l'université d'entreprise en château, un levier RH différenciateur</h2>
+<p>Dans un contexte de guerre des talents, offrir à ses managers une université résidentielle en château, c'est envoyer un signal fort : l'entreprise investit dans leur développement avec sérieux et générosité. Le format château n'est pas un luxe — c'est un catalyseur pédagogique. Les apprentissages vécus dans un cadre exceptionnel s'ancrent mieux, les réseaux internes se renforcent, et les participants reviennent avec un sentiment d'appartenance renforcé. Pour construire votre première université d'entreprise ou faire évoluer un format existant, notre équipe vous accompagne de la conception pédagogique au choix du château. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez un devis et un conseil personnalisé</a> — réponse sous 48h.</p>
+    `,
+    faq: [
+      { question: "Combien coûte une université d'entreprise en château ?", answer: "Le coût d'une université d'entreprise en château en Île-de-France est de 175 à 450€ par personne et par jour en 2026, hébergement et restauration inclus. Pour une université de 3 jours avec 50 participants dans un château des Yvelines, comptez un budget total de 26 000 à 55 000€ selon le standing du domaine et le niveau d'animation pédagogique." },
+      { question: "Quelle est la durée idéale d'une université d'entreprise ?", answer: "Le format le plus efficace et le plus courant est de 3 jours résidentiels, selon les 28 universités d'entreprise que nous avons accompagnées. Ce format permet d'alterner formation, mise en pratique et temps informels de networking, sans mobiliser les participants trop longtemps loin de leurs équipes. Les formats 4-5 jours sont réservés aux universités d'hauts potentiels ou aux programmes très intensifs." },
+      { question: "Combien de participants peut accueillir une université d'entreprise en château ?", answer: "La plupart des châteaux adaptés à ce format accueillent entre 20 et 120 participants en hébergement. Pour des cohortes de plus de 80 personnes, il faut vérifier que le château dispose de plusieurs salles atelier indépendantes et d'une salle plénière de capacité suffisante. Les domaines de l'Oise et des Yvelines sont les mieux équipés pour les groupes de 40 à 80 personnes." },
+      { question: "Peut-on financer une université d'entreprise avec l'OPCO ?", answer: "La partie pédagogique (intervenants, animation, conception du programme) est éligible à la prise en charge OPCO si elle s'inscrit dans le plan de développement des compétences. En moyenne, nos clients obtiennent une prise en charge de 30 à 40% du coût total. Les frais de château, d'hébergement et de restauration restent à la charge de l'employeur." },
+      { question: "Quelle est la différence entre une université d'entreprise et un séminaire de formation ?", answer: "Une université d'entreprise est un dispositif récurrent (souvent annuel) qui vise à développer une culture commune et des compétences sur plusieurs jours, pour une cohorte définie (managers, hauts potentiels). Un séminaire de formation classique est ponctuel, traite d'un sujet précis sur 1-2 jours, et s'adresse à des groupes variables. L'université d'entreprise en château amplifie les deux dimensions — formation et cohésion." },
+      { question: "Combien de temps à l'avance réserver un château pour une université d'entreprise ?", answer: "5 à 8 mois à l'avance pour les universités d'été (juin-juillet), qui sont les plus demandées. Pour septembre, réserver en janvier-février est indispensable. Des disponibilités de dernière minute existent parfois en mi-juillet et août, périodes sous-demandées malgré leur intérêt pédagogique réel." },
+      { question: "Le cadre château améliore-t-il vraiment les apprentissages ?", answer: "Nos retours terrain le confirment : 72% des participants à nos universités d'été en château déclarent que le cadre a favorablement influencé leur ouverture aux apprentissages. La rupture spatiale avec le quotidien de travail, la vie communautaire 24h/24 et la qualité des espaces informels (parcs, salons) créent des conditions d'attention et de confiance difficiles à reproduire dans un environnement urbain." },
+    ],
+    howTo: {
+      name: "Organiser une université d'entreprise en château en Île-de-France",
+      steps: [
+        { name: "Définir la vision et les objectifs RH", text: "Clarifier pourquoi l'université est créée, qui y participe et quelle sera sa récurrence. Impliquer la DRH et la direction générale dès cette étape." },
+        { name: "Concevoir le programme pédagogique", text: "Lister les thèmes, formats et intervenants. Construire le rythme jour par jour en alternant plénières, ateliers et temps outdoor. Prévoir les moments 'signature' qui rendront l'université reconnaissable." },
+        { name: "Choisir et réserver le château", text: "Vérifier la capacité d'hébergement, le nombre de salles atelier, la qualité du wifi et l'accessibilité. Réserver 5 à 8 mois à l'avance pour les universités d'été. Lancer une demande de devis pour comparer 3-4 domaines." },
+        { name: "Coordonner les intervenants et prestataires", text: "Confirmer conférenciers, coachs et animateurs 3 mois à l'avance. Préparer un conducteur précis pour chaque journée et l'envoyer à tous les intervenants." },
+        { name: "Préparer et impliquer les participants en amont", text: "Envoyer le programme, des lectures préparatoires et un questionnaire de positionnement. La préparation en amont double l'engagement pendant l'université." },
+      ],
+    },
+  },
+
+  {
     id: 1078,
     slug: "gestion-allergies-malaises-seminaire-chateau-protocole-urgence-2026",
     title: "Allergies et Urgences Médicales en Séminaire Château : Protocole 2026",
