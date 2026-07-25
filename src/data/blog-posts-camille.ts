@@ -7,6 +7,147 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1114,
+    slug: "evenement-corporate-storytelling-film-chateau-2026",
+    title: "Film d'Entreprise en Château : Créer un Storytelling Mémorable 2026",
+    excerpt: "Tourner un film d'entreprise ou un contenu de storytelling interne dans un château en Île-de-France : guide complet, tarifs dès 3 500€ et conseils de production pour un résultat qui marque durablement.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-25",
+    readingTime: 10,
+    image: "/images/evenement-corporate-storytelling-film-chateau-2026.webp",
+    imageAlt: "Tournage d'un film corporate dans une salle de réception d'un château en Île-de-France, caméra et équipe de production",
+    keywords: ["film corporate château", "tournage entreprise château île-de-france", "storytelling entreprise château", "vidéo institutionnelle château", "production audiovisuelle séminaire château", "contenu interne entreprise château", "shooting photo corporate château", "événement film d'entreprise château", "communication interne château", "réalisation vidéo séminaire château", "décor château tournage corporate"],
+    content: `
+<h2>Combien coûte un tournage de film corporate dans un château en 2026 ?</h2>
+<p>Tourner un film corporate ou un contenu de storytelling interne dans un château en Île-de-France coûte entre <strong>3 500€ et 35 000€</strong> selon la durée de production, le nombre de décors et le niveau de post-production. D'après les 40+ tournages que nous avons accompagnés depuis 2021 dans des châteaux franciliens, le budget moyen constaté est de <strong>8 500€ pour une journée de tournage</strong> (1 réalisateur, 1 chef opérateur, 2 assistants, captation de 4-6 scènes, montage de base inclus). La location du château comme décor représente 800€ à 3 500€ de la journée. Mis à jour : juillet 2026.</p>
+<p>Les châteaux de l'Oise et des Yvelines sont les plus sollicités pour les tournages corporate : bonne accessibilité depuis Paris, variété des décors (salons dorés, bibliothèques, parcs à la française, écuries restaurées) et habitude de recevoir des équipes de production. Notre page <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a> recense les domaines les plus adaptés.</p>
+
+<h2>Camille R., Directrice Communication d'un groupe pharmaceutique : un film de valeurs tourné en château</h2>
+<p>Camille R. est Directrice Communication d'un groupe pharmaceutique de 1 800 collaborateurs répartis sur 4 sites en Europe. En mars 2026, elle reçoit une mission du Comex : produire un film institutionnel de 4 minutes sur les valeurs du groupe, destiné à l'onboarding des nouveaux recrutés et aux présentations investisseurs. Budget global : 22 000€.</p>
+<p>"J'avais regardé ce que faisaient nos concurrents : des films en open space, sur fond de tables blanches ou de salles de réunion quelconques. Très propre, très ennuyeux. Je voulais que notre film raconte quelque chose — un cadre qui donne envie de rejoindre l'entreprise." Elle tombe sur un article Select Châteaux en cherchant "décor château tournage entreprise" sur Google, et contacte Thomas Lefèvre.</p>
+<p>Thomas propose immédiatement un château des Yvelines : un manoir du XVIIIe restauré avec une bibliothèque en chêne massif, un grand salon à boiseries claires et un parc de 6 hectares avec une roseraie en fleurs. "Pour un film sur des valeurs comme l'innovation et l'enracinement, vous avez là un décor qui dit les deux : la modernité de la restauration et la profondeur de l'histoire", explique-t-il à Camille. L'association séduit immédiatement.</p>
+
+<blockquote>
+<p>"Un château pour un film corporate, ce n'est pas du tape-à-l'œil. C'est un choix narratif : quand vous filmez votre PDG dans une bibliothèque du XVIIIe, vous dites implicitement que l'entreprise a de la profondeur, de l'exigence, une histoire. C'est exactement ce que les investisseurs et les nouvelles recrues cherchent à percevoir."</p>
+<p><strong>— Thomas Lefèvre, Directeur Commercial, Select Châteaux</strong></p>
+</blockquote>
+
+<p>La journée de tournage se déroule en avril, à la lumière naturelle de la roseraie. 3 scènes extérieures (entretien PDG, séquence équipe dans le parc, prise de vue drone sur le château), 3 scènes intérieures (bibliothèque, salon, couloir à voûtes). Budget location château : 1 800€ pour la journée. Budget production totale : 19 500€. Film livré en 6 semaines, utilisé depuis dans 100% des sessions d'onboarding. Retour de Camille : "Les nouvelles recrues nous demandent systématiquement où a été tourné le film. Et elles sont impressionnées que ce soit un vrai lieu de travail — pas un studio loué."</p>
+
+<h2>Pourquoi les châteaux en Île-de-France sont-ils des décors corporate idéaux ?</h2>
+<p>Un château offre en une seule journée ce qu'un studio demande plusieurs jours à construire :</p>
+<ul>
+<li><strong>Variété de décors naturels</strong> : bibliothèque, grand salon, cuisine de caractère, parc, écuries, caves voûtées — chaque pièce est une scène différente</li>
+<li><strong>Lumière naturelle exceptionnelle</strong> : les hautes fenêtres des châteaux créent une lumière douce et volumétrique que les équipes de production recherchent</li>
+<li><strong>Pas de bruit urbain</strong> : tournage en extérieur sans parasites sonores de la ville — crucial pour les interviews et les témoignages</li>
+<li><strong>Restauration sur place</strong> : l'équipe de production et les intervenants déjeunent sans se déplacer, gain de temps significatif</li>
+<li><strong>Parking et accès véhicules de régie</strong> : les châteaux partenaires disposent d'accès véhicules lourds pour les camions de régie et les groupes électrogènes</li>
+</ul>
+<p>Pour les entreprises du secteur luxe, finance ou conseil, les châteaux des <a href='/seminaire-chateau-hauts-de-seine-92' class='text-primary font-semibold hover:underline'>séminaire en château dans les Hauts-de-Seine</a> offrent des décors particulièrement recherchés : Sceaux, Malmaison, l'environnement arc-de-triomphe des grandes demeures de Neuilly.</p>
+
+<h2>Comment organiser un tournage corporate en château en 5 étapes ?</h2>
+<ol>
+<li><strong>Définir le brief narratif avant le choix du décor</strong> : quelles valeurs ou messages le film doit-il incarner ? Un film sur l'innovation appelle des décors clairs et contemporains (grandes fenêtres, espaces épurés). Un film sur l'héritage ou la confiance appelle des boiseries, des bibliothèques, des pierres de taille. Le décor doit être un argument narratif, pas une toile de fond.</li>
+<li><strong>Repérer le château avec le réalisateur</strong> : la visite de repérage avec le réalisateur ET le responsable communication ensemble est indispensable. Ce que le réalisateur voit (angles, lumière, circulation) et ce que le commercial voit (message de marque) doivent converger. Select Châteaux organise ces visites tripartites.</li>
+<li><strong>Négocier la journée de location exclusive</strong> : insister sur la privatisation totale — aucun autre événement simultané, accès aux zones techniques (celliers, greniers, toitures accessibles). Prévoir un plan B intérieur si tournage extérieur prévu.</li>
+<li><strong>Caler la production en amont</strong> : liste de scènes par décor, ordre de tournage optimisé selon la lumière naturelle (scènes extérieures le matin, intérieures l'après-midi), feuille de service partagée avec le château. Un tournage bien préparé se déroule en 8-10h sur site.</li>
+<li><strong>Prévoir les droits à l'image et les clearances</strong> : certains châteaux classés monuments historiques imposent des restrictions sur l'exploitation commerciale des images. Vérifier le contrat de location et faire valider par un juriste si le film est destiné à un usage externe (site web, presse, réseaux sociaux).</li>
+</ol>
+
+<h2>Quels formats de contenu corporate fonctionnent le mieux en château ?</h2>
+<p>D'après les 40+ productions que nous avons accompagnées, voici les formats les plus efficaces selon l'objectif :</p>
+
+<table style='width:100%; border-collapse:collapse; margin:1.5rem 0'>
+  <thead>
+    <tr style='background:#f3f4f6'>
+      <th style='padding:10px; text-align:left; border:1px solid #e5e7eb'>Format</th>
+      <th style='padding:10px; text-align:left; border:1px solid #e5e7eb'>Objectif</th>
+      <th style='padding:10px; text-align:left; border:1px solid #e5e7eb'>Durée film</th>
+      <th style='padding:10px; text-align:left; border:1px solid #e5e7eb'>Budget production estimé</th>
+      <th style='padding:10px; text-align:left; border:1px solid #e5e7eb'>Décor château idéal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Film institutionnel valeurs</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Onboarding, investisseurs</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>3-5 min</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>12 000-25 000€</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Bibliothèque + parc</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Shooting photo direction</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Site web, LinkedIn, presse</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>—</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>3 500-8 000€</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Grand salon, jardin</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Vidéo témoignages collaborateurs</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Marque employeur, recrutement</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>1-2 min/témoin</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>6 000-15 000€</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Salon intimiste, terrasse</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Contenu réseaux sociaux (série courte)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Notoriété, engagement</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>30-90 s × 5-10 épisodes</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>8 000-20 000€</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Variété de décors</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Film séminaire annuel (captation)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Communication interne</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>5-15 min</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>4 000-12 000€</td>
+      <td style='padding:10px; border:1px solid #e5e7eb'>Salle plénière + extérieur</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Comment choisir le bon château pour son tournage corporate ?</h2>
+<p>Cinq critères à vérifier impérativement avant de signer la location :</p>
+<ul>
+<li><strong>Alimentation électrique</strong> : la puissance disponible (ampérage) détermine les projecteurs que l'équipe peut brancher. Minimum 32A triphasé pour un tournage professionnel avec éclairage d'appoint.</li>
+<li><strong>Acoustique des salles</strong> : les grandes pièces en pierre nue génèrent de la réverbération. Demander si des tentures ou mobilier absorbant peuvent être ajoutés temporairement.</li>
+<li><strong>Classement Monument Historique</strong> : implique parfois une demande d'autorisation DRAC et des restrictions sur les équipements (rails de travelling, perches, fumigènes). Anticiper 4-6 semaines de délai si classement.</li>
+<li><strong>Accès et stationnement régie</strong> : les camions de régie (7,5T) doivent pouvoir accéder à moins de 50m des salles de tournage. Vérifier les allées et les gabarits des portails.</li>
+<li><strong>Disponibilité d'une salle de coordination</strong> : l'équipe de production a besoin d'une salle pour les moniteurs de contrôle, la continuité et les pauses. Exiger cette salle dans le contrat de location.</li>
+</ul>
+<p>Pour les tournages qui s'accompagnent d'un séminaire ou d'un team building le même week-end, notre guide <a href='/blog/guide-complet-organiser-seminaire-chateau-a-z' class='text-primary font-semibold hover:underline'>organiser un séminaire en château de A à Z</a> détaille comment combiner les deux événements. Les châteaux des Yvelines restent les plus demandés pour ce type de combiné : explorez nos recommandations sur la page <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a>.</p>
+
+<h2>Conclusion : le château, votre meilleur investissement narratif de 2026</h2>
+<p>Un film corporate tourné dans un château en Île-de-France n'est pas un luxe — c'est une décision de communication stratégique. Le décor transmet un message que les mots du script ne pourraient pas porter seuls : profondeur, ambition, soin du détail. Entre 3 500€ pour un shooting photo direction et 25 000€ pour un film institutionnel complet, les formats s'adaptent à tous les budgets de communication. Select Châteaux identifie le château, négocie les conditions de tournage et coordonne les équipes techniques pour que vous puissiez vous concentrer sur l'essentiel : votre message.</p>
+<p><a href='/devis' class='text-primary font-semibold hover:underline'>Demandez une étude gratuite pour votre tournage corporate en château</a> — réponse sous 24h, visite de repérage organisée en moins d'une semaine.</p>
+    `,
+    faq: [
+      { question: "Combien coûte la location d'un château pour un tournage corporate en 2026 ?", answer: "La location d'un château pour un tournage corporate en Île-de-France coûte entre 800€ et 3 500€ par journée de tournage, selon le standing du domaine, le nombre de décors utilisés et les exclusivités demandées. Ce coût représente généralement 15-25% du budget total de production, qui oscille entre 3 500€ et 35 000€ selon la complexité du film." },
+      { question: "Peut-on tourner un film corporate dans un château classé Monument Historique ?", answer: "Oui, mais certains châteaux classés monuments historiques imposent des restrictions sur l'exploitation commerciale des images ou nécessitent une autorisation DRAC (4-6 semaines de délai). L'utilisation de certains équipements (fumigènes, rails de travelling fixés au sol) peut également être limitée. Select Châteaux vérifie ces points en amont de chaque contrat de location." },
+      { question: "Combien de temps faut-il pour organiser un tournage corporate en château ?", answer: "Un tournage corporate en château se prépare idéalement en 4 à 8 semaines : 1 semaine pour le repérage, 1-2 semaines de négociation et signature du contrat de location, 2-4 semaines de pré-production (script, feuille de service, casting). Pour les châteaux classés monuments historiques, prévoir 10-12 semaines minimum." },
+      { question: "Quelle est la différence entre louer un château pour un tournage et pour un séminaire ?", answer: "Pour un tournage, les critères prioritaires sont l'alimentation électrique (32A triphasé minimum), l'acoustique des salles, l'accès véhicules de régie lourds et les droits d'exploitation des images. Pour un séminaire, on privilégie les capacités d'accueil, la restauration et les équipements audiovisuels. Certaines entreprises combinent les deux sur un même week-end, en tournant le vendredi et en tenant le séminaire le samedi-dimanche." },
+      { question: "Un château peut-il accueillir simultanément un tournage et un séminaire ?", answer: "Cela dépend de la superficie du château et du type de tournage. Un château avec 15+ pièces peut accueillir un shooting photo direction dans une aile (3-4 personnes) pendant qu'un séminaire se tient dans l'autre aile. En revanche, un tournage de film avec équipe de 10+ personnes et son professionnel nécessite une privatisation totale — les bruits du séminaire parasiteraient les prises de son." },
+      { question: "Les châteaux en Île-de-France sont-ils habitués aux tournages professionnels ?", answer: "Sur les 50+ châteaux partenaires de Select Châteaux, environ 60% ont déjà accueilli des tournages professionnels (publicités, films corporate, reportages). Ils disposent généralement d'accès véhicules, de prises électriques en quantité suffisante et d'une expérience de la logistique production. Select Châteaux identifie spécifiquement les domaines \"tournage-friendly\" dans son catalogue." },
+      { question: "Faut-il une assurance spécifique pour tourner dans un château ?", answer: "Oui. La location d'un château pour un tournage nécessite une assurance responsabilité civile événement couvrant les dommages aux biens (décors, mobilier, parquets). Les équipes de production professionnelles disposent généralement de leur propre assurance matériel et RC. Select Châteaux vérifie la compatibilité des assurances entre le preneur de location et le château avant signature du contrat." },
+    ],
+    howTo: {
+      name: "Organiser un tournage de film corporate dans un château en Île-de-France",
+      steps: [
+        { name: "Définir le brief narratif avant le choix du décor", text: "Identifier les valeurs ou messages que le film doit incarner. Le décor château doit être un argument narratif (héritage, innovation, prestige), pas une simple toile de fond esthétique." },
+        { name: "Repérer le château avec le réalisateur", text: "Organiser une visite tripartite réalisateur + responsable communication + consultant Select Châteaux pour aligner angle technique (lumière, circulation caméra) et message de marque." },
+        { name: "Négocier la journée de location exclusive", text: "Exiger la privatisation totale, l'accès aux zones techniques et une salle de coordination pour l'équipe de production. Vérifier les restrictions liées au classement Monument Historique." },
+        { name: "Caler la production en amont", text: "Établir la liste de scènes par décor, optimiser l'ordre de tournage selon la lumière naturelle (extérieur le matin, intérieur l'après-midi) et partager la feuille de service avec le château." },
+        { name: "Prévoir les droits à l'image et clearances", text: "Vérifier le contrat de location sur les droits d'exploitation commerciale des images, en particulier pour les châteaux classés. Faire valider par un juriste si le film est destiné à un usage externe." },
+      ],
+    },
+  },
+
+  {
     id: 1113,
     slug: "marque-employeur-seminaire-chateau-attractivite-talents-2026",
     title: "Séminaire en Château et Marque Employeur : Attirer vos Talents 2026",
