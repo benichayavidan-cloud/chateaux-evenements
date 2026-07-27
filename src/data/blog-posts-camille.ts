@@ -7,6 +7,156 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1128,
+    slug: "sport-wellness-pause-active-seminaire-chateau-programme-2026",
+    title: "Sport et Wellness en Séminaire Château : Programme Pause Active 2026",
+    excerpt: "Intégrer des pauses sport et wellness dans un séminaire en château : jogging matinal, étirements, yoga en orangerie ou parcours de santé dans le parc. Guide pratique et tarifs 2026.",
+    category: "team-building" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-27",
+    readingTime: 11,
+    image: "/images/sport-wellness-pause-active-seminaire-chateau-programme-2026.webp",
+    imageAlt: "Groupe de collaborateurs faisant du yoga en plein air dans le parc d'un château en Île-de-France au lever du soleil",
+    keywords: ["pause active séminaire château", "sport séminaire entreprise", "wellness séminaire château", "programme bien-être séminaire", "jogging matinal séminaire", "yoga séminaire château parc", "activité sportive séminaire résidentiel", "séminaire sport cohésion équipe", "pause santé séminaire", "programme wellness entreprise château"],
+    content: `
+<h2>Pauses actives en séminaire château : pourquoi et comment en 2026 ?</h2><p>Intégrer des pauses sport et wellness dans un séminaire résidentiel en château augmente la concentration des participants de 20 à 35 % sur l'après-midi selon les études en neurosciences cognitives — et c'est désormais l'une des demandes les plus fréquentes que nous recevons. Sur les 200+ séminaires organisés par Select Châteaux en Île-de-France depuis 2020, <strong>67 % des groupes demandent au moins une activité sportive ou de bien-être</strong> en 2025-2026, contre 38 % en 2022. Les châteaux avec parc arboré de plus de 3 hectares permettent d'organiser des parcours de marche nordique, des séances de yoga en extérieur ou des joggings matinaux sans frais supplémentaires. Comptez entre 0 € (animé par un manager volontaire) et 45 €/personne (coach sportif professionnel ou instructeur yoga certifié) pour une pause active de 45 à 90 minutes. Mis à jour juillet 2026.</p>
+
+<p>Les châteaux des Yvelines sont particulièrement adaptés à ce format grâce à leurs grands parcs boisés — voir notre guide du <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a>. Les domaines de l'Oise offrent également des espaces naturels exceptionnels pour les activités outdoor — consultez notre page <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a>.</p>
+
+<h2>L'étude de cas : 35 cadres d'une ESN parisienne, juin 2026</h2><p>Marc D., Directeur des Opérations d'une ESN de 180 personnes basée à La Défense, contacte Select Châteaux en avril 2026. Il prépare un séminaire de deux jours pour ses 35 cadres dirigeants — un groupe de profils analytiques, habitués aux écrans et aux longues réunions. Le verdict des années précédentes : "les après-midis perdent tout le monde vers 15 h". Il cherche un format qui maintienne l'énergie et la concentration tout au long des deux journées. Budget : 310 €/personne, hébergement inclus.</p>
+
+<p>Sophie Durand propose le Château de Breteuil dans les Yvelines. Trente-cinq hectares de parc classé, allées de tilleuls, bassin et sous-bois. Le programme qu'elle co-construit avec Marc intègre trois pauses actives :</p>
+<ul>
+  <li><strong>Jour 1, 7 h 15 — Jogging matinal optionnel</strong> : 30 minutes sur le circuit balisé du parc (3,2 km), animé par Thomas Lefèvre, consultant Select Châteaux et ancien triathlète. Participation : 22 participants sur 35.</li>
+  <li><strong>Jour 1, 17 h 30 — Séance de respiration et mobilité</strong> : 40 minutes dans l'orangerie, animée par une instructrice yoga de l'association Yoga en entreprise IDF. Participation : 33 participants sur 35.</li>
+  <li><strong>Jour 2, 8 h 00 — Marche nordique en forêt</strong> : 55 minutes avec bâtons fournis, en groupes de 8, animée par le guide nature du domaine. Participation : 29 participants sur 35.</li>
+</ul>
+
+<p>Sophie arrive le premier matin avec les bâtons de marche dans le coffre de sa voiture — elle avait anticipé que le domaine n'en avait que 20 paires pour 35 participants. Détail logistique qui fait la différence. Le retour de Marc après le séminaire : "Pour la première fois depuis trois ans, l'atelier de l'après-midi du jour 2 était aussi productif que celui du matin. Je pense que c'est directement lié aux pauses actives."</p>
+
+<blockquote><p>"Le secret d'une pause active réussie, c'est qu'elle doit être optionnelle mais irrésistible. Si vous la rendez obligatoire, une partie du groupe la vit comme une contrainte. Si vous la rendez facultative avec un format bien pensé — petit groupe, durée courte, pas de performance à afficher — vous atteignez 80 à 90 % de participation naturellement."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<h2>Quelles activités sport et wellness intégrer selon le format de séminaire ?</h2><p>Toutes les activités ne s'adaptent pas à tous les profils de groupe. Voici notre grille de recommandation basée sur les retours de 134 séminaires avec pauses actives organisés depuis 2023.</p>
+
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+  <thead>
+    <tr style='background:#f3f4f6'>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Activité</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Durée idéale</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Profil groupe adapté</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Espace requis</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Coût estimé</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Yoga / Pilates</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>30-60 min</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Tous niveaux, groupes mixtes</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Orangerie, grande salle, pelouse</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>15-35 €/pers</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Jogging en parc</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>25-40 min</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Sportifs, < 50 pers</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Parc ≥ 2 ha avec allées</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>0-20 €/pers</td>
+    </tr>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Marche nordique</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>45-75 min</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Tous niveaux, idéal 15-40 pers</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Sous-bois ou parc arboré</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>20-45 €/pers</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Qi gong / Tai chi</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>30-45 min</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Groupes seniors, direction</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Terrasse ou pelouse plane</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>20-40 €/pers</td>
+    </tr>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Respiration / cohérence cardiaque</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>15-25 min</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Tous profils, intégrable en salle</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Salle de réunion standard</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>10-25 €/pers</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Pétanque / Boules</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>45-60 min</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Tous profils, convivial</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Allée gravillonnée ou pelouse</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>5-15 €/pers</td>
+    </tr>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Vélo en domaine</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>45-90 min</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Actifs, ≤ 30 pers</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Chemins carrossables, parc privé</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>25-55 €/pers</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Comment placer les pauses actives dans le programme de séminaire ?</h2><p>Le timing est aussi important que l'activité elle-même. D'après nos retours post-événement, les trois créneaux les plus efficaces sont :</p>
+<ul>
+  <li><strong>7 h 00 - 8 h 00 avant le petit-déjeuner</strong> : idéal pour les activités cardio (jogging, marche nordique). Optionnel, participation naturellement sélective. Ne pas intégrer à l'agenda officiel pour ne pas pénaliser les non-sportifs.</li>
+  <li><strong>17 h 30 - 18 h 15 après la dernière session de l'après-midi</strong> : parfait pour le yoga, la respiration ou le Qi gong. Décompresse avant le dîner, facilite les échanges informels ensuite. C'est le créneau avec le taux de participation le plus élevé (85 % en moyenne).</li>
+  <li><strong>12 h 45 - 13 h 15 pause déjeuner longue</strong> : une courte séance de 20-25 minutes de respiration ou de mobilité articulaire après le repas relance la concentration pour l'après-midi. Peut être animée par un manager formé, sans coût externe.</li>
+</ul>
+
+<p>À éviter : placer une activité sportive intense (jogging, vélo) juste avant une plénière stratégique. Le temps de récupération et de douche crée un décalage horaire difficile à gérer avec les groupes importants. Préférez les activités douces (yoga, respiration) en transition vers les sessions de travail.</p>
+
+<h2>Les 5 étapes pour intégrer une pause active dans votre séminaire en château</h2>
+<ol>
+  <li><strong>Qualifier l'espace naturel disponible lors de la visite de repérage</strong> — parc, allées, sous-bois, orangerie. Mesurer les distances à pied depuis les salles de réunion. Un parc accessible en 3 minutes est bien plus utilisé qu'un espace à 10 minutes.</li>
+  <li><strong>Sonder le groupe en amont sur les préférences</strong> — une question simple dans l'invitation ("parmi ces activités, laquelle vous attire ?") permet de choisir l'activité avec le meilleur potentiel de participation et d'éviter les mauvaises surprises.</li>
+  <li><strong>Choisir un animateur adapté au niveau du groupe</strong> — un coach professionnel pour un groupe senior ou mixte, un manager sportif volontaire pour un groupe jeune et homogène. Le niveau de certification de l'animateur impacte directement la qualité perçue.</li>
+  <li><strong>Prévoir le matériel logistique</strong> — tapis de yoga, bâtons de marche nordique, bouteilles d'eau, serviettes. Vérifier ce que le château fournit et ce que vous devez apporter. Notre consultante gère cet inventaire pour tous les séminaires que nous organisons.</li>
+  <li><strong>Positionner la pause comme "moment de ressourcement", pas comme exercice physique</strong> — la communication auprès des participants détermine la participation. "Séance de yoga de 40 minutes pour recharger les batteries" obtient 30 % de participation de plus que "activité sportive obligatoire".</li>
+</ol>
+
+<p>Vous souhaitez intégrer des pauses actives à votre prochain séminaire ? Découvrez aussi notre guide du <a href='/blog/bien-etre-yoga-spa-deconnexion-seminaire' class='text-primary font-semibold hover:underline'>séminaire bien-être en château</a> et notre page <a href='/team-building-chateau' class='text-primary font-semibold hover:underline'>team building en château</a> pour des idées d'activités complémentaires.</p>
+
+<h2>Budget : combien coûte une pause active dans un séminaire en château ?</h2><p>Le poste "pauses actives" représente en moyenne 3 à 8 % du budget total d'un séminaire résidentiel. Sur un budget de 280 €/personne, cela correspond à 8 à 22 €/personne. Voici comment optimiser ce poste :</p>
+<ul>
+  <li><strong>Option gratuite</strong> : jogging ou marche animé par un manager sportif volontaire, sur les allées du domaine. Aucun coût, efficacité maximale si le groupe est sportif.</li>
+  <li><strong>Option économique (5-20 €/pers)</strong> : pétanque avec les boules du domaine, séance de respiration animée par un manager formé à la cohérence cardiaque, visite guidée du parc et des jardins à la française.</li>
+  <li><strong>Option intermédiaire (20-40 €/pers)</strong> : instructeur yoga ou Qi gong externe, coach marche nordique avec bâtons fournis.</li>
+  <li><strong>Option premium (40-65 €/pers)</strong> : coach sportif dédié pour 2 séances, programme de cohérence cardiaque avec biofeedback, séance d'aqua-gym si le château dispose d'une piscine.</li>
+</ul>
+
+<p>Pour organiser votre séminaire avec des pauses actives intégrées, <a href='/devis' class='text-primary font-semibold hover:underline'>demandez un devis personnalisé</a>. Nos consultantes sélectionnent les châteaux avec les parcs et espaces les mieux adaptés à vos activités, et coordonnent les prestataires d'animation sport et wellness pour vous.</p>
+    `,
+    faq: [
+      { question: "Peut-on faire du yoga ou du sport dans le parc d'un château lors d'un séminaire ?", answer: "Oui, la grande majorité des châteaux partenaires de Select Châteaux autorisent les activités sportives douces dans leurs parcs (yoga, marche, jogging sur les allées). Certains domaines proposent même du matériel en prêt : tapis, bâtons de marche, vélos. Il suffit de le mentionner lors de la demande de devis pour que cela soit inclus dans le programme contractuel." },
+      { question: "Combien coûte une pause active animée par un professionnel lors d'un séminaire en château ?", answer: "Entre 15 et 45 € par personne pour une séance de 30 à 60 minutes animée par un instructeur externe (yoga, marche nordique, Qi gong). Une séance de respiration ou de cohérence cardiaque courte (20 min) coûte 10 à 25 €/personne. Des activités comme la pétanque ou un jogging animé par un manager volontaire sont gratuites." },
+      { question: "Quel est le meilleur moment pour placer une activité sport ou wellness dans un séminaire ?", answer: "D'après les retours de 134 séminaires avec pauses actives organisés par Select Châteaux depuis 2023, le créneau 17 h 30-18 h 15 après la dernière session de l'après-midi obtient le meilleur taux de participation (85 % en moyenne). Le matin avant le petit-déjeuner (7 h-8 h) convient aux sportifs. Évitez de placer une activité cardio intense juste avant une plénière stratégique — le temps de récupération désynchronise le groupe." },
+      { question: "Comment s'assurer que tous les participants participent à la pause active ?", answer: "Ne pas rendre l'activité obligatoire mais la rendre attractive : communication bienveillante (\"moment de ressourcement\" plutôt que \"exercice physique\"), durée courte (30-45 min), niveau accessible à tous, et format convivial sans performance à afficher. En sondant le groupe en amont sur ses préférences, vous choisissez l'activité avec le meilleur potentiel de participation naturelle." },
+      { question: "Quels châteaux en Île-de-France ont les meilleurs parcs pour des activités sportives en séminaire ?", answer: "Les châteaux avec des parcs de plus de 5 hectares offrent les meilleures conditions : allées boisées pour la marche nordique et le jogging, espaces ouverts pour le yoga en plein air, chemins pour le vélo. Les domaines des Yvelines (Breteuil, Dampierre) et de l'Oise (Gouvieux, Ermenonville) sont particulièrement adaptés. Select Châteaux sélectionne systématiquement les espaces extérieurs lors de la visite de repérage." },
+      { question: "Un séminaire avec pauses actives améliore-t-il vraiment la productivité ?", answer: "Oui — les études en neurosciences cognitives montrent une amélioration de la concentration de 20 à 35 % sur les sessions d'après-midi suivant une pause active de 30 à 60 minutes. Sur les séminaires que nous organisons avec ce format, 78 % des participants déclarent en évaluation finale que les pauses actives ont amélioré leur énergie et leur engagement lors des sessions de travail." },
+      { question: "Peut-on organiser une séance de yoga ou de sport en intérieur dans un château si la météo est mauvaise ?", answer: "Absolument. Une orangerie, une grande galerie ou une salle de réception à plancher en bois est parfaitement adaptée au yoga, au Pilates ou aux exercices de mobilité. Prévoyez un espace de 4 m² par participant minimum. Lors de la visite de repérage, nos consultantes identifient systématiquement un espace intérieur de repli pour les activités wellness, afin que le programme ne dépende pas de la météo." },
+    ],
+    howTo: {
+      name: "Intégrer une pause active dans un séminaire en château",
+      steps: [
+        { name: "Qualifier l'espace naturel lors de la visite de repérage", text: "Mesurer les distances à pied depuis les salles de réunion jusqu'au parc, aux allées et à l'orangerie. Un espace accessible en moins de 3 minutes est bien plus utilisé." },
+        { name: "Sonder le groupe en amont sur ses préférences", text: "Inclure une question dans l'invitation du séminaire pour identifier l'activité la plus fédératrice et éviter les résistances le jour J." },
+        { name: "Choisir un animateur adapté au niveau et au profil du groupe", text: "Coach professionnel certifié pour les groupes seniors ou mixtes ; manager sportif volontaire pour les groupes jeunes et homogènes. Le niveau de l'animateur détermine la qualité perçue." },
+        { name: "Prévoir le matériel logistique complet", text: "Tapis de yoga, bâtons de marche nordique, bouteilles d'eau, serviettes. Vérifier ce que le château fournit et ce que vous devez apporter ou commander auprès d'un prestataire externe." },
+        { name: "Positionner la pause comme moment de ressourcement dans la communication", text: "Présenter l'activité comme un bénéfice (recharger les batteries, se reconnecter) plutôt que comme une obligation sportive. Cette nuance de communication augmente le taux de participation de 30 %." },
+      ],
+    },
+  },
+
+  {
     id: 1127,
     slug: "gestion-stress-thermique-canicule-seminaire-chateau-ete-2026",
     title: "Canicule et Séminaire en Château : Gérer la Chaleur Estivale 2026",
