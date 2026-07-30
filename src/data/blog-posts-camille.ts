@@ -7,6 +7,123 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1147,
+    slug: "securite-incendie-evacuation-seminaire-chateau-guide-organisateur-2026",
+    title: "Sécurité Incendie & Évacuation en Château : Guide Organisateur 2026",
+    excerpt: "Organiser un séminaire en château impose des obligations légales de sécurité incendie souvent ignorées. Découvrez le protocole complet pour protéger vos 20 à 200 participants — et éviter les sanctions en 2026.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-30",
+    readingTime: 12,
+    image: "/images/securite-incendie-evacuation-seminaire-chateau-guide-organisateur-2026.webp",
+    imageAlt: "Plan d'évacuation affiché dans le couloir d'un château classique avec des participants de séminaire en arrière-plan",
+    keywords: ["sécurité incendie séminaire château", "évacuation séminaire château", "ERP château séminaire", "obligations légales séminaire entreprise", "sécurité événement entreprise château", "plan évacuation séminaire", "sécurité séminaire organisateur", "règles sécurité incendie ERP", "guide sécurité séminaire 2026", "responsabilité organisateur séminaire"],
+    content: `
+<h2>Quelles sont les obligations légales de sécurité incendie pour un séminaire en château en 2026 ?</h2>
+<p>Un château qui accueille un séminaire d'entreprise est classé Établissement Recevant du Public (ERP) de type L (salles de réunion) ou N (restauration), soumis au règlement de sécurité contre l'incendie des ERP (arrêté du 25 juin 1980 et mises à jour 2025). En pratique, cela signifie que le domaine doit disposer d'un système de détection incendie conforme, de moyens d'extinction accessibles, de plans d'évacuation affichés et d'issues de secours dégagées — et que <strong>l'organisateur (vous) a une responsabilité co-engagée</strong> en cas d'incident. D'après notre expérience de 200+ séminaires organisés depuis 2020, moins de 30% des responsables événements vérifiaient spontanément ces éléments avant notre checklist de visite. Budget de mise en conformité pour l'organisateur : 0€ si le château est aux normes et si vous suivez ce protocole. Pénalité en cas d'accident sans vérification documentée : responsabilité civile et pénale engagée.</p>
+
+<h2>Comment Claire M. a évité une situation critique lors d'un séminaire résidentiel dans l'Oise</h2>
+<p>Claire M. est Responsable Formation dans un groupe pharmaceutique de 600 personnes. En mars 2026, elle organise un séminaire résidentiel de 3 jours pour 65 managers, dans un château de l'Oise à 50 minutes de Paris. Le domaine est magnifique, le commercial souriant, le devis dans les clous — 290€/personne tout compris pour deux nuits. Elle signe et commence à travailler le programme.</p>
+<p>Lors de la visite de repérage avec Sophie Durand, trois semaines avant l'événement, Sophie demande systématiquement à voir le registre de sécurité du château. <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>Séminaire en château dans l'Oise</a> — un secteur que Select Châteaux connaît bien : les bâtiments classés Monuments Historiques y posent parfois des contraintes d'aménagement spécifiques. Dans ce cas, le château avait son registre à jour, mais Claire découvre que la salle de plénière prévue (une orangerie du XIXe siècle) n'a qu'une seule issue de secours opérationnelle pour 65 personnes — alors que la réglementation ERP impose deux dégagements minimum au-delà de 50 personnes.</p>
+<p>Sophie négocie immédiatement avec le directeur du domaine : une deuxième issue est débloquée, un portillon de jardin condamné depuis des années est rouvert, et le plan d'évacuation est mis à jour avant l'événement. Coût supplémentaire : zéro. Délai : 48h. Résultat : Claire arrive le premier jour de séminaire avec la certitude que ses 65 managers sont dans un cadre conforme.</p>
+<blockquote><p>"La visite de repérage n'est pas une formalité de style — c'est le moment où on vérifie les éléments que le devis ne montre jamais. Le registre de sécurité, les issues de secours, l'emplacement des extincteurs, la distance jusqu'au point de rassemblement : en 45 minutes, on peut valider ou détecter un problème. Sur ce dossier Oise, 48h ont suffi pour corriger la situation avant que 65 personnes n'arrivent sur place."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+<p>Le séminaire se déroule sans incident. Mais Claire M. retient la leçon : "Je pensais que la responsabilité était entièrement du côté du château. Sophie m'a expliqué que si j'avais validé et réservé une salle non conforme sans vérifier, ma responsabilité d'organisatrice était engagée autant que celle du domaine."</p>
+
+<h2>Comment lire le registre de sécurité d'un château avant de signer ?</h2>
+<p>Le registre de sécurité est le document-clé que tout château ERP doit tenir à jour. Il contient les comptes-rendus des vérifications périodiques des installations de sécurité. Voici ce qu'il faut vérifier :</p>
+<ul style='margin:16px 0;padding-left:24px;'>
+  <li style='margin-bottom:8px;'><strong>Date de la dernière visite de la commission de sécurité</strong> : doit dater de moins de 5 ans pour les ERP de 2e et 3e catégorie (jusqu'à 700 personnes), moins de 3 ans pour les ERP de 1re catégorie</li>
+  <li style='margin-bottom:8px;'><strong>Contrôle du système de détection incendie (SSI)</strong> : vérification annuelle obligatoire par un organisme agréé — chercher le tampon et la date</li>
+  <li style='margin-bottom:8px;'><strong>Vérification des extincteurs</strong> : contrôle annuel, étiquette sur chaque extincteur avec la date du dernier passage</li>
+  <li style='margin-bottom:8px;'><strong>État des issues de secours</strong> : toutes les portes coupe-feu doivent être déverrouillables de l'intérieur sans clé, les dégagements doivent être libres</li>
+  <li style='margin-bottom:8px;'><strong>Formation des personnels</strong> : le registre doit mentionner les exercices d'évacuation annuels du personnel du domaine</li>
+  <li style='margin-bottom:8px;'><strong>Avis de la commission de sécurité</strong> : "favorable" ou "favorable avec réserves" — dans le deuxième cas, vérifier que les réserves ont été levées</li>
+</ul>
+<p>Si le château refuse de vous montrer son registre de sécurité, c'est un signal d'alarme. Aucun domaine professionnel sérieux ne refusera cette demande légitime.</p>
+
+<h2>Quelles sont les 5 vérifications essentielles à faire le jour J de votre séminaire en château ?</h2>
+<ol style='margin:16px 0;padding-left:24px;'>
+  <li style='margin-bottom:12px;'><strong>Repérer et dégager les issues de secours</strong> : dès votre arrivée, avant l'accueil des participants, vérifiez que toutes les issues de secours des salles utilisées sont libres, signalées et ouvrables. Photographiez-les pour votre dossier.</li>
+  <li style='margin-bottom:12px;'><strong>Identifier le point de rassemblement</strong> : demandez au responsable du château de vous montrer le point de rassemblement exact (pas juste "dans le parc"). Mémorisez le chemin et communiquez-le à vos collaborateurs en début de séminaire.</li>
+  <li style='margin-bottom:12px;'><strong>Localiser les extincteurs et le défibrillateur</strong> : noter l'emplacement des extincteurs les plus proches de chaque salle utilisée, et localiser le défibrillateur (DEA) — obligatoire dans les ERP depuis 2020.</li>
+  <li style='margin-bottom:12px;'><strong>Obtenir le numéro direct du responsable de sécurité du château</strong> : pas la réception, pas l'événementiel — le responsable sécurité ou le directeur d'exploitation, joignable à tout moment pendant votre événement.</li>
+  <li style='margin-bottom:12px;'><strong>Briefer vos référents internes</strong> : désigner 2 à 3 collaborateurs comme "guides d'évacuation" informels, qui connaissent le chemin vers le point de rassemblement et peuvent aider les personnes à mobilité réduite en cas d'alerte.</li>
+</ol>
+
+<h2>Quelle est la responsabilité légale de l'organisateur en cas d'incident lors d'un séminaire en château ?</h2>
+<p>La question de la responsabilité est souvent mal comprise. En droit français, la responsabilité en cas d'incident lors d'un événement en château se répartit entre :</p>
+<table style='width:100%;border-collapse:collapse;margin:20px 0;'>
+  <thead>
+    <tr style='background:#f3f4f6;'>
+      <th style='padding:12px;border:1px solid #e5e7eb;text-align:left;'>Acteur</th>
+      <th style='padding:12px;border:1px solid #e5e7eb;text-align:left;'>Responsabilité principale</th>
+      <th style='padding:12px;border:1px solid #e5e7eb;text-align:left;'>Ce que vous devez vérifier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:12px;border:1px solid #e5e7eb;'><strong>Le château (ERP)</strong></td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Conformité des installations, entretien des issues, registre de sécurité à jour</td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Registre de sécurité, avis commission</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:12px;border:1px solid #e5e7eb;'><strong>L'entreprise organisatrice</strong></td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Obligation de sécurité envers ses salariés (Code du travail L4121-1), vérification du lieu avant accueil</td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Traçabilité de vos vérifications pré-événement</td>
+    </tr>
+    <tr>
+      <td style='padding:12px;border:1px solid #e5e7eb;'><strong>L'organisateur individuel (vous)</strong></td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Responsabilité civile si vous avez réservé un lieu non conforme sans diligence raisonnable</td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Conserver les échanges écrits et votre checklist signée</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:12px;border:1px solid #e5e7eb;'><strong>L'assureur RC Pro de l'entreprise</strong></td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Couvre les dommages si les diligences ont été faites — ne couvre PAS la négligence caractérisée</td>
+      <td style='padding:12px;border:1px solid #e5e7eb;'>Vérifier que le contrat couvre les événements hors locaux</td>
+    </tr>
+  </tbody>
+</table>
+<p>La "diligence raisonnable" se prouve avec des documents : votre demande écrite de communication du registre de sécurité, la réponse du château, et votre checklist de visite datée et signée. Ces trois éléments suffisent, dans la grande majorité des cas, à établir que vous avez rempli votre obligation de vérification. Notre <a href='/blog/securite-juridique-assurance-evenement-entreprise-chateau-2026' class='text-primary font-semibold hover:underline'>guide juridique assurance événement en château</a> développe ce point en détail.</p>
+
+<h2>Les erreurs les plus fréquentes des organisateurs en matière de sécurité incendie</h2>
+<p>Sur les 200+ séminaires que nous avons accompagnés, voici les erreurs récurrentes que nous observons chez les organisateurs, même les plus expérimentés :</p>
+<ul style='margin:16px 0;padding-left:24px;'>
+  <li style='margin-bottom:8px;'><strong>Confondre "beau château" et "château aux normes"</strong> : les domaines les plus luxueux ne sont pas toujours les mieux entretenus sur le plan sécurité. Les châteaux classés MH peuvent avoir des dérogations spécifiques — à vérifier explicitement.</li>
+  <li style='margin-bottom:8px;'><strong>Ne pas communiquer les consignes d'évacuation aux participants</strong> : une annonce de 2 minutes en début de séminaire ("en cas d'alarme, voici la sortie de secours et le point de rassemblement") est obligatoire et prend 120 secondes.</li>
+  <li style='margin-bottom:8px;'><strong>Oublier les participants à mobilité réduite dans le plan d'évacuation</strong> : si votre groupe inclut des personnes PMR, vérifiez que le plan d'évacuation inclut un chemin accessible et désignez un accompagnateur. Notre article sur l'<a href='/blog/accessibilite-pmr-seminaire-chateau-guide-2026' class='text-primary font-semibold hover:underline'>accessibilité PMR en séminaire château</a> couvre ce sujet en détail.</li>
+  <li style='margin-bottom:8px;'><strong>Négliger les espaces extérieurs et terrasses</strong> : les activités outdoor en soirée (dîner en terrasse, feu de camp, feux d'artifice) génèrent des risques spécifiques non couverts par le plan d'évacuation intérieur du château.</li>
+  <li style='margin-bottom:8px;'><strong>Ne pas déclarer la tranche horaire exacte au château</strong> : certains systèmes de sécurité sont mis en veille la nuit — le château doit savoir que des participants sont présents à toute heure.</li>
+</ul>
+
+<h2>Prêt à organiser votre prochain séminaire en château en toute sécurité ?</h2>
+<p>La sécurité incendie n'est pas un sujet qui doit freiner votre projet de séminaire en château — c'est un point de vérification parmi d'autres dans notre processus d'accompagnement standard. Chaque visite de repérage réalisée par Select Châteaux inclut systématiquement la vérification du registre de sécurité et des issues de secours. Vous gardez la preuve documentaire, nous gérons la relation avec le domaine. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis et une visite de repérage</a> — Sophie ou Thomas vous accompagnent sur place et vous remettent un compte-rendu de visite incluant les éléments de conformité sécurité.</p>
+    `,
+    faq: [
+      { question: "Un château loué pour un séminaire est-il obligatoirement aux normes ERP incendie ?", answer: "Oui, tout château qui accueille du public à titre onéreux est classé ERP (Établissement Recevant du Public) et doit respecter le règlement de sécurité incendie des ERP (arrêté du 25 juin 1980 et ses actualisations). Le responsable du domaine est tenu de présenter son registre de sécurité sur demande. Si le château refuse, c'est un signal d'alarme sérieux. Chez Select Châteaux, nous ne recommandons que des domaines dont le registre est à jour." },
+      { question: "Quelle est la responsabilité de l'organisateur en cas d'incendie lors d'un séminaire en château ?", answer: "L'organisateur (l'entreprise) a une obligation de sécurité envers ses salariés en vertu de l'article L4121-1 du Code du travail. En cas d'incident, sa responsabilité civile voire pénale peut être engagée s'il n'a pas effectué les vérifications raisonnables avant de réserver. La protection passe par trois éléments : demande écrite du registre de sécurité, checklist de visite datée, et communication des consignes d'évacuation aux participants en début d'événement." },
+      { question: "Combien de sorties de secours faut-il pour une salle de séminaire de 50 personnes ?", answer: "La réglementation ERP impose 2 dégagements minimum pour les salles accueillant plus de 50 personnes (article CO 38 du règlement ERP). En dessous de 50 personnes, une seule issue peut être suffisante si la salle répond aux critères de surface et de distance d'évacuation. C'est un point que nous vérifions systématiquement lors de la visite de repérage, car plusieurs châteaux — notamment dans des bâtiments anciens — n'ont pas toujours les deux issues opérationnelles." },
+      { question: "Faut-il désigner un responsable sécurité lors d'un séminaire en château ?", answer: "Pour les groupes de plus de 50 personnes, il est fortement recommandé de désigner au moins 2 \"guides d'évacuation\" informels parmi les participants, qui connaissent le chemin vers le point de rassemblement. Au-delà de 200 personnes, certains ERP exigent la présence d'un agent de sécurité incendie (SSIAP) pendant toute la durée de l'événement. Le château doit vous informer de cette obligation lors de la signature du contrat." },
+      { question: "Comment vérifier si un château est aux normes incendie avant de réserver pour un séminaire ?", answer: "Demandez par écrit (email) la communication du registre de sécurité et la date du dernier avis de la commission de sécurité. Lors de la visite, vérifiez que les issues de secours des salles utilisées sont libres et signalées, que les extincteurs ont une étiquette de contrôle de moins d'un an, et que le château dispose d'un défibrillateur (obligatoire depuis 2020). Select Châteaux effectue ces vérifications lors de chaque visite de repérage." },
+      { question: "Les activités outdoor (feu de camp, feux d'artifice) en séminaire château nécessitent-elles des autorisations spéciales ?", answer: "Oui. Un feu de camp ou un feu de bois en château nécessite l'accord explicite du propriétaire et, selon la commune et la saison, une déclaration en mairie. Les feux d'artifice sont soumis à autorisation préfectorale et doivent être tirés par un artificier agréé. En période de sécheresse estivale (fréquente en juillet-août en IDF depuis 2022), des arrêtés préfectoraux peuvent interdire tout feu en extérieur. Vérifier auprès du château et de la mairie avant tout engagement contractuel avec un prestataire pyrotechnique." },
+      { question: "L'assurance RC Pro de mon entreprise couvre-t-elle les incidents lors d'un séminaire en château ?", answer: "Pas automatiquement. Vérifiez que votre contrat RC Pro inclut les événements organisés hors de vos locaux habituels (\"manifestations extérieures\" ou \"événements tiers\"). Si ce n'est pas le cas, une assurance événementielle spécifique peut être souscrite pour 150€ à 400€ selon le nombre de participants et la durée. Notre article sur l'<a href='/blog/assurance-responsabilite-organisateur-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>assurance RC organisateur de séminaire en château</a> détaille les garanties à exiger." },
+    ],
+    howTo: {
+      name: "Vérifier la sécurité incendie avant un séminaire en château",
+      steps: [
+        { name: "Demander le registre de sécurité par écrit", text: "Envoyer un email au château demandant la communication du registre de sécurité ERP et la date du dernier avis de la commission de sécurité. Conserver cet échange comme preuve de diligence." },
+        { name: "Vérifier les issues de secours lors de la visite", text: "Lors de la visite de repérage, contrôler que toutes les salles utilisées disposent du nombre réglementaire d'issues de secours (2 minimum au-delà de 50 personnes), libres et signalées. Photographier les issues pour votre dossier." },
+        { name: "Localiser le point de rassemblement et le défibrillateur", text: "Demander au responsable du château de vous montrer le point de rassemblement exact et l'emplacement du défibrillateur (DEA). Mémoriser et noter ces emplacements dans votre fiche de préparation événement." },
+        { name: "Obtenir le numéro du responsable sécurité du château", text: "Récupérer le contact direct du responsable sécurité ou directeur d'exploitation, joignable pendant tout l'événement. Ce numéro doit figurer dans votre dossier de conduite d'événement." },
+        { name: "Briefer les participants en début de séminaire", text: "Consacrer 2 minutes en ouverture du séminaire à communiquer les consignes d'évacuation : sortie de secours la plus proche, chemin vers le point de rassemblement, numéro d'urgence interne du château. Désigner 2 guides d'évacuation parmi les participants." },
+      ],
+    },
+  },
+
+  {
     id: 1146,
     slug: "semaphore-communication-interne-seminaire-chateau-guide-2026",
     title: "Séminaire Communication d'Équipe en Château : Guide 2026 (dès 155€/pers)",
