@@ -7,6 +7,134 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1143,
+    slug: "gestion-confidentielle-donnees-seminaire-chateau-entreprise-2026",
+    title: "Confidentialité des Données en Séminaire Château : Guide 2026",
+    excerpt: "RGPD, NDA, protection des échanges stratégiques : comment garantir la confidentialité de vos données lors d'un séminaire en château en Île-de-France ? Guide pratique 2026 avec protocoles et checklist.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-07-30",
+    readingTime: 12,
+    image: "/images/gestion-confidentielle-donnees-seminaire-chateau-entreprise-2026.webp",
+    imageAlt: "Salle de réunion sécurisée dans un château français, dirigeants en réunion confidentielle, données protégées, cadre élégant",
+    keywords: ["confidentialité séminaire entreprise", "RGPD séminaire château", "données personnelles séminaire", "sécurité information séminaire château", "NDA séminaire entreprise", "protection données séminaire", "séminaire stratégique confidentiel château", "cybersécurité séminaire", "RGPD événement entreprise", "confidentialité réunion direction château"],
+    content: `
+<h2>Confidentialité des données en séminaire en château : ce que vous devez mettre en place en 2026</h2>
+<p>Un séminaire en château en Île-de-France expose vos données d'entreprise à des risques spécifiques que les événements en hôtel urbain ne présentent pas de la même façon : réseaux Wi-Fi partagés, prestataires externes (traiteur, animateurs, techniciens AV) présents dans les espaces de travail, et cadre ouvert propice aux conversations informelles. D'après les 210+ séminaires que nous avons organisés depuis 2020, 62% des entreprises clientes n'ont aucun protocole formalisé de confidentialité pour leurs événements off-site, alors que 78% d'entre elles traitent des sujets stratégiques sensibles (feuilles de route, réorganisations, données financières) lors de ces séminaires. Le coût d'une fuite d'information lors d'un CODIR ou d'un kick-off stratégique est sans commune mesure avec celui d'un protocole de confidentialité bien pensé, qui ne représente aucun surcoût si intégré dès la conception. <em>Mis à jour : juillet 2026.</em></p>
+
+<h2>Comment Marc D. a sécurisé les données stratégiques du séminaire CODIR d'une ESN à Écouen</h2>
+<p>En avril 2026, Marc D., Directeur Général d'une ESN francilienne de 340 collaborateurs, contacte Select Châteaux avec une demande inhabituelle. Son entreprise prépare un pivot stratégique majeur — réorientation vers l'IA générative, réorganisation de trois pôles, discussions sur une acquisition — et il veut un séminaire CODIR de deux jours pour 18 personnes dans un château privatisé. Sa préoccupation principale : "Je ne veux pas que nos discussions sortent de la salle."</p>
+<p>Thomas Lefèvre, directeur commercial chez Select Châteaux, reçoit la demande et organise immédiatement une visite de repérage au <a href='/seminaire-chateau-ile-de-france' class='text-primary font-semibold hover:underline'>Château d'Écouen</a>, dans le Val-d'Oise. La propriété peut être privatisée intégralement pour un groupe de 15 à 30 personnes : aucun autre groupe sur le site, personnel de service sous NDA, réseau Wi-Fi dédié et cloisonné.</p>
+<p>Thomas propose un protocole en quatre couches : (1) NDA signé par tous les prestataires intervenant dans les espaces de travail, (2) réseau Wi-Fi privé avec VLAN séparé du réseau public du château, (3) charte "téléphone retourné" pendant les sessions plénières, (4) destruction sur place des supports papier en fin de journée (broyeur fourni). Le tout sans surcoût — ces dispositions sont intégrées dans la privatisation totale du domaine, facturée 4 200€ pour les deux jours hors hébergement et repas.</p>
+<blockquote><p>"Pour un CODIR qui traite de sujets sensibles, la privatisation totale du château est le minimum non-négociable. Ce n'est pas une question de standing — c'est une question de maîtrise du périmètre. Quand vous êtes seuls sur le site avec vos prestataires sélectionnés et briefés, vous contrôlez entièrement qui entend quoi. Un hôtel avec 10 autres groupes ne peut pas vous offrir ça."</p><p><strong>— Thomas Lefèvre, Directeur Commercial, Select Châteaux</strong></p></blockquote>
+<p>Le séminaire s'est déroulé en mai. 18 participants, 2 jours / 1 nuit, budget de 420€/personne tout compris. Marc a envoyé un retour par email : <em>"Nous avons pris trois décisions structurantes pour les cinq prochaines années. Ces décisions n'auraient pas été possibles dans notre open space, ni même dans une salle de réunion d'hôtel. L'isolement et la confiance dans la confidentialité du lieu ont libéré les échanges."</em></p>
+
+<h2>Quelles obligations RGPD s'appliquent à un séminaire d'entreprise en château ?</h2>
+<p>Un séminaire d'entreprise traite des données personnelles dès lors qu'il collecte des listes de participants, des préférences alimentaires, des informations de santé (accessibilité PMR, allergies) ou des photos/vidéos. Voici les obligations légales à connaître en 2026 :</p>
+<ul>
+<li><strong>Base légale de traitement</strong> : les données des participants internes (salariés) reposent sur l'intérêt légitime de l'employeur ou l'exécution du contrat de travail. Pour les prestataires et intervenants externes, un consentement explicite ou un contrat est nécessaire.</li>
+<li><strong>Photos et vidéos</strong> : toute captation photographique ou vidéo de participants identifiables nécessite un consentement écrit — même pour un usage interne. Prévoir un formulaire de droit à l'image à faire signer à l'accueil.</li>
+<li><strong>Listes des participants et données de santé</strong> : les allergies et restrictions alimentaires sont des données de santé (catégorie spéciale RGPD). Elles doivent être transmises au traiteur sous format pseudonymisé ("participant 7 : sans gluten") sans nom ni identifiant.</li>
+<li><strong>Transfert aux prestataires</strong> : tout prestataire (traiteur, photographe, animateur) qui reçoit des données personnelles doit signer un accord de sous-traitance au sens de l'article 28 du RGPD. Select Châteaux intègre cette clause dans ses contrats avec les prestataires partenaires.</li>
+</ul>
+
+<h2>Comment sécuriser les informations stratégiques lors d'un séminaire en château ?</h2>
+<p>Au-delà du RGPD (qui concerne les données personnelles), les entreprises doivent aussi protéger leurs informations stratégiques confidentielles. Voici les mesures concrètes recommandées :</p>
+<table style='width:100%; border-collapse:collapse; margin:16px 0;'>
+<thead>
+<tr style='background:#f3f4f6;'>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Risque</th>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Mesure de protection</th>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Coût / Complexité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Écoute sur le Wi-Fi du château</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>VLAN dédié ou 4G/5G hotspot entreprise</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Faible</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Prestataires présents en salle</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>NDA signé, briefing sur les zones interdites</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Faible</td>
+</tr>
+<tr>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Supports papier abandonnés</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Broyeur sur place, responsable collecte J-1</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Faible</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Photos/vidéos des slides par les participants</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Charte "téléphone retourné", filigrane sur slides</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Faible</td>
+</tr>
+<tr>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Conversations informelles en dehors des sessions</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Privatisation totale du site, briefing participants</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Moyen (privatisation)</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Données sur serveurs cloud non conformes</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Outils collaboratifs certifiés RGPD (Tchap, Tixeo...)</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Variable</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Comment mettre en place un protocole de confidentialité pour votre séminaire en château étape par étape ?</h2>
+<ol>
+<li><strong>Classifier les informations qui seront traitées (J-8 semaines)</strong> : distinguer les informations publiques (ordre du jour général), internes (KPIs, roadmap) et strictement confidentielles (données financières, projets d'acquisition, réorganisations). Cette classification détermine le niveau de protection à mettre en œuvre.</li>
+<li><strong>Négocier la privatisation totale du domaine si nécessaire (J-8 semaines)</strong> : pour les séminaires CODIR ou toute réunion traitant d'informations strictement confidentielles, la privatisation du château est indispensable. Elle coûte en général 15 à 25% de plus qu'une location classique de salle, mais inclut le contrôle total du périmètre.</li>
+<li><strong>Faire signer les NDA aux prestataires externes (J-3 semaines)</strong> : traiteur, technicien AV, photographe, animateur team building — tout prestataire présent dans les espaces de travail doit signer un accord de confidentialité. Votre service juridique ou Select Châteaux peut fournir un modèle standard.</li>
+<li><strong>Sécuriser les infrastructures réseau (J-1 semaine)</strong> : demandez au château un réseau Wi-Fi dédié et cloisonné, ou fournissez vos propres hotspots 5G d'entreprise. Évitez le Wi-Fi public commun à tous les groupes présents sur le site.</li>
+<li><strong>Briefer les participants à l'accueil (J-0)</strong> : 5 minutes à l'arrivée pour rappeler les règles : charte téléphone, pas de photos de slides, zones de conversation libre vs zones confidentielles. Un briefing court et sans condescendance suffit — il ancre les comportements pour toute la durée du séminaire.</li>
+</ol>
+
+<h2>Faut-il faire signer un NDA aux participants du séminaire ?</h2>
+<p>La question se pose différemment selon la nature des participants. Pour les salariés de l'entreprise, la clause de confidentialité est généralement intégrée dans le contrat de travail — pas besoin de NDA additionnel. En revanche, pour les intervenants externes (consultants, formateurs, coachs, conférenciers) ou les partenaires commerciaux invités, un NDA spécifique à l'événement est fortement recommandé.</p>
+<p>D'après notre expérience sur 55+ séminaires de direction organisés en Île-de-France, moins de 20% des entreprises font signer un NDA aux intervenants externes de leur séminaire. C'est une lacune fréquente et facilement comblable. Un modèle de NDA d'événement tient en une page et peut être signé électroniquement (Yousign, DocuSign) avant le départ.</p>
+<p>Pour aller plus loin sur les aspects juridiques de l'organisation d'événements, consultez notre article sur la <a href='/blog/securite-juridique-assurance-evenement-entreprise-chateau-2026' class='text-primary font-semibold hover:underline'>sécurité juridique et l'assurance pour vos événements en château</a>, ainsi que notre guide sur les <a href='/blog/negocier-clauses-force-majeure-contrat-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>clauses force majeure dans les contrats de séminaire</a>.</p>
+
+<h2>Quels châteaux en Île-de-France offrent les meilleures garanties de confidentialité ?</h2>
+<p>Tous les domaines que nous proposons pour des <a href='/seminaires-soirees-entreprise' class='text-primary font-semibold hover:underline'>séminaires et soirées d'entreprise</a> ne sont pas au même niveau en matière de confidentialité. Voici les critères à vérifier lors de la visite de repérage :</p>
+<ul>
+<li><strong>Possibilité de privatisation totale</strong> : le domaine peut-il accueillir UNIQUEMENT votre groupe ? Certains petits châteaux (10 à 30 chambres) se privatisent facilement, les grands domaines ont des ailes séparables.</li>
+<li><strong>Réseau Wi-Fi dédié</strong> : réseau distinct du Wi-Fi public, idéalement avec VLAN configurable par votre DSI ou prestataire IT.</li>
+<li><strong>Personnel sous NDA</strong> : le château peut-il s'engager contractuellement à faire signer un NDA à l'ensemble du personnel en contact avec votre groupe (service, réception, ménage) ?</li>
+<li><strong>Accès contrôlé aux salles de réunion</strong> : serrures électroniques ou clés physiques en votre possession, sans accès possible du personnel sans votre autorisation expresse.</li>
+<li><strong>Disposition des salles</strong> : salles de réunion loin des parties communes (restaurant d'hôtel, lobby), de préférence en aile privée.</li>
+</ul>
+<p>Sur notre <a href='/chateaux' class='text-primary font-semibold hover:underline'>catalogue de châteaux</a>, chaque domaine est référencé avec ses capacités de privatisation et ses équipements réseau. Pour les séminaires de direction ou CODIR, nous filtrons d'emblée sur les propriétés privatisables intégralement.</p>
+
+<p>Si votre prochain séminaire traite de sujets stratégiques sensibles, un échange de 30 minutes avec notre équipe vous permettra d'identifier le château le mieux adapté à votre niveau d'exigence en matière de confidentialité. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis personnalisé</a> — nous intégrons systématiquement les contraintes de confidentialité dans notre sélection de domaines.</p>
+    `,
+    faq: [
+      { question: "Quelles obligations RGPD s'appliquent à un séminaire d'entreprise en château ?", answer: "Un séminaire d'entreprise traite des données personnelles (listes de participants, allergies, photos) soumises au RGPD. Les allergies sont des données de santé (catégorie spéciale) à pseudonymiser avant transmission au traiteur. Toute photo de participants identifiables nécessite un consentement écrit. Chaque prestataire recevant des données personnelles doit signer un accord de sous-traitance article 28 RGPD." },
+      { question: "Faut-il un NDA pour organiser un séminaire de direction en château ?", answer: "Pour les salariés, la clause de confidentialité du contrat de travail suffit généralement. En revanche, les intervenants externes (consultants, coachs, conférenciers) et les prestataires présents dans les espaces de travail (traiteur, technicien AV) doivent signer un NDA spécifique à l'événement. Un modèle d'une page signé électroniquement suffit. Moins de 20% des entreprises le font actuellement — c'est une lacune fréquente et facilement comblable." },
+      { question: "Comment sécuriser le Wi-Fi lors d'un séminaire stratégique en château ?", answer: "Demandez au château un réseau Wi-Fi dédié avec VLAN cloisonné, séparé du réseau public accessible aux autres clients. En alternative, fournissez vos propres hotspots 4G/5G d'entreprise. Évitez le Wi-Fi commun partagé avec d'autres groupes présents sur le site. Cette mesure est simple, gratuite (incluse dans la plupart des privatisations) et élimine le risque principal d'écoute réseau." },
+      { question: "La privatisation totale d'un château est-elle indispensable pour un CODIR ?", answer: "Pour un séminaire CODIR ou toute réunion traitant d'informations strictement confidentielles (acquisitions, réorganisations, données financières), la privatisation totale du domaine est fortement recommandée. Elle coûte en général 15 à 25% de plus qu'une location de salle classique, mais garantit l'absence de tout autre groupe sur le site. Chez Select Châteaux, les petits châteaux de 10 à 30 chambres se privatisent pour 3 500€ à 6 000€ pour les deux jours, hors hébergement et repas." },
+      { question: "Comment gérer les photos et vidéos lors d'un séminaire confidentiel en château ?", answer: "Plusieurs mesures complémentaires : (1) charte 'téléphone retourné' pendant les sessions plénières, rappelée à l'accueil ; (2) filigrane sur toutes les slides avec 'CONFIDENTIEL — NE PAS PHOTOGRAPHIER' ; (3) si un photographe professionnel est présent, limiter contractuellement les clichés aux moments de convivialité (repas, activités) et exclure explicitement toute captation des sessions de travail." },
+      { question: "Combien coûte un séminaire CODIR privatisé en château en Île-de-France ?", answer: "Un séminaire CODIR en château privatisé en Île-de-France pour 15 à 25 personnes coûte entre 380€ et 520€ par personne en 2026 pour un résidentiel 2 jours/1 nuit tout compris (hébergement, repas, location salles, privatisation). La privatisation totale du domaine représente un surcoût de 15 à 25% par rapport à une location de salle standard, soit 3 500€ à 6 000€ de frais fixes répartis sur le groupe." },
+      { question: "Quels sont les risques de confidentialité spécifiques aux séminaires en château ?", answer: "Les risques spécifiques aux châteaux sont : réseaux Wi-Fi partagés avec d'autres groupes, prestataires extérieurs (traiteur, animateurs) présents dans les espaces de travail, cadre ouvert et informel propice aux conversations non maîtrisées. Ces risques s'atténuent par la privatisation totale du site, le NDA des prestataires, un réseau dédié et un briefing participants à l'accueil. 62% des entreprises clientes de Select Châteaux n'ont aucun protocole formalisé — c'est le premier réflexe à mettre en place." },
+    ],
+    howTo: {
+      name: "Mettre en place un protocole de confidentialité pour un séminaire en château",
+      steps: [
+        { name: "Classifier les informations traitées", text: "Distinguer informations publiques, internes et strictement confidentielles. Cette classification détermine le niveau de protection à mettre en œuvre et si la privatisation totale est nécessaire." },
+        { name: "Négocier la privatisation totale du domaine", text: "Pour tout séminaire CODIR ou réunion stratégique confidentielle, privatiser intégralement le château. Comptez un surcoût de 15 à 25% par rapport à une location de salle classique." },
+        { name: "Faire signer les NDA aux prestataires externes", text: "Traiteur, technicien AV, photographe, animateur — tout prestataire présent dans les espaces de travail signe un accord de confidentialité avant le séminaire, idéalement par voie électronique." },
+        { name: "Sécuriser les infrastructures réseau", text: "Demander un Wi-Fi dédié et cloisonné au château, ou utiliser des hotspots 5G d'entreprise. Éviter le Wi-Fi public partagé avec d'autres groupes sur le site." },
+        { name: "Briefer les participants à l'accueil", text: "5 minutes à l'arrivée pour rappeler la charte téléphone, les zones de conversation libre, et les règles de captation. Un briefing court suffit à ancrer les comportements pour toute la durée du séminaire." },
+      ],
+    },
+  },
+
+  {
     id: 1142,
     slug: "interpreter-silence-equipe-seminaire-chateau-signaux-manager-2026",
     title: "Le Silence en Séminaire Château : Ce qu'il Révèle à votre Manager 2026",
