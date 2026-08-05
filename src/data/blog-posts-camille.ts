@@ -7,6 +7,274 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1165,
+    slug: "justificatifs-comptables-depenses-seminaire-chateau-guide-2026",
+    title: "Justificatifs Comptables Séminaire en Château : Guide 2026",
+    excerpt: "Factures, notes de frais, TVA récupérable : ce que votre comptabilité attend vraiment après un séminaire en château. Guide complet 2026 pour les organisateurs et les services RH.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-08-05",
+    readingTime: 12,
+    image: "/images/justificatifs-comptables-depenses-seminaire-chateau-guide-2026.webp",
+    imageAlt: "Bureau organisé avec documents comptables et factures pour un séminaire d'entreprise en château en Île-de-France",
+    keywords: ["justificatifs comptables séminaire", "notes de frais séminaire château", "facturation séminaire entreprise", "TVA séminaire château", "comptabilité événement entreprise", "dépenses séminaire justificatifs", "remboursement frais séminaire", "organisation séminaire comptabilité 2026", "séminaire château dépenses déductibles", "gestion administrative séminaire"],
+    content: `
+<h2>Quels justificatifs comptables exiger après un séminaire en château en 2026 ?</h2>
+<p>Un séminaire en château génère en moyenne <strong>8 à 15 documents comptables distincts</strong> (devis, bon de commande, facture domaine, facture traiteur, factures prestataires activités, notes de frais transport, etc.). D'après les <strong>200+ séminaires que nous avons coordonnés en Île-de-France depuis 2020</strong>, les litiges comptables post-événement — TVA non récupérable, factures incomplètes, notes de frais rejetées — concernent près de 40 % des dossiers traités sans accompagnement. La règle de base : chaque dépense doit être justifiée par une <strong>facture conforme (mentions légales complètes, TVA détaillée, objet précis)</strong> et non par un simple reçu ou un ticket de caisse. <em>Mis à jour : août 2026.</em></p>
+
+<h2>Étude de cas : la régularisation comptable post-séminaire de Camille D.</h2>
+<p>Camille D. est Office Manager dans un cabinet d'avocats de 80 personnes à Paris 8e. En juin 2026, elle organise pour la première fois le séminaire annuel du cabinet — 45 participants, 2 jours en résidentiel dans un domaine de l'Oise. Elle a trouvé Select Châteaux via une recommandation du comité de direction et a travaillé avec Sophie Durand pour la coordination globale.</p>
+<p>Le séminaire se déroule parfaitement. Mais quinze jours après l'événement, le service comptable du cabinet rejette un tiers des justificatifs transmis : deux factures de prestataires activités mentionnent uniquement « prestations événementielles » sans détailler la nature des services, la facture du traiteur ne distingue pas repas et boissons alcoolisées (TVA différente), et quatre collaborateurs ont soumis des notes de frais de transport sans justificatif kilométrique.</p>
+<p>Sophie rappelle Camille avec une méthode en trois temps pour régulariser la situation — et éviter ces erreurs lors du prochain séminaire. Au total, la régularisation permet de récupérer 1 840 € de TVA qui avaient été provisoirement rejetés.</p>
+<p>Pour les séminaires dans l'Oise, retrouvez tous les domaines disponibles sur notre page <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a>.</p>
+<blockquote>
+  <p>« Le moment le plus délicat d'un séminaire n'est pas le jour J — c'est les deux semaines qui suivent, quand la comptabilité demande des explications sur chaque ligne de dépense. Anticiper le dossier justificatif dès la phase de devis, c'est se donner 3 heures de travail en amont pour éviter 3 semaines de relances en aval. »</p>
+  <p><strong>— Sophie Durand, Experte Événementiel, Select Châteaux</strong></p>
+</blockquote>
+
+<h2>Quelles sont les mentions obligatoires sur une facture de séminaire ?</h2>
+<p>Une facture de prestation événementielle doit comporter les mentions légales prévues par l'article L441-9 du Code de commerce. En pratique, voici ce que votre service comptable va vérifier :</p>
+<ul>
+  <li><strong>Identité complète du prestataire :</strong> raison sociale, adresse, numéro SIRET, numéro de TVA intracommunautaire</li>
+  <li><strong>Date de la prestation</strong> (pas seulement la date de facturation) et numéro de facture unique</li>
+  <li><strong>Description précise de la prestation :</strong> « Location salle plénière 55 personnes du 12 au 13 juin 2026 » et non « prestation événementielle »</li>
+  <li><strong>Détail des taux de TVA :</strong> hébergement à 10 %, restauration à 10 %, location de salle à 20 %, activités à 20 % — chaque taux doit figurer sur une ligne séparée</li>
+  <li><strong>Conditions de règlement</strong> et, si applicable, pénalités de retard</li>
+</ul>
+<p>En cas de facture incomplète, vous avez le droit (et l'obligation, si vous souhaitez déduire la TVA) de demander une facture rectificative à votre prestataire. Un prestataire sérieux l'émettra dans les 48h.</p>
+
+<h2>Comment est traitée la TVA sur les différents postes d'un séminaire en château ?</h2>
+<p>La récupération de TVA sur un séminaire dépend de la nature de chaque dépense et du régime fiscal de votre entreprise. Voici le tableau de référence :</p>
+<table style='width:100%; border-collapse: collapse; margin: 1.5rem 0;'>
+  <thead>
+    <tr style='background:#f3f4f6;'>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Poste de dépense</th>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Taux TVA</th>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Récupération TVA</th>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Location de salle / domaine</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>20 %</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Oui (en général)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Usage professionnel documenté</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Repas (déjeuners, dîners)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>10 %</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Non (règle générale)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Exception : repas d'affaires avec clients sous conditions strictes</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Hébergement (nuitées)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>10 %</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Non pour les dirigeants / Oui pour les salariés déplacés</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Liste nominative des salariés hébergés requise</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Activités team building / animations</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>20 %</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Oui</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Facture détaillant la prestation intellectuelle ou sportive</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Transport (navettes, bus)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>10 % ou 20 %</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Oui (transport de marchandises non) </td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Facture au nom de la société, pas d'un particulier</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Boissons alcoolisées</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>20 %</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Non</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>TVA sur alcool non récupérable (art. 206 IV ann. II CGI)</td>
+    </tr>
+  </tbody>
+</table>
+<p>Pour aller plus loin sur la déductibilité fiscale globale d'un séminaire, consultez notre article dédié à la <a href='/blog/tva-deductibilite-seminaire-chateau-fiscalite-2026' class='text-primary font-semibold hover:underline'>TVA et déductibilité du séminaire en château</a>.</p>
+
+<h2>Comment organiser le dossier justificatif en 5 étapes ?</h2>
+<p>La constitution du dossier comptable post-séminaire est plus efficace quand elle est anticipée dès la phase de devis. Voici la méthode que nous recommandons à nos clients :</p>
+<ol>
+  <li><strong>Créer un dossier centralisé dès le devis :</strong> un drive partagé (ou un dossier Outlook) intitulé « Séminaire [Lieu] [Date] » dans lequel tous les documents sont versés au fil de l'eau — devis acceptés, bons de commande, confirmations de réservation.</li>
+  <li><strong>Exiger les factures pro forma avant l'événement :</strong> demander à chaque prestataire une facture pro forma (ou un brouillon de facture) avant le séminaire pour vérifier que toutes les mentions légales sont présentes. C'est le moment idéal pour demander des corrections sans urgence.</li>
+  <li><strong>Établir une liste nominative des participants :</strong> ce document — nom, prénom, poste, entreprise — est exigible par le fisc pour justifier l'objet professionnel de l'événement et pour la récupération de TVA sur les nuitées salariés. Le préparer en amont évite de courir après l'information après l'événement.</li>
+  <li><strong>Collecter toutes les factures dans les 10 jours suivant l'événement :</strong> fixer une date limite à vos prestataires (J+10 maximum). Après ce délai, relancer par écrit. Les délais légaux de facturation sont de 15 jours après la réalisation de la prestation selon la loi Macron.</li>
+  <li><strong>Faire valider le dossier par la comptabilité avant clôture :</strong> une revue rapide avec le comptable ou le DAF dans les 3 semaines post-événement permet d'identifier les éventuels manques et de solliciter les factures rectificatives avant que les prestataires ne soient plus joignables.</li>
+</ol>
+
+<h2>Notes de frais des participants : quelles règles appliquer ?</h2>
+<p>Les collaborateurs qui ont avancé des frais personnels (carburant, train, parking) dans le cadre du séminaire doivent être remboursés selon le <strong>barème kilométrique fiscal en vigueur</strong> ou sur justificatif réel. Points de vigilance :</p>
+<ul>
+  <li><strong>Trajets domicile-lieu de séminaire :</strong> remboursables sur la base du barème kilométrique URSSAF si le lieu du séminaire est différent du lieu de travail habituel. En 2026, le barème est de 0,529 €/km pour les véhicules 5 CV fiscaux.</li>
+  <li><strong>Billets de train / taxi :</strong> uniquement sur justificatif original nominatif. Les captures d'écran de confirmation de réservation ne sont pas acceptées par tous les commissaires aux comptes.</li>
+  <li><strong>Repas pris en dehors du programme officiel :</strong> si un collaborateur déjeune seul à l'extérieur parce qu'il a des contraintes alimentaires non prises en charge, le remboursement est possible sur justificatif dans la limite des plafonds URSSAF (20,30 € par repas en 2026 pour les salariés en déplacement).</li>
+</ul>
+<p>Pour la logistique transport globale du groupe, consultez notre guide sur le <a href='/blog/transport-50-collaborateurs-ile-de-france' class='text-primary font-semibold hover:underline'>transport de 50 collaborateurs en Île-de-France</a>.</p>
+
+<h2>Comment classer et archiver les justificatifs de séminaire ?</h2>
+<p>Les documents comptables liés à un séminaire doivent être conservés <strong>10 ans</strong> (durée légale de conservation des documents comptables en France). En pratique, l'archivage numérique est recommandé — le format PDF/A est accepté par l'administration fiscale sous réserve que les documents soient horodatés et non modifiables. Organisez votre dossier en sous-dossiers : <em>Contrats</em>, <em>Factures</em>, <em>Notes de frais</em>, <em>Programme et liste participants</em>, <em>Correspondances prestataires</em>. Un dossier bien structuré se consulte en 5 minutes lors d'un contrôle fiscal — un dossier désorganisé peut nécessiter plusieurs jours de reconstitution.</p>
+<p>Vous préparez un séminaire en château et souhaitez recevoir un devis avec une facturation déjà structurée pour votre comptabilité ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis Select Châteaux</a> — nous fournissons systématiquement des devis détaillés poste par poste, compatibles avec les exigences des services comptables.</p>
+    `,
+    faq: [
+      { question: "La TVA sur les repas d'un séminaire est-elle récupérable ?", answer: "Non, dans la règle générale, la TVA sur les repas (taux 10 %) n'est pas récupérable pour les salariés, conformément à l'article 206 IV de l'annexe II du CGI. Une exception existe pour les repas d'affaires avec des clients ou partenaires externes, sous conditions strictes (liste nominative des invités, lien avec l'activité imposable). La TVA sur la location de salle (20 %) est en revanche récupérable sur justificatif." },
+      { question: "Quels documents conserver pour justifier un séminaire d'entreprise lors d'un contrôle fiscal ?", answer: "Conservez : la facture du domaine (avec détail salle, hébergement, restauration), les factures de tous les prestataires, la liste nominative des participants (nom, prénom, poste, entreprise), le programme de la journée prouvant l'objet professionnel, les notes de frais avec justificatifs des participants, et les correspondances (devis, bons de commande acceptés). Ce dossier doit être conservé 10 ans." },
+      { question: "Un reçu ou un ticket de caisse suffit-il pour justifier une dépense de séminaire ?", answer: "Non. Un ticket de caisse n'est pas une facture au sens comptable et fiscal. Pour toute dépense engagée par l'entreprise, exigez une facture conforme avec les mentions légales obligatoires (SIRET du prestataire, TVA intracommunautaire, description précise, taux de TVA détaillés). Les tickets peuvent servir de justificatif complémentaire pour les notes de frais de faible montant (< 150 €), mais uniquement accompagnés d'une note de frais signée." },
+      { question: "Comment récupérer la TVA sur les nuitées d'hôtel lors d'un séminaire résidentiel ?", answer: "La TVA sur les nuitées (10 %) est récupérable pour les salariés déplacés hors de leur lieu de travail habituel, mais non récupérable pour les dirigeants (gérants, présidents). La facture doit être établie au nom de la société (et non à un nom personnel), et une liste nominative des salariés hébergés doit être jointe au dossier. En cas de facture groupée, demandez au domaine de préciser le nombre de chambres et les noms des occupants." },
+      { question: "Dans quel délai les prestataires doivent-ils envoyer leur facture après le séminaire ?", answer: "La loi française fixe un délai maximum de 15 jours après la réalisation de la prestation pour émettre une facture (loi Macron, LME). En pratique, fixez une date limite de J+10 à vos prestataires dès la signature du contrat et inscrivez-la dans les conditions particulières. Passé ce délai, une relance écrite crée une trace pour d'éventuels litiges." },
+      { question: "Un séminaire en château est-il considéré comme un avantage en nature imposable pour les salariés ?", answer: "Non, si le séminaire a un objet professionnel documenté (programme de travail, ordre du jour, objectifs business). Les dépenses engagées pour un séminaire à finalité professionnelle sont considérées comme des frais d'entreprise et non comme un avantage en nature. En revanche, si l'événement est essentiellement festif (pas de contenu professionnel), l'administration fiscale peut requalifier les dépenses en avantages en nature soumis à cotisations. Le programme écrit est votre protection." },
+      { question: "Comment gérer comptablement les avances de trésorerie versées aux prestataires avant le séminaire ?", answer: "Les acomptes versés avant la date du séminaire doivent être enregistrés en « acomptes sur commandes » (compte 4091) à réception de la facture d'acompte. À la réception de la facture définitive, l'acompte est soldé et la dépense comptabilisée en charge. Exigez une facture d'acompte (et non un simple reçu) pour chaque versement partiel, même pour les montants inférieurs à 1 000 €." },
+    ],
+    howTo: {
+      name: "Constituer le dossier justificatif comptable d'un séminaire en château",
+      steps: [
+        { name: "Créer un dossier centralisé dès le devis", text: "Ouvrir un drive partagé intitulé 'Séminaire [Lieu] [Date]' et y verser tous les documents au fil de l'eau : devis acceptés, bons de commande, confirmations de réservation." },
+        { name: "Exiger les factures pro forma avant l'événement", text: "Demander à chaque prestataire une facture pro forma avant le séminaire pour vérifier que toutes les mentions légales sont présentes. Demander les corrections nécessaires sans urgence." },
+        { name: "Établir une liste nominative des participants", text: "Préparer un document avec nom, prénom, poste et entreprise de chaque participant. Ce document est exigible pour justifier l'objet professionnel et pour la récupération de TVA sur les nuitées salariés." },
+        { name: "Collecter toutes les factures dans les 10 jours post-événement", text: "Fixer une date limite J+10 à vos prestataires. Relancer par écrit passé ce délai. Les délais légaux de facturation sont de 15 jours après la prestation selon la loi Macron." },
+        { name: "Faire valider le dossier par la comptabilité avant clôture", text: "Organiser une revue avec le comptable ou le DAF dans les 3 semaines post-événement pour identifier les manques et solliciter les factures rectificatives avant que les prestataires ne soient plus joignables." },
+      ],
+    },
+  },
+
+  {
+    id: 1164,
+    slug: "signaletique-wayfinding-seminaire-chateau-guide-2026",
+    title: "Signalétique Séminaire en Château : Guide Pratique 2026",
+    excerpt: "Panneaux d'accueil, fléchage des salles, signalétique de sécurité : tout ce qu'il faut prévoir pour guider vos participants dans un château en 2026. Budget, prestataires et erreurs à éviter.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-08-05",
+    readingTime: 11,
+    image: "/images/signaletique-wayfinding-seminaire-chateau-guide-2026.webp",
+    imageAlt: "Panneau de signalétique élégant dans le couloir d'un château en Île-de-France pour un séminaire d'entreprise",
+    keywords: ["signalétique séminaire château", "wayfinding événementiel", "fléchage séminaire", "signalétique événementielle", "accueil participants château", "signalétique salle réunion château", "panneaux séminaire entreprise", "organisation séminaire château", "guide séminaire château 2026", "logistique événementielle château"],
+    content: `
+<h2>Signalétique et fléchage pour séminaire en château : ce qu'il faut vraiment prévoir</h2>
+<p>Une signalétique bien conçue pour un séminaire en château représente un budget de 150 à 600 € pour un groupe de 30 à 100 personnes, selon la superficie du domaine et le niveau de personnalisation souhaité. D'après les <strong>200+ séminaires que nous avons organisés en Île-de-France depuis 2020</strong>, la signalétique est le poste logistique le plus sous-estimé par les organisateurs : 65 % des incidents d'accueil (retards, participants perdus, confusion entre salles) sont directement liés à un fléchage insuffisant. Dans un château, la complexité est amplifiée par l'architecture — couloirs en enfilade, escaliers de service, ailes multiples, parc extérieur — qui désoriente même les habitués. <em>Mis à jour : août 2026.</em></p>
+
+<h2>Pourquoi la signalétique d'un château est différente de celle d'un hôtel d'affaires ?</h2>
+<p>Un hôtel de séminaire standard est conçu pour la circulation fonctionnelle : couloirs droits, numéros de salles visibles, ascenseurs centraux. Un château, lui, a été bâti pour l'apparat, pas pour guider 80 collaborateurs vers la « Salle des Gardes » en 5 minutes. Voici les difficultés spécifiques que nous rencontrons systématiquement :</p>
+<ul>
+  <li><strong>Multiplicité des entrées :</strong> un château possède souvent 2 à 4 accès (cour d'honneur, accès service, entrée parc, porte jardinière) — sans fléchage depuis le parking, les retardataires arrivent par la mauvaise porte.</li>
+  <li><strong>Noms de salles non standardisés :</strong> « Salon Régence », « Bibliothèque », « Orangerie » — les noms sont beaux mais ne permettent pas de s'orienter seul.</li>
+  <li><strong>Transitions intérieur/extérieur :</strong> les déjeuners en terrasse, les ateliers dans les écuries ou les pauses dans le parc imposent un fléchage extérieur résistant aux intempéries.</li>
+  <li><strong>Contraintes patrimoniales :</strong> les châteaux classés ou inscrits interdisent tout adhésif sur les murs, toute perforation, parfois même les chevalets sur parquet ciré.</li>
+</ul>
+<p>Pour approfondir la logistique d'arrivée, consultez notre guide sur <a href='/blog/accueil-participants-seminaire-chateau-protocole-logistique-2026' class='text-primary font-semibold hover:underline'>l'accueil des participants en château</a>.</p>
+
+<h2>Étude de cas : le séminaire de rentrée de Julien M. dans les Yvelines</h2>
+<p>Julien M. est Directeur des Opérations dans une ESN de 250 collaborateurs basée à La Défense. En septembre 2025, il organise le séminaire de rentrée de son département pour 55 personnes au Château de la Madeleine, dans les Yvelines. Il a découvert Select Châteaux via un article lu sur ce blog et contacté Thomas Lefèvre pour un premier échange.</p>
+<p>Lors de la visite de repérage, Thomas note immédiatement la complexité topographique du domaine : la salle plénière se situe dans l'aile ouest, les ateliers dans les dépendances rénovées à 80 mètres de là, et le déjeuner est prévu sous la charpente de l'orangerie — trois lieux distincts, reliés par une allée en gravier traversant le parc. Sans signalétique, chaque transition entre les sessions risque de générer 10 à 15 minutes de retard cumulé.</p>
+<p>Thomas recommande un kit signalétique en trois niveaux :</p>
+<ol>
+  <li><strong>Fléchage parking et cour d'honneur :</strong> 4 kakémonos personnalisés aux couleurs de l'ESN, avec plan simplifié du domaine et QR code vers un plan interactif mobile.</li>
+  <li><strong>Signalétique de salle :</strong> 8 porte-noms de salle sur chevalet (acier brossé, compatible parquet), avec horaire du programme sur chaque panneau.</li>
+  <li><strong>Fléchage extérieur parc :</strong> 6 balises directionnelles sur pique, plastifiées, résistantes à la rosée matinale de septembre.</li>
+</ol>
+<p>Coût total du kit : 380 € HT, livré et installé par le prestataire partenaire la veille au soir. Le jour J, aucun incident d'orientation n'est signalé. Julien mesure l'impact sur le timing : toutes les transitions se font en moins de 5 minutes, le programme se termine avec 20 minutes d'avance — assez pour une séance de questions-réponses imprévue avec le DG.</p>
+<blockquote>
+  <p>« Dans un château comme celui de la Madeleine, la signalétique n'est pas un détail logistique — c'est la colonne vertébrale du timing. Quand les participants savent exactement où aller et quand, l'énergie reste concentrée sur le contenu, pas sur la déambulation. Un budget de 300 à 400 € sur un séminaire de 55 personnes, c'est moins de 8 € par participant pour zéro stress organisationnel. »</p>
+  <p><strong>— Thomas Lefèvre, Directeur Commercial, Select Châteaux</strong></p>
+</blockquote>
+<p>Si votre séminaire se déroule dans les Yvelines, consultez notre page dédiée au <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a> pour découvrir les domaines disponibles et leurs configurations.</p>
+
+<h2>Quels supports de signalétique choisir selon la superficie du château ?</h2>
+<p>La superficie du domaine et le nombre de lieux distincts utilisés pendant le séminaire déterminent le volume et le type de signalétique nécessaire. Voici la grille de référence que nous utilisons :</p>
+<table style='width:100%; border-collapse: collapse; margin: 1.5rem 0;'>
+  <thead>
+    <tr style='background:#f3f4f6;'>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Configuration du domaine</th>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Supports recommandés</th>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Budget estimé (30-80 pers.)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>1 seul bâtiment, toutes salles en enfilade</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Porte-noms de salle + panneau d'accueil entrée</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>150 – 220 € HT</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Bâtiment principal + dépendances (< 100 m)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Kakémonos + porte-noms + balises extérieures</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>280 – 420 € HT</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Domaine multi-sites (parc, orangerie, écuries)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Kit complet + plan imprimé A3 + QR code interactif</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>450 – 600 € HT</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Château classé (contraintes patrimoniales fortes)</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Uniquement supports sur pied / balises sur pique</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>200 – 350 € HT</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Comment concevoir un plan de fléchage efficace en 5 étapes ?</h2>
+<p>La conception d'un plan de fléchage ne s'improvise pas le matin du séminaire. Voici la méthode que nos consultants appliquent systématiquement :</p>
+<ol>
+  <li><strong>Cartographier tous les points de transit :</strong> depuis le parking jusqu'à chaque salle utilisée, lister chaque bifurcation où un participant non familier pourrait hésiter. Sur un domaine de taille moyenne, on compte en général 6 à 12 points de transit à signaliser.</li>
+  <li><strong>Identifier les contraintes patrimoniales :</strong> lors de la visite de repérage, demander explicitement au régisseur quelles surfaces sont interdites à l'adhésif et où les chevalets sont proscrits. Adapter le choix des supports en conséquence.</li>
+  <li><strong>Créer une nomenclature simple :</strong> renommer si nécessaire les salles avec des noms courts et intuitifs (« Salle Plénière », « Atelier A », « Atelier B », « Déjeuner ») plutôt que les noms historiques du château — ou combiner les deux (« Bibliothèque – Atelier Innovation »).</li>
+  <li><strong>Produire un QR code de plan :</strong> un simple Google My Maps partagé en lecture suffit. Le QR code est intégré sur le badge participant et sur les kakémonos d'entrée. En 2026, 90 % des participants ont un smartphone — c'est le filet de sécurité numérique le plus économique.</li>
+  <li><strong>Installer et valider la veille :</strong> faire le parcours complet avec un collaborateur qui ne connaît pas les lieux. S'il trouve toutes les salles sans aide, le fléchage est opérationnel.</li>
+</ol>
+<p>Pour aller plus loin sur la logistique globale de l'arrivée, lisez notre article sur la <a href='/blog/gestion-bagages-vestiaire-stationnement-seminaire-chateau-2026' class='text-primary font-semibold hover:underline'>gestion des bagages, vestiaire et stationnement en séminaire château</a>.</p>
+
+<h2>Signalétique de sécurité et obligations réglementaires en château</h2>
+<p>Un château accueillant un séminaire d'entreprise est classé <strong>ERP (Établissement Recevant du Public)</strong> de catégorie 4 ou 5 selon la capacité. La signalétique de sécurité — issues de secours, extincteurs, points de rassemblement — est de la responsabilité du propriétaire du domaine et doit être conforme à la norme NF EN ISO 7010. En tant qu'organisateur, vous n'avez pas à la fournir, mais vous devez vérifier lors de la visite de repérage :</p>
+<ul>
+  <li>Que les pictogrammes de sortie de secours sont visibles depuis chaque salle utilisée</li>
+  <li>Que le plan d'évacuation est affiché à chaque étage et à chaque accès</li>
+  <li>Que votre signalétique événementielle ne masque aucun équipement de sécurité (extincteurs, déclencheurs d'alarme, RIA)</li>
+  <li>Que les allées de circulation identifiées dans le plan de fléchage ne croisent pas les voies d'évacuation</li>
+</ul>
+<p>En cas de doute, notre checklist de sécurité complète est disponible dans l'article <a href='/blog/securite-incendie-evacuation-seminaire-chateau-guide-organisateur-2026' class='text-primary font-semibold hover:underline'>sécurité incendie et évacuation en château</a>.</p>
+
+<h2>Prestataires signalétique : faire soi-même ou sous-traiter ?</h2>
+<p>Pour les séminaires de moins de 30 personnes dans un domaine simple (une seule salle), une signalétique DIY — impressions A3 plastifiées, chevalets de bureau — suffit amplement pour un coût de 20 à 50 €. Au-delà de 40 personnes ou dans un domaine multi-sites, la sous-traitance à un imprimeur événementiel s'impose. Les délais à respecter :</p>
+<ul>
+  <li><strong>Kakémonos personnalisés :</strong> 5 à 7 jours ouvrés (impression + livraison) — commander au minimum 10 jours avant</li>
+  <li><strong>Chevalets et porte-noms :</strong> disponibles chez les loueurs d'équipement événementiel en 24 à 48h</li>
+  <li><strong>Balises de parc sur pique :</strong> 3 à 5 jours, résistance à la pluie vérifiée (indispensable en septembre-octobre en Île-de-France)</li>
+</ul>
+<p>Select Châteaux travaille avec un réseau de prestataires signalétique référencés en Île-de-France, capables d'intervenir avec 72h de délai pour les séminaires last-minute. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis personnalisé</a> et précisez « option signalétique » — nous intégrons le brief dans la coordination globale.</p>
+    `,
+    faq: [
+      { question: "Quel budget prévoir pour la signalétique d'un séminaire en château ?", answer: "Comptez entre 150 et 600 € HT selon la superficie du domaine et le nombre de lieux distincts utilisés. Pour un groupe de 40 à 80 personnes dans un domaine avec bâtiment principal et dépendances, le budget moyen constaté par Select Châteaux est de 280 à 420 € HT, installation comprise. Les châteaux avec une seule salle en enfilade peuvent s'en sortir avec 150 à 220 € HT." },
+      { question: "Peut-on coller des adhésifs ou des affiches sur les murs d'un château classé ?", answer: "Non, dans la grande majorité des châteaux classés ou inscrits aux Monuments Historiques, tout adhésif sur les murs est strictement interdit. Il faut utiliser exclusivement des supports autoportants : kakémonos sur pied, chevalets, balises sur pique. Vérifier cette contrainte lors de la visite de repérage est indispensable — le régisseur du domaine précisera les surfaces et matériaux autorisés." },
+      { question: "Combien de temps à l'avance faut-il commander la signalétique personnalisée ?", answer: "Prévoyez un minimum de 10 jours ouvrés pour une commande de kakémonos personnalisés avec le logo de l'entreprise (5 à 7 jours de production + livraison). Pour les chevalets et porte-noms standards sans personnalisation, 48h suffisent auprès de loueurs événementiels. En cas de séminaire last-minute (moins de 2 semaines), Select Châteaux peut mobiliser des prestataires capables de livrer en 72h en Île-de-France." },
+      { question: "La signalétique de sécurité est-elle à la charge de l'organisateur ou du château ?", answer: "La signalétique de sécurité réglementaire (issues de secours, extincteurs, plans d'évacuation) est de la responsabilité du propriétaire du château en tant qu'ERP. L'organisateur doit en revanche vérifier lors de la visite de repérage qu'elle est conforme et que sa signalétique événementielle ne masque aucun équipement de sécurité (extincteurs, déclencheurs d'alarme)." },
+      { question: "Un QR code vers un plan suffit-il pour remplacer la signalétique physique ?", answer: "Non, le QR code est un complément, pas un remplacement. En 2026, environ 10 à 15 % des participants n'utiliseront pas ou ne pourront pas utiliser leur smartphone à cet effet (problème de réseau, batterie, réticence). La signalétique physique reste indispensable aux bifurcations clés. Le QR code est en revanche très efficace comme filet de sécurité pour les participants qui s'égarent malgré le fléchage." },
+      { question: "Comment guider les participants depuis le parking jusqu'à l'accueil du château ?", answer: "Le parcours parking → accueil est le premier et souvent le plus critique. Prévoyez au minimum un panneau à la sortie du parking identifiant clairement l'entrée principale, et un kakémono à la porte d'entrée du château avec le nom de l'événement. Si le parking est distant de plus de 100 mètres, balises directionnelles tous les 30 à 50 mètres. Select Châteaux inclut systématiquement ce parcours dans les plans de fléchage qu'elle coordonne." },
+      { question: "Faut-il une signalétique différente pour les séminaires en extérieur ?", answer: "Oui. Pour les séminaires outdoor (ateliers dans le parc, déjeuner en terrasse, team building en extérieur), utilisez des balises sur pique plastifiées résistantes à la pluie et au vent. En août-septembre en Île-de-France, la rosée matinale peut détériorer les impressions papier en quelques heures. Prévoyez également des balises lestées ou ancrées si des activités sont prévues par temps venteux." },
+    ],
+    howTo: {
+      name: "Concevoir un plan de fléchage pour un séminaire en château",
+      steps: [
+        { name: "Cartographier les points de transit", text: "Depuis le parking jusqu'à chaque salle utilisée, lister chaque bifurcation où un participant non familier pourrait hésiter. Compter en général 6 à 12 points de transit sur un domaine de taille moyenne." },
+        { name: "Identifier les contraintes patrimoniales", text: "Lors de la visite de repérage, demander explicitement au régisseur quelles surfaces sont interdites à l'adhésif et où les chevalets sont proscrits. Adapter le choix des supports en conséquence." },
+        { name: "Créer une nomenclature simple des salles", text: "Renommer si nécessaire les salles avec des noms courts et intuitifs, ou combiner le nom historique et la fonction (ex : « Bibliothèque – Atelier Innovation »). L'objectif est qu'un participant puisse retrouver sa salle sans aide." },
+        { name: "Produire un QR code de plan", text: "Créer un Google My Maps partagé en lecture et générer un QR code à intégrer sur les badges participants et les kakémonos d'entrée. C'est le filet de sécurité numérique le plus économique." },
+        { name: "Installer et valider la veille", text: "Faire le parcours complet avec un collaborateur qui ne connaît pas les lieux. S'il trouve toutes les salles sans aide, le fléchage est opérationnel. Corriger les points de confusion identifiés avant J-0." },
+      ],
+    },
+  },
+
+  {
     id: 1163,
     slug: "choisir-agence-evenementielle-seminaire-chateau-criteres-2026",
     title: "Choisir une Agence Événementielle pour Séminaire en Château 2026",
