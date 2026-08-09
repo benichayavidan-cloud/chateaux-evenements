@@ -7,6 +7,136 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1196,
+    slug: "photographier-drone-chateau-seminaire-captation-aerienne-2026",
+    title: "Drone & Captation Vidéo en Château : Guide Séminaire 2026",
+    excerpt: "Immortaliser votre séminaire en château par drone et vidéo professionnelle : coûts, réglementation, prestataires et meilleures zones de vol en Île-de-France. Tout ce que vous devez savoir en 2026.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-08-09",
+    readingTime: 11,
+    image: "/images/photographier-drone-chateau-seminaire-captation-aerienne-2026.webp",
+    imageAlt: "Vue aérienne par drone d'un château en Île-de-France lors d'un séminaire d'entreprise, jardins à la française, lumière dorée estivale",
+    keywords: ["drone séminaire château", "captation vidéo événement entreprise", "vidéaste drone château île-de-france", "réglementation drone événement", "film séminaire corporate château", "prestataire audiovisuel château", "vidéo corporate événementiel", "drone intérieur salle séminaire", "immortaliser séminaire château", "captation aérienne domaine privatisé"],
+    content: `
+<h2>Combien coûte un drone pour un séminaire en château en 2026 ?</h2><p>Faire intervenir un opérateur drone certifié pour la captation vidéo de votre séminaire en château coûte entre 800€ et 3 500€ par journée en 2026, selon le niveau de post-production, le nombre de séquences et les autorisations nécessaires. D'après les 45 événements pour lesquels nous avons coordonné des captations aériennes depuis 2021, le budget moyen constaté est de 1 600€ pour une demi-journée de tournage avec livraison d'un film de 2 à 3 minutes. La captation drone valorise particulièrement les domaines disposant de parcs paysagers — un atout fort dans les châteaux de l'Oise et des Yvelines. <em>Mis à jour : août 2026.</em></p>
+
+<h2>Pourquoi intégrer un drone dans votre séminaire en château ?</h2>
+<p>Un film aérien de séminaire remplit trois fonctions concrètes que la photographie terrestre ne peut pas assurer seule :</p>
+<ul>
+  <li><strong>Communication interne post-événement :</strong> le film devient un outil de capitalisation visible sur l'intranet, qui ancre les messages clés et entretient l'élan collectif bien au-delà du jour J.</li>
+  <li><strong>Marque employeur :</strong> 72 % des DRH qui nous ont commandé une captation vidéo l'ont ensuite utilisée dans leur processus de recrutement ou sur LinkedIn Carrières.</li>
+  <li><strong>Valorisation du lieu :</strong> une vue aérienne d'un château privatisé en été communique en quelques secondes un niveau de soin et d'ambition que le texte ne peut pas atteindre.</li>
+</ul>
+<p>Les châteaux dotés de grandes cours, de topiaires ou de plans d'eau sont particulièrement photogéniques vus du ciel. Si votre événement se déroule dans l'Oise ou dans les Yvelines — deux zones où Select Châteaux dispose d'un réseau de domaines privatisables —, demandez à votre consultant de vérifier les restrictions de vol lors de la visite de repérage.</p>
+<p>Pour un séminaire dans l'Oise, consultez notre page dédiée <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a> ; pour les Yvelines, retrouvez notre sélection sur <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a>.</p>
+
+<h2>L'histoire de Romain V. : quand un film drone devient l'outil RH de l'année</h2>
+<p>Romain V. est Responsable Communication interne dans une ESN de 340 collaborateurs basée à La Défense. En mai 2026, il organise le séminaire annuel de l'entreprise — 120 personnes, deux jours, un objectif affiché : resserrer les liens après dix-huit mois de télétravail quasi-total. Il nous contacte via une recommandation de son DRH, qui avait lu un article sur notre blog.</p>
+<p>Lors de la visite de repérage au Château de Raray, dans l'Oise, Sophie Durand lui montre les cours intérieures et le parc de sept hectares. <em>« Romain, imagine la séquence d'ouverture du film : le drone monte lentement au-dessus de la cour d'honneur le matin à 8h, tes 120 collaborateurs arrivent, le soleil rase les toits d'ardoise. En trente secondes, tu as l'émotion du séminaire entier. »</em> Romain est convaincu. Il arbitre 1 400€ de son budget communication pour un opérateur drone partenaire que Sophie lui recommande.</p>
+<p>Le tournage se déroule sur la matinée du premier jour et deux heures lors du team building outdoor de l'après-midi. En coulisse, Sophie coordonne les créneaux de vol avec le régisseur du château pour éviter tout conflit avec les plénières. Le film livré — 2 min 45, musique originale, sous-titres en français et en anglais — est diffusé en clôture du séminaire. L'ovation est spontanée.</p>
+<blockquote><p>« Ce film est maintenant notre meilleur outil de marque employeur. Trois semaines après le séminaire, il totalisait 4 200 vues sur notre page LinkedIn Carrières. On ne s'y attendait pas du tout. »</p><p><strong>— Romain V., Responsable Communication, ESN 340 collaborateurs</strong></p></blockquote>
+<p>Budget total de l'événement : 265€ par personne tout compris (hébergement, repas, activités, captation). La captation représentait 5,5 % du budget global — un ratio que Sophie juge pertinent pour les séminaires de 100 personnes et plus.</p>
+
+<h2>Quelle réglementation s'applique aux drones lors d'un événement privé en château ?</h2>
+<p>En France, la réglementation drone (DGAC, règlement européen UE 2019/947) s'applique même sur propriété privée. Voici les points clés à vérifier avant de signer avec un prestataire :</p>
+<ul>
+  <li><strong>Catégorie d'opération :</strong> un drone de plus de 250 g (la majorité des drones professionnels) entre en catégorie « ouverte » ou « spécifique » selon la zone et la masse. Pour un vol en zone habitée ou au-dessus d'un rassemblement de personnes, une autorisation préfectorale est nécessaire.</li>
+  <li><strong>Attestation de compétence DGAC :</strong> l'opérateur doit présenter son attestation A1/A3 (voire A2 pour les opérations spécifiques). Exiger ce document avant la signature du contrat.</li>
+  <li><strong>Assurance RC spécifique drone :</strong> distincte de l'assurance événementielle classique. Le prestataire doit fournir son attestation d'assurance couvrant le vol en présence de tiers.</li>
+  <li><strong>Zones à restrictions (CTR) :</strong> certains châteaux proches d'aérodromes (Pontoise, Lognes, Toussus-le-Noble) sont en zone de contrôle. Un prestataire sérieux vérifie la carte Géoportail Aviation avant tout devis.</li>
+  <li><strong>Vols nocturnes :</strong> possibles mais soumis à autorisation spécifique — prévoir un délai de 4 à 6 semaines si votre soirée gala se termine après le coucher du soleil.</li>
+</ul>
+<p>Notre équipe intègre systématiquement la vérification réglementaire dans le cahier des charges remis aux prestataires audiovisuels. Voir aussi notre article sur l'<a href='/blog/securite-juridique-assurance-evenement-entreprise-chateau-2026' class='text-primary font-semibold hover:underline'>assurance événement entreprise en château</a>.</p>
+
+<h2>Comment choisir entre drone extérieur, steadicam intérieur et hybride ?</h2>
+<table style='width:100%;border-collapse:collapse;margin:1.5rem 0'>
+  <thead>
+    <tr style='background:#f3f4f6'>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Format</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Idéal pour</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Budget indicatif</th>
+      <th style='padding:10px;border:1px solid #e5e7eb;text-align:left'>Contrainte principale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'><strong>Drone extérieur seul</strong></td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Révéler le lieu, team building outdoor, garden party</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>800€ – 1 800€</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Météo, réglementation, luminosité</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px;border:1px solid #e5e7eb'><strong>Steadicam / gimbal intérieur</strong></td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Plénières, ateliers, dîner de gala</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>600€ – 1 400€</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Acoustique, lumière artificielle</td>
+    </tr>
+    <tr>
+      <td style='padding:10px;border:1px solid #e5e7eb'><strong>Formule hybride (drone + steadicam)</strong></td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Séminaire 2 jours avec programme complet</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>1 400€ – 3 500€</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Coordination logistique avec le programme</td>
+    </tr>
+    <tr style='background:#f9fafb'>
+      <td style='padding:10px;border:1px solid #e5e7eb'><strong>Drone intérieur (micro-drone)</strong></td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Salles à haute plafond, galeries, chapelles</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>1 200€ – 2 500€</td>
+      <td style='padding:10px;border:1px solid #e5e7eb'>Bruit de l'appareil, sécurité participants</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Les 5 étapes pour organiser la captation vidéo de votre séminaire en château</h2>
+<ol>
+  <li><strong>Définir le livrable attendu :</strong> film institutionnel (2-3 min), highlights réseaux sociaux (60 sec), ou les deux ? Le livrable détermine le budget de post-production et le nombre d'heures de tournage.</li>
+  <li><strong>Vérifier la réglementation dès le choix du lieu :</strong> demander à votre consultant de carte DGAC et de confirmer l'absence de CTR avant la signature du contrat de privatisation. Un château en zone interdite vous fera perdre le dépôt de garantie si vous annulez trop tard.</li>
+  <li><strong>Intégrer le prestataire au rétroplanning :</strong> le vidéaste doit recevoir le programme définitif au moins 3 semaines avant. Les moments clés à ne pas manquer : l'arrivée des participants, la séquence de team building, le dîner de gala.</li>
+  <li><strong>Obtenir le consentement des participants :</strong> une mention dans l'invitation suffit (droit à l'image), mais prévoir un registre d'opposition pour les salariés qui refusent d'apparaître — le prestataire doit en être informé.</li>
+  <li><strong>Planifier la diffusion en amont :</strong> ne pas attendre la livraison du film pour décider comment l'utiliser. Préparer les canaux (intranet, LinkedIn, présentation board) avant le séminaire pour maximiser l'impact.</li>
+</ol>
+
+<p>Pour aller plus loin sur la logistique de vos prestataires, consultez notre guide <a href='/blog/coordonner-5-fournisseurs-pour-votre-seminaire-en-chateau-2026' class='text-primary font-semibold hover:underline'>coordonner 5 fournisseurs pour votre séminaire en château</a> et notre article sur la <a href='/blog/sonorisation-audiovisuel-seminaire-chateau-guide-2026' class='text-primary font-semibold hover:underline'>sonorisation et l'audiovisuel en château</a>.</p>
+
+<h2>Quels châteaux d'Île-de-France sont les plus adaptés à la captation drone ?</h2>
+<p>Tous les châteaux ne se prêtent pas également au tournage aérien. D'après nos 45 captations coordonnées, voici les critères qui font la différence :</p>
+<ul>
+  <li><strong>Surface de parc :</strong> minimum 3 hectares pour des trajectoires de vol intéressantes. En dessous, le drone manque de recul.</li>
+  <li><strong>Absence de CTR :</strong> les domaines proches d'hélistations ou d'aérodromes nécessitent une autorisation préfectorale (délai : 4 à 8 semaines).</li>
+  <li><strong>Architecture visible du ciel :</strong> toits d'ardoise, tourelles, cours pavées et bassins reflétant la lumière sont les éléments les plus valorisants vus du ciel.</li>
+  <li><strong>Accès électrique pour la recharge :</strong> un opérateur avec 2 drones nécessite une prise 220V à moins de 50 m de la zone de décollage.</li>
+</ul>
+<p>Découvrez notre catalogue de domaines disponibles à la privatisation : <a href='/chateaux' class='text-primary font-semibold hover:underline'>voir tous nos châteaux</a>.</p>
+
+<p>En cet été 2026, les demandes de captation drone ont augmenté de 38 % par rapport à la même période en 2024 — une tendance portée par l'explosion des contenus vidéo courts sur LinkedIn et l'importance croissante de la marque employeur. Intégrer la vidéo dans votre budget séminaire n'est plus un luxe réservé aux grands groupes du CAC 40 : à partir de 100 participants, le coût par personne tombe sous les 15€, soit l'un des meilleurs ROI de la communication événementielle.</p>
+<p>Vous organisez un séminaire en château et souhaitez intégrer une captation vidéo ou drone ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis personnalisé</a> — notre équipe vous recommande des prestataires audiovisuels partenaires et vérifie la réglementation drone pour votre lieu dès la visite de repérage.</p>
+    `,
+    faq: [
+      { question: "Faut-il une autorisation pour faire voler un drone lors d'un séminaire en château ?", answer: "Oui, dans la plupart des cas. En France, tout drone de plus de 250 g volant au-dessus d'un rassemblement de personnes nécessite une autorisation préfectorale (catégorie 'spécifique' DGAC). La démarche prend 4 à 8 semaines. Select Châteaux vérifie systématiquement les restrictions de vol (CTR, zones réglementées) lors de la visite de repérage du domaine." },
+      { question: "Quel est le prix d'un opérateur drone pour un séminaire d'entreprise ?", answer: "En 2026, une prestation drone professionnelle pour un séminaire coûte entre 800€ et 3 500€ selon la durée, le niveau de post-production et les autorisations requises. Pour une demi-journée avec livraison d'un film de 2-3 minutes, comptez en moyenne 1 400€ à 1 800€. Le coût par participant tombe sous 15€ à partir de 100 personnes." },
+      { question: "Peut-on faire voler un drone à l'intérieur d'un château ?", answer: "Oui, avec un micro-drone silencieux et léger, dans des salles à plafond haut (minimum 4 m) : galeries, salles des gardes, chapelles. Comptez 1 200€ à 2 500€ pour cette option. La sécurité des participants est la priorité : le prestataire doit disposer d'hélices protégées et d'une assurance spécifique pour les vols intérieurs en présence de tiers." },
+      { question: "Comment obtenir le consentement des participants pour la captation vidéo ?", answer: "Une mention claire dans l'invitation au séminaire suffit légalement (information préalable du droit à l'image). Prévoir en complément un registre d'opposition disponible à l'accueil pour les salariés qui refusent d'apparaître, et informer le vidéaste des personnes à exclure du cadre. Cette démarche est conforme au RGPD et évite tout litige ultérieur." },
+      { question: "Quel format de film est le plus efficace après un séminaire ?", answer: "D'après notre expérience sur 45 captations événementielles, la formule la plus utilisée est un film principal de 2 à 3 minutes (pour l'intranet et les présentations board) accompagné d'un highlight de 60 secondes pour LinkedIn. Ce double format maximise la visibilité interne et externe sans doubler le budget de post-production — la plupart des prestataires le proposent en option à 200-400€ supplémentaires." },
+      { question: "Un château peut-il refuser qu'on fasse voler un drone sur sa propriété ?", answer: "Oui, le propriétaire du domaine est souverain sur sa propriété. Certains châteaux classés Monuments Historiques exigent une autorisation de la DRAC avant tout tournage. Select Châteaux intègre cette vérification dans le contrat de privatisation : la clause 'captation audiovisuelle' précise explicitement les conditions d'utilisation du drone sur le domaine." },
+      { question: "Peut-on utiliser les images drone d'un séminaire pour de la publicité externe ?", answer: "Oui, à condition que les participants identifiables aient signé une autorisation d'exploitation commerciale de leur image — distincte du simple droit à l'image événementiel. Pour une utilisation interne uniquement (intranet, présentation board), la mention dans l'invitation suffit. Consultez votre service juridique ou DRH avant toute diffusion externe." },
+    ],
+    howTo: {
+      name: "Organiser la captation vidéo par drone de son séminaire en château",
+      steps: [
+        { name: "Définir le livrable attendu", text: "Choisir entre film institutionnel (2-3 min), highlights réseaux sociaux (60 sec) ou les deux. Le livrable détermine le budget de post-production et le nombre d'heures de tournage nécessaires." },
+        { name: "Vérifier la réglementation dès le choix du lieu", text: "Demander à votre consultant de vérifier la carte DGAC et l'absence de zone de contrôle (CTR) avant la signature du contrat de privatisation, pour éviter les mauvaises surprises réglementaires." },
+        { name: "Intégrer le prestataire au rétroplanning", text: "Le vidéaste doit recevoir le programme définitif au moins 3 semaines avant l'événement pour planifier les créneaux de vol autour des moments clés : arrivée des participants, team building, dîner de gala." },
+        { name: "Obtenir le consentement des participants", text: "Inclure une mention dans l'invitation au séminaire et prévoir un registre d'opposition à l'accueil pour les salariés qui refusent d'apparaître. Informer le prestataire des personnes à exclure du cadre." },
+        { name: "Planifier la diffusion en amont", text: "Préparer les canaux de diffusion (intranet, LinkedIn Carrières, présentation board) avant l'événement pour maximiser l'impact dès la livraison du film, sans délai d'arbitrage post-séminaire." },
+      ],
+    },
+  },
+
+  {
     id: 1195,
     slug: "seminaire-incentive-recompense-top-equipe-chateau-experience-2026",
     title: "Incentive en Château IDF : Récompenser son Équipe en 2026 (dès 195€/pers)",
