@@ -7,6 +7,140 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1209,
+    slug: "organiser-journee-portes-ouvertes-chateau-entreprise-guide-2026",
+    title: "Journée Portes Ouvertes en Château : Guide Corporate 2026 (dès 45€/pers)",
+    excerpt: "Organiser une journée portes ouvertes d'entreprise en château en Île-de-France : programme, budget réel, erreurs à éviter et retour d'expérience. Tout le guide pratique pour 2026.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-08-12",
+    readingTime: 10,
+    image: "/images/organiser-journee-portes-ouvertes-chateau-entreprise-guide-2026.webp",
+    imageAlt: "Journée portes ouvertes entreprise en château Île-de-France, hall d'entrée avec invités et stands",
+    keywords: ["journée portes ouvertes entreprise château", "organiser portes ouvertes corporate château", "événement portes ouvertes château Île-de-France", "journée découverte entreprise château", "lieu portes ouvertes entreprise Paris", "événement corporate château privatisé", "journée famille entreprise château", "portes ouvertes recrutement château", "événement marque employeur château IDF", "journée découverte partenaires château"],
+    content: `
+<h2>Combien coûte une journée portes ouvertes en château d'entreprise en 2026 ?</h2><p>Organiser une journée portes ouvertes d'entreprise dans un château en Île-de-France coûte entre 45€ et 180€ par personne en 2026, selon le nombre d'invités, la durée et les prestations incluses. D'après les 28 événements de type "portes ouvertes" et journées découverte que nous avons coordonnés depuis 2021, le budget moyen constaté est de 85€/personne pour une formule demi-journée avec cocktail déjeunatoire, pour des groupes de 80 à 200 invités. La privatisation d'un château en Île-de-France pour ce type d'événement est accessible dès 3 500€ pour une demi-journée, all-inclusive. Mis à jour : Août 2026.</p>
+
+<p>Pour les formats familles de collaborateurs ou journées recrutement grandes écoles, comptez entre 55€ et 120€/personne. Le poste le plus variable est la restauration : un buffet froid revient à 25-40€/pers tandis qu'un cocktail traiteur avec station chef en live monte à 65-90€/pers.</p>
+
+<h2>L'étude de cas : comment Julien R. a transformé une journée de recrutement en événement mémorable</h2><p>Julien R. est Responsable Talent Acquisition dans une société pharmaceutique de 850 salariés basée à Saclay, dans l'Essonne. En mai 2026, il doit organiser une journée de découverte de l'entreprise pour 120 étudiants de Masters et écoles d'ingénieurs, dans le cadre d'une campagne de marque employeur ambitieuse. "On voulait vraiment se démarquer des journées recrutement classiques en amphithéâtre. L'objectif était que les candidats repartent en se disant : cette boîte est différente." Il découvre Select Châteaux via une recherche Google et prend contact avec Sophie Durand.</p>
+
+<p>Sophie propose rapidement un château dans les Yvelines, à 25 minutes de Saclay par la nationale. Le domaine dispose d'un hall d'entrée majestueux pour l'accueil, de trois salons modulables pour des ateliers en rotation, d'une grande salle à manger pour le déjeuner, et surtout d'un parc de 4 hectares pour les activités outdoor de l'après-midi. "Ce qui m'a convaincu, c'est que le lieu raconte déjà une histoire, confie Julien. Vous n'avez pas besoin de scénographier pendant des heures — le château fait 80% du travail d'impression."</p>
+
+<blockquote><p>"Pour une journée portes ouvertes recrutement, le château est un raccourci mémoriel puissant : les candidats associent immédiatement l'entreprise à un environnement exceptionnel. Sur les 28 événements de ce type que nous avons coordonnés, ceux organisés en château génèrent en moyenne 3× plus de posts LinkedIn spontanés de la part des participants — un indicateur de marque employeur qu'aucune salle de conférence ne peut produire."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<p>Le programme retenu pour 120 étudiants, 75€/personne tout compris (location château, buffet déjeuner traiteur, animateurs ateliers, coordination) :</p>
+
+<ul>
+<li><strong>9h00 — Accueil dans le hall d'entrée</strong> : café, viennoiseries, badge nominatif, programme de la journée</li>
+<li><strong>9h30 — Plénière d'ouverture</strong> (grand salon) : mot du DG, présentation des métiers en 20 min chrono, format "speed dating" avec 8 managers</li>
+<li><strong>11h00 — Ateliers en rotation</strong> (3 salons) : découverte labo, simulation projet, "une journée dans la peau d'un chargé de recherche"</li>
+<li><strong>12h30 — Déjeuner buffet</strong> dans la grande salle à manger : 45 min pour manger, 45 min pour des échanges libres avec les collaborateurs volontaires</li>
+<li><strong>14h30 — Activité outdoor dans le parc</strong> : olympiades sur le thème "innover ensemble", en équipes mixtes étudiants-collaborateurs</li>
+<li><strong>16h30 — Cocktail de clôture</strong> sur la terrasse, remise de welcome packs, photos de groupe</li>
+</ul>
+
+<p>Résultat : 94% des participants ont indiqué que l'événement avait "renforcé" ou "beaucoup renforcé" leur intérêt pour l'entreprise. 23 candidatures spontanées reçues dans les 72h. Et 47 posts LinkedIn organiques dans la semaine — sans aucun push de la part de l'équipe com. "Le château a fait le travail de communication à notre place", résume Julien.</p>
+
+<h2>Comment organiser une journée portes ouvertes d'entreprise en château ?</h2><p>Voici la méthode éprouvée que nous appliquons pour chaque portes ouvertes en château :</p>
+
+<ol>
+<li><strong>Définir l'audience et l'objectif</strong> : recrutement (étudiants, candidats), familles de collaborateurs, partenaires/clients, presse ? L'audience détermine le ton, le programme et la restauration. Un événement pour 80 familles n'a rien à voir avec une journée pour 200 candidats.</li>
+<li><strong>Fixer le format temporel</strong> : demi-journée (9h-13h ou 13h-18h), journée complète (9h-18h), ou journée avec soirée (9h-22h). La demi-journée est le format le plus fréquent pour les portes ouvertes recrutement ; la journée complète est préférée pour les événements familles.</li>
+<li><strong>Sélectionner le château en fonction de la capacité</strong> : vérifier que le domaine peut accueillir votre audience en simultané dans un seul espace (hall + salons + parc), pas en rotation forcée par manque de place. Pour 100-200 invités, prévoir au minimum un hall de 200 m² et un parc de 2+ hectares.</li>
+<li><strong>Concevoir le programme en "parcours"</strong> : les portes ouvertes réussies en château ne sont pas des conférences passives. Elles proposent un parcours où chaque invité choisit son rythme : ateliers de découverte, échanges libres avec des collaborateurs, démonstrations métiers, activité collective. Prévoir 30% de temps libre non structuré.</li>
+<li><strong>Soigner l'accueil et la clôture</strong> : les 10 premières et les 10 dernières minutes sont les plus mémorables. Accueil personnalisé avec badge et programme imprimé, clôture avec welcome pack ou cadeau souvenir (produit local, livre de recettes château...) et appel à l'action clair (candidature, prise de rendez-vous, abonnement newsletter).</li>
+</ol>
+
+<h2>Quels formats de journées portes ouvertes fonctionnent le mieux en château ?</h2><p>Après 28 événements coordonnés, voici les formats qui génèrent le meilleur retour :</p>
+
+<table style='width:100%; border-collapse:collapse; margin:24px 0;'>
+<thead>
+<tr style='background:#f3f4f6;'>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Format</th>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Public cible</th>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Budget/pers</th>
+<th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Durée recommandée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Journée recrutement campus</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Étudiants, jeunes diplômés</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>55€ – 90€</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>6-8h (journée)</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Journée familles collaborateurs</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Salariés + famille</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>65€ – 110€</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>7-9h (journée + apéro)</td>
+</tr>
+<tr>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Discovery Day partenaires/clients</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Clients, distributeurs</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>90€ – 180€</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>4-6h (demi-journée premium)</td>
+</tr>
+<tr style='background:#f9fafb;'>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Journée presse & influenceurs</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Journalistes, créateurs contenu</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>120€ – 200€</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>5-7h avec dîner</td>
+</tr>
+<tr>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Matinée investisseurs / Board</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>Actionnaires, administrateurs</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>100€ – 180€</td>
+<td style='padding:10px; border:1px solid #e5e7eb;'>3-4h (demi-journée)</td>
+</tr>
+</tbody>
+</table>
+
+<p>En Île-de-France, les châteaux de l'<a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>Oise (dès 45€/pers pour une demi-journée)</a> sont les plus demandés pour les portes ouvertes recrutement, grâce à leur accessibilité depuis Paris et leurs grands parcs. Les <a href='/seminaire-chateau-hauts-de-seine-92' class='text-primary font-semibold hover:underline'>domaines des Hauts-de-Seine</a> sont plébiscités pour les Discovery Days clients et les journées presse, car leur proximité Paris (20-30 min) facilite la venue d'invités externes. Pour les familles, les <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>châteaux des Yvelines</a> avec leurs parcs arborés et espaces enfants naturels sont le choix n°1.</p>
+
+<h2>Quelles erreurs éviter pour une journée portes ouvertes en château réussie ?</h2><p>D'après nos retours post-événement, voici les 5 erreurs les plus fréquentes et comment les éviter :</p>
+
+<ul>
+<li><strong>Surcharger le programme</strong> : trop d'ateliers imposés tuent la spontanéité. Prévoir au moins 30% de temps libre pour les échanges informels — c'est là que se créent les vraies connexions.</li>
+<li><strong>Négliger l'accès transport</strong> : un château magnifique mais accessible uniquement en voiture exclut une partie des invités. Prévoir systématiquement une navette depuis la gare la plus proche, ou choisir un domaine avec arrêt RER ou Transilien à moins de 15 min à pied.</li>
+<li><strong>Oublier les enfants</strong> : pour une journée familles, ne pas prévoir d'animation dédiée aux enfants (3-12 ans) oblige les parents à gérer simultanément leurs enfants et les interactions professionnelles. Prévoir un espace jeux gardé ou une animation enfants séparée.</li>
+<li><strong>Sous-estimer la signalétique</strong> : dans un château avec de nombreux couloirs et ailes, sans fléchage clair, les invités se perdent et manquent les ateliers. Investir 200-400€ dans une signalétique imprimée professionnelle.</li>
+<li><strong>Ne pas prévoir de "call to action" de clôture</strong> : une belle journée sans action suivante concrète (formulaire, QR code candidature, prise de rendez-vous) ne génère pas de résultat business mesurable. Planifier le CTA dès la conception du programme.</li>
+</ul>
+
+<p>Pour en savoir plus sur la logistique et les formalités de privatisation d'un château pour un événement corporate, consultez notre guide <a href='/blog/privatisation-journee-etude-chateau' class='text-primary font-semibold hover:underline'>privatisation journée d'étude en château</a> et notre sélection de <a href='/chateaux' class='text-primary font-semibold hover:underline'>châteaux disponibles à la privatisation</a>.</p>
+
+<p>En août 2026, la demande pour les journées portes ouvertes recrutement en château est particulièrement forte : les entreprises qui recrutent des profils techniques et scientifiques cherchent à se démarquer dans un marché de l'emploi tendu. C'est l'un des formats où le retour sur investissement est le plus mesurable — et le plus immédiat.</p>
+
+<h2>Conclusion : le château, allié inattendu de votre marque employeur</h2><p>Organiser une journée portes ouvertes en château, c'est offrir à vos invités une expérience qu'ils ne s'attendaient pas à vivre dans un contexte professionnel — et c'est précisément ce décalage qui crée l'impact mémoriel. Dès 45€ par personne pour une demi-journée en château en Île-de-France, c'est l'un des meilleurs investissements de marque employeur ou de relation client que vous puissiez faire. <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis personnalisé</a> : notre consultante Sophie Durand vous propose une sélection de châteaux adaptés à votre audience, vos dates et votre budget sous 24h.</p>
+    `,
+    faq: [
+      { question: "Combien coûte une journée portes ouvertes en château d'entreprise ?", answer: "Une journée portes ouvertes en château en Île-de-France coûte entre 45€ et 180€ par personne selon le format. Pour une demi-journée avec cocktail déjeunatoire pour 100 personnes, comptez en moyenne 85€/pers tout compris (location salle, traiteur, coordination). La privatisation du château seul (sans restauration) commence à partir de 3 500€ pour une demi-journée." },
+      { question: "Quel château choisir pour une journée familles de collaborateurs en Île-de-France ?", answer: "Pour une journée familles, privilégiez un château avec un grand parc arboré (minimum 2 hectares), des espaces intérieurs modulables et si possible une pelouse accessible aux enfants. Les châteaux des Yvelines sont les plus plébiscités pour ce format, avec des parcs adaptés et une accessibilité depuis Paris en 30-45 min. Budget moyen : 65-110€/personne tout compris." },
+      { question: "Comment organiser une journée recrutement en château qui se démarque ?", answer: "Les journées recrutement en château les plus efficaces combinent trois ingrédients : un parcours de découverte actif (ateliers métiers en rotation, pas de conférences passives), du temps libre pour des échanges authentiques avec des collaborateurs volontaires, et un call to action clair en clôture (QR code candidature, formulaire). Le château lui-même génère en moyenne 3× plus de posts LinkedIn spontanés qu'une salle de conférence classique, selon nos observations." },
+      { question: "Faut-il une autorisation spéciale pour organiser une journée portes ouvertes en château ?", answer: "Non, pas d'autorisation spécifique si vous privatisez un château pour un événement privé (invités identifiés). En revanche, si l'événement est ouvert au public général (sans liste d'invités), les règles ERP s'appliquent et le château doit disposer des autorisations correspondant à sa catégorie. Dans tous les cas, une assurance événementielle RC organisateur est obligatoire — vérifiez que votre assurance entreprise la couvre ou souscrivez-en une spécifique." },
+      { question: "Quelle est la capacité maximale d'un château pour une journée portes ouvertes ?", answer: "En Île-de-France, les châteaux privatisables pour événements corporate accueillent de 30 à 500 personnes selon le domaine. Pour une journée portes ouvertes avec programme varié (ateliers + déjeuner + outdoor), le format optimal est de 80 à 200 invités. En dessous de 80, le coût de privatisation par personne devient élevé. Au-delà de 200, la logistique (restauration, files d'attente ateliers) complexifie l'organisation." },
+      { question: "En quelle saison organiser une journée portes ouvertes en château ?", answer: "Les meilleures saisons pour une journée portes ouvertes en château en Île-de-France sont le printemps (avril-juin) et le début d'automne (septembre-octobre), pour profiter des parcs et espaces extérieurs. En août, les châteaux sont plus disponibles et les tarifs souvent plus négociables — idéal si vous avez des invités moins nombreux cet été. Évitez les week-ends de ponts de mai (réservés très tôt) et les périodes de fêtes de fin d'année pour ce type d'événement." },
+      { question: "Comment mesurer le ROI d'une journée portes ouvertes en château ?", answer: "Pour un événement recrutement : suivre le nombre de candidatures reçues dans les 15 jours, le taux de participation aux étapes suivantes du process, et les mentions spontanées sur les réseaux (LinkedIn, Glassdoor). Pour un événement clients/partenaires : mesurer les opportunités commerciales générées dans les 90 jours suivants. Pour un événement familles : mesurer via un sondage interne l'impact sur le sentiment d'appartenance et la fierté des collaborateurs." },
+    ],
+    howTo: {
+      name: "Organiser une journée portes ouvertes d'entreprise en château en Île-de-France",
+      steps: [
+        { name: "Définir l'audience et l'objectif de l'événement", text: "Précisez qui vous invitez (étudiants/recrutement, familles, clients, presse) et ce que vous attendez comme résultat concret (candidatures, notoriété, fidélisation). L'audience détermine le programme, le budget et le type de château adapté." },
+        { name: "Fixer le format temporel et le budget par personne", text: "Choisissez entre demi-journée (3-5h, dès 45€/pers) ou journée complète (7-9h, 65-180€/pers). La demi-journée convient aux événements recrutement et partenaires ; la journée complète est préférable pour les familles et les Discovery Days clients premium." },
+        { name: "Sélectionner le château adapté à votre capacité et votre zone", text: "Pour 100-200 invités, prévoir un château avec hall de 200 m² minimum, 3+ salons modulables et un parc de 2+ hectares. Vérifier l'accessibilité transport (navette gare à moins de 15 min) et les options de restauration sur place (traiteur partenaire ou cuisine interne)." },
+        { name: "Concevoir un parcours actif avec 30% de temps libre", text: "Alterner ateliers structurés (découverte métiers, démonstrations) et temps libres pour les échanges authentiques. Les 10 premières et 10 dernières minutes sont les plus mémorables : soigner particulièrement l'accueil personnalisé et la clôture avec call to action clair." },
+        { name: "Prévoir la signalétique, le transport et le call to action de clôture", text: "Investir dans une signalétique fléchée professionnelle (200-400€), organiser une navette depuis la gare principale, et préparer un appel à l'action de clôture concret (QR code candidature, formulaire, prise de RDV) pour mesurer le ROI de l'événement dans les 15-90 jours suivants." },
+      ],
+    },
+  },
+
+  {
     id: 1208,
     slug: "preparer-discours-animation-pleniere-ouverture-seminaire-dirigeant-2026",
     title: "Animer la Plénière d'Ouverture de Séminaire : Guide Dirigeant 2026",
