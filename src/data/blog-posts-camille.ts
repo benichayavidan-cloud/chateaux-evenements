@@ -7,6 +7,141 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1220,
+    slug: "seminaire-lancement-nouveau-produit-chateau-guide-2026",
+    title: "Lancement de Produit en Château IDF : Guide Complet 2026 (dès 185€/pers)",
+    excerpt: "Organiser le lancement de votre prochain produit dans un château en Île-de-France, c'est offrir un écrin mémorable à vos équipes commerciales et vos partenaires. Découvrez comment structurer l'événement, choisir le bon domaine et maîtriser votre budget.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-08-14",
+    readingTime: 12,
+    image: "/images/seminaire-lancement-nouveau-produit-chateau-guide-2026.webp",
+    imageAlt: "Lancement de produit en château Île-de-France avec scène de présentation et participants en soirée gala",
+    keywords: ["lancement produit château", "événement lancement produit entreprise", "lancement produit château île-de-france", "organiser lancement produit privatisé", "soirée lancement produit château", "événement corporate château idf", "scénographie lancement produit château", "lieu lancement produit proche paris", "budget lancement produit château", "programme lancement produit entreprise"],
+    content: `
+<h2>Combien coûte un lancement de produit en château en Île-de-France ?</h2>
+<p>Organiser un <strong>lancement de produit en château en Île-de-France</strong> coûte entre <strong>185€ et 480€ par personne</strong> en 2026, selon le standing du domaine, le niveau de scénographie et les prestations incluses. Pour un événement hybride (présentation produit + cocktail dînatoire) avec 60 à 100 participants, le budget moyen constaté par notre équipe est de <strong>265€ par personne</strong>, hors production audiovisuelle. D'après les 200+ événements corporate organisés par Select Châteaux depuis 2020, les lancements de produits représentent 12% de nos mandats — un format en forte hausse depuis 2023. Les châteaux d'Île-de-France offrent un avantage décisif : leur architecture et leurs espaces créent un effet de contraste mémorable entre l'histoire du lieu et la modernité du produit présenté. <em>Mis à jour : août 2026.</em></p>
+
+<p>Pour explorer les domaines disponibles pour ce type d'événement, consultez notre <a href='/seminaire-chateau-ile-de-france' class='text-primary font-semibold hover:underline'>séminaire en château en Île-de-France</a> — plusieurs domaines partenaires disposent de salles de présentation équipées et d'espaces cocktail privatisables.</p>
+
+<h2>L'histoire de Marc D. : le lancement du flagship produit d'une marque de cosmétique à Écouen</h2>
+<p>En mai 2026, Marc D., Directeur Marketing d'un groupe de cosmétique premium basé à Clichy (Hauts-de-Seine), hérite d'un défi de taille : organiser en neuf semaines le lancement officiel d'une nouvelle ligne de soins auprès de 80 commerciaux, 15 distributeurs partenaires et 12 journalistes spécialisés. Budget global : 25 000€, soit environ 235€ par personne pour les participants internes, avec une enveloppe presse séparée pour les journalistes.</p>
+
+<p>Marc connaît bien les hôtels d'affaires parisiens — il les a tous utilisés. Cette fois, il veut quelque chose qui « parle » à l'ADN de la marque : patrimoine, authenticité, sophistication. Il trouve Select Châteaux via un article sur LinkedIn partagé par une event manager de son réseau. Il appelle Thomas Lefèvre, directeur commercial, un vendredi après-midi.</p>
+
+<p>Thomas lui propose d'emblée deux options : le <strong>Château d'Écouen</strong> (Val-d'Oise, 25 km de Paris) pour son côté Renaissance et son musée intégré, ou le <strong>Domaine de Malmaison</strong> (Hauts-de-Seine) pour la proximité avec Clichy et son parc. Marc visite les deux le mardi suivant avec Sophie.</p>
+
+<p>« Écouen avait la grandeur narrative dont Marc avait besoin, se souvient Sophie. La grande galerie du premier étage peut accueillir 120 personnes debout pour le cocktail, et la salle des gardes se transforme parfaitement en espace de présentation avec une scène de 6 mètres de large. L'installation technique — LED wall 6x3m, sono line array — rentrait parfaitement dans l'espace. »</p>
+
+<blockquote><p>« Pour un lancement produit qui doit marquer les esprits, le château fait la moitié du travail scénographique à votre place. Vous n'avez pas besoin de décorer une salle blanche : les boiseries, la lumière des hautes fenêtres et l'acoustique naturelle créent une atmosphère que aucune agence de décoration ne peut reproduire à budget comparable. »</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<p>Le programme : accueil cocktail de bienvenue à 18h dans la cour d'honneur, présentation produit de 45 minutes dans la salle des gardes (scène, LED wall, démo live du produit), puis dîner de gala assis pour 107 personnes dans la galerie. Un quatuor à cordes joue pendant le dîner. Le lendemain matin, les 80 commerciaux participent à un atelier argumentaire de vente de 3h animé par le directeur commercial.</p>
+
+<p>Budget final : 240€ par personne pour les 107 participants (dépassement de 5€ dû à l'ajout de la session musicale), soit 25 680€ au total. La production audiovisuelle (LED wall, régie, son) était facturée séparément par le prestataire AV : 8 400€. Marc a qualifié l'événement de « retour sur investissement immédiat » — ses commerciaux ont déclaré se sentir « fiers de représenter la marque » dans un contexte aussi luxueux.</p>
+
+<p>Pour les événements dans les Hauts-de-Seine, notre page <a href='/seminaire-chateau-hauts-de-seine-92' class='text-primary font-semibold hover:underline'>séminaire en château dans les Hauts-de-Seine</a> recense les domaines les plus accessibles depuis Paris et La Défense.</p>
+
+<h2>Comment structurer le programme d'un lancement de produit en château ?</h2>
+<p>Un lancement de produit en château réussi suit une dramaturgie en trois temps. Chaque phase utilise un espace différent du domaine pour créer du mouvement et de la découverte :</p>
+
+<ul style='margin:1rem 0; padding-left:1.5rem;'>
+  <li style='margin-bottom:0.75rem;'><strong>Phase 1 — La découverte (60-90 min) :</strong> accueil cocktail dans la cour d'honneur ou le parc. Les participants arrivent progressivement, le lieu fait son effet. C'est le moment de créer le suspense autour du produit (teaser visuel, ambiance musicale en accord avec l'ADN de la marque).</li>
+  <li style='margin-bottom:0.75rem;'><strong>Phase 2 — La révélation (45-75 min) :</strong> tout le monde rejoint la grande salle de présentation. Scène, LED wall ou mapping vidéo, discours du DG ou du directeur produit, démonstration live. Cette séquence doit être scriptée à la minute — le château amplifie chaque effet dramatique.</li>
+  <li style='margin-bottom:0.75rem;'><strong>Phase 3 — L'appropriation (2-3h) :</strong> dîner de gala ou cocktail dînatoire pendant lequel les participants manipulent le produit, échangent avec les équipes techniques et marketing. C'est la phase de conviction — surtout pour les distributeurs et journalistes.</li>
+  <li style='margin-bottom:0.75rem;'><strong>Phase 4 (optionnelle) — L'activation (lendemain matin) :</strong> atelier commercial ou formation produit pour les équipes de vente. La nuit en château crée un contexte de confiance propice à l'assimilation du discours de vente.</li>
+</ul>
+
+<h2>Quels équipements techniques faut-il vérifier avant de choisir un château pour un lancement produit ?</h2>
+<p>Tous les châteaux ne sont pas équipés de la même façon pour accueillir des événements avec production audiovisuelle lourde. Voici la grille de vérification que Sophie utilise lors de chaque visite de repérage :</p>
+
+<table style='width:100%; border-collapse:collapse; margin:1.5rem 0;'>
+  <thead>
+    <tr style='background:#f3f4f6;'>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Critère technique</th>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Ce qu'il faut vérifier</th>
+      <th style='padding:10px; border:1px solid #e5e7eb; text-align:left;'>Risque si absent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Puissance électrique</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Triphasé 32A ou 63A disponible en salle</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>LED wall impossible, groupe électrogène coûteux</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Connexion internet</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Fibre dédiée ≥100 Mbps symétrique</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Streaming et démo live impossibles</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Hauteur sous plafond</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Minimum 4m pour un LED wall 3m de haut</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Scénographie réduite, effet visuel limité</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Accès logistique</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Porte de service ≥2m de large pour le matériel AV</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Installation impossible ou surcoût manutention</td>
+    </tr>
+    <tr>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Acoustique naturelle</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Revêtements qui absorbent (tentures, moquette) plutôt que pierre nue</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Réverbération qui nuit à l'intelligibilité</td>
+    </tr>
+    <tr style='background:#f9fafb;'>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Obscurcissement</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Volets ou rideaux occultants pour la salle de présentation</td>
+      <td style='padding:10px; border:1px solid #e5e7eb;'>Projection diapo illisible en journée</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sur les 50+ domaines partenaires de notre réseau en Île-de-France, environ 35 disposent d'une puissance électrique suffisante pour une production AV complète. Pour les autres, une solution groupe électrogène est toujours possible mais ajoute entre 800€ et 2 000€ au budget technique.</p>
+
+<h2>Les 5 étapes pour organiser votre lancement de produit en château</h2>
+
+<ol style='margin:1rem 0; padding-left:1.5rem;'>
+  <li style='margin-bottom:1rem;'><strong>Définir le fil directeur narratif (J-12 semaines) :</strong> quel message le château doit-il renforcer ? Prestige, innovation, authenticité, French excellence ? Le choix du domaine découlera de ce positionnement. Un château Renaissance dit autre chose qu'un manoir Belle Époque.</li>
+  <li style='margin-bottom:1rem;'><strong>Sélectionner le domaine avec visite technique (J-10 semaines) :</strong> visiter au minimum 2 châteaux avec votre prestataire AV pour valider la puissance électrique, la hauteur sous plafond, l'accès logistique et l'acoustique. Cette étape est non négociable pour éviter les mauvaises surprises le jour J.</li>
+  <li style='margin-bottom:1rem;'><strong>Construire le programme scénarisé (J-8 semaines) :</strong> rédiger le script complet de l'événement, minute par minute, en identifiant quel espace du château est utilisé à chaque phase. Partager ce document avec le régisseur AV, le traiteur et le domaine pour coordination.</li>
+  <li style='margin-bottom:1rem;'><strong>Répétition générale sur site (J-1 semaine) :</strong> indispensable pour un lancement produit en château. Les espaces sont souvent atypiques — passage étroit entre la cour et la grande salle, escalier que le présentateur doit descendre en live, éclairage naturel variable selon l'heure. Répéter permet d'éviter les imprévus.</li>
+  <li style='margin-bottom:1rem;'><strong>Briefer l'équipe sur site le jour J (J, 3h avant ouverture) :</strong> accueil du matériel AV, installation du traiteur, placement de la signalétique, point de synchronisation avec le régisseur. Désigner un chef d'orchestre unique pour coordonner tous les prestataires pendant l'événement.</li>
+</ol>
+
+<p>Pour les équipes basées dans les Yvelines, notre page <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a> liste plusieurs domaines disposant de grandes salles de présentation équipées pour ce type d'événement corporate.</p>
+
+<p>Vous organisez une soirée de lancement avec vos partenaires et clients ? Explorez notre page <a href='/seminaires-soirees-entreprise' class='text-primary font-semibold hover:underline'>soirées d'entreprise en château</a> pour découvrir les formats cocktail et dîner de gala disponibles dans nos domaines partenaires.</p>
+
+<h2>Conclusion</h2>
+<p>Un lancement de produit en château en Île-de-France, c'est l'assurance d'un événement mémorable qui renforce l'image de votre marque autant qu'il mobilise vos équipes. Le budget de 185€ à 480€ par personne est compétitif par rapport à un hôtel 5 étoiles parisien, avec un effet WOW incomparable. La clé du succès : anticiper la technique, scénariser chaque phase et choisir un domaine dont l'ADN architectural parle à l'ADN de votre marque.</p>
+<p>Vous avez un lancement à organiser d'ici la fin de l'année ? <a href='/devis' class='text-primary font-semibold hover:underline'>Demandez votre devis personnalisé</a> — notre équipe vous propose une sélection de 3 châteaux adaptés à votre brief sous 24h ouvrées.</p>
+    `,
+    faq: [
+      { question: "Quel budget prévoir pour un lancement de produit en château près de Paris ?", answer: "Pour un lancement de produit en château en Île-de-France, comptez entre 185€ et 480€ par personne selon le format (cocktail dînatoire ou dîner de gala assis) et le standing du domaine. Le budget moyen constaté par Select Châteaux pour un événement 60-100 personnes est de 265€ par personne, hors production audiovisuelle (LED wall, régie, sono : 5 000 à 15 000€ selon la complexité). La privatisation d'un domaine complet ajoute entre 3 000€ et 8 000€ au tarif par personne." },
+      { question: "Quelle capacité faut-il pour un lancement de produit en château ?", answer: "La plupart des châteaux d'Île-de-France partenaires de Select Châteaux accueillent des lancements de produits pour des groupes de 30 à 200 personnes. Pour les petits lancements confidentiels (30-50 pers), des salles intimistes comme des bibliothèques ou des salons privatifs sont disponibles dès 185€ par personne. Pour les grands lancements (150-200 pers), des galeries ou des salles des gardes permettent des configurations cocktail debout avec scène." },
+      { question: "Combien de temps à l'avance réserver un château pour un lancement de produit ?", answer: "Pour un événement en semaine (du mardi au jeudi), 8 à 10 semaines suffisent généralement. Pour un jeudi-vendredi ou un week-end, comptez 12 à 16 semaines en haute saison (mai-juin, septembre-octobre). Pour les domaines les plus prestigieux avec galeries de grande capacité, certaines dates se réservent 6 mois à l'avance. Select Châteaux peut trouver une solution en 3 semaines pour des demandes de dernière minute sur des dates creuses." },
+      { question: "Peut-on projeter des vidéos et utiliser un LED wall dans un château classé ?", answer: "Oui, à condition de vérifier en amont la puissance électrique disponible (triphasé 32A minimum) et la hauteur sous plafond (4m minimum pour un LED wall standard). Sur les 50+ domaines référencés par Select Châteaux, environ 35 disposent des infrastructures nécessaires. Pour les autres, un groupe électrogène est possible moyennant 800 à 2 000€ supplémentaires. Dans tous les cas, une visite technique avec votre prestataire AV est obligatoire avant signature du contrat." },
+      { question: "Comment intégrer une démonstration produit en live dans le programme d'un château ?", answer: "La démonstration live en château fonctionne très bien à condition de prévoir une zone dédiée avec un éclairage adapté (spots directionnels sur le produit) et une connexion internet fibre pour les démonstrations digitales. Nous recommandons de placer la démo après la révélation officielle (pitch du DG), dans une phase de 20 à 30 minutes, pendant laquelle les participants tournent par groupes de 10-15 devant les postes de démonstration. Cette configuration rend l'expérience interactive et mémorable." },
+      { question: "Un lancement de produit en château est-il adapté pour inviter des journalistes et des partenaires extérieurs ?", answer: "Oui, c'est même l'un des formats les plus efficaces pour les relations presse et les partenaires. Le château crée un contexte de rareté et d'exclusivité qui valorise l'invitation et augmente le taux de présence. Dans notre expérience, les invitations en château génèrent un taux d'acceptation 25 à 35% supérieur aux événements en hôtel d'affaires pour les journalistes spécialisés. Prévoir un espace presse dédié avec kit de présentation et accès WiFi haute vitesse." },
+      { question: "Quelle différence entre un lancement de produit en château et en hôtel d'affaires parisien ?", answer: "Le château offre un effet de différenciation visuelle et émotionnelle que l'hôtel d'affaires ne peut pas reproduire : l'architecture, les volumes, le parc créent un storytelling naturel autour de votre produit. Le coût est comparable (parfois inférieur) pour des groupes de 50 à 150 personnes. La contrainte principale du château est technique : il faut vérifier la puissance électrique et l'accès logistique. Pour des groupes de moins de 30 personnes, l'hôtel reste souvent plus flexible sur les délais de réservation." },
+    ],
+    howTo: {
+      name: "Comment organiser un lancement de produit en château en Île-de-France",
+      steps: [
+        { name: "Définir le fil directeur narratif", text: "Identifier le message que le château doit renforcer (prestige, authenticité, innovation). Le positionnement du produit guide le choix du domaine architectural." },
+        { name: "Sélectionner le domaine avec visite technique", text: "Visiter au moins 2 châteaux avec votre prestataire AV pour valider puissance électrique, hauteur sous plafond, accès logistique et acoustique avant toute signature." },
+        { name: "Construire le programme scénarisé", text: "Rédiger le script complet minute par minute (accueil cocktail, révélation, dîner), en assignant chaque phase à un espace spécifique du château. Partager avec tous les prestataires." },
+        { name: "Organiser une répétition générale sur site", text: "Indispensable 1 semaine avant l'événement pour tester la technique, valider les déplacements du présentateur et anticiper les aléas liés aux espaces atypiques du château." },
+        { name: "Coordonner tous les prestataires le jour J", text: "Accueillir le matériel AV et le traiteur 3 heures avant l'ouverture, désigner un chef d'orchestre unique pour synchroniser l'ensemble des intervenants pendant l'événement." },
+      ],
+    },
+  },
+
+  {
     id: 1219,
     slug: "drh-justifier-seminaire-rentree-managers-guide-2026",
     title: "DRH : Comment Justifier le Séminaire de Rentrée face aux Managers 2026",
