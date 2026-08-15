@@ -7,6 +7,110 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1223,
+    slug: "interpreter-devis-seminaire-chateau-guide-achat-2026",
+    title: "Décrypter un Devis Séminaire en Château : Guide Achat 2026",
+    excerpt: "Lignes optionnelles, clauses cachées, frais de mise en place : apprenez à lire un devis de séminaire en château ligne par ligne pour éviter les mauvaises surprises et négocier intelligemment.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-08-15",
+    readingTime: 11,
+    image: "/images/interpreter-devis-seminaire-chateau-guide-achat-2026.webp",
+    imageAlt: "Organisatrice d'événement analysant un devis de séminaire en château, documents sur table en pierre, lumière naturelle",
+    keywords: ["devis seminaire chateau", "lire devis evenementiel", "devis seminaire entreprise", "clauses contrat seminaire", "frais mise en place seminaire", "negocier devis seminaire", "comprendre devis evenement", "achat seminaire chateau", "facturation seminaire", "budget seminaire poste depense"],
+    content: `
+<h2>Comment lire un devis de séminaire en château sans se faire piéger en 2026 ?</h2>
+<p>Un devis de séminaire en château comprend en moyenne 18 à 27 lignes distinctes, dont 6 à 9 sont facultatives ou négociables. D'après les 200+ devis que nous avons analysés et négociés pour nos clients depuis 2020, l'écart entre le montant affiché en première ligne et la facture finale oscille entre +12 % et +34 % selon les domaines — principalement à cause des frais de mise en place, des minimums de consommation et des pénalités de dépassement horaire. Savoir déchiffrer chaque poste dès la réception du devis vous permet d'éviter ces surcoûts et de négocier sur des bases solides. Ce guide a été mis à jour en août 2026 pour refléter les pratiques tarifaires actuelles des châteaux partenaires de Select Châteaux en Île-de-France.</p>
+
+<h2>L'étude de cas : quand Julien M. découvre 4 200 € de frais cachés la veille du séminaire</h2>
+<p>Julien M., Directeur Administratif et Financier dans une ESN de 85 personnes, nous contacte en mars 2026 après avoir trouvé notre article sur le blog Select Châteaux. Son séminaire annuel — 2 jours, 60 participants, dans un château de l'Oise — est déjà réservé depuis quatre mois. Mais en relisant le contrat avant le paiement du solde, il tombe sur une ligne qu'il n'avait pas scrutée : "Frais de mise en place et de remise en état des salles : forfait 1 800 €". Puis une autre : "Minimum garanti boissons hors forfait : 1 200 €". Et enfin : "Dépassement horaire salle plénière au-delà de 22h : 350 €/heure".</p>
+<p>Sophie Durand l'accompagne pour une relecture complète. En une heure de travail commun sur le document, ils identifient trois postes négociables et obtiennent du domaine un geste commercial de 1 400 € — simplement parce que Julien peut prouver que le château voisin n'applique pas les frais de mise en place pour les groupes de plus de 50 personnes.</p>
+<blockquote><p>"Un devis de château n'est jamais une liste de prix fixes : c'est une proposition de départ. Les domaines s'attendent à ce que les acheteurs expérimentés discutent certaines lignes. Ce qui change tout, c'est de savoir lesquelles sont négociables et lesquelles ne le sont pas — et surtout, d'avoir des éléments de comparaison concrets."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+<p>Julien finit son séminaire avec un budget final de 268 €/personne tout compris, contre 295 €/personne annoncés initialement. Pour organiser votre propre séminaire en château dans l'Oise, consultez notre page <a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a> qui référence les domaines partenaires et leurs pratiques tarifaires.</p>
+
+<h2>Quels sont les postes incontournables d'un devis de séminaire en château ?</h2>
+<p>Tout devis sérieux doit comporter au minimum huit rubriques. Si l'une manque, demandez-la par écrit avant de signer.</p>
+<ul>
+<li><strong>Location de salles</strong> : tarif par salle, par demi-journée ou journée, avec les horaires d'accès exacts (setup inclus ou non)</li>
+<li><strong>Restauration</strong> : pauses café, déjeuner, dîner — détailler si c'est un forfait tout compris ou à la carte</li>
+<li><strong>Hébergement</strong> : prix par chambre, type de lit, options single supplement</li>
+<li><strong>Technique audiovisuelle</strong> : vidéoprojecteur, micro, sono — inclus ou location séparée</li>
+<li><strong>Frais de mise en place</strong> : mobilier, décoration, signalétique — souvent facturés à part</li>
+<li><strong>Minimum garanti</strong> : seuil de consommation en boissons ou restauration en dessous duquel un forfait s'applique</li>
+<li><strong>Frais de dossier ou de coordination</strong> : honoraires internes du domaine pour la gestion de votre événement</li>
+<li><strong>TVA et taxes de séjour</strong> : vérifier si le prix affiché est HT ou TTC</li>
+</ul>
+
+<h2>Comment distinguer les lignes fixes des lignes négociables ?</h2>
+<p>En pratique, les domaines distinguent deux catégories de postes : ceux qui couvrent leurs coûts fixes (personnel, charges, amortissement) et ceux qui correspondent à des marges de confort. Les premiers sont rarement négociables ; les seconds, presque toujours.</p>
+<table>
+<thead><tr><th>Poste</th><th>Négociabilité</th><th>Argument efficace</th></tr></thead>
+<tbody>
+<tr><td>Location salle principale</td><td>Faible (coût fixe)</td><td>Réservation anticipée, dates creuses</td></tr>
+<tr><td>Forfait restauration</td><td>Moyenne</td><td>Réduire le nombre de services, simplifier les menus</td></tr>
+<tr><td>Frais de mise en place</td><td>Élevée</td><td>Offerts au-delà d'un certain nombre de participants</td></tr>
+<tr><td>Minimum garanti boissons</td><td>Élevée</td><td>Supprimer si le groupe est peu consommateur</td></tr>
+<tr><td>Audiovisuel basique</td><td>Élevée</td><td>Inclus en standard dans de nombreux domaines concurrents</td></tr>
+<tr><td>Frais de dossier</td><td>Moyenne à élevée</td><td>Waivés pour les groupes récurrents ou les agences partenaires</td></tr>
+<tr><td>Pénalité dépassement horaire</td><td>Moyenne</td><td>Négocier une heure de grâce ou un plafond</td></tr>
+</tbody>
+</table>
+
+<h2>Quelles sont les 5 clauses à vérifier absolument avant de signer ?</h2>
+<p>Sur les 200+ contrats que nous avons accompagnés, ces cinq clauses génèrent 80 % des litiges post-séminaire. Vérifiez-les systématiquement :</p>
+<ol>
+<li><strong>La clause de variation d'effectif</strong> : à partir de quelle baisse d'effectif (en %) le prix est-il recalculé à la baisse ? Certains domaines facturent sur l'effectif garanti même si 15 % des participants annulent.</li>
+<li><strong>Les conditions d'annulation et de report</strong> : distinguer l'annulation totale (remboursement d'acompte selon barème) du simple report (souvent sans pénalité jusqu'à J-30).</li>
+<li><strong>La clause de force majeure</strong> : est-elle réciproque ? Couvre-t-elle les intempéries, les grèves de transport, les épidémies ?</li>
+<li><strong>Le minimum garanti global</strong> : certains contrats intègrent un minimum de chiffre d'affaires global (restauration + hébergement + salle) — si vous n'atteignez pas ce seuil, vous le payez quand même.</li>
+<li><strong>Les prestataires exclusifs</strong> : le domaine impose-t-il son propre traiteur, son DJ, son matériel AV ? Cela peut limiter votre liberté et gonfler la facture.</li>
+</ol>
+
+<h2>Comment structurer sa demande de devis pour recevoir des propositions comparables ?</h2>
+<p>La plupart des acheteurs reçoivent des devis incomparables parce qu'ils n'ont pas fourni un cahier des charges précis. Résultat : l'un inclut le café d'accueil, l'autre non ; l'un est en TTC, l'autre en HT. Pour obtenir des propositions comparables :</p>
+<ul>
+<li>Indiquer le nombre exact de participants (et une fourchette haute/basse)</li>
+<li>Préciser les horaires d'accès souhaités (y compris installation et rangement)</li>
+<li>Lister les équipements AV nécessaires (type d'écran, sonorisation, connexion internet dédiée)</li>
+<li>Demander explicitement que le devis soit en TTC et que les frais de mise en place soient détaillés séparément</li>
+<li>Demander le coût unitaire par personne ET le coût global — les erreurs de calcul sont fréquentes</li>
+<li>Préciser vos contraintes alimentaires connues (nombre de végétariens, allergies) pour obtenir un forfait traiteur réaliste</li>
+</ul>
+<p>Pour aller plus loin sur la coordination des prestataires, consultez notre guide <a href='/blog/gestion-fournisseurs-multiples-seminaire-chateau-coordination-2026' class='text-primary font-semibold hover:underline'>coordonner 5 fournisseurs pour votre séminaire en château</a>.</p>
+
+<h2>Quel est le bon moment pour négocier son devis de séminaire en château ?</h2>
+<p>La fenêtre de négociation optimale se situe entre la réception du devis et la signature du bon de commande — rarement au-delà. En août 2026, nous observons une légère disponibilité en septembre-octobre chez plusieurs domaines partenaires : c'est le moment idéal pour négocier une date de rentrée avec une remise de 8 à 15 % sur les frais de salle. Après signature, votre levier de négociation tombe à quasi zéro, sauf en cas d'augmentation unilatérale d'un poste par le domaine.</p>
+<p>Consultez notre <a href='/blog/calendrier-seminaire-entreprise-quand-reserver-chateau-2026' class='text-primary font-semibold hover:underline'>calendrier de réservation de séminaire en château</a> pour identifier les périodes creuses favorables à la négociation.</p>
+
+<h2>Prochaines étapes : valider votre devis avec Select Châteaux</h2>
+<p>Décrypter un devis de séminaire en château demande de l'expérience : savoir quelle ligne est standard, laquelle est excessive, et comment formuler une contre-proposition sans froisser la relation commerciale avec le domaine. Sophie Durand et l'équipe de Select Châteaux analysent gratuitement votre devis en cours et vous indiquent les marges de manœuvre réalistes, château par château. <a href='/devis' class='text-primary font-semibold hover:underline'>Déposez votre demande en ligne</a> et recevez une analyse sous 48h.</p>
+    `,
+    faq: [
+      { question: "Quelle est la différence entre un devis HT et TTC pour un séminaire en château ?", answer: "Pour un séminaire d'entreprise, la plupart des domaines facturent en HT avec TVA à 20 % sur les prestations de location de salle et à 10 % sur la restauration. L'écart entre le prix HT affiché et la facture TTC finale peut représenter 15 à 18 % du montant total. Demandez toujours une version TTC du devis pour comparer les propositions à périmètre identique." },
+      { question: "Peut-on négocier les frais de mise en place en château ?", answer: "Oui, les frais de mise en place (mobilier, décoration, signalétique) sont parmi les postes les plus négociables d'un devis de séminaire en château. D'après notre expérience, ils sont systématiquement offerts pour les groupes de plus de 50 personnes dans 60 % des domaines partenaires de Select Châteaux, à condition de le demander explicitement avant la signature." },
+      { question: "Que signifie le 'minimum garanti' dans un contrat de séminaire en château ?", answer: "Le minimum garanti est un seuil de chiffre d'affaires (restauration, boissons ou global) en dessous duquel vous payez quand même le montant convenu, même si votre groupe consomme moins. Il peut aller de 800 € à plus de 5 000 € selon le domaine. Si votre groupe est sobre ou que vous prévoyez une soirée courte, demandez à supprimer ou réduire ce minimum avant de signer." },
+      { question: "Comment comparer deux devis de séminaire en château qui ne présentent pas les mêmes postes ?", answer: "Construisez un tableau de comparaison avec des postes standardisés : location salle, pause café x2, déjeuner, dîner, hébergement, AV de base, mise en place, taxes. Demandez à chaque domaine de vous décomposer son forfait selon cette grille. En 2026, Select Châteaux fournit ce tableau de comparaison gratuitement à ses clients lors de la phase de sélection." },
+      { question: "Quelles pénalités s'appliquent si je réduis le nombre de participants après la signature ?", answer: "La majorité des domaines appliquent une clause de variation d'effectif : toute réduction supérieure à 10-15 % de l'effectif initial est facturée sur la base du nombre garanti. Certains contrats permettent une révision à la baisse jusqu'à J-30 sans pénalité. Vérifiez cette clause au moment de la négociation — c'est le point le plus souvent oublié par les organisateurs novices." },
+      { question: "Un domaine peut-il imposer ses propres prestataires (traiteur, DJ, AV) ?", answer: "Oui, et c'est fréquent dans les châteaux privatisés haut de gamme. Certains domaines imposent leur traiteur attitré, leur société de sonorisation ou leur décorateur. Cela peut représenter un surcoût de 20 à 40 % par rapport au marché. Vérifiez la clause 'prestataires exclusifs' avant la signature et, si elle existe, demandez une liste de prix comparative." },
+      { question: "Quel délai prévoir entre la réception du devis et la signature pour avoir le temps de négocier ?", answer: "Prévoyez 5 à 10 jours ouvrés entre la réception du devis et la signature pour analyser chaque ligne, comparer avec d'autres offres et formuler une contre-proposition. En haute saison (septembre-octobre et mai-juin), les domaines peuvent mettre une option sur la date pendant 5 jours — passé ce délai, la disponibilité n'est plus garantie. En basse saison (janvier-février, juillet-août), cette fenêtre est souvent étendue à 15 jours." },
+    ],
+    howTo: {
+      name: "Comment décrypter et négocier un devis de séminaire en château",
+      steps: [
+        { name: "Demander un devis structuré par poste", text: "Exigez que le devis détaille chaque ligne séparément (salle, restauration, hébergement, AV, frais de mise en place) et qu'il soit présenté en TTC. Un devis en forfait global opaque est impossible à comparer et à négocier." },
+        { name: "Identifier les postes fixes et les postes négociables", text: "Classez chaque ligne selon sa négociabilité : location de salle principale (faible), frais de mise en place (élevée), minimum garanti boissons (élevée), audiovisuel basique (élevée). Concentrez votre négociation sur les lignes à fort levier." },
+        { name: "Vérifier les 5 clauses critiques", text: "Avant toute signature, contrôlez la clause de variation d'effectif, les conditions d'annulation et de report, la clause de force majeure, le minimum garanti global et l'éventuelle liste de prestataires exclusifs." },
+        { name: "Formuler une contre-proposition chiffrée", text: "Basez votre négociation sur des éléments factuels : prix constatés chez les domaines concurrents, période creuse, volume d'affaires annuel. Une contre-proposition chiffrée obtient en moyenne 8 à 15 % de réduction sur les postes négociables." },
+        { name: "Valider la version finale par écrit", text: "Toute modification négociée doit figurer dans un avenant signé ou dans la version finale du contrat — jamais par simple échange d'e-mails non confirmés. Demandez un document consolidé avant de verser l'acompte." },
+      ],
+    },
+  },
+
+  {
     id: 1222,
     slug: "protocole-art-table-diner-gala-chateau-2026",
     title: "Art de la Table en Château : Protocole Dîner Gala Corporate 2026",
