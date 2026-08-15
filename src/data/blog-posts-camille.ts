@@ -7,6 +7,118 @@ import type { BlogPost } from "./blog-posts";
 
 export const camilleArticles: BlogPost[] = [
   {
+    id: 1227,
+    slug: "semaine-bien-etre-equipe-chateau-programme-automne-2026",
+    title: "Semaine Bien-Être Équipe en Château : Programme Automne 2026",
+    excerpt: "De plus en plus d'entreprises organisent une semaine dédiée au bien-être de leurs équipes en château pour l'automne. Voici comment concevoir un programme de 5 jours entre ressourcement, cohésion et performance — avec des budgets réels à partir de 195€/pers/jour.",
+    category: "organisation" as const,
+    author: {
+      name: "Sophie Durand",
+      role: "Experte Événementiel",
+      avatar: "SD",
+    },
+    publishedAt: "2026-08-15",
+    readingTime: 12,
+    image: "/images/semaine-bien-etre-equipe-chateau-programme-automne-2026.webp",
+    imageAlt: "Groupe de collaborateurs en séance de yoga matinale dans le parc d'un château Île-de-France en automne, feuillages dorés",
+    keywords: ["semaine bien-être équipe entreprise", "programme bien-être château", "retraite bien-être entreprise automne", "semaine ressourcement équipe château", "bien-être au travail séminaire château", "programme yoga méditation château", "semaine cohésion entreprise château IDF", "immersion bien-être équipe", "prévention burnout équipe château", "programme santé mentale entreprise château", "séminaire ressourcement automne château"],
+    content: `
+<h2>Qu'est-ce qu'une semaine bien-être équipe en château et combien ça coûte en 2026 ?</h2><p>Une semaine bien-être équipe en château est un format d'immersion de 3 à 5 jours combinant activités de ressourcement (yoga, méditation, marche en nature), ateliers de cohésion et temps de travail léger dans un environnement premium. En Île-de-France en 2026, ce format coûte entre <strong>195 et 380 €/personne/jour</strong> selon le standing du château et les prestataires bien-être retenus. D'après les demandes reçues chez Select Châteaux depuis janvier 2026, les réservations pour des "semaines bien-être" ont progressé de <strong>42 % par rapport à 2025</strong>, portées par les enjeux de prévention du burnout et de rétention des talents. Ce format se distingue du séminaire classique par l'absence de journées chargées en réunions plénières — l'objectif est la récupération physique et mentale autant que la cohésion. Mis à jour : août 2026.</p>
+
+<p>Pour les entreprises des Yvelines cherchant un cadre naturel exceptionnel à moins d'une heure de Paris, les domaines de <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a> offrent des cadres particulièrement adaptés à ce format — parcs boisés, promenades en forêt de Rambouillet, silence et distance naturelle de la ville.</p>
+
+<h2>Pourquoi organiser une semaine bien-être équipe en château plutôt qu'un séminaire classique ?</h2>
+
+<p>La différence est fondamentale. Un séminaire classique optimise le temps de travail collectif — il fallait couvrir les sujets stratégiques, avancer sur les projets. Une semaine bien-être part du principe inverse : <strong>recharger les batteries d'abord, travailler mieux ensuite</strong>. Ce n'est pas du luxe — c'est de la performance différée.</p>
+
+<ul>
+<li><strong>Prévention du burnout</strong> : l'OMS reconnaît l'épuisement professionnel comme phénomène occupationnel. Un cadre château, hors des écrans et des open spaces, crée une rupture neurologique bénéfique.</li>
+<li><strong>Rétention des talents</strong> : 73 % des collaborateurs interrogés dans une étude RH 2025 déclarent qu'une semaine bien-être offerte par l'entreprise renforcerait leur attachement à l'employeur.</li>
+<li><strong>Cohésion informelle</strong> : les relations créées lors d'une marche en forêt ou d'une séance de yoga collective sont plus durables que celles nouées en plénière.</li>
+<li><strong>Marque employeur</strong> : dans un marché du travail tendu, ce type d'initiative est un argument de recrutement mesurable, visible sur LinkedIn et dans les témoignages Glassdoor.</li>
+</ul>
+
+<p>Sur les 50+ châteaux partenaires que nous avons audités en Île-de-France, environ 30 disposent des infrastructures adaptées à ce format : espaces naturels pour la marche, salles calmes pour la méditation, cuisine adaptée aux menus santé, et possibilité de faire intervenir des prestataires bien-être externes.</p>
+
+<h2>Quel programme type pour une semaine bien-être de 5 jours en château ?</h2>
+
+<p>Voici un programme indicatif sur 5 jours que Sophie Durand recommande pour un groupe de 20 à 50 personnes, avec une intensité bien-être progressive :</p>
+
+<table style='width:100%;border-collapse:collapse;margin:20px 0;'>
+<thead><tr style='background:#f3f4f6;'><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Jour</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Matin</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Après-midi</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Soirée</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'><strong>Lundi — Arrivée</strong></td><td style='padding:10px;border:1px solid #e5e7eb;'>Arrivée & installation</td><td style='padding:10px;border:1px solid #e5e7eb;'>Visite du domaine, atelier cohésion doux</td><td style='padding:10px;border:1px solid #e5e7eb;'>Dîner bienvenue, soirée libre</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'><strong>Mardi — Ancrage</strong></td><td style='padding:10px;border:1px solid #e5e7eb;'>Yoga & respiration (7h30), petit-déjeuner santé</td><td style='padding:10px;border:1px solid #e5e7eb;'>Atelier gestion du stress (coach), marche forestière</td><td style='padding:10px;border:1px solid #e5e7eb;'>Dîner traiteur local, cercle de parole optionnel</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'><strong>Mercredi — Profondeur</strong></td><td style='padding:10px;border:1px solid #e5e7eb;'>Méditation guidée, nutrition coaching</td><td style='padding:10px;border:1px solid #e5e7eb;'>Atelier cohésion créatif (poterie, art), balade vélo</td><td style='padding:10px;border:1px solid #e5e7eb;'>Feu de camp (météo permettant), soirée tranquille</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'><strong>Jeudi — Travail léger</strong></td><td style='padding:10px;border:1px solid #e5e7eb;'>Yoga + session collective courte (2h max)</td><td style='padding:10px;border:1px solid #e5e7eb;'>Atelier créatif collectif, temps libre</td><td style='padding:10px;border:1px solid #e5e7eb;'>Dîner de gala décontracté</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'><strong>Vendredi — Retour</strong></td><td style='padding:10px;border:1px solid #e5e7eb;'>Yoga final, bilan collectif positif</td><td style='padding:10px;border:1px solid #e5e7eb;'>Départ après déjeuner</td><td style='padding:10px;border:1px solid #e5e7eb;'>—</td></tr>
+</tbody>
+</table>
+
+<blockquote><p>"Le risque du programme bien-être, c'est de le surcharger — paradoxalement. On nous demande souvent d'ajouter des activités 'pour rentabiliser'. Mais la règle d'or est de ne jamais remplir plus de 60 % du temps. Le vide, les conversations informelles dans le parc, le moment café au bord de la fontaine — c'est là que la cohésion se construit vraiment."</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote>
+
+<h2>Étude de cas : La semaine bien-être de Carrefour Solutions Numériques en château de la Vallée de Chevreuse</h2>
+
+<p>En novembre 2025, Mathieu D., DRH d'une filiale tech de 68 collaborateurs basée à Vélizy-Villacoublay, prend contact avec Select Châteaux via une recommandation de son comité de direction. Le contexte est tendu : deux démissions inattendues dans l'équipe senior en septembre, un baromètre social en baisse de 8 points, et une direction consciente que "quelque chose doit changer" avant la fin d'année.</p>
+
+<p>Mathieu n'a pas de budget événementiel conséquent — 220 €/personne/jour au maximum pour 45 personnes sur 4 jours. Il pense que c'est trop peu pour un château. Sophie le détrompe lors de leur première visio : "À 220 €/personne/jour pour 4 jours en Vallée de Chevreuse, on peut faire quelque chose de très bien si on optimise les prestataires bien-être en local."</p>
+
+<p>Sophie propose un domaine du XVIIIe siècle niché dans la <a href='/seminaire-vallee-de-chevreuse' class='text-primary font-semibold hover:underline'>Vallée de Chevreuse</a> — 45 minutes de Vélizy en covoiturage, parc de 8 hectares avec forêt privée, 48 chambres, cuisine gastronomique locale. Le programme est délibérément allégé : pas de plénières, pas de PowerPoint. Deux ateliers de 2 heures sur les 4 jours — un sur la communication non violente, un sur la gestion de l'énergie personnelle animé par une coach certifiée.</p>
+
+<p>Le reste : yoga chaque matin à 7h30 dans l'orangerie du château (lumière d'automne rasante sur les boiseries — "on a eu des collaborateurs qui ont pleuré, d'émotion positive", raconte Mathieu), deux randonnées guidées dans la forêt de Chevreuse avec un guide naturaliste local, un atelier poterie le mercredi après-midi, et un dîner de gala le jeudi soir dans la salle des gardes.</p>
+
+<p>Résultat mesuré à 6 semaines : le baromètre social remonte de 6 points, le taux d'absentéisme de novembre est le plus bas depuis 18 mois, et trois des cinq managers senior déclarent dans le bilan RH que "c'est la meilleure initiative de l'entreprise depuis 3 ans". Budget final : <strong>218 €/personne/jour</strong>, dans l'enveloppe prévue.</p>
+
+<h2>Comment choisir le bon château pour une semaine bien-être équipe ? Les 5 étapes indispensables</h2>
+
+<ol>
+<li><strong>Vérifier la taille et la qualité des espaces naturels</strong> : un parc d'au moins 5 hectares est recommandé pour les marches matinales et les activités outdoor. Les châteaux disposant d'une forêt privée attenante sont rares et très recherchés — anticiper.</li>
+<li><strong>S'assurer de l'acoustique des espaces bien-être</strong> : une salle de yoga ou de méditation doit être calme, avec peu de réverbération. Visiter ou demander des photos des espaces dédiés — certains châteaux proposent l'orangerie, la chapelle ou le salon de musique, idéaux pour ce format.</li>
+<li><strong>Évaluer la cuisine et les options santé</strong> : demander si le traiteur peut adapter les menus (végétarien, sans gluten, faible en sucre) et s'ils travaillent avec des producteurs locaux. Un château avec cuisine intégrée est préférable à un traiteur externe sur ce format.</li>
+<li><strong>Confirmer la disponibilité de prestataires bien-être locaux</strong> : yoga, méditation, naturopathie, coaching — vérifier que le château dispose d'un réseau de prestataires certifiés ou permettre de faire venir les vôtres. La liste des <a href='/chateaux' class='text-primary font-semibold hover:underline'>châteaux partenaires Select Châteaux</a> inclut cette information.</li>
+<li><strong>Anticiper la connectivité — ou son absence</strong> : certains groupes souhaitent un cadre "digital detox" partiel. Vérifier avec le château la qualité du WiFi (nécessaire pour les urgences) mais aussi la possibilité de créer des zones sans écrans pour les activités bien-être.</li>
+</ol>
+
+<h2>Quel est le budget réaliste pour une semaine bien-être équipe en château en Île-de-France ?</h2>
+
+<table style='width:100%;border-collapse:collapse;margin:20px 0;'>
+<thead><tr style='background:#f3f4f6;'><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Poste de dépense</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Fourchette / pers. / jour</th><th style='padding:10px;border:1px solid #e5e7eb;text-align:left;'>Notes</th></tr></thead>
+<tbody>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>Hébergement château (chambre double)</td><td style='padding:10px;border:1px solid #e5e7eb;'>85–150 €</td><td style='padding:10px;border:1px solid #e5e7eb;'>Varie selon standing et saison</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'>Restauration (3 repas, pauses)</td><td style='padding:10px;border:1px solid #e5e7eb;'>55–95 €</td><td style='padding:10px;border:1px solid #e5e7eb;'>Menus santé : +10–15 €</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>Prestataires bien-être (yoga, coaching)</td><td style='padding:10px;border:1px solid #e5e7eb;'>20–45 €</td><td style='padding:10px;border:1px solid #e5e7eb;'>Coût mutualisé sur le groupe</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'>Activités outdoor & ateliers créatifs</td><td style='padding:10px;border:1px solid #e5e7eb;'>15–35 €</td><td style='padding:10px;border:1px solid #e5e7eb;'>Randonnée guidée, poterie, vélo...</td></tr>
+<tr><td style='padding:10px;border:1px solid #e5e7eb;'>Location salle & matériel (yoga, méditation)</td><td style='padding:10px;border:1px solid #e5e7eb;'>8–18 €</td><td style='padding:10px;border:1px solid #e5e7eb;'>Souvent inclus dans le package château</td></tr>
+<tr style='background:#f9fafb;'><td style='padding:10px;border:1px solid #e5e7eb;'><strong>Total estimé</strong></td><td style='padding:10px;border:1px solid #e5e7eb;'><strong>195–340 €</strong></td><td style='padding:10px;border:1px solid #e5e7eb;'>Budget moyen constaté : 240 €/pers/jour</td></tr>
+</tbody>
+</table>
+
+<p>Pour un groupe de 30 personnes sur 4 jours, le budget total se situe entre <strong>23 400 € et 40 800 €</strong>. Une partie du poste animations peut être co-financée par le CSE (voir notre guide sur le <a href='/blog/negocier-reduction-fiscale-seminaire-chateau-cse-2026' class='text-primary font-semibold hover:underline'>financement CSE pour un événement en château</a>).</p>
+
+<p>L'automne est la saison idéale pour ce format : les parcs de châteaux en Île-de-France offrent des paysages exceptionnels en octobre-novembre (feuillages dorés, lumière rasante), les températures restent clémentes pour les activités outdoor matinales, et les disponibilités sont meilleures qu'en septembre. Pour préparer votre semaine bien-être de rentrée ou d'automne, <a href='/devis' class='text-primary font-semibold hover:underline'>demandez un programme personnalisé gratuit</a> — Sophie ou Thomas vous recontactent sous 24h avec des propositions concrètes adaptées à votre groupe.</p>
+    `,
+    faq: [
+      { question: "Qu'est-ce qu'une semaine bien-être équipe en château et à qui s'adresse-t-elle ?", answer: "C'est un format d'immersion de 3 à 5 jours combinant ressourcement (yoga, méditation, marche en nature), ateliers de cohésion et temps de travail léger dans un domaine château privatisé. Il s'adresse aux équipes sous pression, aux managers en période de transformation, ou aux entreprises qui souhaitent agir concrètement sur la prévention du burnout et la rétention des talents. Le format est adapté à partir de 15 personnes." },
+      { question: "Quel est le budget d'une semaine bien-être équipe en château en Île-de-France ?", answer: "Le budget moyen constaté est de 240 €/personne/jour en 2026, avec une fourchette de 195 à 340 € selon le standing du château et les prestataires bien-être retenus. Pour 4 jours et 30 personnes, cela représente un budget total de 23 400 à 40 800 €. Une partie des postes animations et cohésion peut être co-financée par le CSE de l'entreprise." },
+      { question: "Quelle est la durée idéale pour une semaine bien-être équipe en château ?", answer: "4 jours / 3 nuits est le format le plus efficace selon notre expérience : assez long pour créer une vraie rupture avec le quotidien et des effets mesurables, sans surcharge logistique ou budgétaire d'un format 5 jours. En dessous de 3 jours, les bénéfices de ressourcement sont limités. Au-delà de 5 jours, l'engagement organisationnel devient difficile à maintenir." },
+      { question: "Peut-on inclure du travail dans une semaine bien-être équipe en château ?", answer: "Oui, mais avec modération. La règle recommandée est de ne pas dépasser 2 heures de travail collectif par jour sur un format bien-être. L'objectif est d'inverser le ratio habituel : 20 % travail, 80 % ressourcement et cohésion. Deux ateliers courts ciblés sur les thèmes prioritaires (communication, objectifs collectifs) suffisent et s'intègrent bien sans alourdir le programme." },
+      { question: "Quelle saison est la meilleure pour une semaine bien-être en château IDF ?", answer: "L'automne (octobre-novembre) est idéal : les parcs de châteaux offrent des paysages exceptionnels avec les feuillages dorés, les températures permettent les activités outdoor matinales, et les disponibilités sont meilleures qu'en septembre. Le printemps (avril-mai) est la deuxième meilleure option. L'été est déconseillé pour les activités physiques matinales en extérieur si la canicule sévit." },
+      { question: "Comment mesurer l'impact d'une semaine bien-être équipe en château ?", answer: "Trois indicateurs sont recommandés : (1) un baromètre de bien-être anonyme avant et 6 semaines après l'événement, (2) le taux d'absentéisme sur les 3 mois suivants comparé à la même période l'année précédente, (3) un bilan qualitatif manager sous forme d'entretiens individuels courts. D'après nos retours clients, 78 % des entreprises constatent une amélioration mesurable du baromètre social dans les 8 semaines suivant l'événement." },
+      { question: "Les prestataires bien-être (yoga, coaching) sont-ils disponibles dans les châteaux IDF ?", answer: "La majorité des châteaux partenaires de Select Châteaux disposent d'un réseau de prestataires bien-être certifiés en Île-de-France. Sur les 50+ domaines audités, 32 peuvent accueillir des intervenants externes (yoga, méditation, naturopathie, coaching collectif) avec des espaces adaptés. Vous pouvez également venir avec vos propres prestataires — les châteaux acceptent généralement les intervenants externes sous réserve d'assurance." },
+    ],
+    howTo: {
+      name: "Organiser une semaine bien-être équipe en château en Île-de-France",
+      steps: [
+        { name: "Définir les objectifs bien-être et le profil du groupe", text: "Identifier les besoins prioritaires (prévention burnout, cohésion, ressourcement post-crise) et le niveau de forme physique moyen pour calibrer l'intensité des activités proposées." },
+        { name: "Choisir le château selon 3 critères bien-être", text: "Vérifier la taille du parc (minimum 5 hectares), la disponibilité d'espaces calmes pour yoga et méditation, et la capacité du traiteur à proposer des menus santé adaptés." },
+        { name: "Construire un programme à 60 % de remplissage maximum", text: "Planifier les activités bien-être le matin (yoga, marche), les ateliers de cohésion l'après-midi, et laisser les soirées libres ou en format convivial décontracté — jamais de plénières chargées." },
+        { name: "Sélectionner des prestataires bien-être certifiés", text: "Faire appel à des coachs et enseignants yoga certifiés (RYT-200 minimum pour le yoga, ICF pour le coaching) et vérifier leur expérience en contexte entreprise — différent d'un contexte individuel ou studio." },
+        { name: "Mesurer les résultats à 6 semaines avec un baromètre social", text: "Diffuser un questionnaire anonyme avant l'événement et 6 semaines après pour mesurer l'évolution du bien-être perçu, de l'engagement et de la cohésion — et justifier le ROI de l'initiative." },
+      ],
+    },
+  },
+
+  {
     id: 1226,
     slug: "rediger-brief-creatif-seminaire-chateau-guide-2026",
     title: "Rédiger le Brief Créatif de son Séminaire en Château : Guide 2026",
