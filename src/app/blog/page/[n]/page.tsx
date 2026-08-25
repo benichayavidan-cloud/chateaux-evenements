@@ -20,6 +20,11 @@ function parsePageNumber(n: string): number | null {
   return page;
 }
 
+// Toutes les pages valides sont connues au build → un n inconnu doit être
+// un VRAI 404 routeur (sans dynamicParams=false, le streaming committerait
+// un statut 200 avant le notFound() = soft 404).
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return Array.from({ length: getBlogTotalPages() - 1 }, (_, i) => ({
     n: String(i + 2),

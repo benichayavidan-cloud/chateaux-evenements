@@ -34,13 +34,6 @@ export default function AProposLayout({
         "Location de châteaux",
         "Événementiel de luxe",
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "12",
-        bestRating: "5",
-        worstRating: "1",
-      },
     },
   };
 

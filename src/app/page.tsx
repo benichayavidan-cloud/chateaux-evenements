@@ -12,7 +12,7 @@ import { chateaux, testimonials, chiffresCles, clientLogos, typesEvenements } fr
 import { LogoCarousel } from "@/components/home/LogoCarousel";
 import { ServiceCard } from "@/components/home/ServiceCard";
 import { StatsSection } from "@/components/home/StatsSection";
-import { generateBreadcrumbSchema, generateAggregateRatingSchema } from "@/utils/seo/structured-data";
+import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "lucide-react";
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
@@ -44,7 +44,6 @@ export default function Home() {
     "@context": "https://schema.org",
     "@graph": [
       generateBreadcrumbSchema([{ name: "Accueil", url: "/" }]),
-      generateAggregateRatingSchema(),
     ],
   };
 

@@ -22,7 +22,6 @@ import {
   generateBreadcrumbSchema,
   generateFAQSchema,
   generateGeoLandingSchema,
-  generateAggregateRatingSchema,
 } from "@/utils/seo/structured-data";
 import { useState, useEffect, useRef } from "react";
 import DevisFormMini from "@/components/DevisFormMini";
@@ -318,7 +317,6 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
       generateGeoLandingSchema(data),
       generateBreadcrumbSchema(data.breadcrumb),
       generateFAQSchema(data.faq),
-      generateAggregateRatingSchema(),
     ],
   };
 

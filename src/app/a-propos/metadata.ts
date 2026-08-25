@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Select Châteaux — Séminaires Château Île-de-France depuis 2009",
+  title: "Notre Histoire : 15 Ans de Séminaires en Château",
   description:
-    "Découvrez pourquoi 200+ entreprises nous confient leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception, devis sous 48h.",
+    "200+ entreprises nous confient leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception, devis sous 48h.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Select Châteaux — Séminaires Château Île-de-France depuis 2009",
+    title: "Notre Histoire : 15 Ans de Séminaires en Château | Select Châteaux",
     description:
       "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception. Devis sous 48h.",
     url: "https://www.selectchateaux.com/a-propos",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Select Châteaux — Séminaires Château Île-de-France depuis 2009",
+    title: "Notre Histoire : 15 Ans de Séminaires en Château | Select Châteaux",
     description: "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, devis sous 48h.",
     images: ["/images/seminaires-soirees-entreprise-hero.webp"],
   },
