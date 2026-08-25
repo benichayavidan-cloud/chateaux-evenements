@@ -1,0 +1,49 @@
+name: LLM — Suivi des citations
+
+# Vérifie chaque mois si selectchateaux.com est cité par Claude (recherche
+# web) sur les requêtes cibles. Résultat en artifact + résumé de job.
+on:
+  schedule:
+    - cron: "0 8 1 * *" # le 1er du mois à 8h UTC
+  workflow_dispatch:
+
+jobs:
+  llm-citations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: scripts/agent-cm
+        run: npm ci
+
+      - name: Check LLM citations
+        working-directory: scripts/agent-cm
+        run: node llm-citations.js > /tmp/llm-citations.json
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Job summary
+        run: |
+          node -e "
+            const r = require('/tmp/llm-citations.json');
+            const lines = ['## Citations LLM — ' + r.date, '', '**' + r.citedCount + '/' + r.total + ' requêtes citent Select Châteaux**', ''];
+            for (const q of r.results) {
+              const s = q.error ? '⚠️ erreur' : (q.citedInSources ? '✅ cité en source' : q.mentionedInText ? '🟡 mentionné' : '❌ absent');
+              lines.push('- ' + s + ' — ' + q.query);
+            }
+            require('fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n') + '\n');
+          "
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: llm-citations
+          path: /tmp/llm-citations.json
+          retention-days: 400
