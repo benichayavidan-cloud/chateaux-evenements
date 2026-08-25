@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 export { metadata } from './metadata';
 
 export default function ChateauxLayout({
@@ -191,9 +190,7 @@ export default function ChateauxLayout({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <Suspense fallback={null}>
-        {children}
-      </Suspense>
+      {children}
     </>
   );
 }

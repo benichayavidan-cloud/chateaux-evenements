@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getBlogPostBySlug, type FaqItem } from "@/data/blog-posts";
+import { metaDescription } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${article.title} | Select Châteaux`,
-    description: article.excerpt,
+    description: metaDescription(article.excerpt),
     robots: {
       index: true,
       follow: true,

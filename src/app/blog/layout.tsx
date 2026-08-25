@@ -5,7 +5,7 @@ import "@/styles/brakt-blog.css";
 export const metadata: Metadata = {
   title: "Blog & Magazine Événementiel | Guides Séminaires Châteaux",
   description:
-    "Guides complets, études de cas, et tendances pour organiser des séminaires d'exception en château : organisation, lieux, team building. Conseils d'experts Select Châteaux.",
+    "Guides complets, études de cas et tendances pour organiser des séminaires d'exception en château : organisation, lieux, team building.",
   robots: {
     index: true,
     follow: true,

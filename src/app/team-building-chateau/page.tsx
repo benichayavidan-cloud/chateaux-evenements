@@ -10,7 +10,6 @@ import {
   generateFAQSchema,
   generateBreadcrumbSchema,
   generateOrganizationSchema,
-  generateAggregateRatingSchema,
 } from "@/utils/seo/structured-data";
 import TeamBuildingPageClient from "./TeamBuildingPageClient";
 import { LogoCarousel } from "@/components/LogoCarousel";
@@ -135,7 +134,6 @@ export default function TeamBuildingPage() {
           ],
         },
       },
-      generateAggregateRatingSchema(),
       generateFAQSchema(faq),
       generateBreadcrumbSchema([
         { name: "Accueil", url: "/" },

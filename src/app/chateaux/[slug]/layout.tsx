@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `Séminaire ${typeLieu} ${ville} | ${chateau.capacite.max} pers - Select Châteaux`,
-    description: `Séminaire d'entreprise dans ce ${typeLieu.toLowerCase()} d'exception en ${ville}. Capacité ${chateau.capacite.max} personnes. ${chateau.accrocheHero} Devis gratuit en 24h.`,
+    description: `Séminaire d'entreprise dans ce ${typeLieu.toLowerCase()} d'exception en ${ville}. Capacité ${chateau.capacite.max} personnes, hébergement sur place. Devis gratuit en 24h.`,
 
     robots: {
       index: true,

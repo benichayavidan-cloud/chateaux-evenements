@@ -219,22 +219,6 @@ export function generateBreadcrumbSchema(
  * Schema AggregateRating - Basé sur les vraies données des avis Google
  * Utilise les données réelles de reviewsData plutôt que du hardcodé
  */
-export function generateAggregateRatingSchema() {
-  // Import dynamique évité - on utilise les stats réelles des avis Google vérifiés
-  // Données synchronisées avec src/data/reviewsData.ts
-  return {
-    "@type": "AggregateRating",
-    itemReviewed: {
-      "@type": "Organization",
-      name: "Select Châteaux",
-    },
-    ratingValue: "4.8",
-    reviewCount: "12",
-    bestRating: "5",
-    worstRating: "1",
-  };
-}
-
 /**
  * Schema LocalBusiness - SEO local (Google Maps, résultats locaux)
  * Couvre l'Île-de-France et les départements clés
