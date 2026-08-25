@@ -5,8 +5,13 @@
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { blogPosts, getBlogPostSummaries } from "@/data/blog-posts";
 import { BlogIndexView } from "../../blog-index-view";
-import { getBlogTotalPages } from "../../pagination";
+import { POSTS_PER_PAGE } from "../../pagination";
+
+function getBlogTotalPages(): number {
+  return Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+}
 
 interface BlogPaginationPageProps {
   params: Promise<{ n: string }>;
@@ -46,5 +51,5 @@ export default async function BlogPaginationPage({ params }: BlogPaginationPageP
   const { n } = await params;
   const page = parsePageNumber(n);
   if (!page) notFound();
-  return <BlogIndexView page={page} />;
+  return <BlogIndexView page={page} posts={getBlogPostSummaries()} />;
 }

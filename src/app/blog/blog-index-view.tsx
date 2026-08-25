@@ -4,8 +4,8 @@ import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, Calendar, Clock, ArrowRight, ArrowLeft, Sparkles, Filter } from "lucide-react";
-import { blogPosts, BlogCategory, getBlogPostsByCategory } from "@/data/blog-posts";
-import { POSTS_PER_PAGE, getBlogTotalPages } from "./pagination";
+import type { BlogCategory, BlogPostSummary } from "@/data/blog-posts";
+import { POSTS_PER_PAGE } from "./pagination";
 
 const CATEGORIES: { value: BlogCategory | "all"; label: string; color: string }[] = [
   { value: "all", label: "Tous les articles", color: "gray" },
@@ -17,23 +17,25 @@ const CATEGORIES: { value: BlogCategory | "all"; label: string; color: string }[
 interface BlogIndexViewProps {
   /** Page de pagination courante (1 = /blog, n = /blog/page/n) */
   page: number;
+  /** Catalogue complet en résumé (SANS contenu HTML — fourni par le Server Component) */
+  posts: BlogPostSummary[];
 }
 
-export function BlogIndexView({ page }: BlogIndexViewProps) {
+export function BlogIndexView({ page, posts: allPosts }: BlogIndexViewProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<BlogCategory | "all">("all");
 
   // Featured post (le plus récent avec featured=true)
-  const featuredPost = blogPosts.find(post => post.featured) || blogPosts[0];
+  const featuredPost = allPosts.find(post => post.featured) || allPosts[0];
 
-  const totalPages = getBlogTotalPages();
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const isBrowsing = !searchQuery && selectedCategory === "all";
 
   // Posts filtrés (recherche/catégorie = sur TOUS les articles ; sinon page courante)
   const filteredPosts = useMemo(() => {
     let posts = selectedCategory === "all"
-      ? blogPosts
-      : getBlogPostsByCategory(selectedCategory);
+      ? allPosts
+      : allPosts.filter(post => post.category === selectedCategory);
 
     if (searchQuery) {
       posts = posts.filter(post =>
@@ -54,7 +56,7 @@ export function BlogIndexView({ page }: BlogIndexViewProps) {
     }
 
     return posts;
-  }, [searchQuery, selectedCategory, featuredPost.id, page]);
+  }, [searchQuery, selectedCategory, featuredPost.id, page, allPosts]);
 
   return (
     <main className="brakt-blog min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center w-full">
@@ -133,7 +135,7 @@ export function BlogIndexView({ page }: BlogIndexViewProps) {
                 {cat.label}
                 {cat.value !== "all" && (
                   <span className="text-xs opacity-70">
-                    ({getBlogPostsByCategory(cat.value as BlogCategory).length})
+                    ({allPosts.filter((p) => p.category === cat.value).length})
                   </span>
                 )}
               </span>

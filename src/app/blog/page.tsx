@@ -4,8 +4,9 @@
  * les pages suivantes sont crawlables via /blog/page/[n].
  */
 
+import { getBlogPostSummaries } from "@/data/blog-posts";
 import { BlogIndexView } from "./blog-index-view";
 
 export default function BlogPage() {
-  return <BlogIndexView page={1} />;
+  return <BlogIndexView page={1} posts={getBlogPostSummaries()} />;
 }

@@ -1,11 +1,8 @@
 /**
- * Pagination du blog — module neutre (importable côté serveur ET client).
+ * Pagination du blog — constante PURE, sans import de données.
+ * NE JAMAIS importer @/data/blog-posts ici : ce module est consommé par la
+ * vue client, et la moindre dépendance data embarquerait les ~291 articles
+ * complets dans le bundle JS (chunk de 5,8 Mo constaté).
  */
 
-import { blogPosts } from "@/data/blog-posts";
-
 export const POSTS_PER_PAGE = 36;
-
-export function getBlogTotalPages(): number {
-  return Math.ceil(blogPosts.length / POSTS_PER_PAGE);
-}

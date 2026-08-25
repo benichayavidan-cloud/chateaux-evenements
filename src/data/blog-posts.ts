@@ -17860,6 +17860,22 @@ export const blogPosts: BlogPost[] = [
   // soit l'auteur saisi dans les fichiers sources ou par l'agent.
   .map(post => ({ ...post, author: CANONICAL_AUTHOR }));
 
+/**
+ * Projection légère pour l'index du blog : tout SAUF le contenu HTML.
+ * À passer en props aux composants client — importer `blogPosts` dans un
+ * composant client embarquerait les ~291 contenus dans le bundle JS.
+ */
+export type BlogPostSummary = Pick<
+  BlogPost,
+  "id" | "slug" | "title" | "excerpt" | "category" | "publishedAt" | "readingTime" | "image" | "imageAlt" | "keywords" | "featured"
+>;
+
+export function getBlogPostSummaries(): BlogPostSummary[] {
+  return blogPosts.map(({ id, slug, title, excerpt, category, publishedAt, readingTime, image, imageAlt, keywords, featured }) => ({
+    id, slug, title, excerpt, category, publishedAt, readingTime, image, imageAlt, keywords, featured,
+  }));
+}
+
 // Helper functions
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find(post => post.slug === slug);
