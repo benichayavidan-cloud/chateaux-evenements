@@ -10,6 +10,7 @@
 import { seoArticles2026 } from "./blog-posts-seo-2026";
 import { nichesArticles2026 } from "./blog-posts-niches-2026";
 import { camilleArticles } from "./blog-posts-camille";
+import { CANONICAL_AUTHOR } from "./authors";
 
 export type BlogCategory = "organisation" | "lieux" | "team-building";
 
@@ -17853,7 +17854,11 @@ export const blogPosts: BlogPost[] = [
   ...seoArticles2026,
   ...nichesArticles2026,
   ...camilleArticles
-].filter(post => !MERGED_SLUGS.has(post.slug));
+]
+  .filter(post => !MERGED_SLUGS.has(post.slug))
+  // E-E-A-T : un seul auteur public (entité forte + page auteur), quel que
+  // soit l'auteur saisi dans les fichiers sources ou par l'agent.
+  .map(post => ({ ...post, author: CANONICAL_AUTHOR }));
 
 // Helper functions
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

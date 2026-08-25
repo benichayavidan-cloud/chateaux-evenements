@@ -61,15 +61,15 @@ export function ArticleHero({ article }: ArticleHeroProps) {
 
             {/* Meta */}
             <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 text-gray-700 px-4">
-              <div className="flex items-center gap-2 sm:gap-3">
+              <Link href="/auteurs/sophie-durand" className="flex items-center gap-2 sm:gap-3 no-underline">
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gray-200 flex items-center justify-center text-xs sm:text-sm font-bold text-gray-900">
                   {article.author.name.charAt(0)}
                 </div>
                 <div className="text-left">
-                  <div className="font-medium text-sm sm:text-base text-gray-900">{article.author.name}</div>
+                  <div className="font-medium text-sm sm:text-base text-gray-900 hover:underline">{article.author.name}</div>
                   <div className="text-xs sm:text-sm text-gray-600">{article.author.role}</div>
                 </div>
-              </div>
+              </Link>
               <div className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
                 <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 <span>

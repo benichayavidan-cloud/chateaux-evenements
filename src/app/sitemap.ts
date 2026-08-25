@@ -21,43 +21,46 @@ import { geoLandingPages } from '@/data/geo-landing-pages'
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.selectchateaux.com'
-  const currentDate = new Date()
+  // Date de dernière mise à jour significative des pages statiques/geo —
+  // à bumper lors d'une vraie refonte. JAMAIS new Date() : un lastmod qui
+  // change à chaque deploy apprend à Google à ignorer le signal.
+  const staticPagesUpdated = new Date('2026-08-25')
 
   // 1. Pages statiques principales
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: currentDate,
+      lastModified: staticPagesUpdated,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
     {
       url: `${baseUrl}/devis`,
-      lastModified: currentDate,
+      lastModified: staticPagesUpdated,
       changeFrequency: 'weekly',
       priority: 1.0, // Money page - priorité maximale
     },
     {
       url: `${baseUrl}/chateaux`,
-      lastModified: currentDate,
+      lastModified: staticPagesUpdated,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/seminaires-soirees-entreprise`,
-      lastModified: currentDate,
+      lastModified: staticPagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/team-building-chateau`,
-      lastModified: currentDate,
+      lastModified: staticPagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/a-propos`,
-      lastModified: currentDate,
+      lastModified: staticPagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
@@ -70,23 +73,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 3. Pages dynamiques des châteaux
   const chateauxPages: MetadataRoute.Sitemap = chateaux.map((chateau) => ({
     url: `${baseUrl}/chateaux/${chateau.slug}`,
-    lastModified: currentDate,
+    lastModified: staticPagesUpdated,
     changeFrequency: 'weekly' as const,
     priority: 0.8, // Priorité importante pour les pages produits
   }))
 
   // 4. Pages blog
+  const authorPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/auteurs/sophie-durand`,
+      lastModified: staticPagesUpdated,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    }
+  ]
+
   const blogListingPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/blog`,
-      lastModified: currentDate,
+      lastModified: staticPagesUpdated,
       changeFrequency: 'daily',
       priority: 0.8,
     }
   ]
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedAt),
+    lastModified: new Date(post.updatedAt ?? post.publishedAt),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
@@ -94,7 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 5. Pages géographiques SEO
   const geoPages: MetadataRoute.Sitemap = geoLandingPages.map((page) => ({
     url: `${baseUrl}/${page.slug}`,
-    lastModified: currentDate,
+    lastModified: staticPagesUpdated,
     changeFrequency: 'weekly' as const,
     priority: 0.85,
   }))
@@ -106,6 +118,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...geoPages,
     ...blogListingPage,
     ...blogPages,
+    ...authorPages,
     ...legalPages
   ]
 }
