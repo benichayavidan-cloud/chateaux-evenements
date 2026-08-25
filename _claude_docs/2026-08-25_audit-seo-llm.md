@@ -125,3 +125,75 @@
    - Pousser l'article « combien coûte » (pos. 4 → top 3) : CTA devis renforcé + lien depuis la home.
 3. **Quick wins** : 3 meta descriptions ≤ 155 car. ; title `/a-propos` dédoublonné ; pagination `/blog`.
 4. **Long terme** : RP/linkbuilding éditorial MICE ; backlinks locaux Chantilly/Chevreuse ; suivi mensuel des citations LLM ; monitoring SERP trimestriel (re-lancer les 7 requêtes de cet audit pour mesurer la progression).
+
+---
+
+# Complément — Audit Google Search Console (25/08/2026, après-midi)
+
+**Source** : API Search Console via workflow `gsc-audit.yml` (créé ce jour, réutilisable : Actions → « GSC — Export audit SEO »). Période 27/05 → 25/08 (90 jours), 377 requêtes, 224 pages.
+
+## Constats
+
+1. **~3 clics organiques en 90 jours** malgré des milliers d'impressions : le site « imprime » en positions 12-30 (pages 2-3 Google) où le CTR est nul. Confirme le diagnostic : le déficit est en position (autorité), pas en contenu.
+2. **59 cannibalisations actives mesurées** (2+ pages du site sur la même requête) :
+   - « team building chantilly » — 912 imp — blog + home + /team-building-chateau
+   - « séminaire yvelines » — 722 imp — blog vs page zone 78
+   - « séminaire chantilly » — 832 imp cumulées — 4 pages en compétition
+3. **110 requêtes détenues par un article de blog** au lieu de la page de conversion (rewriteCandidates) — les articles Camille rankent mieux que les pages zones (ex. blog Chantilly pos 8,4 vs zone pos 28,9).
+4. **Meilleur atout du site** : « team building chantilly » (912 imp, pos 8,4, 2 clics) via l'article `seminaire-chantilly-activites-team-building` — à 3 positions du top 5.
+5. Pages zones « presque là » avec du volume réel : séminaire chantilly (508 imp, pos 30), séminaire oise (490 imp, pos 28), vallée de chevreuse (245 imp, pos 32), team building château (157 imp, pos 24).
+
+## Corrigé ce jour (commit 9f63ee3)
+
+- Liens zones manquants ajoutés dans 3 articles (hotel-seminaire-chantilly-comparatif, chantilly-vs-fontainebleau, team-building-yvelines-2026) — la règle LIEN_CANONIQUE_MANQUANT du gate Camille appliquée rétroactivement.
+- `/team-building-chateau` → lien vers l'article « team building chantilly » (renforcer l'atout n°1).
+
+## À suivre
+
+- Les positions 12-30 sur requêtes à volume = le levier n'est plus on-page : **backlinks (agrégateurs MICE) + avis GBP** feront monter tout le cluster.
+- Re-tirer l'export GSC dans 30 jours (workflow) et comparer `strengthenLanding` / `cannibalizationAlerts` — la consolidation d'aujourd'hui (dé-cannibalisation home/zone, maillage) doit se lire dans les données.
+- Le mécanisme de fusion (`merged-redirects.json`) reste l'outil si un article continue de cannibaliser une page zone après 30 jours.
+
+---
+
+# Complément 2 — Chantiers E-E-A-T & monitoring (25/08, fin de journée)
+
+## Réalisé (commits be47b0d, 9f63ee3 + workflow llm-citations)
+
+1. **Auteur unique consolidé (E-E-A-T)** : les 14 personas fictives → Sophie Durand partout (normalisation au point de merge, futurs articles agent couverts). Page `/auteurs/sophie-durand` (bio, expertise, ProfilePage + Person schema `@id`), byline cliquable, `author.url` dans BlogPosting.
+2. **Section « Salle de réunion dans les Yvelines »** sur la page zone 78 (requête GSC 208 imp / pos 38 non couverte).
+3. **sitemap lastModified réels** : `updatedAt ?? publishedAt` par article, constante datée pour les 20 pages statiques (fini le lastmod=aujourd'hui sur 309 URLs).
+4. **Suivi citations LLM mensuel** : workflow « LLM — Suivi des citations » (Claude + recherche web sur les 7 requêtes cibles, artifact 400 j + résumé de job). Baseline lancée le 25/08.
+5. **Maillage GSC** (9f63ee3) : liens zones manquants dans 3 articles + lien money page → article « team building chantilly ».
+
+## Décisions / points PO
+
+- **sameAs Google Business Profile** : URL introuvable automatiquement (et risque de confusion avec l'agence immobilière « Châteaux Select ») → le PO doit copier l'URL courte `g.page`/Maps depuis son dashboard GBP, je l'ajouterai au schema Organization.
+- **⚠️ Avis affichés (reviewsData.ts) NON balisés volontairement** : les « avis Google authentiques » nomment des employés d'entreprises réelles (Google France, LVMH) avec dates relatives figées — très probablement fabriqués. Baliser des faux avis en schema Review = violation Google caractérisée + risque légal. À remplacer par de vrais avis GBP importés avant tout balisage.
+- Études de cas clients : nécessite la matière du PO (clients réels, chiffres) — structure prête à faire dès réception.
+
+## Baseline citations LLM (25/08) — 🎯 6/7
+
+Premier run du workflow « LLM — Suivi des citations » (Claude + recherche web, requêtes réalistes) :
+**selectchateaux.com est cité en SOURCE sur 6 des 7 requêtes cibles** — meilleur château séminaire IDF,
+château à louer proche Paris, location château séminaire, team building château près de Paris,
+séminaire à Chantilly, combien coûte. Seul échec : « quelle agence pour un séminaire résidentiel
+100 personnes » (angle *agence* à travailler — études de cas & pages "agence/organisation").
+Domaines les plus cités sur ces requêtes : chateauform.com (7), kactus.com (6), **selectchateaux.com (6)**,
+aleou.fr (5), funbooker.com (4). → Le socle GEO (llms.txt, bots autorisés, contenu structuré) porte déjà
+ses fruits côté moteurs IA ; l'écart reste sur Google classique (autorité).
+
+## Core Web Vitals (unlighthouse, mobile, 10 pages clés)
+
+SEO 100/100 et CLS 0 partout. Points corrigés dans la foulée :
+- **/blog : perf 37, LCP 11,6 s, TBT 2,3 s** → cause racine : les 291 contenus HTML d'articles dans le
+  bundle client (chunk 5,8 Mo). Corrigé (summaries en props, pagination.ts pur) — plus gros chunk : 223 Ko.
+- Pages zones (Chantilly 53, IDF 53) : LCP 5-6 s — hero images ~200 Ko déjà en priority ; à re-mesurer
+  après le fix bundle, puis optimiser les images hero si besoin (AVIF/tailles).
+- /devis 94, team-building 87, yvelines 85 : sains.
+
+### Re-mesure après fix bundle (prod, mobile)
+- /seminaire-chateau-chantilly : **53 → 82** ✅ (le chunk data était chargé là aussi)
+- /blog : perf **37 → 64**, TBT **2 330 → 410 ms** ✅ ; LCP simulé encore haut (render delay sous throttling)
+  — page non-money, acceptable ; à revoir si besoin (fonts/hero) lors d'un chantier perf dédié.
+- Pages money : /devis 94, team-building 87, yvelines 85, home ~70.
