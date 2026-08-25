@@ -60,7 +60,7 @@ export default function AuthorPage() {
           <p className="mt-2 text-base sm:text-lg font-medium text-[var(--bronze-antique)]">
             {SOPHIE_DURAND.role} · Select Châteaux
           </p>
-          <p className="mx-auto mt-6 max-w-2xl text-left text-base leading-relaxed text-gray-700">
+          <p className="mx-auto mt-6 max-w-2xl text-left text-base leading-relaxed" style={{ color: "#374151" }}>
             {SOPHIE_DURAND.bio}
           </p>
 
@@ -111,7 +111,7 @@ export default function AuthorPage() {
                   <h3 className="text-base font-semibold leading-snug text-gray-900">
                     {post.title}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-sm text-gray-600">
+                  <p className="mt-2 line-clamp-2 text-sm" style={{ color: "#4B5563" }}>
                     {post.excerpt}
                   </p>
                 </div>
