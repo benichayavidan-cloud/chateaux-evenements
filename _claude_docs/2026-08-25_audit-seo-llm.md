@@ -197,3 +197,48 @@ SEO 100/100 et CLS 0 partout. Points corrigés dans la foulée :
 - /blog : perf **37 → 64**, TBT **2 330 → 410 ms** ✅ ; LCP simulé encore haut (render delay sous throttling)
   — page non-money, acceptable ; à revoir si besoin (fonts/hero) lors d'un chantier perf dédié.
 - Pages money : /devis 94, team-building 87, yvelines 85, home ~70.
+
+---
+
+# Complément 3 — Preuve sociale & derniers trous GSC (25/08, soir)
+
+## Avis : les faux remplacés par les vrais (commit 83b29be)
+`reviewsData.ts` contenait 12 avis **fabriqués**, attribués à des personnes fictives présentées comme
+employées de Google France, LVMH, Airbus, BNP, L'Oréal, Danone… → remplacés par les **6 avis réels 5★
+de la fiche Google Business** (texte verbatim, ellipse conservée sur les extraits tronqués, badge
+« Avis Google vérifié », lien vers la fiche). 12 autres faux témoignages supprimés de `chateaux.ts`
+(code mort). **Bonus** : la fiche GBP a été identifiée et vérifiée pendant la recherche
+(cid `13719107096971699386`, téléphone + site concordants) → ajoutée en `sameAs` sur les 2 schemas.
+
+## Page /references — 6 études de cas depuis le CRM (commit 8db1410)
+Extraction des dossiers réels de la base CRM V2 (Event + QuoteRequest + Quote + Prestataire) :
+- **Eiffage Énergie Systèmes** (✓ réalisé juin 2026) : 50 pers, 3 lieux mis en concurrence
+  (33 850 / 29 467 / 27 977 € TTC), confirmé au campus Les Fontaines (Gouvieux) → **-17 %** vs l'offre
+  la plus haute, ≈560 €/pers.
+- Safran.AI 280 pers · Les Petits Chaperons Rouges 200 pers (9 devis) · Boston Scientific gala 120 pers
+  (12 lieux) · LCL 80 pers / 40 k€ · Stanley Robotics 45 pers (16 devis) — marqués « En préparation ».
+- Bandeau 10 clients (dossiers actifs/réalisés uniquement — perdus et annulés exclus), schema ItemList,
+  liens footer + sitemap + **llms.txt**.
+- Objectif : la seule requête LLM non citée au baseline (« quelle agence pour un séminaire de
+  100-300 personnes »).
+
+## Team building : cibler l'Île-de-France (commit 84b71c3)
+GSC : « team building ile de france » 128 imp **pos 56**, « hauts de seine » 54 imp pos 30,
+« issy les moulineaux » 34 imp pos 53 — alors que le domaine 92 EST à Issy-les-Moulineaux.
+Le title portait « près de Paris » (**0 impression** mesurée sur 90 j) et pas « Île-de-France ».
+→ Title/description recentrés (cluster « team building château » 510 imp conservé) + FAQ dédiée
+92/Issy (alimente le schema FAQPage, 9 questions).
+
+## Divers
+- IndexNow : /references, /auteurs/sophie-durand, /team-building-chateau, home, /chateaux, /blog,
+  zones + pages de pagination soumises (Bing = index de ChatGPT Search).
+- Agent Camille : les runs horaires passent de ~8 min à **21 s** (gate Supabase actif → 1 article/jour
+  au lieu de 24 tentatives/jour). Économie directe de tokens Claude.
+
+## Reste ouvert
+- **PO** : coller les textes complets des 5 avis Google tronqués (« …Voir l'avis complet ») pour
+  enrichir les cartes.
+- **Chantier optionnel** : version anglaise des pages money (séminaires d'entreprises internationales
+  à Paris — zéro concurrence locale bien faite). Gros effort, gros différenciateur.
+- **Mesure** : relancer « GSC — Export audit SEO » et lire le run « LLM — Suivi des citations » du
+  1er octobre pour mesurer l'effet de toutes les corrections du 25/08.
