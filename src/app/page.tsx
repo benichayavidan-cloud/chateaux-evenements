@@ -17,8 +17,8 @@ import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "luci
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Séminaire Château Île-de-France : 4 Domaines dès 150€/pers [Devis 24h]",
-  description: "Privatisez l'un de nos 4 châteaux pour votre séminaire près de Paris dès 150€/pers. De 10 à 500 pers, hébergement inclus. Devis gratuit en 24h, réponse garantie.",
+  title: "Location de Château pour Séminaire : 4 Domaines dès 150€/pers",
+  description: "Location de château pour séminaire d'entreprise : 4 domaines privatisables, 10 à 500 pers, hébergement inclus dès 150€/pers. Devis gratuit en 24h.",
   robots: {
     index: true,
     follow: true,
@@ -59,7 +59,7 @@ export default function Home() {
         autoPlay
         autoPlayDuration={3000}
         height="100vh"
-        heading="Séminaire en Château en Île-de-France — 4 Domaines d'Exception"
+        heading="Location de Château pour Séminaire d'Entreprise — 4 Domaines d'Exception"
       />
 
       {/* Stats Section - Cartes animées */}
@@ -319,7 +319,7 @@ export default function Home() {
           </Text>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: theme.spacing.md }}>
             {[
-              { href: '/seminaire-chateau-ile-de-france', label: 'Île-de-France', desc: '4 domaines privatisables' },
+              { href: '/seminaire-chateau-ile-de-france', label: 'Séminaire Château Île-de-France', desc: '4 domaines privatisables' },
               { href: '/seminaire-chateau-proche-paris', label: 'Proche Paris', desc: 'À 30 min de la capitale' },
               { href: '/seminaire-chateau-chantilly', label: 'Chantilly', desc: '228 chambres en forêt' },
               { href: '/seminaire-chateau-oise-60', label: 'Oise (60)', desc: 'Forêt de Chantilly' },
@@ -362,7 +362,7 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: theme.spacing.lg }}>
             {[
               { href: '/blog/seminaire-chantilly-activites-team-building', title: 'Séminaire Chantilly : 15 Activités Team Building', desc: 'Le guide complet des activités à Chantilly — spectacle équestre, rallye 2CV, escape game.' },
-              { href: '/blog/murder-party-chateau-activite-immersive', title: 'Murder Party Château : Enquête Grandeur Nature', desc: 'L\'activité team building la plus demandée en 2026. Comment ça marche, combien ça coûte.' },
+              { href: '/blog/combien-coute-seminaire-chateau-2026', title: 'Combien Coûte un Séminaire en Château ? Tarifs 2026', desc: 'Grille complète 150€ à 450€/pers, coûts cachés à éviter et 5 astuces pour économiser 20%.' },
               { href: '/blog/checklist-organiser-seminaire', title: 'Checklist Séminaire 2026 : 25 Étapes Clés', desc: '25 étapes de J-90 à J+7 pour organiser votre séminaire sans rien oublier. PDF gratuit.' },
             ].map((article) => (
               <Link key={article.href} href={article.href} style={{ textDecoration: 'none' }}>
