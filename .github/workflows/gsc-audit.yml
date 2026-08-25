@@ -1,0 +1,46 @@
+name: GSC — Export audit SEO
+
+# Exporte l'analyse Search Console (opportunités, cannibalisation, top/flop)
+# en artifact téléchargeable. Utilisé pour le suivi SEO mensuel.
+on:
+  workflow_dispatch:
+    inputs:
+      period:
+        description: "Période (7days, 30days, 90days, 16months)"
+        default: "90days"
+        required: false
+      limit:
+        description: "Nombre max de requêtes/pages"
+        default: "500"
+        required: false
+
+jobs:
+  gsc-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: scripts/agent-cm
+        run: npm ci
+
+      - name: Pull GSC analysis
+        working-directory: scripts/agent-cm
+        run: node gsc-pull.js --period "${{ inputs.period }}" --limit "${{ inputs.limit }}" > /tmp/gsc-audit.json
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gsc-audit-${{ inputs.period }}
+          path: /tmp/gsc-audit.json
+          retention-days: 7
