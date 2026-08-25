@@ -45,17 +45,21 @@ const faq = [
     answer: "Nous disposons de 4 domaines d'exception en Île-de-France : un Manoir Anglo-Normand à Chantilly, un Domaine Historique dans les Hauts-de-Seine (92), une Abbaye Millénaire dans la Vallée de Chevreuse et un Palais Royal en Forêt de Chantilly. Tous sont privatisables et situés à moins d'1h de Paris."
   },
   {
+    question: "Organisez-vous des team building dans les Hauts-de-Seine (92) et à Issy-les-Moulineaux ?",
+    answer: "Oui. Notre Domaine Historique se trouve à Issy-les-Moulineaux, dans les Hauts-de-Seine : un hôtel MGallery 5 étoiles accessible en métro (5 min à pied), avec vue sur la Tour Eiffel, 9 salles de réunion, 83 chambres et un spa de 360 m². C'est le choix des équipes qui veulent un team building en Île-de-France sans temps de transport : de 80 à 180 participants, jardin suspendu pour les activités outdoor et privatisation totale possible."
+  },
+  {
     question: "Comment organiser un team building en château près de Paris ?",
     answer: "3 étapes : (1) définir vos objectifs (cohésion, intégration, récompense) et le nombre de participants, (2) choisir le château selon la taille du groupe et le style d'activités souhaité — nos 4 domaines offrent chacun un cadre unique, (3) contacter Select Châteaux pour recevoir un programme sur-mesure avec devis sous 24h. Nous gérons la logistique de A à Z : transport, hébergement, restauration et +40 activités."
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Team Building Château près de Paris : +40 Activités dès 45€/pers",
-  description: "+40 activités de cohésion en château privatisé dès 45€/pers : olympiades, escape game, murder party, atelier cuisine. De 20 à 500 pers, à 30 min de Paris. Devis 24h.",
+  title: "Team Building Château Île-de-France : +40 Activités dès 45€/pers",
+  description: "+40 activités de cohésion en château privatisé en Île-de-France dès 45€/pers : olympiades, escape game, murder party. De 20 à 500 pers. Devis 24h.",
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Team Building Château près de Paris : +40 Activités dès 45€/pers",
+    title: "Team Building Château Île-de-France : +40 Activités dès 45€/pers",
     description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. Devis gratuit en 24h.",
     url: "https://www.selectchateaux.com/team-building-chateau",
     siteName: "Select Châteaux",
