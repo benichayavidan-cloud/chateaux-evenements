@@ -932,6 +932,9 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               <Link href="/seminaires-soirees-entreprise" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
                 Soirées d&apos;entreprise en château
               </Link>
+              <Link href="/blog/seminaire-chantilly-activites-team-building" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                Team building à Chantilly : le guide
+              </Link>
             </div>
           </div>
         </Container>

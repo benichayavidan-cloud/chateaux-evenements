@@ -17438,6 +17438,7 @@ const placeholderArticles: BlogPost[] = [
 <div class="bg-amber-50 border-l-4 border-[--bronze-antique] p-6 my-8 rounded-r-lg">
   <p class="text-lg font-semibold text-gray-900 mb-2">Besoin d'aide pour choisir ?</p>
   <p class="text-gray-700">Select Châteaux connaît chaque hôtel de Chantilly. Décrivez-nous votre séminaire et recevez une recommandation personnalisée avec devis en 24h.</p>
+<p class="mb-6">Pour comparer les domaines privatisables de la ville, consultez notre page <a href="/seminaire-chateau-chantilly" class="text-primary font-semibold hover:underline">séminaire en château à Chantilly</a>.</p>
 </div>
 
     </div>

@@ -194,6 +194,7 @@ const article44: BlogPost = {
     <p>Chez <strong>Select Châteaux</strong>, nous connaissons chaque domaine personnellement. Nous vous orientons vers le château idéal selon vos objectifs, votre groupe et votre budget — gratuitement.</p>
 
     <p><strong><a href="/devis">Demandez un devis gratuit</a></strong> et recevez une sélection personnalisée sous 24h avec nos recommandations Chantilly ou Fontainebleau.</p>
+    <p>Côté Chantilly, retrouvez nos 2 domaines privatisables sur la page <a href="/seminaire-chateau-chantilly">séminaire en château à Chantilly</a>.</p>
   `,
 };
 
