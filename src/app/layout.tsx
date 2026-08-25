@@ -223,6 +223,7 @@ export default function RootLayout({
               links: [
                 { label: "Team Building", href: "/team-building-chateau" },
                 { label: "Séminaires & Soirées", href: "/seminaires-soirees-entreprise" },
+                { label: "Références clients", href: "/references" },
                 { label: "Notre histoire", href: "/a-propos" },
                 { label: "Blog", href: "/blog" },
                 { label: "Demander un devis", href: "/devis" },

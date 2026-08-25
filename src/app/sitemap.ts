@@ -79,6 +79,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // 4. Pages blog
+  const referencesPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/references`,
+      lastModified: staticPagesUpdated,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    }
+  ]
+
   const authorPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/auteurs/sophie-durand`,
@@ -118,6 +127,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...geoPages,
     ...blogListingPage,
     ...blogPages,
+    ...referencesPage,
     ...authorPages,
     ...legalPages
   ]

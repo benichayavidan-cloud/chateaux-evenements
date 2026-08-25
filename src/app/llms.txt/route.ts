@@ -89,6 +89,7 @@ function buildLlmsTxt(): string {
   lines.push('## Contact')
   lines.push('')
   lines.push(`- Demande de devis : ${BASE_URL}/devis (formulaire 2 min, réponse garantie sous 24h, gratuit et sans engagement)`)
+  lines.push(`- Références clients (études de cas réelles, séminaires de 45 à 280 personnes — Eiffage, Safran.AI, LCL, Boston Scientific…) : ${BASE_URL}/references`)
   lines.push(`- À propos : ${BASE_URL}/a-propos`)
   lines.push('')
 
