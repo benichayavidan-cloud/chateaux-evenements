@@ -2,7 +2,7 @@
 
 // framer-motion removed — CSS transitions for performance
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { reviews, reviewsStats } from "@/data/reviewsData";
+import { reviews, reviewsStats, GOOGLE_REVIEWS_URL } from "@/data/reviewsData";
 import { useState, useEffect } from "react";
 
 // Version: 1.4 - Auto-scroll accéléré 3 secondes
@@ -130,7 +130,7 @@ export function ReviewsSection() {
                           {review.author}
                         </h3>
                         <p className="text-xs line-clamp-1" style={{ color: '#4B5563' }}>
-                          {review.role} • {review.company}
+                          {review.role && review.company ? `${review.role} • ${review.company}` : "Avis Google vérifié"}
                         </p>
                       </div>
 
@@ -214,7 +214,15 @@ export function ReviewsSection() {
           style={{ marginTop: '24px' }}
         >
           <p style={{ marginBottom: '20px', color: '#6b7c93' }}>
-            Rejoignez les {reviewsStats.fiveStars}+ entreprises qui nous font confiance
+            Note {reviewsStats.averageRating}/5 sur Google —{" "}
+            <a
+              href={GOOGLE_REVIEWS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-[#A37E2C]"
+            >
+              voir tous les avis
+            </a>
           </p>
           <a
             href="/devis#formulaire"

@@ -8,7 +8,7 @@ import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
 import { StructuredData } from "@/components/StructuredData";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { theme } from "@/design-system/tokens";
-import { chateaux, testimonials, chiffresCles, clientLogos, typesEvenements } from "@/data/chateaux";
+import { chateaux, chiffresCles, clientLogos, typesEvenements } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/home/LogoCarousel";
 import { ServiceCard } from "@/components/home/ServiceCard";
 import { StatsSection } from "@/components/home/StatsSection";

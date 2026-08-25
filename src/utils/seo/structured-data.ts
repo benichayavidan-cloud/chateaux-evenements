@@ -40,6 +40,7 @@ export function generateOrganizationSchema() {
     },
     sameAs: [
       "https://www.linkedin.com/company/select-chateaux/about/",
+      "https://www.google.com/maps?cid=13719107096971699386",
     ],
     foundingDate: "2009",
     slogan: "La Collection Confidentielle",
@@ -306,6 +307,7 @@ export function generateLocalBusinessSchema() {
     priceRange: "$$$$",
     sameAs: [
       "https://www.linkedin.com/company/select-chateaux/about/",
+      "https://www.google.com/maps?cid=13719107096971699386",
     ],
   };
 }
