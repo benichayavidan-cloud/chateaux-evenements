@@ -8,7 +8,9 @@
 import type { Metadata } from "next";
 import NextLink from "next/link";
 import Image from "next/image";
-import { Users, BedDouble } from "lucide-react";
+import { Users, Bed, LayoutGrid, ArrowRight } from "lucide-react";
+import { Section, Container } from "@/components/layout-v2";
+import { theme } from "@/design-system/tokens";
 import { venues } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
 
@@ -30,9 +32,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+const BRONZE = theme.colors.primary.bronze;
+const BRONZE_DARK = theme.colors.primary.bronzeDark;
+const GOLD = theme.colors.primary.gold;
+const HEADING = theme.typography.fonts.heading;
+const G = theme.colors.neutral;
+
 export default function LieuxPage() {
   const groupes = DEPARTMENT_ORDER
-    .map(code => ({ code, nom: DEPARTMENT_NAMES[code], items: venues.filter(v => v.departementCode === code) }))
+    .map(code => ({ code, nom: DEPARTMENT_NAMES[code], items: venues.filter(v => v.departementCode === code).sort((a, b) => b.capacite - a.capacite) }))
     .filter(g => g.items.length > 0);
 
   const schema = {
@@ -51,72 +59,141 @@ export default function LieuxPage() {
   return (
     <>
       <StructuredData data={schema} />
-      <main className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-          <header className="mb-10">
-            <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-[#A37E2C]">
-              Île-de-France et Oise
-            </p>
-            <h1 className="text-3xl font-semibold leading-tight text-neutral-900 sm:text-4xl lg:text-5xl">
-              {total} lieux de séminaire, de 10 à {capaciteMax} personnes
-            </h1>
-            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">
-              Châteaux, domaines et hôtels privatisables dans les Yvelines, l&apos;Oise, la
-              Seine-et-Marne, le Val-d&apos;Oise, l&apos;Essonne et les Hauts-de-Seine. Chaque
-              fiche affiche la capacité, le nombre de chambres et les équipements réels du
-              lieu. Devis sous 48 h.
-            </p>
-          </header>
 
-          {groupes.map(g => (
-            <section key={g.code} className="mb-14" id={`dept-${g.code}`}>
-              <h2 className="mb-5 border-b border-neutral-200 pb-3 text-2xl font-semibold text-neutral-900">
-                {g.nom} ({g.code}) — {g.items.length} lieux
+      <Section spacing="lg" background="white" style={{ paddingBottom: "clamp(1.5rem, 3vw, 2rem)" }}>
+        <Container size="xl">
+          <div
+            style={{
+              display: "inline-flex", alignItems: "center", gap: "8px",
+              padding: "5px 12px", marginBottom: "1rem",
+              background: `${BRONZE}08`, border: `1px solid ${BRONZE}25`, borderRadius: "9999px",
+            }}
+          >
+            <span style={{ fontSize: "0.6875rem", fontWeight: 700, color: BRONZE, letterSpacing: "0.05em", textTransform: "uppercase" }}>
+              Île-de-France &amp; Oise
+            </span>
+          </div>
+
+          <h1
+            style={{
+              fontSize: "clamp(2rem, 5vw, 3.25rem)", fontWeight: 600, fontFamily: HEADING,
+              lineHeight: 1.12, color: G.gray900, marginBottom: "1rem", maxWidth: "20ch",
+            }}
+          >
+            {total} lieux de séminaire, de {Math.min(...venues.map(v => v.capacite))} à {capaciteMax} personnes
+          </h1>
+
+          <p style={{ fontSize: "clamp(1rem, 2vw, 1.125rem)", lineHeight: 1.75, color: G.gray600, maxWidth: "62ch" }}>
+            Châteaux, domaines et hôtels privatisables dans les Yvelines, l&apos;Oise, la
+            Seine-et-Marne, le Val-d&apos;Oise, l&apos;Essonne et les Hauts-de-Seine. Chaque fiche
+            affiche la capacité, le nombre de chambres et les équipements réels du lieu —
+            pas d&apos;estimation. Devis sous 48 h.
+          </p>
+
+          <nav aria-label="Départements" className="flex flex-wrap" style={{ gap: "8px", marginTop: "1.75rem" }}>
+            {groupes.map(g => (
+              <a
+                key={g.code}
+                href={`#dept-${g.code}`}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px",
+                  padding: "8px 16px", borderRadius: "9999px",
+                  border: `1px solid ${G.gray200}`, background: "white",
+                  fontSize: "0.875rem", color: G.gray700, textDecoration: "none",
+                }}
+              >
+                {g.nom}
+                <span style={{ color: BRONZE, fontWeight: 700 }}>{g.items.length}</span>
+              </a>
+            ))}
+          </nav>
+        </Container>
+      </Section>
+
+      {groupes.map((g, gi) => (
+        <Section key={g.code} spacing="lg" background={gi % 2 === 0 ? "gray" : "white"} id={`dept-${g.code}`}>
+          <Container size="xl">
+            <div className="flex items-baseline justify-between flex-wrap" style={{ gap: "12px", marginBottom: "1.75rem" }}>
+              <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.125rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, margin: 0 }}>
+                {g.nom} <span style={{ color: G.gray400, fontWeight: 400 }}>({g.code})</span>
               </h2>
-              <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {g.items.map(v => (
-                  <li key={v.slug}>
-                    <NextLink
-                      href={`/lieux/${v.slug}`}
-                      className="group block overflow-hidden rounded-lg border border-neutral-200 transition-colors hover:border-[#A37E2C]"
+              <span style={{ fontSize: "0.875rem", color: G.gray500 }}>
+                {g.items.length} lieux · jusqu&apos;à {Math.max(...g.items.map(v => v.capacite))} personnes
+              </span>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3" style={{ gap: "20px" }}>
+              {g.items.map(v => (
+                <NextLink
+                  key={v.slug}
+                  href={`/lieux/${v.slug}`}
+                  className="group block overflow-hidden"
+                  style={{
+                    background: "white", borderRadius: "16px",
+                    border: `1px solid ${G.gray200}`, boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                  }}
+                >
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3", background: G.gray100 }}>
+                    {v.photos[0] && (
+                      <Image
+                        src={v.photos[0].url}
+                        alt={v.photos[0].legende || v.nom}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    )}
+                    <div
+                      style={{
+                        position: "absolute", top: "12px", left: "12px",
+                        padding: "5px 11px", borderRadius: "9999px",
+                        background: "rgba(255,255,255,0.94)", backdropFilter: "blur(6px)",
+                        fontSize: "0.6875rem", fontWeight: 700, letterSpacing: "0.05em",
+                        textTransform: "uppercase", color: BRONZE_DARK,
+                      }}
                     >
-                      <div className="relative aspect-[4/3] bg-neutral-100">
-                        {v.photos[0] && (
-                          <Image
-                            src={v.photos[0].url}
-                            alt={v.photos[0].legende || v.nom}
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        )}
+                      {v.categorie}
+                    </div>
+                  </div>
+
+                  <div style={{ padding: "18px 20px 20px" }}>
+                    {v.ville && (
+                      <div style={{ fontSize: "0.6875rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", color: BRONZE, marginBottom: "7px" }}>
+                        {v.ville}
                       </div>
-                      <div className="p-4">
-                        <p className="mb-1 text-xs uppercase tracking-wider text-neutral-500">
-                          {v.categorie}{v.ville ? ` · ${v.ville}` : ""}
-                        </p>
-                        <h3 className="mb-3 font-medium leading-snug text-neutral-900">{v.nom}</h3>
-                        <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-600">
-                          <span className="inline-flex items-center gap-1.5">
-                            <Users className="h-3.5 w-3.5" aria-hidden="true" />
-                            <span className="tabular-nums">{v.capacite} pers.</span>
-                          </span>
-                          {v.chambres ? (
-                            <span className="inline-flex items-center gap-1.5">
-                              <BedDouble className="h-3.5 w-3.5" aria-hidden="true" />
-                              <span className="tabular-nums">{v.chambres} ch.</span>
-                            </span>
-                          ) : null}
-                        </p>
-                      </div>
-                    </NextLink>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-      </main>
+                    )}
+                    <h3 style={{ fontFamily: HEADING, fontSize: "1.125rem", fontWeight: 600, color: G.gray900, lineHeight: 1.3, marginBottom: "14px" }}>
+                      {v.nom}
+                    </h3>
+                    <div
+                      className="flex flex-wrap items-center"
+                      style={{ gap: "14px", fontSize: "0.8125rem", color: G.gray600, paddingTop: "12px", borderTop: `1px solid ${G.gray100}` }}
+                    >
+                      <span className="inline-flex items-center gap-1.5">
+                        <Users className="w-3.5 h-3.5" style={{ color: BRONZE }} />
+                        <span style={{ fontVariantNumeric: "tabular-nums" }}>{v.capacite}</span>
+                      </span>
+                      {v.chambres ? (
+                        <span className="inline-flex items-center gap-1.5">
+                          <Bed className="w-3.5 h-3.5" style={{ color: BRONZE }} />
+                          <span style={{ fontVariantNumeric: "tabular-nums" }}>{v.chambres}</span>
+                        </span>
+                      ) : null}
+                      {v.sallesReunion ? (
+                        <span className="inline-flex items-center gap-1.5">
+                          <LayoutGrid className="w-3.5 h-3.5" style={{ color: BRONZE }} />
+                          <span style={{ fontVariantNumeric: "tabular-nums" }}>{v.sallesReunion}</span>
+                        </span>
+                      ) : null}
+                      <ArrowRight className="w-4 h-4 ml-auto transition-transform group-hover:translate-x-0.5" style={{ color: BRONZE }} />
+                    </div>
+                  </div>
+                </NextLink>
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ))}
     </>
   );
 }
