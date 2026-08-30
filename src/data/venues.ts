@@ -3,10 +3,11 @@
 //   DATABASE_URL=… node scripts/venues/export-venues.mjs
 //
 // Périmètre : départements 78, 60, 77, 95, 91, 92. Exclut les lieux déjà
-// publiés sous alias sur /chateaux. Seuil de publication :
+// publiés sous alias sur /chateaux, et ceux dont le code postal contredit le
+// département déclaré. Seuil de publication :
 // description > 400 caractères, capacité renseignée, 6 photos minimum, et aucune
 // photo issue de Google Places ou de Kactus (droits).
-// Généré le 2026-08-30 — 69 lieux.
+// Généré le 2026-08-30 — 68 lieux.
 
 export interface VenuePhoto { url: string; legende: string | null; categorie: string | null }
 export interface VenueSalle { nom: string; surface: number | null; theatre: number | null; u: number | null; banquet: number | null; cocktail: number | null }
@@ -220,81 +221,6 @@ export const venues: Venue[] = [
     ]
   },
   {
-    "id": "cmle4ce0h019coan855uiy54w",
-    "slug": "chateau-de-la-trye-hermes",
-    "nom": "Chateau de la Trye",
-    "categorie": "Hôtel",
-    "ville": "Hermes",
-    "codePostal": "60370",
-    "departementCode": "60",
-    "departement": "Oise",
-    "region": "Hauts-de-France",
-    "adresse": "Rue de la Forêt, Hermes, 60370 Berthecourt",
-    "latitude": 49.378868,
-    "longitude": 2.259655,
-    "description": "Le Château de la Trye est un domaine d'exception niché dans un parc à l'anglaise de 6,5 hectares, entièrement rénové en 2020. Situé à seulement 1 heure de Paris, ce lieu prestigieux propose 27 chambres, une Grande Serre de 256 m² pouvant accueillir 300 participants, des salles de sous-commission et une salle de cinéma. Idéal pour les séminaires résidentiels, journées d'étude, formations, team building et réceptions d'entreprise, le château offre des espaces intérieurs et extérieurs exceptionnels avec formules sur mesure et équipes professionnelles.",
-    "resume": "Château événementiel 4 étoiles en Oise : 300 pers, 27 chambres, Grande Serre, parc 6,5 ha. À 1h de Paris, 15 min Beauvais.",
-    "capacite": 300,
-    "chambres": 6,
-    "chambresSingle": null,
-    "chambresTwin": 13,
-    "sallesReunion": 5,
-    "parking": null,
-    "equipements": [
-      "Terrain de pétanque",
-      "Jardin/Parc",
-      "Terrasse/Cour intérieure",
-      "Accès PMR",
-      "Wifi",
-      "Vidéoprojecteur",
-      "Equipement son",
-      "Paperboard",
-      "Piscine extérieure",
-      "Parking"
-    ],
-    "services": [],
-    "atouts": [
-      "Espace extérieur",
-      "Parc / jardin",
-      "Piscine",
-      "Accès PMR",
-      "Climatisation"
-    ],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/886d88b0-d948-42fd-a41a-b9922b17b74e.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/b0c8394e-b61e-4add-9f86-e8ffb722eeae.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/fb148a80-fb3c-48a3-83d6-e358fc1b909d.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/3acffb4a-7221-4470-8d4f-73423d91d6d6.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/4ddc2715-ec77-4742-aa63-550864ae8615.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/3978294a-e082-4535-a150-6add78743a76.webp",
-        "legende": null,
-        "categorie": "autre"
-      }
-    ]
-  },
-  {
     "id": "cmle4cpys02m8oan8wuaxb8ce",
     "slug": "chateau-de-sainte-claire-berneuil-sur-aisne",
     "nom": "Chateau de Sainte Claire",
@@ -421,6 +347,81 @@ export const venues: Venue[] = [
       {
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/1a0d345c-51a6-40cd-acf0-9817fe51c3e3.webp",
         "legende": "Cloître ",
+        "categorie": "autre"
+      }
+    ]
+  },
+  {
+    "id": "cmle4ce0h019coan855uiy54w",
+    "slug": "chateau-de-la-trye-hermes",
+    "nom": "Chateau de la Trye",
+    "categorie": "Hôtel",
+    "ville": "Hermes",
+    "codePostal": "60370",
+    "departementCode": "60",
+    "departement": "Oise",
+    "region": "Hauts-de-France",
+    "adresse": "Rue de la Forêt, Hermes, 60370 Berthecourt",
+    "latitude": 49.378868,
+    "longitude": 2.259655,
+    "description": "Le Château de la Trye est un domaine d'exception niché dans un parc à l'anglaise de 6,5 hectares, entièrement rénové en 2020. Situé à seulement 1 heure de Paris, ce lieu prestigieux propose 27 chambres, une Grande Serre de 256 m² pouvant accueillir 300 participants, des salles de sous-commission et une salle de cinéma. Idéal pour les séminaires résidentiels, journées d'étude, formations, team building et réceptions d'entreprise, le château offre des espaces intérieurs et extérieurs exceptionnels avec formules sur mesure et équipes professionnelles.",
+    "resume": "Château événementiel 4 étoiles en Oise : 300 pers, 27 chambres, Grande Serre, parc 6,5 ha. À 1h de Paris, 15 min Beauvais.",
+    "capacite": 300,
+    "chambres": 6,
+    "chambresSingle": null,
+    "chambresTwin": 13,
+    "sallesReunion": 5,
+    "parking": null,
+    "equipements": [
+      "Terrain de pétanque",
+      "Jardin/Parc",
+      "Terrasse/Cour intérieure",
+      "Accès PMR",
+      "Wifi",
+      "Vidéoprojecteur",
+      "Equipement son",
+      "Paperboard",
+      "Piscine extérieure",
+      "Parking"
+    ],
+    "services": [],
+    "atouts": [
+      "Espace extérieur",
+      "Parc / jardin",
+      "Piscine",
+      "Accès PMR",
+      "Climatisation"
+    ],
+    "salles": [],
+    "photos": [
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/886d88b0-d948-42fd-a41a-b9922b17b74e.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/b0c8394e-b61e-4add-9f86-e8ffb722eeae.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/fb148a80-fb3c-48a3-83d6-e358fc1b909d.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/3acffb4a-7221-4470-8d4f-73423d91d6d6.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/4ddc2715-ec77-4742-aa63-550864ae8615.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ce0h019coan855uiy54w/3978294a-e082-4535-a150-6add78743a76.webp",
+        "legende": null,
         "categorie": "autre"
       }
     ]
@@ -1337,70 +1338,6 @@ export const venues: Venue[] = [
     ]
   },
   {
-    "id": "cmle4cn2802aioan8daa8d0py",
-    "slug": "relais-spa-val-d-europe-chessy",
-    "nom": "Relais Spa Val D’europe",
-    "categorie": "Hôtel",
-    "ville": "Chessy",
-    "codePostal": "77700",
-    "departementCode": "77",
-    "departement": "Seine-et-Marne",
-    "region": "Île-de-France",
-    "adresse": "1 Rue des Grands Prés, 77700 Chessy, France",
-    "latitude": 48.8573254,
-    "longitude": 2.7728433,
-    "description": "Bienvenue au RELAIS SPA VAL D'EUROPE, une évasion de bien-être située idéalement à Chessy, à quelques minutes de Disneyland® Paris et du centre de Paris. Ce luxueux aparthotel combine élégamment le confort des hébergements haut de gamme avec des services de spa exceptionnels fournis par NUXE®, créant une expérience inoubliable pour les visiteurs. 🌟\n\nL'établissement offre une variété d'options de logement, des chambres Premium aux suites Junior et suites exécutives, toutes équipées de lits king size et d'une literie de haute qualité pour garantir votre confort maximal. Les familles trouveront leur bonheur avec des suites familiales spacieuses, idéales pour des séjours prolongés, grâce à des équipements bien pensés incluant des cuisines équipées et des espaces séparés pour les parents et les enfants. 🛏️✨\n\nLe cadre, combinant élégance et modernité, est complété par des installations telles qu'une piscine, un hammam, un sauna et une salle de fitness, parfait pour se détendre après une journée chargée. En plus des soins de spa, les clients peuvent savourer des repas gastronomiques au restaurant Ô Relais, où la cuisine française traditionnelle rencontre des créations originales dans une ambiance conviviale et chaleureuse. 🍽️💫\n\nPour ceux qui cherchent à explorer la région, le RELAIS SPA VAL D'EUROPE est un point de départ idéal pour visiter les sites touristiques de Paris et profiter des nombreuses activités et excursions disponibles dans le Val d'Europe.\n\n--- Transports ---\nAéroport : National : Paris-Charles de Gaulle, environ 40 minutes en voiture. International : Paris-Charles de Gaulle, environ 40 minutes en voiture.\nGare : SNCF/TGV national : Gare de Marne-la-Vallée - Chessy, environ 10 minutes en voiture. TGV international : Gare de Marne-la-Vallée - Chessy, environ 10 minutes en voiture.\nMétro : Le RER A à la station Val d'Europe offre une connexion rapide et pratique avec le centre de Paris et les autres attractions majeures de la région.",
-    "resume": "Chers Clients,\n\nJe suis ravie de vous recommander le RELAIS SPA VAL D'EUROPE pour votre prochain événement professionnel ou séminaire. La qualité des installations, associée à un service impeccable et",
-    "capacite": 100,
-    "chambres": 219,
-    "chambresSingle": null,
-    "chambresTwin": 73,
-    "sallesReunion": 6,
-    "parking": null,
-    "equipements": [
-      "Piscine",
-      "Spa",
-      "Parking sur place",
-      "Accès PMR",
-      "Salle de fitness"
-    ],
-    "services": [],
-    "atouts": [],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/5bc96d16-adb2-452c-969a-d37802672c10.webp",
-        "legende": "Salon Rochambeau - disposition U",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/72556066-924a-4672-83c0-bf4c8105aca4.webp",
-        "legende": "Salon Rochambeau - disposition théâtre",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/5c2c6138-aa6a-4b67-9e79-bd06275033f4.webp",
-        "legende": "Salon La Fayette ",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/367e044f-aec3-4618-a963-e5d823af67b3.webp",
-        "legende": "Board Meeting Room",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/6aeb2ed7-2de6-4184-a1fa-d5c37ac33462.webp",
-        "legende": "Tocqueville 3 format U ",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/971ab9c4-06cc-4bf6-bb06-d0edee5adf49.webp",
-        "legende": "Tocqueville 1 et 2 décloisonné",
-        "categorie": "autre"
-      }
-    ]
-  },
-  {
     "id": "cmle4cqtx02q8oan8dg43erok",
     "slug": "domaine-de-la-pepiniere-chatenay-sur-seine",
     "nom": "Domaine de la Pépinière",
@@ -1465,6 +1402,70 @@ export const venues: Venue[] = [
       {
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cqtx02q8oan8dg43erok/d0f3d3a9-e8b0-492a-974c-435bdbcaf2dd.webp",
         "legende": null,
+        "categorie": "autre"
+      }
+    ]
+  },
+  {
+    "id": "cmle4cn2802aioan8daa8d0py",
+    "slug": "relais-spa-val-d-europe-chessy",
+    "nom": "Relais Spa Val D’europe",
+    "categorie": "Hôtel",
+    "ville": "Chessy",
+    "codePostal": "77700",
+    "departementCode": "77",
+    "departement": "Seine-et-Marne",
+    "region": "Île-de-France",
+    "adresse": "1 Rue des Grands Prés, 77700 Chessy, France",
+    "latitude": 48.8573254,
+    "longitude": 2.7728433,
+    "description": "Bienvenue au RELAIS SPA VAL D'EUROPE, une évasion de bien-être située idéalement à Chessy, à quelques minutes de Disneyland® Paris et du centre de Paris. Ce luxueux aparthotel combine élégamment le confort des hébergements haut de gamme avec des services de spa exceptionnels fournis par NUXE®, créant une expérience inoubliable pour les visiteurs. 🌟\n\nL'établissement offre une variété d'options de logement, des chambres Premium aux suites Junior et suites exécutives, toutes équipées de lits king size et d'une literie de haute qualité pour garantir votre confort maximal. Les familles trouveront leur bonheur avec des suites familiales spacieuses, idéales pour des séjours prolongés, grâce à des équipements bien pensés incluant des cuisines équipées et des espaces séparés pour les parents et les enfants. 🛏️✨\n\nLe cadre, combinant élégance et modernité, est complété par des installations telles qu'une piscine, un hammam, un sauna et une salle de fitness, parfait pour se détendre après une journée chargée. En plus des soins de spa, les clients peuvent savourer des repas gastronomiques au restaurant Ô Relais, où la cuisine française traditionnelle rencontre des créations originales dans une ambiance conviviale et chaleureuse. 🍽️💫\n\nPour ceux qui cherchent à explorer la région, le RELAIS SPA VAL D'EUROPE est un point de départ idéal pour visiter les sites touristiques de Paris et profiter des nombreuses activités et excursions disponibles dans le Val d'Europe.\n\n--- Transports ---\nAéroport : National : Paris-Charles de Gaulle, environ 40 minutes en voiture. International : Paris-Charles de Gaulle, environ 40 minutes en voiture.\nGare : SNCF/TGV national : Gare de Marne-la-Vallée - Chessy, environ 10 minutes en voiture. TGV international : Gare de Marne-la-Vallée - Chessy, environ 10 minutes en voiture.\nMétro : Le RER A à la station Val d'Europe offre une connexion rapide et pratique avec le centre de Paris et les autres attractions majeures de la région.",
+    "resume": "Chers Clients,\n\nJe suis ravie de vous recommander le RELAIS SPA VAL D'EUROPE pour votre prochain événement professionnel ou séminaire. La qualité des installations, associée à un service impeccable et",
+    "capacite": 100,
+    "chambres": 219,
+    "chambresSingle": null,
+    "chambresTwin": 73,
+    "sallesReunion": 6,
+    "parking": null,
+    "equipements": [
+      "Piscine",
+      "Spa",
+      "Parking sur place",
+      "Accès PMR",
+      "Salle de fitness"
+    ],
+    "services": [],
+    "atouts": [],
+    "salles": [],
+    "photos": [
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/5bc96d16-adb2-452c-969a-d37802672c10.webp",
+        "legende": "Salon Rochambeau - disposition U",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/72556066-924a-4672-83c0-bf4c8105aca4.webp",
+        "legende": "Salon Rochambeau - disposition théâtre",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/5c2c6138-aa6a-4b67-9e79-bd06275033f4.webp",
+        "legende": "Salon La Fayette ",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/367e044f-aec3-4618-a963-e5d823af67b3.webp",
+        "legende": "Board Meeting Room",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/6aeb2ed7-2de6-4184-a1fa-d5c37ac33462.webp",
+        "legende": "Tocqueville 3 format U ",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cn2802aioan8daa8d0py/971ab9c4-06cc-4bf6-bb06-d0edee5adf49.webp",
+        "legende": "Tocqueville 1 et 2 décloisonné",
         "categorie": "autre"
       }
     ]
@@ -1598,73 +1599,6 @@ export const venues: Venue[] = [
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cu93032qoan8sfafoxun/891db076-2a1d-43e7-8858-e61b3cc90f4e.webp",
         "legende": "Rock&Bleau",
         "categorie": "autre"
-      }
-    ]
-  },
-  {
-    "id": "cmle4csph02xfoan8qu96mvy2",
-    "slug": "mas-saint-antoine-bourg-saint-andeol",
-    "nom": "Mas Saint Antoine",
-    "categorie": "Maison d'hôtes",
-    "ville": "Bourg-Saint-Andéol",
-    "codePostal": "07700",
-    "departementCode": "77",
-    "departement": "Seine-et-Marne",
-    "region": "Île-de-France",
-    "adresse": "873 Rte de Saint-Remèze, 07700 Bourg-Saint-Andéol, France",
-    "latitude": 44.3952722,
-    "longitude": 4.616543,
-    "description": "Découvrez le Mas Saint Antoine en Ardèche, l'endroit idéal pour votre prochain séminaire d'entreprise, lieu de formation ou conférence. Niché dans un cadre pittoresque, notre mas traditionnel offre une ambiance sereine propice à la concentration et à la créativité. Nos salles de réunion et de conférence, équipées de technologies modernes, vous permettront d'organiser des sessions de travail productives.\n\nEn plus de nos installations intérieures, nos jardins paysagers offrent également un espace inspirant pour des réunions en plein air ou des activités de team building. Vous pourrez profiter de notre piscine pour vous détendre après une journée de travail intense.\n\nPour combler vos papilles, notre équipe de traiteurs talentueux mettra en valeur les produits locaux dans une cuisine délicieuse. Ils seront présents sur place pour vous livrer des repas savoureux lors de vos pauses ou de vos déjeuners d'affaires.\n\nAprès une journée riche en événements, vous pourrez vous reposer dans l'un de nos six gîtes confortables, qui disposent de toutes les commodités modernes. Profitez de l'atmosphère paisible de l'Ardèche pour recharger vos batteries et vous préparer pour une nouvelle journée productive.\n\nRéservez dès maintenant et offrez à votre équipe une expérience mémorable au Mas Saint Antoine en Ardèche. Que ce soit pour une salle de réunion, une salle de conférence, un team building, un lieu de formation ou une location de salle, notre établissement répondra à toutes vos attentes et vous offrira un environnement propice à la réussite de votre événement professionnel.\n\n--- Transports ---\nAéroport : L'Aéroport le plus proche du Mas Saint Antoine en Ardèche est l'Aéroport de Lyon-Saint Exupéry. Il se trouve à environ 150 kilomètres de distance et offre des vols nationaux et internationaux.\nGare : En ce qui concerne les gares, la gare la plus proche du Mas Saint Antoine est la Gare de Valence TGV. Elle se situe à environ 70 kilomètres de distance. Cette gare est bien desservie par des trains à grande vitesse (TGV) qui relient Valence à de nombreuses grandes villes en France.\nMétro : Il n'y a pas de station de métro directe à Grasse, car il s'agit d'une petite commune. Les transports en commun locaux tels que les bus peuvent être utilisés pour se déplacer dans la région.",
-    "resume": "Bienvenue chez Mas Saint Antoine en Ardèche, votre destination idéale pour des séminaires d'entreprise inoubliables ! Permettez-moi de vous présenter cet établissement exceptionnel, proposant une gamm",
-    "capacite": 15,
-    "chambres": 15,
-    "chambresSingle": null,
-    "chambresTwin": 7,
-    "sallesReunion": 1,
-    "parking": null,
-    "equipements": [
-      "Lumière du jour",
-      "Parking",
-      "Piscine",
-      "Sonorisation",
-      "Terrain de pétanque",
-      "Wifi",
-      "Jardin/Parc",
-      "Terrasse/Cour intérieure"
-    ],
-    "services": [],
-    "atouts": [],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4csph02xfoan8qu96mvy2/70d39256-54a6-4531-9dab-61a7a8773807.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4csph02xfoan8qu96mvy2/046f7112-385d-4c1d-84c4-1483f646e9c4.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4csph02xfoan8qu96mvy2/44c5f6af-60d6-4851-a231-6c56c1106d64.webp",
-        "legende": "Coucher de soleil sur les montagnes d&#039;Ardèche méridionale",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4csph02xfoan8qu96mvy2/a0cec9a0-da65-4a72-b685-0723180d9ff0.webp",
-        "legende": "Vue aérienne du domaine du Mas Saint Antoine et sa piscine",
-        "categorie": "bien-être"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4csph02xfoan8qu96mvy2/b8a75436-d09c-4d3a-b1f3-de9ddaa9e535.webp",
-        "legende": "Piscine au sel 13 × 6 m du Mas Saint Antoine bordée de cyprès et d&#039;oliviers, en Ardèche méridionale",
-        "categorie": "bien-être"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4csph02xfoan8qu96mvy2/f4c4ee71-ddb6-4467-92dd-98168d82c9d0.webp",
-        "legende": "Terrasse panoramique au coucher de soleil, vue sur le Mont Ventoux",
-        "categorie": "extérieur"
       }
     ]
   },
@@ -2143,6 +2077,64 @@ export const venues: Venue[] = [
     ]
   },
   {
+    "id": "cmle4cdb4016ioan8ioahcyqt",
+    "slug": "la-ferme-du-prieure-rennemoulin",
+    "nom": "La Ferme du Prieuré",
+    "categorie": "Château & domaine",
+    "ville": "Rennemoulin",
+    "codePostal": "78590",
+    "departementCode": "78",
+    "departement": "Yvelines",
+    "region": "Île-de-France",
+    "adresse": "La Frm du Prieuré, 78590 Rennemoulin, France",
+    "latitude": 48.8348728,
+    "longitude": 2.0404722,
+    "description": "La Ferme du Prieuré vous accueille sur la Plaine de Versailles pour vos événements professionnels, en pleine nature. Bordé de champs, vous avez l'impression d'être loin, tout en étant à 15 minutes de paris ouest. Ses différentes granges rendront votre événement convivial et décontracté avec tout le confort moderne nécessaire. Nos 10 alpagas sauront vous accueillir chaleureusement!\n\n--- Transports ---\nAéroport : orly\nGare : versailles",
+    "resume": "Bienvenue à la Ferme du Prieuré, un lieu d'exception situé au cœur de la nature, à Rennemoulin dans les Yvelines.\n\nNotre ferme est l'endroit idéal pour organiser des séminaires au vert, dans un cadre",
+    "capacite": 200,
+    "chambres": 4,
+    "chambresSingle": null,
+    "chambresTwin": 3,
+    "sallesReunion": 4,
+    "parking": null,
+    "equipements": [],
+    "services": [],
+    "atouts": [],
+    "salles": [],
+    "photos": [
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/156e12e7-be49-4471-b63d-7f2c9ed111d5.webp",
+        "legende": "1643296952",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/0f126cd9-7f81-4e50-bb63-9bc497b085ec.webp",
+        "legende": "1643298841",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/438bbf42-348c-4a68-8fad-ffcfadfc5416.webp",
+        "legende": "Ferme du Prieuré",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/912dc6a5-e49f-4e81-a7f6-8d783aadafc5.webp",
+        "legende": "1643297308",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/336c2114-bc96-4444-ac5f-0dfecc0628b0.webp",
+        "legende": "1553090180",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/7666ceea-f775-4903-a012-710c34af5c16.webp",
+        "legende": "1643297146",
+        "categorie": "autre"
+      }
+    ]
+  },
+  {
     "id": "cmle4cyj503k0oan894h9k8hh",
     "slug": "domaine-de-la-roche-couloir-chevreuse",
     "nom": "Domaine de la Roche Couloir",
@@ -2202,64 +2194,6 @@ export const venues: Venue[] = [
       {
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cyj503k0oan894h9k8hh/4e031d2b-7bdf-432b-8198-c2ba2e96793d.webp",
         "legende": "Le Pavillon",
-        "categorie": "autre"
-      }
-    ]
-  },
-  {
-    "id": "cmle4cdb4016ioan8ioahcyqt",
-    "slug": "la-ferme-du-prieure-rennemoulin",
-    "nom": "La Ferme du Prieuré",
-    "categorie": "Château & domaine",
-    "ville": "Rennemoulin",
-    "codePostal": "78590",
-    "departementCode": "78",
-    "departement": "Yvelines",
-    "region": "Île-de-France",
-    "adresse": "La Frm du Prieuré, 78590 Rennemoulin, France",
-    "latitude": 48.8348728,
-    "longitude": 2.0404722,
-    "description": "La Ferme du Prieuré vous accueille sur la Plaine de Versailles pour vos événements professionnels, en pleine nature. Bordé de champs, vous avez l'impression d'être loin, tout en étant à 15 minutes de paris ouest. Ses différentes granges rendront votre événement convivial et décontracté avec tout le confort moderne nécessaire. Nos 10 alpagas sauront vous accueillir chaleureusement!\n\n--- Transports ---\nAéroport : orly\nGare : versailles",
-    "resume": "Bienvenue à la Ferme du Prieuré, un lieu d'exception situé au cœur de la nature, à Rennemoulin dans les Yvelines.\n\nNotre ferme est l'endroit idéal pour organiser des séminaires au vert, dans un cadre",
-    "capacite": 200,
-    "chambres": 4,
-    "chambresSingle": null,
-    "chambresTwin": 3,
-    "sallesReunion": 4,
-    "parking": null,
-    "equipements": [],
-    "services": [],
-    "atouts": [],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/156e12e7-be49-4471-b63d-7f2c9ed111d5.webp",
-        "legende": "1643296952",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/0f126cd9-7f81-4e50-bb63-9bc497b085ec.webp",
-        "legende": "1643298841",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/438bbf42-348c-4a68-8fad-ffcfadfc5416.webp",
-        "legende": "Ferme du Prieuré",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/912dc6a5-e49f-4e81-a7f6-8d783aadafc5.webp",
-        "legende": "1643297308",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/336c2114-bc96-4444-ac5f-0dfecc0628b0.webp",
-        "legende": "1553090180",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cdb4016ioan8ioahcyqt/7666ceea-f775-4903-a012-710c34af5c16.webp",
-        "legende": "1643297146",
         "categorie": "autre"
       }
     ]
@@ -2641,93 +2575,65 @@ export const venues: Venue[] = [
     ]
   },
   {
-    "id": "cmle4c9vc00ukoan822qx7car",
-    "slug": "centre-port-royal-saint-lambert",
-    "nom": "Centre Port Royal",
-    "categorie": "Château & domaine",
-    "ville": "Saint-Lambert",
-    "codePostal": "78470",
+    "id": "cmle4cw2x039toan8o6voogo9",
+    "slug": "ak-bowling-maurepas",
+    "nom": "Ak Bowling",
+    "categorie": "Lieu atypique",
+    "ville": "Maurepas",
+    "codePostal": "78310",
     "departementCode": "78",
     "departement": "Yvelines",
     "region": "Île-de-France",
-    "adresse": "7 Chem. du Charme et du Carrosse, 78470 Saint-Lambert, France",
-    "latitude": 48.728214,
-    "longitude": 2.017526,
-    "description": "A 40 minutes de Paris, dans les Yvelines, au cœur de la Vallée de Chevreuse, le CENTRE PORT ROYAL vous offre un cadre exceptionnel pour l’organisation de vos réunions de travail, journées d'étude, séminaires résidentiels, team building, déjeuners d'affaire, ou événements familiaux. Événements adaptés pour ce lieu Pour que vous puissiez travailler dans de parfaites conditions et que vous passiez un agréable séjour, le Centre Port Royal a été entièrement rénové dans une démarche de développement durable et de mise en valeur de son cadre naturel. Un site à l'écart, au vert, calme et convivial. Avantages compétitifs La réservation inclut les salles de réunion toutes équipées, les pauses gourmandes, les repas, les chambres, les équipements de loisirs et de détente (salle de jeux, parc sportif, VTT…) : 10 salles de réunions d’une capacité de 5 à 100 personnes, 55 chambres calmes et confortables avec vue sur la forêt, un restaurant ouvert sur le parc pouvant accueillir jusqu'à 130 personnes, un bar, une terrasse, des espaces pour team building, connexion fibre optique et réseau wifi. \n\n--- Transports ---\nAéroport : Orly\nGare : St rémy les chevreuse RER B",
-    "resume": null,
+    "adresse": "3 Av. Louis Pasteur, 78310 Maurepas, France",
+    "latitude": 48.7613629,
+    "longitude": 1.9138969,
+    "description": "Bienvenue chez AK Bowling à Maurepas !\n\nNotre établissement propose une expérience de divertissement complète sur une superficie de 2300 m2. Doté de 20 pistes de bowling modernes et de 25 tables de billard, AK Bowling est l'endroit idéal pour passer du bon temps entre collègues, amis ou en famille.\n\nEn plus de nos installations de bowling et de billard, nous offrons également des espaces dédiés aux événements professionnels. Que vous recherchiez une salle de réunion, des salles de conférence, un lieu pour des activités de team building ou un espace de formation, nous sommes là pour répondre à vos besoins.\n\nNos installations comprennent des salles de réunion et de conférence adaptées à différentes tailles de groupes. Que vous organisiez une petite réunion d'équipe ou une conférence d'entreprise plus importante, nous pouvons vous proposer des espaces appropriés. De plus, notre équipe se tient à votre disposition pour vous fournir tout l'équipement audiovisuel nécessaire, y compris des écrans géants de 4x3m et des micros.\n\nPour les événements d'entreprise qui nécessitent un espace plus vaste, nous offrons la possibilité de privatiser partiellement ou totalement notre établissement. Avec une capacité de 350 places assises, notre bar est un lieu convivial et confortable pour accueillir vos invités. Vous pouvez également profiter de notre piste de danse pour animer vos soirées d'entreprise.\n\nNous proposons également des formules bowling + buffet, idéales pour combiner divertissement et restauration lors de vos événements. Que ce soit pour une réunion informelle avec des collègues ou pour un événement de team building, nos formules flexibles s'adaptent à vos besoins.\n\nLa location de salle chez AK Bowling vous offre un cadre unique pour vos événements professionnels. Notre équipe expérimentée est à votre disposition pour vous aider à organiser et à coordonner tous les détails afin de garantir la réussite de votre événement.\n\nN'hésitez pas à nous contacter pour réserver notre espace de bowling ou pour obtenir plus d'informations sur nos services de location de salle. Nous sommes situés au 3 Avenue Louis Pasteur, 78310 Maurepas, en France.\n\nOffrez à vos invités une expérience divertissante et mémorable dans un cadre moderne et convivial chez AK Bowling.\n\n--- Transports ---\nAéroport : L'aéroport le plus proche d'AK Bowling à Maurepas est l'aéroport de Paris-Orly (ORY). Il se trouve à environ 47 kilomètres du lieu, soit environ 45 minutes de trajet en voiture.\nGare : Pour les transports en train, la gare la plus proche d'AK Bowling est la gare de La Verrière. Elle est desservie par des trains régionaux depuis la gare de Paris-Montparnasse. Le trajet en train dure environ 30 minutes. Une fois arrivé à la gare de La Verrière, vous pouvez prendre un taxi ou un moyen de transport local pour vous rendre à AK Bowling.\nMétro : En ce qui concerne le métro, la station de métro la plus proche d'AK Bowling est la station de métro Maurepas - Coignières. Elle est située sur la ligne 10 du métro parisien. Depuis la station Maurepas - Coignières, vous pouvez prendre un taxi ou un moyen de transport local pour rejoindre AK Bowling.",
+    "resume": "Découvrez AK Bowling, un lieu unique pour vos événements professionnels à Maurepas. Que vous recherchiez une salle de réunion, des salles de conférence, un lieu pour des activités de team building ou",
     "capacite": 100,
-    "chambres": 55,
+    "chambres": null,
     "chambresSingle": null,
-    "chambresTwin": 15,
-    "sallesReunion": 10,
+    "chambresTwin": null,
+    "sallesReunion": 1,
     "parking": null,
     "equipements": [
-      "Accessibilité PMR",
-      "Salle de réunion",
-      "Salle de jeux",
-      "Terrain de pétanque",
-      "Terrain de football",
-      "Terrain de tennis",
-      "Salle de conférence",
-      "Restaurant sur place",
-      "Ping-pong",
       "Billard",
-      "Baby-foot",
-      "Lumière du jour (dans salles)",
-      "Location de vélos",
-      "Espace barbecue",
-      "Jardin / Parc arboré",
-      "Climatisation",
-      "Borne de recharge électrique",
-      "Ascenseur",
-      "Télévision",
-      "Vidéoprojecteur",
-      "Wifi haut débit",
-      "Terrasse",
-      "Terrasse extérieure pour repas",
-      "Bar / Lounge",
-      "Bagagerie",
-      "Lit king-size",
-      "Micros / Sonorisation",
-      "Paperboard",
-      "Parking privé",
-      "Réception 24h/24",
-      "Système de visioconférence",
-      "Écran"
+      "Parking",
+      "Sonorisation",
+      "Vidéoprojecteur"
     ],
     "services": [],
     "atouts": [],
     "salles": [],
     "photos": [
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/6e621ee0-40ac-4077-b2eb-7f655d90752e.webp",
-        "legende": "Centre Port Royal",
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/7dd24d40-417a-4844-ad1f-3532bc6fd3ca.webp",
+        "legende": null,
         "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/4bb4a970-79e5-47f5-bdb9-2756d7776ac5.webp",
-        "legende": "Bar",
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/57e0277c-e75b-43f1-8c63-51a4a7780823.webp",
+        "legende": null,
         "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/6aae1341-e94e-4a21-8b79-7bb8cc1d15a4.webp",
-        "legende": "Terrasse",
-        "categorie": "extérieur"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/5854b1cd-bde2-4b46-af95-992589eeb707.webp",
+        "legende": null,
+        "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/2459ed3f-33ec-475c-ad64-c85960d09221.webp",
-        "legende": "Salle d'Alzon",
-        "categorie": "salle"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/8c1c6888-5007-4784-bee4-7d5d9634c7aa.webp",
+        "legende": null,
+        "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/c921ba11-4323-43b1-8fff-3ac5887226cd.webp",
-        "legende": "Salle Géhard",
-        "categorie": "salle"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/8cf784a7-184e-4f6f-b847-9a6dd44264fd.webp",
+        "legende": null,
+        "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/f3255710-2271-44b9-810f-520751603021.webp",
-        "legende": "Salle  Racine",
-        "categorie": "salle"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/e2203bd0-95f6-4aaf-96d7-89c4f1cc2ded.webp",
+        "legende": null,
+        "categorie": "autre"
       }
     ]
   },
@@ -2884,65 +2790,93 @@ export const venues: Venue[] = [
     ]
   },
   {
-    "id": "cmle4cw2x039toan8o6voogo9",
-    "slug": "ak-bowling-maurepas",
-    "nom": "Ak Bowling",
-    "categorie": "Lieu atypique",
-    "ville": "Maurepas",
-    "codePostal": "78310",
+    "id": "cmle4c9vc00ukoan822qx7car",
+    "slug": "centre-port-royal-saint-lambert",
+    "nom": "Centre Port Royal",
+    "categorie": "Château & domaine",
+    "ville": "Saint-Lambert",
+    "codePostal": "78470",
     "departementCode": "78",
     "departement": "Yvelines",
     "region": "Île-de-France",
-    "adresse": "3 Av. Louis Pasteur, 78310 Maurepas, France",
-    "latitude": 48.7613629,
-    "longitude": 1.9138969,
-    "description": "Bienvenue chez AK Bowling à Maurepas !\n\nNotre établissement propose une expérience de divertissement complète sur une superficie de 2300 m2. Doté de 20 pistes de bowling modernes et de 25 tables de billard, AK Bowling est l'endroit idéal pour passer du bon temps entre collègues, amis ou en famille.\n\nEn plus de nos installations de bowling et de billard, nous offrons également des espaces dédiés aux événements professionnels. Que vous recherchiez une salle de réunion, des salles de conférence, un lieu pour des activités de team building ou un espace de formation, nous sommes là pour répondre à vos besoins.\n\nNos installations comprennent des salles de réunion et de conférence adaptées à différentes tailles de groupes. Que vous organisiez une petite réunion d'équipe ou une conférence d'entreprise plus importante, nous pouvons vous proposer des espaces appropriés. De plus, notre équipe se tient à votre disposition pour vous fournir tout l'équipement audiovisuel nécessaire, y compris des écrans géants de 4x3m et des micros.\n\nPour les événements d'entreprise qui nécessitent un espace plus vaste, nous offrons la possibilité de privatiser partiellement ou totalement notre établissement. Avec une capacité de 350 places assises, notre bar est un lieu convivial et confortable pour accueillir vos invités. Vous pouvez également profiter de notre piste de danse pour animer vos soirées d'entreprise.\n\nNous proposons également des formules bowling + buffet, idéales pour combiner divertissement et restauration lors de vos événements. Que ce soit pour une réunion informelle avec des collègues ou pour un événement de team building, nos formules flexibles s'adaptent à vos besoins.\n\nLa location de salle chez AK Bowling vous offre un cadre unique pour vos événements professionnels. Notre équipe expérimentée est à votre disposition pour vous aider à organiser et à coordonner tous les détails afin de garantir la réussite de votre événement.\n\nN'hésitez pas à nous contacter pour réserver notre espace de bowling ou pour obtenir plus d'informations sur nos services de location de salle. Nous sommes situés au 3 Avenue Louis Pasteur, 78310 Maurepas, en France.\n\nOffrez à vos invités une expérience divertissante et mémorable dans un cadre moderne et convivial chez AK Bowling.\n\n--- Transports ---\nAéroport : L'aéroport le plus proche d'AK Bowling à Maurepas est l'aéroport de Paris-Orly (ORY). Il se trouve à environ 47 kilomètres du lieu, soit environ 45 minutes de trajet en voiture.\nGare : Pour les transports en train, la gare la plus proche d'AK Bowling est la gare de La Verrière. Elle est desservie par des trains régionaux depuis la gare de Paris-Montparnasse. Le trajet en train dure environ 30 minutes. Une fois arrivé à la gare de La Verrière, vous pouvez prendre un taxi ou un moyen de transport local pour vous rendre à AK Bowling.\nMétro : En ce qui concerne le métro, la station de métro la plus proche d'AK Bowling est la station de métro Maurepas - Coignières. Elle est située sur la ligne 10 du métro parisien. Depuis la station Maurepas - Coignières, vous pouvez prendre un taxi ou un moyen de transport local pour rejoindre AK Bowling.",
-    "resume": "Découvrez AK Bowling, un lieu unique pour vos événements professionnels à Maurepas. Que vous recherchiez une salle de réunion, des salles de conférence, un lieu pour des activités de team building ou",
+    "adresse": "7 Chem. du Charme et du Carrosse, 78470 Saint-Lambert, France",
+    "latitude": 48.728214,
+    "longitude": 2.017526,
+    "description": "A 40 minutes de Paris, dans les Yvelines, au cœur de la Vallée de Chevreuse, le CENTRE PORT ROYAL vous offre un cadre exceptionnel pour l’organisation de vos réunions de travail, journées d'étude, séminaires résidentiels, team building, déjeuners d'affaire, ou événements familiaux. Événements adaptés pour ce lieu Pour que vous puissiez travailler dans de parfaites conditions et que vous passiez un agréable séjour, le Centre Port Royal a été entièrement rénové dans une démarche de développement durable et de mise en valeur de son cadre naturel. Un site à l'écart, au vert, calme et convivial. Avantages compétitifs La réservation inclut les salles de réunion toutes équipées, les pauses gourmandes, les repas, les chambres, les équipements de loisirs et de détente (salle de jeux, parc sportif, VTT…) : 10 salles de réunions d’une capacité de 5 à 100 personnes, 55 chambres calmes et confortables avec vue sur la forêt, un restaurant ouvert sur le parc pouvant accueillir jusqu'à 130 personnes, un bar, une terrasse, des espaces pour team building, connexion fibre optique et réseau wifi. \n\n--- Transports ---\nAéroport : Orly\nGare : St rémy les chevreuse RER B",
+    "resume": null,
     "capacite": 100,
-    "chambres": null,
+    "chambres": 55,
     "chambresSingle": null,
-    "chambresTwin": null,
-    "sallesReunion": 1,
+    "chambresTwin": 15,
+    "sallesReunion": 10,
     "parking": null,
     "equipements": [
+      "Accessibilité PMR",
+      "Salle de réunion",
+      "Salle de jeux",
+      "Terrain de pétanque",
+      "Terrain de football",
+      "Terrain de tennis",
+      "Salle de conférence",
+      "Restaurant sur place",
+      "Ping-pong",
       "Billard",
-      "Parking",
-      "Sonorisation",
-      "Vidéoprojecteur"
+      "Baby-foot",
+      "Lumière du jour (dans salles)",
+      "Location de vélos",
+      "Espace barbecue",
+      "Jardin / Parc arboré",
+      "Climatisation",
+      "Borne de recharge électrique",
+      "Ascenseur",
+      "Télévision",
+      "Vidéoprojecteur",
+      "Wifi haut débit",
+      "Terrasse",
+      "Terrasse extérieure pour repas",
+      "Bar / Lounge",
+      "Bagagerie",
+      "Lit king-size",
+      "Micros / Sonorisation",
+      "Paperboard",
+      "Parking privé",
+      "Réception 24h/24",
+      "Système de visioconférence",
+      "Écran"
     ],
     "services": [],
     "atouts": [],
     "salles": [],
     "photos": [
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/7dd24d40-417a-4844-ad1f-3532bc6fd3ca.webp",
-        "legende": null,
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/6e621ee0-40ac-4077-b2eb-7f655d90752e.webp",
+        "legende": "Centre Port Royal",
         "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/57e0277c-e75b-43f1-8c63-51a4a7780823.webp",
-        "legende": null,
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/4bb4a970-79e5-47f5-bdb9-2756d7776ac5.webp",
+        "legende": "Bar",
         "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/5854b1cd-bde2-4b46-af95-992589eeb707.webp",
-        "legende": null,
-        "categorie": "autre"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/6aae1341-e94e-4a21-8b79-7bb8cc1d15a4.webp",
+        "legende": "Terrasse",
+        "categorie": "extérieur"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/8c1c6888-5007-4784-bee4-7d5d9634c7aa.webp",
-        "legende": null,
-        "categorie": "autre"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/2459ed3f-33ec-475c-ad64-c85960d09221.webp",
+        "legende": "Salle d'Alzon",
+        "categorie": "salle"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/8cf784a7-184e-4f6f-b847-9a6dd44264fd.webp",
-        "legende": null,
-        "categorie": "autre"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/c921ba11-4323-43b1-8fff-3ac5887226cd.webp",
+        "legende": "Salle Géhard",
+        "categorie": "salle"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cw2x039toan8o6voogo9/e2203bd0-95f6-4aaf-96d7-89c4f1cc2ded.webp",
-        "legende": null,
-        "categorie": "autre"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c9vc00ukoan822qx7car/f3255710-2271-44b9-810f-520751603021.webp",
+        "legende": "Salle  Racine",
+        "categorie": "salle"
       }
     ]
   },

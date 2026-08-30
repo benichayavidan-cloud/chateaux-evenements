@@ -102,6 +102,12 @@ const { rows } = await client.query(`
     AND p.id <> ALL($2)
     AND length(coalesce(p.description,'')) > 400
     AND p.capacity IS NOT NULL
+    -- Garde-fou d'intégrité : le code postal fait foi. Sept lieux du CRM portent
+    -- un departmentCode faux (Mas Saint-Antoine, cp 07700 en Ardèche, était
+    -- rattaché au 77). Publier un lieu hors secteur sur une landing
+    -- départementale est pire qu'une fiche manquante.
+    AND p."postalCode" IS NOT NULL
+    AND substring(p."postalCode" from 1 for 2) = p."departmentCode"
     AND (SELECT count(*) FROM "VendorPhoto" v WHERE v."prestataireId" = p.id) >= 6
     AND NOT EXISTS (
       SELECT 1 FROM "VendorPhoto" v
@@ -181,7 +187,7 @@ const header = `// ⚠️ FICHIER GÉNÉRÉ — ne pas éditer à la main.
 // Source : CRM V2, table Prestataire. Régénérer avec :
 //   DATABASE_URL=… node scripts/venues/export-venues.mjs
 //
-// Périmètre : départements ${CORE_DEPARTMENTS.join(', ')}. Exclut les lieux déjà\n// publiés sous alias sur /chateaux. Seuil de publication :
+// Périmètre : départements ${CORE_DEPARTMENTS.join(', ')}. Exclut les lieux déjà\n// publiés sous alias sur /chateaux, et ceux dont le code postal contredit le\n// département déclaré. Seuil de publication :
 // description > 400 caractères, capacité renseignée, 6 photos minimum, et aucune
 // photo issue de Google Places ou de Kactus (droits).
 // Généré le ${new Date().toISOString().slice(0, 10)} — ${venues.length} lieux.
