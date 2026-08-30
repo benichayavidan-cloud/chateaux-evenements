@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import { chateaux } from '@/data/chateaux'
 import { blogPosts } from '@/data/blog-posts'
 import { venues, GENERATED_AT } from '@/data/venues'
+import { landingsDepartements } from '@/data/landings-departements'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 
 /**
@@ -141,8 +142,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // 7. Retour du sitemap complet
+  // 7. Landings départementales (91, 77, 95)
+  const landingsDeptPages: MetadataRoute.Sitemap = landingsDepartements.map((l) => ({
+    url: `${baseUrl}/${l.slug}`,
+    lastModified: staticPagesUpdated,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }))
+
+  // 8. Retour du sitemap complet
   return [
+    ...landingsDeptPages,
     ...staticPages,
     ...chateauxPages,
     ...lieuxListingPage,

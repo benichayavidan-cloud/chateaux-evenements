@@ -1,5 +1,6 @@
 import { chateaux } from '@/data/chateaux'
 import { venues } from '@/data/venues'
+import { landingsDepartements } from '@/data/landings-departements'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { blogPosts } from '@/data/blog-posts'
 import { PRICING, pricingSummary } from '@/data/pricing'
@@ -82,6 +83,9 @@ function buildLlmsTxt(): string {
   lines.push('')
   for (const p of geoLandingPages) {
     lines.push(`- [${p.h1}](${BASE_URL}/${p.slug}) : ${p.description}`)
+  }
+  for (const l of landingsDepartements) {
+    lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
   }
   lines.push(`- [Team building en château](${BASE_URL}/team-building-chateau) : +40 activités de cohésion en château privatisé, de 20 à 500 personnes`)
   lines.push(`- [Soirées d'entreprise](${BASE_URL}/seminaires-soirees-entreprise) : soirées de gala, dîners d'exception et événements d'entreprise en château`)
