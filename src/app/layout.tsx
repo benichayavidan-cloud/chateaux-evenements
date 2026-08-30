@@ -172,8 +172,31 @@ export default function RootLayout({
                 { label: "Palais Royal Forêt Chantilly", href: "/chateaux/palais-royal-foret-chantilly" },
               ],
             },
-            { label: "Team Building", href: "/team-building-chateau" },
-            { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
+            {
+              label: "Par département",
+              href: "/lieux",
+              children: [
+                { label: "Tous les lieux", href: "/lieux" },
+                { label: "Yvelines (78)", href: "/seminaire-chateau-yvelines-78" },
+                { label: "Oise (60)", href: "/seminaire-chateau-oise-60" },
+                { label: "Seine-et-Marne (77)", href: "/seminaire-chateau-seine-et-marne-77" },
+                { label: "Val-d'Oise (95)", href: "/seminaire-chateau-val-d-oise-95" },
+                { label: "Essonne (91)", href: "/seminaire-chateau-essonne-91" },
+                { label: "Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
+              ],
+            },
+            {
+              label: "Team Building",
+              href: "/team-building-chateau",
+              children: [
+                { label: "Toutes les activités", href: "/team-building-chateau" },
+                { label: "Team building à Chantilly", href: "/team-building-chantilly" },
+                { label: "Team building Hauts-de-Seine", href: "/team-building-hauts-de-seine-92" },
+                { label: "Team building Val-d'Oise", href: "/team-building-val-d-oise-95" },
+              ],
+            },
+            { label: "Journée d'étude", href: "/journee-etude-seminaire" },
+            { label: "Budget", href: "/budget-seminaire-entreprise" },
             { label: "À propos", href: "/a-propos" },
           ]}
           cta={{
@@ -204,6 +227,15 @@ export default function RootLayout({
                 { label: "Séminaire château Oise", href: "/seminaire-chateau-oise-60" },
                 { label: "Séminaire château Yvelines", href: "/seminaire-chateau-yvelines-78" },
                 { label: "Séminaire château Hauts-de-Seine", href: "/seminaire-chateau-hauts-de-seine-92" },
+              ],
+            },
+            {
+              title: "Guides et comparatifs",
+              links: [
+                { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
+                { label: "Journée d'étude", href: "/journee-etude-seminaire" },
+                { label: "Alternative à Châteauform'", href: "/alternative-chateauform" },
+                { label: "Tous les lieux", href: "/lieux" },
               ],
             },
             {
