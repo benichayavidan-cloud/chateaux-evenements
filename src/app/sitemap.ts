@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { chateaux } from '@/data/chateaux'
 import { blogPosts } from '@/data/blog-posts'
 import { venues, GENERATED_AT } from '@/data/venues'
+import { landingsDepartements } from '@/data/landings-departements'
+import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 
 /**
@@ -141,8 +143,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }))
 
-  // 7. Retour du sitemap complet
+  // 7. Landings départementales (91, 77, 95)
+  const landingsDeptPages: MetadataRoute.Sitemap = landingsDepartements.map((l) => ({
+    url: `${baseUrl}/${l.slug}`,
+    lastModified: staticPagesUpdated,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }))
+
+  // 8. Landings par format (team building géo, journée d'étude)
+  const landingsFormatPages: MetadataRoute.Sitemap = landingsFormats.map((l) => ({
+    url: `${baseUrl}/${l.slug}`,
+    lastModified: staticPagesUpdated,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }))
+
+  // 9. Pages autonomes à forte valeur GEO
+  const pagesGeo: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/budget-seminaire-entreprise`, lastModified: staticPagesUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/alternative-chateauform`, lastModified: staticPagesUpdated, changeFrequency: 'monthly', priority: 0.8 },
+  ]
+
+  // 10. Retour du sitemap complet
   return [
+    ...pagesGeo,
+    ...landingsDeptPages,
+    ...landingsFormatPages,
     ...staticPages,
     ...chateauxPages,
     ...lieuxListingPage,

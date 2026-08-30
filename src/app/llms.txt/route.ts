@@ -1,5 +1,7 @@
 import { chateaux } from '@/data/chateaux'
 import { venues } from '@/data/venues'
+import { landingsDepartements } from '@/data/landings-departements'
+import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { blogPosts } from '@/data/blog-posts'
 import { PRICING, pricingSummary } from '@/data/pricing'
@@ -83,6 +85,12 @@ function buildLlmsTxt(): string {
   for (const p of geoLandingPages) {
     lines.push(`- [${p.h1}](${BASE_URL}/${p.slug}) : ${p.description}`)
   }
+  for (const l of landingsDepartements) {
+    lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
+  }
+  for (const l of landingsFormats) {
+    lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
+  }
   lines.push(`- [Team building en château](${BASE_URL}/team-building-chateau) : +40 activités de cohésion en château privatisé, de 20 à 500 personnes`)
   lines.push(`- [Soirées d'entreprise](${BASE_URL}/seminaires-soirees-entreprise) : soirées de gala, dîners d'exception et événements d'entreprise en château`)
   lines.push(`- [Catalogue des châteaux](${BASE_URL}/chateaux)`)
@@ -110,6 +118,12 @@ function buildLlmsTxt(): string {
     if (essentialSlugs.includes(p.slug)) continue
     lines.push(`- [${p.title}](${BASE_URL}/blog/${p.slug})`)
   }
+  lines.push('')
+
+  lines.push('## Budgets observés')
+  lines.push('')
+  lines.push(`- [Combien coûte un séminaire d'entreprise ?](${BASE_URL}/budget-seminaire-entreprise) : budgets réels par personne et par jour, ventilés par durée, taille de groupe et département, calculés sur 188 devis traités. Médiane 417 €/pers ; journée d'étude 150 € ; résidentiel 2 jours 517 €.`)
+  lines.push(`- [Alternative à Châteauform'](${BASE_URL}/alternative-chateauform) : comparatif propriétaire-exploitant contre agence indépendante.`)
   lines.push('')
 
   lines.push('## Contact')
