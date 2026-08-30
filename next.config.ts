@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
     // 2. Remote patterns - Autorisation stricte des domaines externes
     remotePatterns: [
       {
+        // Photos des lieux, ré-hébergées depuis le CRM
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+      },
+      {
         protocol: "https",
         hostname: "images.unsplash.com",
       },

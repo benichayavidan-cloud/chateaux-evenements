@@ -2600,9 +2600,9 @@ const article57: BlogPost = {
 const article58: BlogPost = {
   id: 58,
   slug: "team-building-outdoor-activites-nature-equipe",
-  title: "Team Building Outdoor : 8 Activités Nature pour Souder vos Équipes",
+  title: "Team Building Outdoor : 8 Activités Nature de 15 à 200 Personnes",
   excerpt:
-    "8 activités team building outdoor en château : rallye nature, survie, tir à l'arc, équitation. Conseils, tarifs et domaines idéaux près de Paris.",
+    "Rallye, dragon boat, olympiades, course d'orientation : 8 activités de team building en extérieur avec le nombre de participants supporté, la durée, le budget par personne et la saison idéale. Organisables en château à moins d'une heure de Paris.",
   category: "team-building",
   author: {
     name: "Thomas Martin",

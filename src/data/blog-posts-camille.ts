@@ -4461,8 +4461,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1169,
     slug: "gestion-participation-distancielle-seminaire-chateau-wifi-technique-2026",
-    title: "Connectivité et Technique en Château : Réussir son Séminaire Hybride 2026",
-    excerpt: "Mauvais WiFi, micro qui lâche, participants distants déconnectés : les défis techniques restent le principal irritant des séminaires en château. Notre guide pratique vous donne les solutions concrètes pour garantir une connectivité fiable dans des bâtiments historiques en 2026.",
+    title: "Séminaire Hybride en Château : Le Kit Technique Complet (Wifi, Son, Régie)",
+    excerpt: "Wifi qui lâche en pleine plénière, distanciels qui décrochent : voici le kit technique exact pour un séminaire hybride en château — débit minimum par participant, matériel de régie, budget réel et checklist à valider avec le lieu avant de signer.",
     category: "organisation" as const,
     author: {
       name: "Sophie Durand",
@@ -8603,8 +8603,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1122,
     slug: "seminaire-numerique-outils-collaboration-chateau-guide-2026",
-    title: "Outils Numériques pour Séminaire en Château : Guide 2026",
-    excerpt: "Wi-Fi, outils de collaboration, vote en temps réel, tableaux blancs numériques : comment équiper techniquement votre séminaire en château sans sacrifier le charme du lieu ? Guide pratique 2026 avec retours terrain et tarifs réels.",
+    title: "Outils Collaboratifs en Séminaire : 12 Solutions Comparées (dont 7 gratuites)",
+    excerpt: "Miro, Klaxoon, Wooclap, Slido : 12 outils collaboratifs comparés pour animer un séminaire en château — prix réel, nombre de participants supporté, fonctionnement hors connexion et lesquels marchent vraiment sans wifi stable.",
     category: "organisation" as const,
     author: {
       name: "Sophie Durand",
