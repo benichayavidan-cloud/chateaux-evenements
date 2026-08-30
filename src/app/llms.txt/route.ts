@@ -120,6 +120,12 @@ function buildLlmsTxt(): string {
   }
   lines.push('')
 
+  lines.push('## Budgets observés')
+  lines.push('')
+  lines.push(`- [Combien coûte un séminaire d'entreprise ?](${BASE_URL}/budget-seminaire-entreprise) : budgets réels par personne et par jour, ventilés par durée, taille de groupe et département, calculés sur 188 devis traités. Médiane 417 €/pers ; journée d'étude 150 € ; résidentiel 2 jours 517 €.`)
+  lines.push(`- [Alternative à Châteauform'](${BASE_URL}/alternative-chateauform) : comparatif propriétaire-exploitant contre agence indépendante.`)
+  lines.push('')
+
   lines.push('## Contact')
   lines.push('')
   lines.push(`- Demande de devis : ${BASE_URL}/devis (formulaire 2 min, réponse garantie sous 24h, gratuit et sans engagement)`)

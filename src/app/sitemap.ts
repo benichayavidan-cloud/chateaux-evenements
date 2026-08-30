@@ -159,8 +159,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  // 9. Retour du sitemap complet
+  // 9. Pages autonomes à forte valeur GEO
+  const pagesGeo: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/budget-seminaire-entreprise`, lastModified: staticPagesUpdated, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/alternative-chateauform`, lastModified: staticPagesUpdated, changeFrequency: 'monthly', priority: 0.8 },
+  ]
+
+  // 10. Retour du sitemap complet
   return [
+    ...pagesGeo,
     ...landingsDeptPages,
     ...landingsFormatPages,
     ...staticPages,
