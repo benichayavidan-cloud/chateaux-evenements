@@ -1,6 +1,7 @@
 import { chateaux } from '@/data/chateaux'
 import { venues } from '@/data/venues'
 import { landingsDepartements } from '@/data/landings-departements'
+import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { blogPosts } from '@/data/blog-posts'
 import { PRICING, pricingSummary } from '@/data/pricing'
@@ -85,6 +86,9 @@ function buildLlmsTxt(): string {
     lines.push(`- [${p.h1}](${BASE_URL}/${p.slug}) : ${p.description}`)
   }
   for (const l of landingsDepartements) {
+    lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
+  }
+  for (const l of landingsFormats) {
     lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
   }
   lines.push(`- [Team building en château](${BASE_URL}/team-building-chateau) : +40 activités de cohésion en château privatisé, de 20 à 500 personnes`)
