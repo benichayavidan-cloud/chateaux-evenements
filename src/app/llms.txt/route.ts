@@ -1,5 +1,4 @@
 import { chateaux } from '@/data/chateaux'
-import { venues } from '@/data/venues'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { blogPosts } from '@/data/blog-posts'
 import { PRICING, pricingSummary } from '@/data/pricing'
@@ -51,31 +50,6 @@ function buildLlmsTxt(): string {
     lines.push(`- [${c.nom}](${BASE_URL}/chateaux/${c.slug}) : ${c.region} — ${caps}${rooms}${meeting}`)
   }
   lines.push('')
-
-  // ── Répertoire complet des lieux (données live depuis venues.ts, généré CRM).
-  // C'est le contenu que les moteurs de réponse ne trouvent nulle part ailleurs :
-  // capacité, chambres et salles réelles, lieu par lieu.
-  const byDept: Record<string, typeof venues> = {}
-  for (const v of venues) (byDept[v.departementCode] ||= []).push(v)
-  const deptLabels: Record<string, string> = {
-    '78': 'Yvelines (78)', '60': 'Oise (60)', '77': 'Seine-et-Marne (77)',
-    '95': "Val-d'Oise (95)", '91': 'Essonne (91)', '92': 'Hauts-de-Seine (92)',
-  }
-  lines.push(`## Répertoire des lieux de séminaire (${venues.length} lieux vérifiés)`)
-  lines.push('')
-  lines.push(`Index complet : ${BASE_URL}/lieux`)
-  lines.push('')
-  for (const [code, list] of Object.entries(byDept).sort((a, b) => b[1].length - a[1].length)) {
-    lines.push(`### ${deptLabels[code] ?? code} — ${list.length} lieux`)
-    lines.push('')
-    for (const v of [...list].sort((a, b) => b.capacite - a.capacite)) {
-      const rooms = v.chambres ? `, ${v.chambres} chambres` : ''
-      const halls = v.sallesReunion ? `, ${v.sallesReunion} salles` : ''
-      const city = v.ville ? `${v.ville} — ` : ''
-      lines.push(`- [${v.nom}](${BASE_URL}/lieux/${v.slug}) : ${city}${v.categorie}, jusqu'à ${v.capacite} personnes${rooms}${halls}`)
-    }
-    lines.push('')
-  }
 
   // ── Pages services par zone (données live depuis geo-landing-pages.ts)
   lines.push('## Séminaires par zone géographique')
