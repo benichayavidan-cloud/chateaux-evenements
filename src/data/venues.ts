@@ -24,6 +24,9 @@ export interface Venue {
   salles: VenueSalle[]; photos: VenuePhoto[];
 }
 
+/** Date de génération — alimente le lastmod du sitemap. */
+export const GENERATED_AT = '2026-08-30';
+
 export const venues: Venue[] = [
   {
     "id": "cmle4c341001coan8odc3jsnn",
