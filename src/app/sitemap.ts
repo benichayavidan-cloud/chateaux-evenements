@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { chateaux } from '@/data/chateaux'
 import { blogPosts } from '@/data/blog-posts'
+import { venues } from '@/data/venues'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 
 /**
@@ -120,10 +121,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }))
 
-  // 6. Retour du sitemap complet
+  // 6. Fiches lieux (générées depuis le CRM) + leur index
+  const lieuxListingPage: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/lieux`,
+      lastModified: staticPagesUpdated,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    }
+  ]
+  const lieuxPages: MetadataRoute.Sitemap = venues.map((venue) => ({
+    url: `${baseUrl}/lieux/${venue.slug}`,
+    lastModified: staticPagesUpdated,
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }))
+
+  // 7. Retour du sitemap complet
   return [
     ...staticPages,
     ...chateauxPages,
+    ...lieuxListingPage,
+    ...lieuxPages,
     ...geoPages,
     ...blogListingPage,
     ...blogPages,

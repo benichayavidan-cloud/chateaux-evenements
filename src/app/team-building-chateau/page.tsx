@@ -12,6 +12,7 @@ import {
   generateOrganizationSchema,
 } from "@/utils/seo/structured-data";
 import TeamBuildingPageClient from "./TeamBuildingPageClient";
+import { VenuesByDepartment } from "@/components/geo/VenuesByDepartment";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
@@ -150,6 +151,11 @@ export default function TeamBuildingPage() {
     <>
       <StructuredData data={structuredData} />
       <TeamBuildingPageClient faq={faq} />
+      <VenuesByDepartment
+        departments={["78", "60", "77", "95", "91", "92"]}
+        title="Lieux pour un team building en château"
+        intro="Parc, forêt, espace extérieur : les domaines qui se prêtent aux activités de cohésion, avec leur capacité réelle et leur hébergement. Devis sous 48 h."
+      />
       <LogoCarousel />
       <ReviewsSection />
       <StickyCtaBar />
