@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { chateaux } from '@/data/chateaux'
 import { blogPosts } from '@/data/blog-posts'
-import { venues } from '@/data/venues'
+import { venues, GENERATED_AT } from '@/data/venues'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 
 /**
@@ -25,7 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Date de dernière mise à jour significative des pages statiques/geo —
   // à bumper lors d'une vraie refonte. JAMAIS new Date() : un lastmod qui
   // change à chaque deploy apprend à Google à ignorer le signal.
-  const staticPagesUpdated = new Date('2026-08-25')
+  // À remonter à chaque modification réelle des pages statiques et des landings.
+  // Une date figée dans le passé prive Google de tout signal de fraîcheur : il
+  // recrawle alors ces pages à sa convenance, pas après une réécriture de title.
+  const staticPagesUpdated = new Date('2026-08-30')
 
   // 1. Pages statiques principales
   const staticPages: MetadataRoute.Sitemap = [
@@ -122,17 +125,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // 6. Fiches lieux (générées depuis le CRM) + leur index
+  const venuesUpdated = new Date(GENERATED_AT)
   const lieuxListingPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/lieux`,
-      lastModified: staticPagesUpdated,
+      lastModified: venuesUpdated,
       changeFrequency: 'weekly',
       priority: 0.9,
     }
   ]
   const lieuxPages: MetadataRoute.Sitemap = venues.map((venue) => ({
     url: `${baseUrl}/lieux/${venue.slug}`,
-    lastModified: staticPagesUpdated,
+    lastModified: venuesUpdated,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
   }))

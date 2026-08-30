@@ -207,6 +207,9 @@ export interface Venue {
   salles: VenueSalle[]; photos: VenuePhoto[];
 }
 
+/** Date de génération — alimente le lastmod du sitemap. */
+export const GENERATED_AT = '${new Date().toISOString().slice(0, 10)}';
+
 export const venues: Venue[] = ${JSON.stringify(venues, null, 2)};
 
 export function getVenueBySlug(slug: string): Venue | undefined {

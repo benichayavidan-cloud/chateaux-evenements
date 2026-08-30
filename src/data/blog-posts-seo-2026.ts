@@ -2610,6 +2610,7 @@ const article58: BlogPost = {
     avatar: "TM",
   },
   publishedAt: "2026-03-28",
+  updatedAt: "2026-08-30",
   readingTime: 9,
   image: "/images/team-building-outdoor-activites-nature-equipe.webp",
   imageAlt: "Team building outdoor en château - Activités nature cohésion équipe entreprise",
