@@ -1,28 +1,58 @@
-# SESSION TODO — SITE-WEB
+# TODO — prochaine session
 
-## Session du 25/08/2026 — Audit SEO/LLM + corrections complètes
+## Session du 30 août 2026 — Audit GSC, étude de marché, publication des lieux
 
-### ✅ Fait (mergé sur main, commit 33b2f3c)
-- Audit SEO + visibilité LLM complet (rapport : `_claude_docs/2026-08-25_audit-seo-llm.md` + artifact)
-- P1 : `/chateaux` refondu en Server Component (891 mots servis vs 165, H1 + 4 châteaux visibles des bots IA)
-- P2 : dé-cannibalisation home (→ « location de château pour séminaire ») ↔ zone IDF + ancre exacte + lien article tarifs
-- P3 : pagination blog 36/page (`/blog/page/2-9`, tri date desc, vrais 404 via dynamicParams=false)
-- P4 : meta descriptions tronquées à 155 car. (garde-fou `lib/seo.ts`, 240/291 articles concernés), title /a-propos, AggregateRating Organization supprimé partout
-- Agent Camille RÉPARÉ : image `gemini-3.1-flash-image` (Imagen retiré de l'API ~17/08 = cause de l'arrêt), tables `agent_controls`/`camille_session_logs` créées sur Supabase select-chateaux (planning lun-ven 9h), secrets GitHub SUPABASE_* corrigés
+10 PR mergées et déployées. Le site passe de 4 à 72 lieux publiés.
 
-### ✅ Vague 3 (soir) — E-E-A-T, preuve sociale, perf
-- Auteur unique Sophie Durand + page /auteurs/sophie-durand (schema Person)
-- Faux avis remplacés par les 6 vrais avis GMB + sameAs fiche Google Business
-- Page /references : 6 études de cas extraites du CRM (Eiffage réalisé -17%, Safran 280p, LCL, Boston Scientific…)
-- Team building : title recentré Île-de-France + FAQ Hauts-de-Seine/Issy (GSC pos 56 → à suivre)
-- Perf : chunk client 5,8 Mo éliminé (Chantilly 53→82, /blog TBT 2330→410ms)
-- Workflows : gsc-audit.yml + llm-citations.yml (baseline 6/7 citations LLM)
+### Fait
 
-### ⏳ À faire (prochaines sessions)
-- [ ] Vérifier le run Camille déclenché manuellement (32824461520) a bien publié + les runs planifiés des prochains jours
-- [ ] Vérifier le déploiement Vercel de main (33b2f3c) → re-scraper /chateaux en prod (bdata) pour confirmer les 891 mots servis
-- [ ] PO : inscrire les 4 châteaux sur Kactus, Aleou, 1001salles, Funbooker (leads + backlinks + citations LLM)
-- [ ] PO : campagne d'avis Google Business post-événement (objectif 30+)
-- [ ] Suivi mensuel : re-lancer les 7 requêtes SERP de l'audit + tests citation ChatGPT/Perplexity
-- [ ] Optionnel : `npx unlighthouse --site https://www.selectchateaux.com` (Core Web Vitals toutes pages)
-- [ ] Décider si le planning Camille (lun-ven 9h, réglé dans agent_controls) doit être piloté depuis /admin/agents du CRM
+**Diagnostic (export GSC brut, 16 mois)**
+- [x] 20 640 impressions / 310 clics sur 90 j — +156 % d'impressions mais CTR en chute (1,99 % → 1,16 %)
+- [x] 77 % des requêtes en page 2+ ; landings services à 0,35 % de CTR
+- [x] 66 requêtes cannibalisées, zéro requête de marque
+- [x] Requêtes à signature LLM détectées (agents IA, positions p3–p11, 0 clic)
+
+**Étude de marché (Bright Data + autocomplete)**
+- [x] 832 requêtes réelles collectées, 632 géolocalisées
+- [x] Absence de 86 à 100 % selon le département (Essonne : 100 %)
+- [x] 1 seule position sur 200 analysées ; Aleou présent sur 18 SERP sur 20
+
+**Publication**
+- [x] 68 fiches lieux depuis le CRM (`scripts/venues/export-venues.mjs`, rejouable)
+- [x] 8 landings enrichies — Yvelines 1 → 21 lieux, IdF 4 → 58
+- [x] 6 titles réécrits (pages en page 1 à zéro clic)
+- [x] `schema.org` EventVenue, bloc réponse directe, `llms.txt` enrichi
+- [x] `lastmod` corrigés aux 3 niveaux — ils étaient tous faux
+- [x] IndexNow : 384 URLs soumises (Bing → ChatGPT Search)
+- [x] Sitemap resoumis : 384 URLs, 0 erreur, crawlé le 30/08 à 15:22
+
+**Sécurité**
+- [x] CRM mis en `noindex` + `robots.txt` — `/devis/[token]` et `/partage` exposaient des données client
+
+### À faire
+
+#### Priorité — dans 10 à 14 jours
+- [ ] **Relancer l'export GSC** et mesurer : combien de fiches indexées, CTR des titles réécrits, position des landings
+- [ ] Référence à battre : 303 pages indexées, CTR 1,16 %, 93 requêtes en page 1, 6 leads/mois
+
+#### Décisions produit en attente
+- [ ] **126 photos à demander** aux 21 lieux bloqués (droits Kactus / Google Places) — voir `_claude_docs/2026-08-30_photos-a-demander-21-lieux.md`. Paris Country Club (1 500 pers.) est le plus gros lieu du périmètre et reste absent.
+- [ ] **7 départements faux dans le CRM** — voir `_claude_docs/2026-08-30_crm-departements-a-corriger.md`. Experteam et Press Club sont de vrais lieux du secteur, actuellement invisibles.
+- [ ] Doublon CRM : Domaine Reine Margot × 2
+- [ ] Descriptions CRM : casse et répétitions à nettoyer sur les 68 (décision PO — c'est réécrire des données)
+
+#### Chantiers SEO non commencés
+- [ ] **3 landings manquantes : 91, 77, 95** — 357 demandes et 93 devis dans le CRM, aucune page. Elles ont maintenant de la matière (7, 11 et 11 lieux).
+- [ ] **7 landings format** — CoDir, kick-off, convention, journée d'étude, résidentiel, soirée, team building. `team building <zone>` pèse 104 déclinaisons, aucune page.
+- [ ] **9 pages « alternative Châteauform » locales** — Mareil, Béhoust, Rambouillet, Marne-la-Vallée, Crécy-la-Chapelle, Seine-Port, Guermantes, Cély, Yvelines. `concurrent chateauform` est déjà en position 3,75.
+- [ ] **Observatoire des budgets** — 188 devis réels, médiane 379 €/pers. Personne ne publie de prix. ⚠️ Ce sont des prix d'ACHAT : publier en fourchettes agrégées achat + marge, jamais bruts.
+- [ ] `/seminaires-soirees-entreprise` — client component, demande un wrapper serveur pour recevoir le bloc lieux
+- [ ] `/devis` est en position 26,9 sur 118 impressions, 0 clic
+
+### Points d'attention
+
+- **Règle absolue** : ne jamais publier le vrai nom d'un lieu déjà présent sous alias sur `/chateaux`. 5 ids CRM sont exclus dans `export-venues.mjs`.
+- **Photos** : `originUrl` NULL = fourni par le prestataire, publiable. Google Places et Kactus = interdits.
+- `staticPagesUpdated` dans `sitemap.ts` est manuel — à remonter à chaque modification des landings.
+- PR #2 (export GSC) toujours ouverte, sans effet sur le site.
+- Le plan complet : https://claude.ai/code/artifact/9b7035b1-206f-4e7a-bff6-61e23f12e5ac
