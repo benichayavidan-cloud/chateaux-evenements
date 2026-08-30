@@ -39,6 +39,20 @@ jobs:
           GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
           GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
 
+      - name: Dump GSC brut
+        working-directory: scripts/agent-cm
+        run: node gsc-dump.js > /tmp/gsc-dump.json
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gsc-dump-brut
+          path: /tmp/gsc-dump.json
+          retention-days: 7
+
       - uses: actions/upload-artifact@v4
         with:
           name: gsc-audit-${{ inputs.period }}
