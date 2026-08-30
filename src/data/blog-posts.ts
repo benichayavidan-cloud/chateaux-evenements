@@ -1394,7 +1394,7 @@ const article4: BlogPost = {
 const article5: BlogPost = {
   id: 32,
   slug: "seminaire-codir-chateau-privatise",
-  title: "Séminaire CODIR en Château Privatisé : Guide 2026 (dès 120€/pers)",
+  title: "Séminaire CODIR en Château Privatisé : Confidentialité Totale, dès 120€/pers",
   excerpt: "Concentration, confidentialité, impact : découvrez pourquoi 78% des CODIR les plus efficaces se tiennent hors des murs de l'entreprise — et pourquoi un château privatisé fait la différence. Budget, formats et châteaux IDF à jour 2026.",
   category: "organisation",
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
@@ -1827,6 +1827,8 @@ const article7: BlogPost = {
 
 <p class="mb-6">L'<strong>Oise</strong> est le secret le mieux gardé des organisateurs de séminaires exigeants. À 35 minutes de Paris par l'A1, ce département offre ce que peu de destinations combinent : une <strong>forêt domaniale de 6 300 hectares</strong> (Natura 2000), des châteaux-hôtels avec spas et salles de convention, et le patrimoine équestre de Chantilly. Tout cela à 15 minutes de Roissy-CDG — idéal pour les séminaires internationaux.</p>
 
+<p class="mb-6 border-l-4 border-amber-600 pl-4 bg-amber-50 py-3">Prêt à passer à l'organisation ? Découvrez nos <a href="/seminaire-chateau-oise-60" class="text-amber-700 underline font-medium">châteaux pour séminaire dans l'Oise (60)</a> — devis sous 48 h.</p>
+
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Pourquoi l'Oise Séduit les Entreprises Parisiennes</h2>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">L'accessibilité imbattable</h3>
@@ -2139,8 +2141,8 @@ const article10: BlogPost = {
 const article11: BlogPost = {
   id: 38,
   slug: "soiree-entreprise-chateau-idees-themes",
-  title: "Soirée d'Entreprise en Château : 7 Thèmes qui Marquent les Esprits",
-  excerpt: "Casino Royal, Gatsby, banquet médiéval, murder party, soirée étoilée... 7 thèmes testés avec budgets (50-150€/pers) et retours d'expérience. Transformez votre soirée en événement inoubliable.",
+  title: "Soirée d'Entreprise en Château : 7 Thèmes Testés, Budget par Personne",
+  excerpt: "Gatsby, Casino, Bal masqué, Guinguette : 7 thèmes de soirée d'entreprise en château avec, pour chacun, le budget réel par personne, le nombre d'invités idéal et les prestataires à prévoir. Devis sous 48 h.",
   category: "team-building",
   author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
@@ -17668,6 +17670,8 @@ const placeholderArticles: BlogPost[] = [
     content: `
     <div class="prose prose-lg max-w-none">
 <p class="mb-6">En 2026, <strong>72% des salariés français</strong> déclarent que le cadre naturel d'un séminaire impacte positivement leur engagement (baromètre QVT 2025). La demande de <strong>séminaires au vert</strong> explose — mais organiser un séminaire en pleine nature à moins d'une heure de Paris, avec de vrais équipements pro, reste un défi.</p>
+
+<p class="mb-6 border-l-4 border-amber-600 pl-4 bg-amber-50 py-3">Pour réserver, consultez nos <a href="/seminaire-vallee-de-chevreuse" class="text-amber-700 underline font-medium">domaines pour séminaire en vallée de Chevreuse</a> — devis sous 48 h.</p>
 
 <p class="mb-6">La <strong>Vallée de Chevreuse</strong> résout cette équation impossible. À 35 minutes de Paris en RER B, ce Parc Naturel Régional de 63 000 hectares offre des abbayes, des châteaux et des domaines forestiers équipés pour accueillir vos séminaires — sans renoncer au WiFi, aux salles de réunion ou à la restauration de qualité.</p>
 
