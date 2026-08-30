@@ -26,6 +26,9 @@ const DEPARTMENT_LANDING: Record<string, string | undefined> = {
   "78": "/seminaire-chateau-yvelines-78",
   "60": "/seminaire-chateau-oise-60",
   "92": "/seminaire-chateau-hauts-de-seine-92",
+  "91": "/seminaire-chateau-essonne-91",
+  "77": "/seminaire-chateau-seine-et-marne-77",
+  "95": "/seminaire-chateau-val-d-oise-95",
 };
 
 /** Le bloc « --- Transports --- » du CRM n'a rien à faire dans une description schema.org. */

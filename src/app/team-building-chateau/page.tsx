@@ -13,6 +13,7 @@ import {
 } from "@/utils/seo/structured-data";
 import TeamBuildingPageClient from "./TeamBuildingPageClient";
 import { VenuesByDepartment } from "@/components/geo/VenuesByDepartment";
+import { TeamBuildingParZone } from "@/components/lieux/TeamBuildingParZone";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 
@@ -151,6 +152,7 @@ export default function TeamBuildingPage() {
     <>
       <StructuredData data={structuredData} />
       <TeamBuildingPageClient faq={faq} />
+      <TeamBuildingParZone />
       <VenuesByDepartment
         departments={["78", "60", "77", "95", "91", "92"]}
         title="Lieux pour un team building en château"

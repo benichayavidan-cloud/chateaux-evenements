@@ -14,6 +14,16 @@ import { theme } from "@/design-system/tokens";
 import { venues } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
 
+/** Chaque département a désormais sa landing : on la relie depuis sa section. */
+const LANDING_PAR_DEPT: Record<string, string> = {
+  "78": "/seminaire-chateau-yvelines-78",
+  "77": "/seminaire-chateau-seine-et-marne-77",
+  "60": "/seminaire-chateau-oise-60",
+  "95": "/seminaire-chateau-val-d-oise-95",
+  "91": "/seminaire-chateau-essonne-91",
+  "92": "/seminaire-chateau-hauts-de-seine-92",
+};
+
 const DEPARTMENT_ORDER = ["78", "77", "60", "95", "91", "92"];
 const DEPARTMENT_NAMES: Record<string, string> = {
   "78": "Yvelines", "77": "Seine-et-Marne", "60": "Oise",
@@ -117,9 +127,12 @@ export default function LieuxPage() {
               <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.125rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, margin: 0 }}>
                 {g.nom} <span style={{ color: G.gray400, fontWeight: 400 }}>({g.code})</span>
               </h2>
-              <span style={{ fontSize: "0.875rem", color: G.gray500 }}>
-                {g.items.length} lieux · jusqu&apos;à {Math.max(...g.items.map(v => v.capacite))} personnes
-              </span>
+              <NextLink
+                href={LANDING_PAR_DEPT[g.code]}
+                style={{ fontSize: "0.875rem", color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}
+              >
+                Tout savoir sur les séminaires en {g.nom} →
+              </NextLink>
             </div>
 
             <div className="card-grid-centered" style={{ gap: "20px" }}>
