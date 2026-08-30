@@ -215,8 +215,7 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
       {/* ── Description + formulaire ── */}
       <Section spacing="lg" background="white">
         <Container size="xl">
-          <div className="grid lg:grid-cols-[1fr_380px]" style={{ gap: "clamp(2rem, 4vw, 3.5rem)", alignItems: "start" }}>
-            <div>
+          <div style={{ maxWidth: "880px" }}>
               <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, marginBottom: "1.25rem" }}>
                 Le domaine
               </h2>
@@ -294,25 +293,24 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
                   </div>
                 </>
               )}
-            </div>
-
-            <aside style={{ position: "sticky", top: "100px", alignSelf: "flex-start" }}>
-              <div style={{
-                background: "white", borderRadius: "16px",
-                border: `1px solid ${G.gray200}`, boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
-                padding: "clamp(18px, 2.5vw, 26px)",
-              }}>
-                <h3 style={{ fontSize: "1.25rem", fontWeight: 600, fontFamily: HEADING, color: G.gray900, marginBottom: "0.5rem" }}>
-                  Ce lieu vous intéresse ?
-                </h3>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1" style={{ fontSize: "0.8125rem", color: G.gray600, marginBottom: "1.25rem" }}>
-                  <span className="inline-flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" style={{ color: BRONZE }} />Réponse sous 48 h</span>
-                  <span className="inline-flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" style={{ color: BRONZE }} />Sans engagement</span>
-                </div>
-                <DevisFormMini sourceLabel={`${v.nom} — ${v.ville ?? v.departementCode}`} />
-              </div>
-            </aside>
           </div>
+        </Container>
+      </Section>
+
+      {/* ── Demande de devis — pleine largeur, comme sur les fiches château ── */}
+      <Section spacing="md" background="gray">
+        <Container size="lg">
+          <div style={{ textAlign: "center", marginBottom: "1.75rem" }}>
+            <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.125rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, marginBottom: "0.625rem" }}>
+              Ce lieu vous intéresse ?
+            </h2>
+            <div className="flex flex-wrap items-center justify-center" style={{ gap: "18px", fontSize: "0.9375rem", color: G.gray600 }}>
+              <span className="inline-flex items-center gap-1.5"><Clock className="w-4 h-4" style={{ color: BRONZE }} />Réponse sous 48 h</span>
+              <span className="inline-flex items-center gap-1.5"><Shield className="w-4 h-4" style={{ color: BRONZE }} />Sans engagement</span>
+              <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" style={{ color: BRONZE }} />Devis gratuit</span>
+            </div>
+          </div>
+          <DevisFormMini sourceLabel={`${v.nom} — ${v.ville ?? v.departementCode}`} />
         </Container>
       </Section>
 
