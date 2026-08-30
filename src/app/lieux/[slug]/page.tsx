@@ -28,6 +28,12 @@ const DEPARTMENT_LANDING: Record<string, string | undefined> = {
   "92": "/seminaire-chateau-hauts-de-seine-92",
 };
 
+/** Le bloc « --- Transports --- » du CRM n'a rien à faire dans une description schema.org. */
+function descriptionPropre(raw: string, max = 600) {
+  const corps = raw.split(/---\s*Transports\s*---/i)[0].trim().replace(/\s+/g, " ");
+  return corps.length <= max ? corps : corps.slice(0, corps.lastIndexOf(" ", max - 1)) + "…";
+}
+
 function titleFor(v: NonNullable<ReturnType<typeof getVenueBySlug>>) {
   const where = v.ville ? `${v.ville} (${v.departementCode})` : `${v.departementCode}`;
   return `${v.nom} — Séminaire à ${where}, ${v.capacite} pers.`;
@@ -90,7 +96,7 @@ export default async function LieuPage({ params }: Props) {
         "@type": "EventVenue",
         "@id": `${url}#venue`,
         name: v.nom,
-        description: v.description.slice(0, 600),
+        description: descriptionPropre(v.description),
         url,
         maximumAttendeeCapacity: v.capacite,
         ...(v.photos.length ? { image: v.photos.slice(0, 6).map(p => p.url) } : {}),

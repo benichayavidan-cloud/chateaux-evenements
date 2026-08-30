@@ -12,7 +12,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Users, Bed, LayoutGrid, Car, MapPin, Check, ArrowRight, Clock, Shield } from "lucide-react";
+import { Users, Bed, LayoutGrid, Car, MapPin, Check, ArrowRight, Clock, Shield, Plane, TrainFront, Bus } from "lucide-react";
 import { Section, Container } from "@/components/layout-v2";
 import { theme } from "@/design-system/tokens";
 import DevisFormMini from "@/components/DevisFormMini";
@@ -23,6 +23,49 @@ const BRONZE_DARK = theme.colors.primary.bronzeDark;
 const GOLD = theme.colors.primary.gold;
 const HEADING = theme.typography.fonts.heading;
 const G = theme.colors.neutral;
+
+
+/**
+ * Les descriptions du CRM arrivent brutes : un seul pavé sans retour à la ligne,
+ * suivi d'un bloc « --- Transports --- Aéroport : … Gare : … Métro : … ».
+ * On sépare les deux et on découpe le pavé en paragraphes lisibles — découpage
+ * purement visuel, aucun mot n'est modifié.
+ */
+function parseDescription(raw: string) {
+  const [avant, apres] = raw.split(/---\s*Transports\s*---/i);
+  const acces: { label: string; texte: string }[] = [];
+
+  if (apres) {
+    // « Aéroport : texte Gare : texte Métro : texte » -> paires étiquette/valeur
+    const re = /(Aéroport|Gare|Métro|Accès routier)\s*:\s*([\s\S]*?)(?=(?:Aéroport|Gare|Métro|Accès routier)\s*:|$)/gi;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(apres)) !== null) {
+      const texte = m[2].trim().replace(/\s+/g, " ");
+      if (texte) acces.push({ label: m[1], texte });
+    }
+  }
+
+  const corps = (avant ?? raw).trim();
+  const blocs = corps.split(/\n{2,}/).map(b => b.trim()).filter(Boolean);
+
+  // Un pavé de plus de 450 caractères est recoupé sur les fins de phrase.
+  const paragraphes: string[] = [];
+  for (const bloc of blocs) {
+    if (bloc.length <= 450) { paragraphes.push(bloc); continue; }
+    const phrases = bloc.match(/[^.!?]+[.!?]*\s*/g) ?? [bloc];
+    let buffer = "";
+    for (const phrase of phrases) {
+      if (buffer.length + phrase.length > 450 && buffer) { paragraphes.push(buffer.trim()); buffer = ""; }
+      buffer += phrase;
+    }
+    if (buffer.trim()) paragraphes.push(buffer.trim());
+  }
+  return { paragraphes, acces };
+}
+
+const ACCES_ICONS: Record<string, typeof Plane> = {
+  "aéroport": Plane, "gare": TrainFront, "métro": Bus, "accès routier": Car,
+};
 
 /** Carte à filet doré — même traitement que les fiches château. */
 function ParaCard({ text }: { text: string }) {
@@ -66,6 +109,7 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
   landing?: string;
   reponse: string;
 }) {
+  const contenu = parseDescription(v.description);
   const photos = v.photos.slice(0, 5);
   // La galerie ne s'affiche qu'à partir de 3 photos restantes : en dessous, elle
   // produit une image seule au milieu de la page, ce qui ressemble à un bug.
@@ -214,14 +258,38 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
 
       {/* ── Description + formulaire ── */}
       <Section spacing="lg" background="white">
-        <Container size="xl">
-          <div style={{ maxWidth: "880px" }}>
+        <Container size="lg">
+          <div>
               <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, marginBottom: "1.25rem" }}>
                 Le domaine
               </h2>
-              {v.description.split(/\n{2,}/).filter(Boolean).map((p, i) => (
-                <ParaCard key={i} text={p.trim()} />
+              {contenu.paragraphes.map((para, i) => (
+                <ParaCard key={i} text={para} />
               ))}
+
+              {contenu.acces.length > 0 && (
+                <>
+                  <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, margin: "2.5rem 0 1.25rem" }}>
+                    Accès
+                  </h2>
+                  <div className="grid sm:grid-cols-2" style={{ gap: "12px" }}>
+                    {contenu.acces.map(a => {
+                      const Icone = ACCES_ICONS[a.label.toLowerCase()] ?? MapPin;
+                      return (
+                        <div key={a.label} style={{ background: G.gray50, borderRadius: "16px", padding: "18px 20px" }}>
+                          <div className="flex items-center gap-2" style={{ marginBottom: "8px" }}>
+                            <Icone className="w-4 h-4" style={{ color: BRONZE }} />
+                            <span style={{ fontSize: "0.6875rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", color: BRONZE }}>
+                              {a.label}
+                            </span>
+                          </div>
+                          <p style={{ margin: 0, color: G.gray700, fontSize: "0.9375rem", lineHeight: 1.65 }}>{a.texte}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
 
               {v.salles.length > 0 && (
                 <>
