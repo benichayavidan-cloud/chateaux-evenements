@@ -1064,11 +1064,8 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
             </Text>
           </div>
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-              gap: theme.spacing.lg,
-            }}
+            className="card-grid-centered"
+            style={{ gap: theme.spacing.lg }}
           >
             {geoLandingPages
               .filter((page) => page.slug !== data.slug)

@@ -2421,3 +2421,28 @@ nav button:active {
     font-size: 0.55rem !important;
   }
 }
+
+/* ═══════════════════════════════════════════
+   Grilles de cartes — dernière ligne centrée
+
+   Une grille CSS aligne toujours la dernière ligne à gauche quand elle est
+   incomplète (6 cartes sur 4 colonnes → 2 orphelines collées au bord). Le flex
+   avec justify-content:center règle le cas : les cartes grandissent jusqu'à
+   leur max, et toute ligne incomplète se centre d'elle-même.
+   ═══════════════════════════════════════════ */
+.card-grid-centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-grid-centered > * {
+  flex: 1 1 260px;
+  max-width: 380px;
+  min-width: 0;
+}
+@media (max-width: 639px) {
+  .card-grid-centered > * {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
