@@ -67,7 +67,11 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
   reponse: string;
 }) {
   const photos = v.photos.slice(0, 5);
-  const reste = v.photos.slice(5);
+  // La galerie ne s'affiche qu'à partir de 3 photos restantes : en dessous, elle
+  // produit une image seule au milieu de la page, ce qui ressemble à un bug.
+  // Aujourd'hui tous les lieux ont 6 photos, donc elle ne s'affiche jamais ;
+  // elle réapparaîtra d'elle-même quand les lieux enverront plus de visuels.
+  const reste = v.photos.length - 5 >= 3 ? v.photos.slice(5) : [];
 
   const chiffres = [
     { icon: Users, label: "Capacité max", value: `${v.capacite}`, unit: "personnes" },
