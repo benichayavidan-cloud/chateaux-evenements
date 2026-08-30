@@ -2,10 +2,11 @@
 // Source : CRM V2, table Prestataire. Régénérer avec :
 //   DATABASE_URL=… node scripts/venues/export-venues.mjs
 //
-// Périmètre : départements 78, 60, 77, 95, 91, 92. Seuil de publication :
+// Périmètre : départements 78, 60, 77, 95, 91, 92. Exclut les lieux déjà
+// publiés sous alias sur /chateaux. Seuil de publication :
 // description > 400 caractères, capacité renseignée, 6 photos minimum, et aucune
 // photo issue de Google Places ou de Kactus (droits).
-// Généré le 2026-08-30 — 72 lieux.
+// Généré le 2026-08-30 — 69 lieux.
 
 export interface VenuePhoto { url: string; legende: string | null; categorie: string | null }
 export interface VenueSalle { nom: string; surface: number | null; theatre: number | null; u: number | null; banquet: number | null; cocktail: number | null }
@@ -294,71 +295,6 @@ export const venues: Venue[] = [
     ]
   },
   {
-    "id": "cmle4c87r00n8oan8u11xhh50",
-    "slug": "abbaye-royale-du-moncel-pontpoint",
-    "nom": "Abbaye Royale du Moncel",
-    "categorie": "Château & domaine",
-    "ville": "Pontpoint",
-    "codePostal": "60700",
-    "departementCode": "60",
-    "departement": "Oise",
-    "region": "Hauts-de-France",
-    "adresse": "5 Rue du Moncel, 60700 Pontpoint, France",
-    "latitude": 49.3018919,
-    "longitude": 2.6137717,
-    "description": "L'Abbaye Royale du Moncel est un lieu exceptionnel pour organiser des événements d'entreprise. Idéalement située entre la forêt d’Halatte et la ville de Pont-Sainte-Maxence, à seulement 40 minutes de Paris, cette abbaye offre un cadre unique pour des activités sportives, des événements de cohésion de groupe ou des séminaires de team building. Voici quelques raisons pour lesquelles je vous recommande vivement ce lieu :\n\nOriginalité et Surprise : Choisir l'Abbaye Royale du Moncel, c'est surprendre vos invités en les invitant dans un lieu d'exception. L'architecture ancestrale de l'abbaye associée à un cadre naturel verdoyant offre un contraste saisissant qui ne manquera pas de marquer positivement votre événement.\n\nDépaysement et Sérénité : Avec ses 6 hectares de terrain, l'abbaye offre un environnement de calme et de bien-être. Les bâtiments historiques de l'abbaye côtoient une nature généreuse, créant une atmosphère sereine et apaisante. Cet écrin de verdure offre un dépaysement total à vos participants, éloignés du tumulte de la vie urbaine.\n\nCapacité d'Accueil : L'Abbaye Royale du Moncel propose de vastes espaces de réunion qui peuvent accueillir des événements de 10 à 500 participants. Cette flexibilité est idéale pour s'adapter à la taille de votre groupe, que ce soit pour des réunions, des formations ou des conférences.\n\nImage de Marque : En choisissant ce lieu pour votre événement, vous affichez clairement le souci du détail et la recherche de l'excellence. L'abbaye elle-même est un symbole de qualité et de tradition, ce qui renforcera l'image de marque de votre entreprise.\n\nEn conclusion, l'Abbaye Royale du Moncel offre un environnement unique, un dépaysement total, et des installations adaptées pour organiser des événements mémorables. Je vous encourage vivement à considérer cet endroit extraordinaire pour vos prochains événements d'entreprise.\n\n--- Transports ---\nAéroport : Aéroport le plus proche : L'aéroport le plus proche de l'Abbaye Royale du Moncel est l'Aéroport de Paris-Charles-de-Gaulle, qui se trouve à environ 40 minutes en voiture. Cela offre une excellente accessibilité pour les voyageurs en provenance de l'étranger ou d'autres régions de la France.\nGare : Gare ferroviaire : La gare ferroviaire la plus proche est la Gare de Pont-Sainte-Maxence, qui se trouve à environ 10 minutes en voiture de l'abbaye. Cette proximité facilite les déplacements en train pour les participants à votre événement.\nMétro : Il n'y a pas de métro à proprement parler à cet endroit, car il est situé en dehors de la zone métropolitaine de Paris. Cependant, pour les déplacements dans la région, il existe des transports en commun tels que des bus et des trains régionaux qui peuvent être utilisés pour se déplacer entre les villes voisines.",
-    "resume": "Chers clients,\n\nC'est avec grand plaisir que je vous recommande l'Abbaye Royale du Moncel en tant que lieu exceptionnel pour vos événements d'entreprise.\n\nL'Abbaye Royale du Moncel est idéalement situ",
-    "capacite": 300,
-    "chambres": 0,
-    "chambresSingle": null,
-    "chambresTwin": 0,
-    "sallesReunion": 3,
-    "parking": null,
-    "equipements": [
-      "Lumière du jour",
-      "Parking",
-      "Vidéoprojecteur",
-      "Wifi",
-      "Jardin/Parc",
-      "Terrasse/Cour intérieure"
-    ],
-    "services": [],
-    "atouts": [],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/7010b298-d339-48d7-91a1-3719d1b971ca.webp",
-        "legende": "Salle Philippe le Bel",
-        "categorie": "salle"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/0fae21dd-fc72-480b-8814-b390ddb6470c.webp",
-        "legende": "Salle Philippe le Bel",
-        "categorie": "salle"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/394655fe-0979-4846-ace5-e05a7e01d76a.webp",
-        "legende": "Salle Philippe le Bel",
-        "categorie": "salle"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/c3c4207c-843f-47ef-bcdd-77ba2d0e05fc.webp",
-        "legende": "Salle Philippe le Bel",
-        "categorie": "salle"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/1ed43d9c-e8a0-4790-b3f2-64dda287d3a0.webp",
-        "legende": "Celliers voûtés",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/1a0d345c-51a6-40cd-acf0-9817fe51c3e3.webp",
-        "legende": "Cloître ",
-        "categorie": "autre"
-      }
-    ]
-  },
-  {
     "id": "cmle4cpys02m8oan8wuaxb8ce",
     "slug": "chateau-de-sainte-claire-berneuil-sur-aisne",
     "nom": "Chateau de Sainte Claire",
@@ -420,6 +356,71 @@ export const venues: Venue[] = [
       {
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cpys02m8oan8wuaxb8ce/afb8af5d-f9ac-4753-b531-88959f27f0e8.webp",
         "legende": null,
+        "categorie": "autre"
+      }
+    ]
+  },
+  {
+    "id": "cmle4c87r00n8oan8u11xhh50",
+    "slug": "abbaye-royale-du-moncel-pontpoint",
+    "nom": "Abbaye Royale du Moncel",
+    "categorie": "Château & domaine",
+    "ville": "Pontpoint",
+    "codePostal": "60700",
+    "departementCode": "60",
+    "departement": "Oise",
+    "region": "Hauts-de-France",
+    "adresse": "5 Rue du Moncel, 60700 Pontpoint, France",
+    "latitude": 49.3018919,
+    "longitude": 2.6137717,
+    "description": "L'Abbaye Royale du Moncel est un lieu exceptionnel pour organiser des événements d'entreprise. Idéalement située entre la forêt d’Halatte et la ville de Pont-Sainte-Maxence, à seulement 40 minutes de Paris, cette abbaye offre un cadre unique pour des activités sportives, des événements de cohésion de groupe ou des séminaires de team building. Voici quelques raisons pour lesquelles je vous recommande vivement ce lieu :\n\nOriginalité et Surprise : Choisir l'Abbaye Royale du Moncel, c'est surprendre vos invités en les invitant dans un lieu d'exception. L'architecture ancestrale de l'abbaye associée à un cadre naturel verdoyant offre un contraste saisissant qui ne manquera pas de marquer positivement votre événement.\n\nDépaysement et Sérénité : Avec ses 6 hectares de terrain, l'abbaye offre un environnement de calme et de bien-être. Les bâtiments historiques de l'abbaye côtoient une nature généreuse, créant une atmosphère sereine et apaisante. Cet écrin de verdure offre un dépaysement total à vos participants, éloignés du tumulte de la vie urbaine.\n\nCapacité d'Accueil : L'Abbaye Royale du Moncel propose de vastes espaces de réunion qui peuvent accueillir des événements de 10 à 500 participants. Cette flexibilité est idéale pour s'adapter à la taille de votre groupe, que ce soit pour des réunions, des formations ou des conférences.\n\nImage de Marque : En choisissant ce lieu pour votre événement, vous affichez clairement le souci du détail et la recherche de l'excellence. L'abbaye elle-même est un symbole de qualité et de tradition, ce qui renforcera l'image de marque de votre entreprise.\n\nEn conclusion, l'Abbaye Royale du Moncel offre un environnement unique, un dépaysement total, et des installations adaptées pour organiser des événements mémorables. Je vous encourage vivement à considérer cet endroit extraordinaire pour vos prochains événements d'entreprise.\n\n--- Transports ---\nAéroport : Aéroport le plus proche : L'aéroport le plus proche de l'Abbaye Royale du Moncel est l'Aéroport de Paris-Charles-de-Gaulle, qui se trouve à environ 40 minutes en voiture. Cela offre une excellente accessibilité pour les voyageurs en provenance de l'étranger ou d'autres régions de la France.\nGare : Gare ferroviaire : La gare ferroviaire la plus proche est la Gare de Pont-Sainte-Maxence, qui se trouve à environ 10 minutes en voiture de l'abbaye. Cette proximité facilite les déplacements en train pour les participants à votre événement.\nMétro : Il n'y a pas de métro à proprement parler à cet endroit, car il est situé en dehors de la zone métropolitaine de Paris. Cependant, pour les déplacements dans la région, il existe des transports en commun tels que des bus et des trains régionaux qui peuvent être utilisés pour se déplacer entre les villes voisines.",
+    "resume": "Chers clients,\n\nC'est avec grand plaisir que je vous recommande l'Abbaye Royale du Moncel en tant que lieu exceptionnel pour vos événements d'entreprise.\n\nL'Abbaye Royale du Moncel est idéalement situ",
+    "capacite": 300,
+    "chambres": 0,
+    "chambresSingle": null,
+    "chambresTwin": 0,
+    "sallesReunion": 3,
+    "parking": null,
+    "equipements": [
+      "Lumière du jour",
+      "Parking",
+      "Vidéoprojecteur",
+      "Wifi",
+      "Jardin/Parc",
+      "Terrasse/Cour intérieure"
+    ],
+    "services": [],
+    "atouts": [],
+    "salles": [],
+    "photos": [
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/7010b298-d339-48d7-91a1-3719d1b971ca.webp",
+        "legende": "Salle Philippe le Bel",
+        "categorie": "salle"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/0fae21dd-fc72-480b-8814-b390ddb6470c.webp",
+        "legende": "Salle Philippe le Bel",
+        "categorie": "salle"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/394655fe-0979-4846-ace5-e05a7e01d76a.webp",
+        "legende": "Salle Philippe le Bel",
+        "categorie": "salle"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/c3c4207c-843f-47ef-bcdd-77ba2d0e05fc.webp",
+        "legende": "Salle Philippe le Bel",
+        "categorie": "salle"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/1ed43d9c-e8a0-4790-b3f2-64dda287d3a0.webp",
+        "legende": "Celliers voûtés",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c87r00n8oan8u11xhh50/1a0d345c-51a6-40cd-acf0-9817fe51c3e3.webp",
+        "legende": "Cloître ",
         "categorie": "autre"
       }
     ]
@@ -498,73 +499,6 @@ export const venues: Venue[] = [
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cp5102ixoan8am82p52a/09e501ec-6fb5-4f3c-8e5c-3b18b0e2bc56.webp",
         "legende": "Restaurant",
         "categorie": "restauration"
-      }
-    ]
-  },
-  {
-    "id": "cmle4ct5m02yioan8ngxyzpj4",
-    "slug": "chateau-de-montvillargenne-gouvieux",
-    "nom": "Chateau de Montvillargenne",
-    "categorie": "Château & domaine",
-    "ville": "Gouvieux",
-    "codePostal": "60270",
-    "departementCode": "60",
-    "departement": "Oise",
-    "region": "Hauts-de-France",
-    "adresse": "2 Avenue François Mathet, 60270 Gouvieux, France",
-    "latitude": 49.1846737,
-    "longitude": 2.4270473,
-    "description": "Château Jeanne & The Forest, le plus grand château hôtel 4 étoiles de France, est niché au cœur de la forêt de Chantilly à 35 km au nord de Paris. Cette demeure historique de style Belle Époque offre 120 chambres luxueuses, 21 salles de réunion baignées de lumière et un parc arboré de 6 hectares. Idéal pour séminaires d'entreprise, réceptions et événements professionnels, le château propose une cuisine bistronomique raffinée, un espace bien-être avec piscine intérieure chauffée, sauna et spa, ainsi qu'une équipe dédiée à la réussite de vos événements.",
-    "resume": "Château 4 étoiles de prestige en forêt de Chantilly : 120 chambres, 21 salles, séminaires jusqu'à 300 pers., à 35 km de Paris et 25 min de CDG",
-    "capacite": 230,
-    "chambres": 119,
-    "chambresSingle": null,
-    "chambresTwin": 103,
-    "sallesReunion": 21,
-    "parking": null,
-    "equipements": [
-      "Accès PMR"
-    ],
-    "services": [],
-    "atouts": [
-      "Espace extérieur",
-      "Parc / jardin",
-      "Piscine",
-      "Wi-Fi",
-      "Équipement audiovisuel",
-      "Accès PMR"
-    ],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ct5m02yioan8ngxyzpj4/2e7dc0b8-5d7d-455a-ba69-ad5b9f9a1de0.webp",
-        "legende": "Façade",
-        "categorie": "façade"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ct5m02yioan8ngxyzpj4/e636694f-c32c-4e6e-8d37-2828a5d39cb8.webp",
-        "legende": "Terrasse",
-        "categorie": "extérieur"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ct5m02yioan8ngxyzpj4/bc568574-301f-48b6-b45a-5e8484fe1bfa.webp",
-        "legende": "Restaurant Social club",
-        "categorie": "restauration"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ct5m02yioan8ngxyzpj4/f8d86de6-5b71-4a82-9412-8a231029d074.webp",
-        "legende": "Immersive room",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ct5m02yioan8ngxyzpj4/8df25375-adf1-44fa-bc9e-9e44d07a17bb.webp",
-        "legende": "Chambre Prestige",
-        "categorie": "chambre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ct5m02yioan8ngxyzpj4/4663cab6-6ff0-4d52-a066-4e65b085e60f.webp",
-        "legende": "Suite Pro Work",
-        "categorie": "chambre"
       }
     ]
   },
@@ -2205,73 +2139,6 @@ export const venues: Venue[] = [
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4chjp01o2oan8heopqht8/07d82215-f2fa-47e0-82c0-e3a1d0e13f92.webp",
         "legende": null,
         "categorie": "autre"
-      }
-    ]
-  },
-  {
-    "id": "cmle4c7pq00l5oan8iti0bb0v",
-    "slug": "abbaye-des-vaux-de-cernay-cernay-la-ville",
-    "nom": "Abbaye des Vaux de Cernay",
-    "categorie": "Château & domaine",
-    "ville": "Cernay-la-Ville",
-    "codePostal": "78720",
-    "departementCode": "78",
-    "departement": "Yvelines",
-    "region": "Île-de-France",
-    "adresse": "Domaine de l'Abbaye des Vaux-de-Cernay, 78720 Cernay-la-Ville",
-    "latitude": 48.6838459,
-    "longitude": 1.935847,
-    "description": "Abbaye cistercienne du XIIe siècle entièrement rénovée en 2023, l'Abbaye des Vaux de Cernay est un domaine de prestige de 80 hectares idéal pour séminaires, réceptions et événements d'entreprise. Avec 14 salles de réunion pouvant accueillir jusqu'à 150 personnes en réunion et 250 en banquet, 144 chambres et suites, 4 restaurants, spa et multiples activités, ce lieu chargé de 900 ans d'histoire offre une expérience haut de gamme à 45 minutes de Paris. Décor signé Cordélia de Castellane, service attentionné et cadre naturel exceptionnel en vallée de Chevreuse.",
-    "resume": "Abbaye cistercienne XIIe siècle, 80 hectares, 14 salles, 144 chambres, séminaires jusqu'à 250 pers. - 45 min de Paris",
-    "capacite": 250,
-    "chambres": 144,
-    "chambresSingle": null,
-    "chambresTwin": 12,
-    "sallesReunion": 14,
-    "parking": null,
-    "equipements": [
-      "Accessibilité PMR"
-    ],
-    "services": [],
-    "atouts": [
-      "Espace extérieur",
-      "Parc / jardin",
-      "Piscine",
-      "Wi-Fi",
-      "Équipement audiovisuel",
-      "Accès PMR"
-    ],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c7pq00l5oan8iti0bb0v/d97e47e1-4850-4b3b-bb20-43bb37c74ca4.webp",
-        "legende": "Abbaye des Vaux-de-Cernay",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c7pq00l5oan8iti0bb0v/490bc0f8-dfb8-49fd-bf1b-f7a2f71fa3f0.webp",
-        "legende": "Dîner d'exception au Réféctoire des Moines",
-        "categorie": "restauration"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c7pq00l5oan8iti0bb0v/03440b78-e7c9-4140-a743-4ce3e72c21a3.webp",
-        "legende": "Chambre Particulière- Abbaye",
-        "categorie": "chambre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c7pq00l5oan8iti0bb0v/6e1e1e7c-1e3c-4c64-87f1-f674b86d2bd6.webp",
-        "legende": "Réféctoire des Moines ",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c7pq00l5oan8iti0bb0v/1d172932-1542-4a61-9517-a48b8bcf6dbe.webp",
-        "legende": "Salon 1900 - Haras",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4c7pq00l5oan8iti0bb0v/3427cc30-a243-4dd5-8550-b98edf5bc2e5.webp",
-        "legende": "Restaurant Les Chasses",
-        "categorie": "restauration"
       }
     ]
   },
@@ -4033,61 +3900,65 @@ export const venues: Venue[] = [
     ]
   },
   {
-    "id": "cmle4cfhd01fnoan81dctjla0",
-    "slug": "domaine-reine-margot-issy-les-moulineaux",
-    "nom": "Domaine Reine Margot",
-    "categorie": "Château & domaine",
-    "ville": "Issy-les-Moulineaux",
-    "codePostal": "92130",
+    "id": "cmle4ch2601meoan8box4k18c",
+    "slug": "la-treso-malakoff",
+    "nom": "La Treso",
+    "categorie": "Hôtel",
+    "ville": "Malakoff",
+    "codePostal": "92240",
     "departementCode": "92",
     "departement": "Hauts-de-Seine",
     "region": "Île-de-France",
-    "adresse": "3 Cr de la Reine Margot, 92130 Issy-les-Moulineaux, France",
-    "latitude": null,
-    "longitude": null,
-    "description": "Aux portes de Paris, situé à 5 min à pied de la station de métro \"Mairie d'Issy\" ligne 12, et 1 arrêt du Palais des congrès Porte de Versailles Expo, le Domaine Reine Margot est un \"boutique hôtel jardin\" de 83 chambres, 3 salles de réunion, 1 serre, 1 chapelle, 1 restaurant bistronomique, 2 bars, 1 SPA avec piscine et un jardin potager de 5000m² bénéficiant d'une vue imprenable sur la Tour Eiffel et Paris. Organisez votre séminaire comme à la campagne, à 2 arrêts de métro de Paris!",
-    "resume": null,
-    "capacite": 100,
-    "chambres": 83,
+    "adresse": "6 Av. du Président Wilson, 92240 Malakoff, France",
+    "latitude": 48.820264,
+    "longitude": 2.3016657,
+    "description": "Un lieu idéal pour votre événement\nLa Tréso, lieu de vies et de fabrications, est un espace coopératif ouvert depuis septembre 2020. Il regroupe un espace café-cantine modulable, une cuisine professionnelle, des espaces artisanaux partagés et individuels. Ce tiers-lieu est animé d'ateliers de fabrication artisanale, numérique et culinaire et d'évènements culturels divers.\nIl est possible d'y réserver une table pour un petit groupe aux heures d'ouverture, de privatiser les espaces aux heures de fermeture, de mobiliser des compétences internes pour votre événement ou encore d'organiser un atelier de pratiques pour votre groupe.\n\n--- Transports ---\nAéroport : Orly\nGare : Montparnasse\nMétro : 13 Malakoff Plateau de Vanvec",
+    "resume": "Cher client,\n\nNous sommes ravis de vous présenter La Tréso, un lieu emblématique où l'art, la créativité et l'expression trouvent leur place. Situé au cœur de la ville, La Tréso est un espace unique q",
+    "capacite": 50,
+    "chambres": 0,
     "chambresSingle": null,
-    "chambresTwin": 2,
-    "sallesReunion": 2,
+    "chambresTwin": 0,
+    "sallesReunion": 1,
     "parking": null,
     "equipements": [
-      "Spa"
+      "Accès PMR",
+      "Lumière du jour",
+      "Sonorisation",
+      "Vidéoprojecteur",
+      "Wifi"
     ],
     "services": [],
     "atouts": [],
     "salles": [],
     "photos": [
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cfhd01fnoan81dctjla0/ccccbb25-efc4-43fd-87e4-f58335554d3b.webp",
-        "legende": "Boutique Hotel - Jardin aux portes de Paris",
-        "categorie": "extérieur"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cfhd01fnoan81dctjla0/016ab099-8c5b-4e73-a1a7-dca2d2331c39.webp",
-        "legende": "Salon Agastache",
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/94fb0629-56bb-4c80-9e9f-5ed26d51515b.webp",
+        "legende": "La Tréso",
         "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cfhd01fnoan81dctjla0/fe16b8d8-bce2-4321-b18f-35dfed2dc4ae.webp",
-        "legende": "Salon Agastache",
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/5c7f01b4-97a9-47e8-8935-de5b91926c15.webp",
+        "legende": "Le café-cantine",
         "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cfhd01fnoan81dctjla0/991493b7-cc3e-4b2a-9348-14d86ddf1f00.webp",
-        "legende": "Salon Agastache ",
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/1e0cc504-4bb5-4cb4-af16-94eb62cfd075.webp",
+        "legende": "Le café-cantine",
         "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cfhd01fnoan81dctjla0/a3ae00a4-78e7-4d56-80b2-082e8264339b.webp",
-        "legende": "Espace pause salon Agastache",
-        "categorie": "bien-être"
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/66ff9df6-c3a2-4a8b-9df5-2fdbd61e3451.webp",
+        "legende": "Le café-cantine",
+        "categorie": "autre"
       },
       {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cfhd01fnoan81dctjla0/4c2027e4-e3f3-47c0-9feb-8a8d75aa2b24.webp",
-        "legende": "Salon Mélisse ",
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/68418888-b5e7-453f-8c00-94719f248a9b.webp",
+        "legende": "Le café-cantine",
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/446622af-ee09-4cef-962a-44b5a0910ed3.webp",
+        "legende": "Le café-cantine et la cuisine ouverte",
         "categorie": "autre"
       }
     ]
@@ -4154,70 +4025,6 @@ export const venues: Venue[] = [
       {
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cqiv02osoan8rstk00td/fcced347-8335-4a2b-bcc1-2dee335f2b36.webp",
         "legende": null,
-        "categorie": "autre"
-      }
-    ]
-  },
-  {
-    "id": "cmle4ch2601meoan8box4k18c",
-    "slug": "la-treso-malakoff",
-    "nom": "La Treso",
-    "categorie": "Hôtel",
-    "ville": "Malakoff",
-    "codePostal": "92240",
-    "departementCode": "92",
-    "departement": "Hauts-de-Seine",
-    "region": "Île-de-France",
-    "adresse": "6 Av. du Président Wilson, 92240 Malakoff, France",
-    "latitude": 48.820264,
-    "longitude": 2.3016657,
-    "description": "Un lieu idéal pour votre événement\nLa Tréso, lieu de vies et de fabrications, est un espace coopératif ouvert depuis septembre 2020. Il regroupe un espace café-cantine modulable, une cuisine professionnelle, des espaces artisanaux partagés et individuels. Ce tiers-lieu est animé d'ateliers de fabrication artisanale, numérique et culinaire et d'évènements culturels divers.\nIl est possible d'y réserver une table pour un petit groupe aux heures d'ouverture, de privatiser les espaces aux heures de fermeture, de mobiliser des compétences internes pour votre événement ou encore d'organiser un atelier de pratiques pour votre groupe.\n\n--- Transports ---\nAéroport : Orly\nGare : Montparnasse\nMétro : 13 Malakoff Plateau de Vanvec",
-    "resume": "Cher client,\n\nNous sommes ravis de vous présenter La Tréso, un lieu emblématique où l'art, la créativité et l'expression trouvent leur place. Situé au cœur de la ville, La Tréso est un espace unique q",
-    "capacite": 50,
-    "chambres": 0,
-    "chambresSingle": null,
-    "chambresTwin": 0,
-    "sallesReunion": 1,
-    "parking": null,
-    "equipements": [
-      "Accès PMR",
-      "Lumière du jour",
-      "Sonorisation",
-      "Vidéoprojecteur",
-      "Wifi"
-    ],
-    "services": [],
-    "atouts": [],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/94fb0629-56bb-4c80-9e9f-5ed26d51515b.webp",
-        "legende": "La Tréso",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/5c7f01b4-97a9-47e8-8935-de5b91926c15.webp",
-        "legende": "Le café-cantine",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/1e0cc504-4bb5-4cb4-af16-94eb62cfd075.webp",
-        "legende": "Le café-cantine",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/66ff9df6-c3a2-4a8b-9df5-2fdbd61e3451.webp",
-        "legende": "Le café-cantine",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/68418888-b5e7-453f-8c00-94719f248a9b.webp",
-        "legende": "Le café-cantine",
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ch2601meoan8box4k18c/446622af-ee09-4cef-962a-44b5a0910ed3.webp",
-        "legende": "Le café-cantine et la cuisine ouverte",
         "categorie": "autre"
       }
     ]
@@ -4564,6 +4371,70 @@ export const venues: Venue[] = [
     ]
   },
   {
+    "id": "cmle4ccpm014eoan8f15ezxod",
+    "slug": "chateau-et-orangerie-de-chatenay-chatenay-en-france",
+    "nom": "Château et Orangerie de Châtenay",
+    "categorie": "Château & domaine",
+    "ville": "Châtenay-en-France",
+    "codePostal": "95190",
+    "departementCode": "95",
+    "departement": "Val-d'Oise",
+    "region": "Île-de-France",
+    "adresse": "8 rue Honoré de Mirabeau, La Censière, 95190 Châtenay-en-France",
+    "latitude": 49.0695227,
+    "longitude": 2.4571058,
+    "description": "Le Château et Orangerie de Châtenay est un site d'exception dédié aux séminaires et événements d'entreprise, niché dans 20 hectares de verdure à seulement 30 minutes de Paris. Entièrement privatisable, il accueille jusqu'à 200 participants avec 12 salles de réunion équipées, 33 chambres confortables et une restauration gourmande. L'Orangerie aérienne et lumineuse offre une vue panoramique sur Paris, idéale pour les conventions, expositions et lancements de produits. Depuis plus de 30 ans, le château privilégie la qualité de l'espace de travail et l'accueil, avec une équipe dédiée et des activités de team building variées.",
+    "resume": "Château événementiel 4 étoiles avec orangerie panoramique, 33 chambres, 12 salles - 30 min de Paris, 15 min de Roissy CDG",
+    "capacite": 200,
+    "chambres": 33,
+    "chambresSingle": 20,
+    "chambresTwin": 10,
+    "sallesReunion": 12,
+    "parking": 150,
+    "equipements": [],
+    "services": [],
+    "atouts": [
+      "Espace extérieur",
+      "Parc / jardin",
+      "Wi-Fi",
+      "Équipement audiovisuel",
+      "Accès PMR"
+    ],
+    "salles": [],
+    "photos": [
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/1ba4cc34-c14f-457a-8694-7965a27bd80e.webp",
+        "legende": "Château de Châtenay réception, réunion, événementiel, séminaire au vert à 30 min de Paris",
+        "categorie": "salle"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/c205fc1d-dc94-4806-b845-507545116052.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/426173f0-8d14-4d11-ba07-cbe8020f8478.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/68fdd262-229b-49ce-8964-11ea589ab6cd.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/6c161ef1-122d-491a-a060-cf52c7d23965.webp",
+        "legende": null,
+        "categorie": "autre"
+      },
+      {
+        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/b82182bf-b894-4d31-ab92-8bf0d2e5ae7d.webp",
+        "legende": null,
+        "categorie": "autre"
+      }
+    ]
+  },
+  {
     "id": "cmle4cmhn028poan84vmvduzh",
     "slug": "sherwood-parc-viarmes",
     "nom": "Sherwood Parc",
@@ -4626,70 +4497,6 @@ export const venues: Venue[] = [
       {
         "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4cmhn028poan84vmvduzh/0c05bc35-2c02-4cea-8f08-0bfc0eb7a9b1.webp",
         "legende": "bannières site web (1)",
-        "categorie": "autre"
-      }
-    ]
-  },
-  {
-    "id": "cmle4ccpm014eoan8f15ezxod",
-    "slug": "chateau-et-orangerie-de-chatenay-chatenay-en-france",
-    "nom": "Château et Orangerie de Châtenay",
-    "categorie": "Château & domaine",
-    "ville": "Châtenay-en-France",
-    "codePostal": "95190",
-    "departementCode": "95",
-    "departement": "Val-d'Oise",
-    "region": "Île-de-France",
-    "adresse": "8 rue Honoré de Mirabeau, La Censière, 95190 Châtenay-en-France",
-    "latitude": 49.0695227,
-    "longitude": 2.4571058,
-    "description": "Le Château et Orangerie de Châtenay est un site d'exception dédié aux séminaires et événements d'entreprise, niché dans 20 hectares de verdure à seulement 30 minutes de Paris. Entièrement privatisable, il accueille jusqu'à 200 participants avec 12 salles de réunion équipées, 33 chambres confortables et une restauration gourmande. L'Orangerie aérienne et lumineuse offre une vue panoramique sur Paris, idéale pour les conventions, expositions et lancements de produits. Depuis plus de 30 ans, le château privilégie la qualité de l'espace de travail et l'accueil, avec une équipe dédiée et des activités de team building variées.",
-    "resume": "Château événementiel 4 étoiles avec orangerie panoramique, 33 chambres, 12 salles - 30 min de Paris, 15 min de Roissy CDG",
-    "capacite": 200,
-    "chambres": 33,
-    "chambresSingle": 20,
-    "chambresTwin": 10,
-    "sallesReunion": 12,
-    "parking": 150,
-    "equipements": [],
-    "services": [],
-    "atouts": [
-      "Espace extérieur",
-      "Parc / jardin",
-      "Wi-Fi",
-      "Équipement audiovisuel",
-      "Accès PMR"
-    ],
-    "salles": [],
-    "photos": [
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/1ba4cc34-c14f-457a-8694-7965a27bd80e.webp",
-        "legende": "Château de Châtenay réception, réunion, événementiel, séminaire au vert à 30 min de Paris",
-        "categorie": "salle"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/c205fc1d-dc94-4806-b845-507545116052.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/426173f0-8d14-4d11-ba07-cbe8020f8478.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/68fdd262-229b-49ce-8964-11ea589ab6cd.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/6c161ef1-122d-491a-a060-cf52c7d23965.webp",
-        "legende": null,
-        "categorie": "autre"
-      },
-      {
-        "url": "https://5todovtlmree4g1o.public.blob.vercel-storage.com/prestataires/cmle4ccpm014eoan8f15ezxod/b82182bf-b894-4d31-ab92-8bf0d2e5ae7d.webp",
-        "legende": null,
         "categorie": "autre"
       }
     ]

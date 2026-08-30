@@ -17,6 +17,26 @@ import pg from 'pg';
 import fs from 'fs';
 import path from 'path';
 
+
+/**
+ * RÈGLE MÉTIER — lieux déjà publiés sous alias sur le site.
+ *
+ * Les 4 fiches de /chateaux sont volontairement sous nom descriptif : le client
+ * ne doit pas pouvoir identifier le lieu et aller négocier en direct. Republier
+ * ces mêmes lieux sous leur vrai nom trahirait l'alias par recoupement
+ * (mêmes chambres, mêmes salles, même ville).
+ *
+ * Ils sont donc exclus de l'export. Identifiés par id CRM, pas par nom : le nom
+ * change, l'id non.
+ */
+const ALIASED_ELSEWHERE = [
+  'cmle4c7pq00l5oan8iti0bb0v', // Abbaye des Vaux de Cernay -> /chateaux/abbaye-millenaire-vallee-chevreuse
+  'cmle4ct5m02yioan8ngxyzpj4', // Château de Montvillargenne -> /chateaux/manoir-anglo-normand-chantilly
+  'cmle4cfhd01fnoan81dctjla0', // Domaine Reine Margot -> /chateaux/hotel-historique-seminaire-paris-92
+  'cmlwzu6ep00008otniyeevezc', // Domaine Reine Margot MGallery (doublon CRM) -> idem
+  'cmle4cyad03j0oan8fo2sn0gt', // Tiara Mont Royal Chantilly -> /chateaux/palais-royal-foret-chantilly
+];
+
 const CORE_DEPARTMENTS = ['78', '60', '77', '95', '91', '92'];
 const OUT = path.resolve('src/data/venues.ts');
 
@@ -79,6 +99,7 @@ const { rows } = await client.query(`
          p."hasAudioVisual", p."hasAccessibility", p."hasAirConditioning"
   FROM "Prestataire" p
   WHERE p."departmentCode" = ANY($1)
+    AND p.id <> ALL($2)
     AND length(coalesce(p.description,'')) > 400
     AND p.capacity IS NOT NULL
     AND (SELECT count(*) FROM "VendorPhoto" v WHERE v."prestataireId" = p.id) >= 6
@@ -88,7 +109,7 @@ const { rows } = await client.query(`
         AND (v."originUrl" ILIKE '%googleusercontent%' OR v."originUrl" ILIKE '%kactus%')
     )
   ORDER BY p."departmentCode", p.capacity DESC NULLS LAST
-`, [CORE_DEPARTMENTS]);
+`, [CORE_DEPARTMENTS, ALIASED_ELSEWHERE]);
 
 const photosByVenue = {};
 const { rows: photos } = await client.query(`
@@ -160,7 +181,7 @@ const header = `// ⚠️ FICHIER GÉNÉRÉ — ne pas éditer à la main.
 // Source : CRM V2, table Prestataire. Régénérer avec :
 //   DATABASE_URL=… node scripts/venues/export-venues.mjs
 //
-// Périmètre : départements ${CORE_DEPARTMENTS.join(', ')}. Seuil de publication :
+// Périmètre : départements ${CORE_DEPARTMENTS.join(', ')}. Exclut les lieux déjà\n// publiés sous alias sur /chateaux. Seuil de publication :
 // description > 400 caractères, capacité renseignée, 6 photos minimum, et aucune
 // photo issue de Google Places ou de Kactus (droits).
 // Généré le ${new Date().toISOString().slice(0, 10)} — ${venues.length} lieux.
