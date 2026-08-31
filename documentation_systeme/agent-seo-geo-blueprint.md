@@ -315,7 +315,14 @@ reste : middleware bot_hits + run R0.
 409 requêtes · cœur de cible en position 13-33 (page 2 : « visible mais pas
 cliquable ») · 9 domaines référents (DataForSEO) · 0 backlink recensé par Bing.
 
-### Phase 1 — Observer (2 semaines, 4 runs, ZÉRO action)
+### Phase 1 — Observer (2 semaines, 4 runs, ZÉRO action) — EN COURS depuis le 31/08/2026
+Livré le jour même, au-delà du minimum : C5 (sondes LLM ChatGPT+Gemini) actif
+dès l'observation — baseline : ChatGPT cite Select Châteaux EN PREMIER sur
+« meilleure agence séminaire château IdF », Gemini ne le cite sur aucune sonde
+(chantier GEO côté Google). Les modules de Phase 2 (verdicts.mjs, actions.mjs)
+sont écrits et DORMANTS : ils tournent à blanc à chaque run (garde-fous
+exercés), le réveil = `update agent_controls set phase=2 where id='marcus'`.
+
 Capteurs C1-C4 + C10, sentinelle active, rapports bi-hebdo + backlog scoré
 (alimenté d'office par les TODO du 31/08 : titles > 70 car., 125 articles à
 1 lien entrant, hubs de catégorie, grappe team building).

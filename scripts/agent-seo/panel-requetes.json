@@ -7,19 +7,22 @@
       "q": "séminaire château île de france",
       "cluster": "/seminaire-chateau-ile-de-france",
       "priorite": 1,
-      "llm": true
+      "llm": true,
+      "prompt_llm": "Quels sont les meilleurs châteaux pour organiser un séminaire d'entreprise en Île-de-France ? Donne des noms précis."
     },
     {
       "q": "séminaire château proche paris",
       "cluster": "/seminaire-chateau-proche-paris",
       "priorite": 1,
-      "llm": true
+      "llm": true,
+      "prompt_llm": "Je cherche un château proche de Paris pour un séminaire d'entreprise de 80 personnes. Que me recommandes-tu ?"
     },
     {
       "q": "location château séminaire",
       "cluster": "/chateaux",
       "priorite": 1,
-      "llm": true
+      "llm": true,
+      "prompt_llm": "Où louer un château pour un séminaire d'entreprise près de Paris ? Donne des prestataires précis."
     },
     {
       "q": "séminaire château",
@@ -121,7 +124,8 @@
       "gsc90": {
         "imp": 437,
         "pos": 18
-      }
+      },
+      "prompt_llm": "Quelles sont les meilleures offres de team building dans un château en région parisienne ? Donne des noms."
     },
     {
       "q": "team building chantilly",
@@ -163,7 +167,8 @@
       "q": "séminaire résidentiel château",
       "cluster": "/blog/guide-seminaire-residentiel-chateau",
       "priorite": 2,
-      "llm": true
+      "llm": true,
+      "prompt_llm": "Quels lieux recommandes-tu pour un séminaire résidentiel en château avec hébergement en Île-de-France ?"
     },
     {
       "q": "journée d'étude château",
@@ -179,19 +184,22 @@
       "q": "budget séminaire entreprise",
       "cluster": "/budget-seminaire-entreprise",
       "priorite": 1,
-      "llm": true
+      "llm": true,
+      "prompt_llm": "Quel budget prévoir pour un séminaire d'entreprise en château en Île-de-France, et vers qui se tourner ?"
     },
     {
       "q": "combien coûte un séminaire en château",
       "cluster": "/blog/combien-coute-seminaire-chateau-2026",
       "priorite": 1,
-      "llm": true
+      "llm": true,
+      "prompt_llm": "Combien coûte un séminaire en château en Île-de-France ? Donne des fourchettes précises et des sources."
     },
     {
       "q": "alternative châteauform",
       "cluster": "/alternative-chateauform",
       "priorite": 1,
-      "llm": true
+      "llm": true,
+      "prompt_llm": "Quelles sont les meilleures alternatives à Châteauform en Île-de-France ?"
     },
     {
       "q": "murder party château",
@@ -202,7 +210,8 @@
         "imp": 106,
         "pos": 7
       },
-      "note": "meilleure requête du site en clics (11) — niche gagnée par accident, à consolider"
+      "note": "meilleure requête du site en clics (11) — niche gagnée par accident, à consolider",
+      "prompt_llm": "Où organiser une murder party dans un château près de Paris pour une entreprise ? Donne des noms."
     }
   ],
   "decouvertes": [
@@ -223,7 +232,8 @@
       "priorite": 3,
       "llm": true,
       "note": "candidat Croissance",
-      "ajoute_par": "humain-31/08/2026"
+      "ajoute_par": "humain-31/08/2026",
+      "prompt_llm": "Quels lieux atypiques recommandes-tu pour un séminaire d'entreprise en Île-de-France ?"
     },
     {
       "q": "meilleur lieu séminaire île de france",
@@ -231,7 +241,8 @@
       "priorite": 3,
       "llm": true,
       "note": "requête conversationnelle — sonde LLM uniquement",
-      "ajoute_par": "humain-31/08/2026"
+      "ajoute_par": "humain-31/08/2026",
+      "prompt_llm": "Quel est le meilleur lieu pour un séminaire d'entreprise en Île-de-France ? Donne des noms précis."
     },
     {
       "q": "chateauform",
