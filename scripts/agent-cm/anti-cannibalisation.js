@@ -60,11 +60,42 @@ function normalize(text) {
 
 function toSet(text) { return new Set(normalize(text)); }
 
+/**
+ * Variante « soudée » : on ajoute la concaténation de chaque paire de mots
+ * voisins. « eco-responsable » donne {eco, responsable, ecoresponsable} et
+ * « ecoresponsable » donne {ecoresponsable} — les deux se reconnaissent alors,
+ * ce que le découpage simple ne permet pas (intersection vide, Jaccard = 0).
+ *
+ * C'est exactement comme ça que `seminaire-eco-responsable-rse` et
+ * `seminaire-ecoresponsable-chateau-guide-rse-2026` ont été publiés tous les
+ * deux — Google a fini par refuser les deux (GSC 31/08/2026).
+ */
+function toSetSoude(text) {
+  const mots = normalize(text);
+  const set = new Set(mots);
+  for (let i = 0; i < mots.length - 1; i++) set.add(mots[i] + mots[i + 1]);
+  return set;
+}
+
 function jaccard(a, b) {
   if (a.size === 0 || b.size === 0) return 0;
   const inter = [...a].filter(w => b.has(w)).length;
   const union = new Set([...a, ...b]).size;
   return inter / union;
+}
+
+/**
+ * Similarité retenue entre deux textes : le MAX du découpage simple et du
+ * découpage soudé.
+ *
+ * On prend le max et non la variante soudée seule : souder ajoute des tokens
+ * des DEUX côtés, ce qui gonfle l'union plus que l'intersection et fait
+ * baisser Jaccard dans le cas général. Mesuré : passer les règles 2 et 3 en
+ * « soudé seul » faisait tomber SLUG_SIMILAIRE de 5 à 0 détections sur les
+ * 40 articles refusés par Google. Le max capte les composés sans rien perdre.
+ */
+function simRenforcee(setA, setB, setASoude, setBSoude) {
+  return Math.max(jaccard(setA, setB), jaccard(setASoude, setBSoude));
 }
 
 function containsAll(haystackSet, words) {
@@ -135,6 +166,8 @@ function prepareExisting(existingArticles) {
     ...ex,
     slugSet: toSet(ex.slug),
     subjectSet: new Set([...toSet(ex.title), ...toSet(ex.slug)]),
+    slugSetSoude: toSetSoude(ex.slug),
+    subjectSetSoude: new Set([...toSetSoude(ex.title), ...toSetSoude(ex.slug)]),
   }));
 }
 
@@ -161,6 +194,14 @@ function checkArticle(article, existingArticles, clusters, opts = {}) {
   const titleSet = toSet(article.title);
   const slugSet = toSet(article.slug);
   const kwSet = toSet((article.keywords || []).join(' '));
+  // Variantes « soudées » — voir toSetSoude/simRenforcee. Déclarées ICI et non
+  // dans la règle 3 : la règle 2, qui s'exécute avant, les utilise déjà.
+  const slugSetSoude = toSetSoude(article.slug);
+  const subjectSetSoude = new Set([
+    ...toSetSoude(article.title),
+    ...slugSetSoude,
+    ...toSetSoude((article.keywords || []).join(' ')),
+  ]);
   // Mots ordonnés du ciblage (title+slug+keywords) — utilisés par la règle 4
   // pour la détection de zone avec exceptions d'adjacence (Val-d'Oise ≠ Oise).
   const footprintWords = [
@@ -206,7 +247,7 @@ function checkArticle(article, existingArticles, clusters, opts = {}) {
   const MAX_PER_RULE = 3; // au-delà, le feedback devient du bruit pour le LLM
   let slugHits = 0;
   for (const ex of existing) {
-    const sim = jaccard(slugSet, ex.slugSet);
+    const sim = simRenforcee(slugSet, ex.slugSet, slugSetSoude, ex.slugSetSoude);
     if (sim >= 0.5) {
       if (slugHits < MAX_PER_RULE) {
         violations.push({
@@ -221,11 +262,16 @@ function checkArticle(article, existingArticles, clusters, opts = {}) {
     violations.push({ rule: 'SLUG_SIMILAIRE', detail: `…et ${slugHits - MAX_PER_RULE} autre(s) slug(s) similaire(s).` });
   }
 
-  // ── Règle 3 : doublon de sujet (title + keywords vs articles existants)
-  const subjectSet = new Set([...titleSet, ...kwSet]);
+  // ── Règle 3 : doublon de sujet (title + slug + keywords vs articles existants)
+  //
+  // Le slug est inclus des DEUX côtés : prepareExisting construit subjectSet
+  // depuis title+slug. Sans le slug ici, on comparait title+keywords contre
+  // title+slug — deux bases différentes, donc une similarité systématiquement
+  // sous-estimée quand l'agent renseigne peu de keywords.
+  const subjectSet = new Set([...titleSet, ...slugSet, ...kwSet]);
   let subjectHits = 0;
   for (const ex of existing) {
-    const sim = jaccard(subjectSet, ex.subjectSet);
+    const sim = simRenforcee(subjectSet, ex.subjectSet, subjectSetSoude, ex.subjectSetSoude);
     if (sim >= 0.45) {
       if (subjectHits < MAX_PER_RULE) {
         violations.push({

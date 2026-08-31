@@ -84,6 +84,41 @@ function formatArticleTS(article) {
 }
 
 /**
+ * Plancher de longueur — la règle la mieux étayée du lot.
+ *
+ * Mesure sur les 284 articles vivants au 31/08/2026, en croisant avec les
+ * URLs que la Search Console refuse d'indexer :
+ *
+ *     < 900 mots    → 89 % de refus  (8 sur 9)
+ *   900-2600 mots   → ~10 % de refus
+ *
+ *   p10 des articles indexés : 1 865 mots
+ *   p10 des articles refusés :   738 mots
+ *
+ * Le plancher est posé à 1 500 : au-dessus de la falaise des 900, en dessous
+ * du p10 des indexés. Les articles de Camille tournent autour de 2 000-2 400
+ * mots, donc la règle ne gêne pas la production courante — elle attrape
+ * l'article bâclé, qui est celui que Google jette.
+ *
+ * On compte le texte VISIBLE (balises retirées) : 1 500 mots de HTML brut
+ * avec des tableaux inline, ce n'est pas 1 500 mots lus.
+ */
+const MIN_MOTS = 1500;
+
+function assertLongueurSuffisante(article) {
+  const texte = String(article.content || '').replace(/<[^>]+>/g, ' ');
+  const mots = texte.trim().split(/\s+/).filter(Boolean).length;
+  if (mots < MIN_MOTS) {
+    throw new Error(
+      `Article trop court : ${mots} mots visibles (minimum ${MIN_MOTS}).\n` +
+      `Sous 900 mots, Google a refusé d'indexer 89 % des articles du site. ` +
+      `Développer le fond — cas concrets, chiffres, tableaux comparatifs — ` +
+      `plutôt que rallonger avec du remplissage.`
+    );
+  }
+}
+
+/**
  * Un slug DOIT être ASCII strict : [a-z0-9-].
  *
  * En août 2026, deux articles ont été publiés avec un « é » dans le slug
@@ -131,6 +166,9 @@ function publishArticle(article, opts = {}) {
   // Format du slug — avant toute autre vérification : un slug non-ASCII
   // produit une URL que le rendu ne sait pas résoudre (voir assertSlugValide).
   assertSlugValide(article.slug);
+
+  // Longueur — un article trop court est refusé par Google (voir MIN_MOTS).
+  assertLongueurSuffisante(article);
   // Doublon exact de slug — vérifié sur les 4 fichiers de données (pas
   // seulement blog-posts-camille.ts) : deux BlogPost avec le même slug dans
   // des fichiers différents rendraient le routing non-déterministe.

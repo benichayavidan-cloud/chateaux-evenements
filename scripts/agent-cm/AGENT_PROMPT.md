@@ -393,7 +393,7 @@ node log-session.js --status=failed --step="{etape}" --error="{description}"
 - [ ] Titre de 50-70 caractères, inclut l'année
 - [ ] Titre avec un différenciateur CLIQUABLE : un chiffre concret (prix "dès 89€/pers", capacité, durée, nombre) — le prix dans le title est le booster de CTR n°1 en B2B événementiel. Bannir les titles génériques sans chiffre.
 - [ ] Excerpt convaincant de 1-2 phrases
-- [ ] Contenu de 2000-3500 mots
+- [ ] Contenu de 2000-3500 mots — **plancher DUR à 1500 mots visibles, refusé en code** (`publish-article.js`). Mesuré le 31/08/2026 sur les 284 articles du site : sous 900 mots, Google a refusé d'indexer 89 % des articles ; le p10 des articles indexés est à 1865 mots.
 - [ ] 100 premiers mots = réponse directe avec chiffres précis
 - [ ] Étude de cas incluse avec client nommé + lieu + consultante + budget
 - [ ] H2 formulés comme des questions
