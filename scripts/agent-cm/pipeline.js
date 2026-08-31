@@ -5,6 +5,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 const { ARTICLES_PATH, IMAGES_DIR, CATEGORIES } = require('./config');
 const { checkArticle, loadClusters, formatReport, getExistingArticles, prepareExisting } = require('./anti-cannibalisation');
+const { checkDoublonSemantique } = require('./doublon-semantique');
 
 const AGENT_DIR = __dirname;
 const SITE_DIR = path.resolve(AGENT_DIR, '../..');
@@ -207,6 +208,21 @@ Choisis des sujets RADICALEMENT différents : ni les mots-clés protégés, ni l
         gateRejectionCount++;
         log(2, formatReport(a.slug, gate));
         feedbacks.push(formatReport(a.slug, gate));
+        continue;
+      }
+      // Gate DOUBLON SÉMANTIQUE — attrape ce que le lexical ne voit pas
+      // (reformulations, mots soudés : cas eco-responsable/ecoresponsable).
+      // Vérifié ICI pour que le rejet nourrisse la boucle de feedback et
+      // déclenche une régénération — publish-article.js le re-vérifie de
+      // toute façon (défense en profondeur, même clé API dans les deux
+      // process). Non-bloquant si l'API est indisponible : voir la politique
+      // d'échec dans doublon-semantique.js.
+      const sem = await checkDoublonSemantique(a, existingPlusRun);
+      if (sem.warning) log(2, `⚠️  ${sem.warning}`);
+      if (!sem.ok) {
+        gateRejectionCount++;
+        log(2, `❌ ${a.slug} : [DOUBLON_SEMANTIQUE] ${sem.detail}`);
+        feedbacks.push(`- [DOUBLON_SEMANTIQUE] ${a.slug} : ${sem.detail}`);
         continue;
       }
       validArticles.push(a);

@@ -119,6 +119,80 @@ function assertLongueurSuffisante(article) {
 }
 
 /**
+ * Contrôle LEXICAL du slug — attrape la faute de frappe et l'anglicisme.
+ *
+ * Cas réel : `seminar-responsable-formation-chateau-guide-opco-2026` publié
+ * avec « seminar » (anglais) au lieu de « seminaire » — passé inaperçu
+ * jusqu'à l'audit GSC du 31/08/2026. Le format ASCII était valide ; c'est
+ * l'orthographe qui était fausse.
+ *
+ * Principe : pas de dictionnaire externe — le VOCABULAIRE DU CORPUS fait foi.
+ * Un mot du slug candidat est suspect s'il est absent des slugs existants
+ * (fusionnés exclus : « seminar » y est, justement) ET qu'il ressemble
+ * fortement (préfixe commun ≥ 5, distance d'édition ≤ 2) à un mot fréquent
+ * du corpus (≥ 10 occurrences). « seminar » → « seminaire » : flag.
+ * « salon » vs « salle » : préfixe commun 3 → pas de flag. Un mot vraiment
+ * nouveau (« oenologie » la première fois) n'a pas de voisin fréquent → OK.
+ * Les variantes singulier/pluriel d'un mot du corpus sont tolérées.
+ *
+ * On REFUSE avec suggestion plutôt que corriger en silence — même logique
+ * que assertSlugValide.
+ */
+function distanceEdition(a, b) {
+  const dp = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) dp[0][j] = j;
+  for (let i = 1; i <= a.length; i++)
+    for (let j = 1; j <= b.length; j++)
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1),
+      );
+  return dp[a.length][b.length];
+}
+
+function prefixeCommun(a, b) {
+  let n = 0;
+  while (n < a.length && n < b.length && a[n] === b[n]) n++;
+  return n;
+}
+
+function assertSlugLexique(slug, existingArticles) {
+  let mergedFroms = new Set();
+  try {
+    mergedFroms = new Set(require('../../src/data/merged-redirects.json').merges.map(m => m.from));
+  } catch { /* pas de fichier de fusions : vocabulaire complet */ }
+
+  const vocab = new Map();
+  for (const ex of existingArticles) {
+    if (mergedFroms.has(ex.slug)) continue; // les slugs fautifs fusionnés ne font pas foi
+    for (const mot of ex.slug.split('-')) {
+      if (mot.length >= 4 && !/^\d+$/.test(mot)) vocab.set(mot, (vocab.get(mot) || 0) + 1);
+    }
+  }
+
+  // Auto-validation à partir de 2 occurrences : une occurrence unique ne fait
+  // pas foi — « seminar » existait déjà dans UN slug vivant (concept « slow
+  // seminar » assumé) et blanchissait l'anglicisme pour tous les suivants.
+  const connu = (m) => (vocab.get(m) || 0) >= 2;
+  for (const mot of slug.split('-')) {
+    if (mot.length < 4 || /^\d+$/.test(mot)) continue;
+    if (connu(mot)) continue;
+    if (connu(mot + 's') || (mot.endsWith('s') && connu(mot.slice(0, -1)))) continue; // pluriel/singulier
+    for (const [ref, freq] of vocab) {
+      if (freq < 10 || ref.length < 5) continue;
+      if (prefixeCommun(mot, ref) >= 5 && distanceEdition(mot, ref) <= 2) {
+        throw new Error(
+          `Slug suspect : "${mot}" (dans "${slug}") n'existe dans aucun slug du corpus ` +
+          `mais ressemble à "${ref}" (${freq} occurrences). Faute de frappe ou anglicisme probable — ` +
+          `cas vécu : "seminar" au lieu de "seminaire". Corriger le mot, ou --force si c'est voulu.`
+        );
+      }
+    }
+  }
+}
+
+/**
  * Un slug DOIT être ASCII strict : [a-z0-9-].
  *
  * En août 2026, deux articles ont été publiés avec un « é » dans le slug
@@ -169,6 +243,7 @@ function publishArticle(article, opts = {}) {
 
   // Longueur — un article trop court est refusé par Google (voir MIN_MOTS).
   assertLongueurSuffisante(article);
+
   // Doublon exact de slug — vérifié sur les 4 fichiers de données (pas
   // seulement blog-posts-camille.ts) : deux BlogPost avec le même slug dans
   // des fichiers différents rendraient le routing non-déterministe.
@@ -176,6 +251,10 @@ function publishArticle(article, opts = {}) {
   if (existing.some(a => a.slug === article.slug)) {
     throw new Error(`Article with slug "${article.slug}" already exists`);
   }
+
+  // Orthographe du slug — le vocabulaire du corpus fait foi (voir
+  // assertSlugLexique). Placé après le chargement de `existing`, dont il dépend.
+  if (!opts.force) assertSlugLexique(article.slug, existing);
 
   // GATE ANTI-CANNIBALISATION — défense en profondeur : ce check couvre TOUS
   // les chemins de publication (pipeline auto + publication manuelle).
@@ -220,7 +299,21 @@ async function main() {
   try {
     const article = JSON.parse(input);
     delete article.imagePrompt;
-    const result = publishArticle(article, { force: args.includes('--force') });
+    const force = args.includes('--force');
+
+    // Gate DOUBLON SÉMANTIQUE — ici, dans la CLI, car TOUTE publication passe
+    // par elle (pipeline auto via execSync, publication manuelle). Avant
+    // publishArticle : rien ne doit être écrit si le verdict est doublon.
+    // Voir doublon-semantique.js pour la politique d'échec (bloquant sur
+    // verdict, non-bloquant si clé absente ou API en échec).
+    if (!force) {
+      const { checkDoublonSemantique } = require('./doublon-semantique');
+      const sem = await checkDoublonSemantique(article, getExistingArticles());
+      if (sem.warning) console.error(`⚠️  ${sem.warning}`);
+      if (!sem.ok) throw new Error(`Publication bloquée — ${sem.detail}\n(--force pour bypasser en connaissance de cause)`);
+    }
+
+    const result = publishArticle(article, { force });
     console.log(JSON.stringify(result));
   } catch (err) {
     console.error(JSON.stringify({ error: err.message }));
@@ -228,4 +321,11 @@ async function main() {
   }
 }
 
-main();
+// Exécuter main() SEULEMENT en usage CLI. Sans ce garde, tout `require` du
+// module lançait main(), qui sans --file se met à lire stdin et bloque le
+// process appelant indéfiniment (constaté en testant les garde-fous).
+if (require.main === module) {
+  main();
+}
+
+module.exports = { publishArticle, assertSlugValide, assertSlugLexique, assertLongueurSuffisante };

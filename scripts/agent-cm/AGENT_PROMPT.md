@@ -215,6 +215,10 @@ Chaque article doit aussi inclure :
 
 ## RÈGLES ANTI-CANNIBALISATION (appliquées EN CODE — toute violation bloque la publication)
 
+Depuis le 31/08/2026, deux contrôles supplémentaires s'appliquent en code à la publication :
+- **DOUBLON_SEMANTIQUE** (`doublon-semantique.js`) : un modèle juge si le candidat cible la même requête principale qu'un article existant — les reformulations (synonymes, mots soudés type « ecoresponsable »/« eco-responsable », réordonnancements) sont bloquées même quand la similarité lexicale est basse.
+- **Lexique du slug** (`assertSlugLexique`) : tout mot du slug absent du vocabulaire du corpus (≥ 2 occurrences) et ressemblant à un mot fréquent est refusé — attrape les anglicismes (« seminar ») et les fautes de frappe (« chateu »). Écrire les slugs en français correct.
+
 Le registre `seo-clusters.json` définit la **propriété des mots-clés** : chaque requête stratégique appartient à UNE page canonique. Le gate `anti-cannibalisation.js` valide chaque article avant publication (dans `pipeline.js` ET `publish-article.js`) :
 
 1. **CLUSTER_PROTEGE** : title/slug qui cible un mot-clé possédé par une page canonique → REJET. Ces requêtes se renforcent (réécriture, maillage), elles ne se concurrencent pas.
