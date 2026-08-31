@@ -1,0 +1,41 @@
+name: Marcus — Run complet (observation)
+
+# Étage 2 de l'agent (blueprint §3 et §7) — Phase 1 : OBSERVATION PURE.
+# Collecte tous les capteurs, archive le snapshot, rapporte par email.
+# Aucune action sur le site tant que la Phase 2 n'est pas ouverte.
+on:
+  schedule:
+    - cron: "30 6 * * 1,4"   # lundi et jeudi, 08h30 Paris (hiver) / 09h30 (été)
+  workflow_dispatch:
+
+jobs:
+  run-complet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Collecte et rapport
+        working-directory: scripts/agent-seo
+        run: |
+          npm install --omit=dev --no-audit --no-fund
+          node collecte.mjs
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          BRIGHTDATA_API_KEY: ${{ secrets.BRIGHTDATA_API_KEY }}
+          DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+          DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
+          BING_WMT_API_KEY: ${{ secrets.BING_WMT_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_ADMIN: ${{ secrets.EMAIL_ADMIN }}

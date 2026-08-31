@@ -1,0 +1,31 @@
+name: Marcus — Sentinelle quotidienne
+
+# Étage 1 de l'agent (blueprint §3) : 3 contrôles vitaux, ~2 min, zéro action.
+# Alerte Telegram UNIQUEMENT si ça brûle. Kill switch : agent_controls.marcus.
+on:
+  schedule:
+    - cron: "15 5 * * *"   # 07h15 Paris (hiver) / 08h15 (été)
+  workflow_dispatch:
+
+jobs:
+  sentinelle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 1 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Sentinelle
+        working-directory: scripts/agent-seo
+        run: |
+          npm install --omit=dev --no-audit --no-fund
+          node sentinelle.mjs
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
