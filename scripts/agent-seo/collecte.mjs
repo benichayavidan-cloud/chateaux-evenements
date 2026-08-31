@@ -14,6 +14,9 @@
  */
 import fs from 'node:fs';
 import { SITE, env, kc, marcusEnabled, gsc, fenetre28, sitemapUrls, sbInsert, sbSelect, telegram, email } from './lib.mjs';
+import { sondesLLM } from './sondes-llm.mjs';
+import { passerLesVerdicts } from './verdicts.mjs';
+import { executerActions } from './actions.mjs';
 
 if (!(await marcusEnabled())) { console.log('kill switch OFF — sortie'); process.exit(0); }
 
@@ -156,6 +159,16 @@ if (jeudi) {
   } catch (e) { incidents.push('C7 en échec : ' + e.message); }
 }
 
+// ── C5 : citations LLM (jeudi, ou MARCUS_LLM=1) — capteur pur, actif dès la Phase 1
+if (jeudi || process.env.MARCUS_LLM) {
+  try {
+    console.log('[C5] Sondes LLM :');
+    const llm = await sondesLLM(panel);
+    snapshot.llm = { synthese: llm.synthese, detail: llm.resultats };
+    cout += llm.cout;
+  } catch (e) { incidents.push('C5 en échec : ' + e.message); }
+}
+
 // ── C9 : ce que les robots ont VRAIMENT crawlé depuis le dernier run ────────
 try {
   const depuis = new Date(Date.now() - 4 * 864e5).toISOString();
@@ -182,6 +195,18 @@ try {
 snapshot.deltas = deltas;
 snapshot.duree_s = Math.round((Date.now() - t0) / 1000);
 
+// ── R3 : verdicts des actions à échéance (vide en Phase 1, éprouvé quand même)
+const updateEnCours = Array.isArray(snapshot.update_google_en_cours) && snapshot.update_google_en_cours.length > 0;
+let verdicts = { verdicts: [], reverts: [] };
+try { verdicts = await passerLesVerdicts(snapshot, updateEnCours); } catch (e) { incidents.push('R3 en échec : ' + e.message); }
+snapshot.verdicts = verdicts.verdicts;
+
+// ── R5 : moteur d'actions — DORMANT tant que agent_controls.marcus.phase < 2.
+// En Phase 1 le backlog est vide : le moteur tourne à blanc, ses garde-fous
+// (pages gelées, quotas, prédiction obligatoire) sont exercés à chaque run.
+let actions = { executees: [], simulees: [] };
+try { actions = await executerActions([], { runId: null, updateEnCours }); } catch (e) { incidents.push('R5 en échec : ' + e.message); }
+
 // ── Archivage + rapport ─────────────────────────────────────────────────────
 const statut = incidents.length ? 'degraded' : 'ok';
 const run = await sbInsert('marcus_runs', { type: 'full', statut, snapshot, cout_usd: cout, rapport: incidents.join(' · ') || 'observation OK' });
@@ -198,6 +223,7 @@ const lignes = [
   Object.keys(serp).length ? `· SERP : ${top10.length}/${panel.requetes.length} requêtes du cœur en top 10` + (top10.length ? ` (${top10.map(([q]) => q).slice(0, 3).join(', ')}…)` : '') : null,
   snapshot.bots?.total != null ? `· Robots (4j) : ${snapshot.bots.total} passages, ${snapshot.bots.pages_distinctes} pages` : null,
   snapshot.backlinks ? `· Backlinks : ${snapshot.backlinks.backlinks} liens / ${snapshot.backlinks.domaines} domaines` : null,
+  snapshot.llm ? `· Citations LLM : ChatGPT ${snapshot.llm.synthese.chatgpt_cite}/${snapshot.llm.synthese.sondes} · Gemini ${snapshot.llm.synthese.gemini_cite}/${snapshot.llm.synthese.sondes}` : null,
   ``,
   g?.decouvertes_candidates?.length ? `DÉCOUVERTES GSC (à valider pour le panel)\n${g.decouvertes_candidates.slice(0, 5).map((d) => `· « ${d.q} » — ${d.imp} imp, pos ${d.pos}`).join('\n')}` : null,
   incidents.length ? `\n⚠️ INCIDENTS\n${incidents.map((x) => '· ' + x).join('\n')}` : null,
