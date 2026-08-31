@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, ArrowRight, Castle, MapPin, Users2, Sparkles } from "lucide-react";
-import { getBlogPostBySlug, getSmartRelatedPosts, BlogCategory } from "@/data/blog-posts";
+import { blogPosts, getBlogPostBySlug, getSmartRelatedPosts, BlogCategory } from "@/data/blog-posts";
 import { ArticleClientLogic } from "./ArticleClientLogic";
 
 type Props = {
@@ -44,6 +44,24 @@ function getRelatedCommercialPages(category: BlogCategory) {
     { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
   ];
 }
+
+/**
+ * Pré-génère les 313 articles au build et REFUSE tout slug inconnu.
+ *
+ * Sans ça, la route était dynamique : Next flushait le shell HTML en 200
+ * avant d'évaluer notFound(), et un article inexistant répondait
+ * « HTTP 200 + Article introuvable + noindex ». La GSC du 31/08/2026
+ * classait 3 de ces URLs en « exclue par la balise noindex ».
+ *
+ * dynamicParams = false fait trancher le routeur AVANT le rendu : vrai 404.
+ * Les articles vivent dans des fichiers .ts commités — un nouvel article
+ * arrive forcément avec un déploiement, donc aucune URL légitime n'est perdue.
+ */
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+export const dynamicParams = false;
 
 export default async function BlogArticlePage({ params }: Props) {
   // Server-side: Récupération de l'article
