@@ -1,7 +1,7 @@
 # BLUEPRINT — Agent Pilote SEO/GEO « Marcus »
 
-**Version** : 1.0 — 31/08/2026
-**Statut** : spécification validée, construction en Phase 0
+**Version** : 1.1 — 31/08/2026 (Phase 0 exécutée le jour même)
+**Statut** : Phase 0 TERMINÉE — décisions prises : alertes = Telegram (bot du CRM) ; Bright Data = compte rankweld (validé) ; Semrush/Ahrefs non retenus, DataForSEO intégré et testé
 **Périmètre** : https://www.selectchateaux.com (repo `chateaux-evenements`)
 **Complément de** : l'agent Camille (`scripts/agent-cm/`) — Camille écrit, Marcus pilote.
 
@@ -65,7 +65,7 @@ Cron GitHub Actions quotidien. Trois contrôles vitaux, zéro action :
 - sitemap.xml accessible et non vide ;
 - clics GSC de la veille dans la bande normale (± 3 écarts-types sur 28 j).
 
-Alerte immédiate (email Resend + issue GitHub `[ALERTE]`) uniquement si ça
+Alerte immédiate (Telegram — bot du CRM, décision du 31/08 — + issue GitHub `[ALERTE]`) uniquement si ça
 brûle. Sinon, silence total.
 
 ### Étage 2 — Le run complet (lundi et jeudi, 08h00 Paris)
@@ -88,7 +88,7 @@ arrête tout au prochain déclenchement. Toujours vérifié en premier.
 | C5 | Citations LLM | Bright Data (ChatGPT, Perplexity) + Gemini grounding (clé existante) | 1×/semaine | sur le panel : sommes-nous cités ? qui l'est ? sous quelle forme ? |
 | C6 | Concurrents | Bright Data (sitemaps, pages, titles) | 1×/semaine | nouveaux contenus, cibles apparentes, formats cités par les LLM |
 | C7 | Volumes & backlinks | DataForSEO (pay-per-use) + Bing Webmaster API | 1×/semaine | volumes de recherche, backlinks gagnés/perdus, domaines référents |
-| C8 | Web Vitals réels | CrUX API (gratuite) | 1×/semaine | LCP/CLS/INP terrain par page type ; unlighthouse en local pour diagnostiquer une dégradation |
+| C8 | Web Vitals réels | CrUX API (clé créée, testée) | 1×/semaine | ⚠️ constaté le 31/08 : le site n'est pas encore dans le panel CrUX (trafic insuffisant) — la sonde reste branchée et bascule sur unlighthouse (labo) tant que « data not found » |
 | C9 | Logs des bots | middleware Edge → Supabase `bot_hits` | continu, lu à chaque run | ce que Googlebot/Bingbot/GPTBot crawlent VRAIMENT : fréquence, répertoires ignorés, gaspillage |
 | C10 | Météo algorithmique | Google Search Status (flux) | chaque run + sentinelle | update en cours ? → gel des verdicts (Loi 6) |
 
@@ -274,16 +274,16 @@ Première leçon à insérer dès la création (validée le 31/08/2026) :
 
 | Accès | Secret GitHub | État | Action |
 |---|---|---|---|
-| GSC (perf + inspection) | `GSC_CLIENT_ID/SECRET/REFRESH_TOKEN` | ✅ en CI | recréer la clé SA `ga4-admin@…` pour l'usage local |
+| GSC (perf + inspection) | `GSC_CLIENT_ID/SECRET/REFRESH_TOKEN` | ✅ en CI | ✅ local : IMPERSONATION du SA via gcloud (la politique d'org interdit les clés SA) — câblée dans `SCRIPTS/gsc/gsc.js` le 31/08 |
 | Anthropic | `ANTHROPIC_API_KEY` | ✅ | — |
 | Gemini | `GEMINI_API_KEY` | ✅ | — |
-| Bright Data | `BRIGHTDATA_API_KEY` | ❌ | ajouter (clé utilisateur) |
-| DataForSEO | `DATAFORSEO_LOGIN/PASSWORD` | ❌ | créer compte + charger 10-20 $ |
-| CrUX | `CRUX_API_KEY` | ❌ | clé gratuite GCP (2 min) |
-| Bing Webmaster | `BING_WMT_API_KEY` | ❌ | vérifier le site + clé (gratuit) |
-| Supabase | `SUPABASE_URL/SERVICE_KEY` | ✅ | créer les 4 tables |
-| CRM lecture seule | `CRM_DATABASE_URL_RO` | ❌ | rôle Postgres READ ONLY dédié — jamais la clé service |
-| Resend | `RESEND_API_KEY` | ❌ en CI | copier depuis le CRM |
+| Bright Data | CLI `bdata` authentifiée (compte rankweld, validé 31/08) | ✅ | zone `serp_api` active |
+| DataForSEO | `DATAFORSEO_LOGIN/PASSWORD` | ✅ testé 31/08 (volumes, backlinks, Labs) | Keychain + CI ; bonus : leur API `ai_optimization/llm_mentions` = option pour C5 |
+| CrUX | `CRUX_API_KEY` | ✅ créée et testée 31/08 | voir caveat C8 |
+| Bing Webmaster | `BING_WMT_API_KEY` | ✅ testé 31/08 (QueryStats OK, quota 100 URL/j) | backlinks Bing : 0 recensé au 31/08 |
+| Supabase | `SUPABASE_URL/SERVICE_KEY` | ✅ 4 tables créées le 31/08 (+ 2 leçons + kill switch `marcus`) | — |
+| CRM lecture seule | `CRM_DATABASE_URL_RO` | ✅ rôle `marcus_ro` créé et testé 31/08 (SELECT ok, CREATE refusé, default_transaction_read_only) | — |
+| Rapports/alertes | SMTP (2 projets) + bot Telegram (CRM) | ✅ | correction : pas de Resend dans la stack — Telegram pour la sentinelle, SMTP pour le rapport bi-hebdo |
 | GitHub | `GH_PAT` | ✅ | — |
 
 **Interdiction** : aucune clé en clair dans le code ou les logs. Local = Keychain,
@@ -293,10 +293,14 @@ CI = secrets GitHub. La clé CRM read-only ne peut par construction rien écrire
 
 ## 12. PHASES DE CONSTRUCTION (critères de sortie mesurables)
 
-### Phase 0 — Fondations (setup)
-Secrets §11 en place · 4 tables créées · middleware bot_hits déployé ·
-panel de requêtes v1 validé par Avidan · leçons initiales insérées.
+### Phase 0 — Fondations (setup) — ✅ quasi terminée le 31/08/2026
+Secrets §11 en place ✅ · 4 tables créées ✅ · leçons initiales insérées ✅ ·
+panel v1 rédigé (`scripts/agent-seo/panel-requetes.json`) — à valider par Avidan ·
+reste : middleware bot_hits + run R0.
 **Sortie** : un run R0 manuel produit une baseline complète sans erreur.
+**Baseline GSC déjà relevée (90 j au 28/08)** : 311 clics · 20 825 impressions ·
+409 requêtes · cœur de cible en position 13-33 (page 2 : « visible mais pas
+cliquable ») · 9 domaines référents (DataForSEO) · 0 backlink recensé par Bing.
 
 ### Phase 1 — Observer (2 semaines, 4 runs, ZÉRO action)
 Capteurs C1-C4 + C10, sentinelle active, rapports bi-hebdo + backlog scoré

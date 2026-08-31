@@ -1,0 +1,5 @@
+{
+  "_doc": "Pages que Marcus ne modifie JAMAIS, à aucun niveau d'autonomie (blueprint §6). Un besoin détecté sur ces pages = rapport niveau 3 à l'humain, rien d'autre.",
+  "pages": ["/", "/devis", "/devis/merci", "/cgv", "/confidentialite", "/mentions-legales"],
+  "schemas_geles": ["Organization"]
+}
