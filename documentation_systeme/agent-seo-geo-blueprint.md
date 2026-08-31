@@ -93,9 +93,22 @@ arrête tout au prochain déclenchement. Toujours vérifié en premier.
 | C10 | Météo algorithmique | Google Search Status (flux) | chaque run + sentinelle | update en cours ? → gel des verdicts (Loi 6) |
 
 **Panel de requêtes cibles** : fichier versionné `scripts/agent-seo/panel-requetes.json`,
-~30 requêtes business au départ (séminaire château IdF, par département, par
-format, prix, team building…), étendu par le module Croissance. Toute requête du
-panel a un propriétaire déclaré dans `seo-clusters.json`.
+en deux sections (décision du 31/08/2026, question d'Avidan « pourquoi pas
+dynamique depuis GSC ? » — réponse : les deux, chacun à sa place) :
+
+- **`requetes` — le cœur fixe** (priorités 1-2, ~27 requêtes) : le mètre étalon.
+  GSC est un rétroviseur — il ne montre que les requêtes où le site apparaît
+  déjà ; le cœur porte aussi les AMBITIONS (requêtes où le site est invisible).
+  Et on ne mesure pas avec un mètre qui change : un panel recomposé depuis GSC
+  subirait un biais de survivant (une requête qui décroche sort des données,
+  donc du panel, donc la moyenne « s'améliore »). Modifié uniquement par
+  décision humaine.
+- **`decouvertes` — la couche dynamique** (priorité 3, plafond 15) : gérée par
+  l'agent. À chaque run, toute requête GSC ≥ 50 impressions/28j absente du
+  panel y entre automatiquement (commit traçable) ; 0 impression sur 2 runs
+  consécutifs → sortie. La promotion vers le cœur fixe est proposée dans le
+  rapport et reste humaine. C'est le mécanisme qui aurait attrapé seul
+  « murder party château » et « salle de réunion yvelines ».
 
 ---
 

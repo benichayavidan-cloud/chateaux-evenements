@@ -1,6 +1,6 @@
 {
-  "_doc": "Panel de requêtes cibles de l'agent Marcus (blueprint §4). Construit le 31/08/2026 sur le dump GSC 90j (311 clics, 20825 impressions, 409 requêtes) + les pages canoniques de seo-clusters.json. Champs : cluster = page propriétaire ; priorite 1 (cœur business) à 3 (observation) ; llm = true si la requête est aussi sondée côté ChatGPT/Perplexity/Gemini ; gsc90 = {imp, pos} au moment de la création (référence baseline, ne pas mettre à jour à la main).",
-  "version": 1,
+  "_doc": "Panel de requêtes cibles de l'agent Marcus (blueprint §4). DEUX SECTIONS : `requetes` = le CŒUR FIXE (priorités 1-2), le mètre étalon de la progression — modifié uniquement par décision humaine ; `decouvertes` = la COUCHE DYNAMIQUE (priorité 3), gérée PAR L'AGENT : à chaque run, toute requête GSC ≥ 50 impressions/28j absente du panel y entre automatiquement (plafond 15, commit traçable) ; une découverte à 0 impression sur 2 runs consécutifs ressort. La PROMOTION d'une découverte vers le cœur fixe est proposée dans le rapport et reste une décision humaine. Champs : cluster = page propriétaire (null = orpheline, candidat Croissance) ; llm = true si sondée côté ChatGPT/Perplexity/Gemini ; gsc90 = baseline figée à la création, ne jamais réécrire.",
+  "version": 2,
   "cree_le": "2026-08-31",
   "requetes": [
     {
@@ -203,7 +203,9 @@
         "pos": 7
       },
       "note": "meilleure requête du site en clics (11) — niche gagnée par accident, à consolider"
-    },
+    }
+  ],
+  "decouvertes": [
     {
       "q": "salle de réunion yvelines",
       "cluster": null,
@@ -212,27 +214,31 @@
         "imp": 205,
         "pos": 39
       },
-      "note": "intent sans page dédiée — candidat module Croissance"
+      "note": "intent sans page dédiée — candidat module Croissance",
+      "ajoute_par": "humain-31/08/2026"
     },
     {
       "q": "lieu séminaire atypique île de france",
       "cluster": null,
       "priorite": 3,
       "llm": true,
-      "note": "candidat Croissance"
+      "note": "candidat Croissance",
+      "ajoute_par": "humain-31/08/2026"
     },
     {
       "q": "meilleur lieu séminaire île de france",
       "cluster": null,
       "priorite": 3,
       "llm": true,
-      "note": "requête conversationnelle — sonde LLM uniquement"
+      "note": "requête conversationnelle — sonde LLM uniquement",
+      "ajoute_par": "humain-31/08/2026"
     },
     {
       "q": "chateauform",
       "cluster": null,
       "priorite": 3,
-      "note": "marque concurrente — observation SERP/LLM uniquement, ne JAMAIS cibler éditorialement"
+      "note": "marque concurrente — observation SERP/LLM uniquement, ne JAMAIS cibler éditorialement",
+      "ajoute_par": "humain-31/08/2026"
     }
   ]
 }

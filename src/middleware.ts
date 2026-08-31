@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import type { NextFetchEvent, NextRequest } from 'next/server';
 
 // Simple rate limiting (en mémoire - pour production utiliser Redis ou Vercel KV)
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
@@ -34,8 +34,47 @@ function checkRateLimit(key: string): boolean {
   return true;
 }
 
-export function middleware(request: NextRequest) {
+
+// ── Capteur C9 de l'agent Marcus : hits des robots (blueprint §4) ──────────
+// Chaque passage de Googlebot/Bingbot/bots IA est loggé dans Supabase
+// (table bot_hits, policy RLS insert-only pour la clé anon — aucune lecture
+// possible depuis le client). event.waitUntil = zéro latence ajoutée à la
+// réponse. Les user-agents sont déclaratifs (pas de reverse DNS en Edge) :
+// suffisant pour observer le crawl, à recouper avant toute conclusion forte.
+const BOTS: [string, RegExp][] = [
+  ['googlebot', /googlebot/i],
+  ['bingbot', /bingbot/i],
+  ['gptbot', /gptbot/i],
+  ['oai-searchbot', /oai-searchbot/i],
+  ['chatgpt-user', /chatgpt-user/i],
+  ['perplexity', /perplexity/i],
+  ['claudebot', /claudebot|claude-web/i],
+  ['google-extended', /google-extended/i],
+  ['ccbot', /ccbot/i],
+  ['meta', /meta-externalagent/i],
+  ['applebot', /applebot/i],
+];
+
+function logBotHit(request: NextRequest, event: NextFetchEvent): void {
+  const ua = request.headers.get('user-agent') || '';
+  const bot = BOTS.find(([, re]) => re.test(ua))?.[0];
+  if (!bot) return;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) return;
+  event.waitUntil(
+    fetch(`${url}/rest/v1/bot_hits`, {
+      method: 'POST',
+      headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', Prefer: 'return=minimal' },
+      body: JSON.stringify({ bot, path: request.nextUrl.pathname }),
+    }).catch(() => {}) // best-effort : ne jamais impacter la réponse
+  );
+}
+
+export function middleware(request: NextRequest, event: NextFetchEvent) {
   const { pathname } = request.nextUrl;
+
+  logBotHit(request, event);
 
   // Rate limiting uniquement sur les routes API (pas les pages statiques)
   if (pathname.startsWith('/api')) {
