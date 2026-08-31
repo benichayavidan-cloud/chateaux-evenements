@@ -1,0 +1,9 @@
+{
+  "name": "agent-marcus",
+  "private": true,
+  "type": "module",
+  "description": "Agent pilote SEO/GEO — voir documentation_systeme/agent-seo-geo-blueprint.md",
+  "dependencies": {
+    "nodemailer": "^7.0.12"
+  }
+}
