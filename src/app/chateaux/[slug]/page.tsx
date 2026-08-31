@@ -16,6 +16,16 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+/**
+ * Même correctif que /blog/[slug] : sans generateStaticParams, un slug
+ * inconnu répondait HTTP 200 (shell flushé avant notFound) au lieu de 404.
+ */
+export function generateStaticParams() {
+  return chateauxData.map((chateau) => ({ slug: chateau.slug }));
+}
+
+export const dynamicParams = false;
+
 export default async function ChateauPage({ params }: Props) {
   const { slug } = await params;
   const chateau = chateauxData.find(c => c.slug === slug);

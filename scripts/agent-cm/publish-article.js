@@ -83,6 +83,41 @@ function formatArticleTS(article) {
   return ts;
 }
 
+/**
+ * Un slug DOIT être ASCII strict : [a-z0-9-].
+ *
+ * En août 2026, deux articles ont été publiés avec un « é » dans le slug
+ * (fidélisation, fidéliser). Le sitemap déclarait l'URL accentuée, mais la
+ * comparaison `post.slug === slug` échouait au rendu : les deux pages
+ * répondaient « Article introuvable » et la Search Console les a classées
+ * en « exclue par la balise noindex ». Deux articles perdus, et un soft 404
+ * déclaré au sitemap — mauvais signal de qualité pour tout /blog.
+ *
+ * Le modèle produit le slug lui-même ; rien ne validait son format. On
+ * translittère et on refuse plutôt que de corriger en silence : un slug
+ * réécrit sans que l'agent le sache désynchroniserait le nom du fichier
+ * image, les liens internes de l'article et le maillage des articles voisins.
+ */
+function assertSlugValide(slug) {
+  if (typeof slug !== 'string' || !slug) {
+    throw new Error('slug manquant ou non textuel');
+  }
+  if (!/^[a-z0-9-]+$/.test(slug)) {
+    const propre = slug
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')   // accents
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    throw new Error(
+      `Slug invalide : "${slug}"\n` +
+      `Un slug ne doit contenir que [a-z0-9-] — ni accent, ni majuscule, ni espace.\n` +
+      `Proposition : "${propre}"\n` +
+      `Republie l'article avec ce slug (et le nom de fichier image assorti).`
+    );
+  }
+}
+
 function publishArticle(article, opts = {}) {
   ensureCamilleFile();
   const content = fs.readFileSync(ARTICLES_PATH, 'utf-8');
@@ -92,6 +127,10 @@ function publishArticle(article, opts = {}) {
   for (const f of required) {
     if (!(f in article)) throw new Error(`Missing required field: ${f}`);
   }
+
+  // Format du slug — avant toute autre vérification : un slug non-ASCII
+  // produit une URL que le rendu ne sait pas résoudre (voir assertSlugValide).
+  assertSlugValide(article.slug);
   // Doublon exact de slug — vérifié sur les 4 fichiers de données (pas
   // seulement blog-posts-camille.ts) : deux BlogPost avec le même slug dans
   // des fichiers différents rendraient le routing non-déterministe.
