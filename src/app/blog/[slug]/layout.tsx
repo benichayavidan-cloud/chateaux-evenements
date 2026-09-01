@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getBlogPostBySlug, type FaqItem } from "@/data/blog-posts";
-import { metaDescription } from "@/lib/seo";
+import { metaDescription, pageTitle } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonicalUrl = `https://www.selectchateaux.com/blog/${article.slug}`;
 
   return {
-    title: `${article.title} | Select Châteaux`,
+    // Borné à 60 caractères : Google tronque au-delà, et le H1 garde le titre
+    // complet (voir lib/seo.pageTitle).
+    title: pageTitle(article.title),
     description: metaDescription(article.excerpt),
     robots: {
       index: true,
