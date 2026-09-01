@@ -8,18 +8,28 @@
       ⚠️ Lire les citations LLM avec la NOUVELLE sonde : le taux est rapporté aux
       réponses où le moteur a réellement cherché. Un ⚪ (sans recherche) n'est pas
       un échec de visibilité.
-- [ ] **~15/10 : REMESURER** la corrélation structure ↔ captation IA. Elle n'a
-      jamais porté sur un corpus dont le gabarit fonctionne (leçon `marcus_lecons` id 3)
+- [ ] **~15/10 : REMESURER** la corrélation structure ↔ captation IA :
+      `node scripts/agent-seo/remesure-captation.mjs <export-gsc-pages.csv>`
+      (script prêt, baseline du 01/09 inscrite dedans — leçon `marcus_lecons` id 3)
 - [ ] **Réactiver Camille** après le verdict : `agent_controls.camille.enabled = true`
       (en pause depuis le 01/09 — gabarit désormais corrigé : stats réelles, h3, source externe)
 - [ ] Valider les buckets GSC « explorée/détectée » vers mi-septembre
 
 ### Code / données
-- [ ] **Cannibalisation** : sur « séminaire chantilly » et « séminaire yvelines »,
-      Google classe un article de blog plutôt que la landing commerciale dédiée.
-      Traitable par le maillage, sans intervention humaine externe.
-- [ ] 34 fiches lieux encore sous 900 mots : le levier est la description, côté CRM
-- [ ] Phase 2 Marcus : title-ab (369 titles > 70 car., médiane 83)
+- [x] ~~Cannibalisation blog/landing~~ — **fait le 01/09** (PR #24). Les articles de
+      zone renvoient vers la page canonique de leur cluster (18 articles, 4 landings),
+      via `data/seo-clusters.ts` qui consomme le registre de l'agent.
+- [x] ~~Titres tronqués~~ — **fait le 01/09** (PR #24). `lib/seo.pageTitle()` borne la
+      balise à 60 caractères sans toucher au H1 : médiane 82 → 50, plus aucun tronqué.
+      Rend caduque l'action « title-ab » de la phase 2 Marcus sous sa forme prévue.
+- [x] ~~Consignes de rédaction non vérifiées~~ — **fait le 01/09** (PR #24).
+      `assertStructureH3` et `assertSourceExterne` ajoutés au flux de publication.
+- [x] ~~Remesure d'octobre~~ — **outillée** : `scripts/agent-seo/remesure-captation.mjs`
+      rejoue le protocole du 01/09, baseline inscrite. Une commande à lancer.
+- [ ] **34 fiches lieux sous 900 mots** — VÉRIFIÉ le 01/09 : il n'y a plus rien à
+      afficher (66 fiches sur 68 sans salle décrite, 65 sans service, 49 sans atout).
+      Le seul levier est la description, côté CRM. Suppose un accès en ÉCRITURE à la
+      base de production + une validation qualité → décision à prendre, pas un oubli.
 - [ ] Hubs de catégorie blog (125 articles à 1 lien entrant) — via Marcus niveau 2
 - [ ] `gcloud auth login` (compte `seminaires@selectchateaux.com`) — sans ça
       `SCRIPTS/gsc/gsc.js` est inutilisable, la session est expirée
