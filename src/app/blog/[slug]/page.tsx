@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Clock, ArrowRight, Castle, MapPin, Users2, Sparkles } from "lucide-react";
 import { blogPosts, getBlogPostBySlug, getSmartRelatedPosts, BlogCategory } from "@/data/blog-posts";
 import { FaqSection } from "@/components/lieux";
+import { prepareArticleHtml } from "@/components/blog/article-html";
 import { getVisibleFaq } from "@/lib/blog-faq";
 import { ArticleClientLogic } from "./ArticleClientLogic";
 
@@ -80,10 +81,15 @@ export default async function BlogArticlePage({ params }: Props) {
   // FAQ visible : le champ `faq` n'alimentait que le JSON-LD (voir lib/blog-faq).
   const faqItems = getVisibleFaq(article);
 
+  // Corps assaini, maillé et ANCRÉ au build : le HTML servi porte les id des
+  // titres et le sommaire, que les crawlers d'IA ne pouvaient pas voir tant
+  // qu'ils étaient posés par un effet client (voir components/blog/article-html).
+  const { html, toc } = prepareArticleHtml(article.content, article.slug);
+
   return (
     <div className="brakt-blog min-h-screen bg-white w-full">
       {/* Composant Client pour la logique interactive */}
-      <ArticleClientLogic article={article}>
+      <ArticleClientLogic article={article} html={html} toc={toc}>
         {/* FAQ (Server-rendered) — même contenu que le FAQPage du layout */}
         <FaqSection items={faqItems} />
 
