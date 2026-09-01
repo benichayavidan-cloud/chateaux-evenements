@@ -5,6 +5,7 @@
 
 import type { Chateau } from "@/types";
 import type { GeoLandingPage } from "@/data/geo-landing-pages";
+import { reviewsStats } from "@/data/reviewsData";
 
 const BASE_URL = "https://www.selectchateaux.com";
 
@@ -92,13 +93,9 @@ export function generatePlaceSchema(chateau: Chateau) {
       addressCountry: "FR",
     },
     maximumAttendeeCapacity: chateau.capacite.max,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "12",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    // Pas d'aggregateRating par château : les avis collectés portent sur
+    // Select Châteaux, pas sur chaque domaine. La note vit une seule fois,
+    // sur le LocalBusiness — voir generateAggregateRating plus bas.
     amenityFeature: chateau.atouts.map((atout) => ({
       "@type": "LocationFeatureSpecification",
       name: atout,
@@ -217,9 +214,27 @@ export function generateBreadcrumbSchema(
 }
 
 /**
- * Schema AggregateRating - Basé sur les vraies données des avis Google
- * Utilise les données réelles de reviewsData plutôt que du hardcodé
+ * Schema AggregateRating — calculé sur les avis réels, jamais écrit à la main.
+ *
+ * Jusqu'au 01/09/2026 une note de 4,8 sur 12 avis était codée en dur et
+ * répliquée : une fiche château en émettait cinq, dont quatre concernant
+ * d'autres domaines. Les avis réels donnent une autre valeur, et ils sont
+ * affichés à l'écran (ReviewsSection) — condition posée par Google pour
+ * baliser une note.
+ *
+ * reviewsData est la source unique : la note suit les avis, sans intervention.
  */
+export function generateAggregateRating() {
+  if (reviewsStats.total === 0) return undefined;
+  return {
+    "@type": "AggregateRating",
+    ratingValue: reviewsStats.averageRating,
+    reviewCount: String(reviewsStats.total),
+    bestRating: "5",
+    worstRating: "1",
+  };
+}
+
 /**
  * Schema LocalBusiness - SEO local (Google Maps, résultats locaux)
  * Couvre l'Île-de-France et les départements clés
@@ -305,6 +320,7 @@ export function generateLocalBusinessSchema() {
       closes: "18:00",
     },
     priceRange: "$$$$",
+    aggregateRating: generateAggregateRating(),
     sameAs: [
       "https://www.linkedin.com/company/select-chateaux/about/",
       "https://www.google.com/maps?cid=13719107096971699386",

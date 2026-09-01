@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { BlogPost } from "@/data/blog-posts";
 import { MarkdownRenderer } from "@/components/blog/MarkdownRenderer";
+import type { TocItem } from "@/components/blog/article-html";
 import { ArticleHero } from "@/components/blog/ArticleHero";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { ArticleSidebar } from "@/components/blog/ArticleSidebar";
@@ -10,33 +11,23 @@ import { useScrollProgress } from "@/hooks/useInView";
 
 interface ArticleClientLogicProps {
   article: BlogPost;
+  /** Corps de l'article, préparé et ancré au build. */
+  html: string;
+  /** Sommaire calculé au build — plus de useEffect, le HTML servi est complet. */
+  toc: TocItem[];
   children?: React.ReactNode;
 }
 
-export function ArticleClientLogic({ article, children }: ArticleClientLogicProps) {
+export function ArticleClientLogic({ article, html, toc, children }: ArticleClientLogicProps) {
   const [readingProgress, setReadingProgress] = useState(0);
   const [activeSection, setActiveSection] = useState("");
-  const [tableOfContents, setTableOfContents] = useState<{ id: string; title: string; level: number }[]>([]);
 
   const articleRef = useRef<HTMLElement>(null);
+  // Le suivi de lecture ne doit voir que les titres du CORPS : le bloc
+  // « Mots-clés » porte un h3 qui produirait une section fantôme, absente du
+  // sommaire construit au build à partir du seul contenu de l'article.
+  const contenuRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useScrollProgress();
-
-  // Extraire Table of Contents depuis le contenu HTML
-  useEffect(() => {
-    if (articleRef.current) {
-      const headings = articleRef.current.querySelectorAll("h2, h3");
-      const toc = Array.from(headings).map((heading, index) => {
-        const id = `section-${index}`;
-        heading.id = id;
-        return {
-          id,
-          title: heading.textContent || "",
-          level: parseInt(heading.tagName.substring(1))
-        };
-      });
-      setTableOfContents(toc);
-    }
-  }, [article.content]);
 
   // Calcul du reading progress avec throttle pour performances
   useEffect(() => {
@@ -62,7 +53,7 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
           setReadingProgress(progress);
 
           // Détection de la section active
-          const sections = articleRef.current.querySelectorAll("h2, h3");
+          const sections = (contenuRef.current ?? articleRef.current).querySelectorAll("h2, h3");
           for (let i = sections.length - 1; i >= 0; i--) {
             const section = sections[i] as HTMLElement;
             if (section.offsetTop <= scrollTop + 200) {
@@ -101,7 +92,7 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(250px,280px)_1fr_minmax(280px,320px)] xl:grid-cols-[300px_1fr_320px] gap-6 sm:gap-8 xl:gap-12 max-w-fit mx-auto" style={{ padding: '12px 0' }}>
             {/* Sticky Table of Contents (Left) - Hidden on mobile */}
             <div className="hidden lg:block">
-              <TableOfContents items={tableOfContents} activeSection={activeSection} />
+              <TableOfContents items={toc} activeSection={activeSection} />
             </div>
 
             {/* Article Content (Center) */}
@@ -113,7 +104,9 @@ export function ArticleClientLogic({ article, children }: ArticleClientLogicProp
                 </p>
 
                 {/* Content */}
-                <MarkdownRenderer content={article.content} className="prose-lg" currentSlug={article.slug} />
+                <div ref={contenuRef}>
+                  <MarkdownRenderer html={html} className="prose-lg" />
+                </div>
 
                 {/* Keywords */}
                 <div className="mt-10 sm:mt-12 md:mt-16 pt-4 sm:pt-6 border-t border-gray-200">

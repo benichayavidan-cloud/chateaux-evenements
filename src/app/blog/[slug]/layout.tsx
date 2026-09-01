@@ -39,6 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "Select Châteaux",
       locale: "fr_FR",
       publishedTime: article.publishedAt,
+      // Le JSON-LD porte déjà dateModified : sans ce champ, l'OpenGraph
+      // annonçait une date de publication sans jamais signaler de mise à jour.
+      modifiedTime: article.updatedAt ?? article.publishedAt,
       authors: [article.author.name],
       images: [
         {

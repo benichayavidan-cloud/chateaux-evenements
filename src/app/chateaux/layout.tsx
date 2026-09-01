@@ -43,14 +43,7 @@ export default function ChateauxLayout({
               "value": true
             }
           ],
-          "url": "https://www.selectchateaux.com/chateaux/manoir-anglo-normand-chantilly",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "12",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
+          "url": "https://www.selectchateaux.com/chateaux/manoir-anglo-normand-chantilly"
         }
       },
       {
@@ -84,14 +77,7 @@ export default function ChateauxLayout({
               "value": true
             }
           ],
-          "url": "https://www.selectchateaux.com/chateaux/hotel-historique-seminaire-paris-92",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "12",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
+          "url": "https://www.selectchateaux.com/chateaux/hotel-historique-seminaire-paris-92"
         }
       },
       {
@@ -125,14 +111,7 @@ export default function ChateauxLayout({
               "value": true
             }
           ],
-          "url": "https://www.selectchateaux.com/chateaux/abbaye-millenaire-vallee-chevreuse",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "12",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
+          "url": "https://www.selectchateaux.com/chateaux/abbaye-millenaire-vallee-chevreuse"
         }
       },
       {
@@ -171,14 +150,7 @@ export default function ChateauxLayout({
               "value": true
             }
           ],
-          "url": "https://www.selectchateaux.com/chateaux/palais-royal-foret-chantilly",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "12",
-            "bestRating": "5",
-            "worstRating": "1"
-          }
+          "url": "https://www.selectchateaux.com/chateaux/palais-royal-foret-chantilly"
         }
       }
     ]

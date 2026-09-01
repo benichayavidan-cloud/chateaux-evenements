@@ -17,6 +17,8 @@ import { Section, Container } from "@/components/layout-v2";
 import { theme } from "@/design-system/tokens";
 import DevisFormMini from "@/components/DevisFormMini";
 import type { Venue } from "@/data/venues";
+import { FaqSection } from "@/components/lieux";
+import { buildVenueFaq } from "@/lib/venue-faq";
 
 const BRONZE = theme.colors.primary.bronze;
 const BRONZE_DARK = theme.colors.primary.bronzeDark;
@@ -110,6 +112,7 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
   reponse: string;
 }) {
   const contenu = parseDescription(v.description);
+  const faq = buildVenueFaq(v);
   const photos = v.photos.slice(0, 5);
   // La galerie ne s'affiche qu'à partir de 3 photos restantes : en dessous, elle
   // produit une image seule au milieu de la page, ce qui ressemble à un bug.
@@ -364,6 +367,9 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
           </div>
         </Container>
       </Section>
+
+      {/* ── Questions fréquentes — dérivées des données de la fiche ── */}
+      <FaqSection items={faq} background="white" />
 
       {/* ── Demande de devis — pleine largeur, comme sur les fiches château ── */}
       <Section spacing="md" background="gray">

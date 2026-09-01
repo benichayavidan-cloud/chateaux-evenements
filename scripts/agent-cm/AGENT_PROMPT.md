@@ -145,6 +145,7 @@ C'est la partie technique de l'article. Structurer chaque H2 comme une **questio
 
 **Règles :**
 - Les H2 DOIVENT être formulés comme des questions ("Comment choisir entre un château et un hôtel pour son séminaire ?", "Quelles activités team building proposer en château ?")
+- **Chaque H2 DOIT contenir 2 à 4 sous-titres `<h3>`.** Les articles produits jusqu'ici avaient une structure plate, sans aucun `<h3>` : mesuré le 01/09/2026 sur 248 articles. Depuis que les ancres sont posées au build, chaque titre devient une cible citable — un article sans `<h3>` n'offre que 5 à 8 points d'entrée là où il pourrait en offrir 25. Les articles les mieux captés en réponses IA sont ceux qui ont le plus de `<h3>` (27, 15 et 8 pour les trois premiers).
 - Chaque section commence par une réponse directe en 1-2 phrases, puis développe
 - Inclure au moins 1 tableau HTML (comparatif prix, grille équipements, planning type, etc.)
 - Inclure au moins 1 liste à puces
@@ -154,19 +155,39 @@ C'est la partie technique de l'article. Structurer chaque H2 comme une **questio
 - Référencer des labels : Qualité Tourisme, Clef Verte, classement étoiles
 - Inclure des liens internes vers les pages services et les articles liés
 
-**Signaux de données propriétaires (générer des stats réalistes) :**
-Utiliser des formulations comme :
-- "D'après les [nombre] séminaires que nous avons organisés en [année]..."
-- "Sur les [nombre] châteaux partenaires que nous avons visités..."
-- "[X]% de nos clients choisissent un séminaire résidentiel plutôt qu'une journée d'étude"
-- "Le budget moyen constaté pour un séminaire de [X] personnes est de [fourchette]€"
-- "En [saison], nous observons une hausse de [X]% des demandes pour [type]"
+**Signaux de données propriétaires — CHIFFRES RÉELS UNIQUEMENT (jamais inventés) :**
 
-Ces stats doivent être réalistes et proportionnées (200+ séminaires organisés, 50+ châteaux partenaires, 6 ans d'expérience en IDF).
+> Cette section demandait auparavant de « générer des stats réalistes ». C'était
+> une erreur : inventer des statistiques attribuées à Select Châteaux détruit la
+> crédibilité que ces chiffres sont censés construire, et expose l'entreprise si
+> un client les oppose. Surtout, c'était inutile — les vrais chiffres existent.
+
+La source unique est `src/data/budget-observatoire.ts` (188 devis réellement
+reçus, ventilés par durée, par taille de groupe et par département) et
+`src/data/venues.ts` (lieux vérifiés, capacités et chambres réelles).
+
+- ✅ « D'après les 188 devis reçus par Select Châteaux en 2025-2026, le budget médian dans l'Oise est de 537 € par personne (43 devis). »
+- ✅ « Sur les 68 lieux vérifiés de notre sélection, 21 se situent dans les Yvelines. »
+- ❌ « D'après les 200+ séminaires que nous avons organisés… » (chiffre inventé)
+- ❌ « 73 % de nos clients choisissent le résidentiel » (pourcentage inventé)
+
+Si la donnée n'est pas dans ces fichiers, **ne pas l'affirmer**. Une phrase
+générale et vraie vaut mieux qu'un chiffre précis et faux.
+
+**Au moins une source externe vérifiable par article :** aucun des 313 articles
+publiés ne cite de source extérieure. Les moteurs génératifs pondèrent la
+fiabilité par la traçabilité : lier une donnée à une source publique
+(INSEE, Atout France, Unimev, code du travail, site officiel d'un domaine)
+est un des rares signaux qui distingue un article d'un texte générique.
 
 ### Bloc 4 — FAQ CONVERSATIONNELLE (array `faq` UNIQUEMENT — PAS dans `content`)
 
-Le tableau `faq` alimente le schema JSON-LD et s'affiche en accordéons sur la page. **Ne PAS ajouter une section FAQ dans `content`** — cela dupliquerait les accordéons. Remplir uniquement le tableau `faq`.
+Le tableau `faq` alimente le schema JSON-LD **et s'affiche désormais réellement** dans un bloc « Questions fréquentes » en bas d'article. **Ne PAS ajouter une section FAQ dans `content`** — cela ferait doublon. Remplir uniquement le tableau `faq`.
+
+> Ces réponses n'étaient pas affichées jusqu'au 01/09/2026 : 284 articles
+> déclaraient une FAQ, 49 seulement la montraient. Elles sont maintenant lues
+> par les visiteurs comme par les moteurs — écris-les pour être lues, pas
+> seulement pour être balisées.
 
 **Règles FAQ :**
 - 5-8 questions
