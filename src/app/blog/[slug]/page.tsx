@@ -6,6 +6,7 @@ import { blogPosts, getBlogPostBySlug, getSmartRelatedPosts, BlogCategory } from
 import { FaqSection } from "@/components/lieux";
 import { prepareArticleHtml } from "@/components/blog/article-html";
 import { getVisibleFaq } from "@/lib/blog-faq";
+import { clusterDeLArticle } from "@/data/seo-clusters";
 import { ArticleClientLogic } from "./ArticleClientLogic";
 
 type Props = {
@@ -86,10 +87,14 @@ export default async function BlogArticlePage({ params }: Props) {
   // qu'ils étaient posés par un effet client (voir components/blog/article-html).
   const { html, toc } = prepareArticleHtml(article.content, article.slug);
 
+  // Article de zone = satellite : il renvoie vers la landing de son cluster
+  // plutôt que de la concurrencer (voir data/seo-clusters).
+  const cluster = clusterDeLArticle(article.slug, article.title);
+
   return (
     <div className="brakt-blog min-h-screen bg-white w-full">
       {/* Composant Client pour la logique interactive */}
-      <ArticleClientLogic article={article} html={html} toc={toc}>
+      <ArticleClientLogic article={article} html={html} toc={toc} cluster={cluster}>
         {/* FAQ (Server-rendered) — même contenu que le FAQPage du layout */}
         <FaqSection items={faqItems} />
 

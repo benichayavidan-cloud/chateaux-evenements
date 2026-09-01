@@ -4,6 +4,8 @@ import { useEffect, useState, useRef } from "react";
 import { BlogPost } from "@/data/blog-posts";
 import { MarkdownRenderer } from "@/components/blog/MarkdownRenderer";
 import type { TocItem } from "@/components/blog/article-html";
+import type { SeoCluster } from "@/data/seo-clusters";
+import { PageDeReference } from "@/components/blog/PageDeReference";
 import { ArticleHero } from "@/components/blog/ArticleHero";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { ArticleSidebar } from "@/components/blog/ArticleSidebar";
@@ -15,10 +17,12 @@ interface ArticleClientLogicProps {
   html: string;
   /** Sommaire calculé au build — plus de useEffect, le HTML servi est complet. */
   toc: TocItem[];
+  /** Cluster de zone de l'article, s'il en a un : renvoi vers la page de référence. */
+  cluster: SeoCluster | null;
   children?: React.ReactNode;
 }
 
-export function ArticleClientLogic({ article, html, toc, children }: ArticleClientLogicProps) {
+export function ArticleClientLogic({ article, html, toc, cluster, children }: ArticleClientLogicProps) {
   const [readingProgress, setReadingProgress] = useState(0);
   const [activeSection, setActiveSection] = useState("");
 
@@ -102,6 +106,9 @@ export function ArticleClientLogic({ article, html, toc, children }: ArticleClie
                 <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed pb-4 sm:pb-6 border-b-2 border-gray-100 mb-4 sm:mb-6">
                   {article.excerpt}
                 </p>
+
+                {/* Renvoi vers la page de référence de la zone */}
+                {cluster && <PageDeReference cluster={cluster} />}
 
                 {/* Content */}
                 <div ref={contenuRef}>
