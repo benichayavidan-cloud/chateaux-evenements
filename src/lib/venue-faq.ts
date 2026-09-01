@@ -13,6 +13,7 @@
  */
 
 import type { Venue } from "@/data/venues";
+import { OBSERVATOIRE } from "@/data/budget-observatoire";
 
 export interface VenueFaqItem {
   question: string;
@@ -107,7 +108,20 @@ export function buildVenueFaq(v: Venue): VenueFaqItem[] {
     });
   }
 
-  // 7. Devis — la seule question transactionnelle, réponse identique partout
+  // 7. Budget — repère chiffré tiré de l'observatoire des devis réellement
+  //    reçus, déjà publié sur /budget-seminaire-entreprise. C'est la donnée
+  //    que Select Châteaux est seul à détenir, donc la plus citable : une
+  //    médiane départementale ne se trouve nulle part ailleurs. Formulée comme
+  //    un ordre de grandeur de zone, jamais comme le tarif de ce lieu.
+  const budgetZone = OBSERVATOIRE.parDepartement.find(d => d.code === v.departementCode);
+  if (budgetZone) {
+    items.push({
+      question: `Quel budget prévoir pour un séminaire ${v.departement ? `dans ce département (${v.departementCode})` : "dans cette zone"} ?`,
+      reponse: `D'après les ${OBSERVATOIRE.nbDevis} devis reçus par Select Châteaux sur ${OBSERVATOIRE.periode}, le budget médian constaté en ${budgetZone.nom} est de ${budgetZone.mediane} € par personne (${budgetZone.n} devis). À titre de repère national sur la même période : ${OBSERVATOIRE.parDuree.map(d => `${d.libelle.toLowerCase()} autour de ${d.mediane} €`).join(", ")}. Le prix de ${lieu} dépend de vos dates, de vos effectifs et des prestations retenues.`,
+    });
+  }
+
+  // 8. Devis — la seule question transactionnelle, réponse identique partout
   //    parce que l'engagement commercial l'est aussi.
   items.push({
     question: `Comment obtenir un devis pour ${lieu} ?`,
