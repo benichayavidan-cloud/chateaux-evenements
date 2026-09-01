@@ -32,6 +32,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // recrawle alors ces pages à sa convenance, pas après une réécriture de title.
   const staticPagesUpdated = new Date('2026-08-30')
 
+  // Date du dernier changement du GABARIT d'article et de fiche lieu.
+  //
+  // À distinguer de `dateModified` (JSON-LD) : celui-ci annonce une révision
+  // ÉDITORIALE du texte, et n'a pas bougé — les articles n'ont pas été
+  // réécrits. `lastModified` répond à une autre question : « le document servi
+  // a-t-il changé ? ». Le 01/09/2026, oui, et massivement : la FAQ de chaque
+  // article est devenue visible (+448 mots en moyenne) et les titres ont reçu
+  // leurs ancres. Sans ce signal, Google recrawlerait à son rythme habituel et
+  // ne verrait le changement que dans plusieurs semaines.
+  //
+  // Comme staticPagesUpdated : une date figée, à remonter lors d'un prochain
+  // changement de gabarit. Jamais new Date().
+  const gabaritModifie = new Date('2026-09-01')
+
+  /** Le plus récent des deux : la révision éditoriale ou le changement de gabarit. */
+  const laPlusRecente = (a: Date, b: Date) => (a > b ? a : b)
+
   // 1. Pages statiques principales
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -113,7 +130,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt ?? post.publishedAt),
+    lastModified: laPlusRecente(new Date(post.updatedAt ?? post.publishedAt), gabaritModifie),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
@@ -127,7 +144,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // 6. Fiches lieux (générées depuis le CRM) + leur index
-  const venuesUpdated = new Date(GENERATED_AT)
+  // Les fiches lieux ont reçu leur bloc de questions le 01/09 : même raisonnement
+  // que pour les articles, le document servi a changé après sa génération.
+  const venuesUpdated = laPlusRecente(new Date(GENERATED_AT), gabaritModifie)
   const lieuxListingPage: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/lieux`,
