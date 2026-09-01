@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Clock, ArrowRight, Castle, MapPin, Users2, Sparkles } from "lucide-react";
 import { blogPosts, getBlogPostBySlug, getSmartRelatedPosts, BlogCategory } from "@/data/blog-posts";
+import { FaqSection } from "@/components/lieux";
+import { getVisibleFaq } from "@/lib/blog-faq";
 import { ArticleClientLogic } from "./ArticleClientLogic";
 
 type Props = {
@@ -75,10 +77,16 @@ export default async function BlogArticlePage({ params }: Props) {
   // Articles similaires avec Topic Clustering (calculés côté serveur)
   const relatedPosts = getSmartRelatedPosts(article, 3);
 
+  // FAQ visible : le champ `faq` n'alimentait que le JSON-LD (voir lib/blog-faq).
+  const faqItems = getVisibleFaq(article);
+
   return (
     <div className="brakt-blog min-h-screen bg-white w-full">
       {/* Composant Client pour la logique interactive */}
       <ArticleClientLogic article={article}>
+        {/* FAQ (Server-rendered) — même contenu que le FAQPage du layout */}
+        <FaqSection items={faqItems} />
+
         {/* Related Articles (Server-rendered) */}
         {relatedPosts.length > 0 && (
           <section className="w-full bg-gradient-to-b from-gray-50 to-white flex justify-center" style={{ padding: '12px 0' }}>
