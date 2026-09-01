@@ -119,6 +119,58 @@ function assertLongueurSuffisante(article) {
 }
 
 /**
+ * STRUCTURE — au moins MIN_H3 sous-titres de niveau 3.
+ *
+ * Les 248 articles produits jusqu'au 01/09/2026 avaient une structure PLATE :
+ * zéro <h3>, mesuré sur l'ensemble du corpus. Depuis que les ancres sont posées
+ * au build, chaque titre est une cible citable par un moteur de réponse — un
+ * article sans <h3> n'offre que 5 à 8 points d'entrée là où il pourrait en
+ * offrir 25. Les trois articles les mieux captés en réponses IA sont d'ailleurs
+ * ceux qui ont le plus de <h3> (27, 15 et 8).
+ *
+ * Le prompt l'exige depuis le 01/09 ; ce garde-fou le VÉRIFIE. Une consigne que
+ * rien ne contrôle finit par ne plus être suivie — c'est précisément ce qui
+ * était arrivé à la FAQ, décrite comme « affichée en accordéons » alors qu'elle
+ * ne s'affichait nulle part.
+ */
+const MIN_H3 = 6;
+
+function assertStructureH3(article) {
+  const h3 = (String(article.content || '').match(/<h3[\s>]/gi) || []).length;
+  if (h3 < MIN_H3) {
+    throw new Error(
+      `Structure trop plate : ${h3} sous-titre(s) <h3> (minimum ${MIN_H3}).\n` +
+      `Chaque H2 doit porter 2 à 4 <h3>. Depuis que les ancres sont posées au ` +
+      `build, un <h3> = une section citable par les moteurs de réponse.`
+    );
+  }
+}
+
+/**
+ * SOURCE EXTERNE — au moins un lien sortant vérifiable.
+ *
+ * Aucun des 313 articles du site n'en citait au 01/09/2026. Les moteurs
+ * génératifs pondèrent la fiabilité par la traçabilité : une donnée rattachée à
+ * une source publique (INSEE, Atout France, Unimev, code du travail, site
+ * officiel d'un domaine) est l'un des rares signaux qui distingue un article
+ * d'un texte générique.
+ *
+ * Les liens vers selectchateaux.com ne comptent pas : ce sont des liens internes.
+ */
+function assertSourceExterne(article) {
+  const liens = String(article.content || '').match(/href="https?:\/\/[^"]+"/gi) || [];
+  const externes = liens.filter(l => !/selectchateaux\.com/i.test(l));
+  if (externes.length === 0) {
+    throw new Error(
+      `Aucune source externe citée.\n` +
+      `Ajouter au moins un lien vers une source publique vérifiable ` +
+      `(INSEE, Atout France, Unimev, site officiel d'un lieu…). ` +
+      `Les liens internes ne comptent pas.`
+    );
+  }
+}
+
+/**
  * Contrôle LEXICAL du slug — attrape la faute de frappe et l'anglicisme.
  *
  * Cas réel : `seminar-responsable-formation-chateau-guide-opco-2026` publié
@@ -243,6 +295,11 @@ function publishArticle(article, opts = {}) {
 
   // Longueur — un article trop court est refusé par Google (voir MIN_MOTS).
   assertLongueurSuffisante(article);
+
+  // Structure et traçabilité — exigées par le prompt depuis le 01/09/2026,
+  // vérifiées ici : une consigne que rien ne contrôle finit par être ignorée.
+  assertStructureH3(article);
+  assertSourceExterne(article);
 
   // Doublon exact de slug — vérifié sur les 4 fichiers de données (pas
   // seulement blog-posts-camille.ts) : deux BlogPost avec le même slug dans
