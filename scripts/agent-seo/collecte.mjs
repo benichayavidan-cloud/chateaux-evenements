@@ -223,7 +223,10 @@ const lignes = [
   Object.keys(serp).length ? `· SERP : ${top10.length}/${panel.requetes.length} requêtes du cœur en top 10` + (top10.length ? ` (${top10.map(([q]) => q).slice(0, 3).join(', ')}…)` : '') : null,
   snapshot.bots?.total != null ? `· Robots (4j) : ${snapshot.bots.total} passages, ${snapshot.bots.pages_distinctes} pages` : null,
   snapshot.backlinks ? `· Backlinks : ${snapshot.backlinks.backlinks} liens / ${snapshot.backlinks.domaines} domaines` : null,
-  snapshot.llm ? `· Citations LLM : ChatGPT ${snapshot.llm.synthese.chatgpt_cite}/${snapshot.llm.synthese.sondes} · Gemini ${snapshot.llm.synthese.gemini_cite}/${snapshot.llm.synthese.sondes}` : null,
+  // Rapporté aux réponses où le moteur a RÉELLEMENT cherché : une réponse de
+  // mémoire ne mesure pas notre visibilité (voir l'en-tête de sondes-llm.mjs).
+  snapshot.llm ? `· Citations LLM (sur réponses documentées) : ChatGPT ${snapshot.llm.synthese.chatgpt_cite}/${snapshot.llm.synthese.chatgpt_cherche} · Gemini ${snapshot.llm.synthese.gemini_cite}/${snapshot.llm.synthese.gemini_cherche}` : null,
+  snapshot.llm ? `  (sur ${snapshot.llm.synthese.sondes} prompts, ${snapshot.llm.synthese.sondes - snapshot.llm.synthese.gemini_cherche} sans recherche Gemini, ${snapshot.llm.synthese.sondes - snapshot.llm.synthese.chatgpt_cherche} sans recherche ChatGPT)` : null,
   ``,
   g?.decouvertes_candidates?.length ? `DÉCOUVERTES GSC (à valider pour le panel)\n${g.decouvertes_candidates.slice(0, 5).map((d) => `· « ${d.q} » — ${d.imp} imp, pos ${d.pos}`).join('\n')}` : null,
   incidents.length ? `\n⚠️ INCIDENTS\n${incidents.map((x) => '· ' + x).join('\n')}` : null,
