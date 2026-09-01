@@ -12,6 +12,7 @@ import { venues, getVenueBySlug, getVenuesByDepartment } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
 import { metaDescription } from "@/lib/seo";
 import { VenueView } from "./VenueView";
+import { buildVenueFaq } from "@/lib/venue-faq";
 
 export const dynamicParams = false;
 
@@ -91,6 +92,7 @@ export default async function LieuPage({ params }: Props) {
 
   const voisins = getVenuesByDepartment(v.departementCode).filter(x => x.slug !== v.slug).slice(0, 6);
   const url = `https://www.selectchateaux.com/lieux/${v.slug}`;
+  const faq = buildVenueFaq(v);
 
   const schema = {
     "@context": "https://schema.org",
@@ -125,6 +127,17 @@ export default async function LieuPage({ params }: Props) {
           { "@type": "ListItem", position: 2, name: "Lieux de séminaire", item: "https://www.selectchateaux.com/lieux" },
           { "@type": "ListItem", position: 3, name: v.nom, item: url },
         ],
+      },
+      // Même source que le bloc affiché par VenueView : ce qui est balisé est
+      // visible sur la page, comme l'exige Google.
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: faq.map(f => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.reponse },
+        })),
       },
     ],
   };
