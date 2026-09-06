@@ -18,6 +18,7 @@ import { theme } from "@/design-system/tokens";
 import DevisFormMini from "@/components/DevisFormMini";
 import type { Venue } from "@/data/venues";
 import { articlesPour } from "@/lib/maillage-blog";
+import { OBSERVATOIRE } from "@/data/budget-observatoire";
 
 export const BRONZE = theme.colors.primary.bronze;
 export const BRONZE_DARK = theme.colors.primary.bronzeDark;
@@ -254,6 +255,133 @@ export function FaqSection({ items, background = "gray" }: {
             </div>
           ))}
         </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* ──────────────── Observatoire des budgets — donnée propriétaire ─────────── */
+
+/**
+ * « dans les Yvelines », pas « en Yvelines ».
+ *
+ * Les noms de département français ne prennent pas tous la même préposition,
+ * et une phrase fautive dans le premier paragraphe d'une page est exactement le
+ * genre de détail qu'un moteur de réponse recopie.
+ */
+function avecPreposition(departement: string): string {
+  const PARTICULIERS: Record<string, string> = {
+    "Yvelines": "dans les Yvelines",
+    "Hauts-de-Seine": "dans les Hauts-de-Seine",
+    "Oise": "dans l'Oise",
+    "Val-d'Oise": "dans le Val-d'Oise",
+    "Val-de-Marne": "dans le Val-de-Marne",
+  };
+  return PARTICULIERS[departement] ?? `en ${departement}`;
+}
+
+/**
+ * Les chiffres de l'observatoire des 188 devis réels, posés sur la page.
+ *
+ * POURQUOI CE BLOC EXISTE. Sondes du 06/09/2026 : sur 11 prompts, les deux
+ * seules citations obtenues — Gemini sur « combien coûte un séminaire en
+ * château en Île-de-France », ChatGPT sur « alternative châteauform » —
+ * viennent des deux seules pages du site bâties sur une donnée que personne
+ * d'autre ne détient. Ni les plus longues ni les mieux structurées : les seules
+ * qui répondent avec un chiffre propriétaire.
+ *
+ * La leçon `marcus_lecons` id 3 dit la même chose par la négative : la facture
+ * éditoriale (longueur, H2, FAQ balisée, tableaux) ne prédit RIEN de la
+ * captation en réponses IA. Ce qui distingue, c'est la donnée.
+ *
+ * CE BLOC PLUTÔT QUE DE NOUVELLES PAGES. On aurait pu décliner l'observatoire
+ * en une douzaine de pages (par département, par durée, par taille de groupe).
+ * Ç'aurait été douze pages minces tirées des mêmes 188 devis — le motif exact
+ * de la cannibalisation qu'on corrige par ailleurs — et douze pages de plus à
+ * faire crawler alors que Googlebot lit 4 pages par jour sur ce site. Poser la
+ * donnée sur les pages qu'il visite déjà tous les 6 jours coûte zéro page.
+ *
+ * Toutes les valeurs viennent de `data/budget-observatoire.ts`, généré depuis
+ * le CRM. Aucun chiffre n'est écrit ici : si l'observatoire est régénéré, la
+ * page suit.
+ */
+export function ObservatoireSection({ departementCode, background = "white" }: {
+  /** Code du département, ou null pour la vue Île-de-France. */
+  departementCode?: string | null;
+  background?: "white" | "gray";
+}) {
+  /**
+   * Plancher d'échantillon. Une médiane tirée de 7 devis n'est pas une médiane,
+   * c'est une anecdote : les Hauts-de-Seine n'en comptent que 7, contre 43 dans
+   * l'Oise. En dessous de ce seuil on affiche le chiffre régional, et on le dit.
+   */
+  const ECHANTILLON_MIN = 15;
+
+  const zoneBrute = departementCode
+    ? OBSERVATOIRE.parDepartement.find(d => d.code === departementCode)
+    : undefined;
+  const echantillonSuffisant = !!zoneBrute && zoneBrute.n >= ECHANTILLON_MIN;
+  const zone = echantillonSuffisant ? zoneBrute : undefined;
+
+  const chiffre = zone ? zone.mediane : OBSERVATOIRE.global.mediane;
+  const echantillon = zone ? zone.n : OBSERVATOIRE.nbDevis;
+  const lieu = zone ? avecPreposition(zone.nom) : "en Île-de-France";
+  const mentionEchantillon = zoneBrute && !echantillonSuffisant
+    ? ` Le ${zoneBrute.nom} ne compte que ${zoneBrute.n} devis dans l'observatoire : le chiffre affiché est celui de l'Île-de-France, plus solide.`
+    : "";
+
+  return (
+    <Section spacing="lg" background={background}>
+      <Container size="lg">
+        <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.125rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, marginBottom: "0.75rem" }}>
+          Combien coûte un séminaire en château {lieu} ?
+        </h2>
+        <p style={{ color: G.gray700, fontSize: "1rem", lineHeight: 1.7, marginBottom: "1.75rem", maxWidth: "56rem" }}>
+          Le budget médian constaté est de <strong>{chiffre} € par personne et par jour</strong>,
+          mesuré sur <strong>{echantillon} devis réels</strong> reçus par Select Châteaux
+          sur la période {OBSERVATOIRE.periode}. Ce n&apos;est pas une estimation :
+          ce sont les montants effectivement proposés, marge de {OBSERVATOIRE.margeAppliquee} % incluse.
+          À l&apos;échelle de l&apos;Île-de-France, la moitié des devis se situent entre{" "}
+          {OBSERVATOIRE.global.p10} € et {OBSERVATOIRE.global.p90} €.{mentionEchantillon}
+        </p>
+
+        <div className="grid sm:grid-cols-2" style={{ gap: "18px" }}>
+          <div style={{ background: background === "gray" ? "white" : G.gray50, borderRadius: "16px", padding: "20px 22px", border: `1px solid ${G.gray200}` }}>
+            <h3 style={{ fontFamily: HEADING, fontSize: "1.0625rem", fontWeight: 600, color: G.gray900, marginBottom: "12px" }}>
+              Selon le format
+            </h3>
+            {OBSERVATOIRE.parDuree.map(d => (
+              <div key={d.libelle} className="flex items-baseline justify-between" style={{ padding: "7px 0", borderBottom: `1px solid ${G.gray200}`, gap: "12px" }}>
+                <span style={{ color: G.gray700, fontSize: "0.9375rem" }}>
+                  {d.libelle} <span style={{ color: G.gray600 }}>({d.detail}, {d.n} devis)</span>
+                </span>
+                <strong style={{ color: G.gray900, whiteSpace: "nowrap" }}>{d.mediane} €</strong>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ background: background === "gray" ? "white" : G.gray50, borderRadius: "16px", padding: "20px 22px", border: `1px solid ${G.gray200}` }}>
+            <h3 style={{ fontFamily: HEADING, fontSize: "1.0625rem", fontWeight: 600, color: G.gray900, marginBottom: "12px" }}>
+              Selon la taille du groupe
+            </h3>
+            {OBSERVATOIRE.parTaille.map(t => (
+              <div key={t.libelle} className="flex items-baseline justify-between" style={{ padding: "7px 0", borderBottom: `1px solid ${G.gray200}`, gap: "12px" }}>
+                <span style={{ color: G.gray700, fontSize: "0.9375rem" }}>
+                  {t.libelle} <span style={{ color: G.gray600 }}>({t.n} devis)</span>
+                </span>
+                <strong style={{ color: G.gray900, whiteSpace: "nowrap" }}>{t.mediane} €</strong>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <p style={{ color: G.gray600, fontSize: "0.875rem", marginTop: "1rem" }}>
+          Plus le groupe est grand, plus le coût par personne baisse : {OBSERVATOIRE.parTaille[0]?.mediane} €
+          en dessous de 30 personnes contre {OBSERVATOIRE.parTaille.at(-1)?.mediane} € au-delà de 100.{" "}
+          <NextLink href="/budget-seminaire-entreprise" style={{ color: BRONZE_DARK, textDecoration: "underline" }}>
+            Voir l&apos;observatoire complet
+          </NextLink>
+        </p>
       </Container>
     </Section>
   );
