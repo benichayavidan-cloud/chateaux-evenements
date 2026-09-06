@@ -3,7 +3,7 @@ import "@/styles/blog.css";
 import "@/styles/brakt-blog.css";
 
 export const metadata: Metadata = {
-  title: "Blog & Magazine Événementiel | Guides Séminaires Châteaux",
+  title: "Guides et Magazine Séminaire en Château",
   description:
     "Guides complets, études de cas et tendances pour organiser des séminaires d'exception en château : organisation, lieux, team building.",
   robots: {

@@ -1,11 +1,31 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { chateaux } from "@/data/chateaux";
+import { metaDescription, TITLE_MAX } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
   children: React.ReactNode;
 };
+
+
+/**
+ * « Séminaire <type de lieu> <ville> », borné à 60 caractères.
+ *
+ * Le nom des 4 châteaux est une périphrase (« Château 5 Étoiles avec Vue
+ * Panoramique sur Forêt ») imposée par le blind booking : c'est elle qu'on
+ * raccourcit, jamais le mot-clé ni la ville.
+ */
+function titreChateau(typeLieu: string, ville: string): string {
+  const complet = `Séminaire ${typeLieu} ${ville}`;
+  if (complet.length <= TITLE_MAX) return complet;
+
+  const budget = TITLE_MAX - `Séminaire  ${ville}`.length;
+  const cut = typeLieu.slice(0, budget);
+  const lastSpace = cut.lastIndexOf(" ");
+  const court = cut.slice(0, lastSpace > 0 ? lastSpace : cut.length).replace(/[,;:.\s]+$/, "");
+  return `Séminaire ${court} ${ville}`;
+}
 
 // GÉNÉRATION DYNAMIQUE DES METADATA (SEO Optimisé - Blind Booking)
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -14,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!chateau) {
     return {
-      title: "Château non trouvé | Select Châteaux",
+      title: "Château non trouvé",
     };
   }
 
@@ -25,8 +45,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ville = chateau.region.split("(")[0].trim();
 
   return {
-    title: `Séminaire ${typeLieu} ${ville} | ${chateau.capacite.max} pers - Select Châteaux`,
-    description: `Séminaire d'entreprise dans ce ${typeLieu.toLowerCase()} d'exception en ${ville}. Capacité ${chateau.capacite.max} personnes, hébergement sur place. Devis gratuit en 24h.`,
+    // Borné à 60 caractères — le gabarit précédent ajoutait la capacité ET le
+    // suffixe de marque, ce qui donnait jusqu'à 97 caractères, tous coupés par
+    // Google. `absolute` : ces pages gardent le nom du lieu plutôt que la marque.
+    // On raccourcit le TYPE de lieu s'il le faut ; « Séminaire » et la ville,
+    // seuls mots sur lesquels la page se positionne, ne sont jamais sacrifiés.
+    title: { absolute: titreChateau(typeLieu, ville) },
+    description: metaDescription(`Séminaire d'entreprise dans ce ${typeLieu.toLowerCase()} d'exception en ${ville}. Capacité ${chateau.capacite.max} personnes, hébergement sur place. Devis gratuit en 24h.`),
 
     robots: {
       index: true,

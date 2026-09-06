@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { venues, getVenueBySlug, getVenuesByDepartment } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
-import { metaDescription } from "@/lib/seo";
+import { metaDescription, titreLieu } from "@/lib/seo";
 import { VenueView } from "./VenueView";
 import { buildVenueFaq } from "@/lib/venue-faq";
 
@@ -38,9 +38,16 @@ function descriptionPropre(raw: string, max = 600) {
   return corps.length <= max ? corps : corps.slice(0, corps.lastIndexOf(" ", max - 1)) + "…";
 }
 
+/**
+ * Titre SERP de la fiche — borné à 60 caractères par `titreLieu()`.
+ *
+ * Le gabarit précédent ajoutait la capacité (« , 450 pers. ») puis recevait le
+ * suffixe de marque du layout racine : 83 caractères en médiane, 116 au
+ * maximum, tous coupés par Google. La capacité reste dans le H1, la meta
+ * description et le bloc de réponse directe — elle ne manque nulle part.
+ */
 function titleFor(v: NonNullable<ReturnType<typeof getVenueBySlug>>) {
-  const where = v.ville ? `${v.ville} (${v.departementCode})` : `${v.departementCode}`;
-  return `${v.nom} — Séminaire à ${where}, ${v.capacite} pers.`;
+  return titreLieu({ nom: v.nom, ville: v.ville, departementCode: v.departementCode });
 }
 
 /**
@@ -68,7 +75,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const url = `https://www.selectchateaux.com/lieux/${v.slug}`;
   return {
-    title: titleFor(v),
+    // `absolute` : la fiche renonce au suffixe de marque pour garder le nom du
+    // lieu ET le mot « séminaire » dans les 60 caractères affichés.
+    title: { absolute: titleFor(v) },
     description: metaDescription(reponseDirecte(v)),
     metadataBase: new URL("https://www.selectchateaux.com"),
     alternates: { canonical: url },

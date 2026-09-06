@@ -20,6 +20,7 @@ import {
   LandingHero, ReponseDirecte, FaqSection, DevisSection,
   BRONZE, BRONZE_DARK, HEADING, G, GOLD,
 } from "@/components/lieux";
+import { metaDescription } from "@/lib/seo";
 
 const URL_PAGE = "https://www.selectchateaux.com/budget-seminaire-entreprise";
 
@@ -55,8 +56,8 @@ const FAQ = [
 ];
 
 export const metadata: Metadata = {
-  title: `Budget Séminaire d'Entreprise 2026 : ${O.global.mediane} € / pers. [${O.nbDevis} Devis Réels]`,
-  description: `Combien coûte un séminaire d'entreprise en château ? Budgets observés sur ${O.nbDevis} devis réels : ${O.global.p10} à ${O.global.p90} € par personne et par jour, par durée, par taille de groupe et par département.`,
+  title: `Budget Séminaire Entreprise : ${O.global.mediane} €/pers.`,
+  description: metaDescription(`Combien coûte un séminaire d'entreprise en château ? Budgets observés sur ${O.nbDevis} devis réels : ${O.global.p10} à ${O.global.p90} € par personne et par jour, par durée, par taille de groupe et par département.`),
   metadataBase: new URL("https://www.selectchateaux.com"),
   alternates: { canonical: URL_PAGE },
   robots: { index: true, follow: true },

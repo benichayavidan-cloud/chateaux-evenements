@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { Clock, MapPin } from "lucide-react";
 import { venues } from "@/data/venues";
 import { getLandingFormat } from "@/data/landings-formats";
+import { metaDescription, titreSousMarque } from "@/lib/seo";
 import { teamBuildingActivities } from "@/data/team-building-activities";
 import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
@@ -22,8 +23,12 @@ export function metadataFor(slug: string): Metadata {
   if (!l) return { title: "Page introuvable" };
   const url = `https://www.selectchateaux.com/${l.slug}`;
   return {
-    title: l.title,
-    description: l.description,
+    // Bornés au point de passage : le titre à 42 caractères (le gabarit racine
+    // ajoutera « | Select Châteaux »), la description à 155. Les données peuvent
+    // être plus longues — la balise servie, jamais. Vérifié par
+    // scripts/verif-titres.mjs, qui fait échouer le build en cas d'écart.
+    title: titreSousMarque(l.title),
+    description: metaDescription(l.description),
     metadataBase: new URL("https://www.selectchateaux.com"),
     alternates: { canonical: url },
     robots: { index: true, follow: true },

@@ -29,7 +29,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Séminaire en Château près de Paris : 4 Domaines Privatisables",
+    default: "Séminaire en Château près de Paris",
     template: "%s | Select Châteaux",
   },
   description:

@@ -1,11 +1,13 @@
 import { Metadata } from "next";
 import { getGeoLandingPage } from "@/data/geo-landing-pages";
+import { metaDescription, titreSousMarque } from "@/lib/seo";
 
 const page = getGeoLandingPage("seminaire-chateau-hauts-de-seine-92")!;
 
 export const metadata: Metadata = {
-  title: page.title,
-  description: page.description,
+  // Bornés au point de passage — voir scripts/verif-titres.mjs.
+  title: titreSousMarque(page.title),
+  description: metaDescription(page.description),
   robots: { index: true, follow: true },
   keywords: page.keywords,
   openGraph: {

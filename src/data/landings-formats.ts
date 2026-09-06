@@ -37,7 +37,7 @@ export const landingsFormats: LandingFormat[] = [
     slug: "team-building-chantilly",
     departements: ["60"],
     tri: "capacite",
-    title: "Team Building à Chantilly : 13 Domaines et 40 Activités [2026]",
+    title: "Team Building Chantilly : 40 activités",
     description:
       "Organiser un team building à Chantilly : 13 domaines privatisables de 40 à 500 personnes, forêt de 6 300 hectares, 40 activités de cohésion. À 35 min de Paris. Devis sous 48 h.",
     eyebrow: "Chantilly · Oise",
@@ -88,7 +88,7 @@ export const landingsFormats: LandingFormat[] = [
     slug: "team-building-hauts-de-seine-92",
     departements: ["92"],
     tri: "capacite",
-    title: "Team Building Hauts-de-Seine (92) : 6 Lieux Accessibles en Métro",
+    title: "Team Building Hauts-de-Seine (92) : métro",
     description:
       "Team building dans les Hauts-de-Seine : 6 lieux privatisables de 30 à 350 personnes, accessibles en métro depuis Paris. Boulogne, Issy, Puteaux, Clamart. Devis sous 48 h.",
     eyebrow: "Hauts-de-Seine · 92",
@@ -134,7 +134,7 @@ export const landingsFormats: LandingFormat[] = [
     slug: "team-building-val-d-oise-95",
     departements: ["95"],
     tri: "capacite",
-    title: "Team Building Val-d'Oise (95) : 11 Lieux de 13 à 600 pers.",
+    title: "Team Building Val-d'Oise (95) : 11 lieux",
     description:
       "Team building dans le Val-d'Oise : 11 lieux privatisables de 13 à 600 personnes, du Vexin à Roissy. Le département le plus abordable d'Île-de-France. Devis sous 48 h.",
     eyebrow: "Val-d'Oise · 95",
@@ -181,7 +181,7 @@ export const landingsFormats: LandingFormat[] = [
     departements: ["78", "60", "77", "95", "91", "92"],
     tri: "salles",
     limite: 12,
-    title: "Journée d'Étude en Château : Organiser, Budget, Programme Type 2026",
+    title: "Journée d'Étude en Château : le guide",
     description:
       "Organiser une journée d'étude : différence avec le séminaire résidentiel, programme type heure par heure, budget réel par personne, et 12 lieux équipés à moins d'une heure de Paris. Devis sous 48 h.",
     eyebrow: "Format · Journée d'étude",

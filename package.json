@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/verif-titres.mjs",
     "start": "next start",
     "lint": "eslint",
-    "generate:cgv": "node scripts/generate-cgv-pdf.js"
+    "generate:cgv": "node scripts/generate-cgv-pdf.js",
+    "verif:titres": "node scripts/verif-titres.mjs",
+    "verif:titres:prod": "node scripts/verif-titres.mjs --live"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

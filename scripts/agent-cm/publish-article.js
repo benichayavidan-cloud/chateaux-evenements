@@ -119,6 +119,45 @@ function assertLongueurSuffisante(article) {
 }
 
 /**
+ * TITRE — la balise <title> servie doit tenir dans 60 caractères.
+ *
+ * Google coupe au-delà : la fin du titre disparaît du résultat de recherche.
+ * `lib/seo.pageTitle()` borne déjà la balise au rendu — mais en la COUPANT,
+ * c'est-à-dire en choisissant à la place de l'auteur. Ce garde-fou exige que le
+ * titre soit conçu pour tenir, de sorte que ce qui s'affiche en SERP soit ce que
+ * l'auteur a voulu.
+ *
+ * Le budget est de BUDGET_TITRE caractères pour la partie avant le séparateur
+ * (« Sujet : complément ») : c'est elle que `pageTitle()` conserve, le suffixe
+ * de marque « | Select Châteaux » consommant les 18 restants sur 60.
+ *
+ * Calibré le 06/09/2026 sur les 284 articles existants : 75 % passaient déjà
+ * (médiane 36, p75 42). Le quart restant est précisément celui dont le titre
+ * est aujourd'hui tronqué dans les résultats de Google.
+ *
+ * Le H1 n'est pas concerné : il garde le titre complet.
+ */
+const BUDGET_TITRE = 42;
+
+function assertTitre(article) {
+  const titre = String(article.title || '').replace(/\s+/g, ' ').trim();
+  if (!titre) throw new Error('Article sans titre.');
+
+  const avantSeparateur = titre.split(/\s[:\u2014\u2013|]\s/)[0].trim();
+  if (avantSeparateur.length > BUDGET_TITRE) {
+    throw new Error(
+      `Titre trop long : ${avantSeparateur.length} caractères avant le séparateur ` +
+      `(maximum ${BUDGET_TITRE}).\n` +
+      `  « ${avantSeparateur} »\n` +
+      `Google n'affiche que 60 caractères, dont 18 pour « | Select Châteaux ». ` +
+      `Au-delà, la fin du titre est coupée dans les résultats.\n` +
+      `Raccourcir la partie avant le « : » — le complément après le séparateur ` +
+      `peut rester long, il alimente le H1 et n'est pas affiché en SERP.`
+    );
+  }
+}
+
+/**
  * STRUCTURE — au moins MIN_H3 sous-titres de niveau 3.
  *
  * Les 248 articles produits jusqu'au 01/09/2026 avaient une structure PLATE :
@@ -300,6 +339,10 @@ function publishArticle(article, opts = {}) {
   // vérifiées ici : une consigne que rien ne contrôle finit par être ignorée.
   assertStructureH3(article);
   assertSourceExterne(article);
+
+  // Titre — borné à ce que Google affiche (voir assertTitre). Vérifié ici pour
+  // l'agent ; côté site, scripts/verif-titres.mjs fait échouer le build.
+  assertTitre(article);
 
   // Doublon exact de slug — vérifié sur les 4 fichiers de données (pas
   // seulement blog-posts-camille.ts) : deux BlogPost avec le même slug dans

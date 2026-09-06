@@ -57,7 +57,7 @@ const faq = [
 ];
 
 export const metadata: Metadata = {
-  title: "Team Building Château Île-de-France : +40 Activités dès 45€/pers",
+  title: "Team Building Château Île-de-France",
   description: "+40 activités de cohésion en château privatisé en Île-de-France dès 45€/pers : olympiades, escape game, murder party. De 20 à 500 pers. Devis 24h.",
   robots: { index: true, follow: true },
   openGraph: {

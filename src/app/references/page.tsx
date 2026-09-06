@@ -33,7 +33,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "Références : Séminaires & Événements Organisés",
+  title: "Références : Séminaires Organisés",
   description:
     "Études de cas réelles : séminaires de 45 à 280 personnes organisés en château pour Eiffage, Safran.AI, LCL, Boston Scientific… Briefs, budgets et résultats.",
   alternates: { canonical: "/references" },
