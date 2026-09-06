@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import mergedRedirects from "./src/data/merged-redirects.json";
+import venuesDepubliees from "./src/data/venues-depubliees.json";
 
 /**
  * Configuration Next.js optimisée pour Core Web Vitals
@@ -144,6 +145,16 @@ const nextConfig: NextConfig = {
   // Redirections 301 (SEO)
   async redirects() {
     return [
+      // Lieux dépubliés faute de photos exploitables (06/09/2026) — chacun
+      // redirige vers la landing de son département plutôt que de renvoyer un
+      // 404. SOURCE UNIQUE : src/data/venues-depubliees.json. Voir le _doc du
+      // fichier : le filtre de publication comptait les vignettes du CRM comme
+      // des photos, ces fiches montraient six images cassées.
+      ...venuesDepubliees.lieux.map((l) => ({
+        source: `/lieux/${l.slug}`,
+        destination: l.vers,
+        permanent: true,
+      })),
       {
         source: "/chateaux/domaine-grands-bois-chantilly",
         destination: "/chateaux/manoir-anglo-normand-chantilly",
