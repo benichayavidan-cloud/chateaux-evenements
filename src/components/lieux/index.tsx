@@ -19,6 +19,7 @@ import DevisFormMini from "@/components/DevisFormMini";
 import type { Venue } from "@/data/venues";
 import { articlesPour } from "@/lib/maillage-blog";
 import { OBSERVATOIRE } from "@/data/budget-observatoire";
+import { photoDeCouverture } from "@/lib/venue-photos";
 
 export const BRONZE = theme.colors.primary.bronze;
 export const BRONZE_DARK = theme.colors.primary.bronzeDark;
@@ -88,6 +89,99 @@ export function LandingHero({ eyebrow, titre, intro, ancres }: {
         )}
       </Container>
     </Section>
+  );
+}
+
+/* ──────────────── Grille photos du hero — façon annonce Airbnb ───────────── */
+
+/**
+ * Grille de 5 photos en tête de landing : une grande à gauche, quatre en
+ * mosaïque à droite.
+ *
+ * C'est le gabarit déjà en place sur les fiches château (`ChateauPageClient`),
+ * la page `/chateaux`, les fiches lieux et les 7 landings géo. Les landings de
+ * FORMAT et de DÉPARTEMENT étaient les seules à ne porter qu'un hero
+ * typographique, sans visuel.
+ *
+ * UNE PHOTO PAR LIEU, cinq lieux différents. Ce n'est pas un pis-aller : ces
+ * pages présentent une SÉLECTION, pas un domaine. Montrer cinq adresses
+ * distinctes dit ce que la page contient mieux que cinq vues du même parc.
+ *
+ * PAS DE LIGHTBOX, contrairement à la référence : chaque photo est un LIEN vers
+ * la fiche du lieu. Même rendu pour le visiteur, aucun JavaScript client, et
+ * cinq liens internes de plus vers des pages que Googlebot repasse voir tous
+ * les 6 jours — là où le reste du site en manque cruellement (mesure du
+ * 06/09/2026 : 16 articles sur 284 étaient liés depuis une page fraîche).
+ *
+ * Les photos viennent de `data/venues.ts`, généré avec le filtre de droits :
+ * « aucune photo issue de Google Places ou de Kactus ». Rien à vérifier de plus.
+ *
+ * REPLI : sous 5 photos disponibles, la grille se réduit d'elle-même (3 ou 1)
+ * plutôt que d'afficher des trous. Le responsive est porté par
+ * `.hero-grid-listing`, déjà utilisé par les fiches lieux.
+ */
+export function HeroPhotoGrid({ lieux }: { lieux: Venue[] }) {
+  // Une photo par lieu, dans l'ordre d'affichage de la page.
+  const vignettes = lieux
+    .map(v => ({ v, p: photoDeCouverture(v) }))
+    .filter((x): x is { v: Venue; p: NonNullable<ReturnType<typeof photoDeCouverture>> } => x.p !== null)
+    .slice(0, 5)
+    .map(({ v, p }) => ({ src: p.url, alt: p.legende ?? `${v.nom} — séminaire`, nom: v.nom, slug: v.slug }));
+
+  if (vignettes.length === 0) return null;
+
+  const colonnes = vignettes.length >= 5 ? "2fr 1fr 1fr" : vignettes.length >= 3 ? "2fr 1fr" : "1fr";
+  const lignes = vignettes.length >= 3 ? "1fr 1fr" : "1fr";
+
+  return (
+    <Container size="xl">
+      <div
+        className="hero-grid-listing rounded-2xl overflow-hidden"
+        style={{
+          display: "grid",
+          gridTemplateColumns: colonnes,
+          gridTemplateRows: lignes,
+          gap: "4px",
+          height: "clamp(260px, 46vh, 420px)",
+          marginBottom: "clamp(1.5rem, 3vw, 2.25rem)",
+        }}
+      >
+        {vignettes.map((v, i) => (
+          <NextLink
+            key={v.slug}
+            href={`/lieux/${v.slug}`}
+            className="relative group overflow-hidden"
+            style={i === 0 && vignettes.length >= 3 ? { gridRow: "1 / 3", gridColumn: "1 / 2" } : undefined}
+            aria-label={`Voir la fiche de ${v.nom}`}
+          >
+            <Image
+              src={v.src}
+              alt={v.alt}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              priority={i === 0}
+              quality={82}
+              sizes={i === 0 ? "(max-width: 768px) 100vw, 50vw" : "(max-width: 768px) 50vw, 25vw"}
+            />
+            {/* Le nom du lieu, lisible sur la photo — sans quoi la grille n'est
+                qu'une décoration. Dégradé plutôt qu'un aplat : le bas des
+                photos est souvent sombre, un aplat l'alourdirait. */}
+            <span
+              style={{
+                position: "absolute", left: 0, right: 0, bottom: 0,
+                padding: i === 0 ? "36px 16px 12px" : "24px 10px 8px",
+                background: "linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0))",
+                color: "white",
+                fontSize: i === 0 ? "0.9375rem" : "0.75rem",
+                fontWeight: 600, lineHeight: 1.3,
+              }}
+            >
+              {v.nom}
+            </span>
+          </NextLink>
+        ))}
+      </div>
+    </Container>
   );
 }
 
