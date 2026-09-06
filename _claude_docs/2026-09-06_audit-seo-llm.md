@@ -183,8 +183,46 @@ mesure — la distinction posée le 01/09 tient.
 **Limite d'instrumentation** : les AI Overviews de Google ne sont exposés ni par
 l'API Search Console (`searchAppearance` renvoie 0 ligne) ni par Bright Data
 (0 AIO capturé sur 8 requêtes testées). Le rapport « Performance on Search
-Generative AI Features » de l'interface GSC reste la seule source. Il faut
-l'exporter à la main pour mesurer l'effet de la PR #23.
+Generative AI Features » de l'interface GSC reste la seule source, et il
+s'exporte à la main.
+
+### L'export, obtenu le 06/09 — la hausse est un trompe-l'œil
+
+521 impressions sur 92 jours (05/06 → 04/09). Archive conservée :
+`_claude_docs/2026-09-06_export-gsc-ai-features.zip`.
+
+| mois | imp. IA | imp. totales | **part IA** |
+|---|---|---|---|
+| juin | 36 | 5 484 | 0,66 % |
+| juillet | 142 | 6 574 | 2,16 % |
+| août | 282 | 8 755 | **3,22 %** |
+| septembre (4 j) | 61 | 2 462 | **2,48 %** |
+
+En brut, la hausse existe : **10,4 impressions IA/jour** du 25 au 31/08 contre
+**15,3/jour** du 01 au 04/09, soit +47 %. Mais les impressions **totales**
+passent de 365 à 616 par jour sur les mêmes fenêtres (+69 %) — **la part IA
+baisse**, de 2,86 % à 2,48 %, après avoir culminé à 3,22 % en août.
+
+La hausse absolue vient de la croissance générale du site (fiches lieux et
+landings du 30/08 entrées dans l'index), pas d'un gain propre à l'IA. Et la
+cause est connue : **3 articles sur 284** avaient été re-crawlés depuis le
+01/09. Un correctif que le moteur n'a pas vu ne peut pas avoir d'effet.
+
+L'échéance du 15/10 reste la bonne, et pour cette raison. Leçon enregistrée :
+`marcus_lecons` id 4.
+
+**Ce que l'export apprend d'autre** — 75 % des impressions IA vont au blog :
+
+| famille | pages captées | impressions | part |
+|---|---|---|---|
+| **blog** | 60 | **396** | **75 %** |
+| landings | 11 | 65 | 12 % |
+| accueil | 1 | 30 | 6 % |
+| fiches lieux | 19 | 28 | 5 % |
+
+Le blog est l'actif IA du site — et c'est la famille que Google crawle le moins
+(36 jours de médiane contre 6 pour les landings). Cela tranche la question
+article contre landing : sur Google **et** sur l'IA, c'est l'article qui porte.
 
 ---
 
