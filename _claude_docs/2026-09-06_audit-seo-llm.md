@@ -209,8 +209,12 @@ Exemples servis aujourd'hui :
 - `Alternative à Châteauform' : 68 Domaines Indépendants en Île-de-France | Select Châteaux` (88)
 - `Hôtel Inn Design Paris St Quentin en Yvelines — Séminaire à Montigny-le-Bretonneux (78), 100 pers. | Select Châteaux` (116)
 
-52 des 72 fiches lieux ont aussi une meta description au-delà de 160
-caractères, 9 landings sur 18 également.
+**Correction d'une mesure erronée** : j'ai d'abord annoncé 52 fiches lieux et 9
+landings avec une meta description au-delà de 160 caractères. C'était un faux
+positif — je mesurais le HTML encodé, où `&#x27;` compte 6 caractères pour une
+apostrophe. Décodées, les descriptions des fiches lieux tiennent dans 155 (elles
+passent déjà par `metaDescription()`). Les vraies infractions étaient **13**,
+toutes côté landings et pages fixes.
 
 ### Indexation : 341 / 382, et le déficit est 100 % blog
 
@@ -274,10 +278,14 @@ direction :
 
 ## 8. Ce que je recommande, dans l'ordre
 
-**A — Étendre `pageTitle()` aux landings et aux fiches lieux.**
-Une ligne par gabarit. 90 pages, 44 % des impressions, CTR actuel 0,2 %.
-C'est le seul levier de cette liste dont l'effet est mécanique et immédiat.
-Idem pour les meta descriptions au-delà de 160 caractères.
+**A — ✅ FAIT le 06/09 (PR #25, déployé).**
+97 titres corrigés (18 landings, 72 fiches lieux, 4 fiches châteaux, l'accueil
+et les pages fixes) et 13 descriptions bornées. Surtout : la règle est désormais
+**vérifiée automatiquement** — `scripts/verif-titres.mjs` lit le HTML produit par
+`next build` et fait échouer le déploiement en cas d'écart ; `assertTitre()`
+l'applique à l'agent Camille ; `AGENT_PROMPT.md` et
+`documentation_systeme/regles-seo-non-negociables.md` la consignent.
+Détail du raisonnement et des arbitrages : voir la PR #25.
 
 **B — Trancher la cannibalisation pour de bon.**
 Le lien satellite ne suffit pas. Sur les 6 requêtes concernées, il faut soit
