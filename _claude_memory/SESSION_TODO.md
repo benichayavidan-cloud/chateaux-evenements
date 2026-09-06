@@ -43,7 +43,16 @@ Rapport complet : `_claude_docs/2026-09-06_audit-seo-llm.md`.
       prend sa propre rangée ; sections rééquilibrées 5/5/6/6 ; 3 doublons
       retirés ; 18 destinations uniques → 22.
 - [x] **Maillage vers le blog** (PR #28, déployé) — voir le point 1 ci-dessous.
-- [x] Sitemap resoumis à GSC + IndexNow sur les 382 URLs (06/09).
+- [x] **Formulaire de devis sur les 284 articles** + provenance des devis enfin
+      stockée (PR #29). `source_page` et `source_label` ajoutées à
+      `demandes_devis_chateaux` : « quelle page convertit ? » sera décidable.
+- [x] **Observatoire des 188 devis sur les 15 landings** (PR #30) — la donnée
+      propriétaire est le seul angle où les IA nous citent.
+- [x] **Hero en grille photos** sur les landings de format et de département
+      (PR #32), photos cliquables vers les fiches lieux.
+- [x] **6 lieux dépubliés** faute de photos exploitables (PR #33) : 68 → 62.
+      Le générateur mesure désormais les images et ne les republiera pas.
+- [x] Sitemap resoumis à GSC + IndexNow (376 URLs après dépublication).
 - [x] Accès GSC restauré (`gcloud auth login`, `seminaires@selectchateaux.com`).
       **Il ré-expirera** — c'est le premier réflexe si `gsc.js` échoue.
 
@@ -120,13 +129,42 @@ réservation observé.
       (`searchAppearance` renvoie 0 ligne) ni Bright Data ne les exposent.
       Baseline 01/09 : 444 impressions sur 3 mois, 72 pages.
 
-### 5. Camille — reste EN PAUSE
+### 5. Camille — RÉACTIVÉE le 06/09, avec un ratio inversé
 
-`agent_controls.camille.enabled = false` depuis le 01/09. L'audit du 06/09
-confirme la décision : 170 articles actifs pour 60 clics, et Googlebot ne suit
-déjà pas le rythme de publication (19 articles jamais vus). Le corpus n'est pas
-le facteur limitant. Le gabarit est prêt (stats réelles, `<h3>`, source externe,
-titre borné) — la réactivation reste une décision, pas un oubli.
+`agent_controls.camille.enabled = true` depuis le 06/09
+(`updated_by = revue-2026-09-06`). Elle reprend du lundi au vendredi à 9 h.
+
+**Nouveau ratio : 3 réécritures pour 1 création** (c'était 2 créations pour
+1 réécriture), et la création seulement si un sujet réellement vierge existe.
+Motif écrit dans son prompt avec ses chiffres : Googlebot lit ~4 pages/jour,
+l'âge médian du dernier crawl est de 36 jours sur le blog, 19 articles n'avaient
+jamais été vus. Réécrire un article déjà indexé ne consomme pas de budget de
+découverte ; en publier un neuf en consomme.
+
+**Ce qui la borde désormais** : `assertTitre()` (42 caractères avant le « : »),
+`assertMaillage()` (plafond de 492 articles), plus les garde-fous de build
+`verif-titres.mjs` et `verif-maillage.mjs` qui font échouer le déploiement.
+
+**À surveiller à sa première exécution** (lundi 07/09, 9 h) : qu'elle produise
+bien 3 réécritures et au plus 1 création, et qu'aucun gate ne la bloque à tort.
+
+### 6. Marcus — PHASE 2 depuis le 06/09
+
+`agent_controls.marcus.phase = 2`. Il peut désormais agir, avec un catalogue
+**réduit à deux actions** (PR #34) :
+
+- `ping-indexnow` — gratuit, alimente Bing et donc ChatGPT Search
+- `commande-reecriture` — ouvre une issue pour Camille
+
+Deux actions ont été supprimées à la revue :
+- **`inspection-google`** était un PLACEBO : l'API URL Inspection est en lecture
+  seule, elle ne déclenche aucune indexation.
+- **`title-ab`** est SANS OBJET : les titres sont bornés et verrouillés par
+  `verif-titres.mjs` depuis le 06/09.
+
+Rappel de la Loi 2 : toute action exécutée écrit une entrée dans
+`marcus_journal` avec sa prédiction chiffrée et son échéance. `marcus_journal`
+était vide jusqu'ici — c'est là qu'il faudra regarder pour juger la phase 2.
 
 ## Écarté — ne pas reproposer
 
