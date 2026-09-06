@@ -15,7 +15,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
 import {
   LandingHero, ReponseDirecte, ChiffresSection, VenueSection,
-  ProseSection, FaqSection, DevisSection, BRONZE, BRONZE_DARK, HEADING, G, GOLD,
+  ProseSection, FaqSection, DevisSection, GuidesSection, BRONZE, BRONZE_DARK, HEADING, G, GOLD,
 } from "@/components/lieux";
 
 export function metadataFor(slug: string): Metadata {
@@ -174,6 +174,8 @@ export function LandingFormat({ slug }: { slug: string }) {
 
       <div id="faq">
         <FaqSection items={l.faq} background="gray" />
+
+      <GuidesSection chemin={`/${l.slug}`} background="white" />
       </div>
 
       <DevisSection sourceLabel={l.h1} titre="Un projet en tête ?" background="white" />

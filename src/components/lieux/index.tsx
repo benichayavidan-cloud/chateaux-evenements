@@ -17,6 +17,7 @@ import { Section, Container } from "@/components/layout-v2";
 import { theme } from "@/design-system/tokens";
 import DevisFormMini from "@/components/DevisFormMini";
 import type { Venue } from "@/data/venues";
+import { articlesPour } from "@/lib/maillage-blog";
 
 export const BRONZE = theme.colors.primary.bronze;
 export const BRONZE_DARK = theme.colors.primary.bronzeDark;
@@ -251,6 +252,58 @@ export function FaqSection({ items, background = "gray" }: {
               </h3>
               <p style={{ margin: 0, color: G.gray700, fontSize: "0.9375rem", lineHeight: 1.7 }}>{f.reponse}</p>
             </div>
+          ))}
+        </div>
+      </Container>
+    </Section>
+  );
+}
+
+/* ───────────────────── Guides — maillage vers le blog ───────────────────── */
+
+/**
+ * Bloc « Nos guides » — les articles que cette page fait découvrir.
+ *
+ * Ce n'est pas un bloc éditorial de confort : c'est le chemin par lequel
+ * Googlebot atteint le blog. Mesuré le 06/09/2026, 124 articles sur 284
+ * n'avaient pour seul lien entrant que la pagination de /blog, laquelle n'est
+ * même pas au sitemap ; les 72 fiches lieux ne liaient aucun article.
+ *
+ * La sélection vient de `lib/maillage-blog.ts`, qui répartit le corpus entier
+ * sur les pages fraîches de façon déterministe et exhaustive. Ne pas la
+ * remplacer par une liste écrite à la main : elle se périmerait au premier
+ * article publié.
+ */
+export function GuidesSection({ chemin, background = "white" }: {
+  chemin: string;
+  background?: "white" | "gray";
+}) {
+  const articles = articlesPour(chemin);
+  if (articles.length === 0) return null;
+  return (
+    <Section spacing="lg" background={background}>
+      <Container size="lg">
+        <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.125rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, marginBottom: "1.75rem" }}>
+          Nos guides pour organiser votre séminaire
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3" style={{ gap: "14px" }}>
+          {articles.map(a => (
+            <NextLink
+              key={a.slug}
+              href={`/blog/${a.slug}`}
+              style={{
+                display: "block", background: background === "gray" ? "white" : G.gray50,
+                borderRadius: "16px", padding: "18px 20px", border: `1px solid ${G.gray200}`,
+                textDecoration: "none",
+              }}
+            >
+              <h3 style={{ fontFamily: HEADING, fontSize: "1rem", fontWeight: 600, color: G.gray900, marginBottom: "8px", lineHeight: 1.35 }}>
+                {a.title}
+              </h3>
+              <p style={{ margin: 0, color: G.gray700, fontSize: "0.875rem", lineHeight: 1.6 }}>
+                {a.excerpt.length > 110 ? a.excerpt.slice(0, a.excerpt.lastIndexOf(" ", 110)) + "…" : a.excerpt}
+              </p>
+            </NextLink>
           ))}
         </div>
       </Container>
