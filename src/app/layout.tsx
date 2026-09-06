@@ -195,8 +195,29 @@ export default function RootLayout({
                 { label: "Team building Val-d'Oise", href: "/team-building-val-d-oise-95" },
               ],
             },
-            { label: "Journée d'étude", href: "/journee-etude-seminaire" },
-            { label: "Budget", href: "/budget-seminaire-entreprise" },
+            {
+              // « Journée d'étude » et « Budget » étaient au PREMIER niveau depuis
+              // la PR #14 (30/08) : le menu y avait servi de véhicule de maillage
+              // interne vers les 8 landings créées ce jour-là. Résultat, 6 entrées
+              // au lieu de 4 et un menu qui passait sur deux lignes — une décision
+              // SEO qui écrasait la décision design d'origine.
+              //
+              // Mesuré le 06/09 sur 90 jours : /journee-etude-seminaire fait 0 clic,
+              // 0 impression, 0 requête. Le sujet, lui, existe (~300 impressions),
+              // mais c'est /blog/seminaire-residentiel-vs-journee qui le capte
+              // (287 impressions, position 18). La landing ne prenait rien.
+              //
+              // Les liens sont conservés — ils passent par ce sous-menu. Le maillage
+              // interne ne perd rien, le premier niveau retrouve une seule ligne.
+              label: "Organiser",
+              href: "/budget-seminaire-entreprise",
+              children: [
+                { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
+                { label: "Journée d'étude", href: "/journee-etude-seminaire" },
+                { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
+                { label: "Alternative à Châteauform'", href: "/alternative-chateauform" },
+              ],
+            },
             { label: "À propos", href: "/a-propos" },
           ]}
           cta={{
