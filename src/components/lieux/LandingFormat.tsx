@@ -14,7 +14,7 @@ import { teamBuildingActivities } from "@/data/team-building-activities";
 import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
 import {
-  LandingHero, ReponseDirecte, ChiffresSection, VenueSection,
+  LandingHero, HeroPhotoGrid, ReponseDirecte, ChiffresSection, VenueSection,
   ProseSection, FaqSection, DevisSection, GuidesSection, ObservatoireSection, BRONZE, BRONZE_DARK, HEADING, G, GOLD,
 } from "@/components/lieux";
 
@@ -99,6 +99,11 @@ export function LandingFormat({ slug }: { slug: string }) {
       <StructuredData data={schema} />
 
       <LandingHero eyebrow={l.eyebrow} titre={l.h1} intro={l.intro} ancres={ancres} />
+
+      {/* Grille photos façon annonce Airbnb — le gabarit des fiches château
+          et des landings géo, que ces pages n'avaient pas. Une photo par
+          lieu, cinq lieux différents : la page présente une sélection. */}
+      <HeroPhotoGrid lieux={lieux} />
 
       <ReponseDirecte>{l.reponseDirecte}</ReponseDirecte>
 

@@ -12,7 +12,7 @@ import { metaDescription, titreSousMarque } from "@/lib/seo";
 import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
 import {
-  LandingHero, ReponseDirecte, ChiffresSection, VenueSection,
+  LandingHero, HeroPhotoGrid, ReponseDirecte, ChiffresSection, VenueSection,
   ProseSection, FaqSection, DevisSection, GuidesSection, ObservatoireSection, BRONZE_DARK, HEADING, G, GOLD,
 } from "@/components/lieux";
 
@@ -99,6 +99,11 @@ export function LandingDepartement({ slug }: { slug: string }) {
           { label: "Questions", href: "#faq" },
         ]}
       />
+
+      {/* Grille photos façon annonce Airbnb — le gabarit des fiches château et
+          des landings géo, que ces pages n'avaient pas. Une photo par lieu,
+          cinq lieux différents : la page présente une sélection. */}
+      <HeroPhotoGrid lieux={lieux} />
 
       <ReponseDirecte>{l.reponseDirecte}</ReponseDirecte>
 
