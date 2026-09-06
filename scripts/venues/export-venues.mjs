@@ -7,7 +7,14 @@
  *   - département du périmètre cœur
  *   - description de plus de 400 caractères
  *   - capacité renseignée
- *   - au moins 6 photos
+ *   - au moins PHOTOS_MIN photos EXPLOITABLES — voir estUtilisable().
+ *     Le critère disait « au moins 6 photos » et le SQL comptait les lignes de
+ *     VendorPhoto. Or le CRM y range aussi des VIGNETTES : relevé du 06/09/2026,
+ *     53 des 408 images publiées faisaient moins de 800 px de large, dont une de
+ *     1×1 pixel. Six lieux passaient ainsi le filtre avec 0 ou 1 photo réelle, et
+ *     leur fiche affichait six images cassées. Le SQL garde son >= 6 (il élimine
+ *     le gros du bruit sans coûter de requête réseau) ; le tri fin se fait ici,
+ *     après avoir mesuré chaque image.
  *   - AUCUNE photo issue de Google Places ou de Kactus : republier ces images
  *     violerait les CGU Google et le droit d'auteur d'un concurrent direct.
  *
@@ -183,13 +190,82 @@ const venues = rows.map(r => {
   };
 });
 
+
+/* ─────────────── Photos exploitables — mesure réelle des images ─────────────
+ *
+ * Ni la catégorie ni la légende ne distinguent une vignette d'une photo : seules
+ * les dimensions le font. Une requête `Range: bytes=0-63` par image suffit,
+ * l'en-tête WebP porte largeur et hauteur.
+ *
+ * Le même relevé alimente `src/data/venue-photos-trop-petites.json` via
+ * scripts/venues/photos-dimensions.mjs, utilisé côté rendu pour ne pas choisir
+ * une vignette en vignette de hero.
+ */
+const LARGEUR_MIN = 800;
+const PHOTOS_MIN = 3;
+
+function dimsWebp(b) {
+  if (b.length < 30 || b.toString('ascii', 0, 4) !== 'RIFF') return null;
+  const fmt = b.toString('ascii', 12, 16);
+  if (fmt === 'VP8X') return { w: (b.readUIntLE(24, 3) & 0xffffff) + 1, h: (b.readUIntLE(27, 3) & 0xffffff) + 1 };
+  if (fmt === 'VP8L') { const n = b.readUInt32LE(21); return { w: (n & 0x3fff) + 1, h: ((n >> 14) & 0x3fff) + 1 }; }
+  if (fmt === 'VP8 ') return { w: b.readUInt16LE(26) & 0x3fff, h: b.readUInt16LE(28) & 0x3fff };
+  return null;
+}
+
+/** Largeur de chaque URL, mesurée en parallèle. Une image illisible reste éligible. */
+async function mesurerLargeurs(urls) {
+  const largeurs = new Map();
+  let i = 0;
+  await Promise.all(Array.from({ length: 16 }, async () => {
+    while (i < urls.length) {
+      const u = urls[i++];
+      try {
+        const r = await fetch(u, { headers: { Range: 'bytes=0-63' } });
+        const d = dimsWebp(Buffer.from(await r.arrayBuffer()));
+        if (d) largeurs.set(u, d.w);
+      } catch { /* réseau : on ne disqualifie pas une image faute de l'avoir lue */ }
+    }
+  }));
+  return largeurs;
+}
+
+/** Une vignette n'est pas une photo, un logo non plus. */
+function estUtilisable(photo, largeurs) {
+  if (/logo/i.test(photo.legende ?? '')) return false;
+  const w = largeurs.get(photo.url);
+  return w === undefined || w >= LARGEUR_MIN;
+}
+
+// ── Tri fin : on mesure les images, on écarte vignettes et logos, puis les
+// lieux qui n'ont plus de quoi remplir une fiche. Mesuré le 06/09/2026 :
+// 6 lieux sur 68 tombaient sous le seuil, pour 0 clic sur 90 jours.
+{
+  const largeurs = await mesurerLargeurs([...new Set(venues.flatMap(v => v.photos.map(p => p.url)))]);
+  let retires = 0, photosRetirees = 0;
+  for (const v of venues) {
+    const avant = v.photos.length;
+    v.photos = v.photos.filter(p => estUtilisable(p, largeurs));
+    photosRetirees += avant - v.photos.length;
+  }
+  for (let i = venues.length - 1; i >= 0; i--) {
+    if (venues[i].photos.length < PHOTOS_MIN) {
+      console.log(`  ✗ ${venues[i].slug} — ${venues[i].photos.length} photo(s) exploitable(s), retiré`);
+      venues.splice(i, 1); retires++;
+    }
+  }
+  console.log(`${photosRetirees} photo(s) écartée(s) · ${retires} lieu(x) retiré(s) faute de photos`);
+}
+
 const header = `// ⚠️ FICHIER GÉNÉRÉ — ne pas éditer à la main.
 // Source : CRM V2, table Prestataire. Régénérer avec :
 //   DATABASE_URL=… node scripts/venues/export-venues.mjs
 //
 // Périmètre : départements ${CORE_DEPARTMENTS.join(', ')}. Exclut les lieux déjà\n// publiés sous alias sur /chateaux, et ceux dont le code postal contredit le\n// département déclaré. Seuil de publication :
-// description > 400 caractères, capacité renseignée, 6 photos minimum, et aucune
-// photo issue de Google Places ou de Kactus (droits).
+// description > 400 caractères, capacité renseignée, au moins ${PHOTOS_MIN} photos
+// EXPLOITABLES (au moins ${LARGEUR_MIN} px de large, logos exclus — le CRM range
+// des vignettes parmi les photos), et aucune photo issue de Google Places ou de
+// Kactus (droits).
 // Généré le ${new Date().toISOString().slice(0, 10)} — ${venues.length} lieux.
 
 export interface VenuePhoto { url: string; legende: string | null; categorie: string | null }

@@ -1,0 +1,12 @@
+{
+  "_doc": "Lieux RETIRÉS du site faute de photos exploitables. Le filtre de publication de scripts/venues/export-venues.mjs exige « au moins 6 photos », mais il comptait les VIGNETTES du CRM comme des photos : relevé du 06/09/2026, 53 des 408 images font moins de 800 px de large, dont une de 1×1 pixel. Ces 6 lieux n'avaient donc en réalité 0 ou 1 photo affichable, et leur fiche montrait six images cassées. Coût du retrait mesuré sur 90 jours : 0 clic. Chaque entrée porte sa redirection 301 vers la landing du département — consommée par next.config.ts. À vider si les prestataires fournissent de vraies photos : le lieu réapparaîtra au prochain export.",
+  "retirees_le": "2026-09-06",
+  "lieux": [
+    { "slug": "centre-d-nanteuil-les-meaux", "photos_utilisables": 0, "vers": "/seminaire-chateau-seine-et-marne-77" },
+    { "slug": "ak-bowling-maurepas", "photos_utilisables": 0, "vers": "/seminaire-chateau-yvelines-78" },
+    { "slug": "aqua-restaurant-suresnes", "photos_utilisables": 0, "vers": "/seminaire-chateau-hauts-de-seine-92" },
+    { "slug": "chateau-et-orangerie-de-chatenay-chatenay-en-france", "photos_utilisables": 0, "vers": "/seminaire-chateau-val-d-oise-95" },
+    { "slug": "sherwood-parc-viarmes", "photos_utilisables": 0, "vers": "/seminaire-chateau-val-d-oise-95" },
+    { "slug": "golf-de-l-ile-fleurie-chatou", "photos_utilisables": 1, "vers": "/seminaire-chateau-yvelines-78" }
+  ]
+}
