@@ -241,41 +241,54 @@ export default function RootLayout({
           }
           description="L'excellence événementielle dans des châteaux d'exception. Accès confidentiel aux domaines les plus convoités d'Île-de-France."
           sections={[
-            {
-              title: "Les Châteaux",
-              links: [
-                { label: "Tous les domaines", href: "/chateaux" },
-                { label: "Séminaire château Oise", href: "/seminaire-chateau-oise-60" },
-                { label: "Séminaire château Yvelines", href: "/seminaire-chateau-yvelines-78" },
-                { label: "Séminaire château Hauts-de-Seine", href: "/seminaire-chateau-hauts-de-seine-92" },
-              ],
-            },
-            {
-              title: "Guides et comparatifs",
-              links: [
-                { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
-                { label: "Journée d'étude", href: "/journee-etude-seminaire" },
-                { label: "Alternative à Châteauform'", href: "/alternative-chateauform" },
-                { label: "Tous les lieux", href: "/lieux" },
-              ],
-            },
+            // 4 colonnes ÉQUILIBRÉES (5/5/6/6) — la grille du pied de page en
+            // compte quatre, plus le bloc de marque qui occupe sa propre rangée.
+            // Avant le 06/09/2026 il y avait 4 sections + la marque pour 4
+            // colonnes : la dernière retombait seule sur une deuxième rangée,
+            // avec trois cellules vides à côté.
+            //
+            // Les doublons ont été retirés au passage : Oise, Yvelines et
+            // Hauts-de-Seine figuraient à la fois dans « Les Châteaux » et dans
+            // « Séminaires par région ». Les 3 landings de département créées le
+            // 30/08 (91, 77, 95), absentes du pied de page, y entrent — sur un
+            // site où 284 articles sur 284 n'ont aucun lien entrant, chaque lien
+            // interne depuis une page fréquemment crawlée compte.
             {
               title: "Séminaires par région",
               links: [
-                { label: "Séminaire château Île-de-France", href: "/seminaire-chateau-ile-de-france" },
-                { label: "Séminaire château proche Paris", href: "/seminaire-chateau-proche-paris" },
-                { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
-                { label: "Séminaire Vallée de Chevreuse", href: "/seminaire-vallee-de-chevreuse" },
-                { label: "Séminaire château Oise (60)", href: "/seminaire-chateau-oise-60" },
-                { label: "Séminaire château Yvelines (78)", href: "/seminaire-chateau-yvelines-78" },
-                { label: "Séminaire château Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
+                { label: "Île-de-France", href: "/seminaire-chateau-ile-de-france" },
+                { label: "Proche Paris", href: "/seminaire-chateau-proche-paris" },
+                { label: "Chantilly", href: "/seminaire-chateau-chantilly" },
+                { label: "Vallée de Chevreuse", href: "/seminaire-vallee-de-chevreuse" },
+                { label: "Oise (60)", href: "/seminaire-chateau-oise-60" },
               ],
             },
             {
-              title: "Nos services",
+              title: "Par département",
               links: [
-                { label: "Team Building", href: "/team-building-chateau" },
-                { label: "Séminaires & Soirées", href: "/seminaires-soirees-entreprise" },
+                { label: "Yvelines (78)", href: "/seminaire-chateau-yvelines-78" },
+                { label: "Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
+                { label: "Essonne (91)", href: "/seminaire-chateau-essonne-91" },
+                { label: "Seine-et-Marne (77)", href: "/seminaire-chateau-seine-et-marne-77" },
+                { label: "Val-d'Oise (95)", href: "/seminaire-chateau-val-d-oise-95" },
+              ],
+            },
+            {
+              title: "Formats et budgets",
+              links: [
+                { label: "Team building en château", href: "/team-building-chateau" },
+                { label: "Team building Chantilly", href: "/team-building-chantilly" },
+                { label: "Journée d'étude", href: "/journee-etude-seminaire" },
+                { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
+                { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
+                { label: "Alternative à Châteauform'", href: "/alternative-chateauform" },
+              ],
+            },
+            {
+              title: "L'agence",
+              links: [
+                { label: "Nos domaines", href: "/chateaux" },
+                { label: "Tous les lieux", href: "/lieux" },
                 { label: "Références clients", href: "/references" },
                 { label: "Notre histoire", href: "/a-propos" },
                 { label: "Blog", href: "/blog" },
