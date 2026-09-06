@@ -743,6 +743,61 @@ textarea::placeholder {
   color: #FFFFFF !important;
 }
 
+/* ============================================
+   NAVIGATION — point de bascule vers le hamburger
+   ============================================
+
+   La barre a besoin de 1160 px pour tenir sur une seule ligne : mesuré le
+   06/09/2026 en balayant les largeurs, les marges entre le menu, le logo et le
+   CTA ne redeviennent positives qu'à partir de là (à 1140 px il ne reste que
+   8 px avant le bouton « Demander un devis »).
+
+   Le point de bascule était à 768 px. Entre 769 et 1160 px, le menu centré en
+   position absolue passait donc SOUS le logo et le CTA — c'est ce qui le
+   faisait se replier sur deux lignes. Mieux vaut le menu hamburger, qui est
+   déjà là et fonctionne, qu'une barre qui se chevauche.
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1160px) {
+  nav .desktop-menu,
+  nav .desktop-cta {
+    display: none !important;
+  }
+
+  nav button.mobile-menu-button {
+    display: flex !important;
+    position: relative !important;
+    z-index: 9999 !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  nav button.mobile-menu-button svg {
+    color: #1F2937 !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* Panneau déroulant — mêmes règles que sous 768 px. */
+  nav > div + div {
+    position: fixed !important;
+    top: 80px !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: white !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+    max-height: calc(100vh - 80px) !important;
+    overflow-y: auto !important;
+  }
+
+  nav a,
+  nav button {
+    color: #1F2937 !important;
+  }
+}
+
 /* Navigation uniformisée - Tous les liens même police et taille */
 .desktop-menu a,
 .desktop-menu button {

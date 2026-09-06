@@ -147,6 +147,11 @@ export function Navigation({
               display: 'flex',
               gap: theme.spacing.lg,
               alignItems: 'center',
+              // Une entrée de menu ne se coupe JAMAIS en deux lignes. Sans cela,
+              // « Les Châteaux » devenait « Les / Châteaux » dès que la fenêtre
+              // descendait sous ~1200 px, et la barre passait sur deux niveaux
+              // (constaté le 06/09/2026). C'est un menu, pas un paragraphe.
+              whiteSpace: 'nowrap',
             }}
             className="desktop-menu"
           >
@@ -243,6 +248,7 @@ export function Navigation({
                     alignItems: 'center',
                     lineHeight: 1,
                     padding: 0,
+                    whiteSpace: 'nowrap',
                   }}>
                     {link.label}
                   </Link>
@@ -260,7 +266,7 @@ export function Navigation({
             className="desktop-cta"
           >
             {cta && (
-              <Link href={cta.href} variant="button">
+              <Link href={cta.href} variant="button" style={{ whiteSpace: 'nowrap' }}>
                 {cta.label}
               </Link>
             )}
