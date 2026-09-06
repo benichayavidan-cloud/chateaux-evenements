@@ -24,6 +24,7 @@ import {
   LandingHero, ReponseDirecte, ChiffresSection, VenueSection,
   ProseSection, FaqSection, DevisSection, BRONZE, BRONZE_DARK, HEADING, G, GOLD,
 } from "@/components/lieux";
+import { metaDescription } from "@/lib/seo";
 
 const URL_PAGE = "https://www.selectchateaux.com/alternative-chateauform";
 
@@ -65,8 +66,8 @@ const FAQ = [
 ];
 
 export const metadata: Metadata = {
-  title: `Alternative à Châteauform' : ${venues.length} Domaines Indépendants en Île-de-France`,
-  description: `Vous cherchez une alternative à Châteauform' ? Select Châteaux référence ${venues.length} lieux de séminaire indépendants en Île-de-France et dans l'Oise — Yvelines, Chantilly, Seine-et-Marne. Devis comparés sous 48 h.`,
+  title: `Alternative à Châteauform' : ${venues.length} domaines`,
+  description: metaDescription(`Vous cherchez une alternative à Châteauform' ? Select Châteaux référence ${venues.length} lieux de séminaire indépendants en Île-de-France et dans l'Oise — Yvelines, Chantilly, Seine-et-Marne. Devis comparés sous 48 h.`),
   metadataBase: new URL("https://www.selectchateaux.com"),
   alternates: { canonical: URL_PAGE },
   robots: { index: true, follow: true },

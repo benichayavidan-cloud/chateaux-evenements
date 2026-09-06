@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Agence Séminaire Château Île-de-France : 15 Ans, 200+ Entreprises",
+  title: "Agence Séminaire Château Île-de-France",
   description:
     "200+ entreprises nous confient leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception, devis sous 48h.",
   robots: {

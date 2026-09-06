@@ -17,7 +17,7 @@ import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "luci
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Location de Château pour Séminaire : 4 Domaines dès 150€/pers",
+  title: "Location de Château pour Séminaire dès 150 €/pers.",
   description: "Location de château pour séminaire d'entreprise : 4 domaines privatisables, 10 à 500 pers, hébergement inclus dès 150€/pers. Devis gratuit en 24h.",
   robots: {
     index: true,

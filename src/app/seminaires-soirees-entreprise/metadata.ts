@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Soirées d'Entreprise en Château près de Paris",
+  title: "Soirées d'Entreprise en Château",
   description:
     "Séminaires et soirées à thème en château en Île-de-France : Gatsby, Casino, Murder Party, Bal Masqué. 50 à 280 pers., hébergement sur place. Devis 24h.",
   robots: {

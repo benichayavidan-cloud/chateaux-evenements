@@ -69,7 +69,7 @@ Chaque article DOIT respecter cette interface TypeScript :
 {
   id: number;              // Auto-incrémenté (1000+)
   slug: string;            // kebab-case, SEO keyword-rich
-  title: string;           // 50-70 chars, inclure mot-clé principal + année
+  title: string;           // 42 chars AVANT le « : » — voir « RÈGLE DU TITRE »
   excerpt: string;         // 1-2 phrases, convaincant, inclure mot-clé
   category: "organisation" | "lieux" | "team-building";
   author: {
@@ -201,6 +201,41 @@ Le tableau `faq` alimente le schema JSON-LD **et s'affiche désormais réellemen
 Terminer par un résumé actionnable (3-4 phrases max), puis un CTA naturel avec lien vers `/devis`. Rester authentique, pas commercial.
 
 ---
+
+
+## RÈGLE DU TITRE — 42 caractères avant le « : » (bloquant)
+
+Google n'affiche que **60 caractères** de la balise `<title>`. Sur ce site, le
+suffixe « | Select Châteaux » en consomme 18. Il reste donc **42 caractères**
+pour la partie du titre qui s'affiche réellement dans les résultats.
+
+Le titre est bâti « Sujet : complément ». C'est le **sujet** — la partie avant
+le séparateur — qui est affiché ; le complément alimente le H1 et n'apparaît
+jamais en SERP.
+
+```
+✅  Séminaire Yvelines 2026 : dès 150 €/pers.
+    └────────── 38 car. ──────────┘  affiché : « Séminaire Yvelines 2026 | Select Châteaux »
+    …mais le prix, lui, est perdu. Mieux :
+
+✅  Séminaire Yvelines dès 150 €/pers. 2026 : le guide complet
+    └──────────── 40 car. ────────────┘  le prix EST affiché
+
+❌  Les plus beaux parcs de châteaux pour vos Garden Parties : le guide
+    └──────────────────── 56 car. ────────────────────┘  REFUSÉ à la publication
+```
+
+**Conséquence pratique** : le chiffre différenciateur (prix, capacité, nombre de
+lieux, durée) doit être **avant** le « : ». Placé après, il est écrit pour rien.
+
+Mesuré le 06/09/2026 : 97 pages du site dépassaient la limite, dont les 18
+landings et les 72 fiches lieux, qui portaient 44 % des impressions pour un CTR
+de 0,2 %. Sur les 284 articles existants, 75 % respectaient déjà cette règle —
+le quart restant est exactement celui dont le titre est tronqué dans Google.
+
+**Vérification** : `assertTitre()` dans `publish-article.js` refuse la
+publication. Côté site, `scripts/verif-titres.mjs` fait échouer `npm run build`.
+La règle n'est pas une consigne, c'est un contrôle.
 
 ## SIGNAUX DE FRAÎCHEUR (obligatoires)
 
@@ -415,8 +450,8 @@ node log-session.js --status=failed --step="{etape}" --error="{description}"
 
 ## CHECKLIST QUALITÉ (vérifier avant publication)
 
-- [ ] Titre de 50-70 caractères, inclut l'année
-- [ ] Titre avec un différenciateur CLIQUABLE : un chiffre concret (prix "dès 89€/pers", capacité, durée, nombre) — le prix dans le title est le booster de CTR n°1 en B2B événementiel. Bannir les titles génériques sans chiffre.
+- [ ] Titre : 42 caractères MAXIMUM avant le « : », année incluse (bloquant)
+- [ ] Différenciateur CLIQUABLE **placé AVANT le « : »** : un chiffre concret (prix "dès 89€/pers", capacité, durée, nombre). Le prix dans le title est le booster de CTR n°1 en B2B événementiel — mais placé après le séparateur, Google ne l'affiche pas. Bannir les titles génériques sans chiffre.
 - [ ] Excerpt convaincant de 1-2 phrases
 - [ ] Contenu de 2000-3500 mots — **plancher DUR à 1500 mots visibles, refusé en code** (`publish-article.js`). Mesuré le 31/08/2026 sur les 284 articles du site : sous 900 mots, Google a refusé d'indexer 89 % des articles ; le p10 des articles indexés est à 1865 mots.
 - [ ] 100 premiers mots = réponse directe avec chiffres précis

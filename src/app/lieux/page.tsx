@@ -13,6 +13,7 @@ import { Section, Container } from "@/components/layout-v2";
 import { theme } from "@/design-system/tokens";
 import { venues } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
+import { metaDescription } from "@/lib/seo";
 
 /** Chaque département a désormais sa landing : on la relie depuis sa section. */
 const LANDING_PAR_DEPT: Record<string, string> = {
@@ -34,9 +35,8 @@ const total = venues.length;
 const capaciteMax = Math.max(...venues.map(v => v.capacite));
 
 export const metadata: Metadata = {
-  title: `Lieux de Séminaire en Île-de-France : ${total} Domaines de 10 à ${capaciteMax} pers.`,
-  description:
-    `${total} lieux de séminaire vérifiés dans les Yvelines, l'Oise, la Seine-et-Marne, le Val-d'Oise, l'Essonne et les Hauts-de-Seine. Capacités, chambres et salles réelles. Devis sous 48 h.`,
+  title: `${total} Lieux de Séminaire en Île-de-France`,
+  description: metaDescription(`${total} lieux de séminaire vérifiés dans les Yvelines, l'Oise, la Seine-et-Marne, le Val-d'Oise, l'Essonne et les Hauts-de-Seine. Capacités, chambres et salles réelles. Devis sous 48 h.`),
   metadataBase: new URL("https://www.selectchateaux.com"),
   alternates: { canonical: "https://www.selectchateaux.com/lieux" },
   robots: { index: true, follow: true },

@@ -29,7 +29,7 @@ export const landingsDepartements: LandingDepartement[] = [
     slug: "seminaire-chateau-essonne-91",
     code: "91",
     departement: "Essonne",
-    title: "Séminaire Château Essonne (91) : 7 Domaines de 140 à 450 pers.",
+    title: "Séminaire Château Essonne (91) : 7 lieux",
     description:
       "7 lieux de séminaire vérifiés en Essonne, de 140 à 450 personnes, tous avec hébergement jusqu'à 298 chambres. Budget observé dès 430 € par personne. Devis sous 48 h.",
     eyebrow: "Essonne · 91",
@@ -76,7 +76,7 @@ export const landingsDepartements: LandingDepartement[] = [
     slug: "seminaire-chateau-seine-et-marne-77",
     code: "77",
     departement: "Seine-et-Marne",
-    title: "Séminaire Château Seine-et-Marne (77) : 10 Lieux jusqu'à 600 pers.",
+    title: "Séminaire Château Seine-et-Marne (77)",
     description:
       "10 lieux de séminaire vérifiés en Seine-et-Marne, de 40 à 600 personnes, jusqu'à 396 chambres. De Fontainebleau à Provins. Budget observé dès 421 € par personne. Devis sous 48 h.",
     eyebrow: "Seine-et-Marne · 77",
@@ -123,7 +123,7 @@ export const landingsDepartements: LandingDepartement[] = [
     slug: "seminaire-chateau-val-d-oise-95",
     code: "95",
     departement: "Val-d'Oise",
-    title: "Séminaire Château Val-d'Oise (95) : 11 Lieux de 13 à 600 pers.",
+    title: "Séminaire Château Val-d'Oise (95)",
     description:
       "11 lieux de séminaire vérifiés dans le Val-d'Oise, de 13 à 600 personnes. Abbaye, Vexin, proximité Roissy-CDG. Budget observé dès 363 € par personne. Devis sous 48 h.",
     eyebrow: "Val-d'Oise · 95",

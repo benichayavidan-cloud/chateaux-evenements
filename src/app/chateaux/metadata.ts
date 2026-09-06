@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "4 Châteaux Privatisables pour Séminaire [Île-de-France]",
+  title: "4 Châteaux Privatisables pour Séminaire",
   description:
     "Comparez nos 4 châteaux pour séminaire en Île-de-France : Chantilly, Chevreuse, Paris 92. De 50 à 280 pers, privatisation totale. Devis gratuit en 24h.",
   robots: {

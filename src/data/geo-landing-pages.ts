@@ -64,7 +64,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-ile-de-france",
-    title: "Séminaire Château Île-de-France : 4 Domaines [Devis Gratuit]",
+    title: "Séminaire Château Île-de-France : 4 lieux",
     description:
       "4 châteaux privatisables pour séminaire en Île-de-France. De 50 à 280 pers, 30-45 min de Paris. Hébergement, salles, spa inclus. Devis gratuit 24h.",
     keywords: ["séminaire château île-de-france", "chateau séminaire ile de france", "séminaire chateau paris", "château séminaire proche paris", "séminaire entreprise château", "lieu séminaire île-de-france", "château privatisable séminaire"],
@@ -198,7 +198,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-proche-paris",
-    title: "Château Séminaire Proche Paris : 4 Lieux à 30 min [2026]",
+    title: "Château Séminaire Proche Paris : 30 min",
     description:
       "4 châteaux pour séminaire à 30-45 min de Paris. Un accessible en métro ! Hébergement, spa, restauration inclus. Devis gratuit 24h.",
     keywords: ["château séminaire proche paris", "séminaire château paris", "séminaire proche paris", "lieu séminaire proche paris", "château événement paris", "séminaire résidentiel paris"],
@@ -312,7 +312,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-chantilly",
-    title: "Séminaire à Chantilly : 2 Châteaux dès 150€/pers [Devis 24h]",
+    title: "Séminaire à Chantilly dès 150 €/pers.",
     description:
       "2 châteaux privatisables à Chantilly en forêt de 6 300 ha. 228 chambres, 33 salles, spa 5★. 35 min de Paris, 15 min CDG. Devis gratuit 24h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "organiser séminaire chantilly", "séminaire forêt chantilly"],
@@ -469,7 +469,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-oise-60",
-    title: "Séminaire Château Oise (60) : 2 Domaines dès 150€/pers",
+    title: "Séminaire Château Oise (60) : 150 €/pers.",
     description:
       "2 châteaux séminaire dans l'Oise : manoir 280 pers + palace 5★ 200 pers en forêt de Chantilly. Spa, 33 salles. 35 min Paris. Devis gratuit 24h.",
     keywords: ["seminaire oise", "séminaire oise", "chateau seminaire oise", "château séminaire oise 60", "salle séminaire oise", "hotel séminaire oise", "séminaire forêt chantilly", "lieu séminaire oise", "séminaire entreprise oise"],
@@ -597,7 +597,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-yvelines-78",
-    title: "Séminaire Yvelines (78) : Abbaye 144 Chambres dès 150€/pers",
+    title: "Séminaire Yvelines (78) : 144 chambres",
     description:
       "Abbaye cistercienne rénovée 2023 dans les Yvelines : 144 chambres, 14 salles, 80 ha en Vallée de Chevreuse. 45 min de Paris. Devis gratuit 24h.",
     keywords: ["seminaire vallee de chevreuse", "séminaire yvelines", "seminaire yvelines", "château séminaire yvelines 78", "salle séminaire yvelines", "abbaye chevreuse séminaire", "séminaire chevreuse", "séminaire 78", "chateau seminaire 78"],
@@ -719,7 +719,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-hauts-de-seine-92",
-    title: "Séminaire Château Hauts-de-Seine (92) : Hôtel 5★ en Métro",
+    title: "Séminaire Château Hauts-de-Seine (92)",
     description:
       "Château MGallery 5★ dans le 92 : 83 chambres vue Tour Eiffel, spa 360m², 9 salles, restaurant bio. Métro L12. Devis gratuit 24h.",
     keywords: ["seminaire entreprise hauts-de-seine", "séminaire château 92", "hôtel séminaire paris 92", "lieu séminaire hauts-de-seine", "séminaire métro paris", "séminaire entreprise issy"],
@@ -833,7 +833,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-vallee-de-chevreuse",
-    title: "Séminaire Vallée de Chevreuse : Abbaye 5★ à 45 min Paris [2026]",
+    title: "Séminaire Vallée de Chevreuse : abbaye 5★",
     description:
       "Abbaye cistercienne du XIIe siècle rénovée 2023 en Vallée de Chevreuse. 144 chambres, 80 ha, 6 restaurants Paris Society. Devis gratuit 24h.",
     keywords: ["seminaire vallee de chevreuse", "seminaire chevreuse", "hotel seminaire vallée de chevreuse", "séminaire abbaye chevreuse", "lieu séminaire vallée chevreuse", "séminaire nature chevreuse", "abbaye seminaire yvelines"],

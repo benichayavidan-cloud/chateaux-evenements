@@ -14,7 +14,7 @@ import { StructuredData } from "@/components/StructuredData";
 const BASE_URL = "https://www.selectchateaux.com";
 
 export const metadata: Metadata = {
-  title: `${SOPHIE_DURAND.name}, ${SOPHIE_DURAND.role}`,
+  title: SOPHIE_DURAND.name,
   description:
     "Sophie Durand accompagne les entreprises depuis 10+ ans dans l'organisation de séminaires en château en Île-de-France. Bio, expertise et derniers articles.",
   alternates: { canonical: AUTHOR_PAGE_PATH },
