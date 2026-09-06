@@ -165,6 +165,11 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         commentaireDeroulement: formData.message || '',
         datesFlexibles,
         sourceLabel: formLabel,
+        // Chemin RÉEL de la page d'où part la demande. Jusqu'au 06/09/2026, la
+        // provenance ne quittait pas l'email d'admin : impossible de savoir
+        // quelle page convertit, donc impossible d'arbitrer entre un article et
+        // une landing autrement qu'à l'intuition.
+        sourcePage: typeof window !== 'undefined' ? window.location.pathname : '',
       };
 
       const response = await fetch('/api/devis', {

@@ -8,6 +8,7 @@ import { prepareArticleHtml } from "@/components/blog/article-html";
 import { getVisibleFaq } from "@/lib/blog-faq";
 import { clusterDeLArticle } from "@/data/seo-clusters";
 import { ArticleClientLogic } from "./ArticleClientLogic";
+import DevisFormMini from "@/components/DevisFormMini";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -193,26 +194,40 @@ export default async function BlogArticlePage({ params }: Props) {
           </div>
         </section>
 
-        {/* CTA Final (Server-rendered) */}
+        {/*
+          FORMULAIRE DE DEVIS — et non plus un simple lien vers /devis.
+
+          C'était le SEUL avantage des landings sur les articles, mesuré le
+          06/09/2026 : la landing porte `DevisFormMini` sur la page, l'article
+          renvoyait vers /devis, soit un clic et un changement de page de plus.
+
+          Or c'est l'article qui se classe. Sur les 5 duels tête à tête article
+          contre landing, l'article gagne 4 fois, de 14 à 37 places, et le blog
+          fait 221 clics sur 90 jours (position 12,5) contre 19 pour les
+          landings (position 29,4). La page qui reçoit l'audience n'avait pas de
+          quoi la convertir.
+
+          Ce bloc met le formulaire sur les 284 articles d'un coup, ce qui rend
+          la fusion des landings largement inutile : l'article devient une page
+          de destination complète.
+
+          `sourceLabel` porte le slug de l'article — c'est ce qui permettra
+          enfin d'attribuer un devis à sa page d'origine.
+        */}
         <section className="w-full bg-gradient-to-br from-amber-50 to-orange-50 flex justify-center" style={{ padding: '60px 20px' }}>
-          <div className="max-w-4xl px-6 sm:px-8 md:px-12 text-center space-y-6 sm:space-y-8">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-gray-900 px-4">
-              Prêt à Passer à l'Action ?
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto px-4">
-              Transformez ces insights en un séminaire d'exception pour vos équipes.
-            </p>
-            <Link
-              href="/devis#formulaire"
-              style={{ padding: '16px 40px' }}
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-l from-amber-600 to-[#d4af37] text-white rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl text-base shadow-lg"
-            >
-              <span>Obtenir mon Devis Gratuit</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <p className="text-xs sm:text-sm text-gray-600 px-4 font-medium">
-              ✓ Réponse sous 24h • ✓ Sans engagement • ✓ Conseils personnalisés
-            </p>
+          <div className="w-full max-w-3xl px-4 sm:px-6 md:px-8">
+            <div className="text-center space-y-3 mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light italic text-gray-900 px-4">
+                Prêt à Passer à l'Action ?
+              </h2>
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto px-4">
+                Transformez ces insights en un séminaire d'exception pour vos équipes.
+              </p>
+              <p className="text-xs sm:text-sm text-gray-600 px-4 font-medium">
+                ✓ Réponse sous 24h • ✓ Sans engagement • ✓ Conseils personnalisés
+              </p>
+            </div>
+            <DevisFormMini sourceLabel={`Article : ${article.title}`} />
           </div>
         </section>
       </ArticleClientLogic>

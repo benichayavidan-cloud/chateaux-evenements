@@ -33,6 +33,7 @@ const formSchema = z.object({
   commentaireDeroulement: z.string().optional(),
   datesFlexibles: z.boolean().optional().default(false),
   sourceLabel: z.string().optional(),
+  sourcePage: z.string().max(300).optional(),
 }).refine(
   (data) => data.datesFlexibles || data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
   { message: "Veuillez sélectionner une date", path: ["datesSouhaitees"] }
@@ -106,6 +107,13 @@ export async function POST(request: NextRequest) {
       commentaire_deroulement: data.commentaireDeroulement || '',
       dates_flexibles: data.datesFlexibles ?? false,
       fichier_url: null,
+      // Provenance — colonnes ajoutées le 06/09/2026. `sourceLabel` existait
+      // déjà mais ne servait qu'à l'email d'admin ; il n'était jamais stocké,
+      // si bien que la question « quelle page convertit ? » restait sans
+      // réponse possible. Les deux sont facultatives : un devis sans
+      // provenance reste un devis valide.
+      source_page: data.sourcePage || null,
+      source_label: data.sourceLabel || null,
     };
 
     // Insérer dans Supabase
