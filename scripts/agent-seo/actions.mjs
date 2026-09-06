@@ -14,19 +14,32 @@
  *   5. chaque action exécutée = entrée marcus_journal avec prédiction
  *      chiffrée et échéance (sinon l'action est ILLÉGALE — Loi 2)
  *
- * Actions implémentées (v1) :
+ * Actions implémentées :
  *   - ping-indexnow        : notifier Bing/Yandex des URLs modifiées
- *   - inspection-google    : demander l'inspection GSC d'une URL modifiée
  *   - commande-reecriture  : ouvrir une issue GitHub étiquetée pour Camille
- *   [Phase 2] title-ab     : réécriture de title avec groupe témoin —
- *                            implémentée à l'activation, avec les 2 semaines
- *                            de courbe CTR-par-position en référence
+ *
+ * DEUX ACTIONS ONT ÉTÉ RETIRÉES le 06/09/2026, à la revue qui a précédé le
+ * passage en phase 2 :
+ *
+ *   inspection-google — PLACEBO. L'API URL Inspection est en LECTURE SEULE :
+ *     elle ne déclenche aucune indexation. Le bouton « Demander une indexation »
+ *     de l'interface n'a pas d'API publique, et l'API Indexing est réservée aux
+ *     JobPosting et BroadcastEvent. L'action consommait du quota en donnant
+ *     l'illusion d'agir.
+ *
+ *   title-ab — SANS OBJET. Les 97 titres hors norme ont été réécrits le
+ *     06/09 et `scripts/verif-titres.mjs` les borne désormais à 60 caractères
+ *     en faisant échouer le build. Un test A/B de titres se battrait contre le
+ *     garde-fou.
+ *
+ * Les rétablir demanderait de lever ces deux obstacles, pas de décommenter du
+ * code : c'est pourquoi elles sont supprimées et non désactivées.
  */
 import fs from 'node:fs';
 import { execSync } from 'node:child_process';
-import { SITE, env, gsc, sbSelect, sbInsert } from './lib.mjs';
+import { env, sbSelect, sbInsert } from './lib.mjs';
 
-const QUOTAS = { 'ping-indexnow': 99, 'inspection-google': 20, 'commande-reecriture': 1, 'title-ab': 3 };
+const QUOTAS = { 'ping-indexnow': 99, 'commande-reecriture': 1 };
 const GELEES = JSON.parse(fs.readFileSync(new URL('./pages-gelees.json', import.meta.url))).pages;
 
 export async function phaseCourante() {
@@ -51,8 +64,6 @@ export async function executerActions(backlog, { runId, updateEnCours }) {
     try {
       if (a.type === 'ping-indexnow') {
         execSync(`node ${new URL('../indexnow.mjs', import.meta.url).pathname} ${a.urls.map((u) => `"${u}"`).join(' ')}`, { stdio: 'inherit' });
-      } else if (a.type === 'inspection-google') {
-        await gsc('/v1/urlInspection/index:inspect', { inspectionUrl: SITE + a.cible, siteUrl: SITE + '/' });
       } else if (a.type === 'commande-reecriture') {
         execSync(`gh issue create --title "Camille : réécriture GEO — ${a.cible}" --label camille-reecriture --body ${JSON.stringify(a.motif + '\n\nDemandé par Marcus (run #' + runId + '). Prédiction : ' + a.prediction)}`, { encoding: 'utf8' });
       } else { continue; }
