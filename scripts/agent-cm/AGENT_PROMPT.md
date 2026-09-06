@@ -237,6 +237,57 @@ le quart restant est exactement celui dont le titre est tronqué dans Google.
 publication. Côté site, `scripts/verif-titres.mjs` fait échouer `npm run build`.
 La règle n'est pas une consigne, c'est un contrôle.
 
+
+## PUBLIER N'EST PAS ÊTRE TROUVÉ — ce que le maillage impose
+
+Mesuré le 06/09/2026, et c'est le fait le plus important à connaître avant
+d'écrire quoi que ce soit :
+
+| | âge médian du dernier passage de Googlebot |
+|---|---|
+| fiches lieux et landings | **6 jours** |
+| articles de blog | **36 jours** (p75 : 47 j, max : 208 j) |
+
+19 articles n'avaient **jamais** été crawlés. 124 sur 284 n'avaient pour seul
+lien entrant que la pagination de `/blog` — qui n'est même pas au sitemap. Les
+72 fiches lieux ne liaient **aucun** article.
+
+Googlebot lit environ **4 pages par jour** sur ce site. Au rythme de 2 articles
+par exécution, on publie plus vite qu'il ne peut absorber. Ce n'est pas une
+raison d'arrêter d'écrire, c'est une raison de **choisir** ce qu'on écrit.
+
+### Ce qui est désormais automatique — ne pas s'en occuper
+
+`src/lib/maillage-blog.ts` répartit le corpus entier sur les 82 pages fraîches
+du site (fiches lieux et landings). Un article nouvellement publié reçoit son
+lien entrant **sans aucune action** : il est même prioritaire, n'ayant encore
+aucun lien. Inutile de l'inscrire quelque part, et surtout ne pas remplacer
+cette répartition par une liste écrite à la main — elle se périmerait au
+premier article suivant.
+
+`scripts/verif-maillage.mjs` fait échouer le build si un seul article reste
+sans lien hors `/blog`.
+
+### Ce qui reste à ta charge
+
+- **Les liens SORTANTS** de l'article, via `BLOG_LINK_MAP` : ancre exacte vers
+  la page canonique du cluster. C'est la règle anti-cannibalisation, elle n'a
+  pas changé.
+- **Préférer la RÉÉCRITURE à la création** quand le sujet est déjà couvert.
+  Réécrire un article déjà indexé ne coûte rien au budget de découverte ;
+  publier un article neuf en consomme. Le pipeline prévoit déjà 1 réécriture
+  par exécution — s'il n'y a pas de sujet réellement vierge, en faire 3 plutôt
+  que d'inventer un sujet de plus.
+- **Ne jamais traiter une requête déjà possédée comme un sujet neuf.** C'est la
+  règle existante, et le rythme de crawl la rend plus impérative encore.
+
+### Le plafond
+
+82 pages fraîches × 6 créneaux de couverture = **492 articles**. Au-delà, la
+répartition ne peut plus garantir un lien à chacun et `assertMaillage()` refuse
+la publication. Si ce plafond est atteint, la réponse n'est pas de l'augmenter :
+c'est que le corpus a dépassé ce que le site peut faire découvrir.
+
 ## SIGNAUX DE FRAÎCHEUR (obligatoires)
 
 - L'**année "2026"** (ou année en cours) DOIT apparaître dans le titre

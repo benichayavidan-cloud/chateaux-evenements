@@ -17,7 +17,7 @@ import { Section, Container } from "@/components/layout-v2";
 import { theme } from "@/design-system/tokens";
 import DevisFormMini from "@/components/DevisFormMini";
 import type { Venue } from "@/data/venues";
-import { FaqSection } from "@/components/lieux";
+import { FaqSection, GuidesSection } from "@/components/lieux";
 import { buildVenueFaq } from "@/lib/venue-faq";
 
 const BRONZE = theme.colors.primary.bronze;
@@ -370,6 +370,11 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
 
       {/* ── Questions fréquentes — dérivées des données de la fiche ── */}
       <FaqSection items={faq} background="white" />
+
+      {/* Maillage vers le blog — voir lib/maillage-blog.ts. Les 72 fiches lieux
+          ne liaient aucun article avant le 06/09/2026, alors que Googlebot y
+          repasse tous les 6 jours. */}
+      <GuidesSection chemin={`/lieux/${v.slug}`} background="gray" />
 
       {/* ── Demande de devis — pleine largeur, comme sur les fiches château ── */}
       <Section spacing="md" background="gray">

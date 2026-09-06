@@ -210,6 +210,48 @@ function assertSourceExterne(article) {
 }
 
 /**
+ * MAILLAGE — le corpus ne doit pas dépasser ce que les pages fraîches peuvent
+ * faire découvrir.
+ *
+ * Un article publié n'est pas un article trouvé. Mesuré le 06/09/2026 :
+ * 124 des 284 articles n'avaient pour seul lien entrant que la pagination de
+ * /blog — laquelle n'est pas au sitemap — et les 72 fiches lieux ne liaient
+ * aucun article. En regard, Googlebot repasse sur les fiches lieux et les
+ * landings tous les 6 jours, contre 36 jours en médiane sur le blog, et
+ * 19 articles n'avaient jamais été vus.
+ *
+ * Depuis, `src/lib/maillage-blog.ts` répartit AUTOMATIQUEMENT le corpus entier
+ * sur les 82 pages fraîches du site : un nouvel article reçoit son lien sans
+ * que personne ait à l'inscrire quelque part. Il est même prioritaire, n'ayant
+ * encore aucun lien.
+ *
+ * Mais cette surface n'est pas infinie : 82 pages × 6 créneaux de couverture =
+ * PLAFOND_CORPUS articles. Au-delà, la répartition ne peut plus garantir un
+ * lien à chacun, et `scripts/verif-maillage.mjs` fait échouer le build.
+ *
+ * Ce garde-fou attrape le problème AVANT le commit plutôt qu'au déploiement.
+ * Et s'il se déclenche, le message n'est pas « augmenter le plafond » : c'est
+ * qu'on publie plus vite que Google ne peut absorber. Au rythme de 10 articles
+ * par semaine pour un budget de crawl d'environ 4 pages par jour, la question
+ * se pose bien avant le plafond.
+ */
+const PLAFOND_CORPUS = 492;
+
+function assertMaillage(existingArticles) {
+  const apres = existingArticles.length + 1;
+  if (apres > PLAFOND_CORPUS) {
+    throw new Error(
+      `Corpus saturé : ${apres} articles pour une capacité de découverte de ${PLAFOND_CORPUS}.\n` +
+      `Les pages fraîches du site (fiches lieux et landings) ne peuvent plus offrir ` +
+      `un lien entrant à chaque article. Publier davantage ajouterait des pages ` +
+      `que Google ne trouvera pas.\n` +
+      `Deux issues, dans cet ordre : réécrire des articles existants plutôt que ` +
+      `d'en créer, ou augmenter le nombre de pages fraîches (fiches lieux, landings).`
+    );
+  }
+}
+
+/**
  * Contrôle LEXICAL du slug — attrape la faute de frappe et l'anglicisme.
  *
  * Cas réel : `seminar-responsable-formation-chateau-guide-opco-2026` publié
@@ -355,6 +397,9 @@ function publishArticle(article, opts = {}) {
   // Orthographe du slug — le vocabulaire du corpus fait foi (voir
   // assertSlugLexique). Placé après le chargement de `existing`, dont il dépend.
   if (!opts.force) assertSlugLexique(article.slug, existing);
+
+  // Maillage — le corpus reste-t-il découvrable ? (voir assertMaillage)
+  assertMaillage(existing);
 
   // GATE ANTI-CANNIBALISATION — défense en profondeur : ce check couvre TOUS
   // les chemins de publication (pipeline auto + publication manuelle).

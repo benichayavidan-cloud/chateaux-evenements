@@ -137,6 +137,62 @@ de destination).
 
 ---
 
+## 7. Maillage : aucun article ne dépend du seul blog pour être découvert
+
+### La règle
+
+Chaque article publié reçoit au moins un lien depuis une page **hors `/blog`** —
+fiche lieu, landing, accueil. Ce sont les pages que Googlebot repasse voir.
+
+### Pourquoi
+
+Mesuré le 06/09/2026 sur le HTML produit :
+
+- 124 des 284 articles n'avaient qu'**un** lien entrant, et c'était la
+  pagination de `/blog` (103) ou l'index `/blog` (21) ;
+- les pages `/blog/page/2..8` **ne figurent pas au sitemap** ;
+- `/blog` n'avait pas été crawlé depuis le 20/08 ;
+- les **72 fiches lieux ne liaient aucun article** — zéro sur 72 ;
+- au total, **16 articles sur 284** étaient atteignables depuis une page
+  fréquemment crawlée.
+
+En regard, l'âge médian du dernier passage de Googlebot : **6 jours** sur les
+fiches lieux et les landings, **36 jours** sur le blog.
+
+### Le mécanisme
+
+`src/lib/maillage-blog.ts` répartit le corpus entier sur les 82 pages fraîches,
+de façon **déterministe** (aucun aléa : Google verrait sinon un maillage
+différent à chaque passage) et **exhaustive**.
+
+Deux parts de créneaux par page, qui ne se disputent pas :
+- **2 créneaux de pertinence** — articles liés au lieu ou à la zone ;
+- **le reste pour la couverture** — les articles les moins servis du corpus,
+  dimensionné à `ceil(nb articles / nb pages fraîches)`.
+
+Sans cette séparation, la pertinence mangeait tous les créneaux et 121 articles
+sur 284 restaient orphelins (constaté en construisant le module).
+
+Affichage : `GuidesSection` dans `src/components/lieux/index.tsx`, branchée sur
+les fiches lieux, les 4 landings de format, les 3 de département et les 7 géo.
+
+### Le contrôle
+
+`scripts/verif-maillage.mjs`, branché sur `npm run build` aux côtés de
+`verif-titres.mjs`. Il lit le HTML produit, pas le code.
+
+```bash
+npm run verif:maillage        # sur le dernier build local
+npm run verif:maillage:prod   # sur la production
+```
+
+Côté agent, `assertMaillage()` dans `publish-article.js` refuse une publication
+qui ferait passer le corpus au-dessus de **492 articles** (82 pages × 6
+créneaux de couverture). Ce plafond n'est pas à augmenter : l'atteindre signifie
+qu'on publie plus vite que le site ne peut faire découvrir.
+
+---
+
 ## Contexte de crawl — à connaître avant de promettre un effet
 
 Mesuré le 06/09/2026 par l'API URL Inspection sur les 382 URLs :
