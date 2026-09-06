@@ -13,7 +13,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
 import {
   LandingHero, ReponseDirecte, ChiffresSection, VenueSection,
-  ProseSection, FaqSection, DevisSection, GuidesSection, BRONZE_DARK, HEADING, G, GOLD,
+  ProseSection, FaqSection, DevisSection, GuidesSection, ObservatoireSection, BRONZE_DARK, HEADING, G, GOLD,
 } from "@/components/lieux";
 
 export function metadataFor(slug: string): Metadata {
@@ -161,7 +161,11 @@ export function LandingDepartement({ slug }: { slug: string }) {
       <div id="faq">
         <FaqSection items={l.faq} background="white" />
 
-      <GuidesSection chemin={`/${l.slug}`} background="gray" />
+      {/* Observatoire des 188 devis, ventilé par format et par taille de groupe :
+          le bloc « budget » au-dessus ne donne qu'une fourchette de la zone. */}
+      <ObservatoireSection departementCode={l.code} background="gray" />
+
+      <GuidesSection chemin={`/${l.slug}`} background="white" />
       </div>
 
       <DevisSection

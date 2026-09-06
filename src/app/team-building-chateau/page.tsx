@@ -16,6 +16,7 @@ import { VenuesByDepartment } from "@/components/geo/VenuesByDepartment";
 import { TeamBuildingParZone } from "@/components/lieux/TeamBuildingParZone";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { GuidesSection, ObservatoireSection } from "@/components/lieux";
 
 const faq = [
   {
@@ -158,6 +159,10 @@ export default function TeamBuildingPage() {
         title="Lieux pour un team building en château"
         intro="Parc, forêt, espace extérieur : les domaines qui se prêtent aux activités de cohésion, avec leur capacité réelle et leur hébergement. Devis sous 48 h."
       />
+      {/* Donnée propriétaire (observatoire des 188 devis) et maillage vers le
+          blog — les deux leviers mesurés le 06/09/2026. */}
+      <ObservatoireSection departementCode={null} background="white" />
+      <GuidesSection chemin="/team-building-chateau" background="gray" />
       <LogoCarousel />
       <ReviewsSection />
       <StickyCtaBar />
