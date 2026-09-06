@@ -32,47 +32,66 @@ Rapport complet : `_claude_docs/2026-09-06_audit-seo-llm.md`.
       échouer le déploiement), `assertTitre()` côté agent Camille,
       `AGENT_PROMPT.md` corrigé (il disait « 50-70 caractères »),
       `documentation_systeme/regles-seo-non-negociables.md`.
+- [x] **Menu principal remis sur une seule ligne** (PR #26, déployé). La PR #14
+      du 30/08 avait fait passer le premier niveau de 4 à 6 entrées en s'en
+      servant comme véhicule de maillage. Sous-menu « Organiser », `nowrap` sur
+      les libellés, et point de bascule vers le hamburger porté de 768 à
+      **1160 px** — en dessous, le menu centré en position absolue passait sous
+      le logo et le CTA.
+- [x] **Pied de page restructuré** (PR #27, déployé). La grille avait 4 colonnes
+      pour 5 blocs : la 4ᵉ section retombait seule sur une 2ᵉ rangée. La marque
+      prend sa propre rangée ; sections rééquilibrées 5/5/6/6 ; 3 doublons
+      retirés ; 18 destinations uniques → 22.
+- [x] **Maillage vers le blog** (PR #28, déployé) — voir le point 1 ci-dessous.
 - [x] Sitemap resoumis à GSC + IndexNow sur les 382 URLs (06/09).
 - [x] Accès GSC restauré (`gcloud auth login`, `seminaires@selectchateaux.com`).
       **Il ré-expirera** — c'est le premier réflexe si `gsc.js` échoue.
 
 ## À faire — par ordre d'effet
 
-### 1. Maillage vers les 19 articles jamais crawlés (le plus rentable)
+### 1. ✅ FAIT — Maillage vers le blog (PR #28, déployé)
 
-Mesuré le 06/09 : **0 des 19 articles « unknown to Google » n'est cité** depuis
-une landing ni depuis `internal-link-map.ts`. Ils ne sont atteignables que par la
-pagination de `/blog` — dont les pages `/blog/page/2..8` **ne sont même pas au
-sitemap**, et dont `/blog` lui-même n'a pas été crawlé depuis le 20/08.
+Le chantier était plus large que prévu. Mesuré sur le HTML produit :
+**124 des 284 articles n'avaient qu'un lien entrant, et c'était la pagination
+`/blog`** — qui n'est pas au sitemap et n'avait pas été crawlée depuis le 20/08.
+Les **72 fiches lieux ne liaient aucun article**. Au total, **16 articles sur
+284** étaient atteignables depuis une page fréquemment crawlée.
 
-Ces 19 articles sont donc invisibles par construction. Les lier depuis les
-landings (crawlées tous les 6 jours) est le seul chemin rapide. Liste dans le
-rapport ; plusieurs ont une valeur commerciale directe
-(`chantilly-vs-fontainebleau-seminaire-comparatif`,
-`seminaire-yvelines-programme-activites-budget-2026`).
+`src/lib/maillage-blog.ts` répartit désormais le corpus entier sur les 82 pages
+fraîches (fiches lieux + landings), de façon déterministe et exhaustive :
+**284/284** articles liés hors `/blog`. Vérifié par `scripts/verif-maillage.mjs`
+au build ; borné côté agent par `assertMaillage()` (plafond 492 articles).
 
-À traiter avec les 22 articles « Crawled – currently not indexed ».
+⚠️ **Correction d'une mesure erronée** : j'avais d'abord annoncé « 284 articles
+sur 284 à zéro lien entrant ». Faux — le comptage excluait tout ce qui suit
+`<footer>`, or le corps des articles est **streamé après le pied de page** dans
+l'ordre du document (Suspense React). Le blog est bien maillé blog↔blog ; ce qui
+manquait était le lien depuis les pages fraîches.
 
-### 2. Cannibalisation blog / landing — décision à prendre
+### 2. Cannibalisation blog / landing — mesuré, décision à prendre
 
-Le lien satellite de la PR #24 **fonctionne mais trop lentement** : mesuré le
-06/09, la landing remonte de 3 à 10 positions par semaine depuis la cinquantaine
-pendant que l'article garde la sienne. Deux à trois mois avant que la hiérarchie
-s'inverse, et pendant ce temps les deux pages se disputent la requête.
+**L'article gagne les 5 duels tête à tête**, de 14 à 37 places (séminaire
+yvelines 17,7 vs 54,1 · oise 17,9 vs 32,1 · chantilly 17,9 vs 32,0 · team
+building chantilly 9,1 vs 14,1 · séminaire 78 15,1 vs 52,4). Globalement :
+blog 217 pages / pos. 12,5 / CTR 1,57 % contre landings 17 pages / pos. 29,4 /
+CTR 0,30 %.
 
-| requête | article | landing (21/08 → 03/09) |
-|---|---|---|
-| séminaire yvelines | 25,3 stable | 54,1 → 49,6 |
-| séminaire oise | 18,3 stable | 63,8 → 53,4 |
-| séminaire chantilly | 23,9 stable | 33,4 → 30,7 |
+Mais le chevauchement des requêtes distingue **3 vrais doublons** — Yvelines
+(98 % de ses impressions sur des requêtes partagées), Chantilly (90 %), Team
+Building Chantilly (89 %) — et **5 landings autonomes** : Oise (65 %, possède
+« hotel séminaire oise » 91i et « salle séminaire oise » 82i), Team Building
+Château (60 %, « team building ile de france » 205i), Île-de-France (59 %),
+Proche Paris (**0 %**, 289 imp. propres), Vallée de Chevreuse (**0 %**, 434 imp.
+propres).
 
-Cas réussi à l'inverse : sur `team building chantilly`, la landing est entrée à
-14,1 et a dépassé l'article déclassé à 17,5 — mais la meilleure position du site
-sur cette requête est passée de 10,4 à 14,1.
+→ **Fusionner 3, garder 5.** Et ajouter `DevisFormMini` au gabarit d'article :
+c'est le seul avantage des landings (formulaire intégré vs simple lien vers
+`/devis`), et il profiterait aux 284 articles d'un coup.
 
-Trois options, à instruire puis trancher : **fusionner** l'article dans la
-landing · poser un **`canonical`** de l'article vers la landing · **assumer
-l'article** comme page de destination et lui ajouter le formulaire de devis.
+**Bloquant à connaître** : la page d'origine d'un devis n'est **jamais stockée**
+(`sourceLabel` part dans l'email admin et s'arrête là). « Qui convertit le
+mieux » n'est pas mesurable aujourd'hui, et ne le sera pas tant qu'on n'ajoute
+pas la colonne à `demandes_devis_chateaux`. 46 devis en base, 18 sur 90 jours.
 
 ### 3. Pages adossées aux données CRM — le seul angle où les IA nous citent
 

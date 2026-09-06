@@ -287,12 +287,49 @@ l'applique à l'agent Camille ; `AGENT_PROMPT.md` et
 `documentation_systeme/regles-seo-non-negociables.md` la consignent.
 Détail du raisonnement et des arbitrages : voir la PR #25.
 
-**B — Trancher la cannibalisation pour de bon.**
-Le lien satellite ne suffit pas. Sur les 6 requêtes concernées, il faut soit
-fusionner l'article dans la landing, soit poser un `canonical` de l'article
-vers la landing, soit assumer que l'article *est* la page de destination et
-lui ajouter le formulaire de devis. Trois options, une décision à prendre —
-je peux instruire chacune.
+**B — Trancher la cannibalisation : mesuré, la réponse n'est pas uniforme.**
+
+Duels tête à tête sur 90 jours — **l'article gagne 5 fois sur 5**, de 14 à
+37 places : séminaire yvelines 17,7 vs 54,1 · séminaire oise 17,9 vs 32,1 ·
+séminaire chantilly 17,9 vs 32,0 · team building chantilly 9,1 vs 14,1 ·
+séminaire 78 15,1 vs 52,4. Globalement : blog 217 pages / position 12,5 /
+CTR 1,57 % contre landings 17 pages / position 29,4 / CTR 0,30 %.
+
+Mais le chevauchement réel des requêtes distingue deux groupes :
+
+| landing | impressions sur requêtes partagées | verdict |
+|---|---|---|
+| `/seminaire-chateau-yvelines-78` | **98 %** | doublon → fusionner |
+| `/seminaire-chateau-chantilly` | **90 %** | doublon → fusionner |
+| `/team-building-chantilly` | **89 %** | doublon → fusionner |
+| `/seminaire-chateau-oise-60` | 65 % | garder (possède « hotel séminaire oise » 91i, « salle séminaire oise » 82i) |
+| `/team-building-chateau` | 60 % | garder (« team building ile de france » 205i) |
+| `/seminaire-chateau-ile-de-france` | 59 % | garder |
+| `/seminaire-chateau-proche-paris` | **0 %** | garder (289 imp. propres) |
+| `/seminaire-vallee-de-chevreuse` | **0 %** | garder (434 imp. propres) |
+
+**3 à fusionner, 5 à garder.** Le seul avantage des landings — le formulaire
+`DevisFormMini` intégré, là où l'article n'a qu'un lien vers `/devis` — se règle
+en ajoutant ce formulaire au gabarit d'article : 284 articles d'un coup.
+
+**Point bloquant à connaître** : la page d'origine d'un devis n'est jamais
+stockée (`sourceLabel` part dans l'email admin et s'arrête là). « Qui convertit
+le mieux » n'est donc pas mesurable, et ne le sera pas tant qu'on n'ajoute pas
+la colonne. 46 devis en base, 18 sur 90 jours — de toute façon trop peu pour
+trancher statistiquement aujourd'hui.
+
+**B bis — ✅ FAIT le 06/09 (PR #28, déployé) : le maillage vers le blog.**
+
+Découvert en instruisant le point A. Sur le HTML produit : **124 des 284
+articles n'avaient qu'un lien entrant, et c'était la pagination `/blog`** — qui
+n'est pas au sitemap et n'avait pas été crawlée depuis le 20/08. Les **72 fiches
+lieux ne liaient aucun article**. Au total, **16 articles sur 284** étaient
+atteignables depuis une page fréquemment crawlée.
+
+`src/lib/maillage-blog.ts` répartit désormais le corpus entier sur les 82 pages
+fraîches, de façon déterministe et exhaustive. **284/284 articles** sont liés
+hors `/blog`. Vérifié par `scripts/verif-maillage.mjs` au build, et borné côté
+agent par `assertMaillage()` (plafond de 492 articles).
 
 **C — Systématiser ce qui marche en IA : la donnée propriétaire.**
 Les deux citations obtenues viennent des deux pages bâties sur les 188 devis.
