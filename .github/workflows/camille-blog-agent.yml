@@ -9,7 +9,11 @@ on:
 jobs:
   camille:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 30 et non 15 : depuis le ratio 3/1 un run rédige 3 ou 4 articles de
+    # ~2 000 mots. Mesuré au 1er run réel du 07/09 : ~4 min par article, plus
+    # le npm ci et le pull GSC. Le plafond de 15 min, hérité du temps où
+    # l'agent produisait 2 articles, a annulé ce run en pleine rédaction.
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v4

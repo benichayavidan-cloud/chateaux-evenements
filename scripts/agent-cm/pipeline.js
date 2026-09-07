@@ -6,7 +6,10 @@ const { execSync } = require('child_process');
 const { ARTICLES_PATH, IMAGES_DIR, CATEGORIES } = require('./config');
 const { checkArticle, loadClusters, formatReport, getExistingArticles, prepareExisting } = require('./anti-cannibalisation');
 const { checkDoublonSemantique } = require('./doublon-semantique');
-const { listerArticlesCamille, estConforme } = require('./publish-article');
+const {
+  listerArticlesCamille, estConforme,
+  assertLongueurSuffisante, assertTitre, assertStructureH3, assertSourceExterne,
+} = require('./publish-article');
 
 const AGENT_DIR = __dirname;
 const SITE_DIR = path.resolve(AGENT_DIR, '../..');
@@ -139,7 +142,7 @@ const SCHEMA_CREATION = {
  * Le system prompt est mis en cache : il fait ~30 k tokens et ne change pas
  * entre les 4 appels d'un même run (3 réécritures + 1 création).
  */
-async function appelerClaude(client, { system, user, schema, maxTokens = 32000 }) {
+async function appelerClaude(client, { system, user, schema, maxTokens = 64000 }) {
   const MAX_TENTATIVES = 3;
   for (let essai = 1; essai <= MAX_TENTATIVES; essai++) {
     try {
@@ -169,6 +172,28 @@ async function appelerClaude(client, { system, user, schema, maxTokens = 32000 }
   }
 }
 
+/**
+ * Passe l'article aux MÊMES garde-fous que publish-article.js, mais AVANT
+ * l'écriture — et renvoie le motif au lieu de lever.
+ *
+ * Au premier run réel (07/09), deux réécritures sur trois ont été produites
+ * puis REJETÉES à la publication pour « aucune source externe citée » : le
+ * travail de rédaction était perdu, et le run entier repartait à zéro. Vérifier
+ * ici permet de renvoyer le motif au modèle et de lui laisser une seconde
+ * chance, comme le fait déjà la boucle de la création pour le gate
+ * anti-cannibalisation.
+ */
+function motifDeRejet(article) {
+  for (const verifier of [assertLongueurSuffisante, assertTitre, assertStructureH3, assertSourceExterne]) {
+    try {
+      verifier(article);
+    } catch (err) {
+      return err.message;
+    }
+  }
+  return null;
+}
+
 /** Socle de consignes commun aux réécritures et à la création. */
 function socleSysteme(gscData) {
   const promptMd = fs.readFileSync(path.join(AGENT_DIR, 'AGENT_PROMPT.md'), 'utf-8');
@@ -189,8 +214,15 @@ MOIS EN COURS : ${month}
 CONTRAINTES VÉRIFIÉES PAR LE CODE — un article qui les enfreint est REJETÉ :
 - au moins 1 500 mots de texte VISIBLE (balises retirées) ;
 - au moins 6 sous-titres <h3>, répartis 2 à 4 sous chaque <h2> ;
-- au moins un lien sortant vers une source publique vérifiable (INSEE, Atout
-  France, Unimev, code du travail…), en dehors de selectchateaux.com ;
+- OBLIGATOIRE — au moins un lien sortant vers une source publique vérifiable,
+  hors selectchateaux.com. C'est la contrainte la plus souvent oubliée : sans
+  elle l'article est rejeté et tout le travail de rédaction est perdu. Forme
+  attendue, à placer dans le corps du texte :
+      <a href='https://www.insee.fr/...' rel='nofollow'>INSEE</a>
+  Domaines acceptés : insee.fr, atout-france.fr, unimev.fr, legifrance.gouv.fr,
+  service-public.fr, travail-emploi.gouv.fr, entreprises.gouv.fr, ademe.fr,
+  les offices de tourisme (…-tourisme.fr) et les sites officiels des lieux.
+  Un lien vers selectchateaux.com NE COMPTE PAS ;
 - le titre : 42 caractères maximum AVANT le séparateur « : » — au-delà, Google
   coupe la fin dans ses résultats ;
 - entre 8 et 12 mots-clés ;
@@ -301,8 +333,9 @@ function choisirReecritures(gscData, nb, exclure = []) {
 
 /** ÉTAPE 2a — les 3 réécritures. Un appel par article : un seul JSON portant
  *  trois articles de 2 500 mots dépasse la fenêtre de sortie et se tronque. */
-async function step2_reecritures(client, gscData, nb = NB_REECRITURES, exclure = []) {
+async function step2_reecritures(client, gscData, nb = NB_REECRITURES, exclure = [], tentes = null) {
   const cibles = choisirReecritures(gscData, nb, exclure);
+  for (const c of cibles) tentes?.add(c.slug);
   log(2, `${cibles.length} article(s) à réécrire :`);
   cibles.forEach((c) => log(2, `   ${c.slug} — ${c.motif}`));
 
@@ -327,17 +360,42 @@ publié le : ${cible.publishedAt}
 
 ${cible.content}`;
 
-      const brut = await appelerClaude(client, { system, user, schema: SCHEMA_REECRITURE });
-      reecrits.push({
-        ...brut,
-        slug: cible.slug,
-        category: cible.category,
-        image: cible.image,
-        imageAlt: cible.imageAlt,
-        publishedAt: cible.publishedAt,
-        updatedAt: new Date().toISOString().split('T')[0],
-      });
-      log(2, `   ✓ ${cible.slug} réécrit (${String(brut.content).replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length} mots)`);
+      // Deux tentatives : la seconde reçoit le motif de rejet de la première.
+      // Sans cette boucle, une réécriture recalée sur un garde-fou était perdue
+      // sèche — c'est ce qui a fait échouer le run du 07/09 (2 sur 3 recalées
+      // pour « aucune source externe »).
+      let article = null;
+      let motif = null;
+      for (let essai = 1; essai <= 2 && !article; essai++) {
+        const message = essai === 1 ? user : `${user}
+
+TA VERSION PRÉCÉDENTE A ÉTÉ REJETÉE PAR UN GARDE-FOU :
+${motif}
+
+Corrige EXACTEMENT ce point et renvoie l'article complet.`;
+        const brut = await appelerClaude(client, { system, user: message, schema: SCHEMA_REECRITURE });
+        const candidat = {
+          ...brut,
+          slug: cible.slug,
+          category: cible.category,
+          image: cible.image,
+          imageAlt: cible.imageAlt,
+          publishedAt: cible.publishedAt,
+          updatedAt: new Date().toISOString().split('T')[0],
+        };
+        motif = motifDeRejet(candidat);
+        if (motif) {
+          log(2, `   ↻ ${cible.slug} tentative ${essai} recalée : ${motif.split('\n')[0]}`);
+          continue;
+        }
+        article = candidat;
+      }
+      if (!article) {
+        logError(2, `   ✗ ${cible.slug} : recalé après 2 tentatives — ${motif.split('\n')[0]}`);
+        continue;
+      }
+      reecrits.push(article);
+      log(2, `   ✓ ${cible.slug} réécrit (${String(article.content).replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length} mots)`);
     } catch (err) {
       // Une réécriture ratée n'annule pas les autres : chacune est indépendante.
       logError(2, `   ✗ ${cible.slug} : ${err.message}`);
@@ -607,7 +665,11 @@ async function main() {
 
     // ── Le cœur du travail : 3 réécritures. Elles ne génèrent PAS d'image —
     // l'article garde la sienne, c'est une règle de la réécriture GEO.
-    const reecrits = await step2_reecritures(client, gscData);
+    // `tentes` retient TOUTES les cibles essayées, abouties ou non. Au run du
+    // 07/09 la 4ᵉ réécriture a re-choisi un article déjà tenté et recalé, parce
+    // que l'exclusion ne portait que sur les slugs effectivement publiés.
+    const tentes = new Set();
+    const reecrits = await step2_reecritures(client, gscData, NB_REECRITURES, [], tentes);
     for (const article of reecrits) {
       if (step4_publishArticle(article, 'reecriture')) {
         rewrittenSlugs.push(article.slug);
@@ -624,7 +686,7 @@ async function main() {
       // que rien. Le budget de crawl est le même ; autant le dépenser sur une
       // page que Google connaît déjà.
       log(2, 'Aucune création — on convertit le créneau en 4ᵉ réécriture');
-      for (const article of await step2_reecritures(client, gscData, 1, rewrittenSlugs)) {
+      for (const article of await step2_reecritures(client, gscData, 1, [...tentes], tentes)) {
         if (step4_publishArticle(article, 'reecriture')) rewrittenSlugs.push(article.slug);
       }
     }
