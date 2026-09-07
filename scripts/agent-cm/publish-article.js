@@ -197,7 +197,14 @@ function assertStructureH3(article) {
  * Les liens vers selectchateaux.com ne comptent pas : ce sont des liens internes.
  */
 function assertSourceExterne(article) {
-  const liens = String(article.content || '').match(/href="https?:\/\/[^"]+"/gi) || [];
+  // Les DEUX styles de guillemets, et c'est le fond du problème : le prompt
+  // impose des attributs en guillemets SIMPLES (class='text-primary') pour
+  // éviter les échappements dans le JSON, mais ce contrôle n'acceptait que les
+  // doubles. Il ne pouvait donc jamais voir une source posée selon la
+  // consigne. Au premier run du ratio 3/1 (07/09/2026), deux réécritures sur
+  // trois ont été rejetées « aucune source externe » alors qu'elles en
+  // citaient une : le modèle obéissait, le garde-fou était aveugle.
+  const liens = String(article.content || '').match(/<a\s[^>]*href=["']https?:\/\/[^"']+["']/gi) || [];
   const externes = liens.filter(l => !/selectchateaux\.com/i.test(l));
   if (externes.length === 0) {
     throw new Error(
@@ -662,4 +669,8 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { publishArticle, replaceArticle, listerArticlesCamille, estConforme, assertSlugValide, assertSlugLexique, assertLongueurSuffisante };
+module.exports = {
+  publishArticle, replaceArticle, listerArticlesCamille, estConforme,
+  assertSlugValide, assertSlugLexique, assertLongueurSuffisante,
+  assertTitre, assertStructureH3, assertSourceExterne,
+};
