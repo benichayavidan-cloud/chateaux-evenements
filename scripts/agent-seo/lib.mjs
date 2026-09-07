@@ -71,6 +71,15 @@ export async function sbInsert(table, row) {
   if (!r.ok) throw new Error(`Supabase ${table}: ${JSON.stringify(d).slice(0, 200)}`);
   return d[0];
 }
+/** Mise à jour partielle d'une ligne. Sert à compléter un run déjà archivé —
+ *  le run est écrit AVANT les actions (pour leur donner un run_id), puis son
+ *  snapshot est complété avec ce que les actions ont produit. */
+export async function sbPatch(table, filtre, patch) {
+  const r = await fetch(`${env('SUPABASE_URL') || env('NEXT_PUBLIC_SUPABASE_URL')}/rest/v1/${table}?${filtre}`, {
+    method: 'PATCH', headers: sbHeaders(), body: JSON.stringify(patch),
+  });
+  if (!r.ok) throw new Error(`Supabase PATCH ${table}: ${(await r.text()).slice(0, 200)}`);
+}
 export async function sbSelect(query) {
   const r = await fetch(`${env('SUPABASE_URL') || env('NEXT_PUBLIC_SUPABASE_URL')}/rest/v1/${query}`, { headers: sbHeaders() });
   return r.json();

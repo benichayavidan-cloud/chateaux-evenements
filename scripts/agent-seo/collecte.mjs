@@ -13,10 +13,10 @@
  * Flags de test : MARCUS_SKIP_INSPECTION=1, MARCUS_SKIP_SERP=1, MARCUS_NO_MAIL=1
  */
 import fs from 'node:fs';
-import { SITE, env, kc, marcusEnabled, gsc, fenetre28, sitemapUrls, sbInsert, sbSelect, telegram, email } from './lib.mjs';
+import { SITE, env, kc, marcusEnabled, gsc, fenetre28, sitemapUrls, sbInsert, sbPatch, sbSelect, telegram, email } from './lib.mjs';
 import { sondesLLM } from './sondes-llm.mjs';
 import { passerLesVerdicts } from './verdicts.mjs';
-import { executerActions } from './actions.mjs';
+import { executerActions, construireBacklog } from './actions.mjs';
 
 if (!(await marcusEnabled())) { console.log('kill switch OFF — sortie'); process.exit(0); }
 
@@ -64,6 +64,18 @@ try {
     panel: panelGsc,
     decouvertes_candidates: decouvertes,
     top_pages: (parPage.rows || []).slice(0, 10).map((x) => ({ p: x.keys[0].replace(SITE, ''), clicks: x.clicks, imp: x.impressions })),
+    // Pages VUES et JAMAIS CHOISIES : beaucoup d'impressions, aucun clic.
+    // `top_pages` ne pouvait pas porter ce signal — l'API trie par clics, donc
+    // une page à zéro clic n'entre jamais dans ses dix premières lignes.
+    // C'est pourtant le meilleur candidat à la réécriture : la page se
+    // positionne (sinon pas d'impressions) mais son titre ou son contenu ne
+    // convainc pas — un problème que la réécriture traite, contrairement à un
+    // problème de rang.
+    pages_muettes: (parPage.rows || [])
+      .filter((x) => x.clicks === 0 && x.impressions >= 50)
+      .sort((a, b) => b.impressions - a.impressions)
+      .slice(0, 20)
+      .map((x) => ({ p: x.keys[0].replace(SITE, ''), imp: x.impressions, pos: +x.position.toFixed(1) })),
   };
   console.log(`[C1] GSC 28j : ${snapshot.gsc28.totaux?.clicks} clics / ${snapshot.gsc28.totaux?.imp} imp · ${decouvertes.length} découverte(s) candidate(s)`);
 }
@@ -201,16 +213,31 @@ let verdicts = { verdicts: [], reverts: [] };
 try { verdicts = await passerLesVerdicts(snapshot, updateEnCours); } catch (e) { incidents.push('R3 en échec : ' + e.message); }
 snapshot.verdicts = verdicts.verdicts;
 
-// ── R5 : moteur d'actions — DORMANT tant que agent_controls.marcus.phase < 2.
-// En Phase 1 le backlog est vide : le moteur tourne à blanc, ses garde-fous
-// (pages gelées, quotas, prédiction obligatoire) sont exercés à chaque run.
-let actions = { executees: [], simulees: [] };
-try { actions = await executerActions([], { runId: null, updateEnCours }); } catch (e) { incidents.push('R5 en échec : ' + e.message); }
-
-// ── Archivage + rapport ─────────────────────────────────────────────────────
+// ── Archivage AVANT les actions ─────────────────────────────────────────────
+//
+// L'ordre a été inversé le 07/09/2026. Le run était archivé APRÈS R5, si bien
+// qu'executerActions recevait `runId: null` : chaque entrée de marcus_journal
+// serait née sans run de rattachement, donc sans moyen de retrouver le
+// snapshot sur lequel la décision a été prise — ce qui rend le verdict
+// inévaluable (Loi 2). On archive d'abord, on agit ensuite, on complète.
 const statut = incidents.length ? 'degraded' : 'ok';
 const run = await sbInsert('marcus_runs', { type: 'full', statut, snapshot, cout_usd: cout, rapport: incidents.join(' · ') || 'observation OK' });
 console.log(`Run #${run.id} archivé (${statut}, ${snapshot.duree_s}s, ${cout.toFixed(3)}$)`);
+
+// ── R5 : moteur d'actions. Le backlog est CONSTRUIT depuis le snapshot
+// (construireBacklog) — il était passé en dur à `[]` jusqu'au 07/09/2026, ce
+// qui faisait tourner le moteur à blanc quelle que soit la phase et laissait
+// marcus_journal vide. En phase 1 les actions sont simulées, pas exécutées :
+// c'est la phase, pas un backlog vide, qui doit produire cette retenue.
+let actions = { executees: [], simulees: [] };
+const backlog = construireBacklog(snapshot);
+console.log(`[R5] Backlog : ${backlog.length} action(s) candidate(s) — ${backlog.map((a) => a.type).join(', ') || 'aucune'}`);
+try { actions = await executerActions(backlog, { runId: run.id, updateEnCours }); } catch (e) { incidents.push('R5 en échec : ' + e.message); }
+snapshot.actions = {
+  executees: actions.executees.map((a) => ({ type: a.type, cible: a.cible, prediction: a.prediction, echeance: a.echeance })),
+  simulees: actions.simulees.map((a) => ({ type: a.type, cible: a.cible })),
+};
+try { await sbPatch('marcus_runs', `id=eq.${run.id}`, { snapshot }); } catch (e) { incidents.push('archivage des actions en échec : ' + e.message); }
 
 const g = snapshot.gsc28, idx = snapshot.indexation, serp = snapshot.serp || {};
 const top10 = Object.entries(serp).filter(([, v]) => typeof v.pos === 'number' && v.pos <= 10);
@@ -231,7 +258,15 @@ const lignes = [
   g?.decouvertes_candidates?.length ? `DÉCOUVERTES GSC (à valider pour le panel)\n${g.decouvertes_candidates.slice(0, 5).map((d) => `· « ${d.q} » — ${d.imp} imp, pos ${d.pos}`).join('\n')}` : null,
   incidents.length ? `\n⚠️ INCIDENTS\n${incidents.map((x) => '· ' + x).join('\n')}` : null,
   ``,
-  `Phase 1 : observation pure, aucune action prise. Détail complet : marcus_runs #${run.id}.`,
+  // Le rapport annonçait « Phase 1 : observation pure, aucune action prise »
+  // en dur — il l'aurait annoncé même en phase 2 en train d'agir.
+  actions.executees.length
+    ? `ACTIONS PRISES (${actions.executees.length})\n${actions.executees.map((a) => `· ${a.type} → ${a.cible}\n  prédiction : ${a.prediction} (échéance ${a.echeance})`).join('\n')}`
+    : actions.simulees.length
+      ? `SIMULÉ (phase 1 — le moteur liste ce qu'il aurait fait) : ${actions.simulees.map((a) => `${a.type} → ${a.cible}`).join(' · ')}`
+      : `Aucune action : le backlog est vide sur ce run.`,
+  ``,
+  `Détail complet : marcus_runs #${run.id}.`,
 ].filter((x) => x !== null).join('\n');
 
 console.log('\n' + lignes);
