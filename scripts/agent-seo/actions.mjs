@@ -42,6 +42,79 @@ import { env, sbSelect, sbInsert } from './lib.mjs';
 const QUOTAS = { 'ping-indexnow': 99, 'commande-reecriture': 1 };
 const GELEES = JSON.parse(fs.readFileSync(new URL('./pages-gelees.json', import.meta.url))).pages;
 
+/**
+ * CONSTRUIT LE BACKLOG à partir du snapshot du run.
+ *
+ * Ajouté le 07/09/2026. Jusque-là `collecte.mjs` appelait
+ * `executerActions([], …)` — un tableau vide EN DUR. Le moteur tournait donc
+ * à blanc quelle que soit la phase : passer Marcus en phase 2 le 06/09 n'a
+ * rien pu changer, et `marcus_journal` est resté vide parce qu'il n'avait
+ * jamais rien à écrire. Le commentaire « en Phase 1 le backlog est vide »
+ * décrivait une intention, pas un branchement.
+ *
+ * Chaque action porte une PRÉDICTION CHIFFRÉE et une ÉCHÉANCE, sans quoi
+ * executerActions la refuse (Loi 2) : une action dont on ne peut pas dire à
+ * l'avance ce qu'elle doit produire n'est pas évaluable, donc pas légitime.
+ */
+const JOURS = (n) => new Date(Date.now() + n * 864e5).toISOString().slice(0, 10);
+
+export function construireBacklog(snapshot) {
+  const backlog = [];
+
+  // ── ping-indexnow : les pages que Google dit ne pas avoir indexées.
+  //
+  // C'est le SEUL levier d'accélération réellement disponible. L'API Indexing
+  // de Google est réservée aux JobPosting/BroadcastEvent et l'API URL
+  // Inspection est en lecture seule (c'est ce qui a fait retirer l'action
+  // « inspection-google » le 06/09). IndexNow ne notifie que Bing et Yandex —
+  // on ne prétend donc pas accélérer Google ici, et la prédiction porte sur
+  // ce qui est réellement mesurable.
+  //
+  // On exclut les états qui ne se corrigent PAS par un ping : une page
+  // redirigée, en double, ou volontairement exclue restera non indexée quel
+  // que soit le nombre de notifications. Les pinger consommerait du quota en
+  // donnant l'illusion d'agir — exactement le reproche fait à l'action
+  // placebo retirée le 06/09.
+  const sansEspoir = /redirect|duplicat|canonical|exclue|noindex|introuvable|404|not found/i;
+  const aPinger = (snapshot.indexation?.non_indexees || [])
+    .filter((p) => !sansEspoir.test(p.etat))
+    .slice(0, 20);
+
+  if (aPinger.length > 0) {
+    backlog.push({
+      type: 'ping-indexnow',
+      cible: `${aPinger.length} URL non indexées`,
+      urls: aPinger.map((p) => `https://www.selectchateaux.com${p.url}`),
+      motif: `${aPinger.length} URL du sitemap non indexées (états : ${[...new Set(aPinger.map((p) => p.etat))].slice(0, 3).join(', ')})`,
+      hypothese: 'Notifier Bing/Yandex par IndexNow réduit le délai de découverte des pages non indexées',
+      prediction: `sur ces ${aPinger.length} URL, au moins 30 % passent à un état indexé d'ici 21 jours`,
+      echeance: JOURS(21),
+    });
+  }
+
+  // ── commande-reecriture : UNE page par run (quota), celle qui a le plus à
+  // gagner. On vise la page qui reçoit beaucoup d'impressions sans clics :
+  // elle est vue et pas choisie, donc le problème est le contenu ou le titre,
+  // pas la position. Camille choisit ses 3 réécritures sur la position
+  // (5-25) ; Marcus complète sur un autre signal, sinon les deux agents
+  // désigneraient les mêmes pages.
+  const muettes = (snapshot.gsc28?.pages_muettes || []).filter((p) => /^\/blog\//.test(p.p || ''));
+
+  if (muettes.length > 0) {
+    const p = muettes[0];
+    backlog.push({
+      type: 'commande-reecriture',
+      cible: p.p,
+      motif: `${p.imp} impressions sur 28 jours en position ${p.pos} et AUCUN clic — la page est vue et jamais choisie`,
+      hypothese: 'Une page à fortes impressions et zéro clic souffre de son titre ou de son contenu, pas de son rang',
+      prediction: `au moins 1 clic sur ${p.p} dans les 28 jours suivant la réécriture`,
+      echeance: JOURS(28),
+    });
+  }
+
+  return backlog;
+}
+
 export async function phaseCourante() {
   const rows = await sbSelect('agent_controls?id=eq.marcus&select=phase');
   return rows?.[0]?.phase ?? 1;

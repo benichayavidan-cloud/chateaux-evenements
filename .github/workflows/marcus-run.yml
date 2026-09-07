@@ -12,6 +12,13 @@ jobs:
   run-complet:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # L'action « commande-reecriture » ouvre une issue via la CLI gh. Sans ce
+    # droit et sans GH_TOKEN (plus bas), elle échouait en silence — le catch
+    # de actions.mjs avale l'erreur — et aucune entrée n'était écrite dans
+    # marcus_journal. Même symptôme que le backlog vide, autre cause.
+    permissions:
+      contents: read
+      issues: write
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 1 }
@@ -23,6 +30,7 @@ jobs:
           npm install --omit=dev --no-audit --no-fund
           node collecte.mjs
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
           GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
           GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}

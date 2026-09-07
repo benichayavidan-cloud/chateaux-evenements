@@ -428,6 +428,187 @@ function publishArticle(article, opts = {}) {
   return { slug: article.slug, id: article.id, inserted: true };
 }
 
+/**
+ * Découpe le tableau `camilleArticles` en blocs, un par article.
+ *
+ * On NE PEUT PAS compter les accolades : le champ `content` est un littéral
+ * gabarit (backticks) qui contient du HTML, donc des `{` et des `}` en pagaille.
+ * On s'appuie sur la seule séquence que le contenu ne peut pas produire :
+ * un saut de ligne, deux espaces, `{`, saut de ligne, quatre espaces, `id: <n>,`
+ * — c'est la signature de formatArticleTS() et de rien d'autre.
+ */
+function decouperBlocs(content) {
+  const marqueur = /\n {2}\{\n {4}id: \d+,\n/g;
+  const debuts = [];
+  let m;
+  while ((m = marqueur.exec(content)) !== null) debuts.push(m.index);
+  return debuts.map((debut, i) => ({
+    debut,
+    fin: i + 1 < debuts.length ? debuts[i + 1] : null, // null = jusqu'à la fin du tableau
+  }));
+}
+
+/**
+ * Inventaire des articles RÉÉCRIVABLES, c'est-à-dire ceux de
+ * blog-posts-camille.ts uniquement — replaceArticle() ne touche pas les autres
+ * fichiers de données. getExistingArticles() en rend 313 (tous fichiers
+ * confondus) mais seulement { slug, title } : il ne peut pas servir ici, où
+ * l'on a besoin du contenu, des dates et du volume pour choisir les cibles.
+ */
+function listerArticlesCamille() {
+  ensureCamilleFile();
+  const content = fs.readFileSync(ARTICLES_PATH, 'utf-8');
+  return decouperBlocs(content).map(({ debut, fin }) => {
+    const bloc = content.slice(debut, fin ?? undefined);
+    const champ = (re) => (bloc.match(re) || [, null])[1];
+    const html = champ(/\n {4}content: `\n([\s\S]*?)\n {4}`,\n/) || '';
+    return {
+      slug: champ(/\n {4}slug: "((?:[^"\\]|\\.)*)",/),
+      title: (champ(/\n {4}title: "((?:[^"\\]|\\.)*)",/) || '').replace(/\\"/g, '"'),
+      category: champ(/\n {4}category: "([^"]*)"/),
+      image: champ(/\n {4}image: "([^"]*)",/),
+      imageAlt: (champ(/\n {4}imageAlt: "((?:[^"\\]|\\.)*)",/) || '').replace(/\\"/g, '"'),
+      keywords: [...(champ(/\n {4}keywords: \[([^\]]*)\],/) || '').matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]),
+      publishedAt: champ(/\n {4}publishedAt: "([^"]+)",/),
+      updatedAt: champ(/\n {4}updatedAt: "([^"]+)",/),
+      content: html,
+      mots: html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
+      h3: (html.match(/<h3[\s>]/gi) || []).length,
+      sourceExterne: /<a [^>]*href=["']https?:\/\/(?!www\.selectchateaux)/i.test(html),
+    };
+  });
+}
+
+/**
+ * Un article est « conforme » s'il passe les trois garde-fous que
+ * publishArticle() impose depuis les 01 et 06/09/2026.
+ *
+ * Ces garde-fous ne s'appliquaient qu'aux publications NEUVES. Mesuré le
+ * 07/09/2026 sur les 248 articles du fichier : 242 n'ont AUCUN <h3>, aucun ne
+ * cite de source externe, 215 sont sous le plancher de 1 500 mots — soit
+ * 0 article conforme sur 248. Le corpus entier est en dessous de la norme que
+ * le site s'est donnée, ce qui est exactement le retard que le ratio « 3
+ * réécritures pour 1 création » du 06/09 vise à rattraper.
+ *
+ * C'est donc le critère de sélection le plus utile : `updatedAt` ne distingue
+ * rien (aucun article n'a jamais été réécrit) et la présence de `howTo` non
+ * plus (224 sur 248 en ont un, posé dès la création).
+ */
+function estConforme(a) {
+  return a.mots >= MIN_MOTS && a.h3 >= MIN_H3 && a.sourceExterne;
+}
+
+/**
+ * REMPLACE un article existant, identifié par son slug. C'est le chemin des
+ * RÉÉCRITURES — il n'existait pas avant le 07/09/2026, alors que le ratio
+ * « 3 réécritures pour 1 création » avait été décidé le 06/09 : la consigne
+ * vivait dans AGENT_PROMPT.md pendant que le code ne savait qu'insérer.
+ *
+ * Différences volontaires avec publishArticle() :
+ *   - le slug DOIT déjà exister (l'inverse du contrôle de doublon) ;
+ *   - le gate anti-cannibalisation s'exécute en excluant l'article lui-même,
+ *     sinon il se détecterait comme son propre concurrent ;
+ *   - `id` et `publishedAt` sont conservés (l'article ne change pas d'identité
+ *     ni de date de première parution) ; `updatedAt` passe à aujourd'hui, ce
+ *     qui alimente dateModified — le signal de fraîcheur visé par l'opération.
+ */
+function replaceArticle(article) {
+  ensureCamilleFile();
+
+  const required = ['slug', 'title', 'excerpt', 'category', 'image', 'imageAlt', 'keywords', 'content'];
+  for (const f of required) {
+    if (!(f in article)) throw new Error(`Missing required field: ${f}`);
+  }
+
+  assertSlugValide(article.slug);
+  assertLongueurSuffisante(article);
+  assertStructureH3(article);
+  assertSourceExterne(article);
+  assertTitre(article);
+
+  const existing = getExistingArticles();
+  if (!existing.some((a) => a.slug === article.slug)) {
+    throw new Error(`Réécriture impossible : aucun article avec le slug "${article.slug}"`);
+  }
+
+  const content = fs.readFileSync(ARTICLES_PATH, 'utf-8');
+  const blocs = decouperBlocs(content);
+
+  const cible = blocs.find((b) => {
+    const texte = content.slice(b.debut, b.fin ?? undefined);
+    return new RegExp(`\\n {4}slug: "${article.slug.replace(/[.*+?^$()|[\]\\]/g, '\\$&')}",\\n`).test(texte);
+  });
+  if (!cible) {
+    throw new Error(
+      `Slug "${article.slug}" introuvable dans ${ARTICLES_PATH} — il vit sans doute dans un autre fichier de données, que ce script ne réécrit pas.`,
+    );
+  }
+
+  const ancienBloc = content.slice(cible.debut, cible.fin ?? undefined);
+  const idMatch = ancienBloc.match(/\n {4}id: (\d+),/);
+  const publishedMatch = ancienBloc.match(/\n {4}publishedAt: "([^"]+)",/);
+
+  // ── Gate anti-cannibalisation, en DIFFÉRENTIEL ────────────────────────────
+  //
+  // `excludeSlug` retire l'article de son propre corpus de comparaison : sans
+  // lui, toute réécriture fidèle se voit reprocher de doublonner la page
+  // qu'elle remplace, c'est-à-dire elle-même.
+  //
+  // Cela ne suffit pas. La règle CLUSTER_PROTEGE interdit de cibler un mot-clé
+  // possédé par une landing — règle écrite pour empêcher la CRÉATION d'un
+  // concurrent interne. Appliquée telle quelle à une réécriture, elle gèle
+  // définitivement tout article qui violait déjà la règle avant elle : on ne
+  // pourrait plus jamais l'améliorer, alors que l'améliorer est précisément ce
+  // que la décision du 06/09 demande. On mesure donc l'ÉCART : seule une
+  // violation que l'article ne portait PAS déjà bloque la réécriture.
+  const ancienArticle = {
+    slug: article.slug,
+    title: (ancienBloc.match(/\n {4}title: "((?:[^"\\]|\\.)*)",/) || [, ''])[1].replace(/\\"/g, '"'),
+    keywords: [...(ancienBloc.match(/\n {4}keywords: \[([^\]]*)\],/) || [, ''])[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]),
+    content: (ancienBloc.match(/\n {4}content: `\n([\s\S]*?)\n {4}`,\n/) || [, ''])[1],
+  };
+  const dejaLa = new Set(
+    checkArticle(ancienArticle, existing, null, { excludeSlug: article.slug }).violations.map(
+      (v) => `${v.rule}|${v.detail}`,
+    ),
+  );
+  const nouvelles = checkArticle(article, existing, null, { excludeSlug: article.slug }).violations.filter(
+    (v) => !dejaLa.has(`${v.rule}|${v.detail}`),
+  );
+  if (nouvelles.length > 0) {
+    throw new Error(
+      `Réécriture bloquée — elle AJOUTE des violations que l'article ne portait pas :\n` +
+        formatReport(article.slug, { ok: false, violations: nouvelles }),
+    );
+  }
+
+  const fusionne = {
+    ...article,
+    id: idMatch ? Number(idMatch[1]) : article.id,
+    publishedAt: publishedMatch ? publishedMatch[1] : article.publishedAt,
+    updatedAt: article.updatedAt || new Date().toISOString().split('T')[0],
+  };
+
+  // formatArticleTS ouvre par deux espaces et une accolade ; le marqueur de
+  // découpe a consommé le saut de ligne qui précède, on le remet.
+  const nouveauBloc = '\n' + formatArticleTS(fusionne).replace(/\n$/, '');
+  const suffixe = cible.fin === null ? '' : content.slice(cible.fin);
+  fs.writeFileSync(ARTICLES_PATH, content.slice(0, cible.debut) + nouveauBloc + suffixe, 'utf-8');
+
+  // getExistingArticles() ne rend que { slug, title } : le volume d'AVANT se
+  // mesure sur le bloc qu'on vient de remplacer, pas sur ce catalogue.
+  const contenuAncien = ancienBloc.match(/\n {4}content: `\n([\s\S]*?)\n {4}`,\n/);
+  const compterMots = (html) => html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+
+  return {
+    slug: fusionne.slug,
+    id: fusionne.id,
+    replaced: true,
+    motsAvant: contenuAncien ? compterMots(contenuAncien[1]) : null,
+    motsApres: compterMots(article.content),
+  };
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const fileIdx = args.indexOf('--file');
@@ -445,6 +626,14 @@ async function main() {
     const article = JSON.parse(input);
     delete article.imagePrompt;
     const force = args.includes('--force');
+
+    // Réécriture : l'article REMPLACE son homonyme. Pas de contrôle de doublon
+    // sémantique — un article ressemble par construction à la version qu'il
+    // remplace ; c'est replaceArticle() qui exclut la cible du gate.
+    if (args.includes('--replace')) {
+      console.log(JSON.stringify(replaceArticle(article)));
+      return;
+    }
 
     // Gate DOUBLON SÉMANTIQUE — ici, dans la CLI, car TOUTE publication passe
     // par elle (pipeline auto via execSync, publication manuelle). Avant
@@ -473,4 +662,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { publishArticle, assertSlugValide, assertSlugLexique, assertLongueurSuffisante };
+module.exports = { publishArticle, replaceArticle, listerArticlesCamille, estConforme, assertSlugValide, assertSlugLexique, assertLongueurSuffisante };
