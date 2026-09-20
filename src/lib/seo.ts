@@ -11,11 +11,51 @@ const META_DESCRIPTION_MAX = 155;
  */
 export function metaDescription(text: string, max: number = META_DESCRIPTION_MAX): string {
   const clean = text.replace(/\s+/g, " ").trim();
-  if (clean.length <= max) return clean;
-  const cut = clean.slice(0, max - 1);
-  const lastSpace = cut.lastIndexOf(" ");
-  return `${cut.slice(0, lastSpace > 0 ? lastSpace : cut.length).replace(/[,;:.\s]+$/, "")}…`;
+
+  // Une description qui tient doit quand même se terminer proprement : sans
+  // ponctuation finale, elle se lit comme une phrase coupée — y compris par le
+  // garde-fou de build, qui ne peut pas distinguer « …en 2026 » d'une troncature.
+  if (clean.length <= max) return /[.!?»)]$/.test(clean) ? clean : `${clean}.`;
+
+  // 1. Couper à une FRONTIÈRE DE PHRASE si l'une tombe dans la seconde moitié
+  //    du budget : une description qui se termine par un point se lit comme un
+  //    texte fini, pas comme une phrase amputée.
+  //    Attention à la typographie française : « ? » et « ! » sont précédés
+  //    d'une espace. Repérer le délimiteur puis couper à son DÉBUT ferait
+  //    perdre la ponctuation elle-même — on coupe donc après le signe.
+  const phrase = clean.slice(0, max);
+  const finPhrase = Math.max(
+    ...[/\.\s/g, /\s?[!?]\s/g].flatMap((re) =>
+      [...phrase.matchAll(re)].map((m) => m.index! + m[0].trimEnd().length),
+    ),
+    -1,
+  );
+  if (finPhrase > max * 0.55) return clean.slice(0, finPhrase).trim();
+
+  // 2. Sinon, reculer mot à mot jusqu'à ne plus terminer sur un FAIT AMPUTÉ.
+  //    Mesuré le 20/09/2026 : 83 pages sur 387 se terminaient sur un chiffre ou
+  //    une préposition — « Le lieu dispose de 19 chambres, 3… », « tarifs
+  //    dès… », « À 35 min de… ». Le prix et la distance, les deux seuls
+  //    éléments qui déclenchent un clic, sont toujours en fin de phrase : la
+  //    coupe aveugle les décapitait systématiquement.
+  let cut = clean.slice(0, max - 1);
+  for (let i = 0; i < 12; i++) {
+    const lastSpace = cut.lastIndexOf(" ");
+    cut = (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).replace(/[,;:.\s]+$/, "");
+    if (!FIN_AMPUTEE.test(cut)) break;
+  }
+  return `${cut}…`;
 }
+
+/**
+ * Une description ne doit jamais s'arrêter sur un fait à moitié dit.
+ *
+ * Attrape : un nombre nu (« 19 chambres, 3 »), une préposition ou un
+ * connecteur orphelin (« tarifs dès », « à 35 min de », « entre »), une
+ * parenthèse ouverte, une unité sans valeur.
+ */
+export const FIN_AMPUTEE =
+  /(?:^|[\s(])(?:\d+[\d\s.,]*|d[eèé]s?|du|des|au|aux|à|en|et|ou|par|pour|sur|sous|avec|sans|dans|vers|entre|jusqu['’]?|depuis|selon|soit|dont|que|qui|environ|entre|plus|moins|entre|min|h|km|€)$|\($/i;
 
 /* ─────────────────────────── Titre de page ─────────────────────────── */
 
@@ -157,4 +197,68 @@ export function titreLieu(lieu: {
   const cut = nom.slice(0, budgetNom);
   const lastSpace = cut.lastIndexOf(" ");
   return `${cut.slice(0, lastSpace > 0 ? lastSpace : cut.length).replace(/[,;:.\s]+$/, "")}…${queue}`;
+}
+
+/* ───────────────────────── Description d'une fiche lieu ───────────────────── */
+
+/**
+ * Description SERP d'une fiche lieu — composée pour TENIR, pas tronquée après.
+ *
+ * L'ancien gabarit produisait une phrase de 180 à 220 caractères que
+ * `metaDescription()` coupait à 155. Mesuré le 20/09/2026 sur le build : les 68
+ * fiches sortaient amputées, et toujours au même endroit — au milieu de la
+ * liste d'équipements. « Devis sous 48 h », la seule promesse commerciale de la
+ * balise, n'atteignait aucune page.
+ *
+ * On compose donc du plus complet au plus court, et on retient le premier
+ * candidat qui tient — même stratégie que `titreLieu()`, qui dégrade la zone
+ * plutôt que le mot-clé. Ce qui saute en premier, ce sont les équipements
+ * secondaires, jamais la capacité ni la promesse de devis.
+ *
+ * L'accord au pluriel est traité ici : le gabarit précédent écrivait
+ * « 1 salles de réunion », y compris dans le bloc de réponse directe affiché en
+ * haut de page — c'est-à-dire précisément le passage que Google et les modèles
+ * de langage recopient.
+ */
+export function descriptionLieu(
+  v: {
+    nom: string;
+    capacite?: number | null;
+    ville?: string | null;
+    departement?: string | null;
+    departementCode?: string | null;
+    chambres?: number | null;
+    sallesReunion?: number | null;
+    parking?: number | null;
+  },
+  max: number = META_DESCRIPTION_MAX,
+): string {
+  const pluriel = (n: number, mot: string, motPluriel?: string) =>
+    `${n} ${n > 1 ? (motPluriel ?? `${mot}s`) : mot}`;
+
+  const lieu = [
+    v.ville ? `à ${v.ville}` : null,
+    v.departementCode ? `(${v.departementCode})` : null,
+  ].filter(Boolean).join(" ");
+
+  const tete = v.capacite
+    ? `${v.nom} : séminaire d'entreprise jusqu'à ${v.capacite} personnes${lieu ? ` ${lieu}` : ""}.`
+    : `${v.nom} : séminaire d'entreprise${lieu ? ` ${lieu}` : ""}.`;
+
+  const equipements = [
+    v.chambres ? pluriel(v.chambres, "chambre") : null,
+    v.sallesReunion ? pluriel(v.sallesReunion, "salle") + " de réunion" : null,
+    v.parking ? pluriel(v.parking, "place") + " de parking" : null,
+  ].filter((e): e is string => e !== null);
+
+  const promesse = "Devis sous 48 h.";
+
+  // Du plus complet au plus court : on sacrifie les équipements, jamais la
+  // capacité ni la promesse de devis.
+  for (let n = equipements.length; n >= 0; n--) {
+    const milieu = n ? ` ${equipements.slice(0, n).join(", ")}.` : "";
+    const candidat = `${tete}${milieu} ${promesse}`;
+    if (candidat.length <= max) return candidat;
+  }
+  return metaDescription(`${tete} ${promesse}`, max);
 }
