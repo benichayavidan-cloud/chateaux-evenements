@@ -1,5 +1,5 @@
 {
-  "_doc": "Registre des clusters SEO — SOURCE DE VÉRITÉ de la propriété des mots-clés. Chaque requête appartient à UNE page canonique. Le gate anti-cannibalisation.js bloque tout article qui cible un mot-clé protégé dans son title/slug. zoneWords = si un article mentionne ces mots, il DOIT contenir un lien vers la page canonique (rôle satellite).",
+  "_doc": "Registre des clusters SEO — SOURCE DE VÉRITÉ de la propriété des mots-clés. Chaque requête appartient à UNE page canonique. Le gate anti-cannibalisation.js bloque tout article qui cible un mot-clé protégé dans son title/slug. zoneWords = si un article mentionne ces mots, il DOIT contenir un lien vers la page canonique (rôle satellite). — Mis à jour le 20/09/2026 : le registre ne couvrait que 14 des 24 pages commerciales. Neuf landings et le catalogue /lieux en étaient absents, si bien que le gate laissait publier un article ciblant « team building Chantilly » ou « budget séminaire entreprise » sans alarme. Mesuré en Search Console sur 90 jours : sur « séminaire yvelines » l'article de blog occupait la 19ᵉ place et la landing la 52ᵉ ; même écart sur Chantilly et l'Oise. Le mot-clé « budget seminaire entreprise » était par ailleurs attribué à un ARTICLE alors qu'une page entière porte ce nom dans son URL.",
   "clusters": [
     {
       "id": "chantilly",
@@ -13,7 +13,12 @@
         "chateauform chantilly",
         "organiser seminaire chantilly"
       ],
-      "zoneWords": ["chantilly", "senlis", "gouvieux", "vineuil"],
+      "zoneWords": [
+        "chantilly",
+        "senlis",
+        "gouvieux",
+        "vineuil"
+      ],
       "anchorText": "séminaire en château à Chantilly"
     },
     {
@@ -26,7 +31,11 @@
         "seminaire chateau oise",
         "chateau hotel oise"
       ],
-      "zoneWords": ["oise", "compiegne", "pierrefonds"],
+      "zoneWords": [
+        "oise",
+        "compiegne",
+        "pierrefonds"
+      ],
       "anchorText": "séminaire en château dans l'Oise"
     },
     {
@@ -41,7 +50,14 @@
         "chateauform yvelines",
         "seminaire entreprise yvelines"
       ],
-      "zoneWords": ["yvelines", "rambouillet", "dampierre", "breteuil", "versailles", "velizy"],
+      "zoneWords": [
+        "yvelines",
+        "rambouillet",
+        "dampierre",
+        "breteuil",
+        "versailles",
+        "velizy"
+      ],
       "anchorText": "séminaire en château dans les Yvelines"
     },
     {
@@ -55,7 +71,9 @@
         "abbaye chevreuse",
         "seminaire chevreuse"
       ],
-      "zoneWords": ["chevreuse"],
+      "zoneWords": [
+        "chevreuse"
+      ],
       "anchorText": "séminaire en Vallée de Chevreuse"
     },
     {
@@ -68,7 +86,19 @@
         "chateau seminaire 92",
         "seminaire entreprise 92"
       ],
-      "zoneWords": ["sceaux", "malmaison", "levallois"],
+      "zoneWords": [
+        "sceaux",
+        "malmaison",
+        "levallois",
+        "issy",
+        "boulogne",
+        "puteaux",
+        "clamart",
+        "suresnes",
+        "rueil",
+        "neuilly",
+        "courbevoie"
+      ],
       "anchorText": "séminaire en château dans les Hauts-de-Seine"
     },
     {
@@ -162,7 +192,7 @@
         "budget seminaire chateau",
         "cout seminaire chateau",
         "tarif seminaire chateau",
-        "budget seminaire entreprise"
+        "prix seminaire entreprise chateau"
       ],
       "zoneWords": [],
       "anchorText": "combien coûte un séminaire en château"
@@ -199,6 +229,183 @@
       ],
       "zoneWords": [],
       "anchorText": "checklist pour organiser un séminaire"
+    },
+    {
+      "id": "budget",
+      "canonical": "/budget-seminaire-entreprise",
+      "type": "landing",
+      "primaryKeywords": [
+        "budget seminaire entreprise",
+        "budget seminaire",
+        "tarif seminaire entreprise",
+        "budget seminaire d entreprise",
+        "cout seminaire entreprise",
+        "prix seminaire entreprise",
+        "budget par personne seminaire"
+      ],
+      "zoneWords": [],
+      "anchorText": "budget d'un séminaire d'entreprise"
+    },
+    {
+      "id": "team-building-chantilly",
+      "canonical": "/team-building-chantilly",
+      "type": "landing",
+      "primaryKeywords": [
+        "team building chantilly",
+        "team building oise",
+        "activite team building chantilly",
+        "team building foret chantilly"
+      ],
+      "zoneWords": [
+        "chantilly",
+        "senlis",
+        "gouvieux",
+        "vineuil"
+      ],
+      "anchorText": "team building à Chantilly"
+    },
+    {
+      "id": "team-building-92",
+      "canonical": "/team-building-hauts-de-seine-92",
+      "type": "landing",
+      "primaryKeywords": [
+        "team building 92",
+        "team building hauts de seine",
+        "team building hauts-de-seine"
+      ],
+      "zoneWords": [
+        "sceaux",
+        "malmaison",
+        "levallois",
+        "issy",
+        "boulogne",
+        "puteaux",
+        "clamart",
+        "suresnes"
+      ],
+      "anchorText": "team building dans les Hauts-de-Seine"
+    },
+    {
+      "id": "team-building-95",
+      "canonical": "/team-building-val-d-oise-95",
+      "type": "landing",
+      "primaryKeywords": [
+        "team building 95",
+        "team building val d oise",
+        "team building val-d'oise"
+      ],
+      "zoneWords": [
+        "cergy",
+        "pontoise",
+        "enghien",
+        "auvers",
+        "vexin"
+      ],
+      "anchorText": "team building dans le Val-d'Oise"
+    },
+    {
+      "id": "journee-etude",
+      "canonical": "/journee-etude-seminaire",
+      "type": "landing",
+      "primaryKeywords": [
+        "journee d etude",
+        "journee d etude entreprise",
+        "journee etude seminaire",
+        "journee d etude chateau",
+        "organiser une journee d etude"
+      ],
+      "zoneWords": [],
+      "anchorText": "journée d'étude en château"
+    },
+    {
+      "id": "alternative-chateauform",
+      "canonical": "/alternative-chateauform",
+      "type": "landing",
+      "primaryKeywords": [
+        "alternative chateauform",
+        "concurrent chateauform",
+        "chateauform alternative",
+        "comme chateauform",
+        "equivalent chateauform",
+        "chateauform prix"
+      ],
+      "zoneWords": [],
+      "anchorText": "alternative à Châteauform"
+    },
+    {
+      "id": "catalogue-lieux",
+      "canonical": "/lieux",
+      "type": "landing",
+      "primaryKeywords": [
+        "lieu seminaire ile de france",
+        "salle seminaire ile de france",
+        "lieux seminaire entreprise",
+        "annuaire lieu seminaire",
+        "liste lieux seminaire"
+      ],
+      "zoneWords": [],
+      "anchorText": "les lieux de séminaire référencés"
+    },
+    {
+      "id": "essonne",
+      "canonical": "/seminaire-chateau-essonne-91",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire essonne",
+        "seminaire 91",
+        "chateau seminaire essonne",
+        "seminaire entreprise essonne"
+      ],
+      "zoneWords": [
+        "essonne",
+        "evry",
+        "massy",
+        "bouville",
+        "dourdan",
+        "milly"
+      ],
+      "anchorText": "séminaire en château dans l'Essonne"
+    },
+    {
+      "id": "seine-et-marne",
+      "canonical": "/seminaire-chateau-seine-et-marne-77",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire seine et marne",
+        "seminaire 77",
+        "chateau seminaire seine et marne",
+        "seminaire entreprise seine et marne"
+      ],
+      "zoneWords": [
+        "seine-et-marne",
+        "fontainebleau",
+        "provins",
+        "meaux",
+        "melun",
+        "lesigny"
+      ],
+      "anchorText": "séminaire en château en Seine-et-Marne"
+    },
+    {
+      "id": "val-d-oise",
+      "canonical": "/seminaire-chateau-val-d-oise-95",
+      "type": "landing",
+      "primaryKeywords": [
+        "seminaire val d oise",
+        "seminaire 95",
+        "chateau seminaire val d oise",
+        "seminaire entreprise val d oise"
+      ],
+      "zoneWords": [
+        "val-d'oise",
+        "cergy",
+        "pontoise",
+        "enghien",
+        "auvers",
+        "vexin",
+        "royaumont"
+      ],
+      "anchorText": "séminaire en château dans le Val-d'Oise"
     }
   ]
 }

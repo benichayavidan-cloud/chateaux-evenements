@@ -597,15 +597,21 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-yvelines-78",
-    title: "Séminaire Yvelines (78) : 144 chambres",
-    description:
-      "Abbaye cistercienne rénovée 2023 dans les Yvelines : 144 chambres, 14 salles, 80 ha en Vallée de Chevreuse. 45 min de Paris. Devis gratuit 24h.",
-    keywords: ["seminaire vallee de chevreuse", "séminaire yvelines", "seminaire yvelines", "château séminaire yvelines 78", "salle séminaire yvelines", "abbaye chevreuse séminaire", "séminaire chevreuse", "séminaire 78", "chateau seminaire 78"],
+    title: "Séminaire château Yvelines (78) : 19 lieux",
+    description: "19 lieux de séminaire dans les Yvelines (78) : châteaux, abbayes et domaines de 20 à 450 personnes, à 30-45 min de Paris. Devis sous 48 h.",
+    // Re-ciblé le 20/09/2026 sur le DÉPARTEMENT. Cette page déclarait
+    // « seminaire vallee de chevreuse » en PREMIER mot-clé — celui de
+    // /seminaire-vallee-de-chevreuse — et décrivait le même et unique lieu :
+    // l'abbaye cistercienne, 144 chambres, 80 ha. Les deux pages s'annulaient.
+    // Mesuré en Search Console sur 90 jours : sur « séminaire yvelines »
+    // (978 impressions), la landing était 52ᵉ et un article de blog 19ᵉ.
+    // L'abbaye reste le sujet de Chevreuse ; les Yvelines couvrent 19 lieux.
+    keywords: ["séminaire yvelines", "seminaire yvelines", "séminaire 78", "chateau seminaire 78", "château séminaire yvelines 78", "salle séminaire yvelines", "seminaire entreprise yvelines", "salle de reunion yvelines", "lieu seminaire yvelines"],
     ogTitle: "Séminaire en Château dans les Yvelines (78) | Select Châteaux",
     ogDescription:
       "Abbaye cistercienne rénovée 2023 dans les Yvelines. 144 chambres, 14 salles, 80ha, 6 restaurants Paris Society. À 45 min de Paris.",
     canonical: "/seminaire-chateau-yvelines-78",
-    h1: "Séminaire en Château dans les Yvelines",
+    h1: "Séminaire en château dans les Yvelines (78)",
     heroAccroche:
       "Une abbaye millénaire au cœur de la Vallée de Chevreuse",
     heroImage: "/images/seminaires-soirees-entreprise-hero.webp",
