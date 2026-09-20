@@ -31,7 +31,7 @@ export const EQUIPE_SELECT: Author = {
   role: "Agence spécialiste du séminaire en château",
   avatar: "SC",
   slug: "equipe",
-  bio: "L'équipe Select Châteaux accompagne les entreprises dans l'organisation de leurs séminaires en château en Île-de-France : journées d'étude, séminaires résidentiels, CODIR, conventions et soirées de gala, de 10 à 500 participants. Nos recommandations s'appuient sur les 188 devis que nous avons réellement traités en 2025-2026 et sur les retours de nos clients — Eiffage, Safran.AI, LCL, Boston Scientific.",
+  bio: "L'équipe Select Châteaux accompagne depuis 15 ans les entreprises dans l'organisation de leurs séminaires en château en Île-de-France : journées d'étude, séminaires résidentiels, CODIR, conventions et soirées de gala, de 10 à 500 participants. Plus de 200 entreprises nous ont fait confiance — Eiffage, Safran.AI, LCL, Boston Scientific. Nos recommandations s'appuient sur les 188 devis réellement traités en 2025-2026.",
   expertise: [
     "Séminaires résidentiels en château",
     "Journées d'étude et CODIR",

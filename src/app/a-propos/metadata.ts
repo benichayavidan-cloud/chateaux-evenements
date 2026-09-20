@@ -1,17 +1,20 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Agence séminaire en château : 68 lieux",
+  // `absolute` : la page renonce au suffixe de marque. « 15 ans » et « 200
+  // entreprises » sont les deux faits qui distinguent cette agence d'une
+  // autre ; les 18 caractères de « | Select Châteaux » y sont mieux employés.
+  title: { absolute: "Agence séminaire en château : 15 ans, 200 entreprises" },
   description:
-    "188 devis traités en 2025-2026, 4 domaines en exclusivité et 68 lieux référencés en Île-de-France. Parmi nos clients : Eiffage, LCL et Safran.AI.",
+    "15 ans d'expérience et 200 entreprises accompagnées sur leurs séminaires en château en Île-de-France : Eiffage, Safran.AI, LCL, Boston Scientific.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Agence séminaire en château : 68 lieux | Select Châteaux",
+    title: "Agence séminaire en château : 15 ans, 200 entreprises",
     description:
-    "188 devis traités en 2025-2026, 4 domaines en exclusivité et 68 lieux référencés en Île-de-France. Parmi nos clients : Eiffage, LCL et Safran.AI.",
+    "15 ans d'expérience et 200 entreprises accompagnées sur leurs séminaires en château en Île-de-France : Eiffage, Safran.AI, LCL, Boston Scientific.",
     url: "https://www.selectchateaux.com/a-propos",
     type: "website",
     siteName: "Select Châteaux",
@@ -27,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agence séminaire en château : 68 lieux | Select Châteaux",
+    title: "Agence séminaire en château : 15 ans, 200 entreprises",
     description:
-    "188 devis traités en 2025-2026, 4 domaines en exclusivité et 68 lieux référencés en Île-de-France. Parmi nos clients : Eiffage, LCL et Safran.AI.",
+    "15 ans d'expérience et 200 entreprises accompagnées sur leurs séminaires en château en Île-de-France : Eiffage, Safran.AI, LCL, Boston Scientific.",
     images: ["/images/seminaires-soirees-entreprise-hero.webp"],
   },
   alternates: {
