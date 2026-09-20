@@ -14,7 +14,10 @@ import { StructuredData } from "@/components/StructuredData";
 const BASE_URL = "https://www.selectchateaux.com";
 
 export const metadata: Metadata = {
-  title: EQUIPE_SELECT.name,
+  // `absolute` : le titre porte déjà le nom de la marque. Sans cela, le
+  // gabarit racine ajoutait son suffixe et servait « L'équipe Select Châteaux
+  // | Select Châteaux ».
+  title: { absolute: "L'équipe Select Châteaux, auteur du blog" },
   description:
     "Qui écrit le blog Select Châteaux : l'équipe de l'agence, à partir des 188 devis réellement traités en 2025-2026. Expertise et derniers articles.",
   alternates: { canonical: AUTHOR_PAGE_PATH },
