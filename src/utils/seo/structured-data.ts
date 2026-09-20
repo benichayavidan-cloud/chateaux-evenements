@@ -239,7 +239,7 @@ export function generateAggregateRating() {
  * Schema LocalBusiness - SEO local (Google Maps, résultats locaux)
  * Couvre l'Île-de-France et les départements clés
  */
-export function generateLocalBusinessSchema() {
+export function generateLocalBusinessSchema({ avecNote = false }: { avecNote?: boolean } = {}) {
   return {
     "@type": "LocalBusiness",
     "@id": `${BASE_URL}/#localbusiness`,
@@ -320,7 +320,12 @@ export function generateLocalBusinessSchema() {
       closes: "18:00",
     },
     priceRange: "$$$$",
-    aggregateRating: generateAggregateRating(),
+    // La note n'accompagne le schema QUE sur les pages qui affichent les avis
+    // à l'écran (ReviewsSection) — condition posée par Google, et motif classique
+    // d'action manuelle quand elle n'est pas tenue. Mesuré le 20/09/2026 : posée
+    // dans le gabarit racine, elle partait sur les 368 pages, /cgv et
+    // /mentions-legales comprises, où aucun avis n'est rendu.
+    ...(avecNote ? { aggregateRating: generateAggregateRating() } : {}),
     sameAs: [
       "https://www.linkedin.com/company/select-chateaux/about/",
       "https://www.google.com/maps?cid=13719107096971699386",

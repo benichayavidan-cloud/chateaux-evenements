@@ -70,7 +70,7 @@ const article1: BlogPost = {
   excerpt: "Tarifs 2026 : 150€ à 450€/pers selon le château. Grille complète, coûts cachés à éviter, 5 astuces pour économiser 20%. Devis gratuit en 24h.",
   category: "organisation",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD"
   },
@@ -1127,7 +1127,7 @@ const article4: BlogPost = {
   title: "Séminaire en Vallée de Chevreuse : l'Abbaye Secrète à 45 min de Paris",
   excerpt: "Découvrez l'abbaye cistercienne de 1118, nichée dans 80 hectares de forêt. 144 chambres, 14 salles, 6 restaurants Paris Society. Le lieu que vos équipes n'oublieront jamais.",
   category: "lieux",
-  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   readingTime: 12,
   image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-refectoire-des-moines.webp",
@@ -1397,7 +1397,7 @@ const article5: BlogPost = {
   title: "Séminaire CODIR en Château Privatisé : Confidentialité Totale, dès 120€/pers",
   excerpt: "Concentration, confidentialité, impact : découvrez pourquoi 78% des CODIR les plus efficaces se tiennent hors des murs de l'entreprise — et pourquoi un château privatisé fait la différence. Budget, formats et châteaux IDF à jour 2026.",
   category: "organisation",
-  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   updatedAt: "2026-08-30",
   readingTime: 10,
@@ -1631,7 +1631,7 @@ const article5: BlogPost = {
 
 <blockquote class="border-l-4 border-[--bronze-antique] pl-6 italic text-gray-700 my-8">
   <p class="mb-2">"Sur un CODIR, le format résidentiel d'une nuit en château privatisé change tout : la confidentialité libère la parole, et c'est au dîner — pas en plénière — que les décisions difficiles se débloquent vraiment."</p>
-  <p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p>
+  <p><strong>— L'équipe Select Châteaux</strong></p>
 </blockquote>
 
 <div class="cta-box" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white; padding: 2rem; border-radius: 1rem; margin: 2rem 0; text-align: center;">
@@ -1902,7 +1902,7 @@ const article8: BlogPost = {
   title: "Privatisation Journée d'Étude en Château : Prix & Guide 2026",
   excerpt: "Privatiser un château pour une journée d'étude : 120-180€/pers tout compris. Salle, pauses, déjeuner inclus. Formats, châteaux IDF et guide pas à pas.",
   category: "organisation",
-  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   readingTime: 8,
   image: "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
@@ -2058,7 +2058,7 @@ const article10: BlogPost = {
   title: "Budget Séminaire Entreprise 2026 : Tarifs Réels par Personne",
   excerpt: "Combien coûte un séminaire d'entreprise en 2026 ? De 250€ à 500€/pers selon format. Répartition lieu 25-35%, intervenants 40-50%, transport 15-25%.",
   category: "organisation",
-  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   readingTime: 9,
   image: "/images/combien-coute-seminaire-chateau-2026-tarifs-budget.webp",
@@ -2144,7 +2144,7 @@ const article11: BlogPost = {
   title: "Soirée d'Entreprise en Château : 7 Thèmes Testés, Budget par Personne",
   excerpt: "Gatsby, Casino, Bal masqué, Guinguette : 7 thèmes de soirée d'entreprise en château avec, pour chacun, le budget réel par personne, le nombre d'invités idéal et les prestataires à prévoir. Devis sous 48 h.",
   category: "team-building",
-  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   updatedAt: "2026-08-30",
   readingTime: 9,
@@ -2204,7 +2204,7 @@ const article12: BlogPost = {
   title: "Guide Complet : Organiser un Séminaire Résidentiel en Château en 2026",
   excerpt: "De la définition des objectifs au bilan J+90 : le guide étape par étape pour organiser un séminaire résidentiel réussi. Budgets, planning, activités et pièges à éviter.",
   category: "organisation",
-  author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+  author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   readingTime: 15,
   image: "/images/planning-ideal-seminaire-residentiel-2-jours-chateau.webp",
@@ -2549,7 +2549,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Séminaire Résidentiel vs Journée d'Étude : Que choisir ?",
     excerpt: "Analyse comparative coût/bénéfices : quand privilégier un séminaire de 2 jours avec nuit sur place vs une journée intensive. Critères de décision et retours d'expérience.",
     category: "organisation",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-01-06",
     readingTime: 7,
     image: "/images/seminaire-residentiel-vs-journee-comparatif.webp",
@@ -3713,7 +3713,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Convaincre sa direction : 5 arguments pour valider le budget",
     excerpt: "ROI sur la marque employeur, réduction du turnover, productivité augmentée : les arguments chiffrés pour défendre votre budget séminaire auprès du COMEX.",
     category: "organisation",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2025-12-30",
     readingTime: 8,
     image: "/images/seminaire-strategique-chateau-entreprise-reunion.webp",
@@ -7371,7 +7371,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Lieux Atypiques : Osez le manoir ou la forteresse médiévale",
     excerpt: "Au-delà du château classique : manoirs anglo-normands, forteresses du Moyen Âge, abbayes cisterciennes. Les lieux d'exception qui marquent les esprits.",
     category: "lieux",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2025-12-14",
     readingTime: 8,
     image: "/images/lieux-atypiques-manoir-forteresse-abbaye-seminaire.webp",
@@ -13908,7 +13908,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>1. Chef Étoilé Michelin (prestations premium) :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><strong>Jean-François Piège</strong> (2 étoiles) : Ateliers haute gastronomie (sur demande, grands groupes)</li>
-  <li class="mb-2"><strong>Anne-Sophie Pic</strong> (3 étoiles, Valence mais déplacements IdF) : Cuisine aromates, créativité</li>
+  <li class="mb-2"><strong>Anne-notre consultante Pic</strong> (3 étoiles, Valence mais déplacements IdF) : Cuisine aromates, créativité</li>
   <li class="mb-2"><strong>Budget :</strong> 200-350€/pers (chef étoilé + équipe + ingrédients exception)</li>
   <li class="mb-2"><strong>Public :</strong> Conventions direction, CODIR, clients VIP</li>
 </ul>
@@ -14778,7 +14778,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Soirée d'Entreprise : Casino, Gatsby ou Médiévale ?",
     excerpt: "Thématiques de soirées qui cartonnent : soirée casino, ambiance années 20, banquet médiéval. Organisation, costumes, animations, et budgets détaillés.",
     category: "team-building",
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2025-11-22",
     readingTime: 10,
     image: "/images/soiree-entreprise-casino-gatsby-medievale-chateau.webp",
@@ -17454,7 +17454,7 @@ const placeholderArticles: BlogPost[] = [
     title: "15 Activités Team Building à Chantilly : Tarifs 2026 dès 45€/pers",
     excerpt: "15 activités team building testées à Chantilly en 2026 : spectacle équestre, rallye 2CV, escape game. Tarifs détaillés de 45€ à 180€/pers et guide pratique.",
     category: "team-building" as BlogCategory,
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-03-22",
     readingTime: 12,
     image: "/images/team-building-chantilly-activites-equestre-2cv-escape.webp",
@@ -17645,7 +17645,7 @@ const placeholderArticles: BlogPost[] = [
     title: "Séminaire au Vert près de Paris : La Vallée de Chevreuse à 35 min",
     excerpt: "Besoin de déconnexion pour votre séminaire ? La Vallée de Chevreuse offre forêt, abbayes et calme absolu à 35 min de Paris en RER B. Guide des lieux et activités nature.",
     category: "lieux" as BlogCategory,
-    author: { name: "Sophie Durand", role: "Experte Événementiel", avatar: "SD" },
+    author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
     publishedAt: "2026-03-22",
     updatedAt: "2026-06-17",
     readingTime: 10,
@@ -17814,7 +17814,7 @@ const placeholderArticles: BlogPost[] = [
 
 <blockquote class="border-l-4 border-[--bronze-antique] pl-6 italic text-gray-700 my-8">
   <p class="mb-2">"Le 'au vert' ne s'oppose pas au travail : en Vallée de Chevreuse, on a le RER B à 35 min et de vraies salles équipées. C'est la marche en forêt entre deux sessions qui débloque les idées — pas la salle."</p>
-  <p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p>
+  <p><strong>— L'équipe Select Châteaux</strong></p>
 </blockquote>
 
 <div class="bg-amber-50 border-l-4 border-[--bronze-antique] p-6 my-8 rounded-r-lg">

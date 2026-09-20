@@ -84,10 +84,10 @@ export default async function BlogArticleLayout({ children, params }: Props) {
     "dateModified": article.updatedAt ?? article.publishedAt,
     "author": {
       "@type": "Person",
-      "@id": "https://www.selectchateaux.com/auteurs/sophie-durand#person",
+      "@id": "https://www.selectchateaux.com/auteurs/equipe#person",
       "name": article.author.name,
       "jobTitle": article.author.role,
-      "url": "https://www.selectchateaux.com/auteurs/sophie-durand"
+      "url": "https://www.selectchateaux.com/auteurs/equipe"
     },
     "publisher": {
       "@type": "Organization",
