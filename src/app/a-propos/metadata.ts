@@ -1,17 +1,17 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Agence Séminaire Château Île-de-France",
+  title: "Agence séminaire en château : 68 lieux",
   description:
-    "200+ entreprises nous confient leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception, devis sous 48h.",
+    "188 devis traités en 2025-2026, 4 domaines en exclusivité et 68 lieux référencés en Île-de-France. Parmi nos clients : Eiffage, LCL et Safran.AI.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Agence Séminaire Château Île-de-France : 15 Ans, 200+ Entreprises | Select Châteaux",
+    title: "Agence séminaire en château : 68 lieux | Select Châteaux",
     description:
-      "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception. Devis sous 48h.",
+    "188 devis traités en 2025-2026, 4 domaines en exclusivité et 68 lieux référencés en Île-de-France. Parmi nos clients : Eiffage, LCL et Safran.AI.",
     url: "https://www.selectchateaux.com/a-propos",
     type: "website",
     siteName: "Select Châteaux",
@@ -27,8 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agence Séminaire Château Île-de-France : 15 Ans, 200+ Entreprises | Select Châteaux",
-    description: "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, devis sous 48h.",
+    title: "Agence séminaire en château : 68 lieux | Select Châteaux",
+    description:
+    "188 devis traités en 2025-2026, 4 domaines en exclusivité et 68 lieux référencés en Île-de-France. Parmi nos clients : Eiffage, LCL et Safran.AI.",
     images: ["/images/seminaires-soirees-entreprise-hero.webp"],
   },
   alternates: {

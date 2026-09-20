@@ -198,9 +198,8 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-proche-paris",
-    title: "Château Séminaire Proche Paris : 30 min",
-    description:
-      "4 châteaux pour séminaire à 30-45 min de Paris. Un accessible en métro ! Hébergement, spa, restauration inclus. Devis gratuit 24h.",
+    title: "Séminaire en château proche de Paris : 4 domaines à 30 min",
+    description: "4 châteaux privatisables à 30-45 min de Paris, dont un accessible en métro. Hébergement, salles et restauration sur place, devis sous 48 h.",
     keywords: ["château séminaire proche paris", "séminaire château paris", "séminaire proche paris", "lieu séminaire proche paris", "château événement paris", "séminaire résidentiel paris"],
     ogTitle: "Séminaire en Château Proche de Paris | Select Châteaux",
     ogDescription:
@@ -312,9 +311,8 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-chantilly",
-    title: "Séminaire à Chantilly dès 150 €/pers.",
-    description:
-      "2 châteaux privatisables à Chantilly en forêt de 6 300 ha. 228 chambres, 33 salles, spa 5★. 35 min de Paris, 15 min CDG. Devis gratuit 24h.",
+    title: "Séminaire à Chantilly : 2 châteaux-hôtels dès 150 €/pers.",
+    description: "2 châteaux privatisables à Chantilly, 228 chambres et 33 salles en forêt de 6 300 ha. 35 min de Paris, 15 min de Roissy. Devis sous 48 h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "organiser séminaire chantilly", "séminaire forêt chantilly"],
     ogTitle: "Séminaire en Château à Chantilly | Select Châteaux",
     ogDescription:
@@ -469,15 +467,20 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-oise-60",
-    title: "Séminaire Château Oise (60) : 150 €/pers.",
-    description:
-      "2 châteaux séminaire dans l'Oise : manoir 280 pers + palace 5★ 200 pers en forêt de Chantilly. Spa, 33 salles. 35 min Paris. Devis gratuit 24h.",
-    keywords: ["seminaire oise", "séminaire oise", "chateau seminaire oise", "château séminaire oise 60", "salle séminaire oise", "hotel séminaire oise", "séminaire forêt chantilly", "lieu séminaire oise", "séminaire entreprise oise"],
+    title: "Séminaire château Oise (60) : 13 lieux",
+    description: "13 lieux de séminaire dans l'Oise (60) : châteaux, abbayes et domaines de 20 à 500 personnes, à 35 min de Paris. Devis sous 48 h.",
+    // Re-ciblé le 20/09/2026 sur le DÉPARTEMENT. Cette page présentait les
+    // MÊMES deux châteaux que /seminaire-chateau-chantilly, dans la même forêt,
+    // et partageait avec elle « séminaire forêt chantilly ». Or Chantilly EST
+    // dans l'Oise : pour Google les deux pages répondaient à la même intention.
+    // Chantilly garde ses 2 domaines et l'argument forêt / accès CDG ; l'Oise
+    // couvre le département, 13 lieux référencés (src/data/venues.ts).
+    keywords: ["seminaire oise", "séminaire oise", "chateau seminaire oise", "château séminaire oise 60", "salle séminaire oise", "hotel séminaire oise", "lieu séminaire oise", "séminaire entreprise oise", "seminaire 60", "séminaire compiegne", "séminaire senlis"],
     ogTitle: "Séminaire en Château dans l'Oise (60) | Select Châteaux",
     ogDescription:
       "2 châteaux dans l'Oise pour vos séminaires d'entreprise. Forêt de Chantilly, spa, amphithéâtre. À 35 min de Paris.",
     canonical: "/seminaire-chateau-oise-60",
-    h1: "Séminaire en Château dans l'Oise",
+    h1: "Séminaire en château dans l'Oise (60)",
     heroAccroche:
       "2 domaines d'exception en forêt de Chantilly, département de l'Oise",
     heroImage: "/images/seminaires-soirees-entreprise-hero.webp",
@@ -725,9 +728,8 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-hauts-de-seine-92",
-    title: "Séminaire Château Hauts-de-Seine (92)",
-    description:
-      "Château MGallery 5★ dans le 92 : 83 chambres vue Tour Eiffel, spa 360m², 9 salles, restaurant bio. Métro L12. Devis gratuit 24h.",
+    title: "Séminaire Hauts-de-Seine : château-hôtel 5★, métro L12",
+    description: "83 chambres, 9 salles et un spa de 360 m² dans un château-hôtel 5★ des Hauts-de-Seine, accessible en métro L12. Devis chiffré sous 48 h.",
     keywords: ["seminaire entreprise hauts-de-seine", "séminaire château 92", "hôtel séminaire paris 92", "lieu séminaire hauts-de-seine", "séminaire métro paris", "séminaire entreprise issy"],
     ogTitle: "Séminaire en Château Hauts-de-Seine (92) | Select Châteaux",
     ogDescription:

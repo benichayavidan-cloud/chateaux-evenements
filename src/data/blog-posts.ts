@@ -24,6 +24,22 @@ export interface BlogPost {
   slug: string;
   title: string;
   excerpt: string;
+  /**
+   * Titre et description SERP, quand ceux de l'article ne sont pas les bons.
+   *
+   * `title` et `excerpt` sont écrits pour le LECTEUR arrivé sur la page. Ce que
+   * Google affiche s'adresse à quelqu'un qui n'a pas encore cliqué, et qui a
+   * tapé des mots précis. Mesuré le 20/09/2026 : /blog/checklist-organiser-
+   * seminaire recevait 2 165 impressions, dont 368 sur « programme séminaire
+   * exemple » et « modèle de programme » — deux mots absents de son titre.
+   *
+   * `seoTitle` est servi tel quel, sans le suffixe de marque : sur un site à 11
+   * domaines référents, les 18 caractères de « | Select Châteaux » valent moins
+   * qu'un chiffre ou le mot réellement cherché. Même arbitrage que les fiches
+   * lieux. Il reste borné à 60 caractères par le garde-fou de build.
+   */
+  seoTitle?: string;
+  seoDescription?: string;
   category: BlogCategory;
   author: {
     name: string;
@@ -366,6 +382,8 @@ const article1: BlogPost = {
 const article2: BlogPost = {
   id: 2,
   slug: "checklist-organiser-seminaire",
+  seoTitle: "Programme de séminaire : modèle, exemple et check-list",
+  seoDescription: "Le programme type d'un séminaire en 25 étapes et 7 phases, de J-90 à J+7 : modèle de déroulé à adapter et check-list PDF à télécharger.",
   title: "Checklist Séminaire 2026 : 25 Étapes Clés [PDF Gratuit]",
   excerpt: "Check-list complète à télécharger en PDF. 25 étapes réparties sur 7 phases de J-90 à J+7 pour organiser votre séminaire d'entreprise sans rien oublier.",
   category: "organisation",
@@ -1394,6 +1412,8 @@ const article4: BlogPost = {
 const article5: BlogPost = {
   id: 32,
   slug: "seminaire-codir-chateau-privatise",
+  seoTitle: "Séminaire CODIR en château privatisé : critères et budget",
+  seoDescription: "417 € par personne et par jour en médiane pour un CODIR en château privatisé : critères de choix, confidentialité, cadrage du programme.",
   title: "Séminaire CODIR en Château Privatisé : Confidentialité Totale, dès 120€/pers",
   excerpt: "Concentration, confidentialité, impact : découvrez pourquoi 78% des CODIR les plus efficaces se tiennent hors des murs de l'entreprise — et pourquoi un château privatisé fait la différence. Budget, formats et châteaux IDF à jour 2026.",
   category: "organisation",
@@ -2546,6 +2566,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 5,
     slug: "seminaire-residentiel-vs-journee",
+    seoTitle: "Séminaire résidentiel ou journée d'étude : les avantages",
+    seoDescription: "417 € par personne et par jour en médiane : ce que change vraiment la nuit sur place face à une journée d'étude, en coût comme en résultats.",
     title: "Séminaire Résidentiel vs Journée d'Étude : Que choisir ?",
     excerpt: "Analyse comparative coût/bénéfices : quand privilégier un séminaire de 2 jours avec nuit sur place vs une journée intensive. Critères de décision et retours d'expérience.",
     category: "organisation",
@@ -6904,6 +6926,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 15,
     slug: "seminaire-yvelines-78-luxe-proximite",
+    seoTitle: "Châteaux des Yvelines : le comparatif des 28 domaines",
+    seoDescription: "28 châteaux privatisables des Yvelines comparés : capacités, accès RER, budgets de 180 à 300 € la nuit et distances depuis Paris.",
     title: "Les Meilleurs Châteaux des Yvelines : Comparatif & Tarifs 2026",
     excerpt: "De Versailles à la Vallée de Chevreuse : 28 châteaux privatisables pour séminaire dans les Yvelines. RER direct, 30-45 min de Paris, tarifs 180-300€/nuit.",
     category: "lieux",
@@ -17451,6 +17475,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 203,
     slug: "seminaire-chantilly-activites-team-building",
+    seoTitle: "Team building à Chantilly : 15 activités testées en 2026",
+    seoDescription: "15 activités de team building testées à Chantilly : spectacle équestre, rallye en 2CV, escape game au château et chasse au trésor en forêt.",
     title: "15 Activités Team Building à Chantilly : Tarifs 2026 dès 45€/pers",
     excerpt: "15 activités team building testées à Chantilly en 2026 : spectacle équestre, rallye 2CV, escape game. Tarifs détaillés de 45€ à 180€/pers et guide pratique.",
     category: "team-building" as BlogCategory,
@@ -17642,6 +17668,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 204,
     slug: "seminaire-nature-chevreuse-deconnexion",
+    seoTitle: "Séminaire nature en château, à 35 min de Paris en RER",
+    seoDescription: "À 35 min de Paris en RER B, la vallée de Chevreuse réunit forêt, abbayes et domaines privatisables pour un séminaire au vert, loin des open spaces.",
     title: "Séminaire au Vert près de Paris : La Vallée de Chevreuse à 35 min",
     excerpt: "Besoin de déconnexion pour votre séminaire ? La Vallée de Chevreuse offre forêt, abbayes et calme absolu à 35 min de Paris en RER B. Guide des lieux et activités nature.",
     category: "lieux" as BlogCategory,

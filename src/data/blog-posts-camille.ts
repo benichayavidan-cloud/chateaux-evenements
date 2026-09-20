@@ -3542,6 +3542,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1184,
     slug: "seminaire-storytelling-narratif-chateau-marque-2026",
+    seoTitle: "Atelier de storytelling en séminaire : déroulé et consignes",
+    seoDescription: "4 temps pour animer un atelier de storytelling en séminaire : préparation, consignes au groupe, écriture des récits, restitution devant l'équipe.",
     title: "Storytelling d'Entreprise en Château : Séminaire Narratif 2026",
     excerpt: "Transformer votre séminaire en château en expérience narrative mémorable : méthodes de storytelling d'entreprise, ateliers narratifs, tarifs dès 155€/pers et exemples concrets pour ancrer votre culture d'entreprise en 2026.",
     category: "organisation" as const,
@@ -4461,6 +4463,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1169,
     slug: "gestion-participation-distancielle-seminaire-chateau-wifi-technique-2026",
+    seoTitle: "Wifi en château : les équipements d'un séminaire hybride",
+    seoDescription: "Débit, salle de repli, captation, prises : les 4 points à vérifier avant un séminaire hybride en château, et les questions à poser au domaine.",
     title: "Séminaire Hybride en Château : Le Kit Technique Complet (Wifi, Son, Régie)",
     excerpt: "Wifi qui lâche en pleine plénière, distanciels qui décrochent : voici le kit technique exact pour un séminaire hybride en château — débit minimum par participant, matériel de régie, budget réel et checklist à valider avec le lieu avant de signer.",
     category: "organisation" as const,
@@ -7022,6 +7026,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1138,
     slug: "negocier-rabais-groupe-domaine-evenementiel-guide-2026",
+    seoTitle: "Négocier un tarif groupe : jusqu'à 25 % de remise",
+    seoDescription: "Jusqu'à 25 % de remise sur une privatisation de domaine : quand négocier, quels leviers utiliser hors saison et ce qu'un devis peut absorber.",
     title: "Négocier un Tarif Groupe en Domaine Événementiel : Guide 2026",
     excerpt: "Comment obtenir jusqu'à 25% de remise sur votre réservation de domaine pour séminaire ? Techniques de négociation concrètes, timing idéal et arguments qui fonctionnent vraiment.",
     category: "organisation" as const,
@@ -13920,6 +13926,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1050,
     slug: "discours-cloture-seminaire-entreprise-guide-2026",
+    seoTitle: "Discours de clôture de séminaire : modèle et exemples",
+    seoDescription: "Le discours de clôture en 3 parties : ce qui a été décidé, ce qui change lundi, ce que vous demandez à l'équipe. Avec un modèle à adapter.",
     title: "Discours de Clôture de Séminaire : Guide Dirigeant 2026 (dès 5 min)",
     excerpt: "Le discours de clôture est le moment le plus mémorable de votre séminaire — et le plus sous-préparé. Voici comment conclure en 5 à 15 minutes avec impact, sincérité et un vrai élan collectif.",
     category: "organisation" as const,
@@ -13960,6 +13968,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1049,
     slug: "invitation-seminaire-entreprise-rediger-communiquer-2026",
+    seoTitle: "Invitation à un séminaire d'entreprise : modèles à copier",
+    seoDescription: "Une invitation bien écrite fait gagner 25 % de participation : objet du mail, informations à donner, relances et modèles à adapter.",
     title: "Rédiger l'Invitation Séminaire d'Entreprise : Guide 2026",
     excerpt: "Une bonne invitation séminaire augmente le taux de participation de 25%. Découvrez comment rédiger un message d'invitation efficace, les modèles qui fonctionnent et les erreurs à éviter.",
     category: "organisation" as const,
@@ -16896,6 +16906,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1020,
     slug: "alternative-chateauform-ile-de-france",
+    seoTitle: "Alternative à Châteauform en Île-de-France : comparatif",
+    seoDescription: "68 lieux comparés à l'offre Châteauform en Île-de-France : tarifs, niveau de service, flexibilité des dates et conditions de privatisation.",
     title: "Alternative à Châteauform en Île-de-France : Comparatif 2026",
     excerpt: "Vous cherchez une alternative à Châteauform pour votre séminaire en Île-de-France ? Comparatif factuel 2026 : exclusivité, flexibilité, budget (dès 150€/pers) et accompagnement sur-mesure.",
     category: "lieux" as const,

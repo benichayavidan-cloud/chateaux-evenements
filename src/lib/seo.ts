@@ -262,3 +262,27 @@ export function descriptionLieu(
   }
   return metaDescription(`${tete} ${promesse}`, max);
 }
+
+/**
+ * Titre d'une landing de zone — la marque cède quand le titre a besoin de place.
+ *
+ * `titreSousMarque()` borne à 42 caractères pour laisser les 18 du suffixe. Le
+ * titre plus long n'est pas raccourci : il est COUPÉ à son séparateur, et ce
+ * qui suit disparaît. Mesuré le 20/09/2026 : « Séminaire Hauts-de-Seine :
+ * château-hôtel 5★, métro L12 » était servi « Séminaire Hauts-de-Seine ». Le
+ * métro L12 est pourtant l'argument que personne d'autre ne peut écrire dans le
+ * 92, et « château-hôtel » capte à lui seul les requêtes « hôtel séminaire ».
+ *
+ * On tranche donc dans l'autre sens, comme pour les fiches lieux : si le titre
+ * tient dans 60 sans le suffixe mais pas avec, on garde le titre et on renonce
+ * à la marque. Sur un site à 11 domaines référents, elle n'est pas cherchée.
+ *
+ * Retourne soit une chaîne (le gabarit racine ajoutera « | Select Châteaux »),
+ * soit `{ absolute }` (le titre est servi tel quel).
+ */
+export function titreLanding(titre: string): string | { absolute: string } {
+  const propre = titre.replace(/\s+/g, " ").trim();
+  if (propre.length <= BUDGET_SOUS_MARQUE) return propre;
+  if (propre.length <= TITLE_MAX) return { absolute: propre };
+  return { absolute: bornerTitre(propre) };
+}
