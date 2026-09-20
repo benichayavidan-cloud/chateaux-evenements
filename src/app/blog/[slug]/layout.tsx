@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getBlogPostBySlug, type FaqItem } from "@/data/blog-posts";
-import { metaDescription, pageTitle } from "@/lib/seo";
+import { bornerTitre, metaDescription, pageTitle } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -22,8 +22,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     // Borné à 60 caractères : Google tronque au-delà, et le H1 garde le titre
     // complet (voir lib/seo.pageTitle).
-    title: pageTitle(article.title),
-    description: metaDescription(article.excerpt),
+    // `seoTitle` est servi SANS suffixe de marque (title.absolute) : il est
+    // écrit pour la requête, et les 18 caractères de la marque y sont mieux
+    // employés par le mot réellement tapé. À défaut, pageTitle() applique le
+    // gabarit habituel.
+    title: article.seoTitle
+      ? { absolute: bornerTitre(article.seoTitle) }
+      : pageTitle(article.title),
+    description: metaDescription(article.seoDescription ?? article.excerpt),
     robots: {
       index: true,
       follow: true,
@@ -84,10 +90,10 @@ export default async function BlogArticleLayout({ children, params }: Props) {
     "dateModified": article.updatedAt ?? article.publishedAt,
     "author": {
       "@type": "Person",
-      "@id": "https://www.selectchateaux.com/auteurs/sophie-durand#person",
+      "@id": "https://www.selectchateaux.com/auteurs/equipe#person",
       "name": article.author.name,
       "jobTitle": article.author.role,
-      "url": "https://www.selectchateaux.com/auteurs/sophie-durand"
+      "url": "https://www.selectchateaux.com/auteurs/equipe"
     },
     "publisher": {
       "@type": "Organization",

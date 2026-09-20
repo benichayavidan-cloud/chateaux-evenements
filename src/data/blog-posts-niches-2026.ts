@@ -13,7 +13,7 @@ const workationArticle: BlogPost = {
     "La workation, nouvelle formule 2026 : 3-5 jours de télétravail en château avec cohésion d'équipe intégrée. Prix, formats, exemples. 40% plus productif qu'au bureau.",
   category: "organisation",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -331,7 +331,7 @@ const digitalDetoxArticle: BlogPost = {
     "Séminaire digital detox en château : 48h sans écrans pour reconnecter votre équipe. Protocole, bénéfices mesurés, activités, budget. Guide 2026.",
   category: "team-building",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -661,7 +661,7 @@ const slowSeminarArticle: BlogPost = {
     "Le slow seminar : l'anti-séminaire urbain qui gagne du terrain en 2026. Format, durée, bénéfices et châteaux IDF adaptés au slow corporate.",
   category: "organisation",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },

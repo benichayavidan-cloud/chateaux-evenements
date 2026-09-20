@@ -1,17 +1,20 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Agence Séminaire Château Île-de-France",
+  // `absolute` : la page renonce au suffixe de marque. « 15 ans » et « 200
+  // entreprises » sont les deux faits qui distinguent cette agence d'une
+  // autre ; les 18 caractères de « | Select Châteaux » y sont mieux employés.
+  title: { absolute: "Agence séminaire en château : 15 ans, 200 entreprises" },
   description:
-    "200+ entreprises nous confient leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception, devis sous 48h.",
+    "15 ans d'expérience et 200 entreprises accompagnées sur leurs séminaires en château en Île-de-France : Eiffage, Safran.AI, LCL, Boston Scientific.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Agence Séminaire Château Île-de-France : 15 Ans, 200+ Entreprises | Select Châteaux",
+    title: "Agence séminaire en château : 15 ans, 200 entreprises",
     description:
-      "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, 4 domaines d'exception. Devis sous 48h.",
+    "15 ans d'expérience et 200 entreprises accompagnées sur leurs séminaires en château en Île-de-France : Eiffage, Safran.AI, LCL, Boston Scientific.",
     url: "https://www.selectchateaux.com/a-propos",
     type: "website",
     siteName: "Select Châteaux",
@@ -27,8 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agence Séminaire Château Île-de-France : 15 Ans, 200+ Entreprises | Select Châteaux",
-    description: "200+ entreprises nous font confiance pour leurs séminaires en château en Île-de-France. 15 ans d'expertise, devis sous 48h.",
+    title: "Agence séminaire en château : 15 ans, 200 entreprises",
+    description:
+    "15 ans d'expérience et 200 entreprises accompagnées sur leurs séminaires en château en Île-de-France : Eiffage, Safran.AI, LCL, Boston Scientific.",
     images: ["/images/seminaires-soirees-entreprise-hero.webp"],
   },
   alternates: {

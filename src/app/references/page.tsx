@@ -33,9 +33,13 @@ import { StructuredData } from "@/components/StructuredData";
 import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "Références : Séminaires Organisés",
+    // `absolute` : la page renonce au suffixe de marque pour garder le mot
+  // réellement tapé dans les 60 caractères affichés. Même arbitrage que les
+  // fiches lieux — sur un site à 11 domaines référents, la marque n'est pas
+  // cherchée.
+  title: { absolute: "Références : séminaires pour Eiffage, LCL, Safran.AI" },
   description:
-    "Études de cas réelles : séminaires de 45 à 280 personnes organisés en château pour Eiffage, Safran.AI, LCL, Boston Scientific… Briefs, budgets et résultats.",
+    "De 45 à 280 personnes : les briefs, budgets et déroulés réels de séminaires organisés en château pour Eiffage, Safran.AI, LCL et Boston Scientific.",
   alternates: { canonical: "/references" },
 };
 

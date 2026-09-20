@@ -113,7 +113,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const authorPages: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/auteurs/sophie-durand`,
+      url: `${baseUrl}/auteurs/equipe`,
       lastModified: staticPagesUpdated,
       changeFrequency: 'monthly',
       priority: 0.5,

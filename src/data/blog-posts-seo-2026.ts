@@ -13,7 +13,7 @@ const article44: BlogPost = {
     "Comparatif détaillé Chantilly vs Fontainebleau pour votre séminaire d'entreprise : accès, capacité, activités, budget et ambiance. Trouvez le lieu idéal.",
   category: "lieux",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -370,7 +370,7 @@ const article46: BlogPost = {
     "Top 10 des châteaux avec hébergement en Île-de-France pour séminaires : capacités, tarifs, style et localisation. Sélection d'expert 2026.",
   category: "lieux",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -712,7 +712,7 @@ const article48: BlogPost = {
     "Besoin d'organiser un séminaire en urgence ? Checklist express, astuces disponibilité, priorités et raccourcis qui fonctionnent. Service express Select Châteaux.",
   category: "organisation",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -1052,7 +1052,7 @@ const article50: BlogPost = {
     "Séminaire d'hiver en château : activités cheminée, dégustations, ambiance Noël, animations festives et conseils pour profiter de la magie hivernale.",
   category: "team-building",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -1508,7 +1508,7 @@ const article52: BlogPost = {
     "Comparatif des formats de séminaire : demi-journée, 1 jour, 2 jours ou 3 jours. ROI, attention des participants, budget et meilleurs cas d'usage.",
   category: "organisation",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -1869,7 +1869,7 @@ const article54: BlogPost = {
     "Atelier cuisine, dégustation de vins, concours de chefs, farm-to-table : les meilleures formules de team building culinaire en château. Tarifs et programmes.",
   category: "team-building",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -2275,7 +2275,7 @@ const article56: BlogPost = {
     "Guide complet pour organiser un séminaire en château à Chantilly : domaines, tarifs 2026, activités et étapes clés. Devis gratuit 24h.",
   category: "lieux",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -2721,7 +2721,7 @@ const article59: BlogPost = {
     "Comment organiser un CODIR d'exception en château ? Checklist, formats, lieux et budget détaillé. Guide complet pour DG et DRH.",
   category: "organisation",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },
@@ -2878,7 +2878,7 @@ const article60: BlogPost = {
     "Comment organiser un séminaire d'été en château ? Activités plein air, jardins privatisés, soirées estivales et astuces anti-chaleur. Guide 2026 avec tarifs.",
   category: "organisation",
   author: {
-    name: "Sophie Durand",
+    name: "L'équipe Select Châteaux",
     role: "Experte Événementiel",
     avatar: "SD",
   },

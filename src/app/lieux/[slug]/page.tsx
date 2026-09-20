@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { venues, getVenueBySlug, getVenuesByDepartment } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
-import { metaDescription, titreLieu } from "@/lib/seo";
+import { descriptionLieu, metaDescription, titreLieu } from "@/lib/seo";
 import { VenueView } from "./VenueView";
 import { buildVenueFaq } from "@/lib/venue-faq";
 
@@ -60,10 +60,13 @@ function reponseDirecte(v: NonNullable<ReturnType<typeof getVenueBySlug>>) {
     v.ville ? `à ${v.ville}` : null,
     v.departement ? `(${v.departement}, ${v.departementCode})` : null,
   ].filter(Boolean).join(" ");
+  // L'accord compte : ce bloc est affiché en haut de page ET recopié par Google
+  // et les modèles de langage. Le gabarit précédent écrivait « 1 salles de réunion ».
+  const p = (n: number, mot: string) => `${n} ${mot}${n > 1 ? "s" : ""}`;
   const equip = [
-    v.chambres ? `${v.chambres} chambres` : null,
-    v.sallesReunion ? `${v.sallesReunion} salles de réunion` : null,
-    v.parking ? `${v.parking} places de parking` : null,
+    v.chambres ? p(v.chambres, "chambre") : null,
+    v.sallesReunion ? `${p(v.sallesReunion, "salle")} de réunion` : null,
+    v.parking ? `${p(v.parking, "place")} de parking` : null,
   ].filter(Boolean);
   return `${parts}. ${equip.length ? `Le lieu dispose de ${equip.join(", ")}. ` : ""}Devis sous 48 h via Select Châteaux.`;
 }
@@ -78,7 +81,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // `absolute` : la fiche renonce au suffixe de marque pour garder le nom du
     // lieu ET le mot « séminaire » dans les 60 caractères affichés.
     title: { absolute: titleFor(v) },
-    description: metaDescription(reponseDirecte(v)),
+    description: descriptionLieu(v),
     metadataBase: new URL("https://www.selectchateaux.com"),
     alternates: { canonical: url },
     robots: { index: true, follow: true },

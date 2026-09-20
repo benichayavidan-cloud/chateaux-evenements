@@ -1,5 +1,5 @@
 /**
- * PAGE AUTEUR — Sophie Durand (E-E-A-T).
+ * PAGE AUTEUR — L'équipe Select Châteaux (E-E-A-T).
  * Entité auteur unique du blog : bio, expertise, derniers articles,
  * schema Person relié à l'Organization.
  */
@@ -7,16 +7,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { SOPHIE_DURAND, AUTHOR_PAGE_PATH } from "@/data/authors";
+import { EQUIPE_SELECT, AUTHOR_PAGE_PATH } from "@/data/authors";
 import { blogPosts } from "@/data/blog-posts";
 import { StructuredData } from "@/components/StructuredData";
 
 const BASE_URL = "https://www.selectchateaux.com";
 
 export const metadata: Metadata = {
-  title: SOPHIE_DURAND.name,
+  // `absolute` : le titre porte déjà le nom de la marque. Sans cela, le
+  // gabarit racine ajoutait son suffixe et servait « L'équipe Select Châteaux
+  // | Select Châteaux ».
+  title: { absolute: "L'équipe Select Châteaux, auteur du blog" },
   description:
-    "Sophie Durand accompagne les entreprises depuis 10+ ans dans l'organisation de séminaires en château en Île-de-France. Bio, expertise et derniers articles.",
+    "Qui écrit le blog Select Châteaux : l'équipe de l'agence, à partir des 188 devis réellement traités en 2025-2026. Expertise et derniers articles.",
   alternates: { canonical: AUTHOR_PAGE_PATH },
 };
 
@@ -29,43 +32,41 @@ export default function AuthorPage() {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
     mainEntity: {
-      "@type": "Person",
+      "@type": "Organization",
       "@id": `${BASE_URL}${AUTHOR_PAGE_PATH}#person`,
-      name: SOPHIE_DURAND.name,
-      jobTitle: SOPHIE_DURAND.role,
-      description: SOPHIE_DURAND.bio,
+      name: EQUIPE_SELECT.name,
+      description: EQUIPE_SELECT.bio,
       url: `${BASE_URL}${AUTHOR_PAGE_PATH}`,
-      knowsAbout: SOPHIE_DURAND.expertise,
-      worksFor: {
-        "@type": "Organization",
-        "@id": `${BASE_URL}/#organization`,
-        name: "Select Châteaux",
-      },
+      knowsAbout: EQUIPE_SELECT.expertise,
+      "sameAs": [
+        "https://www.linkedin.com/company/select-chateaux/about/",
+        "https://www.google.com/maps?cid=13719107096971699386",
+      ],
     },
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <StructuredData data={structuredData} />
 
       {/* En-tête auteur */}
       <section className="bg-gradient-to-b from-gray-50 to-white">
         <div className="mx-auto max-w-4xl px-6 py-14 sm:py-20 text-center">
           <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-[var(--bronze-antique)] text-3xl font-semibold text-white">
-            {SOPHIE_DURAND.avatar}
+            {EQUIPE_SELECT.avatar}
           </div>
           <h1 className="text-3xl sm:text-4xl font-light text-gray-900">
-            {SOPHIE_DURAND.name}
+            {EQUIPE_SELECT.name}
           </h1>
           <p className="mt-2 text-base sm:text-lg font-medium text-[var(--bronze-antique)]">
-            {SOPHIE_DURAND.role} · Select Châteaux
+            {EQUIPE_SELECT.role} · Select Châteaux
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-left text-base leading-relaxed" style={{ color: "#374151" }}>
-            {SOPHIE_DURAND.bio}
+            {EQUIPE_SELECT.bio}
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {SOPHIE_DURAND.expertise.map((item) => (
+            {EQUIPE_SELECT.expertise.map((item) => (
               <span
                 key={item}
                 className="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm text-gray-700"
@@ -80,7 +81,7 @@ export default function AuthorPage() {
               href="/devis#formulaire"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--bronze-antique)] px-8 py-3 font-semibold text-white transition-all hover:bg-amber-700"
             >
-              Demander conseil à Sophie — devis gratuit 24h
+              Parler de votre projet — devis gratuit sous 48h
             </Link>
           </div>
         </div>
@@ -128,6 +129,6 @@ export default function AuthorPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

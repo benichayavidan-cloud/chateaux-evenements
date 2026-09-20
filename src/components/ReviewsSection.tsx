@@ -3,7 +3,40 @@
 // framer-motion removed — CSS transitions for performance
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { reviews, reviewsStats, GOOGLE_REVIEWS_URL } from "@/data/reviewsData";
+import { generateAggregateRating } from "@/utils/seo/structured-data";
 import { useState, useEffect } from "react";
+
+/**
+ * Note moyenne balisée — émise ICI, par le composant qui AFFICHE les avis.
+ *
+ * Google n'accepte une note que si l'élément noté est réellement rendu sur la
+ * page. Jusqu'au 20/09/2026 la note vivait dans `generateLocalBusinessSchema()`
+ * appelé par le gabarit racine : elle partait donc sur les 368 pages du site,
+ * /cgv et /mentions-legales comprises, où aucun avis n'est affiché. C'est un
+ * motif classique d'action manuelle « données structurées », dont la sanction
+ * retire TOUS les résultats enrichis du domaine.
+ *
+ * En la faisant porter par ReviewsSection, l'invariant devient structurel :
+ * aucune page ne peut déclarer la note sans montrer les avis, et aucun appelant
+ * ne peut l'oublier. Le nœud ne répète pas le LocalBusiness — il partage son
+ * `@id`, et JSON-LD fusionne les deux.
+ */
+function NoteBalisee() {
+  const note = generateAggregateRating();
+  if (!note) return null;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@id": "https://www.selectchateaux.com/#localbusiness",
+          aggregateRating: note,
+        }),
+      }}
+    />
+  );
+}
 
 // Version: 1.4 - Auto-scroll accéléré 3 secondes
 export function ReviewsSection() {
@@ -49,6 +82,7 @@ export function ReviewsSection() {
 
   return (
     <section className="flex items-center justify-center" style={{ padding: '20px 0', background: '#ffffff', marginTop: '30px' }}>
+      <NoteBalisee />
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
         {/* En-tête */}
         <div

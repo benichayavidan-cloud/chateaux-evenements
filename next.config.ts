@@ -181,6 +181,15 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // ── SIGNATURE DU BLOG : persona retirée (20/09/2026) ──
+      // /auteurs/sophie-durand était indexée et liée depuis chaque article.
+      // La personne n'existait pas ; la page est devenue celle de l'entité.
+      {
+        source: "/auteurs/sophie-durand",
+        destination: "/auteurs/equipe",
+        permanent: true,
+      },
+
       // ── BRAND REGROUP : assets identité déplacés dans /public/brand ──
       // Les anciennes URLs (logo, OG) sont connues de Google (schema.org, RSS,
       // partages sociaux) et des PWA installées : 301 pour zéro 404/perte SEO.
