@@ -478,7 +478,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     keywords: ["seminaire oise", "séminaire oise", "chateau seminaire oise", "château séminaire oise 60", "salle séminaire oise", "hotel séminaire oise", "lieu séminaire oise", "séminaire entreprise oise", "seminaire 60", "séminaire compiegne", "séminaire senlis"],
     ogTitle: "Séminaire en Château dans l'Oise (60) | Select Châteaux",
     ogDescription:
-      "2 châteaux dans l'Oise pour vos séminaires d'entreprise. Forêt de Chantilly, spa, amphithéâtre. À 35 min de Paris.",
+      "13 lieux de séminaire dans l'Oise, dont 2 domaines partenaires. Forêt de Chantilly, spa, amphithéâtre. À 35 min de Paris.",
     canonical: "/seminaire-chateau-oise-60",
     h1: "Séminaire en château dans l'Oise (60)",
     heroAccroche:
@@ -544,7 +544,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Combien de châteaux proposez-vous dans l'Oise ?",
         answer:
-          "Nous proposons 2 domaines dans l'Oise, au cœur de la forêt de Chantilly : un château anglo-normand de 119 chambres (21 salles, spa Codage Paris, Immersive Room 240 m²) et un InterContinental 5 étoiles de 109 chambres (centre de convention 700 m², salle Halphen 380 m², labellisé Green Key).",
+          "Nous référençons 13 lieux de séminaire dans l'Oise, dont 2 domaines partenaires en exclusivité, au cœur de la forêt de Chantilly : un château anglo-normand de 119 chambres (21 salles, spa Codage Paris, Immersive Room 240 m²) et un InterContinental 5 étoiles de 109 chambres (centre de convention 700 m², salle Halphen 380 m², labellisé Green Key).",
       },
       {
         question: "Comment accéder aux châteaux de l'Oise depuis Paris ?",

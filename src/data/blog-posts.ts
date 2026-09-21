@@ -13932,7 +13932,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>1. Chef Étoilé Michelin (prestations premium) :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><strong>Jean-François Piège</strong> (2 étoiles) : Ateliers haute gastronomie (sur demande, grands groupes)</li>
-  <li class="mb-2"><strong>Anne-notre consultante Pic</strong> (3 étoiles, Valence mais déplacements IdF) : Cuisine aromates, créativité</li>
+  <li class="mb-2"><strong>Anne-Sophie Pic</strong> (3 étoiles, Valence mais déplacements IdF) : Cuisine aromates, créativité</li>
   <li class="mb-2"><strong>Budget :</strong> 200-350€/pers (chef étoilé + équipe + ingrédients exception)</li>
   <li class="mb-2"><strong>Public :</strong> Conventions direction, CODIR, clients VIP</li>
 </ul>
