@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { venues, getVenueBySlug, getVenuesByDepartment } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
-import { descriptionLieu, metaDescription, titreLieu } from "@/lib/seo";
+import { descriptionLieu, titreLieu } from "@/lib/seo";
 import { VenueView } from "./VenueView";
 import { buildVenueFaq } from "@/lib/venue-faq";
 

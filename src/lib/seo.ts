@@ -55,7 +55,7 @@ export function metaDescription(text: string, max: number = META_DESCRIPTION_MAX
  * parenthèse ouverte, une unité sans valeur.
  */
 export const FIN_AMPUTEE =
-  /(?:^|[\s(])(?:\d+[\d\s.,]*|d[eèé]s?|du|des|au|aux|à|en|et|ou|par|pour|sur|sous|avec|sans|dans|vers|entre|jusqu['’]?|depuis|selon|soit|dont|que|qui|environ|entre|plus|moins|entre|min|h|km|€)$|\($/i;
+  /(?:^|[\s(])(?:\d+[\d\s.,]*[+%]?|d[eèé]s?|du|des|au|aux|un|une|le|la|les|l['’]|d['’]un|d['’]une|votre|vos|notre|nos|leur|leurs|ce|cet|cette|ces|tout|toute|tous|chaque|à|en|et|ou|par|pour|sur|sous|avec|sans|dans|vers|entre|jusqu['’]?|depuis|selon|soit|dont|que|qui|environ|plus|moins|min|h|km|€|—|–)…?$|\($/i;
 
 /* ─────────────────────────── Titre de page ─────────────────────────── */
 

@@ -30,6 +30,7 @@ function NoteBalisee() {
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
+          "@type": "LocalBusiness",
           "@id": "https://www.selectchateaux.com/#localbusiness",
           aggregateRating: note,
         }),

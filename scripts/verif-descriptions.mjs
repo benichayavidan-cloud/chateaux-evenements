@@ -33,7 +33,7 @@ const DESCRIPTION_MIN = 70;
  * Doit rester alignée sur FIN_AMPUTEE dans src/lib/seo.ts.
  */
 const FIN_AMPUTEE =
-  /(?:^|[\s(])(?:\d+[\d\s.,]*|d[eèé]s?|du|des|au|aux|à|en|et|ou|par|pour|sur|sous|avec|sans|dans|vers|entre|jusqu['’]?|depuis|selon|soit|dont|que|qui|environ|plus|moins|min|h|km|€)…?$|\($/i;
+  /(?:^|[\s(])(?:\d+[\d\s.,]*[+%]?|d[eèé]s?|du|des|au|aux|un|une|le|la|les|l['’]|d['’]un|d['’]une|votre|vos|notre|nos|leur|leurs|ce|cet|cette|ces|tout|toute|tous|chaque|à|en|et|ou|par|pour|sur|sous|avec|sans|dans|vers|entre|jusqu['’]?|depuis|selon|soit|dont|que|qui|environ|plus|moins|min|h|km|€|—|–)…?$|\($/i;
 
 function decode(s) {
   return s
