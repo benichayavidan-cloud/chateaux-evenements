@@ -114,7 +114,7 @@ function erreursSyntaxe(source, nom = 'donnees.ts') {
   });
 }
 
-const normaliser = (s) => String(s ?? '').trim();
+const normaliser = (s) => String(s ?? '').replace(/\r\n?/g, '\n').trim();
 
 /**
  * GARDE-FOU ANTI-TRONCATURE. Lève si `apres` n'est pas une version saine de

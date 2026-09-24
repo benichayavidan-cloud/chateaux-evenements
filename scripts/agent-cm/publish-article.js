@@ -31,7 +31,11 @@ function getNextId() {
 }
 
 function escapeForTS(str) {
+  // Fins de ligne normalisées : TypeScript relit un template literal en LF, un
+  // \r écrit ici ferait échouer la relecture de verifierEcriture à chaque
+  // passage (revue de la PR #51, 24/09/2026).
   return str
+    .replace(/\r\n?/g, '\n')
     .replace(/\\/g, '\\\\')
     .replace(/`/g, '\\`')
     .replace(/\$\{/g, '\\${');

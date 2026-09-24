@@ -206,6 +206,14 @@ test('réécrire un article de Camille ne touche QUE son bloc', () => {
   assert.equal(art.publishedAt, '2026-07-01');
 });
 
+test('un contenu à fins de ligne Windows (CRLF) s\'écrit, au lieu d\'être refusé à chaque passage', () => {
+  const art = reecriture('camille-recent');
+  art.content = art.content.replace(/\n/g, '\r\n');
+  const res = publish.replaceArticle(art);
+  assert.equal(res.replaced, true);
+  assert.equal(lire('blog-posts-camille.ts').includes('\r'), false, 'aucun retour chariot ne doit atteindre le fichier');
+});
+
 // ── Défaut n°2 : les articles hors du fichier de Camille ────────────────────
 
 test('un article de blog-posts.ts (tableau historique) se réécrit en place', () => {
