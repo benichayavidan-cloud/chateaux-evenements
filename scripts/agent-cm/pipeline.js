@@ -297,7 +297,11 @@ function trierCommandes(commandes, parSlug, fusionnes) {
   const aTraiter = [];
   const aFermer = [];
   const vus = new Set();
-  for (const c of commandes) {
+  // Ordre d'ARRIVÉE (numéro d'issue croissant) : `gh issue list` rend les
+  // plus récentes d'abord, ce qui faisait passer la dernière demande devant
+  // celles qui attendent depuis plus longtemps.
+  const parArrivee = [...commandes].sort((a, b) => Number(a.issue) - Number(b.issue));
+  for (const c of parArrivee) {
     if (fusionnes.has(c.slug)) {
       aFermer.push({ numero: c.issue, commentaire: `/blog/${c.slug} est redirigé (301) vers ${fusionnes.get(c.slug)} : une réécriture serait invisible pour Google. Demande close sans objet par Camille.` });
       continue;

@@ -342,6 +342,16 @@ test('trierCommandes ferme les demandes redirigées, introuvables ou déjà exé
   assert.ok(aFermer.every((f) => f.commentaire.length > 10));
 });
 
+test('la file est traitée dans l’ordre d’arrivée (gh liste les plus récentes en premier)', () => {
+  const parSlug = new Map([['a', { slug: 'a' }], ['b', { slug: 'b' }], ['c', { slug: 'c' }]]);
+  const { aTraiter } = pipeline.trierCommandes(
+    [{ slug: 'c', issue: 50 }, { slug: 'b', issue: 46 }, { slug: 'a', issue: 45 }],
+    parSlug,
+    new Map(),
+  );
+  assert.deepEqual(aTraiter.map((c) => c.issue), [45, 46, 50]);
+});
+
 test('fermerCommandes ferme chaque demande par gh, sans shell, et survit à un échec', () => {
   const appels = [];
   const exec = (cmd, args) => {
