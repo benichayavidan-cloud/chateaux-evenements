@@ -24,6 +24,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            scripts/agent-cm/package-lock.json
 
       - name: Install dependencies
         working-directory: scripts/agent-cm
@@ -49,11 +53,31 @@ jobs:
       - name: Validate images
         run: node scripts/agent-cm/validate-images.js
 
+      # GARDE-FOU AVANT COMMIT. Le 18/09/2026 un commit de Camille a laissé
+      # blog-posts-camille.ts sans sa fermeture `];` : main n'a plus compilé
+      # pendant deux jours, sans alerte. Depuis le 24/09 Camille réécrit aussi
+      # les articles des trois autres fichiers de données : on vérifie donc
+      # les quatre, puis le typage du site entier. Si l'une de ces étapes
+      # échoue, le job s'arrête ici : rien n'est commité, aucune demande de
+      # réécriture n'est close (elle sera reprise au passage suivant).
+      - name: Vérifier les fichiers de données (syntaxe, aucun article perdu)
+        run: node scripts/agent-cm/verif-donnees.js
+
+      - name: Vérifier le typage du site (tsc --noEmit)
+        run: |
+          if git diff --quiet -- src/data; then
+            echo "Aucun fichier de données modifié — typage non relancé"
+            exit 0
+          fi
+          npm ci --ignore-scripts --no-audit --no-fund
+          npx tsc --noEmit
+
       - name: Commit and push
         run: |
           git config user.name "Camille (Blog Agent)"
           git config user.email "camille@selectchateaux.com"
-          git add src/data/blog-posts-camille.ts public/images/ || true
+          # Les QUATRE fichiers : une réécriture modifie l'article là où il vit.
+          git add src/data/blog-posts*.ts public/images/ || true
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
@@ -62,6 +86,15 @@ jobs:
             git push origin main
             echo "Publié et pushé !"
           fi
+
+      # APRÈS le push seulement : une demande de Marcus n'est close que si la
+      # réécriture est réellement publiée. Non bloquant — une demande restée
+      # ouverte par erreur est rattrapée au run suivant (pipeline.js,
+      # trierCommandes : article déjà réécrit depuis la demande → close).
+      - name: Fermer les demandes de réécriture traitées
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: node scripts/agent-cm/fermer-commandes.js /tmp/pipeline-result.json || echo "::warning::Fermeture des demandes échouée (rattrapée au prochain run)"
 
       - name: Ping IndexNow
         run: |

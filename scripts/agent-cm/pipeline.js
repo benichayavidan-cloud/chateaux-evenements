@@ -7,9 +7,20 @@ const { ARTICLES_PATH, IMAGES_DIR, CATEGORIES } = require('./config');
 const { checkArticle, loadClusters, formatReport, getExistingArticles, prepareExisting } = require('./anti-cannibalisation');
 const { checkDoublonSemantique } = require('./doublon-semantique');
 const {
-  listerArticlesCamille, estConforme,
+  listerArticlesReecrivables, estConforme,
   assertLongueurSuffisante, assertTitre, assertStructureH3, assertSourceExterne,
 } = require('./publish-article');
+const { lireFusions, compterMots } = require('./donnees-blog');
+const FICHIER_CAMILLE = path.basename(ARTICLES_PATH);
+
+/**
+ * Label GitHub des demandes de réécriture ouvertes par Marcus
+ * (scripts/agent-seo/actions.mjs). Les deux agents DOIVENT employer le même :
+ * un test le vérifie. Au 24/09/2026 il n'existait pas dans le dépôt, et
+ * `gh issue create --label` échoue sur un label inconnu — aucune demande
+ * n'avait jamais pu être créée.
+ */
+const LABEL_REECRITURE = 'camille-reecriture';
 
 const AGENT_DIR = __dirname;
 const SITE_DIR = path.resolve(AGENT_DIR, '../..');
@@ -253,13 +264,13 @@ CONTRAINTES VÉRIFIÉES PAR LE CODE — un article qui les enfreint est REJETÉ 
 function commandesDeMarcus() {
   try {
     const brut = execSync(
-      'gh issue list --label camille-reecriture --state open --json title,number --limit 10',
+      `gh issue list --label ${LABEL_REECRITURE} --state open --json title,number,createdAt --limit 10`,
       { cwd: SITE_DIR, timeout: 20000, env: process.env, stdio: ['ignore', 'pipe', 'pipe'] },
     ).toString();
     return JSON.parse(brut)
       .map((i) => {
         const m = String(i.title).match(/\/blog\/([^\s/]+)/);
-        return m ? { slug: m[1], issue: i.number } : null;
+        return m ? { slug: m[1], issue: i.number, creeLe: i.createdAt || null } : null;
       })
       .filter(Boolean);
   } catch (err) {
@@ -269,8 +280,54 @@ function commandesDeMarcus() {
   }
 }
 
-function choisirReecritures(gscData, nb, exclure = []) {
-  const articles = listerArticlesCamille();
+/**
+ * Trie les demandes de Marcus : celles à exécuter, et celles à FERMER sans
+ * rien réécrire.
+ *
+ * Avant le 24/09/2026 rien ne fermait une demande. Une demande ouverte restait
+ * en priorité 0 à chaque passage : le même article aurait été réécrit tous les
+ * jours, et aurait occupé un créneau de réécriture pour toujours. La fermeture
+ * normale a lieu APRÈS le push (fermer-commandes.js, dans le workflow) ; ce tri
+ * rattrape les cas où elle n'a pas eu lieu, et ceux qui n'ont pas d'objet :
+ *   - l'article est redirigé (301) : une réécriture serait invisible pour Google ;
+ *   - le slug n'existe dans aucun fichier de données ;
+ *   - l'article a déjà été réécrit depuis la demande (updatedAt ≥ date de la demande).
+ */
+function trierCommandes(commandes, parSlug, fusionnes) {
+  const aTraiter = [];
+  const aFermer = [];
+  const vus = new Set();
+  for (const c of commandes) {
+    if (fusionnes.has(c.slug)) {
+      aFermer.push({ numero: c.issue, commentaire: `/blog/${c.slug} est redirigé (301) vers ${fusionnes.get(c.slug)} : une réécriture serait invisible pour Google. Demande close sans objet par Camille.` });
+      continue;
+    }
+    const article = parSlug.get(c.slug);
+    if (!article) {
+      aFermer.push({ numero: c.issue, commentaire: `Aucun article « ${c.slug} » dans les fichiers de données du blog. Demande close sans objet par Camille.` });
+      continue;
+    }
+    const jourDemande = c.creeLe ? String(c.creeLe).slice(0, 10) : null;
+    if (jourDemande && article.updatedAt && article.updatedAt >= jourDemande) {
+      aFermer.push({ numero: c.issue, commentaire: `/blog/${c.slug} a été réécrit le ${article.updatedAt}, après cette demande. Close par Camille.` });
+      continue;
+    }
+    if (vus.has(c.slug)) continue; // doublon : sera clos après la réécriture de la première
+    vus.add(c.slug);
+    aTraiter.push(c);
+  }
+  return { aTraiter, aFermer };
+}
+
+function choisirReecritures(gscData, nb, exclure = [], deps = {}) {
+  // Articles des QUATRE fichiers de données (et plus seulement celui de
+  // Camille), MOINS ceux qui sont redirigés en 301 : réécrire une page que
+  // Google ne voit plus est du travail perdu. C'est arrivé les 07/09, 08/09 et
+  // 15/09 (seminaire-chantilly-guide-organisateurs-2026,
+  // team-building-chantilly-activites-domaines-2026,
+  // seminaire-yvelines-guide-chateaux-domaines-2026).
+  const fusionnes = deps.fusionnes || lireFusions();
+  const articles = (deps.articles || listerArticlesReecrivables()).filter((a) => !fusionnes.has(a.slug));
   const parSlug = new Map(articles.map((a) => [a.slug, a]));
 
   let proprietaires = [];
@@ -305,11 +362,17 @@ function choisirReecritures(gscData, nb, exclure = []) {
   const pris = new Set(exclure);
 
   // Priorité 0 : ce que Marcus a explicitement commandé.
-  for (const c of commandesDeMarcus()) {
+  const { aTraiter, aFermer } = trierCommandes(deps.commandes || commandesDeMarcus(), parSlug, fusionnes);
+  if (deps.fermetures) {
+    for (const f of aFermer) {
+      if (!deps.fermetures.some((x) => x.numero === f.numero)) deps.fermetures.push(f);
+    }
+  }
+  for (const c of aTraiter) {
     if (retenus.length >= nb) break;
-    if (!parSlug.has(c.slug) || pris.has(c.slug)) continue;
+    if (pris.has(c.slug)) continue;
     pris.add(c.slug);
-    retenus.push({ ...parSlug.get(c.slug), motif: `commande de Marcus (issue #${c.issue})` });
+    retenus.push({ ...parSlug.get(c.slug), issue: c.issue, motif: `commande de Marcus (issue #${c.issue})` });
   }
 
   for (const p of proprietaires) {
@@ -320,7 +383,14 @@ function choisirReecritures(gscData, nb, exclure = []) {
   }
 
   if (retenus.length < nb) {
+    // Le repli « par ancienneté » reste limité au fichier de Camille, comme
+    // avant le 24/09 : étendu aux quatre fichiers, il irait réécrire en
+    // premier les articles de novembre 2025 de blog-posts.ts, y compris des
+    // pages indexées que personne n'a désignées. Les autres fichiers ne sont
+    // atteints que sur un signal : une demande (Marcus ou humaine) ou une
+    // requête Search Console en position 5-25.
     const parAnciennete = articles
+      .filter((a) => a.fichier === FICHIER_CAMILLE)
       .filter((a) => !pris.has(a.slug) && !intouchables.has(a.slug) && !a.updatedAt && !estConforme(a))
       .sort((a, b) => String(a.publishedAt).localeCompare(String(b.publishedAt)));
     for (const a of parAnciennete) {
@@ -333,8 +403,8 @@ function choisirReecritures(gscData, nb, exclure = []) {
 
 /** ÉTAPE 2a — les 3 réécritures. Un appel par article : un seul JSON portant
  *  trois articles de 2 500 mots dépasse la fenêtre de sortie et se tronque. */
-async function step2_reecritures(client, gscData, nb = NB_REECRITURES, exclure = [], tentes = null) {
-  const cibles = choisirReecritures(gscData, nb, exclure);
+async function step2_reecritures(client, gscData, nb = NB_REECRITURES, exclure = [], tentes = null, fermetures = []) {
+  const cibles = choisirReecritures(gscData, nb, exclure, { fermetures });
   for (const c of cibles) tentes?.add(c.slug);
   log(2, `${cibles.length} article(s) à réécrire :`);
   cibles.forEach((c) => log(2, `   ${c.slug} — ${c.motif}`));
@@ -378,6 +448,7 @@ Corrige EXACTEMENT ce point et renvoie l'article complet.`;
           ...brut,
           slug: cible.slug,
           category: cible.category,
+          author: cible.author,
           image: cible.image,
           imageAlt: cible.imageAlt,
           publishedAt: cible.publishedAt,
@@ -394,6 +465,9 @@ Corrige EXACTEMENT ce point et renvoie l'article complet.`;
         logError(2, `   ✗ ${cible.slug} : recalé après 2 tentatives — ${motif.split('\n')[0]}`);
         continue;
       }
+      // Numéro de la demande de Marcus, s'il y en a une : elle sera close
+      // après le push (fermer-commandes.js). Champ ignoré à l'écriture.
+      if (cible.issue) article.commande = cible.issue;
       reecrits.push(article);
       log(2, `   ✓ ${cible.slug} réécrit (${String(article.content).replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length} mots)`);
     } catch (err) {
@@ -651,6 +725,16 @@ async function main() {
 
   const publishedSlugs = [];
   const rewrittenSlugs = [];
+  // Demandes de Marcus à fermer APRÈS le push (voir fermer-commandes.js) :
+  // celles exécutées ce run, et celles devenues sans objet (trierCommandes).
+  const issuesAFermer = [];
+  const noterFermeture = (article) => {
+    if (!article.commande) return;
+    issuesAFermer.push({
+      numero: article.commande,
+      commentaire: `Réécrit par Camille le ${new Date().toISOString().split('T')[0]} (${compterMots(article.content)} mots). Demande close automatiquement après publication.`,
+    });
+  };
   let failedStep = null;
   let errorMsg = null;
 
@@ -669,10 +753,11 @@ async function main() {
     // 07/09 la 4ᵉ réécriture a re-choisi un article déjà tenté et recalé, parce
     // que l'exclusion ne portait que sur les slugs effectivement publiés.
     const tentes = new Set();
-    const reecrits = await step2_reecritures(client, gscData, NB_REECRITURES, [], tentes);
+    const reecrits = await step2_reecritures(client, gscData, NB_REECRITURES, [], tentes, issuesAFermer);
     for (const article of reecrits) {
       if (step4_publishArticle(article, 'reecriture')) {
         rewrittenSlugs.push(article.slug);
+        noterFermeture(article);
       } else {
         failedStep = `4-reecriture-${article.slug}`;
         errorMsg = `Échec réécriture ${article.slug}`;
@@ -686,8 +771,11 @@ async function main() {
       // que rien. Le budget de crawl est le même ; autant le dépenser sur une
       // page que Google connaît déjà.
       log(2, 'Aucune création — on convertit le créneau en 4ᵉ réécriture');
-      for (const article of await step2_reecritures(client, gscData, 1, [...tentes], tentes)) {
-        if (step4_publishArticle(article, 'reecriture')) rewrittenSlugs.push(article.slug);
+      for (const article of await step2_reecritures(client, gscData, 1, [...tentes], tentes, issuesAFermer)) {
+        if (step4_publishArticle(article, 'reecriture')) {
+          rewrittenSlugs.push(article.slug);
+          noterFermeture(article);
+        }
       }
     }
     if (nouveau) {
@@ -725,7 +813,7 @@ async function main() {
     // `slugs` ne porte QUE les créations : c'est lui que le workflow lit pour
     // décider du ping IndexNow, et une réécriture doit être pingée elle aussi.
     // On expose donc les deux, et le workflow pinge l'union.
-    console.log(JSON.stringify({ status: 'success', slugs: publishedSlugs, rewritten: rewrittenSlugs }));
+    console.log(JSON.stringify({ status: 'success', slugs: publishedSlugs, rewritten: rewrittenSlugs, issuesAFermer }));
   } catch (err) {
     logError('FATAL', err.message);
     failedStep = failedStep || 'pipeline';
@@ -747,6 +835,8 @@ if (require.main === module) {
 module.exports = {
   MODELE,
   NB_REECRITURES,
+  LABEL_REECRITURE,
+  trierCommandes,
   SCHEMA_REECRITURE,
   SCHEMA_CREATION,
   appelerClaude,
