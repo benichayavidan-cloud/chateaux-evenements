@@ -36,11 +36,47 @@
  * code : c'est pourquoi elles sont supprimées et non désactivées.
  */
 import fs from 'node:fs';
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 import { env, sbSelect, sbInsert } from './lib.mjs';
 
 const QUOTAS = { 'ping-indexnow': 99, 'commande-reecriture': 1 };
 const GELEES = JSON.parse(fs.readFileSync(new URL('./pages-gelees.json', import.meta.url))).pages;
+
+/**
+ * Label des demandes de réécriture — Camille lit exactement celui-ci
+ * (scripts/agent-cm/pipeline.js, LABEL_REECRITURE ; un test vérifie l'égalité).
+ * Au 24/09/2026 il n'existait pas dans le dépôt : `gh issue create --label`
+ * échoue sur un label inconnu, et aucune demande n'avait jamais été créée.
+ */
+export const LABEL_REECRITURE = 'camille-reecriture';
+
+/** Slugs de blog redirigés en 301 — les réécrire serait invisible pour Google. */
+function slugsFusionnes() {
+  try {
+    const { merges } = JSON.parse(fs.readFileSync(new URL('../../src/data/merged-redirects.json', import.meta.url)));
+    return new Set(merges.map((m) => m.from));
+  } catch {
+    return new Set();
+  }
+}
+
+/**
+ * Ouvre la demande de réécriture pour Camille.
+ *
+ * Le label est (re)créé d'abord : `--force` rend l'opération idempotente, et
+ * une demande ne peut plus échouer faute de label. Les arguments passent SANS
+ * shell (execFileSync) : le motif contenait des guillemets et pouvait
+ * contenir `$` ou des backticks, que l'ancien `execSync` interprétait.
+ */
+export function commanderReecriture(a, runId, exec = execFileSync) {
+  exec('gh', ['label', 'create', LABEL_REECRITURE, '--force', '--color', '5319e7',
+    '--description', 'Demande de réécriture d\'un article pour Camille (ouverte par Marcus ou à la main)'], { encoding: 'utf8' });
+  return exec('gh', ['issue', 'create',
+    '--title', `Camille : réécriture GEO — ${a.cible}`,
+    '--label', LABEL_REECRITURE,
+    '--body', `${a.motif}\n\nDemandé par Marcus (run #${runId}). Prédiction : ${a.prediction}`,
+  ], { encoding: 'utf8' });
+}
 
 /**
  * CONSTRUIT LE BACKLOG à partir du snapshot du run.
@@ -58,7 +94,7 @@ const GELEES = JSON.parse(fs.readFileSync(new URL('./pages-gelees.json', import.
  */
 const JOURS = (n) => new Date(Date.now() + n * 864e5).toISOString().slice(0, 10);
 
-export function construireBacklog(snapshot) {
+export function construireBacklog(snapshot, { fusionnes = slugsFusionnes() } = {}) {
   const backlog = [];
 
   // ── ping-indexnow : les pages que Google dit ne pas avoir indexées.
@@ -98,7 +134,11 @@ export function construireBacklog(snapshot) {
   // pas la position. Camille choisit ses 3 réécritures sur la position
   // (5-25) ; Marcus complète sur un autre signal, sinon les deux agents
   // désigneraient les mêmes pages.
-  const muettes = (snapshot.gsc28?.pages_muettes || []).filter((p) => /^\/blog\//.test(p.p || ''));
+  // Les pages redirigées en 301 sont exclues : Camille close ces demandes sans
+  // rien réécrire, la commande serait perdue.
+  const muettes = (snapshot.gsc28?.pages_muettes || [])
+    .filter((p) => /^\/blog\//.test(p.p || ''))
+    .filter((p) => !fusionnes.has(p.p.replace(/^\/blog\//, '').replace(/[/?#].*$/, '')));
 
   if (muettes.length > 0) {
     const p = muettes[0];
@@ -138,7 +178,7 @@ export async function executerActions(backlog, { runId, updateEnCours }) {
       if (a.type === 'ping-indexnow') {
         execSync(`node ${new URL('../indexnow.mjs', import.meta.url).pathname} ${a.urls.map((u) => `"${u}"`).join(' ')}`, { stdio: 'inherit' });
       } else if (a.type === 'commande-reecriture') {
-        execSync(`gh issue create --title "Camille : réécriture GEO — ${a.cible}" --label camille-reecriture --body ${JSON.stringify(a.motif + '\n\nDemandé par Marcus (run #' + runId + '). Prédiction : ' + a.prediction)}`, { encoding: 'utf8' });
+        commanderReecriture(a, runId);
       } else { continue; }
       await sbInsert('marcus_journal', { run_id: runId, cible: a.cible, action: a.type + (a.motif ? ' — ' + a.motif : ''), niveau: 1, hypothese: a.hypothese || null, prediction: a.prediction, echeance: a.echeance });
       executees.push(a);

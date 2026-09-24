@@ -24,7 +24,7 @@ const fs = require('fs');
 const path = require('path');
 
 const AGENT_DIR = __dirname;
-const SITE_DIR = path.resolve(AGENT_DIR, '../..');
+const { DATA_DIR, FICHIERS_DONNEES } = require('./config');
 
 // Mots vides + mots "marketing" sans valeur de ciblage + années (bruit pur)
 const STOPWORDS = new Set([
@@ -133,8 +133,8 @@ function loadClusters() {
  */
 function getExistingArticles() {
   const articles = [];
-  const dataDir = path.join(SITE_DIR, 'src/data');
-  const files = ['blog-posts.ts', 'blog-posts-seo-2026.ts', 'blog-posts-niches-2026.ts', 'blog-posts-camille.ts'];
+  const dataDir = DATA_DIR;
+  const files = FICHIERS_DONNEES;
   // Capture "…" (apostrophes OK à l'intérieur) ou '…' (sans apostrophe interne)
   const kvRegex = /\b(slug|title):\s*(?:"([^"]*)"|'([^']*)')/g;
   for (const file of files) {

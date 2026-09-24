@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const { ARTICLES_PATH } = require('./config');
+const path = require('path');
+const { ARTICLES_PATH, MERGED_PATH } = require('./config');
 const { checkArticle, formatReport, getExistingArticles } = require('./anti-cannibalisation');
+const {
+  listerArticles, localiser, remplacerArticle, valeurs, texteChamp,
+  ecrireFichierVerifie, compterMots,
+} = require('./donnees-blog');
 
 const CAMILLE_FILE_TEMPLATE = `import type { BlogPost } from "./blog-posts";
 
@@ -26,7 +31,11 @@ function getNextId() {
 }
 
 function escapeForTS(str) {
+  // Fins de ligne normalisées : TypeScript relit un template literal en LF, un
+  // \r écrit ici ferait échouer la relecture de verifierEcriture à chaque
+  // passage (revue de la PR #51, 24/09/2026).
   return str
+    .replace(/\r\n?/g, '\n')
     .replace(/\\/g, '\\\\')
     .replace(/`/g, '\\`')
     .replace(/\$\{/g, '\\${');
@@ -300,7 +309,7 @@ function prefixeCommun(a, b) {
 function assertSlugLexique(slug, existingArticles) {
   let mergedFroms = new Set();
   try {
-    mergedFroms = new Set(require('../../src/data/merged-redirects.json').merges.map(m => m.from));
+    mergedFroms = new Set(JSON.parse(fs.readFileSync(MERGED_PATH, 'utf-8')).merges.map(m => m.from));
   } catch { /* pas de fichier de fusions : vocabulaire complet */ }
 
   const vocab = new Map();
@@ -430,60 +439,32 @@ function publishArticle(article, opts = {}) {
 
   const insertAt = idx + marker.length;
   const newContent = content.slice(0, insertAt) + '\n' + formatArticleTS(article) + content.slice(insertAt);
-  fs.writeFileSync(ARTICLES_PATH, newContent, 'utf-8');
+  // Vérifié AVANT écriture : un article de plus, aucun de perdu, fichier
+  // syntaxiquement valide (voir donnees-blog.js). Sinon rien n'est écrit.
+  ecrireFichierVerifie(ARTICLES_PATH, content, newContent, {
+    delta: 1, slug: article.slug, attendu: { title: article.title, content: article.content },
+  });
 
   return { slug: article.slug, id: article.id, inserted: true };
 }
 
 /**
- * Découpe le tableau `camilleArticles` en blocs, un par article.
+ * Inventaire des articles RÉÉCRIVABLES : ceux des QUATRE fichiers de données.
  *
- * On NE PEUT PAS compter les accolades : le champ `content` est un littéral
- * gabarit (backticks) qui contient du HTML, donc des `{` et des `}` en pagaille.
- * On s'appuie sur la seule séquence que le contenu ne peut pas produire :
- * un saut de ligne, deux espaces, `{`, saut de ligne, quatre espaces, `id: <n>,`
- * — c'est la signature de formatArticleTS() et de rien d'autre.
+ * Jusqu'au 24/09/2026 il ne lisait que blog-posts-camille.ts, et
+ * replaceArticle() refusait tout slug vivant ailleurs. Résultat mesuré ce
+ * jour-là : 26 des 32 articles à réécrire (non indexés par Google) vivaient
+ * dans blog-posts.ts, blog-posts-seo-2026.ts ou blog-posts-niches-2026.ts —
+ * même commandés par Marcus, ils ne pouvaient pas être réécrits.
  */
-function decouperBlocs(content) {
-  const marqueur = /\n {2}\{\n {4}id: \d+,\n/g;
-  const debuts = [];
-  let m;
-  while ((m = marqueur.exec(content)) !== null) debuts.push(m.index);
-  return debuts.map((debut, i) => ({
-    debut,
-    fin: i + 1 < debuts.length ? debuts[i + 1] : null, // null = jusqu'à la fin du tableau
-  }));
+function listerArticlesReecrivables() {
+  ensureCamilleFile();
+  return listerArticles();
 }
 
-/**
- * Inventaire des articles RÉÉCRIVABLES, c'est-à-dire ceux de
- * blog-posts-camille.ts uniquement — replaceArticle() ne touche pas les autres
- * fichiers de données. getExistingArticles() en rend 313 (tous fichiers
- * confondus) mais seulement { slug, title } : il ne peut pas servir ici, où
- * l'on a besoin du contenu, des dates et du volume pour choisir les cibles.
- */
+/** Les seuls articles de blog-posts-camille.ts (compatibilité). */
 function listerArticlesCamille() {
-  ensureCamilleFile();
-  const content = fs.readFileSync(ARTICLES_PATH, 'utf-8');
-  return decouperBlocs(content).map(({ debut, fin }) => {
-    const bloc = content.slice(debut, fin ?? undefined);
-    const champ = (re) => (bloc.match(re) || [, null])[1];
-    const html = champ(/\n {4}content: `\n([\s\S]*?)\n {4}`,\n/) || '';
-    return {
-      slug: champ(/\n {4}slug: "((?:[^"\\]|\\.)*)",/),
-      title: (champ(/\n {4}title: "((?:[^"\\]|\\.)*)",/) || '').replace(/\\"/g, '"'),
-      category: champ(/\n {4}category: "([^"]*)"/),
-      image: champ(/\n {4}image: "([^"]*)",/),
-      imageAlt: (champ(/\n {4}imageAlt: "((?:[^"\\]|\\.)*)",/) || '').replace(/\\"/g, '"'),
-      keywords: [...(champ(/\n {4}keywords: \[([^\]]*)\],/) || '').matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]),
-      publishedAt: champ(/\n {4}publishedAt: "([^"]+)",/),
-      updatedAt: champ(/\n {4}updatedAt: "([^"]+)",/),
-      content: html,
-      mots: html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length,
-      h3: (html.match(/<h3[\s>]/gi) || []).length,
-      sourceExterne: /<a [^>]*href=["']https?:\/\/(?!www\.selectchateaux)/i.test(html),
-    };
-  });
+  return listerArticlesReecrivables().filter((a) => a.fichier === path.basename(ARTICLES_PATH));
 }
 
 /**
@@ -506,10 +487,15 @@ function estConforme(a) {
 }
 
 /**
- * REMPLACE un article existant, identifié par son slug. C'est le chemin des
- * RÉÉCRITURES — il n'existait pas avant le 07/09/2026, alors que le ratio
- * « 3 réécritures pour 1 création » avait été décidé le 06/09 : la consigne
- * vivait dans AGENT_PROMPT.md pendant que le code ne savait qu'insérer.
+ * Champs qu'un humain a posés à la main et que la rédaction ne produit pas :
+ * une réécriture les CONSERVE tels qu'ils sont écrits (ex. `seoTitle` choisi
+ * sur les requêtes réellement tapées, `featured` pour la une du blog).
+ */
+const CHAMPS_CONSERVES = ['seoTitle', 'seoDescription', 'featured', 'video', 'social'];
+
+/**
+ * REMPLACE un article existant, identifié par son slug, DANS LE FICHIER OÙ IL
+ * VIT. C'est le chemin des RÉÉCRITURES (depuis le 07/09/2026).
  *
  * Différences volontaires avec publishArticle() :
  *   - le slug DOIT déjà exister (l'inverse du contrôle de doublon) ;
@@ -518,6 +504,11 @@ function estConforme(a) {
  *   - `id` et `publishedAt` sont conservés (l'article ne change pas d'identité
  *     ni de date de première parution) ; `updatedAt` passe à aujourd'hui, ce
  *     qui alimente dateModified — le signal de fraîcheur visé par l'opération.
+ *
+ * L'écriture passe par donnees-blog.remplacerArticle() : seul l'objet de
+ * l'article change, et le fichier produit est vérifié AVANT d'être écrit
+ * (syntaxe, nombre d'articles, relecture). Voir la troncature du 18/09 en tête
+ * de donnees-blog.js.
  */
 function replaceArticle(article) {
   ensureCamilleFile();
@@ -534,26 +525,16 @@ function replaceArticle(article) {
   assertTitre(article);
 
   const existing = getExistingArticles();
-  if (!existing.some((a) => a.slug === article.slug)) {
+  const trouves = localiser(article.slug);
+  if (trouves.length === 0) {
     throw new Error(`Réécriture impossible : aucun article avec le slug "${article.slug}"`);
   }
-
-  const content = fs.readFileSync(ARTICLES_PATH, 'utf-8');
-  const blocs = decouperBlocs(content);
-
-  const cible = blocs.find((b) => {
-    const texte = content.slice(b.debut, b.fin ?? undefined);
-    return new RegExp(`\\n {4}slug: "${article.slug.replace(/[.*+?^$()|[\]\\]/g, '\\$&')}",\\n`).test(texte);
-  });
-  if (!cible) {
+  if (trouves.length > 1) {
     throw new Error(
-      `Slug "${article.slug}" introuvable dans ${ARTICLES_PATH} — il vit sans doute dans un autre fichier de données, que ce script ne réécrit pas.`,
+      `Réécriture refusée : le slug "${article.slug}" est présent dans plusieurs objets (${trouves.map((t) => t.fichier).join(', ')}) — ambigu, à dédoublonner à la main.`,
     );
   }
-
-  const ancienBloc = content.slice(cible.debut, cible.fin ?? undefined);
-  const idMatch = ancienBloc.match(/\n {4}id: (\d+),/);
-  const publishedMatch = ancienBloc.match(/\n {4}publishedAt: "([^"]+)",/);
+  const ancien = valeurs(trouves[0].article);
 
   // ── Gate anti-cannibalisation, en DIFFÉRENTIEL ────────────────────────────
   //
@@ -570,9 +551,9 @@ function replaceArticle(article) {
   // violation que l'article ne portait PAS déjà bloque la réécriture.
   const ancienArticle = {
     slug: article.slug,
-    title: (ancienBloc.match(/\n {4}title: "((?:[^"\\]|\\.)*)",/) || [, ''])[1].replace(/\\"/g, '"'),
-    keywords: [...(ancienBloc.match(/\n {4}keywords: \[([^\]]*)\],/) || [, ''])[1].matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]),
-    content: (ancienBloc.match(/\n {4}content: `\n([\s\S]*?)\n {4}`,\n/) || [, ''])[1],
+    title: ancien.title || '',
+    keywords: Array.isArray(ancien.keywords) ? ancien.keywords : [],
+    content: String(ancien.content || ''),
   };
   const dejaLa = new Set(
     checkArticle(ancienArticle, existing, null, { excludeSlug: article.slug }).violations.map(
@@ -591,27 +572,35 @@ function replaceArticle(article) {
 
   const fusionne = {
     ...article,
-    id: idMatch ? Number(idMatch[1]) : article.id,
-    publishedAt: publishedMatch ? publishedMatch[1] : article.publishedAt,
+    id: typeof ancien.id === 'number' ? ancien.id : article.id,
+    publishedAt: ancien.publishedAt || article.publishedAt,
     updatedAt: article.updatedAt || new Date().toISOString().split('T')[0],
+    author: article.author || (ancien.author && typeof ancien.author === 'object' ? ancien.author : undefined),
   };
 
-  // formatArticleTS ouvre par deux espaces et une accolade ; le marqueur de
-  // découpe a consommé le saut de ligne qui précède, on le remet.
-  const nouveauBloc = '\n' + formatArticleTS(fusionne).replace(/\n$/, '');
-  const suffixe = cible.fin === null ? '' : content.slice(cible.fin);
-  fs.writeFileSync(ARTICLES_PATH, content.slice(0, cible.debut) + nouveauBloc + suffixe, 'utf-8');
-
-  // getExistingArticles() ne rend que { slug, title } : le volume d'AVANT se
-  // mesure sur le bloc qu'on vient de remplacer, pas sur ce catalogue.
-  const contenuAncien = ancienBloc.match(/\n {4}content: `\n([\s\S]*?)\n {4}`,\n/);
-  const compterMots = (html) => html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+  const occ = remplacerArticle(
+    article.slug,
+    ({ article: a }) => {
+      // formatArticleTS produit « {…}, » indenté pour un tableau ; on garde
+      // l'objet seul, qui s'insère aussi bien dans un tableau que derrière
+      // `const articleN: BlogPost =`.
+      const objet = formatArticleTS(fusionne).trim().replace(/,$/, '');
+      const conserves = CHAMPS_CONSERVES
+        .filter((k) => !(k in article))
+        .map((k) => texteChamp(a, k))
+        .filter(Boolean)
+        .map((t) => `    ${t},`);
+      return conserves.length ? objet.replace(/\n\s*\}$/, `\n${conserves.join('\n')}\n  }`) : objet;
+    },
+    { attendu: { title: fusionne.title, content: fusionne.content, publishedAt: fusionne.publishedAt } },
+  );
 
   return {
     slug: fusionne.slug,
     id: fusionne.id,
+    fichier: occ.fichier,
     replaced: true,
-    motsAvant: contenuAncien ? compterMots(contenuAncien[1]) : null,
+    motsAvant: compterMots(ancien.content),
     motsApres: compterMots(article.content),
   };
 }
@@ -670,7 +659,7 @@ if (require.main === module) {
 }
 
 module.exports = {
-  publishArticle, replaceArticle, listerArticlesCamille, estConforme,
+  publishArticle, replaceArticle, listerArticlesCamille, listerArticlesReecrivables, estConforme,
   assertSlugValide, assertSlugLexique, assertLongueurSuffisante,
   assertTitre, assertStructureH3, assertSourceExterne,
 };

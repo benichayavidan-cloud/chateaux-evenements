@@ -1,8 +1,19 @@
 const path = require('path');
 
 const SITE_URL = process.env.SITE_URL || 'https://www.selectchateaux.com';
-const SITE_DIR = path.resolve(__dirname, '../..');
-const ARTICLES_PATH = path.join(SITE_DIR, 'src/data/blog-posts-camille.ts');
+// CAMILLE_SITE_DIR : racine d'un site de test. Utilisé par les tests pour
+// exercer les écritures sur une COPIE jetable des fichiers de données — jamais
+// sur ceux du dépôt. En production la variable est absente.
+const SITE_DIR = process.env.CAMILLE_SITE_DIR
+  ? path.resolve(process.env.CAMILLE_SITE_DIR)
+  : path.resolve(__dirname, '../..');
+const DATA_DIR = path.join(SITE_DIR, 'src/data');
+const ARTICLES_PATH = path.join(DATA_DIR, 'blog-posts-camille.ts');
+const MERGED_PATH = path.join(DATA_DIR, 'merged-redirects.json');
+
+// Les QUATRE fichiers qui portent des articles de blog. Camille écrit les
+// créations dans le sien (ARTICLES_PATH) mais réécrit un article là où il vit.
+const FICHIERS_DONNEES = ['blog-posts.ts', 'blog-posts-seo-2026.ts', 'blog-posts-niches-2026.ts', 'blog-posts-camille.ts'];
 const IMAGES_DIR = path.join(SITE_DIR, 'public/images');
 
 const GSC_SITE_URL = process.env.GSC_SITE_URL || 'https://www.selectchateaux.com/';
@@ -57,7 +68,7 @@ const SERVICES = [
 const CATEGORIES = ['organisation', 'lieux', 'team-building'];
 
 module.exports = {
-  SITE_URL, SITE_DIR, ARTICLES_PATH, IMAGES_DIR,
+  SITE_URL, SITE_DIR, DATA_DIR, ARTICLES_PATH, MERGED_PATH, FICHIERS_DONNEES, IMAGES_DIR,
   GSC_SITE_URL, GSC_CLIENT_ID, GSC_CLIENT_SECRET, GSC_REFRESH_TOKEN,
   GEMINI_API_KEY, GEO_COORDS, SERVICES, CATEGORIES,
 };
