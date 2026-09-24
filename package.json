@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/verif-titres.mjs && node scripts/verif-descriptions.mjs && node scripts/verif-maillage.mjs",
+    "build": "next build && node scripts/verif-titres.mjs && node scripts/verif-descriptions.mjs && node scripts/verif-maillage.mjs && node scripts/verif-rendu-main.mjs",
     "start": "next start",
     "lint": "eslint",
     "generate:cgv": "node scripts/generate-cgv-pdf.js",
@@ -13,7 +13,9 @@
     "verif:maillage": "node scripts/verif-maillage.mjs",
     "verif:maillage:prod": "node scripts/verif-maillage.mjs --live",
     "verif:descriptions": "node scripts/verif-descriptions.mjs",
-    "verif:descriptions:prod": "node scripts/verif-descriptions.mjs --live"
+    "verif:descriptions:prod": "node scripts/verif-descriptions.mjs --live",
+    "verif:rendu": "node scripts/verif-rendu-main.mjs",
+    "verif:rendu:prod": "node scripts/verif-rendu-main.mjs --live"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
