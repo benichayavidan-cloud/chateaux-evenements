@@ -7,8 +7,8 @@
 
 "use client";
 
-import { useEffect, Suspense } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
@@ -50,11 +50,18 @@ function trackAiReferral() {
 }
 
 /**
- * Track SPA page views on route change
+ * Track SPA page views on route change.
+ *
+ * La query string est lue dans `window.location` au moment de l'effet, et NON
+ * via useSearchParams() : ce hook, même isolé dans un <Suspense>, fait
+ * abandonner le rendu serveur de son sous-arbre (marqueur
+ * BAILOUT_TO_CLIENT_SIDE_RENDERING dans chaque page). Garde-fou :
+ * scripts/verif-rendu-main.mjs. Contrepartie : un changement de query seule,
+ * sans changement de chemin, ne renvoie plus de page_view manuel (cas marginal :
+ * l'arrivée initiale avec sa query, elle, est bien comptée).
  */
 function PageViewTracker() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     // Mesurer le trafic venu des assistants IA (GEO) — 1×/session
@@ -62,31 +69,27 @@ function PageViewTracker() {
 
     if (typeof window === "undefined" || !window.gtag) return;
 
-    const url = pathname + (searchParams.toString() ? `?${searchParams.toString()}` : "");
+    const url = pathname + window.location.search;
 
     if (GA_MEASUREMENT_ID) {
       window.gtag("config", GA_MEASUREMENT_ID, {
         page_path: url,
       });
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
 
 /**
- * Google Analytics - SPA page view tracker (wrapped with Suspense)
+ * Google Analytics - SPA page view tracker
  */
 export function GoogleAnalytics() {
   if (process.env.NODE_ENV !== "production") {
     return null;
   }
 
-  return (
-    <Suspense fallback={null}>
-      <PageViewTracker />
-    </Suspense>
-  );
+  return <PageViewTracker />;
 }
 
 /**
