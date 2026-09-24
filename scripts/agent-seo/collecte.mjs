@@ -177,6 +177,8 @@ if (jeudi || process.env.MARCUS_LLM) {
     const llm = await sondesLLM(panel);
     snapshot.llm = { synthese: llm.synthese, detail: llm.resultats };
     cout += llm.cout;
+    const { sondes, chatgpt_erreur: ce, gemini_erreur: ge } = llm.synthese;
+    if (ce || ge) incidents.push(`C5 : sondes LLM en erreur (ChatGPT ${ce}/${sondes}, Gemini ${ge}/${sondes}) — voir snapshot.llm.detail`);
   } catch (e) { incidents.push('C5 en échec : ' + e.message); }
 }
 
@@ -252,7 +254,9 @@ const lignes = [
   // Rapporté aux réponses où le moteur a RÉELLEMENT cherché : une réponse de
   // mémoire ne mesure pas notre visibilité (voir l'en-tête de sondes-llm.mjs).
   snapshot.llm ? `· Citations LLM (sur réponses documentées) : ChatGPT ${snapshot.llm.synthese.chatgpt_cite}/${snapshot.llm.synthese.chatgpt_cherche} · Gemini ${snapshot.llm.synthese.gemini_cite}/${snapshot.llm.synthese.gemini_cherche}` : null,
-  snapshot.llm ? `  (sur ${snapshot.llm.synthese.sondes} prompts, ${snapshot.llm.synthese.sondes - snapshot.llm.synthese.gemini_cherche} sans recherche Gemini, ${snapshot.llm.synthese.sondes - snapshot.llm.synthese.chatgpt_cherche} sans recherche ChatGPT)` : null,
+  // Une erreur d'API n'est pas une réponse « sans recherche » (régression 17/09).
+  snapshot.llm ? (({ sondes, gemini_cherche: gc, chatgpt_cherche: cc, gemini_erreur: ge = 0, chatgpt_erreur: ce = 0 }) =>
+    `  (sur ${sondes} prompts — Gemini : ${sondes - gc - ge} sans recherche, ${ge} en erreur · ChatGPT : ${sondes - cc - ce} sans recherche, ${ce} en erreur)`)(snapshot.llm.synthese) : null,
   ``,
   g?.decouvertes_candidates?.length ? `DÉCOUVERTES GSC (à valider pour le panel)\n${g.decouvertes_candidates.slice(0, 5).map((d) => `· « ${d.q} » — ${d.imp} imp, pos ${d.pos}`).join('\n')}` : null,
   incidents.length ? `\n⚠️ INCIDENTS\n${incidents.map((x) => '· ' + x).join('\n')}` : null,

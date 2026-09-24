@@ -36,7 +36,8 @@ jobs:
             const r = require('/tmp/llm-citations.json');
             const lines = ['## Citations LLM — ' + r.date, '', '**' + r.citedCount + '/' + r.total + ' requêtes citent Select Châteaux**', ''];
             for (const q of r.results) {
-              const s = q.error ? '⚠️ erreur' : (q.citedInSources ? '✅ cité en source' : q.mentionedInText ? '🟡 mentionné' : '❌ absent');
+              // Aucune source = Claude n'a pas cherché : ni présence ni absence mesurée.
+              const s = q.error ? '⚠️ erreur' : (q.citedInSources ? '✅ cité en source' : q.mentionedInText ? '🟡 mentionné' : !(q.sources || []).length ? '⚪ sans recherche' : '❌ absent');
               lines.push('- ' + s + ' — ' + q.query);
             }
             require('fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n') + '\n');
