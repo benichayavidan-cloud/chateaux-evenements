@@ -1,5 +1,6 @@
 import { chateaux } from '@/data/chateaux'
 import { geoLandingPages } from '@/data/geo-landing-pages'
+import { landingsDepartements } from '@/data/landings-departements'
 import { blogPosts } from '@/data/blog-posts'
 import { PRICING, pricingSummary } from '@/data/pricing'
 
@@ -111,6 +112,23 @@ function buildLlmsFullTxt(): string {
       }
       lines.push('')
     }
+  }
+
+  // ── Guides de département (91, 77, 95, et depuis le 24/09 78 et 60) : ils
+  //    manquaient ici, alors que ce sont les pages aux chiffres les plus citables.
+  for (const l of landingsDepartements) {
+    lines.push(`### ${l.h1}`)
+    lines.push('')
+    lines.push(`- URL : ${BASE_URL}/${l.slug}`)
+    lines.push('')
+    lines.push(l.reponseDirecte)
+    lines.push('')
+    lines.push('Questions fréquentes :')
+    for (const item of l.faq) {
+      lines.push(`- Q : ${item.question}`)
+      lines.push(`  R : ${item.reponse}`)
+    }
+    lines.push('')
   }
 
   // ── Guides essentiels : contenu (extrait + FAQ)

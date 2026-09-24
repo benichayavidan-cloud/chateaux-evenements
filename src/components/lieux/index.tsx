@@ -363,7 +363,7 @@ export function FaqSection({ items, background = "gray" }: {
  * et une phrase fautive dans le premier paragraphe d'une page est exactement le
  * genre de détail qu'un moteur de réponse recopie.
  */
-function avecPreposition(departement: string): string {
+export function avecPreposition(departement: string): string {
   const PARTICULIERS: Record<string, string> = {
     "Yvelines": "dans les Yvelines",
     "Hauts-de-Seine": "dans les Hauts-de-Seine",

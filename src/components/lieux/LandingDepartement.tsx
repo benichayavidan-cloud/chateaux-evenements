@@ -7,13 +7,14 @@ import type { Metadata } from "next";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { venues, getVenuesByDepartment } from "@/data/venues";
-import { getLandingDepartement } from "@/data/landings-departements";
-import { metaDescription, titreSousMarque } from "@/lib/seo";
+import { getLandingDepartement, landingsDepartements } from "@/data/landings-departements";
+import { metaDescription, titreLanding } from "@/lib/seo";
 import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
 import {
   LandingHero, HeroPhotoGrid, ReponseDirecte, ChiffresSection, VenueSection,
   ProseSection, FaqSection, DevisSection, GuidesSection, ObservatoireSection, BRONZE_DARK, HEADING, G, GOLD,
+  avecPreposition,
 } from "@/components/lieux";
 
 export function metadataFor(slug: string): Metadata {
@@ -21,11 +22,11 @@ export function metadataFor(slug: string): Metadata {
   if (!l) return { title: "Page introuvable" };
   const url = `https://www.selectchateaux.com/${l.slug}`;
   return {
-    // Bornés au point de passage : le titre à 42 caractères (le gabarit racine
-    // ajoutera « | Select Châteaux »), la description à 155. Les données peuvent
-    // être plus longues — la balise servie, jamais. Vérifié par
-    // scripts/verif-titres.mjs, qui fait échouer le build en cas d'écart.
-    title: titreSousMarque(l.title),
+    // Bornés au point de passage : la marque cède quand le titre a besoin de
+    // place (titreLanding, même règle que les landings géo depuis le 20/09),
+    // la description à 155. Vérifié par scripts/verif-titres.mjs, qui fait
+    // échouer le build en cas d'écart.
+    title: titreLanding(l.title),
     description: metaDescription(l.description),
     metadataBase: new URL("https://www.selectchateaux.com"),
     alternates: { canonical: url },
@@ -47,6 +48,8 @@ export function LandingDepartement({ slug }: { slug: string }) {
   const capMax = Math.max(...lieux.map(v => v.capacite));
   const chambresMax = avecHebergement.length ? Math.max(...avecHebergement.map(v => v.chambres ?? 0)) : 0;
   const url = `https://www.selectchateaux.com/${l.slug}`;
+  const autres = landingsDepartements.filter(x => x.slug !== l.slug);
+  const dans = avecPreposition(l.departement);
 
   const schema = {
     "@context": "https://schema.org",
@@ -120,7 +123,7 @@ export function LandingDepartement({ slug }: { slug: string }) {
       <VenueSection
         id="lieux"
         background="gray"
-        titre={`Nos ${lieux.length} lieux en ${l.departement}`}
+        titre={`Nos ${lieux.length} lieux ${dans}`}
         sousTitre={`De ${capMin} à ${capMax} personnes. Capacités, chambres et équipements réels — pas d'estimation.`}
         venues={lieux}
         lien={{ href: "/lieux", label: `Voir les ${venues.length} lieux de séminaire en Île-de-France et Oise` }}
@@ -130,16 +133,32 @@ export function LandingDepartement({ slug }: { slug: string }) {
         <ProseSection key={s.titre} titre={s.titre} paragraphes={s.paragraphes} background="white" />
       ))}
 
+      {l.exclusivites?.map(e => (
+        <Section key={e.titre} spacing="md" background="white">
+          <Container size="lg">
+            <div style={{ background: G.gray50, borderRadius: "16px", padding: "clamp(18px, 3vw, 26px)", borderLeft: `4px solid ${GOLD}` }}>
+              <h2 style={{ fontSize: "clamp(1.25rem, 3vw, 1.625rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, margin: "0 0 0.75rem" }}>
+                {e.titre}
+              </h2>
+              <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: G.gray700, maxWidth: "62ch", margin: "0 0 1rem" }}>{e.texte}</p>
+              <NextLink href={e.lien.href} style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
+                {e.lien.label}
+              </NextLink>
+            </div>
+          </Container>
+        </Section>
+      ))}
+
       {/* Budget — dérivé des devis réels du CRM, marge incluse, en fourchettes
           assez larges pour qu'aucun lieu ne soit identifiable. */}
       <Section spacing="lg" background="gray" id="budget">
         <Container size="lg">
           <h2 style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.125rem)", fontWeight: 600, fontFamily: HEADING, color: G.gray900, marginBottom: "1rem" }}>
-            Budget observé en {l.departement}
+            Budget observé {dans}
           </h2>
           <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: G.gray600, maxWidth: "62ch", marginBottom: "1.75rem" }}>
             Fourchettes constatées sur <strong>{l.budget.nbDevis} devis réels</strong> que nous
-            avons traités dans le département, par personne et par jour en séminaire résidentiel.
+            avons traités dans le département, {l.budgetPortee ?? "par personne et par jour en séminaire résidentiel"}.
             Ce ne sont pas des estimations.
           </p>
           <div className="card-grid-centered" style={{ gap: "12px" }}>
@@ -175,7 +194,7 @@ export function LandingDepartement({ slug }: { slug: string }) {
 
       <DevisSection
         sourceLabel={`Séminaire ${l.departement} (${l.code})`}
-        titre={`Un séminaire en ${l.departement} ?`}
+        titre={`Un séminaire ${dans} ?`}
       />
 
       <Section spacing="md" background="white">
@@ -185,14 +204,15 @@ export function LandingDepartement({ slug }: { slug: string }) {
             <NextLink href="/seminaire-chateau-ile-de-france" style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
               Voir tous nos châteaux de séminaire en Île-de-France
             </NextLink>
-            , ou comparer avec les{" "}
-            <NextLink href="/seminaire-chateau-yvelines-78" style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
-              Yvelines
-            </NextLink>{" "}
-            et l&apos;
-            <NextLink href="/seminaire-chateau-oise-60" style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
-              Oise
-            </NextLink>
+            , ou comparer avec{" "}
+            {autres.map((a, i) => (
+              <span key={a.slug}>
+                {i > 0 && (i === autres.length - 1 ? " et " : ", ")}
+                <NextLink href={`/${a.slug}`} style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
+                  {a.departement}
+                </NextLink>
+              </span>
+            ))}
             .
           </p>
         </Container>
