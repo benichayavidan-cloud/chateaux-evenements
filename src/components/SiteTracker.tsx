@@ -1,16 +1,44 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { memoriserPremierContact } from "@/lib/origine";
+import {
+  BASE_CRM,
+  URL_COLLECTE,
+  estSiteSuivi,
+  lireContexteVisite,
+  lireSessionId,
+  paliersScrollAtteints,
+  payloadEvenement,
+  payloadPageVue,
+  type ContexteVisite,
+  type PayloadV2,
+} from "@/lib/site-tracking";
 
-const CRM_API = process.env.NEXT_PUBLIC_CRM_TRACKING_URL || "https://crm.selectchateaux.com";
-const HEARTBEAT_INTERVAL = 30_000;
+/**
+ * Traceur de visites → CRM V2 (`POST /api/site-tracking`, voir src/lib/site-tracking.ts).
+ * Une page vue à chaque changement de route, un événement par palier de scroll ;
+ * le `sessionId` renvoyé par le CRM est réutilisé (le CRM clôt la session après
+ * 30 min d'inactivité). Plus de heartbeat ni de fin de page/session : le CRM V2
+ * ne les connaît pas.
+ */
+
 const COOKIE_NAME = "sc_vid";
 const COOKIE_DAYS = 365;
+const CLE_SESSION = "sc_sid";
+
+interface EtatTraceur {
+  fingerprint: string;
+  contexte: ContexteVisite;
+  sessionId: string | null;
+  /** Les messages partent l'un après l'autre : le premier crée la session, les suivants la réutilisent. */
+  file: Promise<void>;
+}
+
+let etat: EtatTraceur | null = null;
 
 function getFingerprint(): string {
-  if (typeof document === "undefined") return "";
   const match = document.cookie.match(new RegExp(`(?:^|; )${COOKIE_NAME}=([^;]*)`));
   if (match) return match[1];
   const id = crypto.randomUUID();
@@ -18,258 +46,120 @@ function getFingerprint(): string {
   return id;
 }
 
-function getDevice(): string {
-  if (typeof window === "undefined") return "desktop";
-  const w = window.innerWidth;
-  if (w < 768) return "mobile";
-  if (w < 1024) return "tablet";
-  return "desktop";
-}
-
-function getBrowser(): string {
-  if (typeof navigator === "undefined") return "";
-  const ua = navigator.userAgent;
-  if (ua.includes("Chrome") && !ua.includes("Edg")) return "Chrome";
-  if (ua.includes("Safari") && !ua.includes("Chrome")) return "Safari";
-  if (ua.includes("Firefox")) return "Firefox";
-  if (ua.includes("Edg")) return "Edge";
-  return "Other";
-}
-
-function getOS(): string {
-  if (typeof navigator === "undefined") return "";
-  const ua = navigator.userAgent;
-  if (ua.includes("Windows")) return "Windows";
-  if (ua.includes("Mac")) return "macOS";
-  if (ua.includes("iPhone") || ua.includes("iPad")) return "iOS";
-  if (ua.includes("Android")) return "Android";
-  if (ua.includes("Linux")) return "Linux";
-  return "Other";
-}
-
-function getUTM(): Record<string, string> {
-  if (typeof window === "undefined") return {};
-  const params = new URLSearchParams(window.location.search);
-  const utm: Record<string, string> = {};
-  for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
-    const val = params.get(key);
-    if (val) utm[key.replace("utm_", "")] = val;
+function lireSessionMemorisee(): string | null {
+  try {
+    return sessionStorage.getItem(CLE_SESSION);
+  } catch {
+    return null;
   }
-  return utm;
 }
 
-function getGclid(): string | null {
-  if (typeof window === "undefined") return null;
-  const params = new URLSearchParams(window.location.search);
-  const gclid = params.get("gclid");
-  if (gclid) return gclid;
-  const match = document.cookie.match(/(?:^|; )_gcl_aw=([^;]*)/);
-  return match ? match[1] : null;
+function memoriserSession(id: string): void {
+  try {
+    sessionStorage.setItem(CLE_SESSION, id);
+  } catch { /* stockage bloqué : la session sera recréée au prochain chargement */ }
 }
 
-function send(endpoint: string, data: Record<string, unknown>) {
-  const url = `${CRM_API}/api/site-tracking/${endpoint}`;
-  const body = JSON.stringify(data);
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon(url, new Blob([body], { type: "application/json" }));
-  } else {
-    fetch(url, { method: "POST", body, headers: { "Content-Type": "application/json" }, keepalive: true }).catch(() => {});
+/** `null` hors du site public (localhost, préversions Vercel) : aucune fausse visite dans le CRM. */
+function initialiser(): EtatTraceur | null {
+  if (etat) return etat;
+  if (typeof window === "undefined" || !estSiteSuivi(window.location.hostname)) return null;
+  try {
+    etat = {
+      fingerprint: getFingerprint(),
+      contexte: lireContexteVisite(window.location.href, document.referrer, window.innerWidth, new Date()),
+      sessionId: lireSessionMemorisee(),
+      file: Promise.resolve(),
+    };
+  } catch {
+    return null;
   }
+  return etat;
+}
+
+function envoyer(e: EtatTraceur, construire: (sessionId: string | null) => PayloadV2 | null): void {
+  e.file = e.file.then(async () => {
+    const payload = construire(e.sessionId);
+    if (!payload) return;
+    try {
+      const res = await fetch(URL_COLLECTE(BASE_CRM), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        keepalive: true,
+      });
+      const sessionId = lireSessionId(await res.json());
+      if (sessionId && sessionId !== e.sessionId) {
+        e.sessionId = sessionId;
+        memoriserSession(sessionId);
+      }
+    } catch {
+      // Best-effort : le suivi ne doit jamais gêner la navigation.
+    }
+  });
 }
 
 export function SiteTracker() {
   const pathname = usePathname();
-  const sessionIdRef = useRef<string | null>(null);
-  const pageViewIdRef = useRef<string | null>(null);
-  const pageEnteredRef = useRef<number>(Date.now());
-  const maxScrollRef = useRef<number>(0);
-  const scrollMilestonesRef = useRef<Set<number>>(new Set());
-  const sequenceRef = useRef<number>(0);
-  const sessionStartRef = useRef<number>(Date.now());
-  const heartbeatRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const fingerprintRef = useRef<string>("");
-
-  const trackScrollDepth = useCallback(() => {
-    if (typeof window === "undefined") return;
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (docHeight <= 0) return;
-    const pct = Math.round((scrollTop / docHeight) * 100);
-    if (pct > maxScrollRef.current) maxScrollRef.current = pct;
-
-    const milestones = [25, 50, 75, 100];
-    for (const m of milestones) {
-      if (pct >= m && !scrollMilestonesRef.current.has(m) && sessionIdRef.current) {
-        scrollMilestonesRef.current.add(m);
-        send("collect", {
-          action: "event",
-          fingerprint: fingerprintRef.current,
-          sessionId: sessionIdRef.current,
-          type: `SCROLL_${m}`,
-          pathname,
-        });
-      }
-    }
-  }, [pathname]);
 
   useEffect(() => {
-    // Provenance des demandes : indépendante du CRM, qui ne reçoit plus ce traceur.
+    // Provenance des demandes de devis : indépendante du CRM (voir origine.ts).
     memoriserPremierContact();
-    const fp = getFingerprint();
-    fingerprintRef.current = fp;
-
-    const initSession = async () => {
-      try {
-        const res = await fetch(`${CRM_API}/api/site-tracking/collect`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "session_start",
-            fingerprint: fp,
-            pathname,
-            referrer: document.referrer || undefined,
-            utm: getUTM(),
-            gclid: getGclid(),
-            device: getDevice(),
-            screenWidth: window.innerWidth,
-            browser: getBrowser(),
-            os: getOS(),
-          }),
-        });
-        const data = await res.json();
-        sessionIdRef.current = data.sessionId;
-        (window as unknown as Record<string, unknown>).__sc_session_id = data.sessionId;
-        sessionStartRef.current = Date.now();
-        trackPageView(pathname);
-      } catch {
-        // Silent fail
-      }
-    };
-
-    const trackPageView = async (path: string) => {
-      if (!sessionIdRef.current) return;
-      try {
-        const res = await fetch(`${CRM_API}/api/site-tracking/collect`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "pageview",
-            fingerprint: fp,
-            sessionId: sessionIdRef.current,
-            pathname: path,
-            pageTitle: document.title,
-            sequenceOrder: sequenceRef.current,
-          }),
-        });
-        const data = await res.json();
-        pageViewIdRef.current = data.pageViewId;
-        pageEnteredRef.current = Date.now();
-        maxScrollRef.current = 0;
-        scrollMilestonesRef.current.clear();
-        sequenceRef.current++;
-      } catch {
-        // Silent fail
-      }
-    };
-
-    initSession();
-
-    heartbeatRef.current = setInterval(() => {
-      if (sessionIdRef.current) {
-        send("heartbeat", { sessionId: sessionIdRef.current, fingerprint: fp });
-      }
-    }, HEARTBEAT_INTERVAL);
-
-    window.addEventListener("scroll", trackScrollDepth, { passive: true });
-
-    const handleBeforeUnload = () => {
-      if (pageViewIdRef.current) {
-        send("collect", {
-          action: "page_exit",
-          fingerprint: fp,
-          pageViewId: pageViewIdRef.current,
-          durationMs: Date.now() - pageEnteredRef.current,
-          scrollDepth: maxScrollRef.current,
-        });
-      }
-      if (sessionIdRef.current) {
-        send("collect", {
-          action: "session_end",
-          fingerprint: fp,
-          sessionId: sessionIdRef.current,
-          duration: Math.round((Date.now() - sessionStartRef.current) / 1000),
-        });
-      }
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("scroll", trackScrollDepth);
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-      if (heartbeatRef.current) clearInterval(heartbeatRef.current);
-    };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
-    if (!sessionIdRef.current || sequenceRef.current === 0) return;
+    const e = initialiser();
+    if (!e || !pathname) return;
 
-    if (pageViewIdRef.current) {
-      send("collect", {
-        action: "page_exit",
-        fingerprint: fingerprintRef.current,
-        pageViewId: pageViewIdRef.current,
-        durationMs: Date.now() - pageEnteredRef.current,
-        scrollDepth: maxScrollRef.current,
-      });
-    }
+    envoyer(e, (sessionId) =>
+      payloadPageVue({
+        fingerprint: e.fingerprint,
+        sessionId,
+        contexte: e.contexte,
+        pathname,
+        pageTitle: document.title,
+      }),
+    );
 
-    const trackPage = async () => {
-      if (!sessionIdRef.current) return;
-      try {
-        const res = await fetch(`${CRM_API}/api/site-tracking/collect`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "pageview",
-            fingerprint: fingerprintRef.current,
-            sessionId: sessionIdRef.current,
+    const paliersVus = new Set<number>();
+    const surScroll = () => {
+      const hauteur = document.documentElement.scrollHeight - window.innerHeight;
+      if (hauteur <= 0) return;
+      const pct = Math.round((window.scrollY / hauteur) * 100);
+      for (const palier of paliersScrollAtteints(pct, paliersVus)) {
+        envoyer(e, (sessionId) =>
+          payloadEvenement({
+            fingerprint: e.fingerprint,
+            sessionId,
+            contexte: e.contexte,
             pathname,
-            pageTitle: document.title,
-            sequenceOrder: sequenceRef.current,
+            eventType: `SCROLL_${palier}`,
+            scrollDepth: palier,
           }),
-        });
-        const data = await res.json();
-        pageViewIdRef.current = data.pageViewId;
-        pageEnteredRef.current = Date.now();
-        maxScrollRef.current = 0;
-        scrollMilestonesRef.current.clear();
-        sequenceRef.current++;
-      } catch {
-        // Silent fail
+        );
       }
     };
 
-    trackPage();
+    window.addEventListener("scroll", surScroll, { passive: true });
+    return () => window.removeEventListener("scroll", surScroll);
   }, [pathname]);
 
   return null;
 }
 
+/** Événement ponctuel (clic téléphone, envoi de formulaire…). Types inconnus du CRM V2 ignorés. */
 export function trackSiteEvent(type: string, label?: string, value?: string) {
-  const fp = document.cookie.match(new RegExp(`(?:^|; )${COOKIE_NAME}=([^;]*)`))?.[1];
-  if (!fp) return;
-
-  const sessionId = (window as unknown as { __sc_session_id?: string }).__sc_session_id;
-  if (!sessionId) return;
-
-  send("collect", {
-    action: "event",
-    fingerprint: fp,
-    sessionId,
-    type,
-    pathname: window.location.pathname,
-    label,
-    value,
-  });
+  const e = initialiser();
+  if (!e) return;
+  envoyer(e, (sessionId) =>
+    payloadEvenement({
+      fingerprint: e.fingerprint,
+      sessionId,
+      contexte: e.contexte,
+      pathname: window.location.pathname,
+      eventType: type,
+      label,
+      value,
+    }),
+  );
 }
