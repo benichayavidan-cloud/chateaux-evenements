@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createClient } from '@supabase/supabase-js';
 import { sendAdminNotification, sendClientConfirmation } from '@/lib/email';
+import { canalOrigine, LIBELLE_CANAL, parsePremierContact } from '@/lib/origine';
 
 // Schema Zod pour validation serveur
 // Accepte deux formats :
@@ -34,6 +35,9 @@ const formSchema = z.object({
   datesFlexibles: z.boolean().optional().default(false),
   sourceLabel: z.string().optional(),
   sourcePage: z.string().max(300).optional(),
+  // Relu par parsePremierContact : une forme inattendue devient « inconnue »,
+  // elle ne doit jamais faire perdre une demande.
+  premierContact: z.unknown().optional(),
 }).refine(
   (data) => data.datesFlexibles || data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
   { message: "Veuillez sélectionner une date", path: ["datesSouhaitees"] }
@@ -68,7 +72,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const data = validationResult.data;
+    const { premierContact: premierContactBrut, ...data } = validationResult.data;
+    const premierContact = parsePremierContact(premierContactBrut);
+    const canal = canalOrigine(premierContact);
 
     // Construire dates_souhaitees selon le format reçu
     const datesSouhaitees = data.dateArrivee && data.dateDepart
@@ -114,6 +120,14 @@ export async function POST(request: NextRequest) {
       // provenance reste un devis valide.
       source_page: data.sourcePage || null,
       source_label: data.sourceLabel || null,
+      // Provenance au PREMIER contact — colonnes ajoutées le 24/09/2026
+      // (scripts/sql/2026-09-24_origine-demandes.sql). `source_page` ne dit
+      // que la page du formulaire ; ici, d'où venait la personne.
+      origine_canal: canal,
+      origine_page: premierContact?.page ?? null,
+      origine_referent: premierContact?.referent ?? null,
+      origine_utm: premierContact && Object.keys(premierContact.utm).length ? premierContact.utm : null,
+      origine_premiere_visite: premierContact?.date ?? null,
     };
 
     // Insérer dans Supabase
@@ -133,7 +147,13 @@ export async function POST(request: NextRequest) {
     // Envoyer les emails de notification + lier le visiteur au lead CRM
     if (insertedData && insertedData.length > 0) {
       const newDevis = insertedData[0];
-      const sourceLabel = data.sourceLabel || '';
+      // Origine ajoutée au libellé de l'email d'admin. Le gabarit n'échappe pas
+      // le HTML : le libellé vient d'une liste fixe et la page est filtrée.
+      const pageArrivee = premierContact?.page.replace(/[^\w\-/.%]/g, '') ?? '';
+      const sourceLabel = [
+        data.sourceLabel,
+        `Origine : ${LIBELLE_CANAL[canal]}${pageArrivee ? ` — arrivé sur ${pageArrivee}` : ''}`,
+      ].filter(Boolean).join(' · ');
 
       const crmTrackingUrl = process.env.NEXT_PUBLIC_CRM_TRACKING_URL || "https://crm.selectchateaux.com";
       const fingerprint = request.cookies.get("sc_vid")?.value;
@@ -158,7 +178,16 @@ export async function POST(request: NextRequest) {
           ? fetch(crmLeadsUrl, {
               method: "POST",
               headers: { "Content-Type": "application/json", "x-lead-secret": crmLeadsSecret },
-              body: JSON.stringify(data),
+              body: JSON.stringify({
+                ...data,
+                origine: {
+                  canal,
+                  libelle: LIBELLE_CANAL[canal],
+                  page: premierContact?.page ?? null,
+                  referent: premierContact?.referent ?? null,
+                  premiereVisite: premierContact?.date ?? null,
+                },
+              }),
             }).catch(() => {})
           : Promise.resolve(),
       ]);

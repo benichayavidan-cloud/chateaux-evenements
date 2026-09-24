@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
+import { memoriserPremierContact } from "@/lib/origine";
 
 const CRM_API = process.env.NEXT_PUBLIC_CRM_TRACKING_URL || "https://crm.selectchateaux.com";
 const HEARTBEAT_INTERVAL = 30_000;
@@ -112,6 +113,8 @@ export function SiteTracker() {
   }, [pathname]);
 
   useEffect(() => {
+    // Provenance des demandes : indépendante du CRM, qui ne reçoit plus ce traceur.
+    memoriserPremierContact();
     const fp = getFingerprint();
     fingerprintRef.current = fp;
 
