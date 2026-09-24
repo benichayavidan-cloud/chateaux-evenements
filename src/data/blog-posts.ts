@@ -1129,7 +1129,7 @@ const article3: BlogPost = {
       <ul>
         <li><a href="/blog/top-chateaux-oise-60">Top 7 des Châteaux dans l'Oise (60)</a></li>
         <li><a href="/blog/team-building-rse-nature">Team Building RSE : Activités Nature</a></li>
-        <li><a href="/blog/chantilly-destination-royale">Chantilly : La Destination Royale</a></li>
+        <li><a href="/seminaire-chateau-chantilly">Chantilly : La Destination Royale</a></li>
       </ul>
     </div>
   `
@@ -3542,7 +3542,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/seminaire-eco-responsable-rse" class="auto-link">Consultez notre guide sur les séminaires éco-responsables</a></li>
-  <li class="mb-2"><a href="/blog/chantilly-destination-royale" class="auto-link">Découvrez les châteaux accessibles en train</a></li>
+  <li class="mb-2"><a href="/seminaire-chateau-chantilly" class="auto-link">Découvrez les châteaux accessibles en train</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Solution 4 : Voitures individuelles (à éviter sauf exception)</h2>
@@ -4462,7 +4462,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/chantilly-destination-royale" class="auto-link">Découvrez les châteaux avec cadre médiéval authentique</a></li>
+  <li class="mb-2"><a href="/seminaire-chateau-chantilly" class="auto-link">Découvrez les châteaux avec cadre médiéval authentique</a></li>
   <li class="mb-2"><a href="/blog/seminaire-nature-chevreuse-deconnexion" class="auto-link">Consultez nos conseils pour un séminaire mémorable</a></li>
 </ul>
 
@@ -5543,7 +5543,7 @@ const placeholderArticles: BlogPost[] = [
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Pour aller plus loin</h3>
 
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/chantilly-destination-royale" class="auto-link">Chantilly : guide complet de la destination royale</a></li>
+  <li class="mb-2"><a href="/seminaire-chateau-chantilly" class="auto-link">Chantilly : guide complet de la destination royale</a></li>
   <li class="mb-2"><a href="/blog/vexin-nouvelle-destination-seminaire" class="auto-link">Le Vexin français : destination séminaire émergente en 2026</a></li>
   <li class="mb-2"><a href="/blog/lieux-atypiques-manoir-forteresse" class="auto-link">Manoirs et forteresses : les lieux atypiques qui surprennent</a></li>
   <li class="mb-2"><a href="/blog/combien-coute-seminaire-chateau-2026" class="auto-link">Combien coûte un séminaire en château en 2026 ? Budget détaillé</a></li>
@@ -7108,7 +7108,7 @@ const placeholderArticles: BlogPost[] = [
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2"><a href="/blog/top-chateaux-oise-60" class="auto-link">Comparez avec l'Oise, alternative plus accessible</a></li>
-  <li class="mb-2"><a href="/blog/chantilly-destination-royale" class="auto-link">Découvrez Chantilly, destination prestige voisine</a></li>
+  <li class="mb-2"><a href="/seminaire-chateau-chantilly" class="auto-link">Découvrez Chantilly, destination prestige voisine</a></li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Châteaux et Domaines d'Exception dans les Yvelines</h2>
@@ -7375,7 +7375,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Liens internes recommandés :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><a href="/blog/chantilly-destination-royale" class="auto-link">Comparez avec Chantilly, autre destination prestige</a></li>
+  <li class="mb-2"><a href="/seminaire-chateau-chantilly" class="auto-link">Comparez avec Chantilly, autre destination prestige</a></li>
   <li class="mb-2"><a href="/blog/convaincre-direction-budget-seminaire" class="auto-link">Découvrez comment justifier un budget premium</a></li>
 </ul>
 

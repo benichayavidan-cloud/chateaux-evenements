@@ -116,6 +116,26 @@
     {
       "from": "team-building-culinaire-chateau-formules",
       "to": "/team-building-chateau"
+    },
+    {
+      "from": "privatisation-journee-etude-chateau",
+      "to": "/journee-etude-seminaire"
+    },
+    {
+      "from": "soiree-entreprise-chateau-idees-themes",
+      "to": "/blog/soiree-entreprise-casino-gatsby-medievale"
+    },
+    {
+      "from": "chantilly-destination-royale",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "seminaire-yvelines-programme-activites-budget-2026",
+      "to": "/seminaire-chateau-yvelines-78"
+    },
+    {
+      "from": "seminaire-digital-detox-reconnexion-equipe",
+      "to": "/blog/deconnexion-digitale-seminaire-chateau-guide-pratique-2026"
     }
   ]
 }
