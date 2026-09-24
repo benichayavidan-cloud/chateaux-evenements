@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Envoyer les emails de notification + lier le visiteur au lead CRM
+    // Envoyer les emails de notification + créer le dossier dans le CRM
     if (insertedData && insertedData.length > 0) {
       const newDevis = insertedData[0];
       // Origine ajoutée au libellé de l'email d'admin. Le gabarit n'échappe pas
@@ -155,25 +155,15 @@ export async function POST(request: NextRequest) {
         `Origine : ${LIBELLE_CANAL[canal]}${pageArrivee ? ` — arrivé sur ${pageArrivee}` : ''}`,
       ].filter(Boolean).join(' · ');
 
-      const crmTrackingUrl = process.env.NEXT_PUBLIC_CRM_TRACKING_URL || "https://crm.selectchateaux.com";
-      const fingerprint = request.cookies.get("sc_vid")?.value;
-
       // CRM V2 : le lead devient directement un dossier « Nouvelle demande »
       // (société + contact + événement créés côté CRM). Secret partagé serveur→serveur.
       const crmLeadsUrl = process.env.CRM_LEADS_URL;
       const crmLeadsSecret = process.env.CRM_LEADS_SECRET;
 
-      // Emails + CRM link envoyés en parallèle, erreurs silencieuses (non-bloquantes)
+      // Emails + dossier CRM envoyés en parallèle, erreurs silencieuses (non-bloquantes)
       await Promise.allSettled([
         sendAdminNotification(newDevis, sourceLabel),
         sendClientConfirmation(newDevis),
-        fingerprint
-          ? fetch(`${crmTrackingUrl}/api/site-tracking/collect`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ action: "link_lead", fingerprint, email: data.email }),
-            }).catch(() => {})
-          : Promise.resolve(),
         crmLeadsUrl && crmLeadsSecret
           ? fetch(crmLeadsUrl, {
               method: "POST",

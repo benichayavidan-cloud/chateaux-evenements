@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextFetchEvent, NextRequest } from 'next/server';
+import { BASE_CRM, ORIGINE_CRM } from '@/lib/site-tracking';
+
+// Traceur de visites (SiteTracker) → CRM : sans cette origine dans connect-src,
+// le navigateur bloque l'envoi avant même qu'il parte.
+const CRM_CONNECT = ORIGINE_CRM(BASE_CRM) ?? '';
 
 // Simple rate limiting (en mémoire - pour production utiliser Redis ou Vercel KV)
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
@@ -116,7 +121,7 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: https: blob:",
         "font-src 'self' data:",
-        "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.googleadservices.com https://www.google.fr https://*.google.fr https://pagead2.googlesyndication.com",
+        `connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.googleadservices.com https://www.google.fr https://*.google.fr https://pagead2.googlesyndication.com ${CRM_CONNECT}`.trim(),
         "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",
