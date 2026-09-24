@@ -12,6 +12,7 @@ import { Button } from '@/components/ui-v2';
 import { Text } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
 import { trackFormSubmit, trackFormStart } from '@/components/Analytics';
+import { premierContactMemorise } from '@/lib/origine';
 
 interface DevisFormMiniProps {
   chateauId?: string;
@@ -170,6 +171,9 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         // quelle page convertit, donc impossible d'arbitrer entre un article et
         // une landing autrement qu'à l'intuition.
         sourcePage: typeof window !== 'undefined' ? window.location.pathname : '',
+        // Page d'ARRIVÉE et site d'origine à la première visite (Google, ChatGPT…) —
+        // `sourcePage` ci-dessus n'est que la page du formulaire.
+        premierContact: premierContactMemorise(),
       };
 
       const response = await fetch('/api/devis', {

@@ -15,6 +15,7 @@
 import fs from 'node:fs';
 import { SITE, env, kc, marcusEnabled, gsc, fenetre28, sitemapUrls, sbInsert, sbPatch, sbSelect, telegram, email } from './lib.mjs';
 import { sondesLLM } from './sondes-llm.mjs';
+import { positionSerp, resumeSerp } from './serp.mjs';
 import { passerLesVerdicts } from './verdicts.mjs';
 import { executerActions, construireBacklog } from './actions.mjs';
 
@@ -128,29 +129,27 @@ if (!process.env.MARCUS_SKIP_SERP) {
   const bdKey = env('BRIGHTDATA_API_KEY') || kc('brightdata-rankweld-api-key');
   const positions = {};
   let qi = 0;
-  await Promise.all(Array.from({ length: 3 }, async () => {
+  // Budget du capteur : le run complet tient en ~13 min hors SERP, timeout 45 min.
+  const echeance = Date.now() + 20 * 60_000;
+  // 6 en parallèle : une requête qui tombe sur un captcha attend 20 s par relance
+  // (voir serp.mjs) — jusqu'à ~3 min pour une seule requête, mesuré le 24/09.
+  await Promise.all(Array.from({ length: 6 }, async () => {
     while (qi < panel.requetes.length) {
       const p = panel.requetes[qi++];
-      let pos = null, urlT = null;
-      for (let page = 0; page < 3 && pos === null; page++) {
-        try {
-          const r = await fetch('https://api.brightdata.com/request', {
-            method: 'POST', headers: { Authorization: `Bearer ${bdKey}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({ zone: 'serp_api', url: `https://www.google.com/search?q=${encodeURIComponent(p.q)}&gl=fr&hl=fr&start=${page * 10}&brd_json=1`, format: 'raw' }),
-          });
-          const d = await r.json();
-          for (const o of d.organic || []) {
-            if ((o.link || '').includes('selectchateaux')) { pos = page * 10 + (o.rank || 0); urlT = (o.link || '').replace(SITE, ''); break; }
-          }
-          if (!(d.organic || []).length) break;
-        } catch { break; }
-      }
-      positions[p.q] = { pos: pos ?? '>30', url: urlT };
+      positions[p.q] = await positionSerp(async (page) => {
+        const r = await fetch('https://api.brightdata.com/request', {
+          method: 'POST', headers: { Authorization: `Bearer ${bdKey}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ zone: 'serp_api', url: `https://www.google.com/search?q=${encodeURIComponent(p.q)}&gl=fr&hl=fr&start=${page * 10}&brd_json=1`, format: 'raw' }),
+          signal: AbortSignal.timeout(90_000),
+        });
+        return r.json();
+      }, { echeance });
     }
   }));
   snapshot.serp = positions;
-  const top10 = Object.values(positions).filter((x) => typeof x.pos === 'number' && x.pos <= 10).length;
-  console.log(`[C4] SERP : ${top10}/${panel.requetes.length} requêtes en top 10`);
+  const s = resumeSerp(positions);
+  console.log(`[C4] SERP : ${s.top10.length}/${s.mesurees} requêtes mesurées en top 10` + (s.erreurs.length ? ` (${s.erreurs.length} non mesurées)` : ''));
+  if (s.erreurs.length) incidents.push(`SERP : ${s.erreurs.length}/${panel.requetes.length} requêtes non mesurées (Bright Data vide après 3 essais, ou budget de 20 min épuisé) — ${s.erreurs.slice(0, 3).join(', ')}${s.erreurs.length > 3 ? '…' : ''}`);
 }
 
 // ── C7 (jeudi) : backlinks + Bing ───────────────────────────────────────────
@@ -240,14 +239,14 @@ snapshot.actions = {
 try { await sbPatch('marcus_runs', `id=eq.${run.id}`, { snapshot }); } catch (e) { incidents.push('archivage des actions en échec : ' + e.message); }
 
 const g = snapshot.gsc28, idx = snapshot.indexation, serp = snapshot.serp || {};
-const top10 = Object.entries(serp).filter(([, v]) => typeof v.pos === 'number' && v.pos <= 10);
+const serpR = resumeSerp(serp), top10 = serpR.top10;
 const lignes = [
   `MARCUS — run #${run.id} (observation) · ${new Date().toLocaleDateString('fr-FR')}`,
   ``,
   `MESURÉ`,
   `· GSC 28j : ${g?.totaux?.clicks} clics, ${g?.totaux?.imp} impressions, position moyenne ${g?.totaux?.pos}` + (deltas ? ` (${deltas.clics >= 0 ? '+' : ''}${deltas.clics} clics vs run #${deltas.vs_run})` : ' (baseline)'),
   idx ? `· Indexation : ${idx.total - (idx.non_indexees?.length || 0)}/${idx.total} URLs indexées` : null,
-  Object.keys(serp).length ? `· SERP : ${top10.length}/${panel.requetes.length} requêtes du cœur en top 10` + (top10.length ? ` (${top10.map(([q]) => q).slice(0, 3).join(', ')}…)` : '') : null,
+  Object.keys(serp).length ? `· SERP : ${top10.length}/${serpR.mesurees} requêtes du cœur en top 10` + (serpR.erreurs.length ? ` (${serpR.erreurs.length} non mesurées)` : '') + (top10.length ? ` (${top10.slice(0, 3).join(', ')}…)` : '') : null,
   snapshot.bots?.total != null ? `· Robots (4j) : ${snapshot.bots.total} passages, ${snapshot.bots.pages_distinctes} pages` : null,
   snapshot.backlinks ? `· Backlinks : ${snapshot.backlinks.backlinks} liens / ${snapshot.backlinks.domaines} domaines` : null,
   // Rapporté aux réponses où le moteur a RÉELLEMENT cherché : une réponse de

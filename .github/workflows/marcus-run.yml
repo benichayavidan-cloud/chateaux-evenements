@@ -11,7 +11,7 @@ on:
 jobs:
   run-complet:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     # L'action « commande-reecriture » ouvre une issue via la CLI gh. Sans ce
     # droit et sans GH_TOKEN (plus bas), elle échouait en silence — le catch
     # de actions.mjs avale l'erreur — et aucune entrée n'était écrite dans
