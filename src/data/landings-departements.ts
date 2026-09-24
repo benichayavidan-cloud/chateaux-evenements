@@ -1,5 +1,16 @@
 /**
- * Landings départementales — Essonne (91), Seine-et-Marne (77), Val-d'Oise (95).
+ * Landings départementales — Essonne (91), Seine-et-Marne (77), Val-d'Oise (95),
+ * et depuis le 24/09/2026 Yvelines (78) et Oise (60).
+ *
+ * Les Yvelines et l'Oise étaient servies par le gabarit géo, rédigé autour de
+ * NOS domaines en exclusivité : la page Yvelines décrivait l'unique abbaye de
+ * /seminaire-vallee-de-chevreuse, la page Oise les deux domaines de
+ * /seminaire-chateau-chantilly. Sur « séminaire yvelines » (857 impressions en
+ * 90 jours), Google classait un article de blog 20ᵉ et la landing 53ᵉ : la
+ * requête attend le département, pas un lieu. Les domaines exclusifs restent
+ * mis en avant (`exclusivites`), avec un lien vers leur page propre.
+ * `landings-departements.test.ts` vérifie que les chiffres écrits ici sont
+ * ceux de venues.ts.
  *
  * Ces trois départements concentrent 357 demandes de devis et 93 devis reçus
  * dans le CRM, et n'avaient aucune page. Les chiffres ci-dessous sont tous
@@ -18,13 +29,131 @@ export interface LandingDepartement {
   intro: string;
   /** 40 à 60 mots, factuels — c'est ce que les moteurs de réponse extraient. */
   reponseDirecte: string;
-  /** Budget client par personne et par jour, marge incluse. */
+  /** Budget client par personne, marge incluse. */
   budget: { min: number; median: number; max: number; nbDevis: number };
+  /** Ce que mesure le budget. Par défaut : « par personne et par jour en
+   *  séminaire résidentiel ». */
+  budgetPortee?: string;
+  /** Nos domaines en exclusivité dans la zone — hors venues.ts (publiés sur
+   *  /chateaux), présentés à part avec un lien vers leur page. */
+  exclusivites?: { titre: string; texte: string; lien: { href: string; label: string } }[];
   sections: { titre: string; paragraphes: string[] }[];
   faq: { question: string; reponse: string }[];
 }
 
 export const landingsDepartements: LandingDepartement[] = [
+  {
+    slug: "seminaire-chateau-yvelines-78",
+    code: "78",
+    departement: "Yvelines",
+    title: "Séminaire château Yvelines (78) : 19 lieux",
+    description:
+      "19 lieux de séminaire dans les Yvelines (78), de 10 à 1 500 personnes, dont 14 avec hébergement. Versailles, Saint-Quentin, Vallée de Chevreuse. Devis sous 48 h.",
+    eyebrow: "Yvelines · 78",
+    h1: "Séminaire en château dans les Yvelines (78)",
+    intro:
+      "Dix-neuf lieux privatisables à l'ouest de Paris, du salon de 10 personnes au palais des congrès de 1 500. Les Yvelines sont le département le plus varié de notre périmètre : grands sites de Versailles et de Saint-Quentin-en-Yvelines, domaines de la Vallée de Chevreuse, hôtels-châteaux autour de Saint-Germain-en-Laye.",
+    reponseDirecte:
+      "Select Châteaux référence 19 lieux de séminaire dans les Yvelines (78), de 10 à 1500 personnes, dont 14 avec hébergement. Sur les 19 devis de séminaire résidentiel que nous avons traités dans le département, le budget client médian est de 512 € par personne, hébergement compris. Devis sous 48 h.",
+    budget: { min: 350, median: 512, max: 861, nbDevis: 19 },
+    budgetPortee: "par personne pour un séminaire résidentiel (hébergement compris, le plus souvent 2 jours et 1 nuit)",
+    sections: [
+      {
+        titre: "Pourquoi les Yvelines pour un séminaire d'entreprise",
+        paragraphes: [
+          "L'éventail le plus large d'Île-de-France : nos 19 lieux vont de La Seigneurie Lepic à Andrésy, pour un comité de 10 personnes, au Palais des Congrès de Versailles, qui en accueille 1 500. Quinze d'entre eux reçoivent au moins 100 personnes et sept au moins 200 : dans les Yvelines, la taille du groupe ne ferme presque aucune porte.",
+          "Trois secteurs, trois usages. Versailles et Saint-Quentin-en-Yvelines pour les grands formats : le Palais des Congrès de Versailles, La Ferme du Manet à Montigny-le-Bretonneux (22 salles, 1 400 personnes), le Dolce Wyndham de Jouy-en-Josas (178 chambres). La Vallée de Chevreuse pour les séminaires au vert : Domaine de la Roche Couloir à Chevreuse, Centre Port Royal à Saint-Lambert, Le Barn à Bonnelles, Château des Mesnuls. Et l'ouest du département pour les domaines résidentiels de caractère : Cazaudehore à Saint-Germain-en-Laye, le Château de Villiers-le-Mahieu et ses 98 chambres.",
+          "Le résidentiel comme la journée d'étude. Quatorze de nos lieux disposent d'hébergement sur place. Mais les Yvelines sont aussi le département des journées d'étude : sur nos 40 devis dans le 78, plus de la moitié (21) portaient sur une journée sans nuitée, ce qui explique une médiane tous formats confondus bien plus basse que la médiane résidentielle.",
+        ],
+      },
+    ],
+    exclusivites: [
+      {
+        titre: "Notre domaine en exclusivité : l'abbaye de la Vallée de Chevreuse",
+        texte:
+          "Une ancienne abbaye cistercienne rénovée en 2023, en exclusivité chez Select Châteaux : 144 chambres, 14 salles de réunion et 80 hectares en lisière de la forêt de Rambouillet. Sa page détaille le lieu, ses salles et ses tarifs.",
+        lien: { href: "/seminaire-vallee-de-chevreuse", label: "Séminaire en Vallée de Chevreuse" },
+      },
+    ],
+    faq: [
+      {
+        question: "Combien coûte un séminaire dans les Yvelines ?",
+        reponse:
+          "Sur les 19 devis de séminaire résidentiel que nous avons traités dans le département, le budget client se situe le plus souvent entre 350 et 861 € par personne, hébergement compris, avec une médiane de 512 €. Une journée d'étude sans nuitée coûte nettement moins : c'est le format de plus de la moitié de nos devis dans le 78.",
+      },
+      {
+        question: "Quel est le plus grand lieu de séminaire des Yvelines ?",
+        reponse:
+          "Le Palais des Congrès de Versailles, qui accueille jusqu'à 1 500 personnes. Suivent La Ferme du Manet à Montigny-le-Bretonneux (1 400 personnes, 22 salles) et le Domaine de la Butte Ronde à La Boissière-École (589 personnes). Au total, sept de nos lieux dans les Yvelines reçoivent au moins 200 personnes.",
+      },
+      {
+        question: "Où organiser un séminaire résidentiel dans les Yvelines ?",
+        reponse:
+          "Quatorze de nos 19 lieux disposent d'hébergement. Les plus grandes capacités hôtelières sont le Dolce Wyndham de Jouy-en-Josas (178 chambres), le Château de Villiers-le-Mahieu (98 chambres), l'hôtel Inn Design de Saint-Quentin-en-Yvelines (81 chambres) et Le Barn à Bonnelles (72 chambres).",
+      },
+      {
+        question: "Peut-on faire un séminaire en Vallée de Chevreuse ?",
+        reponse:
+          "Oui : nous y référençons notamment le Domaine de la Roche Couloir à Chevreuse, le Centre Port Royal à Saint-Lambert, Le Barn à Bonnelles et le Château des Mesnuls, ainsi qu'une abbaye cistercienne en exclusivité, présentée sur notre page Vallée de Chevreuse.",
+      },
+    ],
+  },
+  {
+    slug: "seminaire-chateau-oise-60",
+    code: "60",
+    departement: "Oise",
+    title: "Séminaire château Oise (60) : 13 lieux",
+    description:
+      "13 lieux de séminaire dans l'Oise (60), de 40 à 500 personnes, dont 9 avec hébergement. Chantilly, Compiègne, Valois, vallée de l'Oise. Devis sous 48 h.",
+    eyebrow: "Oise · 60",
+    h1: "Séminaire en château dans l'Oise (60)",
+    intro:
+      "Treize lieux privatisables au nord de Paris, de 40 à 500 personnes. L'Oise est le département des grands formats en pleine nature : un campus de 42 salles à Gouvieux, des domaines de 300 à 450 personnes, et quatre secteurs aux caractères bien distincts, de Chantilly à la forêt de Compiègne.",
+    reponseDirecte:
+      "Select Châteaux référence 13 lieux de séminaire dans l'Oise (60), de 40 à 500 personnes, dont 9 avec hébergement. Sur les 34 devis de séminaire résidentiel que nous avons traités dans le département, le budget client médian est de 541 € par personne, hébergement compris. Devis sous 48 h.",
+    budget: { min: 398, median: 541, max: 858, nbDevis: 34 },
+    budgetPortee: "par personne pour un séminaire résidentiel (hébergement compris, le plus souvent 2 jours et 1 nuit)",
+    sections: [
+      {
+        titre: "Pourquoi l'Oise pour un séminaire d'entreprise",
+        paragraphes: [
+          "Les grands formats : sept de nos treize lieux dans l'Oise reçoivent au moins 200 personnes. Le Campus Serge Kampf Les Fontaines, à Gouvieux, réunit 500 personnes, 300 chambres et 42 salles sur un même site ; le Domaine de Montigny à Russy-Bémont en accueille 450, Le Clos Barisseuse à Saint-Vaast-lès-Mello 350.",
+          "Quatre secteurs. Chantilly et Gouvieux, autour de la forêt et du château : le Campus Les Fontaines, l'Auberge du Jeu de Paume, le Best Western Hôtel du Parc. Le Compiégnois : l'Aiden by Best Western à Margny-lès-Compiègne (80 chambres), l'Auberge du Mont Saint-Mard à Vieux-Moulin, le Château de Sainte-Claire à Berneuil-sur-Aisne. Le Valois : le Château d'Ermenonville (55 chambres), La Croisée des Possibles à Crépy-en-Valois, le Domaine de Montigny. Et la vallée de l'Oise : l'Abbaye Royale du Moncel à Pontpoint, le Château de Montataire, Le Clos Barisseuse, le Château de la Trye à Hermes.",
+          "Le résidentiel : neuf de nos lieux ont un hébergement sur place. Pour un groupe qui dort sur site, les plus grandes capacités sont Les Fontaines (300 chambres), l'Auberge du Jeu de Paume à Chantilly (92 chambres) et l'Aiden de Margny-lès-Compiègne (80 chambres).",
+        ],
+      },
+    ],
+    exclusivites: [
+      {
+        titre: "Nos deux domaines en exclusivité à Chantilly",
+        texte:
+          "Deux châteaux-hôtels en lisière de la forêt de Chantilly, en exclusivité chez Select Châteaux : un grand château de style anglo-normand de 119 chambres avec spa, et un château 5 étoiles avec vue panoramique sur la forêt. Leur page compare les deux domaines.",
+        lien: { href: "/seminaire-chateau-chantilly", label: "Séminaire en château à Chantilly" },
+      },
+    ],
+    faq: [
+      {
+        question: "Combien coûte un séminaire dans l'Oise ?",
+        reponse:
+          "Sur les 34 devis de séminaire résidentiel que nous avons traités dans le département, le budget client se situe le plus souvent entre 398 et 858 € par personne, hébergement compris, avec une médiane de 541 €. Le nombre de nuits, la saison et le niveau de restauration pèsent plus que le choix du lieu.",
+      },
+      {
+        question: "Quel est le plus grand lieu de séminaire de l'Oise ?",
+        reponse:
+          "Le Campus Serge Kampf Les Fontaines, à Gouvieux près de Chantilly : 500 personnes, 300 chambres et 42 salles. Viennent ensuite le Domaine de Montigny à Russy-Bémont (450 personnes) et Le Clos Barisseuse à Saint-Vaast-lès-Mello (350 personnes).",
+      },
+      {
+        question: "Peut-on organiser un séminaire près de Compiègne ?",
+        reponse:
+          "Oui : nous référençons l'Aiden by Best Western à Margny-lès-Compiègne (250 personnes, 80 chambres), l'Auberge du Mont Saint-Mard à Vieux-Moulin en forêt de Compiègne, et le Château de Sainte-Claire à Berneuil-sur-Aisne (300 personnes).",
+      },
+      {
+        question: "Quelle différence avec votre page Chantilly ?",
+        reponse:
+          "Cette page couvre tout le département : 13 lieux de Compiègne au Valois. La page Chantilly présente les deux châteaux-hôtels que nous proposons en exclusivité en lisière de la forêt de Chantilly.",
+      },
+    ],
+  },
   {
     slug: "seminaire-chateau-essonne-91",
     code: "91",
@@ -78,19 +207,19 @@ export const landingsDepartements: LandingDepartement[] = [
     departement: "Seine-et-Marne",
     title: "Séminaire Château Seine-et-Marne (77)",
     description:
-      "10 lieux de séminaire vérifiés en Seine-et-Marne, de 40 à 600 personnes, jusqu'à 396 chambres. De Fontainebleau à Provins. Budget observé dès 421 € par personne. Devis sous 48 h.",
+      "9 lieux de séminaire vérifiés en Seine-et-Marne, de 40 à 600 personnes, jusqu'à 396 chambres. De Fontainebleau à Provins. Budget observé dès 421 € par personne. Devis sous 48 h.",
     eyebrow: "Seine-et-Marne · 77",
     h1: "Séminaire en château en Seine-et-Marne (77)",
     intro:
-      "Dix lieux privatisables à l'est de Paris, de 40 à 600 personnes. C'est le département le plus polyvalent d'Île-de-France : forêt de Fontainebleau, cité médiévale de Provins, resorts de Marne-la-Vallée, avec la plus grosse capacité d'hébergement de la région.",
+      "Neuf lieux privatisables à l'est de Paris, de 40 à 600 personnes. C'est le département le plus polyvalent d'Île-de-France : forêt de Fontainebleau, cité médiévale de Provins, resorts de Marne-la-Vallée, avec la plus grosse capacité d'hébergement de la région.",
     reponseDirecte:
-      "Select Châteaux référence 10 lieux de séminaire en Seine-et-Marne (77), de 40 à 600 personnes, dont 9 avec hébergement — jusqu'à 396 chambres sur un même site. Le budget observé sur nos devis se situe autour de 421 € par personne et par jour en résidentiel. Devis sous 48 h.",
+      "Select Châteaux référence 9 lieux de séminaire en Seine-et-Marne (77), de 40 à 600 personnes, tous avec hébergement — jusqu'à 396 chambres sur un même site. Le budget observé sur nos devis se situe autour de 421 € par personne et par jour en résidentiel. Devis sous 48 h.",
     budget: { min: 290, median: 421, max: 610, nbDevis: 38 },
     sections: [
       {
         titre: "Pourquoi la Seine-et-Marne pour un séminaire d'entreprise",
         paragraphes: [
-          "La capacité d'hébergement la plus élevée d'Île-de-France : avec jusqu'à 396 chambres sur un seul site, la Seine-et-Marne est le seul département de la région où l'on héberge une convention de plusieurs centaines de personnes sans répartir le groupe sur plusieurs hôtels. Neuf de nos dix lieux disposent d'hébergement.",
+          "La capacité d'hébergement la plus élevée d'Île-de-France : avec jusqu'à 396 chambres sur un seul site, la Seine-et-Marne est le seul département de la région où l'on héberge une convention de plusieurs centaines de personnes sans répartir le groupe sur plusieurs hôtels. Nos neuf lieux disposent tous d'hébergement.",
           "Trois univers dans un seul département : la forêt de Fontainebleau pour la nature et les activités outdoor, Provins et sa cité médiévale classée pour les séminaires à forte dimension patrimoniale, et le secteur de Marne-la-Vallée pour les formats resort avec grandes capacités et accès RER A direct. Peu de départements offrent cette variété.",
           "L'accès : l'A4 et l'A5 desservent le département, le RER A dessert Marne-la-Vallée en 40 minutes depuis Châtelet, et le RER D relie Melun. Fontainebleau est à 1 heure de Paris par l'A6. Roissy-CDG est à 45 minutes du nord du département.",
         ],
@@ -125,13 +254,13 @@ export const landingsDepartements: LandingDepartement[] = [
     departement: "Val-d'Oise",
     title: "Séminaire Château Val-d'Oise (95)",
     description:
-      "11 lieux de séminaire vérifiés dans le Val-d'Oise, de 13 à 600 personnes. Abbaye, Vexin, proximité Roissy-CDG. Budget observé dès 363 € par personne. Devis sous 48 h.",
+      "9 lieux de séminaire vérifiés dans le Val-d'Oise, de 13 à 600 personnes. Abbaye, Vexin, proximité Roissy-CDG. Budget observé dès 363 € par personne. Devis sous 48 h.",
     eyebrow: "Val-d'Oise · 95",
     h1: "Séminaire en château dans le Val-d'Oise (95)",
     intro:
-      "Onze lieux privatisables au nord de Paris, de 13 à 600 personnes. Le Val-d'Oise est le département le plus abordable de notre périmètre, et le mieux placé pour les événements avec participants internationaux : Roissy-CDG est à moins de 30 minutes de la plupart des domaines.",
+      "Neuf lieux privatisables au nord de Paris, de 13 à 600 personnes. Le Val-d'Oise est le département le plus abordable de notre périmètre, et le mieux placé pour les événements avec participants internationaux : Roissy-CDG est à moins de 30 minutes de la plupart des domaines.",
     reponseDirecte:
-      "Select Châteaux référence 11 lieux de séminaire dans le Val-d'Oise (95), de 13 à 600 personnes, dont 10 avec hébergement — jusqu'à 244 chambres. Le budget observé sur nos devis se situe autour de 363 € par personne et par jour en résidentiel, le plus bas de l'Île-de-France. Devis sous 48 h.",
+      "Select Châteaux référence 9 lieux de séminaire dans le Val-d'Oise (95), de 13 à 600 personnes, tous avec hébergement — jusqu'à 244 chambres. Le budget observé sur nos devis se situe autour de 363 € par personne et par jour en résidentiel, le plus bas de l'Île-de-France. Devis sous 48 h.",
     budget: { min: 250, median: 363, max: 540, nbDevis: 19 },
     sections: [
       {
