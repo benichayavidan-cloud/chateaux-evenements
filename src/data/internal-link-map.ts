@@ -143,8 +143,10 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
   },
   {
     keywords: ["privatisation château", "journée d'étude château", "privatiser un château"],
-    targetSlug: "privatisation-journee-etude-chateau",
-    title: "Privatiser un château pour une journée d'étude",
+    // Article fusionné en 301 le 24/09/2026 (275 mots, jamais indexé) : la
+    // landing possède « journée d'étude château » (seo-clusters.json).
+    targetPath: "/journee-etude-seminaire",
+    title: "Journée d'étude en château",
     priority: 6,
   },
   {
@@ -155,8 +157,10 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
   },
   {
     keywords: ["soirée entreprise château", "soirée à thème château", "gala entreprise"],
-    targetSlug: "soiree-entreprise-chateau-idees-themes",
-    title: "Idées soirées entreprise en château",
+    // Article fusionné en 301 le 24/09/2026 (325 mots, jamais indexé) vers
+    // l'article thématique complet, indexé, qui couvre les mêmes thèmes.
+    targetSlug: "soiree-entreprise-casino-gatsby-medievale",
+    title: "Idées de soirées d'entreprise à thème en château",
     priority: 5,
   },
   {
