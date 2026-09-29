@@ -577,6 +577,56 @@ export async function sendAdminNotification(devis: DemandeDevis, sourceLabel: st
   return sendEmail(adminEmail, subject, html, text);
 }
 
+const echapperHtml = (v: string): string =>
+  v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Prévenir l'administrateur qu'une demande a été refusée par la validation.
+// `saisie` vient tel quel du navigateur : rien n'est supposé sur sa forme.
+export async function sendAlerteDemandeRefusee(
+  saisie: unknown,
+  problemes: ReadonlyArray<{ path: PropertyKey[]; message: string }>,
+): Promise<boolean> {
+  const adminEmail = process.env.EMAIL_ADMIN || process.env.SMTP_USER;
+  if (!adminEmail) return false;
+
+  const champs = saisie && typeof saisie === 'object' ? (saisie as Record<string, unknown>) : {};
+  const lire = (cle: string): string => {
+    const v = champs[cle];
+    return typeof v === 'string' || typeof v === 'number' ? String(v).slice(0, 500) : '—';
+  };
+
+  const lignes: Array<[string, string]> = [
+    ['Nom', lire('nomPrenom')],
+    ['Entreprise', lire('entreprise')],
+    ['Email', lire('email')],
+    ['Téléphone', lire('telephoneMobile')],
+    ['Participants', lire('nombreParticipants')],
+    ['Dates', `${lire('dateArrivee')} → ${lire('dateDepart')} ${lire('datesSouhaitees')}`],
+    ['Page', lire('sourcePage')],
+    ['Formulaire', lire('sourceLabel')],
+    ['Message', lire('commentaireDeroulement')],
+  ];
+  const motifs = problemes.map((p) => `${p.path.map(String).join('.') || '(racine)'} : ${p.message}`);
+
+  const subject = `⚠️ Demande de devis REFUSÉE par le site - ${lire('nomPrenom')}`;
+  const text = [
+    "Le site a refusé une demande de devis. La personne a vu « Données invalides » et rien n'a été enregistré.",
+    'Rappelez-la avec les informations ci-dessous.',
+    '',
+    ...lignes.map(([k, v]) => `${k} : ${v}`),
+    '',
+    'Motif du refus :',
+    ...motifs.map((m) => `- ${m}`),
+  ].join('\n');
+  const html = `<p>Le site a refusé une demande de devis. La personne a vu « Données invalides » et rien n'a été enregistré.<br><strong>Rappelez-la avec les informations ci-dessous.</strong></p>
+<table cellpadding="6" style="border-collapse:collapse">${lignes
+    .map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${echapperHtml(v)}</td></tr>`)
+    .join('')}</table>
+<p><strong>Motif du refus :</strong></p><ul>${motifs.map((m) => `<li>${echapperHtml(m)}</li>`).join('')}</ul>`;
+
+  return sendEmail(adminEmail, subject, html, text);
+}
+
 // Envoyer l'email de confirmation au client
 export async function sendClientConfirmation(devis: DemandeDevis): Promise<boolean> {
   const subject = `Confirmation de votre demande de devis - SELECT CHÂTEAUX`;

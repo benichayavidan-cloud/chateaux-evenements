@@ -1,47 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { z } from 'zod';
 import { createClient } from '@supabase/supabase-js';
-import { sendAdminNotification, sendClientConfirmation } from '@/lib/email';
+import { sendAdminNotification, sendAlerteDemandeRefusee, sendClientConfirmation } from '@/lib/email';
+import { chateaux } from '@/data/chateaux';
+import { chateauxDeLaDemande, formSchema } from '@/lib/devis-schema';
 import { canalOrigine, LIBELLE_CANAL, parsePremierContact } from '@/lib/origine';
-
-// Schema Zod pour validation serveur
-// Accepte deux formats :
-// - Formulaire principal (/devis) : datesSouhaitees (date unique)
-// - Formulaire mini (pages château) : dateArrivee + dateDepart
-const formSchema = z.object({
-  typeEvenement: z.enum([
-    "seminaire",
-    "journee-etude",
-    "soiree-entreprise",
-    "team-building",
-    "autre",
-  ]),
-  datesSouhaitees: z.string().min(1).optional(),
-  dateArrivee: z.string().min(1).optional(),
-  dateDepart: z.string().min(1).optional(),
-  duree: z.enum(["1-jour", "2-jours", "3-jours-plus"]),
-  chateauIds: z.array(z.string()).min(1, "Veuillez sélectionner au moins un château"),
-  entreprise: z.string().min(1).default('-'),
-  nomPrenom: z.string().min(2, "Nom et prénom requis"),
-  email: z.string().email("Email invalide"),
-  telephoneMobile: z.string().min(10, "Numéro de téléphone invalide"),
-  nombreParticipants: z.number().min(10).max(500),
-  nombreChambres: z.number().min(1).max(400),
-  plusDe500Participants: z.boolean().optional(),
-  plusDe400Chambres: z.boolean().optional(),
-  chambresTwin: z.boolean().optional(),
-  budget: z.string().optional().default(''),
-  commentaireDeroulement: z.string().optional(),
-  datesFlexibles: z.boolean().optional().default(false),
-  sourceLabel: z.string().optional(),
-  sourcePage: z.string().max(300).optional(),
-  // Relu par parsePremierContact : une forme inattendue devient « inconnue »,
-  // elle ne doit jamais faire perdre une demande.
-  premierContact: z.unknown().optional(),
-}).refine(
-  (data) => data.datesFlexibles || data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
-  { message: "Veuillez sélectionner une date", path: ["datesSouhaitees"] }
-);
 
 export async function POST(request: NextRequest) {
   try {
@@ -66,6 +28,11 @@ export async function POST(request: NextRequest) {
     const validationResult = formSchema.safeParse(body);
 
     if (!validationResult.success) {
+      // Un refus ne doit plus jamais passer inaperçu : du 06/09 au 29/09/2026,
+      // toutes les demandes des articles de blog ont été refusées ici sans que
+      // personne le sache. L'email d'admin porte ce que la personne a saisi,
+      // pour pouvoir la rappeler.
+      await sendAlerteDemandeRefusee(body, validationResult.error.issues);
       return NextResponse.json(
         { error: 'Données invalides' },
         { status: 400 }
@@ -75,6 +42,8 @@ export async function POST(request: NextRequest) {
     const { premierContact: premierContactBrut, ...data } = validationResult.data;
     const premierContact = parsePremierContact(premierContactBrut);
     const canal = canalOrigine(premierContact);
+
+    const chateauIds = chateauxDeLaDemande(data.chateauIds, chateaux.map((c) => c.id));
 
     // Construire dates_souhaitees selon le format reçu
     const datesSouhaitees = data.dateArrivee && data.dateDepart
@@ -99,7 +68,7 @@ export async function POST(request: NextRequest) {
       type_evenement: data.typeEvenement,
       dates_souhaitees: datesSouhaitees,
       duree: data.duree,
-      chateau_id: data.chateauIds.join(', '),
+      chateau_id: chateauIds.join(', '),
       entreprise: data.entreprise,
       nom_prenom: data.nomPrenom,
       email: data.email,
@@ -138,6 +107,7 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Supabase insert error:', JSON.stringify(error));
+      await sendAlerteDemandeRefusee(body, [{ path: ['base'], message: error.message }]);
       return NextResponse.json(
         { error: 'Erreur lors de l\'enregistrement de la demande' },
         { status: 500 }
@@ -170,6 +140,7 @@ export async function POST(request: NextRequest) {
               headers: { "Content-Type": "application/json", "x-lead-secret": crmLeadsSecret },
               body: JSON.stringify({
                 ...data,
+                chateauIds,
                 origine: {
                   canal,
                   libelle: LIBELLE_CANAL[canal],
