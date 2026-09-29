@@ -130,7 +130,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     if (isSubmitting) return;
 
     const datesRequises = !datesFlexibles;
-    if (!formData.nomPrenom || !formData.email || !formData.telephone || !formData.nombreParticipants || (datesRequises && (!formData.dateArrivee || !formData.dateDepart))) {
+    if (!formData.nomPrenom || !formData.entreprise.trim() || !formData.email || !formData.telephone || !formData.nombreParticipants || (datesRequises && (!formData.dateArrivee || !formData.dateDepart))) {
       setError(datesRequises
         ? 'Veuillez remplir tous les champs obligatoires (dont vos dates).'
         : 'Veuillez remplir vos coordonnées et le nombre de participants.');
@@ -138,8 +138,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     }
 
     const participants = parseInt(formData.nombreParticipants, 10);
-    if (Number.isNaN(participants) || participants < 10 || participants > 500) {
-      setError('Le nombre de participants doit être compris entre 10 et 500. Pour un autre volume, précisez-le dans le message.');
+    if (Number.isNaN(participants) || participants < 1 || participants > 500) {
+      setError('Le nombre de participants doit être compris entre 1 et 500. Au-delà, précisez-le dans le message.');
       return;
     }
 
@@ -156,7 +156,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         dateDepart: formData.dateDepart,
         duree: '1-jour' as const,
         chateauIds: allIds,
-        entreprise: formData.entreprise || '-',
+        entreprise: formData.entreprise.trim(),
         nomPrenom: formData.nomPrenom,
         email: formData.email,
         telephoneMobile: formData.telephone,
@@ -318,8 +318,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
               <input id="mini-nom" name="nomPrenom" type="text" autoComplete="name" required placeholder="Jean Dupont" value={formData.nomPrenom} onChange={handleChange} style={inputStyle} {...focusHandlers} />
             </div>
             <div>
-              <label htmlFor="mini-entreprise" style={labelStyle}>Entreprise</label>
-              <input id="mini-entreprise" name="entreprise" type="text" autoComplete="organization" placeholder="Nom de l'entreprise" value={formData.entreprise} onChange={handleChange} style={inputStyle} {...focusHandlers} />
+              <label htmlFor="mini-entreprise" style={labelStyle}>Entreprise *</label>
+              <input id="mini-entreprise" name="entreprise" type="text" autoComplete="organization" required placeholder="Nom de l'entreprise" value={formData.entreprise} onChange={handleChange} style={inputStyle} {...focusHandlers} />
             </div>
             <div>
               <label htmlFor="mini-email" style={labelStyle}>
@@ -346,7 +346,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
                 name="nombreParticipants"
                 type="number"
                 inputMode="numeric"
-                min={10}
+                min={1}
                 max={500}
                 required
                 placeholder="Ex : 30"

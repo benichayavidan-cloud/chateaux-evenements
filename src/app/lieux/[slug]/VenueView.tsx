@@ -384,7 +384,7 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
               Ce lieu vous intéresse ?
             </h2>
             <div className="flex flex-wrap items-center justify-center" style={{ gap: "18px", fontSize: "0.9375rem", color: G.gray600 }}>
-              <span className="inline-flex items-center gap-1.5"><Clock className="w-4 h-4" style={{ color: BRONZE }} />Réponse sous 48 h</span>
+              <span className="inline-flex items-center gap-1.5"><Clock className="w-4 h-4" style={{ color: BRONZE }} />Réponse sous 24 h</span>
               <span className="inline-flex items-center gap-1.5"><Shield className="w-4 h-4" style={{ color: BRONZE }} />Sans engagement</span>
               <span className="inline-flex items-center gap-1.5"><Check className="w-4 h-4" style={{ color: BRONZE }} />Devis gratuit</span>
             </div>
