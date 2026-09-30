@@ -9,6 +9,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { trackSiteEvent } from "./SiteTracker";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
@@ -140,7 +141,7 @@ export const trackFormSubmit = (formName: string) => {
       event_category: "engagement",
     });
   }
-  try { const { trackSiteEvent } = require("./SiteTracker"); trackSiteEvent("FORM_SUBMIT", formName); } catch {}
+  trackSiteEvent("FORM_SUBMIT", formName);
 };
 
 export const trackDownload = (fileName: string) => {
@@ -152,8 +153,12 @@ export const trackDownload = (fileName: string) => {
   }
 };
 
-export const trackPhoneClick = () => {
-  try { const { trackSiteEvent } = require("./SiteTracker"); trackSiteEvent("CLICK_PHONE", "header-phone"); } catch {}
+/**
+ * `emplacement` distingue le bouton cliqué dans le CRM (barre fixe, page merci…).
+ * Par défaut « header-phone », le libellé historique de tous les boutons.
+ */
+export const trackPhoneClick = (emplacement = "header-phone") => {
+  trackSiteEvent("CLICK_PHONE", emplacement);
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "phone_click", {
       event_category: "engagement",
@@ -172,6 +177,22 @@ export const trackFormStart = (formName: string) => {
       event_label: formName,
     });
   }
+  trackSiteEvent("FORM_START", formName);
+};
+
+/**
+ * Formulaire refusé (champ manquant, refus du serveur, réseau). `raison` est un
+ * code court (`champs-manquants`, `serveur-400`…), jamais une donnée saisie.
+ */
+export const trackFormError = (formName: string, raison: string) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", "form_error", {
+      event_category: "engagement",
+      event_label: formName,
+      error_reason: raison,
+    });
+  }
+  trackSiteEvent("FORM_ERROR", formName, raison);
 };
 
 export const trackChateauView = (chateauName: string) => {

@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { z } from 'zod';
 import {
   ORIGINE_CRM,
+  SITE_EVENT_TYPES,
   URL_COLLECTE,
   appareilDepuisLargeur,
   estSiteSuivi,
@@ -24,6 +25,7 @@ const optionalInt = z.number().int().min(0).nullable().optional();
 const SITE_EVENT_TYPES_V2 = [
   'PAGE_VIEW', 'CLICK_CTA', 'CLICK_PHONE', 'CLICK_EMAIL', 'FORM_START', 'FORM_SUBMIT',
   'SCROLL_25', 'SCROLL_50', 'SCROLL_75', 'SCROLL_100', 'SESSION_START', 'SESSION_END',
+  'FORM_ERROR',
 ] as const;
 const schemaV2 = z.object({
   fingerprint: z.string().trim().min(1).max(100),
@@ -100,7 +102,7 @@ test('les types d\'événement inconnus du CRM V2 sont ignorés au lieu de faire
   const c = ctx('https://www.selectchateaux.com/');
   assert.equal(payloadEvenement({ fingerprint: 'fp', sessionId: 's', contexte: c, pathname: '/', eventType: 'CLICK_WHATSAPP' }), null);
   assert.equal(payloadEvenement({ fingerprint: 'fp', sessionId: 's', contexte: c, pathname: '/', eventType: 'scroll_50' }), null);
-  for (const t of ['CLICK_PHONE', 'FORM_SUBMIT', 'CLICK_CTA', 'SCROLL_100']) {
+  for (const t of ['CLICK_PHONE', 'FORM_SUBMIT', 'CLICK_CTA', 'SCROLL_100', 'FORM_START', 'FORM_ERROR']) {
     const p = payloadEvenement({ fingerprint: 'fp', sessionId: 's', contexte: c, pathname: '/', eventType: t, label: 'x' });
     assert.ok(p && schemaV2.safeParse(p).success, t);
   }
@@ -189,4 +191,11 @@ test('régression : l\'origine du CRM est autorisée par la CSP du site (connect
   assert.equal(ORIGINE_CRM('pas une url'), null);
   const middleware = readFileSync(new URL('../middleware.ts', import.meta.url), 'utf8');
   assert.match(middleware, /ORIGINE_CRM\(/, 'la CSP de production doit inclure ORIGINE_CRM(...) dans connect-src');
+});
+
+// Phase 3 du plan conversion (30/09/2026) : sans FORM_ERROR, un visiteur qui
+// remplit le formulaire et se fait refuser disparaît des chiffres — c'est
+// exactement ce qui a caché pendant des mois que le formulaire du blog était cassé.
+test('FORM_ERROR fait partie des types envoyés au CRM', () => {
+  assert.ok((SITE_EVENT_TYPES as readonly string[]).includes('FORM_ERROR'));
 });

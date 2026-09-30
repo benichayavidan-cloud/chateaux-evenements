@@ -16,6 +16,7 @@ import { Users, Bed, LayoutGrid, Car, MapPin, Check, ArrowRight, Clock, Shield, 
 import { Section, Container } from "@/components/layout-v2";
 import { theme } from "@/design-system/tokens";
 import DevisFormMini from "@/components/DevisFormMini";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
 import type { Venue } from "@/data/venues";
 import { FaqSection, GuidesSection } from "@/components/lieux";
 import { buildVenueFaq } from "@/lib/venue-faq";
@@ -449,6 +450,9 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
           </Container>
         </Section>
       )}
+
+      {/* Barre fixe « Appeler · Devis gratuit » : descend au formulaire de la fiche */}
+      <StickyCtaBar cible="#devis-express" />
     </>
   );
 }

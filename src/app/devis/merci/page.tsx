@@ -1,10 +1,7 @@
-import { Suspense } from "react";
 import MerciContent from "./MerciContent";
 
+// Plus de <Suspense> : la page ne lit plus `?ref=` (useSearchParams), son
+// contenu part donc entier dans le HTML servi.
 export default function MerciPage() {
-  return (
-    <Suspense fallback={<div style={{ minHeight: "100vh", background: "#FFFFFF" }} />}>
-      <MerciContent />
-    </Suspense>
-  );
+  return <MerciContent />;
 }

@@ -11,7 +11,7 @@ import { Send, Clock, Shield, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui-v2';
 import { Text } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
-import { trackFormSubmit, trackFormStart } from '@/components/Analytics';
+import { trackFormSubmit, trackFormStart, trackFormError } from '@/components/Analytics';
 import { premierContactMemorise } from '@/lib/origine';
 
 interface DevisFormMiniProps {
@@ -131,6 +131,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
     const datesRequises = !datesFlexibles;
     if (!formData.nomPrenom || !formData.entreprise.trim() || !formData.email || !formData.telephone || !formData.nombreParticipants || (datesRequises && (!formData.dateArrivee || !formData.dateDepart))) {
+      trackFormError('devis_mini', 'champs-manquants');
       setError(datesRequises
         ? 'Veuillez remplir tous les champs obligatoires (dont vos dates).'
         : 'Veuillez remplir vos coordonnées et le nombre de participants.');
@@ -139,6 +140,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
     const participants = parseInt(formData.nombreParticipants, 10);
     if (Number.isNaN(participants) || participants < 1 || participants > 500) {
+      trackFormError('devis_mini', 'participants');
       setError('Le nombre de participants doit être compris entre 1 et 500. Au-delà, précisez-le dans le message.');
       return;
     }
@@ -185,6 +187,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
       const result = await response.json();
 
       if (!response.ok) {
+        trackFormError('devis_mini', `serveur-${response.status}`);
         setError(result.error || 'Une erreur est survenue. Veuillez réessayer.');
         setIsSubmitting(false);
         return;
@@ -204,9 +207,11 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
       trackFormSubmit('devis-express');
 
-      const ref = Math.random().toString(36).substr(2, 9).toUpperCase();
-      router.push(`/devis/merci?ref=${ref}`);
+      // Plus de « numéro de référence » tiré au hasard : il n'existait ni dans
+      // le CRM ni dans les emails (voir lib/cta-article.test.ts).
+      router.push('/devis/merci');
     } catch {
+      trackFormError('devis_mini', 'exception'); // réseau coupé ou réponse illisible
       setError('Une erreur inattendue est survenue. Veuillez réessayer.');
       setIsSubmitting(false);
     }

@@ -492,3 +492,42 @@
 .brakt-mb-xl {
   margin-bottom: var(--brakt-spacing-xl);
 }
+
+/* ── CTA de mi-article (inséré au build par lib/cta-article) ──
+   Ne porte aucun titre : il reste hors du sommaire. Les sélecteurs sont
+   préfixés par .prose pour passer devant la typographie du corps. */
+.prose .article-cta-milieu {
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(163, 126, 44, 0.25);
+  border-left: 4px solid #A37E2C;
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.prose .article-cta-milieu p { margin: 0; }
+.prose .article-cta-milieu .article-cta-milieu__titre {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1F2937;
+  line-height: 1.4;
+}
+.prose .article-cta-milieu .article-cta-milieu__texte {
+  margin-top: 0.375rem;
+  font-size: 0.95rem;
+  color: #4B5563;
+  line-height: 1.6;
+}
+.prose .article-cta-milieu .article-cta-milieu__bouton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #D4AF37 0%, #A37E2C 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(163, 126, 44, 0.3);
+}
+.prose .article-cta-milieu .article-cta-milieu__bouton:hover { filter: brightness(1.05); color: #FFFFFF; }
