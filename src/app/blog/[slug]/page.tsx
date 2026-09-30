@@ -11,6 +11,10 @@ import { ArticleClientLogic } from "./ArticleClientLogic";
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { insererCtaMilieu } from "@/lib/cta-article";
+import { lieuxPourArticle } from "@/lib/lieux-article";
+import { venues } from "@/data/venues";
+import { ARTICLES_PILOTE_LIEUX, ENCART_LIEUX_SUR_MESURE } from "@/data/pilote-lieux-articles";
+import { LieuxSousArticle } from "@/components/blog/LieuxSousArticle";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -98,10 +102,21 @@ export default async function BlogArticlePage({ params }: Props) {
   // plutôt que de la concurrencer (voir data/seo-clusters).
   const cluster = clusterDeLArticle(article.slug, article.title);
 
+  // Fiches /lieux sous l'article — pilote de 21 articles, voir data/pilote-lieux-articles.
+  const lieux = ARTICLES_PILOTE_LIEUX.includes(article.slug)
+    ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venues)
+    : [];
+  const encartLieux = ENCART_LIEUX_SUR_MESURE[article.slug] ?? {
+    titre: "Des lieux pour votre événement",
+    texte: "Trois adresses de notre sélection, avec leurs salles, leurs chambres et leurs photos réelles.",
+  };
+
   return (
     <div className="brakt-blog min-h-screen bg-white w-full">
       {/* Composant Client pour la logique interactive */}
       <ArticleClientLogic article={article} html={html} toc={toc} cluster={cluster}>
+        <LieuxSousArticle lieux={lieux} titre={encartLieux.titre} texte={encartLieux.texte} />
+
         {/* FAQ (Server-rendered) — même contenu que le FAQPage du layout */}
         <FaqSection items={faqItems} />
 
