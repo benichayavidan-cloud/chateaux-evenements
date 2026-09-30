@@ -4,16 +4,34 @@ import { useEffect, useState } from "react";
 import { Phone, FileText } from "lucide-react";
 import { trackPhoneClick } from "@/components/Analytics";
 
-export function StickyCtaBar() {
+interface StickyCtaBarProps {
+  /**
+   * Où mène « Devis gratuit ». Par défaut la page /devis ; sur une page qui
+   * porte déjà le formulaire (articles, fiches lieu et château), son ancre
+   * `#devis-express` : on descend au formulaire au lieu de changer de page.
+   */
+  cible?: string;
+}
+
+export function StickyCtaBar({ cible = "/devis#formulaire" }: StickyCtaBarProps) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // La barre s'efface quand le formulaire de la page est à l'écran : elle
+    // masquerait le bouton d'envoi sur mobile, et n'a plus rien à proposer.
+    // Le formulaire est relu à chaque défilement plutôt qu'observé une fois
+    // (IntersectionObserver) : si React remplace son nœud après le montage,
+    // l'observateur surveillerait un élément détaché et ne verrait plus rien.
     const handleScroll = () => {
-      setShow(window.scrollY > 300);
+      const formulaire = cible.startsWith("#") ? document.querySelector(cible) : null;
+      const r = formulaire?.getBoundingClientRect();
+      const formulaireVisible = !!r && r.top < window.innerHeight * 0.85 && r.bottom > 0;
+      setShow(window.scrollY > 300 && !formulaireVisible);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [cible]);
 
   return (
     <div
@@ -41,7 +59,7 @@ export function StickyCtaBar() {
           <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
             <a
               href="tel:+33757991146"
-              onClick={() => trackPhoneClick()}
+              onClick={() => trackPhoneClick("barre-fixe")}
               className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
               style={{ textDecoration: "none", whiteSpace: "nowrap", color: "white" }}
             >
@@ -50,7 +68,8 @@ export function StickyCtaBar() {
               <span className="sm:hidden">Appeler</span>
             </a>
             <a
-              href="/devis#formulaire"
+              href={cible}
+              data-cta="barre-fixe-devis"
               style={{
                 display: "inline-flex",
                 alignItems: "center",

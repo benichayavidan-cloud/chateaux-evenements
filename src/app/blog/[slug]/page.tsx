@@ -9,6 +9,8 @@ import { getVisibleFaq } from "@/lib/blog-faq";
 import { clusterDeLArticle } from "@/data/seo-clusters";
 import { ArticleClientLogic } from "./ArticleClientLogic";
 import DevisFormMini from "@/components/DevisFormMini";
+import { StickyCtaBar } from "@/components/StickyCtaBar";
+import { insererCtaMilieu } from "@/lib/cta-article";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -86,7 +88,11 @@ export default async function BlogArticlePage({ params }: Props) {
   // Corps assaini, maillé et ANCRÉ au build : le HTML servi porte les id des
   // titres et le sommaire, que les crawlers d'IA ne pouvaient pas voir tant
   // qu'ils étaient posés par un effet client (voir components/blog/article-html).
-  const { html, toc } = prepareArticleHtml(article.content, article.slug);
+  const prepare = prepareArticleHtml(article.content, article.slug);
+  // CTA de mi-article, posé APRÈS les ancres : il ne porte aucun titre et
+  // n'entre donc ni dans le sommaire ni dans l'auto-maillage (voir lib/cta-article).
+  const html = insererCtaMilieu(prepare.html);
+  const toc = prepare.toc;
 
   // Article de zone = satellite : il renvoie vers la landing de son cluster
   // plutôt que de la concurrencer (voir data/seo-clusters).
@@ -231,6 +237,10 @@ export default async function BlogArticlePage({ params }: Props) {
           </div>
         </section>
       </ArticleClientLogic>
+
+      {/* Barre fixe « Appeler · Devis gratuit » : le formulaire est en bas de
+          l'article, la barre y descend directement au lieu de changer de page. */}
+      <StickyCtaBar cible="#devis-express" />
     </div>
   );
 }

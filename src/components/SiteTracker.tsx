@@ -15,6 +15,7 @@ import {
   type ContexteVisite,
   type PayloadV2,
 } from "@/lib/site-tracking";
+import { evenementCta } from "@/lib/cta-article";
 
 /**
  * Traceur de visites → CRM V2 (`POST /api/site-tracking`, voir src/lib/site-tracking.ts).
@@ -105,6 +106,21 @@ export function SiteTracker() {
   useEffect(() => {
     // Provenance des demandes de devis : indépendante du CRM (voir origine.ts).
     memoriserPremierContact();
+  }, []);
+
+  // Clics sur les appels à l'action (barre fixe, CTA d'article, liens vers /devis) :
+  // une seule écoute pour tout le site plutôt qu'un onClick par bouton, pour que
+  // le CTA inséré dans le HTML des articles soit compté comme les autres.
+  useEffect(() => {
+    const surClic = (ev: MouseEvent) => {
+      const lien = (ev.target as Element | null)?.closest?.("a");
+      if (!lien) return;
+      const marque = lien.closest("[data-cta]")?.getAttribute("data-cta") ?? null;
+      const evt = evenementCta(lien.getAttribute("href"), marque);
+      if (evt) trackSiteEvent(evt.type, evt.label);
+    };
+    document.addEventListener("click", surClic, { capture: true });
+    return () => document.removeEventListener("click", surClic, { capture: true });
   }, []);
 
   useEffect(() => {

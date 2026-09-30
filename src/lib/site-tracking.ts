@@ -40,6 +40,10 @@ export function estSiteSuivi(hostname: string): boolean {
 export const SITE_EVENT_TYPES = [
   'PAGE_VIEW', 'CLICK_CTA', 'CLICK_PHONE', 'CLICK_EMAIL', 'FORM_START', 'FORM_SUBMIT',
   'SCROLL_25', 'SCROLL_50', 'SCROLL_75', 'SCROLL_100', 'SESSION_START', 'SESSION_END',
+  // 30/09/2026 : ajouté côté CRM le même jour (enum SiteEventType). Un formulaire
+  // refusé en silence ne laissait aucune trace ; c'est ainsi que le formulaire
+  // du blog est resté cassé des mois sans que personne ne le voie.
+  'FORM_ERROR',
 ] as const;
 export type SiteEventType = (typeof SITE_EVENT_TYPES)[number];
 

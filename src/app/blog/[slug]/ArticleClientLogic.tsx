@@ -107,6 +107,20 @@ export function ArticleClientLogic({ article, html, toc, cluster, children }: Ar
                   {article.excerpt}
                 </p>
 
+                {/* CTA du haut : une ligne, pas un bandeau — le lecteur vient pour
+                    l'article. Il descend au formulaire du bas de page. */}
+                <a
+                  href="#devis-express"
+                  data-cta="article-haut"
+                  // Padding et marges en style inline : brakt-blog.css remet à zéro
+                  // ceux des classes utilitaires dans le corps de l'article.
+                  style={{ padding: "12px 16px", margin: "0 0 8px", textDecoration: "none", fontFamily: "system-ui, -apple-system, 'Segoe UI', sans-serif" }}
+                  className="flex flex-col gap-1 rounded-xl border border-amber-200 bg-amber-50/60 text-sm text-gray-700 transition-colors hover:bg-amber-50 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                >
+                  <span>Un séminaire à organiser ? Châteaux disponibles et devis gratuit sous 24 h.</span>
+                  <span className="whitespace-nowrap" style={{ fontWeight: 700, color: "#A37E2C" }}>Demander un devis →</span>
+                </a>
+
                 {/* Renvoi vers la page de référence de la zone */}
                 {cluster && <PageDeReference cluster={cluster} />}
 
