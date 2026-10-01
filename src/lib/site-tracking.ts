@@ -1,10 +1,10 @@
 /**
- * Traceur de visites → CRM V2 : construction des messages envoyés au CRM.
+ * Traceur de visites → CRM : construction des messages envoyés au CRM.
  *
  * Jusqu'au 24/09/2026, SiteTracker parlait encore le format du CRM V1
- * (`/api/site-tracking/collect` + `/heartbeat`, champ `action`). Le CRM V2
+ * (`/api/site-tracking/collect` + `/heartbeat`, champ `action`). Le CRM
  * (juillet) n'expose que `POST /api/site-tracking` avec le schéma
- * `siteIngestSchema` (CRM V2, src/modules/analytics-site/site-tracking.schema.ts) :
+ * `siteIngestSchema` (CRM, src/modules/analytics-site/site-tracking.schema.ts) :
  * chaque appel tombait en 404, en silence, et la table SiteSession est restée vide.
  *
  * Ce module est pur (pas de window/document) pour être testé par `node --test` ;
@@ -36,7 +36,7 @@ export function estSiteSuivi(hostname: string): boolean {
   return hostname === 'selectchateaux.com' || hostname === 'www.selectchateaux.com';
 }
 
-/** Types d'événement acceptés par le CRM V2 (`SITE_EVENT_TYPES`). Tout autre type fait rejeter le message. */
+/** Types d'événement acceptés par le CRM (`SITE_EVENT_TYPES`). Tout autre type fait rejeter le message. */
 export const SITE_EVENT_TYPES = [
   'PAGE_VIEW', 'CLICK_CTA', 'CLICK_PHONE', 'CLICK_EMAIL', 'FORM_START', 'FORM_SUBMIT',
   'SCROLL_25', 'SCROLL_50', 'SCROLL_75', 'SCROLL_100', 'SESSION_START', 'SESSION_END',
@@ -164,7 +164,7 @@ export function estTypeEvenement(t: string): t is SiteEventType {
   return (SITE_EVENT_TYPES as readonly string[]).includes(t);
 }
 
-/** `null` si le type n'existe pas côté CRM V2 : mieux vaut ne rien envoyer qu'un message rejeté. */
+/** `null` si le type n'existe pas côté CRM : mieux vaut ne rien envoyer qu'un message rejeté. */
 export function payloadEvenement(
   c: Commun & { eventType: string; label?: string; value?: string; scrollDepth?: number },
 ): PayloadV2 | null {
@@ -181,7 +181,7 @@ export function payloadEvenement(
   });
 }
 
-/** Réponse du CRM V2 : `{ success: true, data: { sessionId } }`. */
+/** Réponse du CRM : `{ success: true, data: { sessionId } }`. */
 export function lireSessionId(reponse: unknown): string | null {
   if (!reponse || typeof reponse !== 'object') return null;
   const r = reponse as { success?: unknown; data?: { sessionId?: unknown } };

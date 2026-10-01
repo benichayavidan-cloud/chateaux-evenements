@@ -18,10 +18,10 @@ import {
 import { evenementCta } from "@/lib/cta-article";
 
 /**
- * Traceur de visites → CRM V2 (`POST /api/site-tracking`, voir src/lib/site-tracking.ts).
+ * Traceur de visites → CRM (`POST /api/site-tracking`, voir src/lib/site-tracking.ts).
  * Une page vue à chaque changement de route, un événement par palier de scroll ;
  * le `sessionId` renvoyé par le CRM est réutilisé (le CRM clôt la session après
- * 30 min d'inactivité). Plus de heartbeat ni de fin de page/session : le CRM V2
+ * 30 min d'inactivité). Plus de heartbeat ni de fin de page/session : le CRM
  * ne les connaît pas.
  */
 
@@ -163,7 +163,7 @@ export function SiteTracker() {
   return null;
 }
 
-/** Événement ponctuel (clic téléphone, envoi de formulaire…). Types inconnus du CRM V2 ignorés. */
+/** Événement ponctuel (clic téléphone, envoi de formulaire…). Types inconnus du CRM ignorés. */
 export function trackSiteEvent(type: string, label?: string, value?: string) {
   const e = initialiser();
   if (!e) return;

@@ -1,5 +1,5 @@
 // ⚠️ FICHIER GÉNÉRÉ — ne pas éditer à la main.
-// Source : CRM V2, table Prestataire. Régénérer avec :
+// Source : CRM, table Prestataire. Régénérer avec :
 //   DATABASE_URL=… node scripts/venues/export-venues.mjs
 //
 // Périmètre : départements 78, 60, 77, 95, 91, 92. Exclut les lieux déjà

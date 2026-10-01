@@ -4,7 +4,7 @@
  * Jusqu'au 24/09/2026, une demande ne portait que la page du formulaire
  * (`source_page`, presque toujours `/devis`) : impossible de dire si le client
  * arrivait de Google, de ChatGPT ou d'un favori. Le traceur de visites du CRM
- * ne reçoit plus rien depuis la bascule vers le CRM V2 (juillet), il ne peut
+ * ne reçoit plus rien depuis la bascule vers le nouveau CRM (juillet), il ne peut
  * donc pas servir de relais.
  *
  * Le premier contact est mémorisé dans le navigateur à la première page vue

@@ -17,7 +17,7 @@ import {
   sourceDepuisCanal,
 } from './site-tracking.ts';
 
-// Copie fidèle de `siteIngestSchema` (CRM V2, src/modules/analytics-site/site-tracking.schema.ts).
+// Copie fidèle de `siteIngestSchema` (CRM, src/modules/analytics-site/site-tracking.schema.ts).
 // `.strict()` en plus : le CRM ignore les champs inconnus en silence, ce qui a caché
 // pendant trois mois que le site parlait encore le format du CRM V1.
 const optionalText = (max: number) => z.string().trim().max(max).nullable().optional();
@@ -56,7 +56,7 @@ const schemaV2 = z.object({
 const QUAND = new Date('2026-09-24T10:00:00Z');
 const ctx = (url: string, referrer = '', largeur = 1440) => lireContexteVisite(url, referrer, largeur, QUAND);
 
-test('régression : le traceur poste sur la route unique du CRM V2, plus sur /collect ni /heartbeat', () => {
+test('régression : le traceur poste sur la route unique du CRM, plus sur /collect ni /heartbeat', () => {
   assert.equal(URL_COLLECTE('https://crm.selectchateaux.com'), 'https://crm.selectchateaux.com/api/site-tracking');
   assert.equal(URL_COLLECTE('https://crm.selectchateaux.com/'), 'https://crm.selectchateaux.com/api/site-tracking');
 });
@@ -98,7 +98,7 @@ test('un événement respecte le schéma V2 et réutilise la session', () => {
   assert.equal(p.source, 'PAID');
 });
 
-test('les types d\'événement inconnus du CRM V2 sont ignorés au lieu de faire rejeter la requête', () => {
+test('les types d\'événement inconnus du CRM sont ignorés au lieu de faire rejeter la requête', () => {
   const c = ctx('https://www.selectchateaux.com/');
   assert.equal(payloadEvenement({ fingerprint: 'fp', sessionId: 's', contexte: c, pathname: '/', eventType: 'CLICK_WHATSAPP' }), null);
   assert.equal(payloadEvenement({ fingerprint: 'fp', sessionId: 's', contexte: c, pathname: '/', eventType: 'scroll_50' }), null);
