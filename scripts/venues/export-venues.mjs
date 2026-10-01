@@ -258,7 +258,7 @@ function estUtilisable(photo, largeurs) {
 }
 
 const header = `// ⚠️ FICHIER GÉNÉRÉ — ne pas éditer à la main.
-// Source : CRM V2, table Prestataire. Régénérer avec :
+// Source : CRM, table Prestataire. Régénérer avec :
 //   DATABASE_URL=… node scripts/venues/export-venues.mjs
 //
 // Périmètre : départements ${CORE_DEPARTMENTS.join(', ')}. Exclut les lieux déjà\n// publiés sous alias sur /chateaux, et ceux dont le code postal contredit le\n// département déclaré. Seuil de publication :

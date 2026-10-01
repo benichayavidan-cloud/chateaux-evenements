@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
         `Origine : ${LIBELLE_CANAL[canal]}${pageArrivee ? ` — arrivé sur ${pageArrivee}` : ''}`,
       ].filter(Boolean).join(' · ');
 
-      // CRM V2 : le lead devient directement un dossier « Nouvelle demande »
+      // CRM : le lead devient directement un dossier « Nouvelle demande »
       // (société + contact + événement créés côté CRM). Secret partagé serveur→serveur.
       const crmLeadsUrl = process.env.CRM_LEADS_URL;
       const crmLeadsSecret = process.env.CRM_LEADS_SECRET;
