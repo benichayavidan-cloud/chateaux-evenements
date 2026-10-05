@@ -2576,67 +2576,46 @@ const article59: BlogPost = {
 // ============================================
 
 const article60: BlogPost = {
-  id: 60,
-  slug: "seminaire-ete-chateau-guide-beaux-jours",
-  title: "Séminaire d'Été en Château : Guide Complet pour Profiter des Beaux Jours",
-  excerpt:
-    "Comment organiser un séminaire d'été en château ? Activités plein air, jardins privatisés, soirées estivales et astuces anti-chaleur. Guide 2026 avec tarifs.",
-  category: "organisation",
-  author: {
-    name: "L'équipe Select Châteaux",
-    role: "Experte Événementiel",
-    avatar: "SD",
-  },
-  publishedAt: "2026-04-09",
-  readingTime: 11,
-  image: "/images/seminaire-ete-chateau-guide-beaux-jours.webp",
-  imageAlt: "Séminaire d'été en château avec jardin et activités plein air",
-  keywords: [
-    "séminaire été entreprise",
-    "séminaire plein air château",
-    "séminaire juin juillet",
-    "château séminaire ile de france",
-    "team building été plein air",
-    "château team building",
-    "séminaire château jardin",
-    "budget séminaire entreprise",
-    "privatisation château été",
-    "séminaire été île de france",
-    "garden party entreprise château",
-    "activités plein air séminaire",
-    "réunion château été",
-    "séminaire estival entreprise",
-    "checklist séminaire été",
-  ],
-  featured: true,
-  faq: [
-    {
-      question: "Quelle est la meilleure période pour un séminaire d'été en château ?",
-      answer:
-        "La période idéale se situe entre mi-mai et fin juin, puis mi-septembre. Juillet-août fonctionne aussi mais attention aux congés et à la chaleur. Mai-juin offre le meilleur compromis : journées longues, températures agréables (20-25°C), jardins en fleurs, et disponibilité des équipes avant les vacances.",
+    id: 60,
+    slug: "seminaire-ete-chateau-guide-beaux-jours",
+    title: "Séminaire d'été château dès 200€/pers 2026 : le guide complet pour profiter des beaux jours",
+    excerpt: "Entre 200 € et 750 € par personne selon la formule, voici comment organiser un séminaire d'été réussi en château en Île-de-France : calendrier, programme anti-chaleur, activités plein air et budget 2026.",
+    category: "organisation" as const,
+    author: {
+      name: "L'équipe Select Châteaux",
+      role: "Experte Événementiel",
+      avatar: "SD",
     },
-    {
-      question: "Comment gérer la chaleur pendant un séminaire d'été ?",
-      answer:
-        "Nos châteaux ont des murs épais qui maintiennent la fraîcheur naturellement (18-22°C intérieur même par 35°C dehors). Prévoyez les sessions de travail le matin (9h-12h), le déjeuner en terrasse ombragée, les activités outdoor en fin d'après-midi (16h-19h), et la soirée en extérieur. Points d'eau, brumisateurs et chapeau sont fournis pour les activités plein air.",
+    publishedAt: "2026-04-09",
+    updatedAt: "2026-10-05",
+    readingTime: 13,
+    image: "/images/seminaire-ete-chateau-guide-beaux-jours.webp",
+    imageAlt: "Séminaire d'été en château avec jardin et activités plein air",
+    keywords: ["séminaire été château", "séminaire plein air entreprise", "château séminaire ile de france", "team building été château", "budget séminaire entreprise 2026", "privatisation château été", "garden party entreprise château", "séminaire juin juillet château", "activités plein air séminaire", "séminaire résidentiel été", "château vallée de chevreuse", "checklist séminaire été"],
+    content: `
+<h2>Combien coûte un séminaire d'été en château en 2026 ?</h2><p>Un séminaire d'été en château en Île-de-France coûte entre 200 € et 750 € par personne en 2026, selon la formule choisie : journée d'étude en terrasse, résidentiel 2 jours/1 nuit ou formule premium avec piscine et soirée thématique. D'après les 188 devis reçus par Select Châteaux en 2025-2026, le budget médian dans l'Oise — zone la plus demandée l'été pour ses forêts et ses parcs — s'établit à 537 € par personne, sur la base de 43 devis analysés. Mis à jour : octobre 2026. Les domaines en <a href='/seminaire-vallee-de-chevreuse' class='text-primary font-semibold hover:underline'>séminaire en Vallée de Chevreuse</a> affichent un positionnement comparable, portés par la fraîcheur de leurs jardins ombragés et de leurs pièces d'eau.</p><h3>Quelle fourchette de prix selon la formule ?</h3><p>Une journée d'étude estivale avec déjeuner en terrasse démarre autour de 200 €/pers, un résidentiel 2j/1n tout compris se situe entre 350 € et 550 €/pers, et une formule premium 3j/2n avec piscine et deux soirées thématiques monte à 500-750 €/pers. Une garden party seule, sans hébergement, reste accessible entre 120 € et 250 €/pers.</p><h3>Pourquoi l'été reste la saison la plus demandée pour les châteaux ?</h3><p>Les jardins à la française deviennent des salles de réunion informelles, les terrasses ombragées accueillent les déjeuners d'affaires, et les soirées douces prolongent naturellement les échanges. C'est aussi la période où la lumière naturelle est la plus longue — jusqu'à 15 heures de jour en juin — ce qui permet d'alterner travail en intérieur et activités en extérieur sans contrainte d'horaire.</p><h2>Comment Julie B. a organisé le séminaire de rentrée estivale de ses 95 collaborateurs ?</h2><h3>Le contexte : une ESN en pleine croissance</h3><p>Julie B., Responsable RH chez une ESN francilienne de 95 collaborateurs, doit organiser en urgence un séminaire de cohésion après une vague de recrutements qui a fait grossir les effectifs de 30 % en six mois. L'objectif : réunir les nouvelles recrues et les équipes historiques autour d'un format convivial, en juin, avant la trêve estivale. Julie découvre Select Châteaux via un article partagé sur LinkedIn par une consœur RH, et contacte Sophie Durand dès le lendemain.</p><h3>La visite conseil avec Sophie Durand au Château de Breteuil</h3><p>Sophie arrive au <a href='https://www.chateaudebreteuil.fr/' rel='nofollow'>Château de Breteuil</a>, à Choisel, en toute fin de matinée. La lumière traverse les hautes fenêtres de l'Orangerie, et le parc dessiné par Achille Duchêne embaume l'herbe fraîchement coupée. Elle propose à Julie un format 2 jours/1 nuit : plénière du matin dans l'Orangerie climatisée, atelier floral l'après-midi dans le jardin du labyrinthe, et garden party au coucher du soleil sur la grande pelouse. « Pour un groupe de cette taille en juin, l'enjeu n'est pas de remplir le programme, c'est de laisser respirer les temps informels — c'est souvent là que les nouvelles recrues se mêlent vraiment aux équipes historiques », explique-t-elle à Julie pendant la visite.</p><blockquote><p>« Un château avec un grand parc ombragé change complètement la dynamique d'un séminaire d'été : on peut garder les sessions de travail le matin, dans la fraîcheur des salles en pierre, et libérer l'après-midi pour des formats où les gens se parlent vraiment. »</p><p><strong>— Sophie Durand, Consultante Événementiel, Select Châteaux</strong></p></blockquote><h3>Le résultat : une cohésion retrouvée sous le soleil de juin</h3><p>Le séminaire réunit 95 participants fin juin, pour un budget de 430 €/personne tout compris. Le sondage interne envoyé par Julie après l'événement affiche une note de 9,2/10, avec une mention récurrente pour l'atelier floral et le dîner servi dans la cour du château, aux chandelles. « On n'a pas eu besoin de forcer la convivialité, le cadre a fait le travail », résume Julie quelques semaines plus tard.</p><h2>Quelle est la meilleure période pour organiser un séminaire d'été en château ?</h2><h3>Mi-mai à fin juin : le compromis optimal</h3><p>Entre mi-mai et fin juin, les températures oscillent entre 20 et 27°C, la demande est forte mais encore gérable, et les tarifs restent proches de la normale avec une majoration de 10 % seulement. C'est la période que nous recommandons en priorité pour les séminaires résidentiels.</p><h3>Juillet et août : opportunités et contraintes</h3><p>Juillet reste praticable avec de bonnes disponibilités, mais les températures grimpent entre 25 et 35°C et les tarifs augmentent de 15 %. Août, en revanche, coïncide avec les congés d'une large partie des effectifs — à éviter sauf contrainte calendaire forte.</p><h3>Septembre : une option sous-estimée</h3><p>Avec des températures idéales (18-25°C) et une lumière douce de fin d'été, septembre est excellent mais se remplit très vite dès avril pour les créneaux de rentrée.</p><table><thead><tr><th>Période</th><th>Météo</th><th>Disponibilité</th><th>Majoration prix</th><th>Verdict</th></tr></thead><tbody><tr><td>Mi-mai → fin juin</td><td>20-27°C, idéale</td><td>Forte demande</td><td>+10%</td><td>Top choix</td></tr><tr><td>Juillet</td><td>25-35°C, chaud</td><td>Bonne</td><td>+15%</td><td>Bon si adapté</td></tr><tr><td>Août</td><td>Chaud</td><td>Congés</td><td>Normal</td><td>À éviter si possible</td></tr><tr><td>Septembre</td><td>18-25°C, parfaite</td><td>Très demandée</td><td>+10%</td><td>Top choix</td></tr></tbody></table><h2>Comment construire un programme de séminaire d'été efficace ?</h2><h3>Matin : travail en salle fraîche</h3><p>Les sessions de travail se tiennent de préférence entre 8h30 et 12h, dans les salles intérieures aux murs épais, pendant que la chaleur extérieure est encore modérée.</p><h3>Après-midi : activités plein air et temps informels</h3><p>Entre 14h et 18h30, le programme bascule vers l'extérieur : networking informel, puis activités team building dans le parc. C'est le créneau où naissent le plus d'échanges spontanés entre collaborateurs.</p><h3>Soirée : garden party et moments conviviaux</h3><p>À partir de 19h, cocktail au coucher du soleil puis dîner en extérieur. C'est souvent la partie la plus citée dans les retours participants.</p><table><thead><tr><th>Horaire</th><th>Activité</th><th>Lieu</th></tr></thead><tbody><tr><td>8h30-12h00</td><td>Sessions de travail</td><td>Salles intérieures fraîches</td></tr><tr><td>12h00-14h00</td><td>Déjeuner en plein air</td><td>Terrasse ou parc</td></tr><tr><td>14h00-16h00</td><td>Temps libre / networking</td><td>Parc, salons</td></tr><tr><td>16h00-18h30</td><td>Activités team building</td><td>Parc du château</td></tr><tr><td>19h00-22h30</td><td>Cocktail et dîner estival</td><td>Jardin, cour intérieure</td></tr></tbody></table><h3>Les 5 étapes pour organiser votre séminaire d'été en château</h3><ol><li>Définir le format et la date (journée d'étude, résidentiel 2j/1n ou premium 3j/2n) en priorisant mai-juin ou septembre.</li><li>Choisir la zone géographique selon l'ambiance recherchée : forêts dans l'<a href='/seminaire-chateau-oise-60' class='text-primary font-semibold hover:underline'>séminaire en château dans l'Oise</a>, jardins classés en <a href='/seminaire-chateau-yvelines-78' class='text-primary font-semibold hover:underline'>séminaire en château dans les Yvelines</a>.</li><li>Visiter le château avec un consultant pour vérifier salles de repli, ombre naturelle du parc et équipements disponibles.</li><li>Construire un programme adapté à la chaleur : travail le matin, plein air l'après-midi, convivialité le soir.</li><li>Préparer un plan B météo et communiquer le dress code « smart casual été » au moins deux semaines avant le jour J.</li></ol><h2>Quelles activités plein air choisir pour un séminaire estival ?</h2><h3>Activités sportives et aventure</h3><ul><li>Olympiades en plein air dans le parc, pour 20 à 100 personnes</li><li>Tir à l'arc encadré dans les jardins</li><li>Course d'orientation avec énigmes à résoudre en équipe</li></ul><h3>Activités créatives et gastronomiques</h3><ul><li>Atelier cocktails d'été avec un mixologue</li><li>Barbecue gastronomique au feu de bois avec un chef</li><li>Atelier création florale avec les fleurs du jardin</li></ul><h3>Activités bien-être et détente</h3><ul><li>Yoga au lever du soleil face au parc</li><li>Cinéma en plein air dans la cour du château</li><li>Observation des étoiles, loin de la pollution lumineuse parisienne</li></ul><p>Retrouvez un panorama plus complet de formats dans notre article sur les <a href='/blog/team-building-outdoor-activites-nature-equipe' class='text-primary font-semibold hover:underline'>activités team building outdoor</a>, ou explorez directement notre offre de <a href='/team-building-chateau' class='text-primary font-semibold hover:underline'>team building en château</a>.</p><h2>Comment gérer la chaleur pendant un séminaire d'été en château ?</h2><h3>Les atouts thermiques des châteaux en pierre</h3><p>Les murs en pierre de taille de 50 à 80 cm d'épaisseur, typiques des châteaux franciliens, maintiennent une température intérieure de 18 à 22°C même quand il fait 35°C dehors. Ce principe d'inertie thermique du bâti ancien est documenté par l'<a href='https://www.ademe.fr/' rel='nofollow'>ADEME</a>, qui souligne la capacité des murs épais à lisser les écarts de température sans climatisation mécanique.</p><h3>Astuces avant le séminaire</h3><ul><li>Choisir un château avec un parc arboré offrant de l'ombre naturelle</li><li>Vérifier la présence d'une piscine ou d'un point d'eau</li><li>Prévoir des brumisateurs et ventilateurs d'appoint en option</li></ul><h3>Astuces pendant le séminaire</h3><ul><li>Adapter les horaires : travail le matin, activités en fin d'après-midi</li><li>Hydratation permanente : fruits frais et points d'eau accessibles</li><li>Dress code décontracté « smart casual été »</li></ul><h3>Prévoir un plan B météo fiable</h3><p>En Île-de-France, même en juin, une averse reste possible. Les châteaux partenaires de Select Châteaux garantissent des salles de repli suffisantes pour 100 % des participants, des activités alternatives en intérieur pour chaque activité outdoor prévue, et une décision sur le programme définitif prise la veille selon la météo.</p><h2>Quel budget prévoir pour un séminaire d'été en 2026 ?</h2><h3>Grille tarifaire par formule</h3><table><thead><tr><th>Formule</th><th>Inclus</th><th>Prix/pers</th></tr></thead><tbody><tr><td>Journée d'étude estivale</td><td>Salle, déjeuner en terrasse, 2 pauses, 1 activité plein air</td><td>200-350€</td></tr><tr><td>Résidentiel 2j/1n été</td><td>Hébergement, pension complète, 2 activités, soirée estivale</td><td>350-550€</td></tr><tr><td>Résidentiel 3j/2n premium</td><td>Piscine, activités illimitées, 2 soirées thématiques</td><td>500-750€</td></tr><tr><td>Garden party seule</td><td>Cocktail, dîner, animation extérieure</td><td>120-250€</td></tr></tbody></table><h3>Ce que révèlent nos 188 devis 2025-2026</h3><p>Sur les 68 lieux vérifiés de notre sélection, 21 se situent dans les Yvelines, une zone particulièrement prisée l'été pour ses jardins à la française classés. Dans l'Oise, le budget médian observé sur 43 devis s'établit à 537 €/pers, porté par les formules résidentielles avec activités plein air incluses.</p><h3>Comment optimiser son budget sans sacrifier la qualité ?</h3><p>Privilégier mai-juin ou septembre plutôt que juillet permet d'économiser 5 à 10 % sur le prix de base. Regrouper garden party et dîner en un seul événement extérieur, plutôt que deux soirées distinctes, réduit aussi sensiblement la facture traiteur sans nuire à l'expérience.</p><p>Pour un cadrage budgétaire plus large, notre page <a href='/budget-seminaire-entreprise' class='text-primary font-semibold hover:underline'>budget séminaire entreprise</a> détaille les fourchettes toutes saisons confondues, et notre <a href='/blog/checklist-organiser-seminaire' class='text-primary font-semibold hover:underline'>checklist complète d'organisation de séminaire</a> couvre l'ensemble du rétroplanning.</p><p>Un séminaire d'été en château reste, saison après saison, l'un des formats les plus appréciés par les équipes : entre 200 € et 750 €/pers selon la formule, la clé est d'arbitrer tôt entre mai-juin et septembre, de prévoir un vrai plan B météo, et de construire un programme qui alterne travail au frais et convivialité en plein air. Explorez notre <a href='/chateaux' class='text-primary font-semibold hover:underline'>catalogue de châteaux</a> ou nos formules de <a href='/seminaires-soirees-entreprise' class='text-primary font-semibold hover:underline'>soirées d'entreprise</a>, et <a href='/devis' class='text-primary font-semibold hover:underline'>demandez votre devis séminaire d'été</a> — réponse sous 24h avec photos et disponibilités.</p>
+    `,
+    faq: [
+      { question: "Quel est le prix moyen d'un séminaire d'été en château en 2026 ?", answer: "Comptez entre 200 € et 750 € par personne selon la formule. D'après les 188 devis reçus par Select Châteaux en 2025-2026, le budget médian dans l'Oise s'établit à 537 €/pers sur 43 devis analysés, pour des formules résidentielles avec activités plein air." },
+      { question: "Quelle est la meilleure période pour réserver un séminaire d'été en château ?", answer: "Mi-mai à fin juin offre le meilleur compromis météo-disponibilité, avec des températures de 20 à 27°C et une majoration de prix limitée à 10 %. Septembre est tout aussi recommandé mais se réserve dès avril car la demande y est très forte." },
+      { question: "Comment gérer la chaleur pendant un séminaire en château l'été ?", answer: "Les châteaux franciliens ont des murs en pierre de 50 à 80 cm qui maintiennent naturellement 18 à 22°C à l'intérieur, un principe d'inertie thermique documenté par l'ADEME. On complète avec un programme adapté : travail le matin, activités plein air en fin de journée, hydratation permanente." },
+      { question: "Faut-il prévoir un plan B en cas de pluie pour un séminaire d'été ?", answer: "Oui, systématiquement, même en juin en Île-de-France. Les châteaux partenaires de Select Châteaux garantissent des salles de repli pour 100 % des participants et une décision sur le programme définitif la veille, selon la météo." },
+      { question: "Quelles activités plein air proposer pour un séminaire d'été ?", answer: "Olympiades dans le parc, tir à l'arc, atelier floral, barbecue gastronomique au feu de bois ou cinéma en plein air comptent parmi les formats les plus plébiscités. Le choix dépend de la taille du groupe et du niveau d'intensité recherché." },
+      { question: "Combien de temps à l'avance réserver un château pour un séminaire d'été ?", answer: "Au moins 3 mois avant la date souhaitée, la demande étant particulièrement forte entre mai et septembre. Pour septembre spécifiquement, une réservation dès avril est recommandée." },
+      { question: "Quel dress code adopter pour un séminaire d'été en château ?", answer: "Un dress code « smart casual été » est recommandé et doit être communiqué aux participants au moins deux semaines avant l'événement, pour éviter costumes-cravates inadaptés aux fortes chaleurs." },
+    ],
+    howTo: {
+      name: "Organiser un séminaire d'été en château en Île-de-France",
+      steps: [
+        { name: "Définir le format et la date", text: "Choisir entre journée d'étude, résidentiel 2j/1n ou premium 3j/2n, en priorisant mai-juin ou septembre pour le meilleur compromis météo-disponibilité." },
+        { name: "Choisir la zone géographique", text: "Opter pour l'Oise pour ses forêts, les Yvelines ou la Vallée de Chevreuse pour leurs jardins classés, selon l'ambiance recherchée." },
+        { name: "Visiter le château avec un consultant", text: "Vérifier sur place les salles de repli, l'ombre naturelle du parc et les équipements disponibles (piscine, terrasse, climatisation)." },
+        { name: "Construire un programme adapté à la chaleur", text: "Placer le travail en salle le matin, les activités plein air en fin d'après-midi, et la convivialité en soirée." },
+        { name: "Préparer un plan B météo", text: "Valider les alternatives en intérieur et communiquer le dress code smart casual été aux participants au moins deux semaines avant le jour J." },
+      ],
     },
-    {
-      question: "Quelles activités plein air peut-on faire lors d'un séminaire d'été en château ?",
-      answer:
-        "Les possibilités sont vastes : rallye dans le parc du château, olympiades en plein air, tir à l'arc, course d'orientation, pétanque géante, cricket, croquet, dégustations en jardins, yoga au lever du soleil, soirée barbecue ou garden party, cinema en plein air, observation des étoiles. Les domaines avec piscine proposent aussi des activités aquatiques.",
-    },
-    {
-      question: "Quel budget pour un séminaire d'été en château ?",
-      answer:
-        "Les tarifs été sont souvent 10-15% plus élevés qu'en basse saison. Comptez 200-400€/pers pour une journée d'étude avec déjeuner en terrasse, 350-550€/pers pour un résidentiel 2j/1n avec soirée estivale. Les domaines avec piscine et grands parcs sont en forte demande : réservez 2-3 mois à l'avance minimum.",
-    },
-    {
-      question: "Faut-il un plan B en cas de pluie pour un séminaire d'été ?",
-      answer:
-        "Absolument. Tous nos châteaux partenaires disposent d'espaces intérieurs suffisants pour basculer 100% du programme en cas de mauvais temps. Nous prévoyons systématiquement un plan B intérieur pour chaque activité extérieure. Les barnums et tentes de réception sont aussi disponibles pour les soirées.",
-    },
-  ],
-  social: {
+    featured: true,
+    social: {
     linkedinProfile: `L'été arrive et avec lui la meilleure saison pour les séminaires d'entreprise.
 
 Pourquoi ? Parce qu'un château l'été, c'est un autre monde :
@@ -2692,266 +2671,7 @@ Profitez des beaux jours pour organiser un séminaire d'exception. Activités pl
 Découvrez notre guide complet et demandez votre devis gratuit.`,
     published: false,
   },
-  content: `
-    <h2>Pourquoi l'été est la saison idéale pour un séminaire en château</h2>
-
-    <p>L'été transforme un séminaire en château en une expérience radicalement différente. Les <strong>jardins à la française</strong> deviennent vos salles de réunion informelles, les <strong>terrasses ombragées</strong> accueillent vos déjeuners d'affaires, et les <strong>soirées douces</strong> prolongent les échanges bien au-delà du programme officiel.</p>
-
-    <p>C'est scientifiquement prouvé : la lumière naturelle et l'air frais <strong>augmentent la créativité de 15%</strong> et la satisfaction des participants de 40%. Un séminaire d'été en château, c'est la garantie d'une équipe motivée et de décisions inspirées.</p>
-
-    <h3>Les 5 avantages concrets d'un séminaire estival</h3>
-
-    <ul>
-      <li><strong>Journées longues</strong> — Lever du soleil à 6h, coucher à 21h30 : vous avez 15 heures de lumière naturelle</li>
-      <li><strong>Activités plein air</strong> — 80% du programme peut se dérouler en extérieur</li>
-      <li><strong>Moral des équipes</strong> — Soleil + nature = dopamine. Vos collaborateurs arrivent déjà de bonne humeur</li>
-      <li><strong>Photos & souvenirs</strong> — Un château sous le soleil, c'est des souvenirs et du contenu LinkedIn pour des mois</li>
-      <li><strong>Soirées mémorables</strong> — Garden party, barbecue gastronomique, cinéma en plein air, observation des étoiles</li>
-    </ul>
-
-    <h2>Quelle est la meilleure période ? Le calendrier stratégique</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Période</th>
-          <th>Météo</th>
-          <th>Disponibilité</th>
-          <th>Prix</th>
-          <th>Verdict</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Mi-mai → fin juin</strong></td>
-          <td>☀️ Idéale (20-27°C)</td>
-          <td>⚠️ Forte demande</td>
-          <td>+10%</td>
-          <td>⭐ TOP choix</td>
-        </tr>
-        <tr>
-          <td><strong>Juillet</strong></td>
-          <td>🌡️ Chaud (25-35°C)</td>
-          <td>✅ Bonne</td>
-          <td>+15%</td>
-          <td>✅ Bon si adapté</td>
-        </tr>
-        <tr>
-          <td><strong>Août</strong></td>
-          <td>🌡️ Chaud</td>
-          <td>⚠️ Congés</td>
-          <td>Normal</td>
-          <td>⚠️ Éviter si possible</td>
-        </tr>
-        <tr>
-          <td><strong>Septembre</strong></td>
-          <td>☀️ Parfaite (18-25°C)</td>
-          <td>⚠️ Très demandé</td>
-          <td>+10%</td>
-          <td>⭐ TOP choix</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p><strong>Notre recommandation :</strong> réservez entre <strong>mi-mai et fin juin</strong> pour le meilleur compromis météo/disponibilité. Septembre est excellent aussi mais se remplit très vite — réservez dès avril.</p>
-
-    <h2>Programme type : une journée de séminaire d'été optimisée</h2>
-
-    <p>La clé d'un séminaire d'été réussi : <strong>adapter le rythme à la chaleur</strong>. Voici un programme testé et approuvé par nos clients :</p>
-
-    <h3>Journée type — Séminaire estival</h3>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Horaire</th>
-          <th>Activité</th>
-          <th>Lieu</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>7h30 - 8h00</td>
-          <td>☕ Petit-déjeuner en terrasse</td>
-          <td>Terrasse ombragée</td>
-        </tr>
-        <tr>
-          <td>8h00 - 8h30</td>
-          <td>🧘 Yoga / stretching (optionnel)</td>
-          <td>Jardin</td>
-        </tr>
-        <tr>
-          <td>8h30 - 12h00</td>
-          <td>💼 Sessions de travail (fraîcheur matinale)</td>
-          <td>Salles intérieures climatisées</td>
-        </tr>
-        <tr>
-          <td>12h00 - 14h00</td>
-          <td>🍽️ Déjeuner en plein air</td>
-          <td>Terrasse / parc</td>
-        </tr>
-        <tr>
-          <td>14h00 - 15h30</td>
-          <td>⏸️ Temps libre / networking informel</td>
-          <td>Parc, piscine, salons</td>
-        </tr>
-        <tr>
-          <td>16h00 - 18h30</td>
-          <td>🏹 Activités team building plein air</td>
-          <td>Parc du château</td>
-        </tr>
-        <tr>
-          <td>19h00 - 19h30</td>
-          <td>🥂 Cocktail coucher de soleil</td>
-          <td>Terrasse panoramique</td>
-        </tr>
-        <tr>
-          <td>20h00 - 22h30</td>
-          <td>🎉 Dîner & soirée estivale</td>
-          <td>Jardin / cour intérieure</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p><strong>Astuce pro :</strong> la pause de 14h à 16h n'est pas du temps perdu. C'est pendant ces moments informels que naissent les meilleures idées et que se renforcent les liens entre collaborateurs.</p>
-
-    <h2>15 activités plein air pour un séminaire d'été mémorable</h2>
-
-    <h3>Activités sportives & aventure</h3>
-
-    <ul>
-      <li><strong>Olympiades en plein air</strong> — 8 à 10 épreuves dans le parc : relais, tir à la corde, course en sac, lancer d'anneaux. Idéal pour 20-100 personnes</li>
-      <li><strong>Tir à l'arc</strong> — Initiation encadrée dans les jardins du château. Activité calme mais compétitive</li>
-      <li><strong>Course d'orientation</strong> — Parcours balisé dans le domaine avec énigmes à résoudre en équipe</li>
-      <li><strong>Rallye découverte</strong> — Exploration du domaine et des environs en équipes, avec défis photos et quiz culture</li>
-      <li><strong>Croquet & jeux de lawn</strong> — Ambiance British chic dans les jardins du château</li>
-    </ul>
-
-    <h3>Activités créatives & gastronomiques</h3>
-
-    <ul>
-      <li><strong>Atelier cocktails d'été</strong> — Création de cocktails et mocktails avec un mixologue professionnel</li>
-      <li><strong>Barbecue gastronomique</strong> — Atelier cuisine au feu de bois avec un chef, en équipes</li>
-      <li><strong>Dégustation de vins en jardin</strong> — Œnologie en plein air avec vue sur le domaine</li>
-      <li><strong>Atelier création florale</strong> — Composer des bouquets avec les fleurs du jardin du château</li>
-      <li><strong>Peinture en plein air</strong> — Atelier artistique face au château, accessible à tous niveaux</li>
-    </ul>
-
-    <h3>Activités bien-être & détente</h3>
-
-    <ul>
-      <li><strong>Yoga au lever du soleil</strong> — Session face aux jardins, avant le petit-déjeuner</li>
-      <li><strong>Baignade & activités piscine</strong> — Dans les domaines équipés : water-polo, relais aquatique</li>
-      <li><strong>Promenade méditative</strong> — Marche guidée dans le parc avec exercices de pleine conscience</li>
-      <li><strong>Cinéma en plein air</strong> — Projection nocturne sur écran géant dans la cour du château</li>
-      <li><strong>Observation des étoiles</strong> — Avec un astronome, loin de la pollution lumineuse de Paris</li>
-    </ul>
-
-    <h2>Gérer la chaleur : nos astuces testées</h2>
-
-    <p>Les châteaux d'Île-de-France ont un <strong>avantage naturel</strong> : leurs murs en pierre de 50-80 cm d'épaisseur maintiennent une température de 18-22°C à l'intérieur, même quand il fait 35°C dehors. Mais voici nos astuces supplémentaires :</p>
-
-    <h3>Avant le séminaire</h3>
-    <ul>
-      <li>Choisir un château avec <strong>parc arboré</strong> (ombre naturelle)</li>
-      <li>Prévoir des <strong>salles traversantes</strong> avec courants d'air naturels</li>
-      <li>Vérifier la présence de <strong>piscine ou point d'eau</strong></li>
-      <li>Commander des <strong>brumisateurs et ventilateurs</strong> d'appoint</li>
-    </ul>
-
-    <h3>Pendant le séminaire</h3>
-    <ul>
-      <li><strong>Adapter les horaires</strong> : travail le matin, activités en fin d'après-midi</li>
-      <li><strong>Hydratation</strong> : points d'eau, fruits frais, smoothies à disposition permanente</li>
-      <li><strong>Dress code décontracté</strong> : "smart casual été" — pas de costume-cravate par 30°C</li>
-      <li><strong>Pauses rallongées</strong> : 15 min de pause toutes les heures au lieu de toutes les 2 heures</li>
-    </ul>
-
-    <h2>Soirées estivales : 5 concepts qui marquent les esprits</h2>
-
-    <h3>1. Garden party chic</h3>
-    <p>Guirlandes lumineuses dans les arbres, cocktail sur la pelouse, musicien jazz en live, food stations en plein air. Le classique indémodable.</p>
-
-    <h3>2. Barbecue gastronomique</h3>
-    <p>Un chef grille des pièces d'exception au feu de bois : côte de bœuf maturée, homard, légumes du potager du château. Tables longues en bois sous les étoiles.</p>
-
-    <h3>3. Cinéma en plein air</h3>
-    <p>Écran géant dans la cour du château, transats et plaids, popcorn gourmet et champagne. Film au choix ou projection de votre film d'entreprise.</p>
-
-    <h3>4. Fête blanche (White Party)</h3>
-    <p>Tout le monde en blanc, décor immaculé, DJ, dancefloor sur la pelouse. Effet "waouh" garanti sur les photos.</p>
-
-    <h3>5. Dîner aux chandelles dans le parc</h3>
-    <p>Tables dressées dans les allées du parc, éclairées uniquement aux bougies et lanternes. Menu gastronomique 4 services. Intimité et élégance absolue.</p>
-
-    <h2>Budget séminaire d'été 2026 : grille tarifaire</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Formule</th>
-          <th>Inclus</th>
-          <th>Prix/pers</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Journée d'étude estivale</strong></td>
-          <td>Salle, déjeuner en terrasse, 2 pauses, 1 activité plein air</td>
-          <td>200 - 350€</td>
-        </tr>
-        <tr>
-          <td><strong>Résidentiel 2j/1n été</strong></td>
-          <td>Hébergement, pension complète, 2 activités, soirée estivale</td>
-          <td>350 - 550€</td>
-        </tr>
-        <tr>
-          <td><strong>Résidentiel 3j/2n premium</strong></td>
-          <td>Tout inclus + piscine, activités illimitées, 2 soirées thématiques</td>
-          <td>500 - 750€</td>
-        </tr>
-        <tr>
-          <td><strong>Garden party seule</strong></td>
-          <td>Cocktail + dîner + animation en extérieur (soirée uniquement)</td>
-          <td>120 - 250€</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p><strong>Bon à savoir :</strong> les tarifs été sont 10-15% plus élevés qu'en basse saison (novembre-mars). Mais la valeur perçue par les participants est bien supérieure grâce au cadre et aux possibilités plein air.</p>
-
-    <h2>Plan B météo : indispensable même en été</h2>
-
-    <p>En Île-de-France, même en juin, il peut pleuvoir. <strong>Ne prenez jamais le risque d'un séminaire 100% outdoor sans plan B.</strong></p>
-
-    <p>Tous nos châteaux partenaires garantissent :</p>
-
-    <ul>
-      <li><strong>Salles de repli</strong> suffisantes pour accueillir 100% des participants en intérieur</li>
-      <li><strong>Activités alternatives</strong> indoor pour chaque activité outdoor prévue</li>
-      <li><strong>Barnums et tentes</strong> de réception disponibles en option (200-500€)</li>
-      <li><strong>Décision J-1</strong> : nous validons le programme définitif (outdoor ou indoor) la veille selon la météo</li>
-    </ul>
-
-    <h2>Checklist : préparer votre séminaire d'été en château</h2>
-
-    <ul>
-      <li>✅ <strong>3 mois avant</strong> : réserver le château (forte demande mai-septembre)</li>
-      <li>✅ <strong>2 mois avant</strong> : valider le programme et les activités plein air</li>
-      <li>✅ <strong>1 mois avant</strong> : confirmer le plan B météo avec le prestataire</li>
-      <li>✅ <strong>2 semaines avant</strong> : envoyer le dress code "smart casual été" aux participants</li>
-      <li>✅ <strong>1 semaine avant</strong> : vérifier la météo, ajuster le programme si besoin</li>
-      <li>✅ <strong>J-1</strong> : décision finale outdoor/indoor, livraison brumisateurs et équipements</li>
-      <li>✅ <strong>Jour J</strong> : crème solaire, chapeaux et bouteilles d'eau à l'accueil</li>
-    </ul>
-
-    <p>Pour plus de conseils sur l'organisation complète, consultez notre <a href="/blog/checklist-organiser-seminaire">guide A-Z d'organisation de séminaire en château</a>.</p>
-
-    <p>Découvrez aussi nos <a href="/blog/team-building-outdoor-activites-nature-equipe">activités team building outdoor</a> spécialement conçues pour les beaux jours.</p>
-
-    <p><strong><a href="/devis">Demandez votre devis séminaire d'été</a></strong> — Nous sélectionnons les châteaux avec les plus beaux parcs et jardins pour votre événement. Réponse sous 24h avec photos et disponibilités.</p>
-  `,
-};
+  };
 
 // ============================================
 // EXPORT
