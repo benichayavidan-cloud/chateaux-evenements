@@ -1,0 +1,44 @@
+name: Bilan du plan intention commerciale
+
+# Bilan avant / après du plan du 06/10/2026, envoyé par email le 03/11/2026
+# (J+28 après la mise en ligne). Lecture seule. Le cron revient chaque
+# 3 novembre : la garde ne laisse passer que 2026 (relance manuelle possible).
+on:
+  schedule:
+    - cron: "0 7 3 11 *"   # 03/11, 08h00 Paris (heure d'hiver)
+  workflow_dispatch:
+
+jobs:
+  bilan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Garde (déclenchement planifié en 2026 seulement)
+        id: garde
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$(date -u +%Y)" != "2026" ]; then
+            echo "Bilan déjà rendu en 2026 — rien à faire"; echo "go=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.garde.outputs.go == 'true'
+      - uses: actions/setup-node@v4
+        if: steps.garde.outputs.go == 'true'
+        with: { node-version: 22 }
+      - name: Bilan
+        if: steps.garde.outputs.go == 'true'
+        working-directory: scripts/agent-seo
+        run: |
+          npm install --omit=dev --no-audit --no-fund
+          node bilan-plan.mjs
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_ADMIN: ${{ secrets.EMAIL_ADMIN }}
