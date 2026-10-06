@@ -1,5 +1,5 @@
 {
-  "_doc": "Registre des clusters SEO — SOURCE DE VÉRITÉ de la propriété des mots-clés. Chaque requête appartient à UNE page canonique. Le gate anti-cannibalisation.js bloque tout article qui cible un mot-clé protégé dans son title/slug. zoneWords = si un article mentionne ces mots, il DOIT contenir un lien vers la page canonique (rôle satellite). — Mis à jour le 20/09/2026 : le registre ne couvrait que 14 des 24 pages commerciales. Neuf landings et le catalogue /lieux en étaient absents, si bien que le gate laissait publier un article ciblant « team building Chantilly » ou « budget séminaire entreprise » sans alarme. Mesuré en Search Console sur 90 jours : sur « séminaire yvelines » l'article de blog occupait la 19ᵉ place et la landing la 52ᵉ ; même écart sur Chantilly et l'Oise. Le mot-clé « budget seminaire entreprise » était par ailleurs attribué à un ARTICLE alors qu'une page entière porte ce nom dans son URL.",
+  "_doc": "Registre des clusters SEO — SOURCE DE VÉRITÉ de la propriété des mots-clés. Chaque requête appartient à UNE page canonique. Le gate anti-cannibalisation.js bloque tout article qui cible un mot-clé protégé dans son title/slug. zoneWords = si un article mentionne ces mots, il DOIT contenir un lien vers la page canonique (rôle satellite). — Mis à jour le 20/09/2026 : le registre ne couvrait que 14 des 24 pages commerciales. Neuf landings et le catalogue /lieux en étaient absents, si bien que le gate laissait publier un article ciblant « team building Chantilly » ou « budget séminaire entreprise » sans alarme. Mesuré en Search Console sur 90 jours : sur « séminaire yvelines » l'article de blog occupait la 19ᵉ place et la landing la 52ᵉ ; même écart sur Chantilly et l'Oise. Le mot-clé « budget seminaire entreprise » était par ailleurs attribué à un ARTICLE alors qu'une page entière porte ce nom dans son URL. — 06/10/2026 : canonicals Oise et Yvelines passés aux articles qui devancent leur landing en Search Console (voir src/data/redirections-commerciales.json) ; l'ancienne valeur est gardée dans canonicalAvant.",
   "clusters": [
     {
       "id": "chantilly",
@@ -23,7 +23,7 @@
     },
     {
       "id": "oise",
-      "canonical": "/seminaire-chateau-oise-60",
+      "canonical": "/blog/seminaire-oise-nature-prestige-paris",
       "type": "landing",
       "primaryKeywords": [
         "seminaire oise",
@@ -36,11 +36,12 @@
         "compiegne",
         "pierrefonds"
       ],
-      "anchorText": "séminaire en château dans l'Oise"
+      "anchorText": "séminaire en château dans l'Oise",
+      "canonicalAvant": "/seminaire-chateau-oise-60"
     },
     {
       "id": "yvelines",
-      "canonical": "/seminaire-chateau-yvelines-78",
+      "canonical": "/blog/seminaire-yvelines-78-luxe-proximite",
       "type": "landing",
       "primaryKeywords": [
         "seminaire yvelines",
@@ -58,7 +59,8 @@
         "versailles",
         "velizy"
       ],
-      "anchorText": "séminaire en château dans les Yvelines"
+      "anchorText": "séminaire en château dans les Yvelines",
+      "canonicalAvant": "/seminaire-chateau-yvelines-78"
     },
     {
       "id": "chevreuse",

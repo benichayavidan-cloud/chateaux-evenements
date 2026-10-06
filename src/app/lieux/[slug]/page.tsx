@@ -13,6 +13,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { descriptionLieu, titreLieu } from "@/lib/seo";
 import { VenueView } from "./VenueView";
 import { buildVenueFaq } from "@/lib/venue-faq";
+import { lienFinal } from "@/data/redirections";
 
 export const dynamicParams = false;
 
@@ -24,8 +25,8 @@ type Props = { params: Promise<{ slug: string }> };
 
 /** Landing départementale correspondante — cible du lien montant. */
 const DEPARTMENT_LANDING: Record<string, string | undefined> = {
-  "78": "/seminaire-chateau-yvelines-78",
-  "60": "/seminaire-chateau-oise-60",
+  "78": lienFinal("/seminaire-chateau-yvelines-78"),
+  "60": lienFinal("/seminaire-chateau-oise-60"),
   "92": "/seminaire-chateau-hauts-de-seine-92",
   "91": "/seminaire-chateau-essonne-91",
   "77": "/seminaire-chateau-seine-et-marne-77",

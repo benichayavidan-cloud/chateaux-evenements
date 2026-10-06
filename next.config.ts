@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 import mergedRedirects from "./src/data/merged-redirects.json";
 import venuesDepubliees from "./src/data/venues-depubliees.json";
+import redirectionsCommerciales from "./src/data/redirections-commerciales.json";
+import { creerResolveur } from "./src/lib/redirections";
+
+// Toutes les destinations passent par le résolveur : une fusion de blog qui
+// visait une page redirigée depuis (landing → article, article → landing)
+// pointe directement vers l'adresse finale — jamais deux 301 à la suite.
+const { resoudre: destinationFinale } = creerResolveur([
+  ...mergedRedirects.merges.map((m) => ({ from: `/blog/${m.from}`, to: m.to })),
+  ...redirectionsCommerciales.redirections,
+]);
 
 /**
  * Configuration Next.js optimisée pour Core Web Vitals
@@ -152,7 +162,7 @@ const nextConfig: NextConfig = {
       // des photos, ces fiches montraient six images cassées.
       ...venuesDepubliees.lieux.map((l) => ({
         source: `/lieux/${l.slug}`,
-        destination: l.vers,
+        destination: destinationFinale(l.vers),
         permanent: true,
       })),
       {
@@ -210,7 +220,17 @@ const nextConfig: NextConfig = {
       // là-bas génère automatiquement le 301 ici (zéro désynchronisation).
       ...mergedRedirects.merges.map((m) => ({
         source: `/blog/${m.from}`,
-        destination: m.to,
+        destination: destinationFinale(m.to),
+        permanent: true,
+      })),
+
+      // ── UNE PAGE PAR REQUÊTE COMMERCIALE (plan du 06/10/2026) ──
+      // SOURCE UNIQUE : src/data/redirections-commerciales.json — la landing
+      // perdante en Search Console est redirigée vers l'article qui la
+      // devance ; l'article reçoit les blocs commerciaux de la landing.
+      ...redirectionsCommerciales.redirections.map((r) => ({
+        source: r.from,
+        destination: destinationFinale(r.to),
         permanent: true,
       })),
     ];

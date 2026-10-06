@@ -4,6 +4,7 @@ import { landingsDepartements } from '@/data/landings-departements'
 import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { blogPosts } from '@/data/blog-posts'
+import { estRedirige, redirectionsCommerciales } from '@/data/redirections'
 import { PRICING, pricingSummary } from '@/data/pricing'
 
 /**
@@ -86,6 +87,14 @@ function buildLlmsTxt(): string {
     lines.push(`- [${p.h1}](${BASE_URL}/${p.slug}) : ${p.description}`)
   }
   for (const l of landingsDepartements) {
+    // Landing redirigée vers l'article qui la devance (data/redirections-commerciales.json) :
+    // on liste l'article, page de référence du département.
+    if (estRedirige(`/${l.slug}`)) {
+      const r = redirectionsCommerciales.find((x) => x.from === `/${l.slug}`)
+      const article = r && blogPosts.find((b) => `/blog/${b.slug}` === r.to)
+      if (article) lines.push(`- [${l.h1}](${BASE_URL}${r.to}) : ${l.description}`)
+      continue
+    }
     lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
   }
   for (const l of landingsFormats) {

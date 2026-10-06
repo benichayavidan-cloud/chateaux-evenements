@@ -244,6 +244,23 @@ function listerArticles() {
   return liste;
 }
 
+/**
+ * Articles devenus la page de référence de leur département
+ * (src/data/redirections-commerciales.json, plan du 06/10/2026) → motif.
+ * Ils portent les blocs commerciaux d'une landing redirigée vers eux : une
+ * réécriture pourrait leur faire perdre la place qui leur a valu ce rôle.
+ */
+function lirePagesCommerciales() {
+  try {
+    const { redirections } = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'redirections-commerciales.json'), 'utf-8'));
+    return new Map(redirections
+      .filter((r) => String(r.to).startsWith('/blog/'))
+      .map((r) => [r.to.slice('/blog/'.length), `page de référence de « ${r.requete} » (${r.from} redirigée vers elle) : réécriture interdite tant qu'elle porte ce rôle.`]));
+  } catch {
+    return new Map();
+  }
+}
+
 /** Slugs redirigés en 301 (src/data/merged-redirects.json) → destination. */
 function lireFusions() {
   try {
@@ -254,6 +271,7 @@ function lireFusions() {
 }
 
 module.exports = {
+  lirePagesCommerciales,
   analyser, valeurs, texteChamp, erreursSyntaxe, verifierEcriture, ecrireFichierVerifie,
   localiser, remplacerArticle, listerArticles, lireFusions, compterMots,
 };

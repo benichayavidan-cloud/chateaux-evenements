@@ -11,6 +11,7 @@ import Image from "next/image";
 import { LOGO_URL } from "@/lib/media";
 import { CookieConsentLazy } from "@/components/CookieConsentLazy";
 import { SiteTracker } from "@/components/SiteTracker";
+import { lienFinal } from "@/data/redirections";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -177,8 +178,8 @@ export default function RootLayout({
               href: "/lieux",
               children: [
                 { label: "Tous les lieux", href: "/lieux" },
-                { label: "Yvelines (78)", href: "/seminaire-chateau-yvelines-78" },
-                { label: "Oise (60)", href: "/seminaire-chateau-oise-60" },
+                { label: "Yvelines (78)", href: lienFinal("/seminaire-chateau-yvelines-78") },
+                { label: "Oise (60)", href: lienFinal("/seminaire-chateau-oise-60") },
                 { label: "Seine-et-Marne (77)", href: "/seminaire-chateau-seine-et-marne-77" },
                 { label: "Val-d'Oise (95)", href: "/seminaire-chateau-val-d-oise-95" },
                 { label: "Essonne (91)", href: "/seminaire-chateau-essonne-91" },
@@ -260,13 +261,13 @@ export default function RootLayout({
                 { label: "Proche Paris", href: "/seminaire-chateau-proche-paris" },
                 { label: "Chantilly", href: "/seminaire-chateau-chantilly" },
                 { label: "Vallée de Chevreuse", href: "/seminaire-vallee-de-chevreuse" },
-                { label: "Oise (60)", href: "/seminaire-chateau-oise-60" },
+                { label: "Oise (60)", href: lienFinal("/seminaire-chateau-oise-60") },
               ],
             },
             {
               title: "Par département",
               links: [
-                { label: "Yvelines (78)", href: "/seminaire-chateau-yvelines-78" },
+                { label: "Yvelines (78)", href: lienFinal("/seminaire-chateau-yvelines-78") },
                 { label: "Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
                 { label: "Essonne (91)", href: "/seminaire-chateau-essonne-91" },
                 { label: "Seine-et-Marne (77)", href: "/seminaire-chateau-seine-et-marne-77" },

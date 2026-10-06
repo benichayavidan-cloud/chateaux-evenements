@@ -17,6 +17,7 @@ import { trackChateauView, trackPhoneClick } from "@/components/Analytics";
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { useInView } from "@/hooks/useInView";
+import { lienFinal } from "@/data/redirections";
 
 interface ChateauPageClientProps {
   chateau: Chateau;
@@ -1334,19 +1335,19 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               const geoLinks: Record<string, { label: string; href: string }[]> = {
                 "1": [
                   { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
-                  { label: "Séminaire château Oise", href: "/seminaire-chateau-oise-60" },
+                  { label: "Séminaire château Oise", href: lienFinal("/seminaire-chateau-oise-60") },
                 ],
                 "2": [
                   { label: "Séminaire château Hauts-de-Seine", href: "/seminaire-chateau-hauts-de-seine-92" },
                   { label: "Séminaire château proche Paris", href: "/seminaire-chateau-proche-paris" },
                 ],
                 "3": [
-                  { label: "Séminaire château Yvelines", href: "/seminaire-chateau-yvelines-78" },
+                  { label: "Séminaire château Yvelines", href: lienFinal("/seminaire-chateau-yvelines-78") },
                   { label: "Séminaire château Île-de-France", href: "/seminaire-chateau-ile-de-france" },
                 ],
                 "4": [
                   { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
-                  { label: "Séminaire château Oise", href: "/seminaire-chateau-oise-60" },
+                  { label: "Séminaire château Oise", href: lienFinal("/seminaire-chateau-oise-60") },
                 ],
               };
               const links = geoLinks[chateau.id];

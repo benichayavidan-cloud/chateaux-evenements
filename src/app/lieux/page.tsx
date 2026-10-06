@@ -14,12 +14,13 @@ import { theme } from "@/design-system/tokens";
 import { venues } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
 import { metaDescription } from "@/lib/seo";
+import { lienFinal } from "@/data/redirections";
 
 /** Chaque département a désormais sa landing : on la relie depuis sa section. */
 const LANDING_PAR_DEPT: Record<string, string> = {
-  "78": "/seminaire-chateau-yvelines-78",
+  "78": lienFinal("/seminaire-chateau-yvelines-78"),
   "77": "/seminaire-chateau-seine-et-marne-77",
-  "60": "/seminaire-chateau-oise-60",
+  "60": lienFinal("/seminaire-chateau-oise-60"),
   "95": "/seminaire-chateau-val-d-oise-95",
   "91": "/seminaire-chateau-essonne-91",
   "92": "/seminaire-chateau-hauts-de-seine-92",

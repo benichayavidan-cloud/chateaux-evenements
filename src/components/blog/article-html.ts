@@ -13,6 +13,7 @@
  */
 
 import { BLOG_LINK_MAP } from "@/data/internal-link-map";
+import { lienFinal, reecrireLiensHtml } from "@/data/redirections";
 
 /* ─────────────────────────── Auto-maillage ─────────────────────────── */
 
@@ -47,15 +48,19 @@ const COMMERCIAL_LINK_RULES: { keyword: string; url: string; title?: string }[] 
 ];
 
 function getBlogLinkRules(currentSlug?: string): { keyword: string; url: string; title?: string }[] {
+  // Adresse FINALE de chaque cible (une landing redirigée vers un article
+  // pointe vers l'article) ; on ne lie jamais un article à lui-même.
+  const soiMeme = currentSlug ? `/blog/${currentSlug}` : null;
   return BLOG_LINK_MAP
     .filter(rule => rule.targetSlug !== currentSlug)
+    .filter(rule => lienFinal(rule.targetPath ?? `/blog/${rule.targetSlug}`) !== soiMeme)
     .sort((a, b) => b.priority - a.priority)
     .flatMap(rule =>
       rule.keywords.map(kw => ({
         keyword: kw,
         // targetPath (landing/service page) prioritaire sur targetSlug (article blog) :
         // les mots-clés "tête" pointent vers les pages canoniques, pas vers des articles
-        url: rule.targetPath ?? `/blog/${rule.targetSlug}`,
+        url: lienFinal(rule.targetPath ?? `/blog/${rule.targetSlug}`),
         title: rule.title,
       }))
     );
@@ -181,7 +186,11 @@ export function applyAutoLinking(html: string, currentSlug?: string): string {
   const blogRules = getBlogLinkRules(currentSlug);
 
   const phase1 = applyLinkRules(html, blogRules, 5, "auto-link blog-link");
-  const phase2 = applyLinkRules(phase1.html, COMMERCIAL_LINK_RULES, 3, "auto-link");
+  const soiMeme = currentSlug ? `/blog/${currentSlug}` : null;
+  const commerciales = COMMERCIAL_LINK_RULES
+    .map(r => ({ ...r, url: lienFinal(r.url) }))
+    .filter(r => r.url !== soiMeme);
+  const phase2 = applyLinkRules(phase1.html, commerciales, 3, "auto-link");
 
   return phase2.html;
 }
@@ -272,11 +281,22 @@ export function addHeadingIds(html: string): { html: string; toc: TocItem[] } {
  * Les ancres sont posées EN DERNIER : elles ne touchent que la balise ouvrante
  * des titres, jamais le texte que l'auto-maillage cherche à lier.
  */
+function retirerLiensVersSoi(html: string, soi: string): string {
+  const echappe = soi.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp(`<a\\b[^>]*href=(["'])(?:https://www\\.selectchateaux\\.com)?${echappe}\\1[^>]*>([\\s\\S]*?)</a>`, "g");
+  return html.replace(re, "$2");
+}
+
 export function prepareArticleHtml(
   content: string,
   currentSlug?: string,
 ): { html: string; toc: TocItem[] } {
   const assaini = sanitizeHTML(content);
-  const maille = applyAutoLinking(assaini, currentSlug);
+  // Les liens écrits dans le texte (264 vers les landings 78/60 au 06/10)
+  // passent aussi par leur adresse finale : pas de détour par un 301.
+  const reecrit = reecrireLiensHtml(applyAutoLinking(assaini, currentSlug));
+  // Un lien du texte vers une landing devenue CET article pointerait sur
+  // lui-même : on garde le texte, sans le lien.
+  const maille = currentSlug ? retirerLiensVersSoi(reecrit, `/blog/${currentSlug}`) : reecrit;
   return addHeadingIds(maille);
 }

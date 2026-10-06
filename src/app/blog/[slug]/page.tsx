@@ -15,6 +15,8 @@ import { lieuxPourArticle } from "@/lib/lieux-article";
 import { venues } from "@/data/venues";
 import { ARTICLES_PILOTE_LIEUX, ENCART_LIEUX_SUR_MESURE } from "@/data/pilote-lieux-articles";
 import { LieuxSousArticle } from "@/components/blog/LieuxSousArticle";
+import { lienFinal, pageCommercialeDeLArticle } from "@/data/redirections";
+import { BlocCommercialArticle } from "@/components/blog/BlocCommercialArticle";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -33,7 +35,7 @@ function getRelatedCommercialPages(category: BlogCategory) {
       ...base,
       { href: "/seminaire-chateau-ile-de-france", label: "Séminaire Château Île-de-France", icon: MapPin },
       { href: "/seminaire-chateau-chantilly", label: "Hôtel Séminaire Chantilly", icon: MapPin },
-      { href: "/seminaire-chateau-oise-60", label: "Séminaire Château Oise (60)", icon: MapPin },
+      { href: lienFinal("/seminaire-chateau-oise-60"), label: "Séminaire Château Oise (60)", icon: MapPin },
       { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
     ];
   }
@@ -42,7 +44,7 @@ function getRelatedCommercialPages(category: BlogCategory) {
       { href: "/team-building-chateau", label: "+40 Activités Team Building en Château", icon: Users2 },
       ...base,
       { href: "/seminaire-chateau-chantilly", label: "Hôtel Séminaire Chantilly", icon: MapPin },
-      { href: "/seminaire-chateau-yvelines-78", label: "Séminaire Château Yvelines (78)", icon: MapPin },
+      { href: lienFinal("/seminaire-chateau-yvelines-78"), label: "Séminaire Château Yvelines (78)", icon: MapPin },
       { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
     ];
   }
@@ -50,8 +52,8 @@ function getRelatedCommercialPages(category: BlogCategory) {
   return [
     ...base,
     { href: "/seminaire-vallee-de-chevreuse", label: "Séminaire Vallée de Chevreuse", icon: MapPin },
-    { href: "/seminaire-chateau-oise-60", label: "Séminaire Château dans l'Oise (60)", icon: MapPin },
-    { href: "/seminaire-chateau-yvelines-78", label: "Séminaire Château dans les Yvelines (78)", icon: MapPin },
+    { href: lienFinal("/seminaire-chateau-oise-60"), label: "Séminaire Château dans l'Oise (60)", icon: MapPin },
+    { href: lienFinal("/seminaire-chateau-yvelines-78"), label: "Séminaire Château dans les Yvelines (78)", icon: MapPin },
     { href: "/devis", label: "Devis Gratuit 24h", icon: Sparkles },
   ];
 }
@@ -102,8 +104,13 @@ export default async function BlogArticlePage({ params }: Props) {
   // plutôt que de la concurrencer (voir data/seo-clusters).
   const cluster = clusterDeLArticle(article.slug, article.title);
 
+  // Article devenu la page de référence de son département (plan du 06/10,
+  // data/redirections-commerciales.json) : il reçoit les blocs de la landing
+  // redirigée vers lui, à la place de l'encart de 3 lieux.
+  const commercial = pageCommercialeDeLArticle(article.slug);
+
   // Fiches /lieux sous l'article — pilote de 21 articles, voir data/pilote-lieux-articles.
-  const lieux = ARTICLES_PILOTE_LIEUX.includes(article.slug)
+  const lieux = !commercial && ARTICLES_PILOTE_LIEUX.includes(article.slug)
     ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venues)
     : [];
   const encartLieux = ENCART_LIEUX_SUR_MESURE[article.slug] ?? {
@@ -115,7 +122,11 @@ export default async function BlogArticlePage({ params }: Props) {
     <div className="brakt-blog min-h-screen bg-white w-full">
       {/* Composant Client pour la logique interactive */}
       <ArticleClientLogic article={article} html={html} toc={toc} cluster={cluster}>
-        <LieuxSousArticle lieux={lieux} titre={encartLieux.titre} texte={encartLieux.texte} />
+        {commercial ? (
+          <BlocCommercialArticle departementCode={commercial.departementCode} urlArticle={commercial.to} />
+        ) : (
+          <LieuxSousArticle lieux={lieux} titre={encartLieux.titre} texte={encartLieux.texte} />
+        )}
 
         {/* FAQ (Server-rendered) — même contenu que le FAQPage du layout */}
         <FaqSection items={faqItems} />

@@ -41,6 +41,7 @@ import { venues } from "@/data/venues";
 import { geoLandingPages } from "@/data/geo-landing-pages";
 import { landingsFormats } from "@/data/landings-formats";
 import { landingsDepartements } from "@/data/landings-departements";
+import { estRedirige } from "@/data/redirections";
 
 /**
  * Créneaux par page, en DEUX parts qui ne se disputent pas :
@@ -104,7 +105,8 @@ function pagesFraiches(): PageFraiche[] {
   for (const l of landingsFormats) {
     pages.push({ chemin: `/${l.slug}`, motsCles: [l.eyebrow, l.h1].filter(Boolean) });
   }
-  for (const d of landingsDepartements) {
+  // Une landing redirigée (301) ne reçoit plus d'articles à lier.
+  for (const d of landingsDepartements.filter((x) => !estRedirige(`/${x.slug}`))) {
     pages.push({ chemin: `/${d.slug}`, motsCles: [d.departement, d.code].filter(Boolean) });
   }
   return pages;
