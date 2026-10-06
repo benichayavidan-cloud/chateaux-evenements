@@ -21,9 +21,11 @@ interface DevisFormMiniProps {
   chateauIds?: string[];
   /** Label affiché dans le commentaire (ex: "Séminaire Château Île-de-France") */
   sourceLabel?: string;
+  /** Message prérempli, modifiable (ex. articles d'animation : l'activité visée). */
+  messageInitial?: string;
 }
 
-export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourceLabel }: DevisFormMiniProps) {
+export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourceLabel, messageInitial }: DevisFormMiniProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -44,7 +46,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
     nombreParticipants: '',
     dateArrivee: '',
     dateDepart: '',
-    message: '',
+    message: messageInitial ?? '',
   });
 
   // 2ᵉ vague — visiteur de retour : pré-remplir les coordonnées déjà saisies (localStorage)
