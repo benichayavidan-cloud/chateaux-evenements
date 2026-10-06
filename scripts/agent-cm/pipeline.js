@@ -205,6 +205,39 @@ function motifDeRejet(article) {
   return null;
 }
 
+/**
+ * Motif de rejet si l'article vise un mot-clé possédé par UNE AUTRE page
+ * (règle CLUSTER_PROTEGE de anti-cannibalisation.js), sinon null.
+ *
+ * Jusqu'au 06/10/2026 ce contrôle ne tournait qu'à la création. Mesuré ce
+ * jour-là en Search Console : sur « séminaire yvelines », l'article
+ * seminaire-yvelines-78-luxe-proximite (place 24,7) passait devant la page
+ * commerciale /seminaire-chateau-yvelines-78, et Camille l'avait réécrit les
+ * 01/10 et 02/10 — renforçant notre propre concurrent. Seule la règle des
+ * clusters est appliquée ici : les règles de doublon comparent un sujet NEUF
+ * au corpus et n'ont pas de sens pour un article qui existe déjà.
+ */
+function motifConcurrence(article, clusters = loadClusters()) {
+  const { violations } = checkArticle(article, [], clusters, { excludeSlug: article.slug });
+  const protegees = violations.filter((v) => v.rule === 'CLUSTER_PROTEGE');
+  return protegees.length ? protegees.map((v) => v.detail).join('\n') : null;
+}
+// Note : `[]` comme corpus est voulu — checkArticle ne relit le disque que si
+// on lui passe une valeur fausse ; ici seule la règle des clusters compte.
+
+/**
+ * Même contrôle, sur l'ADRESSE seule. Une réécriture ne change jamais le slug
+ * (règle de step2_reecritures) : un article dont l'adresse vise le mot-clé
+ * d'une autre page restera concurrent quoi qu'on réécrive. Lui seul sort de la
+ * file. Un conflit porté par le titre ou les keywords se corrige au contraire
+ * PAR la réécriture, que motifConcurrence(candidat) oblige à le retirer.
+ * (Revue du 06/10 : filtrer sur title+keywords excluait 66 articles sur 313,
+ * dont des piliers, pour un mot-clé secondaire.)
+ */
+function motifAdresse(article, clusters = loadClusters()) {
+  return motifConcurrence({ slug: article.slug, title: '', keywords: [] }, clusters);
+}
+
 /** Socle de consignes commun aux réécritures et à la création. */
 function socleSysteme(gscData) {
   const promptMd = fs.readFileSync(path.join(AGENT_DIR, 'AGENT_PROMPT.md'), 'utf-8');
@@ -293,7 +326,7 @@ function commandesDeMarcus() {
  *   - le slug n'existe dans aucun fichier de données ;
  *   - l'article a déjà été réécrit depuis la demande (updatedAt ≥ date de la demande).
  */
-function trierCommandes(commandes, parSlug, fusionnes) {
+function trierCommandes(commandes, parSlug, fusionnes, concurrents = new Map()) {
   const aTraiter = [];
   const aFermer = [];
   const vus = new Set();
@@ -304,6 +337,10 @@ function trierCommandes(commandes, parSlug, fusionnes) {
   for (const c of parArrivee) {
     if (fusionnes.has(c.slug)) {
       aFermer.push({ numero: c.issue, commentaire: `/blog/${c.slug} est redirigé (301) vers ${fusionnes.get(c.slug)} : une réécriture serait invisible pour Google. Demande close sans objet par Camille.` });
+      continue;
+    }
+    if (concurrents.has(c.slug)) {
+      aFermer.push({ numero: c.issue, commentaire: `/blog/${c.slug} a une adresse qui vise le mot-clé d'une page commerciale, et une réécriture ne change pas l'adresse. Demande close par Camille.\n${concurrents.get(c.slug)}` });
       continue;
     }
     const article = parSlug.get(c.slug);
@@ -333,6 +370,15 @@ function choisirReecritures(gscData, nb, exclure = [], deps = {}) {
   const fusionnes = deps.fusionnes || lireFusions();
   const articles = (deps.articles || listerArticlesReecrivables()).filter((a) => !fusionnes.has(a.slug));
   const parSlug = new Map(articles.map((a) => [a.slug, a]));
+  // Articles dont l'ADRESSE vise le mot-clé d'une page commerciale : aucune
+  // réécriture ne peut les en détacher (plan du 06/10). Ils sortent de la file.
+  const clusters = deps.clusters || loadClusters();
+  const concurrents = new Map();
+  for (const a of articles) {
+    const motif = motifAdresse(a, clusters);
+    if (motif) concurrents.set(a.slug, motif);
+  }
+  if (concurrents.size) log(2, `${concurrents.size} article(s) hors file : leur adresse vise le mot-clé d'une page commerciale`);
 
   let proprietaires = [];
   let intouchables = new Set();
@@ -363,10 +409,10 @@ function choisirReecritures(gscData, nb, exclure = [], deps = {}) {
   proprietaires.sort((a, b) => rang(a) - rang(b) || b.impressions - a.impressions);
 
   const retenus = [];
-  const pris = new Set(exclure);
+  const pris = new Set([...exclure, ...concurrents.keys()]);
 
   // Priorité 0 : ce que Marcus a explicitement commandé.
-  const { aTraiter, aFermer } = trierCommandes(deps.commandes || commandesDeMarcus(), parSlug, fusionnes);
+  const { aTraiter, aFermer } = trierCommandes(deps.commandes || commandesDeMarcus(), parSlug, fusionnes, concurrents);
   if (deps.fermetures) {
     for (const f of aFermer) {
       if (!deps.fermetures.some((x) => x.numero === f.numero)) deps.fermetures.push(f);
@@ -414,6 +460,7 @@ async function step2_reecritures(client, gscData, nb = NB_REECRITURES, exclure =
   cibles.forEach((c) => log(2, `   ${c.slug} — ${c.motif}`));
 
   const system = socleSysteme(gscData);
+  const clusters = loadClusters();
   const reecrits = [];
   for (const cible of cibles) {
     try {
@@ -458,7 +505,9 @@ Corrige EXACTEMENT ce point et renvoie l'article complet.`;
           publishedAt: cible.publishedAt,
           updatedAt: new Date().toISOString().split('T')[0],
         };
-        motif = motifDeRejet(candidat);
+        // Le garde-fou des mots-clés protégés s'applique aussi à la réécriture :
+        // recalé deux fois, l'article garde son texte actuel.
+        motif = motifDeRejet(candidat) || motifConcurrence(candidat, clusters);
         if (motif) {
           log(2, `   ↻ ${cible.slug} tentative ${essai} recalée : ${motif.split('\n')[0]}`);
           continue;
@@ -841,6 +890,8 @@ module.exports = {
   NB_REECRITURES,
   LABEL_REECRITURE,
   trierCommandes,
+  motifConcurrence,
+  motifAdresse,
   SCHEMA_REECRITURE,
   SCHEMA_CREATION,
   appelerClaude,
