@@ -17,6 +17,8 @@ import { ARTICLES_PILOTE_LIEUX, ENCART_LIEUX_SUR_MESURE } from "@/data/pilote-li
 import { LieuxSousArticle } from "@/components/blog/LieuxSousArticle";
 import { lienFinal, pageCommercialeDeLArticle } from "@/data/redirections";
 import { BlocCommercialArticle } from "@/components/blog/BlocCommercialArticle";
+import { ARTICLES_ANIMATION } from "@/data/articles-animation";
+import { blocOrganiserHtml, insererApresIntro, messageDevisActivite } from "@/lib/bloc-organiser";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -97,7 +99,7 @@ export default async function BlogArticlePage({ params }: Props) {
   const prepare = prepareArticleHtml(article.content, article.slug);
   // CTA de mi-article, posé APRÈS les ancres : il ne porte aucun titre et
   // n'entre donc ni dans le sommaire ni dans l'auto-maillage (voir lib/cta-article).
-  const html = insererCtaMilieu(prepare.html);
+  const htmlCta = insererCtaMilieu(prepare.html);
   const toc = prepare.toc;
 
   // Article de zone = satellite : il renvoie vers la landing de son cluster
@@ -110,9 +112,20 @@ export default async function BlogArticlePage({ params }: Props) {
   const commercial = pageCommercialeDeLArticle(article.slug);
 
   // Fiches /lieux sous l'article — pilote de 21 articles, voir data/pilote-lieux-articles.
-  const lieux = !commercial && ARTICLES_PILOTE_LIEUX.includes(article.slug)
+  const lieux = !commercial && !ARTICLES_ANIMATION[article.slug] && ARTICLES_PILOTE_LIEUX.includes(article.slug)
     ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venues)
     : [];
+  // Article d'animation (plan du 06/10, lot 3) : bloc « Où organiser votre … ? »
+  // après l'introduction, avec 3 lieux et un devis prérempli. Il remplace
+  // l'encart de 3 lieux du bas de page (même sélection, posée plus tôt).
+  const animation = ARTICLES_ANIMATION[article.slug] ?? null;
+  const lieuxAnimation = animation
+    ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venues)
+    : [];
+  const html = animation
+    ? insererApresIntro(htmlCta, blocOrganiserHtml(animation.activite, lieuxAnimation))
+    : htmlCta;
+
   const encartLieux = ENCART_LIEUX_SUR_MESURE[article.slug] ?? {
     titre: "Des lieux pour votre événement",
     texte: "Trois adresses de notre sélection, avec leurs salles, leurs chambres et leurs photos réelles.",
@@ -259,7 +272,10 @@ export default async function BlogArticlePage({ params }: Props) {
                 ✓ Réponse sous 24h • ✓ Sans engagement • ✓ Conseils personnalisés
               </p>
             </div>
-            <DevisFormMini sourceLabel={`Article : ${article.title}`} />
+            <DevisFormMini
+              sourceLabel={`Article : ${article.title}`}
+              messageInitial={animation ? messageDevisActivite(animation.activite, animation.article) : undefined}
+            />
           </div>
         </section>
       </ArticleClientLogic>
