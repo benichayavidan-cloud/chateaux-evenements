@@ -6,6 +6,7 @@ const { execSync } = require('child_process');
 const { ARTICLES_PATH, IMAGES_DIR, CATEGORIES } = require('./config');
 const { checkArticle, loadClusters, formatReport, getExistingArticles, prepareExisting } = require('./anti-cannibalisation');
 const { checkDoublonSemantique } = require('./doublon-semantique');
+const { motifIntention, blocIntentionsPrompt } = require('./intention');
 const {
   listerArticlesReecrivables, estConforme,
   assertLongueurSuffisante, assertTitre, assertStructureH3, assertSourceExterne,
@@ -554,6 +555,8 @@ Un sujet vierge est une intention de recherche que ni les landing pages ni AUCUN
 
 Ne doublonne pas un sujet même en changeant l'ordre des mots du slug.
 
+${blocIntentionsPrompt()}
+
 ARTICLES EXISTANTS
 ${listeExistants}
 
@@ -588,6 +591,14 @@ publishedAt = ${today}${retour}`;
     if (!sem.ok) {
       log(2, `❌ ${article.slug} : [DOUBLON_SEMANTIQUE] ${sem.detail}`);
       retour = `\n\nTa proposition précédente a été REJETÉE — doublon sémantique : ${sem.detail}`;
+      continue;
+    }
+    // Intention de recherche (plan du 06/10, lot 4) : plus de sujet
+    // d'animation ; un sujet de lieu doit l'être aussi pour Google.
+    const intention = await motifIntention(article, { log: (m) => log(2, m) });
+    if (intention) {
+      log(2, `❌ ${article.slug} : [INTENTION] ${intention}`);
+      retour = `\n\nTa proposition précédente a été REJETÉE — intention : ${intention}`;
       continue;
     }
     log(2, `Nouvel article validé : ${article.slug}`);

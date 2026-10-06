@@ -13,11 +13,13 @@
  * Flags de test : MARCUS_SKIP_INSPECTION=1, MARCUS_SKIP_SERP=1, MARCUS_NO_MAIL=1
  */
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import { SITE, env, kc, marcusEnabled, gsc, fenetre28, sitemapUrls, sbInsert, sbPatch, sbSelect, telegram, email } from './lib.mjs';
 import { sondesLLM } from './sondes-llm.mjs';
 import { positionSerp, resumeSerp } from './serp.mjs';
 import { passerLesVerdicts } from './verdicts.mjs';
 import { executerActions, construireBacklog } from './actions.mjs';
+const { resumerParIntention } = createRequire(import.meta.url)('../agent-cm/intention.js');
 
 if (!(await marcusEnabled())) { console.log('kill switch OFF — sortie'); process.exit(0); }
 
@@ -63,6 +65,9 @@ try {
     periode: [f.startDate, f.endDate],
     totaux: tot.rows?.[0] ? { clicks: tot.rows[0].clicks, imp: tot.rows[0].impressions, ctr: +(tot.rows[0].ctr * 100).toFixed(2), pos: +tot.rows[0].position.toFixed(1) } : null,
     panel: panelGsc,
+    // Indicateur du plan du 06/10 : clics par intention (lieu, organisation,
+    // animation, marque) — le total seul a triplé sans faire monter les demandes.
+    par_intention: resumerParIntention(rows),
     decouvertes_candidates: decouvertes,
     top_pages: (parPage.rows || []).slice(0, 10).map((x) => ({ p: x.keys[0].replace(SITE, ''), clicks: x.clicks, imp: x.impressions })),
     // Pages VUES et JAMAIS CHOISIES : beaucoup d'impressions, aucun clic.
@@ -247,6 +252,7 @@ const lignes = [
   ``,
   `MESURÉ`,
   `· GSC 28j : ${g?.totaux?.clicks} clics, ${g?.totaux?.imp} impressions, position moyenne ${g?.totaux?.pos}` + (deltas ? ` (${deltas.clics >= 0 ? '+' : ''}${deltas.clics} clics vs run #${deltas.vs_run})` : ' (baseline)'),
+  g?.par_intention ? `· Par intention (28j) : ${['lieu', 'organisation', 'animation', 'marque', 'autre'].filter((k) => g.par_intention[k]).map((k) => `${k} ${g.par_intention[k].clics} clics / ${g.par_intention[k].imp} imp (pos ${g.par_intention[k].pos})`).join(' · ')}` : null,
   idx ? `· Indexation : ${idx.total - (idx.non_indexees?.length || 0)}/${idx.total} URLs indexées` : null,
   Object.keys(serp).length ? `· SERP : ${top10.length}/${serpR.mesurees} requêtes du cœur en top 10` + (serpR.erreurs.length ? ` (${serpR.erreurs.length} non mesurées)` : '') + (top10.length ? ` (${top10.slice(0, 3).join(', ')}…)` : '') : null,
   snapshot.bots?.total != null ? `· Robots (4j) : ${snapshot.bots.total} passages, ${snapshot.bots.pages_distinctes} pages` : null,
