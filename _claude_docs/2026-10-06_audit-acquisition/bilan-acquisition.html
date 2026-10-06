@@ -1,0 +1,402 @@
+<title>Acquisition selectchateaux.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout : une colonne de lecture (~760px) ; chaque étape de la chaîne visibilité → visite → demande est une section. */
+:root {
+  --bg: #f4f6f4;
+  --surface: #ffffff;
+  --ink: #14211b;
+  --ink-2: #4a5852;
+  --ink-3: #75827c;
+  --rule: #dfe4e0;
+  --accent: #1e5a46;
+  --accent-soft: #e3eee9;
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --s3: #a7b0ab;
+  --good: #1f7a3d;
+  --bad: #b3362b;
+  --warn: #9a6a00;
+  --f-display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111814; --surface: #18211c; --ink: #eef3f0; --ink-2: #b9c4be; --ink-3: #8b9891;
+    --rule: #2a3530; --accent: #7cc4a6; --accent-soft: #1f3129;
+    --s1: #3987e5; --s2: #d95926; --s3: #5f6964;
+    --good: #5fc27f; --bad: #ef7d72; --warn: #e0b04a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111814; --surface: #18211c; --ink: #eef3f0; --ink-2: #b9c4be; --ink-3: #8b9891;
+  --rule: #2a3530; --accent: #7cc4a6; --accent-soft: #1f3129;
+  --s1: #3987e5; --s2: #d95926; --s3: #5f6964;
+  --good: #5fc27f; --bad: #ef7d72; --warn: #e0b04a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-inline: 18px; padding-block: 40px 80px; display: flex; flex-direction: column; gap: 56px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(30px, 6vw, 44px); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: clamp(22px, 4vw, 28px); font-weight: 600; }
+h3 { font-size: 18px; font-weight: 600; }
+p { margin: 0; max-width: 65ch; }
+.eyebrow { font-family: var(--f-display); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.muted { color: var(--ink-2); }
+.small { font-size: 14px; color: var(--ink-3); }
+section { display: flex; flex-direction: column; gap: 18px; }
+header { display: flex; flex-direction: column; gap: 14px; }
+
+.chain { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+.chain > div { padding: 16px 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0; border-right: 1px solid var(--rule); }
+.chain > div:last-child { border-right: 0; background: var(--accent-soft); }
+.chain .k { font-family: var(--f-display); font-size: clamp(24px, 5vw, 34px); font-weight: 700; font-variant-numeric: tabular-nums; }
+.chain .l { font-size: 14px; color: var(--ink-2); line-height: 1.3; }
+@media (max-width: 560px) { .chain { grid-template-columns: repeat(2, minmax(0, 1fr)); } .chain > div:nth-child(2) { border-right: 0; } .chain > div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); } }
+
+.verdict { display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.verdict li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: baseline; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; transform: translateY(-1px); }
+.dot.g { background: var(--good); } .dot.b { background: var(--bad); } .dot.w { background: var(--warn); }
+
+.chart { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 14px 10px; position: relative; }
+.chart-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; align-items: baseline; margin-bottom: 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart svg text { fill: var(--ink-3); font-family: var(--f-body); font-size: 12px; }
+.chart svg .lbl { fill: var(--ink-2); font-weight: 600; }
+.chart svg .ann { fill: var(--ink-2); font-size: 11.5px; }
+.chart svg .grid { stroke: var(--rule); stroke-width: 1; }
+.chart svg .annline { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
+.chart svg .hit { fill: transparent; }
+.chart svg .bar { transition: opacity .15s; }
+.chart svg g.col:hover .bar { opacity: .8; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--bg); padding: 8px 10px; border-radius: 6px; font-size: 13.5px; line-height: 1.35; max-width: 240px; z-index: 2; font-variant-numeric: tabular-nums; }
+details { font-size: 14.5px; }
+details summary { cursor: pointer; color: var(--accent); font-weight: 600; padding-block: 6px; }
+details summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tbl { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 14.5px; }
+th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-weight: 600; color: var(--ink-2); font-size: 13px; }
+td.r, th.r { text-align: right; }
+
+.callout { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; color: var(--ink-2); }
+.callout b { color: var(--ink); }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 620px) { .two { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.tag { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; }
+.tag.g { color: var(--good); background: color-mix(in srgb, var(--good) 14%, transparent); }
+.tag.b { color: var(--bad); background: color-mix(in srgb, var(--bad) 14%, transparent); }
+.tag.w { color: var(--warn); background: color-mix(in srgb, var(--warn) 16%, transparent); }
+
+.reco { counter-reset: r; display: flex; flex-direction: column; gap: 16px; padding: 0; margin: 0; list-style: none; }
+.reco li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; }
+.reco li::before { counter-increment: r; content: counter(r); font-family: var(--f-display); font-weight: 700; font-size: 16px; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--surface); display: grid; place-items: center; }
+.reco p + p { margin-top: 4px; }
+
+.timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.timeline li { display: grid; grid-template-columns: 80px 1fr; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.timeline .d { font-variant-numeric: tabular-nums; color: var(--ink-3); font-weight: 600; }
+.timeline li.key .t { font-weight: 600; }
+footer { font-size: 14px; color: var(--ink-3); display: flex; flex-direction: column; gap: 6px; border-top: 1px solid var(--rule); padding-top: 18px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">Bilan d'acquisition · 9 février → 5 octobre 2026</span>
+  <h1>Ce que le site a fait venir, de Google aux demandes de devis</h1>
+  <p class="muted">Google, Bing et les IA (ChatGPT, Gemini, Claude), puis les demandes reçues par le formulaire. Le suivi commercial n'est pas traité ici.</p>
+</header>
+
+<section aria-labelledby="s-chaine">
+  <h2 id="s-chaine">Septembre, en un coup d'œil</h2>
+  <div class="chain" role="list">
+    <div role="listitem"><span class="k">11 077</span><span class="l">apparitions dans Google</span></div>
+    <div role="listitem"><span class="k">≈ 143</span><span class="l">clics depuis Google (+ 27 depuis Bing)</span></div>
+    <div role="listitem"><span class="k">≈ 1 %</span><span class="l">des gens qui voient le site cliquent</span></div>
+    <div role="listitem"><span class="k">7</span><span class="l">demandes de devis reçues</span></div>
+  </div>
+  <ul class="verdict">
+    <li><span class="dot g"></span><span><b>Le site est trois fois plus visité qu'au printemps</b>, et septembre est le meilleur mois jamais vu.</span></li>
+    <li><span class="dot w"></span><span><b>Les demandes, elles, n'ont pas suivi</b> : 4 à 8 par mois depuis l'arrêt de la pub, sans tendance à la hausse.</span></li>
+    <li><span class="dot b"></span><span><b>Le trafic vient de pages qui ne vendent pas.</b> Les pages qui vendent sont en 3ᵉ à 5ᵉ page de Google.</span></li>
+    <li><span class="dot b"></span><span><b>Les IA citent le site, mais n'envoient personne.</b> Zéro demande venue d'une IA.</span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="s-google">
+  <span class="eyebrow">1 · Visibilité</span>
+  <h2 id="s-google">Google : trois fois plus de clics qu'en mars</h2>
+  <p>Le site s'est ouvert à Google le 9 février. Les clics ont grimpé jusqu'en juin, stagné l'été, puis repris en septembre.</p>
+
+  <div class="chart" id="c-clics">
+    <div class="chart-head"><h3>Clics depuis Google, par mois</h3><span class="small">octobre non affiché (2 jours de données)</span></div>
+    <svg viewBox="0 0 700 300" role="img" aria-label="Clics Google par mois : février 11, mars 42, avril 61, mai 48, juin 127, juillet 97, août 93, septembre 143."></svg>
+  </div>
+
+  <div class="chart" id="c-pos">
+    <div class="chart-head"><h3>Place moyenne dans Google</h3><span class="small">plus haut sur le graphique = mieux placé</span></div>
+    <svg viewBox="0 0 700 220" role="img" aria-label="Position moyenne : février 27,4, mars 27,1, avril 19,2, mai 14,5, juin 11,8, juillet 16,2, août 20,2, septembre 19,0."></svg>
+  </div>
+
+  <p class="callout"><b>Ce qui s'est passé l'été.</b> L'agent de rédaction a publié 189 articles en juillet-août. Le site est apparu plus souvent (6 400 → 8 800 apparitions par mois), mais il est descendu de la 12ᵉ à la 20ᵉ place, et les clics ont baissé. En septembre, on a arrêté d'en créer pour corriger l'existant, et les clics sont repartis.</p>
+  <p class="small">Une mise à jour de Google est aussi tombée fin septembre : on ne peut pas dire laquelle des deux choses a fait remonter les clics.</p>
+
+  <details>
+    <summary>Voir le tableau mois par mois</summary>
+    <div class="tbl"><table>
+      <thead><tr><th>Mois</th><th class="r">Clics</th><th class="r">Apparitions</th><th class="r">Taux de clic</th><th class="r">Place</th><th class="r">Bing (clics)</th></tr></thead>
+      <tbody id="t-google"></tbody>
+    </table></div>
+    <p class="small">Septembre : du 1ᵉʳ au 28 exacts, 29-30 estimés. Bing n'est suivi que depuis le 13 juin.</p>
+  </details>
+</section>
+
+<section aria-labelledby="s-pages">
+  <span class="eyebrow">2 · Visites</span>
+  <h2 id="s-pages">Deux pages font 60 % des clics, et aucune ne vend</h2>
+  <p>Sur les 30 derniers jours, l'article sur les murder parties fait 40 % des clics et la page d'accueil 20 %. Le blog dans son ensemble porte 60 à 70 % des clics depuis juin.</p>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Recherche qui devrait amener des clients</th><th class="r">Place</th><th class="r">Apparitions (30 j)</th><th class="r">Clics</th></tr></thead>
+    <tbody>
+      <tr><td>séminaire chantilly</td><td class="r">53ᵉ</td><td class="r">210</td><td class="r">0</td></tr>
+      <tr><td>séminaire château</td><td class="r">45ᵉ</td><td class="r">144</td><td class="r">0</td></tr>
+      <tr><td>team building île de france</td><td class="r">41ᵉ</td><td class="r">113</td><td class="r">0</td></tr>
+      <tr><td>château séminaire île de france</td><td class="r">36ᵉ</td><td class="r">78</td><td class="r">0</td></tr>
+      <tr><td>séminaire yvelines</td><td class="r">29ᵉ</td><td class="r">177</td><td class="r">0</td></tr>
+      <tr><td>team building chantilly</td><td class="r">17ᵉ</td><td class="r">244</td><td class="r">0</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>Exemple.</b> Quelqu'un tape « séminaire château » : nous sommes en 5ᵉ page de Google, personne ne va jusque-là. Quelqu'un tape « murder party château » : nous sommes 3ᵉ, et il clique. Mais il cherche une idée d'animation, pas un lieu à réserver.</p>
+
+  <div class="two">
+    <div class="card">
+      <span class="tag g">Bonne nouvelle</span>
+      <p>Le blog amène quand même des clients. <b>Les 2 seules demandes dont on connaît l'origine</b> (1ᵉʳ octobre) sont arrivées sur un article, puis sont passées par la page devis 4 à 5 minutes plus tard.</p>
+      <p class="small">Articles : « murder party au château » et « alternative à Châteauform ».</p>
+    </div>
+    <div class="card">
+      <span class="tag w">Moins visible</span>
+      <p>La recherche « select chateaux » a disparu de Google depuis fin mai : elle est devenue trop rare pour que Google l'affiche. Sur Bing, c'est toujours la recherche n°1.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="s-demandes">
+  <span class="eyebrow">3 · Demandes reçues</span>
+  <h2 id="s-demandes">53 demandes en 8 mois, plates depuis l'arrêt de la pub</h2>
+  <p>La première demande date du 19 février. Le pic d'avril, c'est la pub Google : 11 demandes sur 15. Depuis la coupure mi-mai, le site reçoit 4 à 8 demandes par mois, sans tendance.</p>
+
+  <div class="chart" id="c-dem">
+    <div class="chart-head">
+      <h3>Demandes de devis par mois (doublons retirés)</h3>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--s2)"></i>Pub Google</span>
+        <span><i class="sw" style="background:var(--s3)"></i>Inconnue, pendant la pub</span>
+        <span><i class="sw" style="background:var(--s1)"></i>Sans pub</span>
+      </div>
+    </div>
+    <svg viewBox="0 0 700 280" role="img" aria-label="Demandes uniques par mois : février 1, mars 2, avril 15 dont 11 pub, mai 9 dont 2 pub, juin 5, juillet 8, août 4, septembre 7, octobre 2 au 5."></svg>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Mois</th><th class="r">Clics Google</th><th class="r">Demandes sans pub</th><th class="r">1 demande pour…</th></tr></thead>
+    <tbody>
+      <tr><td>juin</td><td class="r">127</td><td class="r">5</td><td class="r">25 clics</td></tr>
+      <tr><td>juillet</td><td class="r">97</td><td class="r">8</td><td class="r">12 clics</td></tr>
+      <tr><td>août</td><td class="r">93</td><td class="r">4</td><td class="r">23 clics</td></tr>
+      <tr><td>septembre</td><td class="r">≈ 143</td><td class="r">7</td><td class="r">20 clics</td></tr>
+    </tbody>
+  </table></div>
+  <p class="callout"><b>Ce que ça veut dire.</b> Les clics ont augmenté de 50 % entre l'été et septembre, mais pas les demandes. Les clics en plus viennent de gens qui cherchent une idée d'animation, et ceux-là ne demandent pas de devis.</p>
+  <p class="small">« Sans pub » ne veut pas forcément dire « Google » : avant le 24 septembre, l'origine d'une demande n'était pas enregistrée. Ça peut aussi être un visiteur direct ou du bouche-à-oreille. Entre le 6 et le 29 septembre, le formulaire des articles de blog était cassé : quelques demandes ont pu être perdues.</p>
+</section>
+
+<section aria-labelledby="s-ia">
+  <span class="eyebrow">4 · Les IA (GEO)</span>
+  <h2 id="s-ia">Les IA lisent et citent le site, mais n'envoient personne</h2>
+  <p>Quand une IA cherche vraiment sur le web, elle trouve souvent le site. Mais ça ne se transforme ni en visites, ni en demandes.</p>
+
+  <div class="tbl"><table>
+    <thead><tr><th>IA</th><th>Dernière mesure fiable</th><th class="r">Site cité</th></tr></thead>
+    <tbody>
+      <tr><td>Claude</td><td>1ᵉʳ octobre</td><td class="r">5 questions sur 7</td></tr>
+      <tr><td>Gemini</td><td>1ᵉʳ octobre</td><td class="r">6 sur 11</td></tr>
+      <tr><td>ChatGPT</td><td>10 septembre</td><td class="r">2 sur 5</td></tr>
+      <tr><td>Perplexity, Copilot</td><td>jamais mesurés</td><td class="r">—</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="two">
+    <div class="card">
+      <span class="tag g">Ce qui fait citer</span>
+      <p>Les pages bâties sur <b>une donnée que nous seuls avons</b> : l'observatoire des prix calculé sur 188 vrais devis, et le comparatif avec Châteauform.</p>
+      <p class="small">Gemini cite le site en 1ʳᵉ source sur « budget séminaire entreprise ».</p>
+    </div>
+    <div class="card">
+      <span class="tag b">Ce que ça rapporte</span>
+      <p><b>1 visite venue de ChatGPT</b> en deux semaines, sur 305. <b>0 demande</b> venue d'une IA.</p>
+      <p class="small">Même chose dans Google : sur les questions longues (« je suis assistante de direction, propose-moi… »), le site est 3ᵉ à 5ᵉ et fait 0 clic. Google répond à la place du site.</p>
+    </div>
+  </div>
+
+  <p class="callout"><b>Le seul signal en baisse.</b> Le robot qui lit une page quand quelqu'un pose une question à ChatGPT passait <b>38 fois par jour</b> début septembre, <b>22 fois</b> fin septembre (−42 %). À surveiller.</p>
+</section>
+
+<section aria-labelledby="s-reco">
+  <span class="eyebrow">5 · Ce que je recommande</span>
+  <h2 id="s-reco">Faire remonter les pages qui vendent, plutôt que gonfler le trafic</h2>
+  <ol class="reco">
+    <li><div><p><b>Arrêter de juger le site au nombre de clics.</b> Il a triplé sans faire bouger les demandes. Le chiffre à suivre, c'est le nombre de demandes par mois, et leur origine (enregistrée depuis le 24/09).</p></div></li>
+    <li><div><p><b>Construire des pages sur nos propres chiffres</b>, à l'image de l'observatoire des prix : prix réels par département, par taille de groupe, par saison, tirés des devis du CRM.</p><p class="small">C'est ce que les IA citent, et personne d'autre ne peut l'écrire.</p></div></li>
+    <li><div><p><b>Faire passer le lecteur d'un article vers un lieu.</b> Le test « 3 lieux affichés sous 21 articles » tourne depuis le 30/09. Bilan vers le 27/10, en comparant avec 20 articles témoins.</p></div></li>
+    <li><div><p><b>Réparer les instruments de mesure</b> avant le prochain bilan.</p><p class="small">Reconnecter la Search Console sur l'ordinateur · recharger le crédit OpenAI pour sonder ChatGPT · ajouter Perplexity aux sondes · relire Google Analytics.</p></div></li>
+  </ol>
+</section>
+
+<section aria-labelledby="s-jalons">
+  <span class="eyebrow">Repères</span>
+  <h2 id="s-jalons">Les grandes étapes du site</h2>
+  <ul class="timeline">
+    <li class="key"><span class="d">09/02</span><span class="t">Site ouvert à Google</span></li>
+    <li><span class="d">mars</span><span class="t">Pages géographiques réécrites, ~27 articles</span></li>
+    <li class="key"><span class="d">mi-mai</span><span class="t">Pub Google coupée</span></li>
+    <li class="key"><span class="d">19/05</span><span class="t">L'agent de rédaction du blog démarre</span></li>
+    <li><span class="d">11/06</span><span class="t">12 articles fusionnés, ouverture à Bing</span></li>
+    <li class="key"><span class="d">juil.-août</span><span class="t">189 articles publiés en deux mois</span></li>
+    <li><span class="d">30/08</span><span class="t">69 fiches lieux et 8 pages départements, formats et budgets</span></li>
+    <li><span class="d">31/08</span><span class="t">L'agent de mesure SEO démarre</span></li>
+    <li class="key"><span class="d">01/09</span><span class="t">FAQ rendues visibles sur 284 articles</span></li>
+    <li><span class="d">06/09</span><span class="t">97 titres réécrits ; l'agent passe à 3 corrections pour 1 création</span></li>
+    <li><span class="d">24/09</span><span class="t">Origine des demandes enregistrée ; guides Yvelines et Oise</span></li>
+    <li><span class="d">28/09</span><span class="t">Mise à jour anti-spam de Google</span></li>
+    <li><span class="d">29/09</span><span class="t">Formulaire des articles réparé</span></li>
+    <li><span class="d">30/09</span><span class="t">Test des lieux affichés sous les articles</span></li>
+  </ul>
+</section>
+
+<footer>
+  <p>Sources : Search Console (export du 30/08 et relevés de l'agent de mesure jusqu'au 02/10), Bing Webmaster, sondes de citation IA, journal des robots (depuis le 31/08), demandes du formulaire. Lecture seule, rien n'a été modifié.</p>
+  <p>Mesures écartées car fausses : positions Google du 10 au 21/09, sondes IA avant le 24/09 (pannes comptées comme « non cité »). Pas de mesure IA avant le 25/08, pas de journal des robots avant le 31/08.</p>
+  <p>Établi le 6 octobre 2026.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  const months = ['févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.'];
+  const clics = [11, 42, 61, 48, 127, 97, 93, 143];
+  const imp = [832, 2275, 2479, 3646, 6369, 6574, 8755, 11077];
+  const pos = [27.4, 27.1, 19.2, 14.5, 11.8, 16.2, 20.2, 19.0];
+  const bing = [null, null, null, null, 11, 15, 16, 27];
+  const fr = n => n.toLocaleString('fr-FR');
+  const dec = n => String(n).replace('.', ',');
+
+  const tb = document.getElementById('t-google');
+  months.forEach((m, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${m}</td><td class="r">${fr(clics[i])}</td><td class="r">${fr(imp[i])}</td><td class="r">${dec((clics[i] / imp[i] * 100).toFixed(1))} %</td><td class="r">${dec(pos[i])}</td><td class="r">${bing[i] ?? '—'}</td>`;
+    tb.appendChild(tr);
+  });
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (t, a, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+  const txt = (a, s, p) => { const t = el('text', a, p); t.textContent = s; return t; };
+
+  function tipFor(box) {
+    const t = document.createElement('div'); t.className = 'tip'; t.hidden = true; box.appendChild(t);
+    return {
+      show(html, evt) {
+        t.innerHTML = html; t.hidden = false;
+        const r = box.getBoundingClientRect();
+        let x = evt.clientX - r.left + 14, y = evt.clientY - r.top - 12;
+        if (x + t.offsetWidth > r.width - 4) x = evt.clientX - r.left - 14 - t.offsetWidth;
+        t.style.left = Math.max(4, x) + 'px'; t.style.top = Math.max(4, y) + 'px';
+      },
+      hide() { t.hidden = true; }
+    };
+  }
+  const roundTop = (x, w, yTop, yBase) => `M${x},${yBase} V${yTop + 4} q0,-4 4,-4 H${x + w - 4} q4,0 4,4 V${yBase} Z`;
+
+  (function () {
+    const box = document.getElementById('c-clics'); const svg = box.querySelector('svg'); const tip = tipFor(box);
+    const W = 700, H = 300, L = 40, R = 10, T = 48, B = 30, max = 160;
+    const y = v => T + (H - T - B) * (1 - v / max);
+    [0, 40, 80, 120, 160].forEach(v => { el('line', { class: 'grid', x1: L, x2: W - R, y1: y(v), y2: y(v) }, svg); txt({ x: L - 8, y: y(v) + 4, 'text-anchor': 'end' }, v, svg); });
+    const n = months.length, bw = (W - L - R) / n, w = Math.min(46, bw * 0.56);
+    const anns = { 3: ['pub coupée', 'agent blog'], 5: ['189 articles', 'juil.-août'], 7: ['corrections', 'plutôt que création'] };
+    months.forEach((m, i) => {
+      const cx = L + bw * i + bw / 2; const g = el('g', { class: 'col' }, svg);
+      const top = y(clics[i]);
+      el('path', { class: 'bar', fill: 'var(--s1)', d: roundTop(cx - w / 2, w, top, y(0)) }, g);
+      txt({ x: cx, y: top - 6, 'text-anchor': 'middle', class: 'lbl' }, clics[i], g);
+      txt({ x: cx, y: H - 10, 'text-anchor': 'middle' }, m, g);
+      if (anns[i]) {
+        txt({ x: cx, y: 12, 'text-anchor': 'middle', class: 'ann' }, anns[i][0], svg);
+        txt({ x: cx, y: 26, 'text-anchor': 'middle', class: 'ann' }, anns[i][1], svg);
+        el('line', { class: 'annline', x1: cx, x2: cx, y1: 32, y2: top - 20 }, svg);
+      }
+      const hit = el('rect', { class: 'hit', x: cx - bw / 2, y: 0, width: bw, height: H - B }, g);
+      hit.addEventListener('mousemove', e => tip.show(`<b>${m}</b><br>${clics[i]} clics<br>${fr(imp[i])} apparitions<br>place moyenne ${dec(pos[i])}`, e));
+      hit.addEventListener('mouseleave', () => tip.hide());
+    });
+  })();
+
+  (function () {
+    const box = document.getElementById('c-pos'); const svg = box.querySelector('svg'); const tip = tipFor(box);
+    const W = 700, H = 220, L = 40, R = 16, T = 22, B = 30, lo = 10, hi = 30;
+    const y = v => T + (H - T - B) * ((v - lo) / (hi - lo));
+    const n = months.length, bw = (W - L - R) / n, x = i => L + bw * i + bw / 2;
+    [10, 15, 20, 25, 30].forEach(v => { el('line', { class: 'grid', x1: L, x2: W - R, y1: y(v), y2: y(v) }, svg); txt({ x: L - 8, y: y(v) + 4, 'text-anchor': 'end' }, v + 'ᵉ', svg); });
+    el('path', { d: pos.map((p, i) => (i ? 'L' : 'M') + x(i) + ',' + y(p)).join(' '), fill: 'none', stroke: 'var(--s1)', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg);
+    pos.forEach((p, i) => {
+      el('circle', { cx: x(i), cy: y(p), r: i === 4 ? 5 : 3.5, fill: 'var(--s1)', stroke: 'var(--surface)', 'stroke-width': 2 }, svg);
+      txt({ x: x(i), y: H - 10, 'text-anchor': 'middle' }, months[i], svg);
+      if (i === 0 || i === 4 || i === 6) txt({ x: x(i), y: y(p) + (i === 4 ? -12 : 20), 'text-anchor': 'middle', class: 'lbl' }, dec(p) + 'ᵉ', svg);
+      const hit = el('rect', { class: 'hit', x: x(i) - bw / 2, y: T, width: bw, height: H - T - B }, svg);
+      hit.addEventListener('mousemove', e => tip.show(`<b>${months[i]}</b><br>place moyenne ${dec(p)}`, e));
+      hit.addEventListener('mouseleave', () => tip.hide());
+    });
+  })();
+
+  (function () {
+    const box = document.getElementById('c-dem'); const svg = box.querySelector('svg'); const tip = tipFor(box);
+    const m = ['févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.*'];
+    const pub = [0, 2, 11, 2, 0, 0, 0, 0, 0], inc = [1, 0, 4, 4, 0, 0, 0, 0, 0], sans = [0, 0, 0, 3, 5, 8, 4, 7, 2];
+    const W = 700, H = 280, L = 40, R = 10, T = 24, B = 30, max = 16;
+    const y = v => T + (H - T - B) * (1 - v / max);
+    [0, 4, 8, 12, 16].forEach(v => { el('line', { class: 'grid', x1: L, x2: W - R, y1: y(v), y2: y(v) }, svg); txt({ x: L - 8, y: y(v) + 4, 'text-anchor': 'end' }, v, svg); });
+    const n = m.length, bw = (W - L - R) / n, w = Math.min(44, bw * 0.56);
+    m.forEach((mm, i) => {
+      const cx = L + bw * i + bw / 2; const g = el('g', { class: 'col' }, svg);
+      const segs = [[sans[i], 'var(--s1)'], [inc[i], 'var(--s3)'], [pub[i], 'var(--s2)']].filter(s => s[0] > 0);
+      let base = 0;
+      segs.forEach(([v, c], k) => {
+        const gap = base > 0 ? 2 : 0; const y0 = y(base) - gap, y1 = y(base + v);
+        if (k === segs.length - 1) el('path', { class: 'bar', fill: c, d: roundTop(cx - w / 2, w, y1, y0) }, g);
+        else el('rect', { class: 'bar', fill: c, x: cx - w / 2, y: y1, width: w, height: Math.max(0, y0 - y1) }, g);
+        base += v;
+      });
+      const tot = pub[i] + inc[i] + sans[i];
+      txt({ x: cx, y: y(tot) - 6, 'text-anchor': 'middle', class: 'lbl' }, tot, g);
+      txt({ x: cx, y: H - 10, 'text-anchor': 'middle' }, mm, g);
+      const hit = el('rect', { class: 'hit', x: cx - bw / 2, y: T, width: bw, height: H - T - B }, g);
+      hit.addEventListener('mousemove', e => tip.show(`<b>${mm.replace('*', ' (du 1ᵉʳ au 5)')}</b><br>${tot} demande${tot > 1 ? 's' : ''}` + (pub[i] ? `<br>pub : ${pub[i]}` : '') + (inc[i] ? `<br>inconnue : ${inc[i]}` : '') + (sans[i] ? `<br>sans pub : ${sans[i]}` : ''), e));
+      hit.addEventListener('mouseleave', () => tip.hide());
+    });
+    txt({ x: L + bw * 4.1, y: y(12.5), 'text-anchor': 'start', class: 'ann' }, 'depuis l’arrêt de la pub : 4 à 8 par mois', svg);
+    txt({ x: W - R, y: 10, 'text-anchor': 'end', class: 'ann' }, '* octobre : du 1ᵉʳ au 5', svg);
+  })();
+})();
+</script>

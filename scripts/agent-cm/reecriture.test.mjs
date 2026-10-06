@@ -401,3 +401,64 @@ test('Marcus ne commande pas la réécriture d’une page redirigée', async () 
   const cmd = backlog.find((a) => a.type === 'commande-reecriture');
   assert.equal(cmd.cible, '/blog/vivant');
 });
+
+// ── Concurrence avec les pages commerciales (plan du 06/10) ─────────────────
+//
+// Mesuré le 06/10 en Search Console : sur « séminaire yvelines », l'article
+// /blog/seminaire-yvelines-78-luxe-proximite passait devant la page
+// commerciale /seminaire-chateau-yvelines-78. Le garde-fou anti-cannibalisation
+// ne tournait qu'à la CRÉATION : l'article a été réécrit les 01/10 et 02/10, et
+// renforcé à chaque fois contre notre propre page commerciale.
+
+const CLUSTERS = [
+  { id: 'yvelines', canonical: '/seminaire-chateau-yvelines-78', primaryKeywords: ['seminaire yvelines'] },
+];
+
+test('un article dont l’ADRESSE vise le mot-clé d’une page commerciale sort de la file de réécriture', () => {
+  ecrireSite({ camille: fichierCamille([
+    blocCamille({ id: 1001, slug: 'seminaire-yvelines-78-luxe-proximite', publishedAt: '2026-05-01' }),
+    blocCamille({ id: 1000, slug: 'camille-ancien', publishedAt: '2026-06-01' }),
+  ]) });
+  const slugs = pipeline.choisirReecritures('{}', 10, [], { commandes: [], clusters: CLUSTERS }).map((r) => r.slug);
+  assert.deepEqual(slugs, ['camille-ancien']);
+});
+
+test('une commande de Marcus sur un tel article est close au lieu d’être exécutée', () => {
+  ecrireSite({ camille: fichierCamille([
+    blocCamille({ id: 1001, slug: 'seminaire-yvelines-78-luxe-proximite', publishedAt: '2026-05-01' }),
+  ]) });
+  const fermetures = [];
+  const retenus = pipeline.choisirReecritures('{}', 1, [], {
+    commandes: [{ slug: 'seminaire-yvelines-78-luxe-proximite', issue: 9, creeLe: '2026-10-01T08:00:00Z' }],
+    clusters: CLUSTERS,
+    fermetures,
+  });
+  assert.equal(retenus.length, 0);
+  assert.equal(fermetures[0].numero, 9);
+  assert.match(fermetures[0].commentaire, /\/seminaire-chateau-yvelines-78/);
+});
+
+test('un article dont seul le TITRE vise le mot-clé reste dans la file : sa réécriture le corrigera', () => {
+  const article = { slug: 'guide-des-domaines', title: 'Séminaire Yvelines : le guide', keywords: [], fichier: 'blog-posts-camille.ts', publishedAt: '2026-05-01', mots: 800, h3: 0, content: '<p>x</p>' };
+  const slugs = pipeline.choisirReecritures('{}', 10, [], { commandes: [], clusters: CLUSTERS, articles: [article], fusionnes: new Map() }).map((r) => r.slug);
+  assert.deepEqual(slugs, ['guide-des-domaines']);
+  assert.equal(pipeline.motifAdresse(article, CLUSTERS), null);
+});
+
+test('une réécriture qui se met à viser le mot-clé d’une page commerciale est refusée', () => {
+  const candidat = { slug: 'guide-neutre', title: 'Séminaire Yvelines : les meilleurs domaines', keywords: [] };
+  const motif = pipeline.motifConcurrence(candidat, CLUSTERS);
+  assert.match(motif, /seminaire yvelines/);
+  assert.match(motif, /\/seminaire-chateau-yvelines-78/);
+});
+
+test('une réécriture neutre passe le contrôle de concurrence', () => {
+  const candidat = { slug: 'guide-neutre', title: 'Préparer un discours de clôture', keywords: ['discours seminaire'] };
+  assert.equal(pipeline.motifConcurrence(candidat, CLUSTERS), null);
+});
+
+test('la page propriétaire d’un mot-clé peut, elle, être réécrite sur ce mot-clé', () => {
+  const proprietaire = [{ id: 'checklist', canonical: '/blog/checklist-organiser-seminaire', primaryKeywords: ['check list seminaire'] }];
+  const candidat = { slug: 'checklist-organiser-seminaire', title: 'Check list séminaire : 25 étapes', keywords: [] };
+  assert.equal(pipeline.motifConcurrence(candidat, proprietaire), null);
+});
