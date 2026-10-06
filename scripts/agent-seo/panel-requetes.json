@@ -35,7 +35,7 @@
     },
     {
       "q": "séminaire yvelines",
-      "cluster": "/seminaire-chateau-yvelines-78",
+      "cluster": "/blog/seminaire-yvelines-78-luxe-proximite",
       "priorite": 1,
       "gsc90": {
         "imp": 1007,
@@ -44,7 +44,7 @@
     },
     {
       "q": "séminaire 78",
-      "cluster": "/seminaire-chateau-yvelines-78",
+      "cluster": "/blog/seminaire-yvelines-78-luxe-proximite",
       "priorite": 2,
       "gsc90": {
         "imp": 105,
@@ -71,7 +71,7 @@
     },
     {
       "q": "séminaire oise",
-      "cluster": "/seminaire-chateau-oise-60",
+      "cluster": "/blog/seminaire-oise-nature-prestige-paris",
       "priorite": 1,
       "gsc90": {
         "imp": 517,
@@ -80,7 +80,7 @@
     },
     {
       "q": "château séminaire oise",
-      "cluster": "/seminaire-chateau-oise-60",
+      "cluster": "/blog/seminaire-oise-nature-prestige-paris",
       "priorite": 2,
       "gsc90": {
         "imp": 118,

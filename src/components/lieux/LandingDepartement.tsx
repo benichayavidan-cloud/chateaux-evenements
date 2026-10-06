@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { venues, getVenuesByDepartment } from "@/data/venues";
 import { getLandingDepartement, landingsDepartements } from "@/data/landings-departements";
 import { metaDescription, titreLanding } from "@/lib/seo";
+import { lienFinal } from "@/data/redirections";
 import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
 import {
@@ -208,7 +209,7 @@ export function LandingDepartement({ slug }: { slug: string }) {
             {autres.map((a, i) => (
               <span key={a.slug}>
                 {i > 0 && (i === autres.length - 1 ? " et " : ", ")}
-                <NextLink href={`/${a.slug}`} style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
+                <NextLink href={lienFinal(`/${a.slug}`)} style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
                   {a.departement}
                 </NextLink>
               </span>

@@ -51,6 +51,9 @@ export function clusterDeLArticle(slug: string, titre: string): SeoCluster | nul
 
   for (const cluster of seoClusters) {
     if (cluster.type !== "landing") continue;
+    // L'article EST la page de référence de ce cluster (plan du 06/10 : la
+    // page que Google classe le mieux est gardée) — il ne renvoie pas à lui-même.
+    if (cluster.canonical === `/blog/${slug}`) return null;
     for (const mot of cluster.zoneWords ?? []) {
       const m = normaliser(mot);
       if (!m) continue;

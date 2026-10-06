@@ -10,7 +10,7 @@ const {
   listerArticlesReecrivables, estConforme,
   assertLongueurSuffisante, assertTitre, assertStructureH3, assertSourceExterne,
 } = require('./publish-article');
-const { lireFusions, compterMots } = require('./donnees-blog');
+const { lireFusions, compterMots, lirePagesCommerciales } = require('./donnees-blog');
 const FICHIER_CAMILLE = path.basename(ARTICLES_PATH);
 
 /**
@@ -340,7 +340,7 @@ function trierCommandes(commandes, parSlug, fusionnes, concurrents = new Map()) 
       continue;
     }
     if (concurrents.has(c.slug)) {
-      aFermer.push({ numero: c.issue, commentaire: `/blog/${c.slug} a une adresse qui vise le mot-clé d'une page commerciale, et une réécriture ne change pas l'adresse. Demande close par Camille.\n${concurrents.get(c.slug)}` });
+      aFermer.push({ numero: c.issue, commentaire: `/blog/${c.slug} est hors de la file de réécriture. Demande close par Camille.\n${concurrents.get(c.slug)}` });
       continue;
     }
     const article = parSlug.get(c.slug);
@@ -377,6 +377,10 @@ function choisirReecritures(gscData, nb, exclure = [], deps = {}) {
   for (const a of articles) {
     const motif = motifAdresse(a, clusters);
     if (motif) concurrents.set(a.slug, motif);
+  }
+  // Articles devenus pages de référence commerciales (lot 2 du plan du 06/10).
+  for (const [slug, motif] of (deps.pagesCommerciales || lirePagesCommerciales())) {
+    if (parSlug.has(slug)) concurrents.set(slug, motif);
   }
   if (concurrents.size) log(2, `${concurrents.size} article(s) hors file : leur adresse vise le mot-clé d'une page commerciale`);
 

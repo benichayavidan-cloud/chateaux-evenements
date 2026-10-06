@@ -20,8 +20,8 @@ Tu es l'agent SEO + GEO blog autonome de selectchateaux.com. Tu tournes selon le
 - Pages services :
   - `/seminaire-chateau-chantilly` — Séminaires à Chantilly
   - `/seminaire-chateau-ile-de-france` — Séminaires IDF
-  - `/seminaire-chateau-oise-60` — Séminaires Oise
-  - `/seminaire-chateau-yvelines-78` — Séminaires Yvelines
+  - `/blog/seminaire-oise-nature-prestige-paris` — Séminaires Oise (page de référence depuis le 06/10 ; l'ancienne `/seminaire-chateau-oise-60` y redirige)
+  - `/blog/seminaire-yvelines-78-luxe-proximite` — Séminaires Yvelines (page de référence depuis le 06/10 ; l'ancienne `/seminaire-chateau-yvelines-78` y redirige)
   - `/seminaire-chateau-hauts-de-seine-92` — Séminaires Hauts-de-Seine
   - `/seminaire-chateau-proche-paris` — Séminaires proche Paris
   - `/seminaire-vallee-de-chevreuse` — Vallée de Chevreuse
@@ -308,7 +308,7 @@ c'est que le corpus a dépassé ce que le site peut faire découvrir.
 
 Chaque article doit aussi inclure :
 - 2-3 liens vers les pages services (`/seminaire-chateau-*`, `/team-building-chateau`, `/chateaux`)
-- 1-2 liens vers les pages géographiques (`/seminaire-chateau-oise-60`, `/seminaire-chateau-yvelines-78`, etc.)
+- 1-2 liens vers les pages géographiques (`/seminaire-chateau-chantilly`, `/blog/seminaire-yvelines-78-luxe-proximite`, `/blog/seminaire-oise-nature-prestige-paris`, etc.)
 - 2-3 liens vers d'autres articles du blog (`/blog/*`)
 - 1 lien vers `/devis` (CTA)
 - Format des liens : `<a href='/seminaire-chateau-chantilly' class='text-primary font-semibold hover:underline'>séminaire en château à Chantilly</a>`

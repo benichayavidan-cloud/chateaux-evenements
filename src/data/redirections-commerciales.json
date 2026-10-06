@@ -1,0 +1,19 @@
+{
+  "_doc": "Une seule page par requête commerciale : celle que Google classe le mieux (plan du 06/10/2026, _claude_docs/2026-10-06_audit-acquisition/plan-intention-commerciale.md). Mesuré en Search Console du 06/09 au 03/10 (requête × page) : sur « séminaire yvelines » l'article est à la place 23,7 et la landing à 42 ; sur « séminaire oise » l'article à 21,9 et la landing à 34,9. La page qui gagne est GARDÉE à son adresse et reçoit les blocs commerciaux de la landing (lieux du département, budget observé, devis) ; la landing perdante est redirigée en 301 vers elle. SOURCE UNIQUE : next.config (301), sitemap, liens internes (src/lib/redirections.ts), bloc commercial de l'article, file de réécriture de Camille. Réversible : retirer l'entrée.",
+  "redirections": [
+    {
+      "from": "/seminaire-chateau-yvelines-78",
+      "to": "/blog/seminaire-yvelines-78-luxe-proximite",
+      "departementCode": "78",
+      "requete": "séminaire yvelines",
+      "mesure": "06/09→03/10 : article 23,7 (324 imp.) / landing 42 (186 imp.)"
+    },
+    {
+      "from": "/seminaire-chateau-oise-60",
+      "to": "/blog/seminaire-oise-nature-prestige-paris",
+      "departementCode": "60",
+      "requete": "séminaire oise",
+      "mesure": "06/09→03/10 : article 21,9 (142 imp.) / landing 34,9 (210 imp.)"
+    }
+  ]
+}

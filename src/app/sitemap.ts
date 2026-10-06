@@ -5,6 +5,7 @@ import { venues, GENERATED_AT } from '@/data/venues'
 import { landingsDepartements } from '@/data/landings-departements'
 import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
+import { estRedirige } from '@/data/redirections'
 
 /**
  * Sitemap.ts - Génération dynamique du sitemap XML
@@ -163,7 +164,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // 7. Landings départementales (91, 77, 95)
-  const landingsDeptPages: MetadataRoute.Sitemap = landingsDepartements.map((l) => ({
+  // Une landing redirigée (301, data/redirections-commerciales.json) sort du sitemap.
+  const landingsDeptPages: MetadataRoute.Sitemap = landingsDepartements.filter((l) => !estRedirige(`/${l.slug}`)).map((l) => ({
     url: `${baseUrl}/${l.slug}`,
     lastModified: staticPagesUpdated,
     changeFrequency: 'weekly' as const,

@@ -14,6 +14,7 @@ import { ServiceCard } from "@/components/home/ServiceCard";
 import { StatsSection } from "@/components/home/StatsSection";
 import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "lucide-react";
+import { lienFinal } from "@/data/redirections";
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
@@ -321,8 +322,8 @@ export default function Home() {
               { href: '/seminaire-chateau-ile-de-france', label: 'Séminaire Château Île-de-France', desc: '4 domaines privatisables' },
               { href: '/seminaire-chateau-proche-paris', label: 'Proche Paris', desc: 'À 30 min de la capitale' },
               { href: '/seminaire-chateau-chantilly', label: 'Chantilly', desc: '228 chambres en forêt' },
-              { href: '/seminaire-chateau-oise-60', label: 'Oise (60)', desc: 'Forêt de Chantilly' },
-              { href: '/seminaire-chateau-yvelines-78', label: 'Yvelines (78)', desc: 'Abbaye en Chevreuse' },
+              { href: lienFinal("/seminaire-chateau-oise-60"), label: 'Oise (60)', desc: 'Forêt de Chantilly' },
+              { href: lienFinal("/seminaire-chateau-yvelines-78"), label: 'Yvelines (78)', desc: 'Abbaye en Chevreuse' },
               { href: '/seminaire-chateau-hauts-de-seine-92', label: 'Hauts-de-Seine (92)', desc: 'Hôtel 5★ en métro' },
               { href: '/seminaire-vallee-de-chevreuse', label: 'Vallée de Chevreuse', desc: 'Abbaye millénaire 80 ha' },
             ].map((region) => (
@@ -360,7 +361,7 @@ export default function Home() {
           </Text>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: theme.spacing.lg }}>
             {[
-              { href: '/blog/seminaire-chantilly-activites-team-building', title: 'Séminaire Chantilly : 15 Activités Team Building', desc: 'Le guide complet des activités à Chantilly — spectacle équestre, rallye 2CV, escape game.' },
+              { href: lienFinal('/blog/seminaire-chantilly-activites-team-building'), title: 'Séminaire Chantilly : 15 Activités Team Building', desc: 'Le guide complet des activités à Chantilly — spectacle équestre, rallye 2CV, escape game.' },
               { href: '/blog/combien-coute-seminaire-chateau-2026', title: 'Combien Coûte un Séminaire en Château ? Tarifs 2026', desc: 'Grille complète 150€ à 450€/pers, coûts cachés à éviter et 5 astuces pour économiser 20%.' },
               { href: '/blog/checklist-organiser-seminaire', title: 'Checklist Séminaire 2026 : 25 Étapes Clés', desc: '25 étapes de J-90 à J+7 pour organiser votre séminaire sans rien oublier. PDF gratuit.' },
             ].map((article) => (

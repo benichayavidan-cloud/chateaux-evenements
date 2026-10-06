@@ -16,6 +16,7 @@ import { trackPhoneClick } from "@/components/Analytics";
 import DevisFormMini from "@/components/DevisFormMini";
 import ActivityCatalogue from "@/components/ActivityCatalogue";
 import { useInView } from "@/hooks/useInView";
+import { lienFinal } from "@/data/redirections";
 
 interface TeamBuildingPageClientProps {
   faq: Array<{ question: string; answer: string }>;
@@ -932,7 +933,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               <Link href="/seminaires-soirees-entreprise" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
                 Soirées d&apos;entreprise en château
               </Link>
-              <Link href="/blog/seminaire-chantilly-activites-team-building" style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+              <Link href={lienFinal("/blog/seminaire-chantilly-activites-team-building")} style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
                 Team building à Chantilly : le guide
               </Link>
             </div>

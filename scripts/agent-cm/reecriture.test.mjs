@@ -462,3 +462,21 @@ test('la page propriétaire d’un mot-clé peut, elle, être réécrite sur ce 
   const candidat = { slug: 'checklist-organiser-seminaire', title: 'Check list séminaire : 25 étapes', keywords: [] };
   assert.equal(pipeline.motifConcurrence(candidat, proprietaire), null);
 });
+
+test('un article devenu page de référence commerciale sort de la file, et une commande sur lui est close', () => {
+  ecrireSite({ camille: fichierCamille([
+    blocCamille({ id: 1001, slug: 'guide-oise', publishedAt: '2026-05-01' }),
+    blocCamille({ id: 1000, slug: 'camille-ancien', publishedAt: '2026-06-01' }),
+  ]) });
+  fs.writeFileSync(path.join(DATA, 'redirections-commerciales.json'), JSON.stringify({ redirections: [
+    { from: '/seminaire-chateau-oise-60', to: '/blog/guide-oise', departementCode: '60', requete: 'séminaire oise' },
+  ] }));
+  const fermetures = [];
+  const slugs = pipeline.choisirReecritures('{}', 10, [], {
+    commandes: [{ slug: 'guide-oise', issue: 11, creeLe: '2026-10-05T08:00:00Z' }], clusters: [], fermetures,
+  }).map((r) => r.slug);
+  fs.rmSync(path.join(DATA, 'redirections-commerciales.json'));
+  assert.deepEqual(slugs, ['camille-ancien']);
+  assert.equal(fermetures[0].numero, 11);
+  assert.match(fermetures[0].commentaire, /séminaire oise/);
+});
