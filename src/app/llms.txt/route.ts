@@ -4,6 +4,7 @@ import { landingsDepartements } from '@/data/landings-departements'
 import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { blogPosts } from '@/data/blog-posts'
+import { estHorsGoogle } from '@/data/articles-hors-google'
 import { estRedirige, redirectionsCommerciales } from '@/data/redirections'
 import { PRICING, pricingSummary } from '@/data/pricing'
 
@@ -125,6 +126,7 @@ function buildLlmsTxt(): string {
   lines.push('')
   for (const p of blogPosts) {
     if (essentialSlugs.includes(p.slug)) continue
+    if (estHorsGoogle(p.slug)) continue // retiré de Google (data/articles-hors-google.json)
     lines.push(`- [${p.title}](${BASE_URL}/blog/${p.slug})`)
   }
   lines.push('')

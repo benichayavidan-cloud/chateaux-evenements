@@ -1,5 +1,5 @@
 {
-  "_doc": "Panel de requêtes cibles de l'agent Marcus (blueprint §4). DEUX SECTIONS : `requetes` = le CŒUR FIXE (priorités 1-2), le mètre étalon de la progression — modifié uniquement par décision humaine ; `decouvertes` = la COUCHE DYNAMIQUE (priorité 3), gérée PAR L'AGENT : à chaque run, toute requête GSC ≥ 50 impressions/28j absente du panel y entre automatiquement (plafond 15, commit traçable) ; une découverte à 0 impression sur 2 runs consécutifs ressort. La PROMOTION d'une découverte vers le cœur fixe est proposée dans le rapport et reste une décision humaine. Champs : cluster = page propriétaire (null = orpheline, candidat Croissance) ; llm = true si sondée côté ChatGPT/Perplexity/Gemini ; gsc90 = baseline figée à la création, ne jamais réécrire.",
+  "_doc": "Panel de requêtes cibles de l'agent Marcus (blueprint §4). DEUX SECTIONS : `requetes` = le CŒUR FIXE (priorités 1-2), le mètre étalon de la progression — modifié uniquement par décision humaine ; `decouvertes` = la COUCHE DYNAMIQUE (priorité 3), gérée PAR L'AGENT : à chaque run, toute requête GSC ≥ 50 impressions/28j absente du panel y entre automatiquement (plafond 15, commit traçable) ; une découverte à 0 impression sur 2 runs consécutifs ressort. La PROMOTION d'une découverte vers le cœur fixe est proposée dans le rapport et reste une décision humaine. Champs : cluster = page propriétaire (null = orpheline, candidat Croissance) ; llm = true si sondée côté ChatGPT/Perplexity/Gemini ; gsc90 = baseline figée à la création, ne jamais réécrire. ; exclues = requêtes retirées volontairement (décision humaine) : ni mesurées, ni sondées, ni reproposées en découverte.",
   "version": 2,
   "cree_le": "2026-08-31",
   "requetes": [
@@ -200,18 +200,6 @@
       "priorite": 1,
       "llm": true,
       "prompt_llm": "Quelles sont les meilleures alternatives à Châteauform en Île-de-France ?"
-    },
-    {
-      "q": "murder party château",
-      "cluster": "/blog/murder-party-chateau-activite-immersive",
-      "priorite": 1,
-      "llm": true,
-      "gsc90": {
-        "imp": 106,
-        "pos": 7
-      },
-      "note": "meilleure requête du site en clics (11) — niche gagnée par accident, à consolider",
-      "prompt_llm": "Où organiser une murder party dans un château près de Paris pour une entreprise ? Donne des noms."
     }
   ],
   "decouvertes": [
@@ -250,6 +238,13 @@
       "priorite": 3,
       "note": "marque concurrente — observation SERP/LLM uniquement, ne JAMAIS cibler éditorialement",
       "ajoute_par": "humain-31/08/2026"
+    }
+  ],
+  "exclues": [
+    {
+      "q": "murder party château",
+      "retiree_le": "2026-10-08",
+      "raison": "recherche de particuliers : article retiré de Google (src/data/articles-hors-google.json). Ni suivie, ni sondée, ni reproposée en découverte."
     }
   ]
 }

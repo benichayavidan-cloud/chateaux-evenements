@@ -56,7 +56,8 @@ try {
     if (row) panelGsc[p.q] = { clicks: row.clicks, imp: row.impressions, pos: +row.position.toFixed(1), ctr: +(row.ctr * 100).toFixed(1) };
   }
   // Couche découverte : requêtes ≥ 50 imp/28j absentes du panel (proposées au rapport)
-  const connues = new Set([...panel.requetes, ...panel.decouvertes].map((p) => norm(p.q)));
+  // `exclues` : requêtes retirées volontairement (08/10, murder party) — jamais reproposées.
+  const connues = new Set([...panel.requetes, ...panel.decouvertes, ...(panel.exclues || [])].map((p) => norm(p.q)));
   const decouvertes = rows
     .filter((x) => x.impressions >= 50 && !connues.has(norm(x.keys[0])))
     .sort((a, b) => b.impressions - a.impressions).slice(0, 15)

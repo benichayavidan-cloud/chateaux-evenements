@@ -1,4 +1,5 @@
 import { blogPosts } from "@/data/blog-posts";
+import { estHorsGoogle } from "@/data/articles-hors-google";
 
 const SITE_URL = "https://www.selectchateaux.com";
 
@@ -12,8 +13,9 @@ function escapeXml(str: string): string {
 }
 
 export async function GET() {
-  // Trier par date décroissante, prendre les 50 derniers
-  const sortedPosts = [...blogPosts]
+  // Trier par date décroissante, prendre les 50 derniers — sans les articles
+  // retirés de Google (data/articles-hors-google.json).
+  const sortedPosts = blogPosts.filter((p) => !estHorsGoogle(p.slug))
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .slice(0, 50);
 

@@ -50,14 +50,25 @@ const GELEES = JSON.parse(fs.readFileSync(new URL('./pages-gelees.json', import.
  */
 export const LABEL_REECRITURE = 'camille-reecriture';
 
-/** Slugs de blog redirigés en 301 — les réécrire serait invisible pour Google. */
+/**
+ * Slugs de blog à ne jamais commander en réécriture : redirigés en 301
+ * (invisibles pour Google) ou retirés de Google (src/data/articles-hors-google.json,
+ * 08/10/2026). Camille close ces demandes sans rien réécrire : la seule
+ * commande du run serait perdue.
+ */
 function slugsFusionnes() {
+  const slugs = new Set();
   try {
     const { merges } = JSON.parse(fs.readFileSync(new URL('../../src/data/merged-redirects.json', import.meta.url)));
-    return new Set(merges.map((m) => m.from));
-  } catch {
-    return new Set();
+    for (const m of merges) slugs.add(m.from);
+  } catch { /* registre absent : aucune fusion */ }
+  try {
+    const { articles } = JSON.parse(fs.readFileSync(new URL('../../src/data/articles-hors-google.json', import.meta.url)));
+    for (const a of articles) slugs.add(a.slug);
+  } catch (e) {
+    console.warn(`[actions] articles-hors-google.json illisible (${e.message}) — ces articles peuvent être commandés à tort`);
   }
+  return slugs;
 }
 
 /**
@@ -134,8 +145,8 @@ export function construireBacklog(snapshot, { fusionnes = slugsFusionnes() } = {
   // pas la position. Camille choisit ses 3 réécritures sur la position
   // (5-25) ; Marcus complète sur un autre signal, sinon les deux agents
   // désigneraient les mêmes pages.
-  // Les pages redirigées en 301 sont exclues : Camille close ces demandes sans
-  // rien réécrire, la commande serait perdue.
+  // Les pages redirigées en 301 ou retirées de Google sont exclues : Camille
+  // close ces demandes sans rien réécrire, la commande serait perdue.
   const muettes = (snapshot.gsc28?.pages_muettes || [])
     .filter((p) => /^\/blog\//.test(p.p || ''))
     .filter((p) => !fusionnes.has(p.p.replace(/^\/blog\//, '').replace(/[/?#].*$/, '')));

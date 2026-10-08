@@ -6,6 +6,7 @@ import { landingsDepartements } from '@/data/landings-departements'
 import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { estRedirige } from '@/data/redirections'
+import { estHorsGoogle } from '@/data/articles-hors-google'
 
 /**
  * Sitemap.ts - Génération dynamique du sitemap XML
@@ -129,7 +130,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     }
   ]
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+  // Un article retiré de Google (noindex, data/articles-hors-google.json) sort du sitemap.
+  const blogPages: MetadataRoute.Sitemap = blogPosts.filter((post) => !estHorsGoogle(post.slug)).map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: laPlusRecente(new Date(post.updatedAt ?? post.publishedAt), gabaritModifie),
     changeFrequency: 'monthly' as const,

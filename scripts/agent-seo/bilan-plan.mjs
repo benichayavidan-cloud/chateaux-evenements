@@ -88,6 +88,7 @@ async function main() {
     ``,
     `CLICS PAR INTENTION (avant → après)`,
     ...intentions.map((i) => `· ${i.intention} : ${fmt(i.avant)} → ${fmt(i.apres)}`),
+    `  Animation : chute VOLONTAIRE — 3 articles retirés de Google le 08/10 (murder party = ~40 % des clics du site). Le total des clics baisse d'autant ; seules les lignes lieu et organisation jugent le plan.`,
     ``,
     `REQUÊTES CIBLES — place de la page qui doit les porter (avant → après)`,
     ...pApres.map((c, k) => `· « ${c.requete} » → ${c.page} : ${pAvant[k].cible ? `place ${pAvant[k].cible.pos}` : 'absente'} → ${c.cible ? `place ${c.cible.pos}, ${c.cible.clics} clics` : 'absente'}` +
@@ -97,8 +98,7 @@ async function main() {
     `DEMANDES REÇUES DEPUIS LE ${MISE_EN_LIGNE} : ${reelles.length}`,
     `· par canal : ${JSON.stringify(compte('origine_canal'))}`,
     `· par page d'arrivée : ${JSON.stringify(compte('origine_page'))}`,
-    `  Prédiction du 06/10 (marcus_journal #8) : au moins 1 demande arrivée par murder party, escape game ou atelier cuisine.`,
-    `  Clics sur le bloc « Où organiser » : à lire dans le CRM (SiteEvent CLICK_CTA, libellés article-organiser:*), non accessible d'ici.`,
+    `  Prédiction du 06/10 (marcus_journal #8) : ANNULÉE le 08/10 — les articles murder party, escape game et atelier cuisine ont été retirés de Google (recherches de particuliers). Ne pas la juger.`,
   ];
   const texte = lignes.join('\n');
   console.log(texte);

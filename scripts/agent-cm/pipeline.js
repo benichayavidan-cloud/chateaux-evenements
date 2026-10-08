@@ -11,7 +11,7 @@ const {
   listerArticlesReecrivables, estConforme,
   assertLongueurSuffisante, assertTitre, assertStructureH3, assertSourceExterne,
 } = require('./publish-article');
-const { lireFusions, compterMots, lirePagesCommerciales } = require('./donnees-blog');
+const { lireFusions, compterMots, lirePagesCommerciales, lireHorsGoogle } = require('./donnees-blog');
 const FICHIER_CAMILLE = path.basename(ARTICLES_PATH);
 
 /**
@@ -381,6 +381,10 @@ function choisirReecritures(gscData, nb, exclure = [], deps = {}) {
   }
   // Articles devenus pages de référence commerciales (lot 2 du plan du 06/10).
   for (const [slug, motif] of (deps.pagesCommerciales || lirePagesCommerciales())) {
+    if (parSlug.has(slug)) concurrents.set(slug, motif);
+  }
+  // Articles retirés de Google (décision du 08/10) : hors file, commandes closes.
+  for (const [slug, motif] of (deps.horsGoogle || lireHorsGoogle())) {
     if (parSlug.has(slug)) concurrents.set(slug, motif);
   }
   if (concurrents.size) log(2, `${concurrents.size} article(s) hors file : leur adresse vise le mot-clé d'une page commerciale`);

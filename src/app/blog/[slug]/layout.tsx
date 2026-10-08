@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getBlogPostBySlug, type FaqItem } from "@/data/blog-posts";
 import { bornerTitre, metaDescription, pageTitle } from "@/lib/seo";
+import { robotsArticle } from "@/data/articles-hors-google";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -30,10 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? { absolute: bornerTitre(article.seoTitle) }
       : pageTitle(article.title),
     description: metaDescription(article.seoDescription ?? article.excerpt),
-    robots: {
-      index: true,
-      follow: true,
-    },
+    // Articles retirés de Google (data/articles-hors-google.json) : noindex,
+    // liens suivis. Les autres restent indexés.
+    robots: robotsArticle(article.slug),
     authors: [{ name: article.author.name }],
     metadataBase: new URL("https://www.selectchateaux.com"),
     alternates: {

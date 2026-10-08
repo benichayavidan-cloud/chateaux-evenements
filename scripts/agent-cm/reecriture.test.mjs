@@ -480,3 +480,21 @@ test('un article devenu page de référence commerciale sort de la file, et une 
   assert.equal(fermetures[0].numero, 11);
   assert.match(fermetures[0].commentaire, /séminaire oise/);
 });
+
+test('un article retiré de Google sort de la file, et une commande sur lui est close', () => {
+  ecrireSite({ camille: fichierCamille([
+    blocCamille({ id: 1001, slug: 'murder-party-chateau', publishedAt: '2026-05-01' }),
+    blocCamille({ id: 1000, slug: 'camille-ancien', publishedAt: '2026-06-01' }),
+  ]) });
+  fs.writeFileSync(path.join(DATA, 'articles-hors-google.json'), JSON.stringify({ articles: [
+    { slug: 'murder-party-chateau', raison: 'recherche de particuliers' },
+  ] }));
+  const fermetures = [];
+  const slugs = pipeline.choisirReecritures('{}', 10, [], {
+    commandes: [{ slug: 'murder-party-chateau', issue: 12, creeLe: '2026-10-08T08:00:00Z' }], clusters: [], fermetures,
+  }).map((r) => r.slug);
+  fs.rmSync(path.join(DATA, 'articles-hors-google.json'));
+  assert.deepEqual(slugs, ['camille-ancien']);
+  assert.equal(fermetures[0].numero, 12);
+  assert.match(fermetures[0].commentaire, /retiré de Google/);
+});
