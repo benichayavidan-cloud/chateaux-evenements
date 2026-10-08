@@ -1,0 +1,8 @@
+{
+  "_doc": "Articles retirés de Google (noindex + hors sitemap) mais laissés en ligne pour les visiteurs qui y arrivent par nos liens internes. Décision du 08/10/2026 (_claude_docs/2026-10-08_leads/plan-sortie-trafic-animation.md) : ces articles captent des particuliers (« murder party château » = 41 % des clics Google du site sur 28 jours, 1 demande en 2 semaines), pas des entreprises. Lu par le site (layout + sitemap) et par Camille (aucune réécriture). Revenir en arrière = retirer l'entrée.",
+  "articles": [
+    { "slug": "murder-party-chateau-activite-immersive", "raison": "« murder party château » : 55 clics sur 135 du site (28 j au 05/10), recherche de particuliers" },
+    { "slug": "escape-game-geant-chateau", "raison": "recherche d'animation de particuliers (45 apparitions sur 45, été 2026)" },
+    { "slug": "atelier-cuisine-chef-gastronomie", "raison": "recherche d'animation de particuliers (19 apparitions sur 23, été 2026)" }
+  ]
+}

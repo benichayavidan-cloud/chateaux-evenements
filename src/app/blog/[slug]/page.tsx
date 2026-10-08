@@ -111,7 +111,7 @@ export default async function BlogArticlePage({ params }: Props) {
   // redirigée vers lui, à la place de l'encart de 3 lieux.
   const commercial = pageCommercialeDeLArticle(article.slug);
 
-  // Fiches /lieux sous l'article — pilote de 21 articles, voir data/pilote-lieux-articles.
+  // Fiches /lieux sous l'article — pilote de 20 articles, voir data/pilote-lieux-articles.
   const lieux = !commercial && !ARTICLES_ANIMATION[article.slug] && ARTICLES_PILOTE_LIEUX.includes(article.slug)
     ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venues)
     : [];

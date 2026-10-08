@@ -261,6 +261,22 @@ function lirePagesCommerciales() {
   }
 }
 
+/**
+ * Articles retirés de Google (src/data/articles-hors-google.json, décision du
+ * 08/10/2026) → motif. Noindex et hors sitemap : les réécrire est du travail
+ * perdu, et risquerait de les rendre de nouveau attirants pour les particuliers.
+ */
+function lireHorsGoogle() {
+  try {
+    const { articles } = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'articles-hors-google.json'), 'utf-8'));
+    return new Map(articles.map((a) => [a.slug, `article retiré de Google (${a.raison}) : réécriture interdite.`]));
+  } catch (e) {
+    // Fichier absent ou corrompu : Camille pourrait réécrire ces articles, on le dit.
+    console.warn(`[camille] articles-hors-google.json illisible (${e.message}) — articles retirés de Google non protégés`);
+    return new Map();
+  }
+}
+
 /** Slugs redirigés en 301 (src/data/merged-redirects.json) → destination. */
 function lireFusions() {
   try {
@@ -271,7 +287,7 @@ function lireFusions() {
 }
 
 module.exports = {
-  lirePagesCommerciales,
+  lirePagesCommerciales, lireHorsGoogle,
   analyser, valeurs, texteChamp, erreursSyntaxe, verifierEcriture, ecrireFichierVerifie,
   localiser, remplacerArticle, listerArticles, lireFusions, compterMots,
 };

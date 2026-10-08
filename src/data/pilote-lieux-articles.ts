@@ -6,6 +6,9 @@
  * articles vivants les plus affichés par Google du 02/07 au 30/09/2026
  * (export GSC 90 jours, workflow gsc-audit, run 36700977981).
  *
+ * 08/10/2026 : l'article murder party sort du pilote — retiré de Google
+ * (data/articles-hors-google.json). Pilote et témoin comptent 20 articles.
+ *
  * TÉMOIN : les 20 articles suivants du même classement ne reçoivent rien. Bilan
  * vers le 27/10 : clics CLICK_CTA « article-lieux » dans le CRM, demandes de
  * devis parties des fiches /lieux, et impressions des fiches /lieux en GSC,
@@ -16,7 +19,6 @@
 export const DEBUT_PILOTE_LIEUX = "2026-09-30";
 
 export const ARTICLES_PILOTE_LIEUX: readonly string[] = [
-  "murder-party-chateau-activite-immersive", // 40 % des clics du site
   "seminaire-oise-nature-prestige-paris", // 495 impr.
   "seminaire-codir-chateau-privatise", // 215 impr.
   "combien-coute-seminaire-chateau-2026", // 84 impr.
@@ -65,9 +67,4 @@ export const ARTICLES_TEMOIN_LIEUX: readonly string[] = [
 
 /** Titre et accroche propres à un article, quand le générique sonnerait faux. */
 export const ENCART_LIEUX_SUR_MESURE: Record<string, { titre: string; texte: string }> = {
-  "murder-party-chateau-activite-immersive": {
-    titre: "Où organiser votre murder party\u00a0?",
-    texte:
-      "Une enquête se joue mieux dans un lieu entier à vous : salons, parc, parfois des chambres pour prolonger la soirée. Voici trois adresses de notre sélection ; nous organisons l’animation avec le lieu retenu.",
-  },
 };

@@ -1,6 +1,7 @@
 // Tests du choix des lieux affichés sous un article — `node --test src/lib/lieux-article.test.ts`
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { lieuxPourArticle, type LieuChoisissable } from './lieux-article.ts';
 
 const lieu = (slug: string, dept: string, ville: string, capacite = 80, chambres: number | null = 20): LieuChoisissable =>
@@ -79,13 +80,18 @@ test('département trop peu fourni : complété sans sortir de la région, au li
 });
 
 // Le bilan compare pilote et témoin : un article dans les deux listes fausserait tout.
-test('pilote et témoin : 21 et 20 articles, sans recouvrement ni doublon', async () => {
+// Depuis le 08/10, l'article murder party est retiré de Google : il sort du
+// pilote, qui compte 20 articles comme le témoin.
+test('pilote et témoin : 20 et 20 articles, sans recouvrement, doublon ni article hors Google', async () => {
   const { ARTICLES_PILOTE_LIEUX, ARTICLES_TEMOIN_LIEUX } = await import('../data/pilote-lieux-articles.ts');
-  assert.equal(ARTICLES_PILOTE_LIEUX.length, 21);
+  const { articles: horsGoogle } = JSON.parse(readFileSync(new URL('../data/articles-hors-google.json', import.meta.url), 'utf-8'));
+  assert.equal(ARTICLES_PILOTE_LIEUX.length, 20);
   assert.equal(ARTICLES_TEMOIN_LIEUX.length, 20);
-  assert.equal(new Set(ARTICLES_PILOTE_LIEUX).size, 21);
+  assert.equal(new Set(ARTICLES_PILOTE_LIEUX).size, 20);
   assert.ok(ARTICLES_TEMOIN_LIEUX.every((s: string) => !ARTICLES_PILOTE_LIEUX.includes(s)));
-  assert.ok(ARTICLES_PILOTE_LIEUX.includes('murder-party-chateau-activite-immersive'));
+  for (const { slug } of horsGoogle) {
+    assert.ok(!ARTICLES_PILOTE_LIEUX.includes(slug) && !ARTICLES_TEMOIN_LIEUX.includes(slug), `hors Google mais mesuré : ${slug}`);
+  }
 });
 
 // Site « châteaux » : sous un article, un château passe avant un hôtel de chaîne.
