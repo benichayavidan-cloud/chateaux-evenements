@@ -103,10 +103,11 @@ export function CartesLieux({ lieux, titre, texte, cta }: CartesLieuxProps) {
   return (
     <section className="w-full flex justify-center" style={{ padding: "40px 20px", background: "#FFFFFF" }}>
       {/* Masquage des cartes au-delà de la limite dès le HTML servi : pas de saut de mise en
-          page à l'hydratation. Les liens restent dans le HTML. FiltresCartesLieux retire
+          page à l'hydratation. !important : la carte porte un display:flex en ligne, qui
+          l'emporte sinon sur la feuille (17 cartes visibles avant hydratation, mesuré le 11/10). Les liens restent dans le HTML. FiltresCartesLieux retire
           l'attribut quand un filtre ou « Voir les N lieux » prend la main. */}
       {limitee && (
-        <style>{`[data-cartes-limitees] > [data-carte-lieu]:nth-child(n+${LIMITE_CARTES + 1}){display:none}`}</style>
+        <style>{`[data-cartes-limitees] > [data-carte-lieu]:nth-child(n+${LIMITE_CARTES + 1}){display:none!important}`}</style>
       )}
       <div className="w-full max-w-5xl" data-cta={cta}>
         <h2 className="text-2xl sm:text-3xl font-light italic text-gray-900 text-center" style={{ margin: "0 0 10px" }}>
