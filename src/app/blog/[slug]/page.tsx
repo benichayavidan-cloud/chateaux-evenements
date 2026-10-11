@@ -13,12 +13,17 @@ import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { insererCtaMilieu } from "@/lib/cta-article";
 import { lieuxPourArticle } from "@/lib/lieux-article";
 import { venues } from "@/data/venues";
+import { avecPhotoCarte } from "@/lib/photo-carte";
+
 import { ARTICLES_PILOTE_LIEUX, ENCART_LIEUX_SUR_MESURE } from "@/data/pilote-lieux-articles";
 import { LieuxSousArticle } from "@/components/blog/LieuxSousArticle";
 import { lienFinal, pageCommercialeDeLArticle } from "@/data/redirections";
 import { BlocCommercialArticle } from "@/components/blog/BlocCommercialArticle";
 import { ARTICLES_ANIMATION } from "@/data/articles-animation";
 import { blocOrganiserHtml, insererApresIntro, messageDevisActivite } from "@/lib/bloc-organiser";
+
+/** Lieux proposables sous un article : seulement ceux qui ont une photo de carte vérifiée. */
+const venuesEnCarte = avecPhotoCarte(venues);
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -113,14 +118,14 @@ export default async function BlogArticlePage({ params }: Props) {
 
   // Fiches /lieux sous l'article — pilote de 20 articles, voir data/pilote-lieux-articles.
   const lieux = !commercial && !ARTICLES_ANIMATION[article.slug] && ARTICLES_PILOTE_LIEUX.includes(article.slug)
-    ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venues)
+    ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venuesEnCarte)
     : [];
   // Article d'animation (plan du 06/10, lot 3) : bloc « Où organiser votre … ? »
   // après l'introduction, avec 3 lieux et un devis prérempli. Il remplace
   // l'encart de 3 lieux du bas de page (même sélection, posée plus tôt).
   const animation = ARTICLES_ANIMATION[article.slug] ?? null;
   const lieuxAnimation = animation
-    ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venues)
+    ? lieuxPourArticle({ slug: article.slug, clusterId: cluster?.id ?? null, texte: `${article.title} ${article.content}` }, venuesEnCarte)
     : [];
   const html = animation
     ? insererApresIntro(htmlCta, blocOrganiserHtml(animation.activite, lieuxAnimation))

@@ -16,6 +16,7 @@ import { Users, Bed, LayoutGrid, ArrowRight } from "lucide-react";
 import { Section, Container } from "@/components/layout-v2";
 import { theme } from "@/design-system/tokens";
 import { venues } from "@/data/venues";
+import { photoDeCouverture } from "@/lib/venue-photos";
 
 interface VenuesByDepartmentProps {
   /** Départements à afficher, dans l'ordre. */
@@ -68,10 +69,10 @@ export function VenuesByDepartment({ departments, title, intro, limit = 24 }: Ve
               style={{ background: "white", borderRadius: "16px", border: `1px solid ${G.gray200}`, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
             >
               <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3", background: G.gray100 }}>
-                {v.photos[0] && (
+                {photoDeCouverture(v) && (
                   <Image
-                    src={v.photos[0].url}
-                    alt={v.photos[0].legende || v.nom}
+                    src={photoDeCouverture(v)!.url}
+                    alt={photoDeCouverture(v)!.legende || v.nom}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"

@@ -195,10 +195,10 @@ export function VenueCard({ venue: v }: { venue: Venue }) {
       style={{ background: "white", borderRadius: "16px", border: `1px solid ${G.gray200}`, boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
     >
       <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3", background: G.gray100 }}>
-        {v.photos[0] && (
+        {photoDeCouverture(v) && (
           <Image
-            src={v.photos[0].url}
-            alt={v.photos[0].legende || v.nom}
+            src={photoDeCouverture(v)!.url}
+            alt={photoDeCouverture(v)!.legende || v.nom}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"

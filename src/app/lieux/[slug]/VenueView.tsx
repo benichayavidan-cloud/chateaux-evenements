@@ -20,6 +20,7 @@ import { StickyCtaBar } from "@/components/StickyCtaBar";
 import type { Venue } from "@/data/venues";
 import { FaqSection, GuidesSection } from "@/components/lieux";
 import { buildVenueFaq } from "@/lib/venue-faq";
+import { photoDeCouverture } from "@/lib/venue-photos";
 
 const BRONZE = theme.colors.primary.bronze;
 const BRONZE_DARK = theme.colors.primary.bronzeDark;
@@ -424,8 +425,8 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
                     <Link key={n.slug} href={`/lieux/${n.slug}`} className="group block overflow-hidden"
                       style={{ background: "white", borderRadius: "16px", border: `1px solid ${G.gray200}` }}>
                       <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3", background: G.gray100 }}>
-                        {n.photos[0] && (
-                          <Image src={n.photos[0].url} alt={n.photos[0].legende || n.nom} fill
+                        {photoDeCouverture(n) && (
+                          <Image src={photoDeCouverture(n)!.url} alt={photoDeCouverture(n)!.legende || n.nom} fill
                             sizes="(max-width: 640px) 100vw, 33vw"
                             className="object-cover transition-transform duration-500 group-hover:scale-105" />
                         )}

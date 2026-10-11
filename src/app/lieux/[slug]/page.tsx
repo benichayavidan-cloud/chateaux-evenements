@@ -14,6 +14,7 @@ import { descriptionLieu, titreLieu } from "@/lib/seo";
 import { VenueView } from "./VenueView";
 import { buildVenueFaq } from "@/lib/venue-faq";
 import { lienFinal } from "@/data/redirections";
+import { photoDeCouverture } from "@/lib/venue-photos";
 
 export const dynamicParams = false;
 
@@ -93,7 +94,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       siteName: "Select Châteaux",
       locale: "fr_FR",
-      images: v.photos[0] ? [{ url: v.photos[0].url, width: 1200, height: 630, alt: v.nom }] : [],
+      images: photoDeCouverture(v) ? [{ url: photoDeCouverture(v)!.url, width: 1200, height: 630, alt: v.nom }] : [],
     },
   };
 }
