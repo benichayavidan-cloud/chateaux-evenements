@@ -41,7 +41,7 @@ export function FiltresCartesLieux({ total, avecChambres, grands, children }: Fi
     // État initial : c'est la règle CSS rendue par le serveur qui limite (CartesLieux).
     if (filtre === "tous" && !tout) {
       grille.setAttribute("data-cartes-limitees", "");
-      cartes.forEach((c) => (c.style.display = ""));
+      cartes.forEach((c) => (c.style.display = "flex"));
       return;
     }
     grille.removeAttribute("data-cartes-limitees");
@@ -49,8 +49,9 @@ export function FiltresCartesLieux({ total, avecChambres, grands, children }: Fi
     let premiereRevelee: HTMLElement | null = null;
     for (const carte of cartes) {
       const ok = retenue(carte, filtre);
-      // style.display et non l'attribut hidden : la carte porte un display:flex en ligne.
-      carte.style.display = ok && (tout || rang < LIMITE_CARTES) ? "" : "none";
+      // style.display et non l'attribut hidden : la carte porte un display:flex en ligne,
+      // à remettre tel quel (une chaîne vide l'effacerait).
+      carte.style.display = ok && (tout || rang < LIMITE_CARTES) ? "flex" : "none";
       if (ok && rang === LIMITE_CARTES) premiereRevelee = carte;
       if (ok) rang++;
     }
