@@ -18,6 +18,8 @@
  */
 import type { Venue, VenuePhoto } from "@/data/venues";
 import trop from "@/data/venue-photos-trop-petites.json";
+import { PHOTO_CARTE } from "@/data/photos-cartes";
+import { photoCarte } from "@/lib/photo-carte";
 
 const TROP_PETITES = new Set<string>(trop.urls);
 
@@ -33,8 +35,14 @@ export function photosUtilisables(v: Venue): VenuePhoto[] {
   );
 }
 
-/** La photo la plus présentable d'un lieu, ou `null` s'il n'en a aucune. */
+/**
+ * La photo la plus présentable d'un lieu, ou `null` s'il n'en a aucune.
+ * Le choix vérifié à l'œil (data/photos-cartes, 11/10/2026) prime : les
+ * dimensions ne voient ni une bannière promo, ni un plat, ni un logo posé sur
+ * une photo. Le tri automatique ne sert qu'aux lieux pas encore vérifiés.
+ */
 export function photoDeCouverture(v: Venue): VenuePhoto | null {
+  if (v.slug in PHOTO_CARTE) return photoCarte(v);
   const utilisables = photosUtilisables(v);
   if (utilisables.length === 0) return null;
   return [...utilisables].sort(

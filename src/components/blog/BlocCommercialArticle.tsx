@@ -16,7 +16,8 @@ import { getVenuesByDepartment } from "@/data/venues";
 import { landingsDepartements } from "@/data/landings-departements";
 import { avecPreposition } from "@/components/lieux";
 import { StructuredData } from "@/components/StructuredData";
-import { LieuxSousArticle } from "@/components/blog/LieuxSousArticle";
+import { CartesLieux } from "@/components/lieux/CartesLieux";
+import { avecPhotoCarte } from "@/lib/photo-carte";
 
 const BRONZE = "#A37E2C";
 
@@ -27,7 +28,8 @@ interface BlocCommercialArticleProps {
 
 export function BlocCommercialArticle({ departementCode, urlArticle }: BlocCommercialArticleProps) {
   const landing = landingsDepartements.find((l) => l.code === departementCode);
-  const lieux = getVenuesByDepartment(departementCode).sort((a, b) => b.capacite - a.capacite);
+  // Seuls les lieux montrables en carte : le titre, le texte et l'ItemList comptent les mêmes.
+  const lieux = avecPhotoCarte(getVenuesByDepartment(departementCode)).sort((a, b) => b.capacite - a.capacite);
   if (!landing || !lieux.length) return null;
 
   const dans = avecPreposition(landing.departement);
@@ -53,10 +55,11 @@ export function BlocCommercialArticle({ departementCode, urlArticle }: BlocComme
     <>
       <StructuredData data={itemList} />
       <div id="lieux">
-        <LieuxSousArticle
+        <CartesLieux
           lieux={lieux}
           titre={`Nos ${lieux.length} lieux de séminaire ${dans}`}
-          texte={`De ${capMin} à ${capMax} personnes, dont ${avecChambres} avec hébergement sur place. Chaque fiche montre les salles, les chambres et les photos réelles.`}
+          texte={`De ${capMin.toLocaleString("fr-FR")} à ${capMax.toLocaleString("fr-FR")} personnes, dont ${avecChambres} avec hébergement sur place. Chaque fiche montre les salles, les chambres et les photos réelles.`}
+          cta="article-lieux"
         />
       </div>
 

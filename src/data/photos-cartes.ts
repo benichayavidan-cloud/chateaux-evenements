@@ -1,0 +1,76 @@
+/**
+ * Photo de carte de chaque lieu — choisie et vérifiée à l'œil le 11/10/2026
+ * (_claude_docs/2026-10-11_refonte-bloc-lieux/choix_final.json).
+ *
+ * La première photo du CRM est souvent un logo, une bannière promo, un plat ou
+ * une image de 18 px : sur 372 photos, 18 font moins de 800 px et 7 sont des
+ * logos. Valeur = index dans `venue.photos` ; `null` = aucune photo du lieu
+ * lui-même, la carte n'est pas affichée.
+ *
+ * Un lieu absent de cette table n'a pas de carte : src/lib/photo-carte.test.ts
+ * échoue tant qu'un nouveau lieu n'a pas été vérifié.
+ */
+export const PHOTO_CARTE: Readonly<Record<string, number | null>> = {
+  'abbaye-de-royaumont-asnieres-sur-oise': 1,
+  'abbaye-du-golf-de-lesigny-lesigny': 1,
+  'abbaye-royale-du-moncel-pontpoint': 3,
+  'aiden-by-best-western-t-aim-hotel-margny-les-compiegne': 0,
+  'auberge-du-jeu-de-paume-chantilly': 0,
+  'auberge-du-mont-saint-mard-vieux-moulin': null,
+  'aux-vieux-remparts-provins': 4,
+  'best-western-hotel-du-parc-chantilly': 0,
+  'campus-serge-kampf-les-fontaines-gouvieux': 0,
+  'cazaudehore-saint-germain-en-laye': 0,
+  'centre-port-royal-saint-lambert': 2,
+  'chateau-d-ermenonville-ermenonville': 0,
+  'chateau-de-farcheville-bouville': 2,
+  'chateau-de-l-hermitage-ennery': 0,
+  'chateau-de-la-bucherie-saint-cyr-en-arthies': 2,
+  'chateau-de-la-trye-hermes': 0,
+  'chateau-de-maudetour-maudetour-en-vexin': 2,
+  'chateau-de-montataire-montataire': 2,
+  'chateau-de-sainte-claire-berneuil-sur-aisne': 0,
+  'chateau-de-villiers-le-mahieu-villiers-le-mahieu': 0,
+  'chateau-des-mesnuls-chateauform-les-mesnuls': 0,
+  'chateau-du-bois-du-rocher-jouy-en-josas': 1,
+  'chateau-du-mee-le-mee-sur-seine': 0,
+  'demeures-de-campagne-parc-du-coudray-le-coudray-montceaux': 0,
+  'dolce-wyndham-versailles-jouy-en-josas': 1,
+  'domaine-de-brunel-aincourt': 1,
+  'domaine-de-fremigny-bouray-sur-juine': 3,
+  'domaine-de-la-butte-ronde-la-boissiere-ecole': 1,
+  'domaine-de-la-pepiniere-chatenay-sur-seine': 0,
+  'domaine-de-la-roche-couloir-chevreuse': 5,
+  'domaine-de-montigny-russy-bemont': 2,
+  'domaine-de-quincampoix-les-molieres': 5,
+  'espace-leonard-de-vinci-lisses': 1,
+  'golf-de-la-vaucouleurs-civry-la-foret': null,
+  'grand-magic-hotel-magny-le-hongre': 0,
+  'hotel-b-b-cergy-port-cergy': 5,
+  'hotel-du-jeu-de-paume-versailles': 4,
+  'hotel-inn-design-paris-st-quentin-en-yvelines-montigny-le-bretonneux': 2,
+  'hotel-inn-paris-cdg-airport-roissy-en-france': 0,
+  'hotel-spa-les-etangs-de-corot-ville-d-avray': 4,
+  'l-iroquois-levallois-perret': 4,
+  'la-croisee-des-possibles-crepy-en-valois': 0,
+  'la-ferme-de-la-faisanderie-villepreux': 0,
+  'la-ferme-de-la-petite-loge-la-haute-maison': 0,
+  'la-ferme-du-manet-montigny-le-bretonneux': null,
+  'la-ferme-du-prieure-rennemoulin': 0,
+  'la-filature-clamart': 2,
+  'la-seigneurie-lepic-andresy': 3,
+  'la-treso-malakoff': 0,
+  'le-barn-hotel-bonnelles': 0,
+  'le-clos-barisseuse-saint-vaast-les-mello': 1,
+  'le-clos-des-fees-asnieres-sur-oise': 0,
+  'le-relais-de-voisins-voisins-le-bretonneux': 0,
+  'maison-prairie-bonheur-magny-les-hameaux': 1,
+  'novotel-fontainebleau-ury-ury': 0,
+  'novotel-paris-saclay-saclay': 1,
+  'novotel-senart-golf-de-greenparc-saint-pierre-du-perray': 1,
+  'palais-des-congres-de-versailles-versailles': 3,
+  'relais-spa-val-d-europe-chessy': 0,
+  'renaissance-la-defense-puteaux': 1,
+  'rock-bleau-noisy-sur-ecole': 3,
+  'westotel-taverny-paris-val-d-oise-taverny': 0,
+};

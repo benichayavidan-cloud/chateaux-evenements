@@ -15,6 +15,7 @@ import { venues } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
 import { metaDescription } from "@/lib/seo";
 import { lienFinal } from "@/data/redirections";
+import { photoDeCouverture } from "@/lib/venue-photos";
 
 /** Chaque département a désormais sa landing : on la relie depuis sa section. */
 const LANDING_PAR_DEPT: Record<string, string> = {
@@ -148,10 +149,10 @@ export default function LieuxPage() {
                   }}
                 >
                   <div className="relative overflow-hidden" style={{ aspectRatio: "4 / 3", background: G.gray100 }}>
-                    {v.photos[0] && (
+                    {photoDeCouverture(v) && (
                       <Image
-                        src={v.photos[0].url}
-                        alt={v.photos[0].legende || v.nom}
+                        src={photoDeCouverture(v)!.url}
+                        alt={photoDeCouverture(v)!.legende || v.nom}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
