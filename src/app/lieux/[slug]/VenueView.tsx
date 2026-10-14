@@ -215,6 +215,7 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
                     sizes={i === 0 ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 50vw, 25vw"}
                     className="object-cover"
                     priority={i === 0}
+                    fetchPriority={i === 0 ? "high" : undefined}
                   />
                 </div>
               ))}
