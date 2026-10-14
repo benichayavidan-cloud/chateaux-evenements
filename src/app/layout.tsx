@@ -19,6 +19,9 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   display: "swap",
+  // Pas de préchargement : ses 2 fichiers (76 Ko) partaient en priorité haute
+  // et ralentissaient la photo du haut sur mobile 4G (LCP fiches châteaux).
+  preload: false,
 });
 
 const inter = Inter({
