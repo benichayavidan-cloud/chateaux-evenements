@@ -398,7 +398,7 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                       <tr>
                         <td style="padding: 15px 0; border-bottom: 1px solid #e5e7eb;">
                           <p style="margin: 0; color: #334155; font-size: 15px; line-height: 1.6;">
-                            <strong style="color: #059669;">2.</strong> Réponse sous <strong>24 à 48 heures</strong> avec une proposition personnalisée
+                            <strong style="color: #059669;">2.</strong> Réponse sous <strong>24 heures</strong> avec une proposition personnalisée
                           </p>
                         </td>
                       </tr>
