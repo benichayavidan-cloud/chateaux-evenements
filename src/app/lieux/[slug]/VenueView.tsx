@@ -411,7 +411,7 @@ export function VenueView({ venue: v, voisins, landing, reponse }: {
                   <Link href={landing} style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
                     Voir tous nos châteaux pour séminaire en {v.departement}
                   </Link>{" "}
-                  — disponibilités et devis sous 48 h.
+                  — disponibilités et devis sous 24 h.
                 </p>
               </div>
             )}

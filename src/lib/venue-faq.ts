@@ -125,7 +125,7 @@ export function buildVenueFaq(v: Venue): VenueFaqItem[] {
   //    parce que l'engagement commercial l'est aussi.
   items.push({
     question: `Comment obtenir un devis pour ${lieu} ?`,
-    reponse: `La demande se fait depuis cette page, en indiquant vos dates, votre nombre de participants et le format souhaité. Select Châteaux répond sous 48 heures avec une proposition chiffrée, sans engagement.`,
+    reponse: `La demande se fait depuis cette page, en indiquant vos dates, votre nombre de participants et le format souhaité. Select Châteaux répond sous 24 heures avec une proposition chiffrée, sans engagement.`,
   });
 
   return items;

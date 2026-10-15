@@ -161,7 +161,7 @@ export default function TeamBuildingPage() {
       <VenuesByDepartment
         departments={["78", "60", "77", "95", "91", "92"]}
         title="Lieux pour un team building en château"
-        intro="Parc, forêt, espace extérieur : les domaines qui se prêtent aux activités de cohésion, avec leur capacité réelle et leur hébergement. Devis sous 48 h."
+        intro="Parc, forêt, espace extérieur : les domaines qui se prêtent aux activités de cohésion, avec leur capacité réelle et leur hébergement. Devis sous 24 h."
       />
       {/* Donnée propriétaire (observatoire des 188 devis) et maillage vers le
           blog — les deux leviers mesurés le 06/09/2026. */}

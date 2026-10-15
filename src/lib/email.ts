@@ -516,7 +516,7 @@ ${getChateauxNomsText(devis.chateau_id)}
 
 PROCHAINES ÉTAPES
 1. Notre équipe vérifie la disponibilité des châteaux
-2. Réponse sous 24 à 48 heures avec une proposition personnalisée
+2. Réponse sous 24 heures avec une proposition personnalisée
 3. On affine ensemble votre projet
 
 UNE QUESTION EN ATTENDANT ?

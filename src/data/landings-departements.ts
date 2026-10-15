@@ -48,13 +48,13 @@ export const landingsDepartements: LandingDepartement[] = [
     departement: "Yvelines",
     title: "Séminaire château Yvelines (78) : 19 lieux",
     description:
-      "19 lieux de séminaire dans les Yvelines (78), de 10 à 1 500 personnes, dont 14 avec hébergement. Versailles, Saint-Quentin, Vallée de Chevreuse. Devis sous 48 h.",
+      "19 lieux de séminaire dans les Yvelines (78), de 10 à 1 500 personnes, dont 14 avec hébergement. Versailles, Saint-Quentin, Vallée de Chevreuse. Devis sous 24 h.",
     eyebrow: "Yvelines · 78",
     h1: "Séminaire en château dans les Yvelines (78)",
     intro:
       "Dix-neuf lieux privatisables à l'ouest de Paris, du salon de 10 personnes au palais des congrès de 1 500. Les Yvelines sont le département le plus varié de notre périmètre : grands sites de Versailles et de Saint-Quentin-en-Yvelines, domaines de la Vallée de Chevreuse, hôtels-châteaux autour de Saint-Germain-en-Laye.",
     reponseDirecte:
-      "Select Châteaux référence 19 lieux de séminaire dans les Yvelines (78), de 10 à 1500 personnes, dont 14 avec hébergement. Sur les 19 devis de séminaire résidentiel que nous avons traités dans le département, le budget client médian est de 512 € par personne, hébergement compris. Devis sous 48 h.",
+      "Select Châteaux référence 19 lieux de séminaire dans les Yvelines (78), de 10 à 1500 personnes, dont 14 avec hébergement. Sur les 19 devis de séminaire résidentiel que nous avons traités dans le département, le budget client médian est de 512 € par personne, hébergement compris. Devis sous 24 h.",
     budget: { min: 350, median: 512, max: 861, nbDevis: 19 },
     budgetPortee: "par personne pour un séminaire résidentiel (hébergement compris, le plus souvent 2 jours et 1 nuit)",
     sections: [
@@ -104,13 +104,13 @@ export const landingsDepartements: LandingDepartement[] = [
     departement: "Oise",
     title: "Séminaire château Oise (60) : 13 lieux",
     description:
-      "13 lieux de séminaire dans l'Oise (60), de 40 à 500 personnes, dont 9 avec hébergement. Chantilly, Compiègne, Valois, vallée de l'Oise. Devis sous 48 h.",
+      "13 lieux de séminaire dans l'Oise (60), de 40 à 500 personnes, dont 9 avec hébergement. Chantilly, Compiègne, Valois, vallée de l'Oise. Devis sous 24 h.",
     eyebrow: "Oise · 60",
     h1: "Séminaire en château dans l'Oise (60)",
     intro:
       "Treize lieux privatisables au nord de Paris, de 40 à 500 personnes. L'Oise est le département des grands formats en pleine nature : un campus de 42 salles à Gouvieux, des domaines de 300 à 450 personnes, et quatre secteurs aux caractères bien distincts, de Chantilly à la forêt de Compiègne.",
     reponseDirecte:
-      "Select Châteaux référence 13 lieux de séminaire dans l'Oise (60), de 40 à 500 personnes, dont 9 avec hébergement. Sur les 34 devis de séminaire résidentiel que nous avons traités dans le département, le budget client médian est de 541 € par personne, hébergement compris. Devis sous 48 h.",
+      "Select Châteaux référence 13 lieux de séminaire dans l'Oise (60), de 40 à 500 personnes, dont 9 avec hébergement. Sur les 34 devis de séminaire résidentiel que nous avons traités dans le département, le budget client médian est de 541 € par personne, hébergement compris. Devis sous 24 h.",
     budget: { min: 398, median: 541, max: 858, nbDevis: 34 },
     budgetPortee: "par personne pour un séminaire résidentiel (hébergement compris, le plus souvent 2 jours et 1 nuit)",
     sections: [
@@ -160,13 +160,13 @@ export const landingsDepartements: LandingDepartement[] = [
     departement: "Essonne",
     title: "Séminaire Château Essonne (91) : 7 lieux",
     description:
-      "7 lieux de séminaire vérifiés en Essonne, de 140 à 450 personnes, tous avec hébergement jusqu'à 298 chambres. Budget observé dès 430 € par personne. Devis sous 48 h.",
+      "7 lieux de séminaire vérifiés en Essonne, de 140 à 450 personnes, tous avec hébergement jusqu'à 298 chambres. Budget observé dès 430 € par personne. Devis sous 24 h.",
     eyebrow: "Essonne · 91",
     h1: "Séminaire en château en Essonne (91)",
     intro:
       "Sept domaines privatisables au sud de Paris, de 140 à 450 personnes, tous équipés pour le résidentiel. L'Essonne combine un accès rapide par l'A6 et la N20 et des tarifs sensiblement inférieurs aux Yvelines, sans perdre le cadre historique.",
     reponseDirecte:
-      "Select Châteaux référence 7 lieux de séminaire en Essonne (91), de 140 à 450 personnes, tous disposant d'hébergement — jusqu'à 298 chambres sur un même site. Le budget observé sur nos devis se situe autour de 430 € par personne et par jour en résidentiel. Devis sous 48 h.",
+      "Select Châteaux référence 7 lieux de séminaire en Essonne (91), de 140 à 450 personnes, tous disposant d'hébergement — jusqu'à 298 chambres sur un même site. Le budget observé sur nos devis se situe autour de 430 € par personne et par jour en résidentiel. Devis sous 24 h.",
     budget: { min: 300, median: 430, max: 620, nbDevis: 36 },
     sections: [
       {
@@ -207,13 +207,13 @@ export const landingsDepartements: LandingDepartement[] = [
     departement: "Seine-et-Marne",
     title: "Séminaire Château Seine-et-Marne (77)",
     description:
-      "9 lieux de séminaire vérifiés en Seine-et-Marne, de 40 à 600 personnes, jusqu'à 396 chambres. De Fontainebleau à Provins. Budget observé dès 421 € par personne. Devis sous 48 h.",
+      "9 lieux de séminaire vérifiés en Seine-et-Marne, de 40 à 600 personnes, jusqu'à 396 chambres. De Fontainebleau à Provins. Budget observé dès 421 € par personne. Devis sous 24 h.",
     eyebrow: "Seine-et-Marne · 77",
     h1: "Séminaire en château en Seine-et-Marne (77)",
     intro:
       "Neuf lieux privatisables à l'est de Paris, de 40 à 600 personnes. C'est le département le plus polyvalent d'Île-de-France : forêt de Fontainebleau, cité médiévale de Provins, resorts de Marne-la-Vallée, avec la plus grosse capacité d'hébergement de la région.",
     reponseDirecte:
-      "Select Châteaux référence 9 lieux de séminaire en Seine-et-Marne (77), de 40 à 600 personnes, tous avec hébergement — jusqu'à 396 chambres sur un même site. Le budget observé sur nos devis se situe autour de 421 € par personne et par jour en résidentiel. Devis sous 48 h.",
+      "Select Châteaux référence 9 lieux de séminaire en Seine-et-Marne (77), de 40 à 600 personnes, tous avec hébergement — jusqu'à 396 chambres sur un même site. Le budget observé sur nos devis se situe autour de 421 € par personne et par jour en résidentiel. Devis sous 24 h.",
     budget: { min: 290, median: 421, max: 610, nbDevis: 38 },
     sections: [
       {
@@ -254,13 +254,13 @@ export const landingsDepartements: LandingDepartement[] = [
     departement: "Val-d'Oise",
     title: "Séminaire Château Val-d'Oise (95)",
     description:
-      "9 lieux de séminaire vérifiés dans le Val-d'Oise, de 13 à 600 personnes. Abbaye, Vexin, proximité Roissy-CDG. Budget observé dès 363 € par personne. Devis sous 48 h.",
+      "9 lieux de séminaire vérifiés dans le Val-d'Oise, de 13 à 600 personnes. Abbaye, Vexin, proximité Roissy-CDG. Budget observé dès 363 € par personne. Devis sous 24 h.",
     eyebrow: "Val-d'Oise · 95",
     h1: "Séminaire en château dans le Val-d'Oise (95)",
     intro:
       "Neuf lieux privatisables au nord de Paris, de 13 à 600 personnes. Le Val-d'Oise est le département le plus abordable de notre périmètre, et le mieux placé pour les événements avec participants internationaux : Roissy-CDG est à moins de 30 minutes de la plupart des domaines.",
     reponseDirecte:
-      "Select Châteaux référence 9 lieux de séminaire dans le Val-d'Oise (95), de 13 à 600 personnes, tous avec hébergement — jusqu'à 244 chambres. Le budget observé sur nos devis se situe autour de 363 € par personne et par jour en résidentiel, le plus bas de l'Île-de-France. Devis sous 48 h.",
+      "Select Châteaux référence 9 lieux de séminaire dans le Val-d'Oise (95), de 13 à 600 personnes, tous avec hébergement — jusqu'à 244 chambres. Le budget observé sur nos devis se situe autour de 363 € par personne et par jour en résidentiel, le plus bas de l'Île-de-France. Devis sous 24 h.",
     budget: { min: 250, median: 363, max: 540, nbDevis: 19 },
     sections: [
       {

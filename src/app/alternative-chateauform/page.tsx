@@ -29,7 +29,7 @@ import { metaDescription } from "@/lib/seo";
 const URL_PAGE = "https://www.selectchateaux.com/alternative-chateauform";
 
 const REPONSE =
-  `Châteauform' exploite ses propres maisons : vous choisissez parmi son catalogue. Select Châteaux est une agence indépendante qui référence ${venues.length} lieux en Île-de-France et dans l'Oise, appartenant à des propriétaires différents — châteaux, domaines, abbayes et hôtels. Le choix est plus large, la mise en concurrence réelle, et le devis arrive sous 48 h.`;
+  `Châteauform' exploite ses propres maisons : vous choisissez parmi son catalogue. Select Châteaux est une agence indépendante qui référence ${venues.length} lieux en Île-de-France et dans l'Oise, appartenant à des propriétaires différents — châteaux, domaines, abbayes et hôtels. Le choix est plus large, la mise en concurrence réelle, et le devis arrive sous 24 h.`;
 
 const ZONES = [
   { code: "78", nom: "Yvelines", ancre: "yvelines" },
@@ -56,18 +56,18 @@ const FAQ = [
   {
     question: "Pourquoi passer par une agence plutôt qu'en direct ?",
     reponse:
-      "Parce que la mise en concurrence prend du temps : identifier les lieux disponibles à vos dates, obtenir des devis comparables, arbitrer. Nous le faisons en 48 h, sans surcoût pour vous — nous sommes rémunérés par le lieu, pas par le client.",
+      "Parce que la mise en concurrence prend du temps : identifier les lieux disponibles à vos dates, obtenir des devis comparables, arbitrer. Nous le faisons en 24 h, sans surcoût pour vous — nous sommes rémunérés par le lieu, pas par le client.",
   },
   {
     question: "Combien de temps pour obtenir une proposition ?",
     reponse:
-      "48 heures. Nous interrogeons les lieux correspondant à votre cahier des charges et vous revenons avec les disponibilités réelles et les devis, pas avec une liste de suggestions à contacter vous-même.",
+      "24 heures. Nous interrogeons les lieux correspondant à votre cahier des charges et vous revenons avec les disponibilités réelles et les devis, pas avec une liste de suggestions à contacter vous-même.",
   },
 ];
 
 export const metadata: Metadata = {
   title: `Alternative à Châteauform' : ${venues.length} domaines`,
-  description: metaDescription(`Vous cherchez une alternative à Châteauform' ? Select Châteaux référence ${venues.length} lieux de séminaire indépendants en Île-de-France et dans l'Oise — Yvelines, Chantilly, Seine-et-Marne. Devis comparés sous 48 h.`),
+  description: metaDescription(`Vous cherchez une alternative à Châteauform' ? Select Châteaux référence ${venues.length} lieux de séminaire indépendants en Île-de-France et dans l'Oise — Yvelines, Chantilly, Seine-et-Marne. Devis comparés sous 24 h.`),
   metadataBase: new URL("https://www.selectchateaux.com"),
   alternates: { canonical: URL_PAGE },
   robots: { index: true, follow: true },
@@ -134,7 +134,7 @@ export default function Page() {
           { valeur: `${venues.length}`, libelle: "lieux indépendants" },
           { valeur: `${capMin}–${capMax}`, libelle: "personnes" },
           { valeur: `${avecHebergement}`, libelle: "avec hébergement" },
-          { valeur: "48 h", libelle: "pour un devis" },
+          { valeur: "24 h", libelle: "pour un devis" },
         ]}
       />
 
@@ -167,7 +167,7 @@ export default function Page() {
                   ["Le choix", "Homogène, standardisé, prévisible", "Hétérogène — château historique, abbaye, resort, hôtel de caractère"],
                   ["La mise en concurrence", "Entre les maisons du réseau", "Entre des propriétaires indépendants, sur votre cahier des charges"],
                   ["Le coût de l'accompagnement", "Intégré à la prestation", "Aucun surcoût — nous sommes rémunérés par le lieu"],
-                  ["Le délai", "Selon disponibilité du réseau", "Devis comparés sous 48 h"],
+                  ["Le délai", "Selon disponibilité du réseau", "Devis comparés sous 24 h"],
                 ].map(([label, a, b]) => (
                   <tr key={label}>
                     <td style={{ padding: "14px 16px", fontWeight: 700, color: G.gray900, borderTop: `1px solid ${G.gray100}`, verticalAlign: "top" }}>{label}</td>

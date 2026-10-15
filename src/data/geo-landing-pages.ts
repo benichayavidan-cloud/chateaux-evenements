@@ -200,7 +200,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   {
     slug: "seminaire-chateau-proche-paris",
     title: "Séminaire en château proche de Paris : 4 domaines à 30 min",
-    description: "4 châteaux privatisables à 30-45 min de Paris, dont un accessible en métro. Hébergement, salles et restauration sur place, devis sous 48 h.",
+    description: "4 châteaux privatisables à 30-45 min de Paris, dont un accessible en métro. Hébergement, salles et restauration sur place, devis sous 24 h.",
     keywords: ["château séminaire proche paris", "séminaire château paris", "séminaire proche paris", "lieu séminaire proche paris", "château événement paris", "séminaire résidentiel paris"],
     ogTitle: "Séminaire en Château Proche de Paris | Select Châteaux",
     ogDescription:
@@ -313,7 +313,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   {
     slug: "seminaire-chateau-chantilly",
     title: "Séminaire à Chantilly : 2 châteaux-hôtels dès 150 €/pers.",
-    description: "2 châteaux privatisables à Chantilly, 228 chambres et 33 salles en forêt de 6 300 ha. 35 min de Paris, 15 min de Roissy. Devis sous 48 h.",
+    description: "2 châteaux privatisables à Chantilly, 228 chambres et 33 salles en forêt de 6 300 ha. 35 min de Paris, 15 min de Roissy. Devis sous 24 h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "organiser séminaire chantilly", "séminaire forêt chantilly"],
     ogTitle: "Séminaire en Château à Chantilly | Select Châteaux",
     ogDescription:
@@ -472,7 +472,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   {
     slug: "seminaire-chateau-hauts-de-seine-92",
     title: "Séminaire Hauts-de-Seine : château-hôtel 5★, métro L12",
-    description: "83 chambres, 9 salles et un spa de 360 m² dans un château-hôtel 5★ des Hauts-de-Seine, accessible en métro L12. Devis chiffré sous 48 h.",
+    description: "83 chambres, 9 salles et un spa de 360 m² dans un château-hôtel 5★ des Hauts-de-Seine, accessible en métro L12. Devis chiffré sous 24 h.",
     keywords: ["seminaire entreprise hauts-de-seine", "séminaire château 92", "hôtel séminaire paris 92", "lieu séminaire hauts-de-seine", "séminaire métro paris", "séminaire entreprise issy"],
     ogTitle: "Séminaire en Château Hauts-de-Seine (92) | Select Châteaux",
     ogDescription:

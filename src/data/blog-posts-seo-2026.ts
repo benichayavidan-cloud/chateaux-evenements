@@ -744,7 +744,7 @@ const article49: BlogPost = {
 
     <p><strong>Select Châteaux</strong> a l'expérience des grands événements en château. Nous coordonnons lieu, transport, traiteur et programme pour des groupes de 50 à 400 personnes.</p>
 
-    <p><strong><a href="/devis">Demandez un devis grand groupe</a></strong> — Réponse avec 3 propositions sous 48h.</p>
+    <p><strong><a href="/devis">Demandez un devis grand groupe</a></strong> — Réponse avec 3 propositions sous 24h.</p>
   `,
 };
 

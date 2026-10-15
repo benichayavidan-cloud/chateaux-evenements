@@ -39,13 +39,13 @@ export const landingsFormats: LandingFormat[] = [
     tri: "capacite",
     title: "Team Building Chantilly : 40 activités",
     description:
-      "Organiser un team building à Chantilly : 13 domaines privatisables de 40 à 500 personnes, forêt de 6 300 hectares, 40 activités de cohésion. À 35 min de Paris. Devis sous 48 h.",
+      "Organiser un team building à Chantilly : 13 domaines privatisables de 40 à 500 personnes, forêt de 6 300 hectares, 40 activités de cohésion. À 35 min de Paris. Devis sous 24 h.",
     eyebrow: "Chantilly · Oise",
     h1: "Team building à Chantilly",
     intro:
       "Treize domaines privatisables au cœur de la forêt de Chantilly, de 40 à 500 personnes, à 35 minutes de Paris. La plus grande forêt d'Île-de-France sert de terrain de jeu : rallyes, olympiades, courses d'orientation, escape games dans des châteaux du XIXe.",
     reponseDirecte:
-      "Chantilly accueille les team buildings d'entreprise de 40 à 500 personnes, à 35 minutes de Paris et 25 minutes de Roissy-CDG. Select Châteaux y référence 13 domaines privatisables, dont 11 avec hébergement, et propose une quarantaine d'activités de cohésion en intérieur comme en extérieur. Devis sous 48 h.",
+      "Chantilly accueille les team buildings d'entreprise de 40 à 500 personnes, à 35 minutes de Paris et 25 minutes de Roissy-CDG. Select Châteaux y référence 13 domaines privatisables, dont 11 avec hébergement, et propose une quarantaine d'activités de cohésion en intérieur comme en extérieur. Devis sous 24 h.",
     activites: "tb",
     nbActivites: 9,
     titreLieux: "Nos 13 domaines à Chantilly et dans l'Oise",
@@ -90,13 +90,13 @@ export const landingsFormats: LandingFormat[] = [
     tri: "capacite",
     title: "Team Building Hauts-de-Seine (92) : métro",
     description:
-      "Team building dans les Hauts-de-Seine : 6 lieux privatisables de 30 à 350 personnes, accessibles en métro depuis Paris. Boulogne, Issy, Puteaux, Clamart. Devis sous 48 h.",
+      "Team building dans les Hauts-de-Seine : 6 lieux privatisables de 30 à 350 personnes, accessibles en métro depuis Paris. Boulogne, Issy, Puteaux, Clamart. Devis sous 24 h.",
     eyebrow: "Hauts-de-Seine · 92",
     h1: "Team building dans les Hauts-de-Seine (92)",
     intro:
       "Six lieux privatisables aux portes immédiates de Paris, de 30 à 350 personnes, accessibles en métro ou en RER. C'est le choix des équipes qui ne veulent perdre ni une demi-journée de transport ni la possibilité de rentrer le soir.",
     reponseDirecte:
-      "Les Hauts-de-Seine (92) accueillent les team buildings de 30 à 350 personnes à moins de 30 minutes du centre de Paris, en métro ou en RER. Select Châteaux y référence 6 lieux privatisables — de la péniche au domaine avec spa — et propose une quarantaine d'activités de cohésion. Devis sous 48 h.",
+      "Les Hauts-de-Seine (92) accueillent les team buildings de 30 à 350 personnes à moins de 30 minutes du centre de Paris, en métro ou en RER. Select Châteaux y référence 6 lieux privatisables — de la péniche au domaine avec spa — et propose une quarantaine d'activités de cohésion. Devis sous 24 h.",
     activites: "tb",
     nbActivites: 6,
     titreLieux: "Nos 6 lieux dans les Hauts-de-Seine",
@@ -136,13 +136,13 @@ export const landingsFormats: LandingFormat[] = [
     tri: "capacite",
     title: "Team Building Val-d'Oise (95) : 11 lieux",
     description:
-      "Team building dans le Val-d'Oise : 11 lieux privatisables de 13 à 600 personnes, du Vexin à Roissy. Le département le plus abordable d'Île-de-France. Devis sous 48 h.",
+      "Team building dans le Val-d'Oise : 11 lieux privatisables de 13 à 600 personnes, du Vexin à Roissy. Le département le plus abordable d'Île-de-France. Devis sous 24 h.",
     eyebrow: "Val-d'Oise · 95",
     h1: "Team building dans le Val-d'Oise (95)",
     intro:
       "Onze lieux privatisables au nord de Paris, de 13 à 600 personnes. Entre le parc naturel du Vexin et le pôle de Roissy, le Val-d'Oise offre le meilleur rapport cadre-budget de notre périmètre pour les activités de cohésion en extérieur.",
     reponseDirecte:
-      "Le Val-d'Oise (95) accueille les team buildings de 13 à 600 personnes, à 30 à 55 minutes de Paris et moins de 30 minutes de Roissy-CDG. Select Châteaux y référence 11 lieux privatisables, dont une abbaye de 600 personnes, et propose une quarantaine d'activités de cohésion. C'est le département le plus abordable de notre périmètre. Devis sous 48 h.",
+      "Le Val-d'Oise (95) accueille les team buildings de 13 à 600 personnes, à 30 à 55 minutes de Paris et moins de 30 minutes de Roissy-CDG. Select Châteaux y référence 11 lieux privatisables, dont une abbaye de 600 personnes, et propose une quarantaine d'activités de cohésion. C'est le département le plus abordable de notre périmètre. Devis sous 24 h.",
     activites: "tb",
     nbActivites: 6,
     titreLieux: "Nos 11 lieux dans le Val-d'Oise",
@@ -183,13 +183,13 @@ export const landingsFormats: LandingFormat[] = [
     limite: 12,
     title: "Journée d'Étude en Château : le guide",
     description:
-      "Organiser une journée d'étude : différence avec le séminaire résidentiel, programme type heure par heure, budget réel par personne, et 12 lieux équipés à moins d'une heure de Paris. Devis sous 48 h.",
+      "Organiser une journée d'étude : différence avec le séminaire résidentiel, programme type heure par heure, budget réel par personne, et 12 lieux équipés à moins d'une heure de Paris. Devis sous 24 h.",
     eyebrow: "Format · Journée d'étude",
     h1: "Journée d'étude en château",
     intro:
       "Une journée d'étude, c'est une journée de travail hors des murs de l'entreprise, sans nuitée : arrivée le matin, plénière, déjeuner, ateliers, départ en fin d'après-midi. C'est le format le plus demandé et le moins coûteux — voici comment l'organiser, ce qu'il faut prévoir et où le faire.",
     reponseDirecte:
-      "Une journée d'étude est un séminaire d'entreprise sans hébergement : arrivée entre 8 h 30 et 9 h, plénière, déjeuner sur place, ateliers l'après-midi, départ vers 17 h. Elle coûte environ trois fois moins qu'un résidentiel de deux jours et ne nécessite qu'une salle, une restauration et un accès rapide. Select Châteaux référence 68 lieux équipés en Île-de-France. Devis sous 48 h.",
+      "Une journée d'étude est un séminaire d'entreprise sans hébergement : arrivée entre 8 h 30 et 9 h, plénière, déjeuner sur place, ateliers l'après-midi, départ vers 17 h. Elle coûte environ trois fois moins qu'un résidentiel de deux jours et ne nécessite qu'une salle, une restauration et un accès rapide. Select Châteaux référence 68 lieux équipés en Île-de-France. Devis sous 24 h.",
     titreLieux: "12 lieux adaptés à une journée d'étude",
     sousTitreLieux:
       "Sélectionnés sur le nombre de salles de réunion disponibles — le critère qui compte quand il faut enchaîner plénière et ateliers en sous-commissions.",
