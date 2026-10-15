@@ -38,7 +38,7 @@ const capaciteMax = Math.max(...venues.map(v => v.capacite));
 
 export const metadata: Metadata = {
   title: `${total} Lieux de Séminaire en Île-de-France`,
-  description: metaDescription(`${total} lieux de séminaire vérifiés dans les Yvelines, l'Oise, la Seine-et-Marne, le Val-d'Oise, l'Essonne et les Hauts-de-Seine. Capacités, chambres et salles réelles. Devis sous 48 h.`),
+  description: metaDescription(`${total} lieux de séminaire vérifiés dans les Yvelines, l'Oise, la Seine-et-Marne, le Val-d'Oise, l'Essonne et les Hauts-de-Seine. Capacités, chambres et salles réelles. Devis sous 24 h.`),
   metadataBase: new URL("https://www.selectchateaux.com"),
   alternates: { canonical: "https://www.selectchateaux.com/lieux" },
   robots: { index: true, follow: true },
@@ -99,7 +99,7 @@ export default function LieuxPage() {
             Châteaux, domaines et hôtels privatisables dans les Yvelines, l&apos;Oise, la
             Seine-et-Marne, le Val-d&apos;Oise, l&apos;Essonne et les Hauts-de-Seine. Chaque fiche
             affiche la capacité, le nombre de chambres et les équipements réels du lieu —
-            pas d&apos;estimation. Devis sous 48 h.
+            pas d&apos;estimation. Devis sous 24 h.
           </p>
 
           <nav aria-label="Départements" className="flex flex-wrap" style={{ gap: "8px", marginTop: "1.75rem" }}>

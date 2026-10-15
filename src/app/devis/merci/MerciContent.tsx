@@ -32,7 +32,7 @@ const ETAPES = [
   {
     icone: FileText,
     titre: "Vous recevez vos devis chiffrés",
-    texte: "Sous 48 h, sans engagement : vous comparez et choisissez à votre rythme.",
+    texte: "Sous 24 h, sans engagement : vous comparez et choisissez à votre rythme.",
   },
 ] as const;
 

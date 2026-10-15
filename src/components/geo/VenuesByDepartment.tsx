@@ -57,7 +57,7 @@ export function VenuesByDepartment({ departments, title, intro, limit = 24 }: Ve
           {title}
         </h2>
         <p style={{ fontSize: "1.0625rem", lineHeight: 1.7, color: G.gray600, maxWidth: "62ch", marginBottom: "2rem" }}>
-          {intro ?? `${list.length} lieux vérifiés, de ${capMin} à ${capMax} personnes. Capacités, chambres et équipements réels — pas d'estimation. Devis sous 48 h.`}
+          {intro ?? `${list.length} lieux vérifiés, de ${capMin} à ${capMax} personnes. Capacités, chambres et équipements réels — pas d'estimation. Devis sous 24 h.`}
         </p>
 
         <div className="card-grid-centered" style={{ gap: "20px" }}>

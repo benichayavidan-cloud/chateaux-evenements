@@ -207,8 +207,8 @@ export function titreLieu(lieu: {
  * L'ancien gabarit produisait une phrase de 180 à 220 caractères que
  * `metaDescription()` coupait à 155. Mesuré le 20/09/2026 sur le build : les 68
  * fiches sortaient amputées, et toujours au même endroit — au milieu de la
- * liste d'équipements. « Devis sous 48 h », la seule promesse commerciale de la
- * balise, n'atteignait aucune page.
+ * liste d'équipements. « Devis sous 48 h » (passé à 24 h le 15/10/2026), la seule
+ * promesse commerciale de la balise, n'atteignait aucune page.
  *
  * On compose donc du plus complet au plus court, et on retient le premier
  * candidat qui tient — même stratégie que `titreLieu()`, qui dégrade la zone
@@ -251,7 +251,7 @@ export function descriptionLieu(
     v.parking ? pluriel(v.parking, "place") + " de parking" : null,
   ].filter((e): e is string => e !== null);
 
-  const promesse = "Devis sous 48 h.";
+  const promesse = "Devis sous 24 h.";
 
   // Du plus complet au plus court : on sacrifie les équipements, jamais la
   // capacité ni la promesse de devis.

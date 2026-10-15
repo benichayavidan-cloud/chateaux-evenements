@@ -81,7 +81,7 @@ export default function AuthorPage() {
               href="/devis#formulaire"
               className="inline-flex items-center gap-2 rounded-full bg-[var(--bronze-antique)] px-8 py-3 font-semibold text-white transition-all hover:bg-amber-700"
             >
-              Parler de votre projet — devis gratuit sous 48h
+              Parler de votre projet — devis gratuit sous 24h
             </Link>
           </div>
         </div>

@@ -70,7 +70,7 @@ function reponseDirecte(v: NonNullable<ReturnType<typeof getVenueBySlug>>) {
     v.sallesReunion ? `${p(v.sallesReunion, "salle")} de réunion` : null,
     v.parking ? `${p(v.parking, "place")} de parking` : null,
   ].filter(Boolean);
-  return `${parts}. ${equip.length ? `Le lieu dispose de ${equip.join(", ")}. ` : ""}Devis sous 48 h via Select Châteaux.`;
+  return `${parts}. ${equip.length ? `Le lieu dispose de ${equip.join(", ")}. ` : ""}Devis sous 24 h via Select Châteaux.`;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
