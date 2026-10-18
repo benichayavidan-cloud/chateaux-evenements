@@ -1,0 +1,37 @@
+name: GSC — Export brut complet
+
+# Dump intégral Search Console (toutes dimensions, plusieurs fenêtres,
+# pagination) en artifact. Pour audit SEO humain.
+on:
+  workflow_dispatch:
+
+jobs:
+  gsc-dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        working-directory: scripts/agent-cm
+        run: npm ci
+
+      - name: Dump GSC
+        working-directory: scripts/agent-cm
+        run: node gsc-dump.js > /tmp/gsc-dump.json
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gsc-dump
+          path: /tmp/gsc-dump.json
+          retention-days: 7
