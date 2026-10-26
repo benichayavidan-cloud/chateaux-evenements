@@ -6,7 +6,7 @@ const { execSync } = require('child_process');
 const { ARTICLES_PATH, IMAGES_DIR, CATEGORIES } = require('./config');
 const { checkArticle, loadClusters, formatReport, getExistingArticles, prepareExisting } = require('./anti-cannibalisation');
 const { checkDoublonSemantique } = require('./doublon-semantique');
-const { motifIntention, blocIntentionsPrompt } = require('./intention');
+const { motifIntention, blocIntentionsPrompt, classerIntention } = require('./intention');
 const {
   listerArticlesReecrivables, estConforme,
   assertLongueurSuffisante, assertTitre, assertStructureH3, assertSourceExterne,
@@ -83,6 +83,11 @@ async function step1_gscResearch() {
  */
 const MODELE = 'claude-sonnet-5';
 const NB_REECRITURES = 3;
+// Délai minimal entre deux réécritures d'un même article choisi par la GSC.
+// Sans lui, un article en position 5-15 l'est encore le lendemain de sa
+// réécriture : « protocole-art-table-diner-gala-chateau-2026 » a été réécrit
+// ~15 fois du 06/10 au 26/10/2026. 30 jours ≈ la fenêtre GSC de 28 jours.
+const REPOS_REECRITURE_JOURS = 30;
 
 /** Schéma commun aux deux usages — la forme d'un article rédigé. */
 const CHAMPS_REDACTION = {
@@ -387,7 +392,23 @@ function choisirReecritures(gscData, nb, exclure = [], deps = {}) {
   for (const [slug, motif] of (deps.horsGoogle || lireHorsGoogle())) {
     if (parSlug.has(slug)) concurrents.set(slug, motif);
   }
-  if (concurrents.size) log(2, `${concurrents.size} article(s) hors file : leur adresse vise le mot-clé d'une page commerciale`);
+  // Articles d'animation : le site ne cherche plus ces visiteurs (décision du
+  // 08/10). Camille refusait déjà ces sujets à la création, pas à la réécriture.
+  for (const a of articles) {
+    if (!concurrents.has(a.slug) && classerIntention(`${a.slug.replace(/-/g, ' ')} ${a.title || ''}`) === 'animation') {
+      concurrents.set(a.slug, 'intention animation : sujet que le site ne cherche plus (décision du 08/10/2026).');
+    }
+  }
+  if (concurrents.size) log(2, `${concurrents.size} article(s) hors file : page commerciale, retiré de Google ou animation`);
+
+  // Repos : un article réécrit il y a moins de REPOS_REECRITURE_JOURS ne
+  // revient pas par la GSC (sa position n'a pas eu le temps de bouger).
+  const aujourdhui = deps.aujourdhui || new Date().toISOString().slice(0, 10);
+  const limiteRepos = new Date(Date.parse(aujourdhui) - REPOS_REECRITURE_JOURS * 86400000).toISOString().slice(0, 10);
+  const enRepos = (slug) => {
+    const maj = parSlug.get(slug)?.updatedAt;
+    return Boolean(maj) && String(maj).slice(0, 10) > limiteRepos;
+  };
 
   let proprietaires = [];
   let intouchables = new Set();
@@ -436,7 +457,7 @@ function choisirReecritures(gscData, nb, exclure = [], deps = {}) {
 
   for (const p of proprietaires) {
     if (retenus.length >= nb) break;
-    if (intouchables.has(p.slug) || pris.has(p.slug)) continue;
+    if (intouchables.has(p.slug) || pris.has(p.slug) || enRepos(p.slug)) continue;
     pris.add(p.slug);
     retenus.push({ ...parSlug.get(p.slug), motif: `GSC : « ${p.requete} » en position ${Math.round(p.position)}, ${p.impressions} impressions` });
   }

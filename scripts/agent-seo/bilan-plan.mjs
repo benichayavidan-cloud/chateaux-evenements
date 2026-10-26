@@ -3,7 +3,8 @@
  * Bilan avant / après du plan « intention commerciale » du 06/10/2026
  * (_claude_docs/2026-10-06_audit-acquisition/plan-intention-commerciale.md).
  *
- * Lancé une fois par .github/workflows/bilan-plan-intention.yml (03/11/2026),
+ * Lancé une fois par .github/workflows/bilan-plan-intention.yml (17/11/2026,
+ * reporté du 03/11 : Google n'avait pas revu les pages du plan au 26/10),
  * ou à la main : `node scripts/agent-seo/bilan-plan.mjs`.
  *
  * Compare les 28 derniers jours de Search Console à la photo « avant »

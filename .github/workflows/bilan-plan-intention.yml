@@ -1,11 +1,13 @@
 name: Bilan du plan intention commerciale
 
-# Bilan avant / après du plan du 06/10/2026, envoyé par email le 03/11/2026
-# (J+28 après la mise en ligne). Lecture seule. Le cron revient chaque
-# 3 novembre : la garde ne laisse passer que 2026 (relance manuelle possible).
+# Bilan avant / après du plan du 06/10/2026, envoyé par email le 17/11/2026.
+# Prévu le 03/11 (J+28), reporté le 26/10 : au 26/10 Google n'avait pas revu
+# les pages du plan (landing 78 vue le 01/10, landing 60 le 30/08), les
+# 28 jours mesurés au 03/11 auraient précédé le changement. Lecture seule.
+# Le cron revient chaque 17 novembre : la garde ne laisse passer que 2026.
 on:
   schedule:
-    - cron: "0 7 3 11 *"   # 03/11, 08h00 Paris (heure d'hiver)
+    - cron: "0 7 17 11 *"   # 17/11, 08h00 Paris (heure d'hiver)
   workflow_dispatch:
 
 jobs:
