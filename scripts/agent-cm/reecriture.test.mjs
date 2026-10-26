@@ -30,7 +30,7 @@ function corps(mot, n = 1600) {
 }
 
 /** Article au format de Camille (formatArticleTS). */
-function blocCamille({ id, slug, publishedAt = '2026-06-01', content = '<p>court</p>' }) {
+function blocCamille({ id, slug, publishedAt = '2026-06-01', updatedAt = null, content = '<p>court</p>' }) {
   return `  {
     id: ${id},
     slug: "${slug}",
@@ -42,7 +42,7 @@ function blocCamille({ id, slug, publishedAt = '2026-06-01', content = '<p>court
       role: "Experte",
       avatar: "SD",
     },
-    publishedAt: "${publishedAt}",
+    publishedAt: "${publishedAt}",${updatedAt ? `\n    updatedAt: "${updatedAt}",` : ''}
     readingTime: 5,
     image: "/images/${slug}.webp",
     imageAlt: "Alt",
@@ -497,4 +497,51 @@ test('un article retiré de Google sort de la file, et une commande sur lui est 
   assert.deepEqual(slugs, ['camille-ancien']);
   assert.equal(fermetures[0].numero, 12);
   assert.match(fermetures[0].commentaire, /retiré de Google/);
+});
+
+// ── Défaut n°6 : la réécriture sans fin (26/10/2026) ────────────────────────
+// Du 06/10 au 26/10, « protocole-art-table-diner-gala-chateau-2026 » a été
+// réécrit ~15 fois : un article en position 5-15 y reste le lendemain de sa
+// réécriture, et redevenait candidat à chaque passage. Même boucle sur un
+// article d'escape game, une intention que le site ne cherche plus (08/10).
+
+const gscCandidats = (...slugs) => JSON.stringify({
+  rewriteCandidates: slugs.map((s, i) => ({ query: `requete ${i}`, ownedBy: `https://www.selectchateaux.com/blog/${s}`, ownerPosition: 8, impressions: 100 - i })),
+});
+
+test('un article réécrit il y a moins de 30 jours n’est pas repris, même en position 5-15', () => {
+  ecrireSite({ camille: fichierCamille([
+    blocCamille({ id: 1001, slug: 'reecrit-avant-hier', updatedAt: '2026-10-24' }),
+    blocCamille({ id: 1000, slug: 'reecrit-il-y-a-40-jours', updatedAt: '2026-09-16' }),
+  ]) });
+  const slugs = pipeline.choisirReecritures(gscCandidats('reecrit-avant-hier', 'reecrit-il-y-a-40-jours'), 10, [], {
+    commandes: [], aujourdhui: '2026-10-26',
+  }).map((r) => r.slug);
+  assert.deepEqual(slugs, ['reecrit-il-y-a-40-jours']);
+});
+
+test('un article d’intention animation n’est jamais réécrit, même en position 5-15', () => {
+  ecrireSite({ camille: fichierCamille([
+    blocCamille({ id: 1001, slug: 'animation-escape-game-nature-chateau-fontainebleau-rambouillet-2026' }),
+    blocCamille({ id: 1000, slug: 'protocole-art-table-diner-gala-chateau-2026' }),
+  ]) });
+  const slugs = pipeline.choisirReecritures(
+    gscCandidats('animation-escape-game-nature-chateau-fontainebleau-rambouillet-2026', 'protocole-art-table-diner-gala-chateau-2026'),
+    10, [], { commandes: [], aujourdhui: '2026-10-26' },
+  ).map((r) => r.slug);
+  assert.deepEqual(slugs, ['protocole-art-table-diner-gala-chateau-2026']);
+});
+
+test('une commande de Marcus sur un article d’animation est close au lieu d’être exécutée', () => {
+  ecrireSite({ camille: fichierCamille([
+    blocCamille({ id: 1001, slug: 'animation-escape-game-nature-chateau-fontainebleau-rambouillet-2026' }),
+  ]) });
+  const fermetures = [];
+  const retenus = pipeline.choisirReecritures('{}', 1, [], {
+    commandes: [{ slug: 'animation-escape-game-nature-chateau-fontainebleau-rambouillet-2026', issue: 21, creeLe: '2026-10-20T08:00:00Z' }],
+    fermetures, aujourdhui: '2026-10-26',
+  });
+  assert.equal(retenus.length, 0);
+  assert.equal(fermetures[0].numero, 21);
+  assert.match(fermetures[0].commentaire, /animation/);
 });
