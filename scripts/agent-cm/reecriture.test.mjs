@@ -392,16 +392,6 @@ test('Marcus et Camille parlent du même label, et Marcus le crée avant d’ouv
   assert.match(issue[issue.indexOf('--title') + 1], /\/blog\/x/);
 });
 
-test('Marcus ne commande pas la réécriture d’une page redirigée', async () => {
-  const marcus = await import('../agent-seo/actions.mjs');
-  const backlog = marcus.construireBacklog(
-    { gsc28: { pages_muettes: [{ p: '/blog/vieux', imp: 900, pos: 8 }, { p: '/blog/vivant', imp: 500, pos: 9 }] } },
-    { fusionnes: new Set(['vieux']) },
-  );
-  const cmd = backlog.find((a) => a.type === 'commande-reecriture');
-  assert.equal(cmd.cible, '/blog/vivant');
-});
-
 // ── Concurrence avec les pages commerciales (plan du 06/10) ─────────────────
 //
 // Mesuré le 06/10 en Search Console : sur « séminaire yvelines », l'article

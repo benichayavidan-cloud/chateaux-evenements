@@ -162,7 +162,7 @@ async function sondeGemini(prompt) {
       });
       const brut = await res.json().catch(() => ({ error: { message: `HTTP ${res.status}` } }));
       lu = lireGemini(brut);
-      if (!lu.erreur) return { ...analyserReponse(lu), modele: brut.modelVersion || modele, cout: 0 };
+      if (!lu.erreur) return { ...analyserReponse(lu), modele: brut.modelVersion || modele, cout: 0, jetons: brut.usageMetadata?.totalTokenCount || 0 };
       if (![429, 500, 503].includes(res.status)) return { ...analyserReponse(lu), cout: 0 };
       await pause(5000 * (essai + 1));
     }
@@ -174,6 +174,7 @@ export async function sondesLLM(panel) {
   const probes = [...panel.requetes, ...panel.decouvertes].filter((p) => p.llm && p.prompt_llm);
   const resultats = {};
   let cout = 0;
+  let jetonsGemini = 0; // Gemini n'est pas chiffré ici : on trace le volume plutôt qu'un faux 0 $.
   const n = { gpt: { cite: 0, cherche: 0, erreur: 0 }, gem: { cite: 0, cherche: 0, erreur: 0 } };
   // Un moteur qui n'a pas cherché ne dit rien de notre visibilité : il est
   // compté à part, jamais comme un échec.
@@ -186,6 +187,7 @@ export async function sondesLLM(panel) {
       sondeGemini(p.prompt_llm).catch((e) => ({ erreur: e.message, statut: 'erreur' })),
     ]);
     cout += gpt.cout || 0;
+    jetonsGemini += gem.jetons || 0;
     for (const [cle, r] of [['gpt', gpt], ['gem', gem]]) {
       if (r.a_cherche) n[cle].cherche++;
       if (r.cite) n[cle].cite++;
@@ -210,6 +212,7 @@ export async function sondesLLM(panel) {
       gemini_cite: n.gem.cite, gemini_cherche: n.gem.cherche, gemini_taux: taux(n.gem), gemini_erreur: n.gem.erreur,
     },
     cout,
+    jetonsGemini,
   };
 }
 

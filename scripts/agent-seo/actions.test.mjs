@@ -3,14 +3,12 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { construireBacklog } from './actions.mjs';
 
-const muette = (p, imp) => ({ p, imp, pos: 8 });
-const commandes = (snapshot) => construireBacklog(snapshot).filter((a) => a.type === 'commande-reecriture').map((a) => a.cible);
-
-test('un article retiré de Google n’est jamais commandé en réécriture : la page suivante l’est', () => {
-  const snapshot = { gsc28: { pages_muettes: [
-    muette('/blog/escape-game-geant-chateau', 400),
-    muette('/blog/murder-party-chateau-activite-immersive#format-1', 300),
-    muette('/blog/checklist-organiser-seminaire', 200),
-  ] } };
-  assert.deepEqual(commandes(snapshot), ['/blog/checklist-organiser-seminaire']);
+// Décision du 01/11/2026 : 12 envois IndexNow sans effet mesuré et 6 commandes
+// de réécriture jamais exécutées. Marcus observe et rapporte, il n'agit plus.
+test('Marcus ne construit plus aucune action automatique, quel que soit le relevé', () => {
+  const snapshot = {
+    indexation: { non_indexees: [{ url: '/blog/x', etat: 'Crawled - currently not indexed' }] },
+    gsc28: { pages_muettes: [{ p: '/blog/seminaire-yvelines-78-luxe-proximite', imp: 486, pos: 38 }] },
+  };
+  assert.deepEqual(construireBacklog(snapshot), []);
 });

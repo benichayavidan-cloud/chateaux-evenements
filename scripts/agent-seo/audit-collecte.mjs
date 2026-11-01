@@ -42,7 +42,7 @@ await step('inspection', async () => {
   const xml = await (await fetch(SITE + '/sitemap.xml')).text();
   const urls = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
   // Pages retirées du sitemap mais encore intéressantes
-  for (const u of ['/blog/murder-party-chateau-activite-immersive', '/blog/escape-game-chateau-team-building', '/blog/atelier-cuisine-chateau-team-building', '/seminaire-chateau-yvelines-78', '/seminaire-chateau-oise-60']) if (!urls.includes(SITE + u)) urls.push(SITE + u);
+  for (const u of ['/blog/murder-party-chateau-activite-immersive', '/blog/escape-game-geant-chateau', '/blog/atelier-cuisine-chef-gastronomie', '/seminaire-chateau-yvelines-78', '/seminaire-chateau-oise-60']) if (!urls.includes(SITE + u)) urls.push(SITE + u);
   const rows = []; let i = 0;
   await Promise.all(Array.from({ length: 4 }, async () => {
     while (i < urls.length) {

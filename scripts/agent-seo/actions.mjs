@@ -14,9 +14,8 @@
  *   5. chaque action exécutée = entrée marcus_journal avec prédiction
  *      chiffrée et échéance (sinon l'action est ILLÉGALE — Loi 2)
  *
- * Actions implémentées :
- *   - ping-indexnow        : notifier Bing/Yandex des URLs modifiées
- *   - commande-reecriture  : ouvrir une issue GitHub étiquetée pour Camille
+ * Actions implémentées : aucune dans le backlog (voir construireBacklog).
+ * `commande-reecriture` reste exécutable, car une demande peut être ouverte à la main.
  *
  * DEUX ACTIONS ONT ÉTÉ RETIRÉES le 06/09/2026, à la revue qui a précédé le
  * passage en phase 2 :
@@ -36,10 +35,10 @@
  * code : c'est pourquoi elles sont supprimées et non désactivées.
  */
 import fs from 'node:fs';
-import { execSync, execFileSync } from 'node:child_process';
-import { env, sbSelect, sbInsert } from './lib.mjs';
+import { execFileSync } from 'node:child_process';
+import { sbSelect, sbInsert } from './lib.mjs';
 
-const QUOTAS = { 'ping-indexnow': 99, 'commande-reecriture': 1 };
+const QUOTAS = { 'commande-reecriture': 1 };
 const GELEES = JSON.parse(fs.readFileSync(new URL('./pages-gelees.json', import.meta.url))).pages;
 
 /**
@@ -49,27 +48,6 @@ const GELEES = JSON.parse(fs.readFileSync(new URL('./pages-gelees.json', import.
  * échoue sur un label inconnu, et aucune demande n'avait jamais été créée.
  */
 export const LABEL_REECRITURE = 'camille-reecriture';
-
-/**
- * Slugs de blog à ne jamais commander en réécriture : redirigés en 301
- * (invisibles pour Google) ou retirés de Google (src/data/articles-hors-google.json,
- * 08/10/2026). Camille close ces demandes sans rien réécrire : la seule
- * commande du run serait perdue.
- */
-function slugsFusionnes() {
-  const slugs = new Set();
-  try {
-    const { merges } = JSON.parse(fs.readFileSync(new URL('../../src/data/merged-redirects.json', import.meta.url)));
-    for (const m of merges) slugs.add(m.from);
-  } catch { /* registre absent : aucune fusion */ }
-  try {
-    const { articles } = JSON.parse(fs.readFileSync(new URL('../../src/data/articles-hors-google.json', import.meta.url)));
-    for (const a of articles) slugs.add(a.slug);
-  } catch (e) {
-    console.warn(`[actions] articles-hors-google.json illisible (${e.message}) — ces articles peuvent être commandés à tort`);
-  }
-  return slugs;
-}
 
 /**
  * Ouvre la demande de réécriture pour Camille.
@@ -90,80 +68,21 @@ export function commanderReecriture(a, runId, exec = execFileSync) {
 }
 
 /**
- * CONSTRUIT LE BACKLOG à partir du snapshot du run.
+ * LE BACKLOG EST VIDE depuis le 01/11/2026 : Marcus observe et rapporte.
  *
- * Ajouté le 07/09/2026. Jusque-là `collecte.mjs` appelait
- * `executerActions([], …)` — un tableau vide EN DUR. Le moteur tournait donc
- * à blanc quelle que soit la phase : passer Marcus en phase 2 le 06/09 n'a
- * rien pu changer, et `marcus_journal` est resté vide parce qu'il n'avait
- * jamais rien à écrire. Le commentaire « en Phase 1 le backlog est vide »
- * décrivait une intention, pas un branchement.
+ *   ping-indexnow — RETIRÉ. 12 envois de 20 URL. Sur les listes reconstituées,
+ *     1 à 4 URL sur 20 indexées au 01/11 pour 30 % prédits. Googlebot n'est pas
+ *     venu, et Bing visitait déjà ces pages avant le ping (84 URL avant, 104
+ *     après, sur les 12 envois). IndexNow ne notifie pas Google.
  *
- * Chaque action porte une PRÉDICTION CHIFFRÉE et une ÉCHÉANCE, sans quoi
- * executerActions la refuse (Loi 2) : une action dont on ne peut pas dire à
- * l'avance ce qu'elle doit produire n'est pas évaluable, donc pas légitime.
+ *   commande-reecriture — RETIRÉ. 6 commandes sur le même article, toutes
+ *     refermées sans réécriture. L'hypothèse « beaucoup d'impressions et zéro
+ *     clic = problème de contenu, pas de rang » visait une page en 40ᵉ position.
+ *
+ * Toute nouvelle action devra d'abord prouver qu'elle se mesure.
  */
-const JOURS = (n) => new Date(Date.now() + n * 864e5).toISOString().slice(0, 10);
-
-export function construireBacklog(snapshot, { fusionnes = slugsFusionnes() } = {}) {
-  const backlog = [];
-
-  // ── ping-indexnow : les pages que Google dit ne pas avoir indexées.
-  //
-  // C'est le SEUL levier d'accélération réellement disponible. L'API Indexing
-  // de Google est réservée aux JobPosting/BroadcastEvent et l'API URL
-  // Inspection est en lecture seule (c'est ce qui a fait retirer l'action
-  // « inspection-google » le 06/09). IndexNow ne notifie que Bing et Yandex —
-  // on ne prétend donc pas accélérer Google ici, et la prédiction porte sur
-  // ce qui est réellement mesurable.
-  //
-  // On exclut les états qui ne se corrigent PAS par un ping : une page
-  // redirigée, en double, ou volontairement exclue restera non indexée quel
-  // que soit le nombre de notifications. Les pinger consommerait du quota en
-  // donnant l'illusion d'agir — exactement le reproche fait à l'action
-  // placebo retirée le 06/09.
-  const sansEspoir = /redirect|duplicat|canonical|exclue|noindex|introuvable|404|not found/i;
-  const aPinger = (snapshot.indexation?.non_indexees || [])
-    .filter((p) => !sansEspoir.test(p.etat))
-    .slice(0, 20);
-
-  if (aPinger.length > 0) {
-    backlog.push({
-      type: 'ping-indexnow',
-      cible: `${aPinger.length} URL non indexées`,
-      urls: aPinger.map((p) => `https://www.selectchateaux.com${p.url}`),
-      motif: `${aPinger.length} URL du sitemap non indexées (états : ${[...new Set(aPinger.map((p) => p.etat))].slice(0, 3).join(', ')})`,
-      hypothese: 'Notifier Bing/Yandex par IndexNow réduit le délai de découverte des pages non indexées',
-      prediction: `sur ces ${aPinger.length} URL, au moins 30 % passent à un état indexé d'ici 21 jours`,
-      echeance: JOURS(21),
-    });
-  }
-
-  // ── commande-reecriture : UNE page par run (quota), celle qui a le plus à
-  // gagner. On vise la page qui reçoit beaucoup d'impressions sans clics :
-  // elle est vue et pas choisie, donc le problème est le contenu ou le titre,
-  // pas la position. Camille choisit ses 3 réécritures sur la position
-  // (5-25) ; Marcus complète sur un autre signal, sinon les deux agents
-  // désigneraient les mêmes pages.
-  // Les pages redirigées en 301 ou retirées de Google sont exclues : Camille
-  // close ces demandes sans rien réécrire, la commande serait perdue.
-  const muettes = (snapshot.gsc28?.pages_muettes || [])
-    .filter((p) => /^\/blog\//.test(p.p || ''))
-    .filter((p) => !fusionnes.has(p.p.replace(/^\/blog\//, '').replace(/[/?#].*$/, '')));
-
-  if (muettes.length > 0) {
-    const p = muettes[0];
-    backlog.push({
-      type: 'commande-reecriture',
-      cible: p.p,
-      motif: `${p.imp} impressions sur 28 jours en position ${p.pos} et AUCUN clic — la page est vue et jamais choisie`,
-      hypothese: 'Une page à fortes impressions et zéro clic souffre de son titre ou de son contenu, pas de son rang',
-      prediction: `au moins 1 clic sur ${p.p} dans les 28 jours suivant la réécriture`,
-      echeance: JOURS(28),
-    });
-  }
-
-  return backlog;
+export function construireBacklog() {
+  return [];
 }
 
 export async function phaseCourante() {
@@ -186,9 +105,7 @@ export async function executerActions(backlog, { runId, updateEnCours }) {
     if (simulation) { simulees.push(a); continue; }
 
     try {
-      if (a.type === 'ping-indexnow') {
-        execSync(`node ${new URL('../indexnow.mjs', import.meta.url).pathname} ${a.urls.map((u) => `"${u}"`).join(' ')}`, { stdio: 'inherit' });
-      } else if (a.type === 'commande-reecriture') {
+      if (a.type === 'commande-reecriture') {
         commanderReecriture(a, runId);
       } else { continue; }
       await sbInsert('marcus_journal', { run_id: runId, cible: a.cible, action: a.type + (a.motif ? ' — ' + a.motif : ''), niveau: 1, hypothese: a.hypothese || null, prediction: a.prediction, echeance: a.echeance });

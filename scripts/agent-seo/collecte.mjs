@@ -14,10 +14,10 @@
  */
 import fs from 'node:fs';
 import { createRequire } from 'node:module';
-import { SITE, env, kc, marcusEnabled, gsc, fenetre28, sitemapUrls, sbInsert, sbPatch, sbSelect, telegram, email } from './lib.mjs';
+import { SITE, env, kc, marcusEnabled, gsc, fenetre28, sitemapUrls, sbInsert, sbPatch, sbSelect, sbSelectTout, telegram, email } from './lib.mjs';
 import { sondesLLM } from './sondes-llm.mjs';
 import { positionSerp, resumeSerp } from './serp.mjs';
-import { passerLesVerdicts } from './verdicts.mjs';
+import { actionsAJuger } from './verdicts.mjs';
 import { executerActions, construireBacklog } from './actions.mjs';
 const { resumerParIntention } = createRequire(import.meta.url)('../agent-cm/intention.js');
 
@@ -29,6 +29,7 @@ const jeudi = new Date().getDay() === 4;
 const snapshot = { type: 'observation', date: new Date().toISOString() };
 const incidents = [];
 let cout = 0;
+let requetesBrightData = 0, jetonsGemini = 0;
 
 // ── C10 : météo algorithmique (Loi 6 — ne jamais conclure pendant un séisme) ─
 try {
@@ -143,6 +144,7 @@ if (!process.env.MARCUS_SKIP_SERP) {
     while (qi < panel.requetes.length) {
       const p = panel.requetes[qi++];
       positions[p.q] = await positionSerp(async (page) => {
+        requetesBrightData++;
         const r = await fetch('https://api.brightdata.com/request', {
           method: 'POST', headers: { Authorization: `Bearer ${bdKey}`, 'Content-Type': 'application/json' },
           body: JSON.stringify({ zone: 'serp_api', url: `https://www.google.com/search?q=${encodeURIComponent(p.q)}&gl=fr&hl=fr&start=${page * 10}&brd_json=1`, format: 'raw' }),
@@ -183,6 +185,7 @@ if (jeudi || process.env.MARCUS_LLM) {
     const llm = await sondesLLM(panel);
     snapshot.llm = { synthese: llm.synthese, detail: llm.resultats };
     cout += llm.cout;
+    jetonsGemini = llm.jetonsGemini || 0;
     const { sondes, chatgpt_erreur: ce, gemini_erreur: ge } = llm.synthese;
     if (ce || ge) incidents.push(`C5 : sondes LLM en erreur (ChatGPT ${ce}/${sondes}, Gemini ${ge}/${sondes}) — voir snapshot.llm.detail`);
   } catch (e) { incidents.push('C5 en échec : ' + e.message); }
@@ -191,7 +194,7 @@ if (jeudi || process.env.MARCUS_LLM) {
 // ── C9 : ce que les robots ont VRAIMENT crawlé depuis le dernier run ────────
 try {
   const depuis = new Date(Date.now() - 4 * 864e5).toISOString();
-  const hits = await sbSelect(`bot_hits?ts=gte.${depuis}&select=bot,path`);
+  const hits = await sbSelectTout(`bot_hits?ts=gte.${depuis}&select=bot,path&order=ts.asc`);
   const parBot = {};
   for (const h of hits) parBot[h.bot] = (parBot[h.bot] || 0) + 1;
   snapshot.bots = { fenetre_jours: 4, total: hits.length, par_bot: parBot, pages_distinctes: new Set(hits.map((h) => h.path)).size };
@@ -214,11 +217,15 @@ try {
 snapshot.deltas = deltas;
 snapshot.duree_s = Math.round((Date.now() - t0) / 1000);
 
-// ── R3 : verdicts des actions à échéance (vide en Phase 1, éprouvé quand même)
+// ── R3 : actions arrivées à échéance, remontées à l'humain dans le rapport
 const updateEnCours = Array.isArray(snapshot.update_google_en_cours) && snapshot.update_google_en_cours.length > 0;
-let verdicts = { verdicts: [], reverts: [] };
-try { verdicts = await passerLesVerdicts(snapshot, updateEnCours); } catch (e) { incidents.push('R3 en échec : ' + e.message); }
-snapshot.verdicts = verdicts.verdicts;
+let aJuger = [];
+try { aJuger = await actionsAJuger(); } catch (e) { incidents.push('R3 en échec : ' + e.message); }
+snapshot.a_juger = aJuger;
+
+// Coût : seul ce qui a un prix connu est additionné. Le reste est compté en volume,
+// plutôt qu'un 0 $ trompeur (affiché du 17/09 au 01/11 malgré les sondes Gemini).
+snapshot.cout = { compte_usd: +cout.toFixed(4), non_chiffre: { requetes_bright_data: requetesBrightData, jetons_gemini: jetonsGemini } };
 
 // ── Archivage AVANT les actions ─────────────────────────────────────────────
 //
@@ -267,6 +274,8 @@ const lignes = [
   ``,
   g?.decouvertes_candidates?.length ? `DÉCOUVERTES GSC (à valider pour le panel)\n${g.decouvertes_candidates.slice(0, 5).map((d) => `· « ${d.q} » — ${d.imp} imp, pos ${d.pos}`).join('\n')}` : null,
   incidents.length ? `\n⚠️ INCIDENTS\n${incidents.map((x) => '· ' + x).join('\n')}` : null,
+  aJuger.length ? `\nÀ JUGER PAR UN HUMAIN (${aJuger.length})\n${aJuger.map((x) => `· #${x.id} (échéance ${x.echeance}) ${x.action.slice(0, 110)}\n  ${x.a_trancher}`).join('\n')}` : null,
+  `· Coût compté : ${cout.toFixed(3)} $ · non chiffré : ${requetesBrightData} requêtes Bright Data, ${jetonsGemini} jetons Gemini`,
   ``,
   // Le rapport annonçait « Phase 1 : observation pure, aucune action prise »
   // en dur — il l'aurait annoncé même en phase 2 en train d'agir.

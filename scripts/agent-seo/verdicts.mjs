@@ -1,50 +1,20 @@
 /**
- * Étape R3 du run — VERDICTS (blueprint §7, Lois 2, 3 et 6).
+ * Étape R3 du run — ACTIONS À JUGER.
  *
- * Relit marcus_journal : toute action arrivée à échéance reçoit son verdict.
- * En Phase 1 (observation) le journal est vide : le module tourne, ne trouve
- * rien, et c'est voulu — il est ainsi éprouvé AVANT d'avoir des décisions à
- * prendre. Dès la Phase 2, chaque action niveau 1 créée par actions.mjs
- * portera sa prédiction et repassera ici.
- *
- * Règles :
- *  - update Google en cours (C10) → verdict 'gele', réexamen au run suivant (Loi 6)
- *  - l'évaluation compare l'effet MESURÉ (snapshot courant vs snapshot
- *    antérieur à l'action) à la prédiction chiffrée
- *  - < 50 impressions sur la cible → 'prolonge' (données insuffisantes, §5),
- *    une seule prolongation puis verdict forcé
- *  - verdict 'annule' → le run crée une entrée de REVERT dans le backlog
- *    d'actions (exécutée par actions.mjs, jamais ici : mesurer et agir sont
- *    deux modules séparés)
+ * Marcus liste les actions arrivées à échéance et les remonte dans son rapport.
+ * Il n'écrit plus de verdict lui-même (décision du 01/11/2026). L'ancien module
+ * n'a produit aucun verdict réel en deux mois :
+ *  - une action « gelée » ou « prolongée » n'était jamais relue ;
+ *  - la mesure ne regardait que les 10 pages les plus cliquées : toute autre cible
+ *    valait « 0 imp », y compris une action humaine mesurée dans le CRM ;
+ *  - aucune prédiction chiffrée n'était réellement comparée à une mesure.
+ * Depuis le retrait des actions automatiques, le journal ne reçoit que des
+ * actions humaines : leur verdict se pose à la main, preuve à l'appui.
  */
 import { sbSelect } from './lib.mjs';
 
-export async function passerLesVerdicts(snapshot, updateEnCours) {
-  const dues = await sbSelect(`marcus_journal?verdict=is.null&echeance=lte.${new Date().toISOString().slice(0, 10)}&select=*`);
-  if (!dues.length) { console.log('[R3] Verdicts : aucune action à échéance'); return { verdicts: [], reverts: [] }; }
-
-  const verdicts = [], reverts = [];
-  for (const a of dues) {
-    let verdict, effet;
-    if (updateEnCours) {
-      verdict = 'gele'; effet = 'update Google en cours — verdict reporté (Loi 6)';
-    } else {
-      // Évaluation générique : la cible est une page → on compare ses clics/impressions
-      const page = snapshot.gsc28?.top_pages?.find((p) => p.p === a.cible);
-      const imp = page?.imp ?? 0;
-      if (imp < 50 && !a.effet_mesure?.includes('prolongé')) {
-        verdict = 'prolonge'; effet = `données insuffisantes (${imp} imp) — prolongé une fois`;
-      } else {
-        // Sans moteur de prédiction chiffrée parsée (Phase 2), on remonte à l'humain
-        verdict = null; effet = `à évaluer manuellement : prédiction « ${a.prediction} », page à ${imp} imp`;
-      }
-    }
-    if (verdict) {
-      await fetch(`${process.env.SUPABASE_URL || ''}/rest/v1/marcus_journal?id=eq.${a.id}`, { method: 'PATCH', headers: { apikey: process.env.SUPABASE_SERVICE_KEY, Authorization: `Bearer ${process.env.SUPABASE_SERVICE_KEY}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ verdict, verdict_at: new Date().toISOString(), effet_mesure: effet }) });
-      if (verdict === 'annule') reverts.push(a);
-    }
-    verdicts.push({ id: a.id, action: a.action, verdict: verdict || 'manuel', effet });
-  }
-  console.log(`[R3] Verdicts : ${verdicts.length} traité(s)`);
-  return { verdicts, reverts };
+export async function actionsAJuger({ lire = sbSelect, aujourdhui = new Date().toISOString().slice(0, 10) } = {}) {
+  const dues = await lire(`marcus_journal?or=(verdict.is.null,verdict.in.(gele,prolonge))&echeance=lte.${aujourdhui}&order=echeance.asc&select=*`);
+  if (!Array.isArray(dues)) throw new Error(`Supabase : ${dues?.message || 'réponse illisible'}`);
+  return dues.map((a) => ({ id: a.id, action: a.action, echeance: a.echeance, a_trancher: `prédiction : ${a.prediction}` }));
 }
