@@ -1,0 +1,27 @@
+name: Audit — collecte Search Console (ponctuel)
+
+# Lancé à la main pour un audit. Lecture seule. Produit l'artefact `audit-gsc`.
+on:
+  workflow_dispatch:
+
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Collecte GSC
+        working-directory: scripts/agent-seo
+        run: node audit-collecte.mjs > /tmp/audit-gsc.json
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audit-gsc
+          path: /tmp/audit-gsc.json
+          retention-days: 7
