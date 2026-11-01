@@ -1,4 +1,5 @@
 import { LegalPageLayout, LegalSection, LegalContent, LegalLink } from "@/components/legal";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 export default function ConfidentialitePage() {
   return (
@@ -31,7 +32,7 @@ export default function ConfidentialitePage() {
           </p>
           <p>
             <strong>Téléphone :</strong>{" "}
-            <LegalLink href="tel:+33757991146">07 57 99 11 46</LegalLink>
+            <LegalLink href={`tel:${CONTACT_PHONE_E164}`}>{CONTACT_PHONE_DISPLAY}</LegalLink>
           </p>
         </LegalContent>
       </LegalSection>
@@ -246,7 +247,7 @@ export default function ConfidentialitePage() {
           </p>
           <p className="mb-2">
             <strong>Téléphone :</strong>{" "}
-            <LegalLink href="tel:+33757991146">07 57 99 11 46</LegalLink>
+            <LegalLink href={`tel:${CONTACT_PHONE_E164}`}>{CONTACT_PHONE_DISPLAY}</LegalLink>
           </p>
           <p>
             Horaires : Lundi - Vendredi, 9h00 - 18h00 (hors jours fériés)

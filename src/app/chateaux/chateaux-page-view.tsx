@@ -22,6 +22,7 @@ import { LogoCarousel } from '@/components/LogoCarousel';
 import { ReviewsSection } from '@/components/ReviewsSection';
 import DevisFormMini from '@/components/DevisFormMini';
 import { StickyCtaBar } from '@/components/StickyCtaBar';
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 interface ChateauxPageViewProps {
   dept?: string;
@@ -317,13 +318,13 @@ export function ChateauxPageView({ dept }: ChateauxPageViewProps) {
               Devis Gratuit en 24h
             </Link>
             <a
-              href="tel:+33757991146"
+              href={`tel:${CONTACT_PHONE_E164}`}
               onClick={() => trackPhoneClick()}
               className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
               style={{ textDecoration: 'none', color: 'white' }}
             >
               <Phone className="w-4 h-4" style={{ color: 'white' }} />
-              07 57 99 11 46
+              {CONTACT_PHONE_DISPLAY}
             </a>
           </div>
         </div>
@@ -772,13 +773,13 @@ export function ChateauxPageView({ dept }: ChateauxPageViewProps) {
                 Devis gratuit en 24h
               </Link>
               <a
-                href="tel:+33757991146"
+                href={`tel:${CONTACT_PHONE_E164}`}
                 onClick={() => trackPhoneClick()}
                 className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
                 style={{ textDecoration: 'none', color: 'white' }}
               >
                 <Phone className="w-4 h-4" style={{ color: 'white' }} />
-                07 57 99 11 46
+                {CONTACT_PHONE_DISPLAY}
               </a>
             </div>
           </div>

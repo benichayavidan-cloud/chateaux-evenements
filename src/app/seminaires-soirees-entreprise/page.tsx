@@ -12,6 +12,7 @@ import { trackPhoneClick } from '@/components/Analytics';
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 // ParaCard — même design que les pages château
 function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
@@ -295,9 +296,9 @@ export default function EvenementsPage() {
                   <span>Devis gratuit en 24h</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all" style={{ color: 'white' }}>
+                <a href={`tel:${CONTACT_PHONE_E164}`} onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all" style={{ color: 'white' }}>
                   <Phone className="w-4 h-4" style={{ color: 'white' }} />
-                  07 57 99 11 46
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
               </div>
             </div>
@@ -527,9 +528,9 @@ export default function EvenementsPage() {
                 <span>Demander un Devis Gratuit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <a href="tel:+33757991146" onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all" style={{ color: 'white' }}>
+              <a href={`tel:${CONTACT_PHONE_E164}`} onClick={() => trackPhoneClick()} className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all" style={{ color: 'white' }}>
                 <Phone className="w-4 h-4" style={{ color: 'white' }} />
-                07 57 99 11 46
+                {CONTACT_PHONE_DISPLAY}
               </a>
             </div>
           </div>

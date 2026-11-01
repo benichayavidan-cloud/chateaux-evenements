@@ -10,6 +10,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { trackSiteEvent } from "./SiteTracker";
+import { CONTACT_PHONE_DISPLAY } from "@/lib/contact";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
@@ -162,7 +163,7 @@ export const trackPhoneClick = (emplacement = "header-phone") => {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", "phone_click", {
       event_category: "engagement",
-      event_label: "07 57 99 11 46",
+      event_label: CONTACT_PHONE_DISPLAY,
     });
   }
 };

@@ -5,6 +5,7 @@ import {
   MapPin,
   Linkedin,
 } from "lucide-react";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 export function Footer() {
   return (
@@ -122,10 +123,10 @@ export function Footer() {
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[var(--gold)] flex-shrink-0" />
                 <a
-                  href="tel:+33757991146"
+                  href={`tel:${CONTACT_PHONE_E164}`}
                   className="text-gray-300 hover:text-[var(--gold)] transition-colors"
                 >
-                  07 57 99 11 46
+                  {CONTACT_PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center space-x-3">

@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { insererCtaMilieu, CIBLE_FORMULAIRE, evenementCta } from './cta-article.ts';
+import { CONTACT_PHONE_E164 } from './contact';
 
 const p = (n: number) => Array.from({ length: n }, (_, i) => `<p>Paragraphe ${i + 1}.</p>`).join('');
 const compte = (html: string) => (html.match(/data-cta="article-milieu"/g) ?? []).length;
@@ -63,7 +64,7 @@ test('clic suivi : un lien vers /devis non marqué reste compté', () => {
 });
 
 test("clic suivi : téléphone et liens ordinaires ne sont pas des CTA (le téléphone a son propre suivi)", () => {
-  assert.equal(evenementCta('tel:+33757991146', null), null);
+  assert.equal(evenementCta(`tel:${CONTACT_PHONE_E164}`, null), null);
   assert.equal(evenementCta('/blog/murder-party', null), null);
 });
 
@@ -80,6 +81,6 @@ test("le formulaire n'invente plus de référence", () => {
 test('la page merci donne le téléphone et les étapes, sans numéro inventé', () => {
   const src = readFileSync(new URL('../app/devis/merci/MerciContent.tsx', import.meta.url), 'utf8');
   assert.doesNotMatch(src, /Numéro de référence|Math\.random|#DEV/);
-  assert.match(src, /tel:\+33757991146/);
+  assert.match(src, /tel:\$\{CONTACT_PHONE_E164\}/);
   assert.match(src, /24 h/);
 });

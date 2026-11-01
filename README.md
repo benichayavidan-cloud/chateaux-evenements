@@ -88,7 +88,7 @@ Configurer dans Vercel Dashboard:
 ## 📞 Contact
 
 **Email:** seminaires@selectchateaux.com
-**Téléphone:** +33 7 57 99 11 46
+**Téléphone:** +33 1 83 80 60 00
 
 ---
 
