@@ -1,0 +1,39 @@
+name: Audit — PageSpeed Insights (ponctuel)
+
+# Mesure PSI depuis un runner neutre (le Mac local fausse Lighthouse et l'API
+# PSI sans clé limite par adresse IP). Lecture seule. Artefact `audit-psi`.
+on:
+  workflow_dispatch:
+
+jobs:
+  psi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Mesures PSI (5 pages × mobile/desktop)
+        run: |
+          echo '{' > /tmp/psi.json
+          first=1
+          for u in "https://www.selectchateaux.com/" "https://www.selectchateaux.com/chateaux" "https://www.selectchateaux.com/team-building-chateau" "https://www.selectchateaux.com/seminaire-chateau-seine-et-marne-77" "https://www.selectchateaux.com/blog/combien-coute-seminaire-chateau-2026"; do
+            for s in mobile desktop; do
+              for essai in 1 2 3; do
+                code=$(curl -s -o /tmp/r.json -w '%{http_code}' "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=$u&strategy=$s&category=performance&category=seo&category=accessibility&category=best-practices")
+                echo "$u $s → HTTP $code (essai $essai)"
+                [ "$code" = "200" ] && break
+                sleep 30
+              done
+              if [ "$code" = "200" ]; then
+                [ $first = 1 ] || echo ',' >> /tmp/psi.json; first=0
+                printf '"%s|%s": ' "$u" "$s" >> /tmp/psi.json
+                jq -c '{scores: (.lighthouseResult.categories | map_values((.score*100)|round)), lcp_s: (.lighthouseResult.audits["largest-contentful-paint"].numericValue/1000), cls: .lighthouseResult.audits["cumulative-layout-shift"].numericValue, tbt_ms: .lighthouseResult.audits["total-blocking-time"].numericValue, fcp_s: (.lighthouseResult.audits["first-contentful-paint"].numericValue/1000), speed_index_s: (.lighthouseResult.audits["speed-index"].numericValue/1000), lcp_element: (.lighthouseResult.audits["largest-contentful-paint-element"].details.items[0].items[0].node.snippet // null), field: (.loadingExperience.metrics // null | if . then map_values(.percentile) else null end), opportunites: [.lighthouseResult.audits | to_entries[] | select(.value.details.type=="opportunity" and (.value.numericValue // 0) > 150) | {id: .key, ms: .value.numericValue, titre: .value.title}]}' /tmp/r.json >> /tmp/psi.json
+              fi
+              sleep 5
+            done
+          done
+          echo '}' >> /tmp/psi.json
+          jq 'keys' /tmp/psi.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audit-psi
+          path: /tmp/psi.json
+          retention-days: 7
