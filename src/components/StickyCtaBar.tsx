@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Phone, FileText } from "lucide-react";
 import { trackPhoneClick } from "@/components/Analytics";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 interface StickyCtaBarProps {
   /**
@@ -58,13 +59,13 @@ export function StickyCtaBar({ cible = "/devis#formulaire" }: StickyCtaBarProps)
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: "12px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
             <a
-              href="tel:+33757991146"
+              href={`tel:${CONTACT_PHONE_E164}`}
               onClick={() => trackPhoneClick("barre-fixe")}
               className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
               style={{ textDecoration: "none", whiteSpace: "nowrap", color: "white" }}
             >
               <Phone className="w-4 h-4" style={{ color: "white" }} />
-              <span className="hidden sm:inline">07 57 99 11 46</span>
+              <span className="hidden sm:inline">{CONTACT_PHONE_DISPLAY}</span>
               <span className="sm:hidden">Appeler</span>
             </a>
             <a

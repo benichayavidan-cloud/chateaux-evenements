@@ -6,6 +6,7 @@
 import type { Chateau } from "@/types";
 import type { GeoLandingPage } from "@/data/geo-landing-pages";
 import { reviewsStats } from "@/data/reviewsData";
+import { CONTACT_PHONE_E164 } from "@/lib/contact";
 
 const BASE_URL = "https://www.selectchateaux.com";
 
@@ -30,7 +31,7 @@ export function generateOrganizationSchema() {
     description:
       "Accès confidentiel aux plus beaux châteaux d'Île-de-France pour vos événements d'entreprise. Séminaires, team building, soirées corporate sur-mesure.",
     email: "seminaires@selectchateaux.com",
-    telephone: "+33757991146",
+    telephone: CONTACT_PHONE_E164,
     address: {
       "@type": "PostalAddress",
       streetAddress: "60 Rue François 1er",
@@ -60,7 +61,7 @@ export function generateOrganizationSchema() {
       "@type": "ContactPoint",
       contactType: "customer service",
       email: "seminaires@selectchateaux.com",
-      telephone: "+33757991146",
+      telephone: CONTACT_PHONE_E164,
       areaServed: "FR",
       availableLanguage: ["French"],
     },
@@ -250,7 +251,7 @@ export function generateLocalBusinessSchema({ avecNote = false }: { avecNote?: b
     image: `${BASE_URL}/brand/og-image.jpg`,
     description:
       "Select Châteaux est l'agence spécialiste de la location de châteaux et la privatisation de lieux d'exception pour vos événements professionnels. Séminaires, CODIR, lancements de produits, team building et soirées de gala à Paris, en Île-de-France et partout en France.",
-    telephone: "+33757991146",
+    telephone: CONTACT_PHONE_E164,
     email: "seminaires@selectchateaux.com",
     address: {
       "@type": "PostalAddress",

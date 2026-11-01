@@ -12,6 +12,7 @@
 import Link from "next/link";
 import { Check, Phone, Mail, CalendarCheck, FileText, ArrowRight } from "lucide-react";
 import { trackPhoneClick } from "@/components/Analytics";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 const ETAPES = [
   {
@@ -105,7 +106,7 @@ export default function MerciContent() {
           <div style={{ margin: "1.75rem auto 0", maxWidth: "560px", padding: "1.25rem", borderRadius: "1rem", background: "#FFFBEB" }}>
             <p style={texte("1rem", "#111827", 600)}>Une date qui presse ? Appelez-nous directement.</p>
             <a
-              href="tel:+33757991146"
+              href={`tel:${CONTACT_PHONE_E164}`}
               onClick={() => trackPhoneClick("page-merci")}
               style={{
                 display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "12px",
@@ -114,7 +115,7 @@ export default function MerciContent() {
               }}
             >
               <Phone style={{ width: "20px", height: "20px" }} />
-              07 57 99 11 46
+              {CONTACT_PHONE_DISPLAY}
             </a>
           </div>
 

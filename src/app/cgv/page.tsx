@@ -1,4 +1,5 @@
 import { LegalPageLayout, LegalSection, LegalContent, LegalList, LegalLink } from "@/components/legal";
+import { CONTACT_PHONE_DISPLAY } from "@/lib/contact";
 
 export default function CGVPage() {
   return (
@@ -363,7 +364,7 @@ export default function CGVPage() {
               seminaires@selectchateaux.com
             </LegalLink>
             <br />
-            <strong>Téléphone :</strong> 07 57 99 11 46
+            <strong>Téléphone :</strong> {CONTACT_PHONE_DISPLAY}
             <br />
             <strong>Siège social :</strong> 60 Rue François 1er, 75008 Paris, France
           </p>

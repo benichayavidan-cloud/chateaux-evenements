@@ -28,6 +28,7 @@ import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { trackPhoneClick } from "@/components/Analytics";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 export default function AboutPage() {
   // useInView hooks
@@ -211,13 +212,13 @@ export default function AboutPage() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
-                  href="tel:+33757991146"
+                  href={`tel:${CONTACT_PHONE_E164}`}
                   onClick={() => trackPhoneClick()}
                   className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
                   style={{ padding: "16px 28px", color: "white" }}
                 >
                   <Phone className="w-4 h-4" style={{ color: "white" }} />
-                  <span style={{ color: "white" }}>07 57 99 11 46</span>
+                  <span style={{ color: "white" }}>{CONTACT_PHONE_DISPLAY}</span>
                 </a>
               </div>
             </div>
@@ -772,13 +773,13 @@ export default function AboutPage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="tel:+33757991146"
+                href={`tel:${CONTACT_PHONE_E164}`}
                 onClick={() => trackPhoneClick()}
                 className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
                 style={{ color: 'white' }}
               >
                 <Phone className="w-4 h-4" style={{ color: 'white' }} />
-                <span style={{ color: 'white' }}>07 57 99 11 46</span>
+                <span style={{ color: 'white' }}>{CONTACT_PHONE_DISPLAY}</span>
               </a>
             </div>
           </div>

@@ -12,6 +12,7 @@ import { LOGO_URL } from "@/lib/media";
 import { CookieConsentLazy } from "@/components/CookieConsentLazy";
 import { SiteTracker } from "@/components/SiteTracker";
 import { lienFinal } from "@/data/redirections";
+import { CONTACT_PHONE_INTL } from "@/lib/contact";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -302,7 +303,7 @@ export default function RootLayout({
           ]}
           contact={{
             address: "60 Rue François 1er, 75008 Paris",
-            phone: "+33 7 57 99 11 46",
+            phone: CONTACT_PHONE_INTL,
             email: "seminaires@selectchateaux.com",
           }}
           social={{
