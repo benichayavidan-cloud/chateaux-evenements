@@ -15,6 +15,15 @@ const CATEGORY_LABELS = {
   "team-building": "Team Building",
 } as const;
 
+/**
+ * Articles du plan du 06/10 : rien ne change sur ces pages avant le bilan du
+ * 17/11/2026, pour garder la mesure propre. À retirer après le bilan.
+ */
+const ARTICLES_DU_PLAN = new Set([
+  "seminaire-yvelines-78-luxe-proximite",
+  "seminaire-oise-nature-prestige-paris",
+]);
+
 export function ArticleHero({ article }: ArticleHeroProps) {
   return (
     <div className="relative w-full min-h-[60vh] sm:min-h-[65vh] md:min-h-[70vh] overflow-hidden flex items-center justify-center" style={{ padding: '12px 0' }}>
@@ -25,6 +34,7 @@ export function ArticleHero({ article }: ArticleHeroProps) {
         className="object-cover"
         style={{ objectPosition: 'center' }}
         priority
+        fetchPriority={ARTICLES_DU_PLAN.has(article.slug) ? undefined : "high"}
         sizes="100vw"
         quality={85}
       />

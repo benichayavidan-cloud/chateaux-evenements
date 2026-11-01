@@ -188,6 +188,7 @@ export function ChateauxPageView({ dept }: ChateauxPageViewProps) {
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               priority
+              fetchPriority="high"
               quality={85}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
