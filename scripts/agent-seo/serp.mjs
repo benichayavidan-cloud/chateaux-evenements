@@ -2,7 +2,8 @@
  * Capteur SERP (C4) — position réelle du site sur une requête, ≤ 3 pages Google.
  *
  * Trois issues, jamais confondues :
- *  - `trouve`  : le site est dans le top 30 (pos = rang)
+ *  - `trouve`  : le site est dans le top 30 (pos = rang ; url = null et via = 'goto'
+ *                si Google masque le lien)
  *  - `absent`  : 3 pages LUES en entier, le site n'y est pas (pos = '>30')
  *  - `erreur`  : une page n'a pas pu être lue après tous les essais (pos = null)
  *
@@ -14,6 +15,16 @@
 import { SITE } from './lib.mjs';
 
 const PAGES = 3;
+
+/**
+ * Depuis l'automne 2026, Google sert une partie de ses liens derrière
+ * `google.com/goto?url=…` chiffré : le vrai domaine n'est plus que dans
+ * `display_link`. Lire `link` seul nous comptait absents (01/11/2026 : 5 requêtes
+ * trouvées contre 15, à 20 minutes d'écart). Le test porte sur l'HÔTE : un
+ * annuaire qui nous cite dans son adresse n'est pas notre résultat.
+ */
+const HOTE = /^(https?:\/\/)?(www\.)?selectchateaux\.com(\/|\s|$)/i;
+const estNotreResultat = (o) => HOTE.test(o.link || '') || HOTE.test(o.display_link || '');
 
 /**
  * @param {(page: number) => Promise<object>} fetchPage  réponse brute Bright Data (brd_json) pour la page 0, 1, 2
@@ -36,8 +47,13 @@ export async function positionSerp(fetchPage, { essais = 3, attente = 20_000, ec
       } catch { /* essai suivant */ }
     }
     if (!organic) return { pos: null, url: null, statut: 'erreur' };
-    const o = organic.find((x) => (x.link || '').includes('selectchateaux'));
-    if (o) return { pos: page * 10 + (o.rank || 0), url: o.link.replace(SITE, ''), statut: 'trouve' };
+    const o = organic.find(estNotreResultat);
+    if (o) {
+      const pos = page * 10 + (o.rank || 0);
+      return HOTE.test(o.link || '')
+        ? { pos, url: o.link.replace(SITE, ''), statut: 'trouve' }
+        : { pos, url: null, statut: 'trouve', via: 'goto' };
+    }
   }
   return { pos: '>30', url: null, statut: 'absent' };
 }

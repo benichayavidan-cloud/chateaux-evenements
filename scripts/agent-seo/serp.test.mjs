@@ -63,3 +63,25 @@ test('échéance dépassée : on arrête d\'interroger et la requête est une ER
   assert.equal(r.statut, 'erreur');
   assert.equal(appels.length, 0);
 });
+
+// ── Régression 01/11/2026 : Google sert des liens /goto chiffrés ────────────
+// Le vrai domaine n'est alors que dans `display_link`. Lire `link` seul nous
+// comptait absents : 5 requêtes trouvées contre 15 sur le même panel, le même jour.
+const goto = 'https://www.google.com/goto?url=CAESeQHrOzAV';
+
+test('régression 01/11 : un lien /goto de notre domaine est trouvé grâce à display_link', async () => {
+  const organic = [
+    { rank: 1, link: 'https://concurrent.fr/', display_link: 'https://concurrent.fr' },
+    { rank: 2, link: goto, display_link: 'https://www.selectchateaux.com › blog › budget' },
+  ];
+  const { fetchPage } = fauxFetch({ 0: [{ organic }] });
+  const r = await positionSerp(fetchPage, { attente: 0 });
+  assert.deepEqual(r, { pos: 2, url: null, statut: 'trouve', via: 'goto' });
+});
+
+test('un concurrent qui nous cite dans son adresse n’est pas pris pour nous', async () => {
+  const organic = [{ rank: 1, link: 'https://annuaire.fr/avis/selectchateaux', display_link: 'https://annuaire.fr › avis › selectchateaux' }];
+  const { fetchPage } = fauxFetch({ 0: [{ organic }], 1: [page(autres(10))], 2: [page(autres(10))] });
+  const r = await positionSerp(fetchPage, { attente: 0 });
+  assert.equal(r.statut, 'absent');
+});

@@ -85,6 +85,21 @@ export async function sbSelect(query) {
   return r.json();
 }
 
+/**
+ * Lit TOUTES les lignes : Supabase en rend 1 000 au plus par requête, en silence.
+ * La requête doit porter un `order` stable. Une réponse d'erreur est levée : elle
+ * ne doit jamais passer pour « zéro ligne ».
+ */
+export async function sbSelectTout(query, { lire = sbSelect, taille = 1000 } = {}) {
+  const rows = [];
+  for (let offset = 0; ; offset += taille) {
+    const page = await lire(`${query}&limit=${taille}&offset=${offset}`);
+    if (!Array.isArray(page)) throw new Error(`Supabase : ${page?.message || JSON.stringify(page).slice(0, 150)}`);
+    rows.push(...page);
+    if (page.length < taille) return rows;
+  }
+}
+
 /** Kill switch (Loi de fonctionnement : toujours vérifié en premier). */
 export async function marcusEnabled() {
   try {
