@@ -34,9 +34,6 @@ export const initConsentMode = () => {
     personalization_storage: "denied", // Personnalisation du site
     security_storage: "granted", // Cookies de sécurité (nécessaires)
 
-    // Région (EEE + UK)
-    region: ["FR", "BE", "CH", "LU", "CA"], // France, Belgique, Suisse, Luxembourg, Canada
-
     // Mode Advanced : envoie des pings même en "denied"
     wait_for_update: 500, // Attendre max 500ms pour le consentement utilisateur
   });
