@@ -329,6 +329,18 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
     ],
   };
 
+  // Formulaire de devis : un seul exemplaire par page, placé selon devisAvantPourquoi
+  const devisExpressSection = (
+    <section style={{ background: theme.colors.neutral.white, padding: "0 clamp(1rem, 4vw, 2rem)" }}>
+      <Container size="xl">
+        <DevisFormMini
+          chateauIds={linkedChateaux.map((c) => c.id)}
+          sourceLabel={data.h1}
+        />
+      </Container>
+    </section>
+  );
+
   return (
     <>
       <StructuredData data={structuredData} />
@@ -619,6 +631,8 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
           </div>
         </Container>
       </section>
+
+      {data.devisAvantPourquoi && devisExpressSection}
 
       {/* ═══════════════════════════════════════════
           POURQUOI — Background image + glassmorphism
@@ -915,16 +929,9 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
       </section>
 
       {/* ═══════════════════════════════════════════
-          DEVIS EXPRESS — Formulaire inline
+          DEVIS EXPRESS — Formulaire inline (position par défaut)
       ═══════════════════════════════════════════ */}
-      <section style={{ background: theme.colors.neutral.white, padding: "0 clamp(1rem, 4vw, 2rem)" }}>
-        <Container size="xl">
-          <DevisFormMini
-            chateauIds={linkedChateaux.map((c) => c.id)}
-            sourceLabel={data.h1}
-          />
-        </Container>
-      </section>
+      {!data.devisAvantPourquoi && devisExpressSection}
 
       {/* ═══════════════════════════════════════════
           INFOS PRATIQUES — Plus visuel avec icônes

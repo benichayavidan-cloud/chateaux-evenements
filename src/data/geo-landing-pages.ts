@@ -44,6 +44,8 @@ export interface GeoLandingPage {
   reponseDirecte?: string;
   // Affiche le comparatif des 4 domaines en bas de page plutôt que sous la réponse directe
   comparatifEnBasDePage?: boolean;
+  // Affiche le formulaire de devis juste avant la section « Pourquoi »
+  devisAvantPourquoi?: boolean;
   // Pourquoi cette région
   pourquoiTitre: string;
   pointsForts: GeoPointFort[];
@@ -587,6 +589,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   {
     slug: "seminaire-vallee-de-chevreuse",
     comparatifEnBasDePage: true,
+    devisAvantPourquoi: true,
     title: "Séminaire Vallée de Chevreuse : abbaye 5★",
     description:
       "Abbaye cistercienne du XIIe siècle rénovée 2023 en Vallée de Chevreuse. 144 chambres, 80 ha, 6 restaurants Paris Society. Devis gratuit 24h.",
