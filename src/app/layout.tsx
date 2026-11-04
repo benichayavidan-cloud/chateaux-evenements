@@ -320,9 +320,11 @@ export default function RootLayout({
         {/* Cookie Consent - 3 variants disponibles: "default" | "small" | "mini" */}
         <CookieConsentLazy variant="mini" />
 
-        {/* Google tag (gtag.js) GA4 + Google Ads - Chargé en lazy pour ne pas bloquer FCP/LCP */}
+        {/* Google tag (gtag.js) GA4 + Google Ads - Chargé en lazy pour ne pas bloquer FCP/LCP.
+            Chargé par l'identifiant Ads : Google répond 404 sur gtag/js?id=G-TRWZDPNN9E (04/11/2026),
+            ce qui empêchait toute la balise de démarrer, conversions comprises. */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-TRWZDPNN9E"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18551949936"
           strategy="lazyOnload"
         />
         <Script id="gtag-init" strategy="lazyOnload">
