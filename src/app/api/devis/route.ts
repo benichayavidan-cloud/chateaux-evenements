@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { sendAdminNotification, sendAlerteDemandeRefusee, sendClientConfirmation } from '@/lib/email';
+import { sendAdminNotification, sendAlerteDemandeRefusee, sendAlerteFicheCrmManquante, sendClientConfirmation } from '@/lib/email';
 import { chateaux } from '@/data/chateaux';
 import { chateauxDeLaDemande, formSchema } from '@/lib/devis-schema';
 import { canalOrigine, clicAdsEnCours, LIBELLE_CANAL, origineAds, origineAdsCrm, parsePremierContact } from '@/lib/origine';
+import { envoyerDemandeAuCrm } from '@/lib/envoi-crm';
 import { insererAvecRepli } from '@/lib/insertion-demande';
 import { lignesSourceDemande } from '@/lib/source-demande';
+
+// Le CRM et les emails sont attendus avant de répondre : la limite doit couvrir leurs délais.
+export const maxDuration = 30;
 
 export async function POST(request: NextRequest) {
   try {
@@ -131,28 +135,28 @@ export async function POST(request: NextRequest) {
       const crmLeadsUrl = process.env.CRM_LEADS_URL;
       const crmLeadsSecret = process.env.CRM_LEADS_SECRET;
 
-      // Emails + dossier CRM envoyés en parallèle, erreurs silencieuses (non-bloquantes)
+      // Emails + dossier CRM envoyés en parallèle, non bloquants pour le prospect.
+      // Un échec du CRM alerte l'admin (voir envoi-crm.ts).
       await Promise.allSettled([
         sendAdminNotification(newDevis, data.sourceLabel ?? '', sourceDemande),
         sendClientConfirmation(newDevis),
-        crmLeadsUrl && crmLeadsSecret
-          ? fetch(crmLeadsUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json", "x-lead-secret": crmLeadsSecret },
-              body: JSON.stringify({
-                ...data,
-                chateauIds,
-                origine: {
-                  canal,
-                  libelle: LIBELLE_CANAL[canal],
-                  page: premierContact?.page ?? null,
-                  referent: premierContact?.referent ?? null,
-                  premiereVisite: premierContact?.date ?? null,
-                  ads: origineAdsCrm(ads),
-                },
-              }),
-            }).catch(() => {})
-          : Promise.resolve(),
+        envoyerDemandeAuCrm(
+          crmLeadsUrl,
+          crmLeadsSecret,
+          {
+            ...data,
+            chateauIds,
+            origine: {
+              canal,
+              libelle: LIBELLE_CANAL[canal],
+              page: premierContact?.page ?? null,
+              referent: premierContact?.referent ?? null,
+              premiereVisite: premierContact?.date ?? null,
+              ads: origineAdsCrm(ads),
+            },
+          },
+          (motif) => sendAlerteFicheCrmManquante(newDevis, motif),
+        ),
       ]);
     }
 

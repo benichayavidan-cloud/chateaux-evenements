@@ -10,6 +10,10 @@ const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: parseInt(process.env.SMTP_PORT || '587'),
   secure: false, // true for 465, false for other ports
+  // Sans limite, un serveur d'email en panne ferait attendre le prospect 2 minutes.
+  connectionTimeout: 10_000,
+  greetingTimeout: 10_000,
+  socketTimeout: 15_000,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -625,6 +629,41 @@ export async function sendAlerteDemandeRefusee(
     .join('')}</table>
 <p><strong>Motif du refus :</strong></p><ul>${motifs.map((m) => `<li>${echapperHtml(m)}</li>`).join('')}</ul>`;
 
+  return sendEmail(adminEmail, subject, html, text);
+}
+
+// Modèle de l'alerte « demande sans fiche CRM » : la demande est bien enregistrée,
+// seule la fiche manque.
+export function getAlerteCrmTemplate(devis: DemandeDevis, motif: string): { subject: string; html: string; text: string } {
+  const lignes: Array<[string, string]> = [
+    ['Nom', String(devis.nom_prenom ?? '—')],
+    ['Entreprise', String(devis.entreprise ?? '—')],
+    ['Email', String(devis.email ?? '—')],
+    ['Téléphone', String(devis.telephone_mobile ?? '—')],
+    ['Participants', String(devis.nombre_participants ?? '—')],
+    ['Numéro de la demande', String(devis.id ?? '—')],
+  ];
+  const intro = "Cette demande est bien enregistrée sur le site, mais le CRM n'a pas confirmé la création de sa fiche.";
+  const action = 'Vérifiez le CRM et créez la fiche à la main si elle manque.';
+  return {
+    subject: `⚠️ Demande sans fiche CRM - ${String(devis.nom_prenom ?? '').slice(0, 100)}`,
+    text: [intro, action, '', ...lignes.map(([k, v]) => `${k} : ${v}`), '', `Motif : ${motif}`].join('\n'),
+    html: `<p>${intro}<br><strong>${action}</strong></p>
+<table cellpadding="6" style="border-collapse:collapse">${lignes
+    .map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${echapperHtml(v)}</td></tr>`)
+    .join('')}</table>
+<p><strong>Motif :</strong> ${echapperHtml(motif)}</p>`,
+  };
+}
+
+// Prévenir l'administrateur qu'une demande n'a pas de fiche CRM.
+export async function sendAlerteFicheCrmManquante(devis: DemandeDevis, motif: string): Promise<boolean> {
+  const adminEmail = process.env.EMAIL_ADMIN || process.env.SMTP_USER;
+  if (!adminEmail) {
+    console.error('❌ EMAIL_ADMIN non configuré');
+    return false;
+  }
+  const { subject, html, text } = getAlerteCrmTemplate(devis, motif);
   return sendEmail(adminEmail, subject, html, text);
 }
 
