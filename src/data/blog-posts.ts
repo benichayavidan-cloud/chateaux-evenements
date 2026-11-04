@@ -1763,7 +1763,7 @@ const article6: BlogPost = {
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Le Château 5★ InterContinental : Le Prestige Absolu</h2>
 
-<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Un palais musical du début du XXe</h3>
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Un château musical du début du XXe</h3>
 
 <p class="mb-6">Construit entre 1907 et 1911 par le compositeur Fernand Halphen, ce <strong>château 5 étoiles</strong> sous enseigne InterContinental incarne l'excellence hôtelière. Architecture Louis XV/XVI, salons nommés d'après des compositeurs, rooftop panoramique sur la forêt de Chantilly.</p>
 
@@ -4933,7 +4933,7 @@ const placeholderArticles: BlogPost[] = [
     featured: true,
     content: `
     <div class="prose prose-lg max-w-none">
-<p class="mb-6">Vous avez décidé d'organiser votre séminaire dans un <strong>château de l'Oise (60)</strong> — excellent choix. Mais entre un palais 5 étoiles à Chantilly, une abbaye cistercienne à Fontaine-Chaalis, et un manoir de chasse secret en pleine forêt de Senlis, l'offre est vaste et les différences sont majeures. Mauvais château = mauvais séminaire, même avec le meilleur programme du monde.</p>
+<p class="mb-6">Vous avez décidé d'organiser votre séminaire dans un <strong>château de l'Oise (60)</strong> — excellent choix. Mais entre un château 5 étoiles à Chantilly, une abbaye cistercienne à Fontaine-Chaalis, et un manoir de chasse secret en pleine forêt de Senlis, l'offre est vaste et les différences sont majeures. Mauvais château = mauvais séminaire, même avec le meilleur programme du monde.</p>
 
 <p class="mb-6">Ce <strong>guide comparatif 2026</strong> passe au crible les <strong>7 meilleurs châteaux de l'Oise</strong> pour séminaire d'entreprise. Pour chacun : capacités exactes, budget réel par personne, atouts différenciants, et surtout le <strong>profil d'événement idéal</strong>. CODIR de 12, séminaire de 60 ou convention de 150 — vous saurez exactement quel château choisir en 5 minutes.</p>
 
