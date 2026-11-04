@@ -11,7 +11,7 @@ import {
   generateBreadcrumbSchema,
   generateOrganizationSchema,
 } from "@/utils/seo/structured-data";
-import TeamBuildingPageClient from "./TeamBuildingPageClient";
+import TeamBuildingPageClient, { TeamBuildingPointsForts } from "./TeamBuildingPageClient";
 import { VenuesByDepartment } from "@/components/geo/VenuesByDepartment";
 import { TeamBuildingParZone } from "@/components/lieux/TeamBuildingParZone";
 import { LogoCarousel } from "@/components/LogoCarousel";
@@ -169,6 +169,7 @@ export default function TeamBuildingPage() {
       <GuidesSection chemin="/team-building-chateau" background="gray" />
       <LogoCarousel />
       <ReviewsSection />
+      <TeamBuildingPointsForts />
       <StickyCtaBar />
     </>
   );

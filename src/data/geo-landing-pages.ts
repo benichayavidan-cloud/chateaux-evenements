@@ -46,6 +46,8 @@ export interface GeoLandingPage {
   comparatifEnBasDePage?: boolean;
   // Affiche le formulaire de devis juste avant la section « Pourquoi »
   devisAvantPourquoi?: boolean;
+  /** Section « Pourquoi » juste avant le pied de page : la page doit rendre GeoPourquoiSection en dernier. */
+  pourquoiEnBasDePage?: boolean;
   // Pourquoi cette région
   pourquoiTitre: string;
   pointsForts: GeoPointFort[];
@@ -316,6 +318,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-chantilly",
+    pourquoiEnBasDePage: true,
     title: "Séminaire à Chantilly : 2 châteaux-hôtels dès 150 €/pers.",
     description: "2 châteaux privatisables à Chantilly, 228 chambres et 33 salles en forêt de 6 300 ha. 35 min de Paris, 15 min de Roissy. Devis sous 24 h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "organiser séminaire chantilly", "séminaire forêt chantilly"],
@@ -588,6 +591,7 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-vallee-de-chevreuse",
+    pourquoiEnBasDePage: true,
     comparatifEnBasDePage: true,
     devisAvantPourquoi: true,
     title: "Séminaire Vallée de Chevreuse : abbaye 5★",

@@ -1,5 +1,5 @@
 import { getGeoLandingPage } from "@/data/geo-landing-pages";
-import { GeoLandingPage } from "@/components/geo/GeoLandingPage";
+import { GeoLandingPage, GeoPourquoiSection } from "@/components/geo/GeoLandingPage";
 import { VenuesByDepartment } from "@/components/geo/VenuesByDepartment";
 import { resolveBlogPosts } from "@/lib/resolve-blog-posts";
 import { GuidesSection, ObservatoireSection } from "@/components/lieux";
@@ -18,6 +18,8 @@ export default function Page() {
 
       {/* Maillage vers le blog — voir lib/maillage-blog.ts */}
       <GuidesSection chemin="/seminaire-chateau-chantilly" background="gray" />
+
+      <GeoPourquoiSection data={data} />
     </>
   );
 }

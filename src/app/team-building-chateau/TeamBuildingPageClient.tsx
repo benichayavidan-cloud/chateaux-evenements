@@ -358,6 +358,88 @@ function OutdoorOverlay() {
 
 // ─── Composant principal ────────────────────────────────────────────
 
+// Exportée pour passer juste avant le pied de page, après les blocs ajoutés par page.tsx.
+export function TeamBuildingPointsForts() {
+  const pointsFortsView = useInView();
+
+  const pointsForts = [
+    "Cadre exceptionnel",
+    "Activités sur mesure",
+    "20 à 500 participants",
+    "Encadrement professionnel",
+    "Privatisation totale",
+    "Hébergement sur place",
+    "Restauration gastronomique",
+    "Proche Paris",
+  ];
+
+  return (
+    <>
+        {/* ─── Points forts — Grid avec image de fond ─── */}
+        <section className="points-forts-section" style={{ position: 'relative', padding: 'clamp(5rem, 10vw, 8rem) 0', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0 }}>
+            <Image
+              src="/images/evenement-entreprise-tiara-mont-royal-chantilly-activites-team-building.webp"
+              alt="Activités team building en château — vue du domaine"
+              fill sizes="100vw" className="object-cover" loading="lazy" quality={80}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)' }} />
+          </div>
+          <Container size="xl" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
+              <div
+                ref={pointsFortsView.ref}
+                className={`animate-on-scroll ${pointsFortsView.isInView ? 'is-visible' : ''}`}
+              >
+                <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center', color: 'white', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
+                  Pourquoi choisir nos Team Building en Île-de-France ?
+                </Text>
+                <Text variant="bodyLarge" style={{ textAlign: 'center', color: 'rgba(255,255,255,0.8)' }}>
+                  Cohésion d&apos;équipe et séminaire d&apos;entreprise dans un cadre d&apos;exception
+                </Text>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 1.5rem)', maxWidth: '1200px', margin: '0 auto', justifyContent: 'center', flexWrap: 'wrap', padding: '1.5rem 0' }}>
+              {pointsForts.map((atout, index) => (
+                <div
+                  key={index}
+                  className={`animate-on-scroll ${pointsFortsView.isInView ? 'is-visible' : ''}`}
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
+                  <div style={{
+                    padding: '1.25rem 2rem',
+                    background: 'rgba(255,255,255,0.12)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    borderRadius: '1rem',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    textAlign: 'center',
+                    display: 'flex', alignItems: 'center', gap: '0.75rem',
+                    transition: 'all 0.3s ease',
+                    cursor: 'default',
+                    minWidth: '200px',
+                  }}>
+                    <div style={{
+                      width: '40px', height: '40px', borderRadius: '50%',
+                      background: `linear-gradient(135deg, ${theme.colors.primary.gold}, ${theme.colors.primary.bronze})`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                    }}>
+                      <Check className="w-5 h-5" style={{ color: 'white' }} />
+                    </div>
+                    <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'white' }}>
+                      {atout}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+    </>
+  );
+}
+
 export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -371,7 +453,6 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
   const prevImage = () => setLightboxIndex(i => i !== null ? (i - 1 + allGalleryImages.length) % allGalleryImages.length : null);
   const nextImage = () => setLightboxIndex(i => i !== null ? (i + 1) % allGalleryImages.length : null);
 
-  const pointsFortsView = useInView();
   const faqCtaView = useInView();
   const ctaView = useInView();
   const ctaButtonsView = useInView();
@@ -383,17 +464,6 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const pointsForts = [
-    "Cadre exceptionnel",
-    "Activités sur mesure",
-    "20 à 500 participants",
-    "Encadrement professionnel",
-    "Privatisation totale",
-    "Hébergement sur place",
-    "Restauration gastronomique",
-    "Proche Paris",
-  ];
 
   return (
     <>
@@ -727,68 +797,6 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
 
       {/* ─── Catalogue complet des activités — Flip Cards ─── */}
       <ActivityCatalogue />
-
-      {/* ─── Points forts — Grid avec image de fond ─── */}
-      <section className="points-forts-section" style={{ position: 'relative', padding: 'clamp(5rem, 10vw, 8rem) 0', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0 }}>
-          <Image
-            src="/images/evenement-entreprise-tiara-mont-royal-chantilly-activites-team-building.webp"
-            alt="Activités team building en château — vue du domaine"
-            fill sizes="100vw" className="object-cover" loading="lazy" quality={80}
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)' }} />
-        </div>
-        <Container size="xl" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
-            <div
-              ref={pointsFortsView.ref}
-              className={`animate-on-scroll ${pointsFortsView.isInView ? 'is-visible' : ''}`}
-            >
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center', color: 'white', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
-                Pourquoi choisir nos Team Building en Île-de-France ?
-              </Text>
-              <Text variant="bodyLarge" style={{ textAlign: 'center', color: 'rgba(255,255,255,0.8)' }}>
-                Cohésion d&apos;équipe et séminaire d&apos;entreprise dans un cadre d&apos;exception
-              </Text>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 1.5rem)', maxWidth: '1200px', margin: '0 auto', justifyContent: 'center', flexWrap: 'wrap', padding: '1.5rem 0' }}>
-            {pointsForts.map((atout, index) => (
-              <div
-                key={index}
-                className={`animate-on-scroll ${pointsFortsView.isInView ? 'is-visible' : ''}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div style={{
-                  padding: '1.25rem 2rem',
-                  background: 'rgba(255,255,255,0.12)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
-                  borderRadius: '1rem',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  textAlign: 'center',
-                  display: 'flex', alignItems: 'center', gap: '0.75rem',
-                  transition: 'all 0.3s ease',
-                  cursor: 'default',
-                  minWidth: '200px',
-                }}>
-                  <div style={{
-                    width: '40px', height: '40px', borderRadius: '50%',
-                    background: `linear-gradient(135deg, ${theme.colors.primary.gold}, ${theme.colors.primary.bronze})`,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                  }}>
-                    <Check className="w-5 h-5" style={{ color: 'white' }} />
-                  </div>
-                  <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'white' }}>
-                    {atout}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* ─── Section FAQ — 2 colonnes : FAQ + Image équipe ─── */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>
