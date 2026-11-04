@@ -115,6 +115,29 @@ export default function ConfidentialitePage() {
             <strong>Refus des cookies :</strong> Si vous refusez, aucune donnée personnelle n'est transmise à Google.
             Seuls des pings anonymes statistiques sont envoyés pour optimiser les campagnes publicitaires de manière agrégée.
           </p>
+
+          <p>
+            <strong>5.4. Suivi des conversions Google Ads</strong>
+          </p>
+          <p>
+            Lorsque vous arrivez sur notre site en cliquant sur l'une de nos annonces Google Ads, l'adresse de la page
+            contient un numéro de clic attribué par Google (gclid, gbraid ou wbraid) et des informations sur l'annonce :
+            campagne, annonce, mot-clé, type de correspondance et appareil. Ces informations sont mémorisées dans votre
+            navigateur. Si vous envoyez une demande de devis, elles sont enregistrées avec votre demande, ainsi que votre
+            choix sur les cookies, pour que nous sachions quelle annonce l'a amenée. Cet enregistrement a lieu que vous
+            ayez accepté ou refusé les cookies.
+          </p>
+          <p>
+            <strong>Si vous acceptez les cookies :</strong> lorsque votre demande est enregistrée, nous le signalons à
+            Google Ads pour mesurer l'efficacité de nos annonces. Votre adresse email et votre numéro de téléphone sont
+            transmis sous forme hachée, c'est-à-dire transformés en une empreinte illisible avant l'envoi, afin de
+            rattacher la demande à votre clic sur l'annonce. Si ce signalement n'aboutit pas, nous pouvons transmettre à
+            Google votre numéro de clic et la date de votre demande pour le compléter.
+          </p>
+          <p>
+            <strong>Si vous refusez les cookies ou ne faites pas de choix :</strong> ni votre adresse email ni votre numéro
+            de téléphone ne sont transmis à Google.
+          </p>
         </LegalContent>
       </LegalSection>
 

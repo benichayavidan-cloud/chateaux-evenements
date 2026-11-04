@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { memoriserPremierContact } from "@/lib/origine";
+import { memoriserClicAds, memoriserPremierContact } from "@/lib/origine";
 import {
   BASE_CRM,
   URL_COLLECTE,
@@ -107,6 +107,12 @@ export function SiteTracker() {
     // Provenance des demandes de devis : indépendante du CRM (voir origine.ts).
     memoriserPremierContact();
   }, []);
+
+  useEffect(() => {
+    // Dernier clic sur une annonce : à chaque page, y compris pour un visiteur
+    // déjà connu. Sans annonce dans l'adresse, cet appel ne fait rien.
+    memoriserClicAds();
+  }, [pathname]);
 
   // Clics sur les appels à l'action (barre fixe, CTA d'article, liens vers /devis) :
   // une seule écoute pour tout le site plutôt qu'un onClick par bouton, pour que
