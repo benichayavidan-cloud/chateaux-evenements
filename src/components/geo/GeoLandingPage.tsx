@@ -28,6 +28,7 @@ import DevisFormMini from "@/components/DevisFormMini";
 import { trackPhoneClick } from "@/components/Analytics";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
+import { reviewsStats } from "@/data/reviewsData";
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 // ── StickySlider — CSS natif (hardware-accelerated, pas de JS scroll listener) ──
@@ -431,7 +432,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
               <Star className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-              4,8/5 avis clients
+              {reviewsStats.averageRating.replace(".", ",")}/5 sur {reviewsStats.total} avis Google
             </span>
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
