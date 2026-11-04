@@ -320,8 +320,7 @@ export default function RootLayout({
         <CookieConsentLazy variant="mini" />
 
         {/* Google tag (gtag.js) GA4 + Google Ads - Chargé en lazy pour ne pas bloquer FCP/LCP.
-            Chargé par l'identifiant Ads. Le flux Analytics G-QT44JGHJ0C remplace G-TRWZDPNN9E (04/11/2026) :
-            celui-ci dépendait de la balise de l'ancien compte Ads et répondait 404.
+            Chargé par l'identifiant Ads ; le flux Analytics est G-QT44JGHJ0C.
             send_page_view est à false : les pages vues partent de <Analytics />, qui suit aussi la navigation. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18551949936"
