@@ -3,7 +3,8 @@ import { createClient } from '@supabase/supabase-js';
 import { sendAdminNotification, sendAlerteDemandeRefusee, sendClientConfirmation } from '@/lib/email';
 import { chateaux } from '@/data/chateaux';
 import { chateauxDeLaDemande, formSchema } from '@/lib/devis-schema';
-import { canalOrigine, LIBELLE_CANAL, parsePremierContact } from '@/lib/origine';
+import { canalOrigine, clicAdsEnCours, LIBELLE_CANAL, origineAds, parsePremierContact } from '@/lib/origine';
+import { lignesSourceDemande } from '@/lib/source-demande';
 
 export async function POST(request: NextRequest) {
   try {
@@ -39,9 +40,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { premierContact: premierContactBrut, ...data } = validationResult.data;
+    const { premierContact: premierContactBrut, clicAds: clicAdsRecu, consentementPub, ...data } = validationResult.data;
     const premierContact = parsePremierContact(premierContactBrut);
-    const canal = canalOrigine(premierContact);
+    // Revérifié ici : la date du navigateur et l'onglet resté ouvert ne font pas foi.
+    const clicAds = clicAdsEnCours(clicAdsRecu, new Date());
+    const canal = canalOrigine(premierContact, clicAds);
+    const ads = origineAds(clicAds, consentementPub);
 
     const chateauIds = chateauxDeLaDemande(data.chateauIds, chateaux.map((c) => c.id));
 
@@ -97,6 +101,8 @@ export async function POST(request: NextRequest) {
       origine_referent: premierContact?.referent ?? null,
       origine_utm: premierContact && Object.keys(premierContact.utm).length ? premierContact.utm : null,
       origine_premiere_visite: premierContact?.date ?? null,
+      // Dernier clic sur une annonce (scripts/sql/2026-11-04_origine-ads.sql).
+      origine_ads: ads,
     };
 
     // Insérer dans Supabase
@@ -117,13 +123,7 @@ export async function POST(request: NextRequest) {
     // Envoyer les emails de notification + créer le dossier dans le CRM
     if (insertedData && insertedData.length > 0) {
       const newDevis = insertedData[0];
-      // Origine ajoutée au libellé de l'email d'admin. Le gabarit n'échappe pas
-      // le HTML : le libellé vient d'une liste fixe et la page est filtrée.
-      const pageArrivee = premierContact?.page.replace(/[^\w\-/.%]/g, '') ?? '';
-      const sourceLabel = [
-        data.sourceLabel,
-        `Origine : ${LIBELLE_CANAL[canal]}${pageArrivee ? ` — arrivé sur ${pageArrivee}` : ''}`,
-      ].filter(Boolean).join(' · ');
+      const sourceDemande = lignesSourceDemande({ canal, premierContact, clic: clicAds, consentement: consentementPub });
 
       // CRM : le lead devient directement un dossier « Nouvelle demande »
       // (société + contact + événement créés côté CRM). Secret partagé serveur→serveur.
@@ -132,7 +132,7 @@ export async function POST(request: NextRequest) {
 
       // Emails + dossier CRM envoyés en parallèle, erreurs silencieuses (non-bloquantes)
       await Promise.allSettled([
-        sendAdminNotification(newDevis, sourceLabel),
+        sendAdminNotification(newDevis, data.sourceLabel ?? '', sourceDemande),
         sendClientConfirmation(newDevis),
         crmLeadsUrl && crmLeadsSecret
           ? fetch(crmLeadsUrl, {
@@ -147,6 +147,7 @@ export async function POST(request: NextRequest) {
                   page: premierContact?.page ?? null,
                   referent: premierContact?.referent ?? null,
                   premiereVisite: premierContact?.date ?? null,
+                  ads,
                 },
               }),
             }).catch(() => {})
@@ -158,6 +159,8 @@ export async function POST(request: NextRequest) {
       {
         success: true,
         message: 'Demande de devis enregistrée avec succès',
+        // Numéro de la demande : évite qu'elle soit comptée deux fois par Google Ads.
+        demandeId: insertedData?.[0]?.id ?? null,
       },
       { status: 201 }
     );

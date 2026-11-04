@@ -117,11 +117,11 @@ export function middleware(request: NextRequest, event: NextFetchEvent) {
       'Content-Security-Policy',
       [
         "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com",
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.google.com",
         "style-src 'self' 'unsafe-inline'",
         "img-src 'self' data: https: blob:",
         "font-src 'self' data:",
-        `connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.googleadservices.com https://www.google.fr https://*.google.fr https://pagead2.googlesyndication.com ${CRM_CONNECT}`.trim(),
+        `connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://www.google.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.googleadservices.com https://*.googleadservices.com https://www.google.fr https://*.google.fr https://www.google.be https://www.google.ch https://www.google.lu https://www.google.ca https://pagead2.googlesyndication.com ${CRM_CONNECT}`.trim(),
         "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com",
         "frame-ancestors 'self'",
         "base-uri 'self'",

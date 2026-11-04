@@ -320,7 +320,7 @@ export default function RootLayout({
         {/* Cookie Consent - 3 variants disponibles: "default" | "small" | "mini" */}
         <CookieConsentLazy variant="mini" />
 
-        {/* Google tag (gtag.js) GA4 - Chargé en lazy pour ne pas bloquer FCP/LCP */}
+        {/* Google tag (gtag.js) GA4 + Google Ads - Chargé en lazy pour ne pas bloquer FCP/LCP */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TRWZDPNN9E"
           strategy="lazyOnload"
@@ -332,6 +332,7 @@ export default function RootLayout({
               anonymize_ip: true,
               cookie_flags: 'SameSite=None;Secure'
             });
+            gtag('config', 'AW-18551949936');
           `}
         </Script>
       </body>

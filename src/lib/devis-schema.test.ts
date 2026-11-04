@@ -63,3 +63,34 @@ test("l'entreprise est obligatoire", () => {
   const { entreprise: _, ...sansEntreprise } = envoiDepuisUnArticle;
   assert.equal(formSchema.safeParse(sansEntreprise).success, false);
 });
+
+test('une source Ads de forme inattendue est ignorée, la demande reste acceptée', () => {
+  for (const clicAds of [42, 'pas du json', [], {}, { gclid: { a: 1 } }, null]) {
+    const r = formSchema.safeParse({ ...envoiDepuisUnArticle, clicAds, consentementPub: 'peut-être' });
+    assert.equal(r.success, true);
+    if (r.success) {
+      assert.equal(r.data.clicAds, null);
+      assert.equal(r.data.consentementPub, 'inconnu');
+    }
+  }
+});
+
+test('une source Ads correcte est conservée, sans champ en trop', () => {
+  const r = formSchema.safeParse({
+    ...envoiDepuisUnArticle,
+    clicAds: { page: '/x', clicLe: '2026-11-04T13:12:00.000Z', gclid: 'abc', pirate: '<script>' },
+    consentementPub: 'oui',
+  });
+  assert.equal(r.success, true);
+  if (r.success) {
+    assert.equal(r.data.clicAds?.gclid, 'abc');
+    assert.equal(r.data.consentementPub, 'oui');
+    assert.equal('pirate' in (r.data.clicAds ?? {}), false);
+  }
+});
+
+test('une demande sans source Ads (ancien onglet) reste valide', () => {
+  const r = formSchema.safeParse(envoiDepuisUnArticle);
+  assert.equal(r.success, true);
+  if (r.success) assert.equal(r.data.clicAds, null);
+});

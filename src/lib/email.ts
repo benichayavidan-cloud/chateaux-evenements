@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 import { Database } from './supabase';
 import { chateaux } from '@/data/chateaux';
+import { blocSourceHtml, blocSourceTexte, echapperHtml, type LigneSource } from './source-demande';
 
 type DemandeDevis = Database['public']['Tables']['demandes_devis_chateaux']['Row'];
 
@@ -118,7 +119,8 @@ const getChateauxNomsText = (chateauIds: string): string => {
 };
 
 // Template HTML pour l'email admin
-const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string): string => {
+// Tout ce qui vient du navigateur est échappé : n'importe qui peut poster n'importe quoi.
+export const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string, source: LigneSource[] = []): string => {
   const { arrivee, depart } = parseDates(devis.dates_souhaitees);
 
   return `
@@ -163,20 +165,20 @@ const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string): string
                 <tr>
                   <td style="padding: 15px; background-color: #f8fafc; border-radius: 6px;">
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Nom & Prénom:</strong> ${devis.nom_prenom}
+                      <strong style="color: #1e3a8a;">Nom & Prénom:</strong> ${echapperHtml(devis.nom_prenom)}
                     </p>
                     ${devis.entreprise && devis.entreprise !== '-' ? `
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Entreprise:</strong> ${devis.entreprise}
+                      <strong style="color: #1e3a8a;">Entreprise:</strong> ${echapperHtml(devis.entreprise)}
                     </p>
                     ` : ''}
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #1e3a8a;">Email:</strong>
-                      <a href="mailto:${devis.email}" style="color: #3b82f6; text-decoration: none;">${devis.email}</a>
+                      <a href="mailto:${echapperHtml(devis.email)}" style="color: #3b82f6; text-decoration: none;">${echapperHtml(devis.email)}</a>
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #1e3a8a;">Téléphone:</strong>
-                      <a href="tel:${devis.telephone_mobile}" style="color: #3b82f6; text-decoration: none;">${devis.telephone_mobile}</a>
+                      <a href="tel:${echapperHtml(devis.telephone_mobile)}" style="color: #3b82f6; text-decoration: none;">${echapperHtml(devis.telephone_mobile)}</a>
                     </p>
                   </td>
                 </tr>
@@ -242,7 +244,7 @@ const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string): string
                 <tr>
                   <td style="padding: 15px; background-color: #f8fafc; border-radius: 6px;">
                     <p style="margin: 0; color: #334155; font-size: 15px; line-height: 1.6; white-space: pre-wrap;">
-                      ${devis.commentaire_deroulement}
+                      ${echapperHtml(devis.commentaire_deroulement)}
                     </p>
                   </td>
                 </tr>
@@ -255,12 +257,14 @@ const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string): string
                 <tr>
                   <td style="padding: 10px 15px; background-color: #eef2ff; border-radius: 6px;">
                     <p style="margin: 0; color: #6366f1; font-size: 13px;">
-                      📍 <strong>Source:</strong> ${sourceLabel}
+                      📍 <strong>Source:</strong> ${echapperHtml(sourceLabel)}
                     </p>
                   </td>
                 </tr>
               </table>
               ` : ''}
+
+              ${source.length ? blocSourceHtml(source) : ''}
 
             </td>
           </tr>
@@ -469,7 +473,7 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
 };
 
 // Version texte brut pour l'email admin (fallback)
-const getAdminEmailText = (devis: DemandeDevis, sourceLabel: string): string => {
+const getAdminEmailText = (devis: DemandeDevis, sourceLabel: string, source: LigneSource[]): string => {
   const { arrivee, depart } = parseDates(devis.dates_souhaitees);
 
   return `
@@ -488,7 +492,7 @@ ${depart ? `Date de départ: ${formatDate(depart)}\n` : ''}${devis.dates_flexibl
 CHÂTEAUX SÉLECTIONNÉS
 ${getChateauxNomsText(devis.chateau_id)}
 
-${devis.commentaire_deroulement ? `MESSAGE\n${devis.commentaire_deroulement}\n\n` : ''}${sourceLabel ? `Source: ${sourceLabel}\n\n` : ''}
+${devis.commentaire_deroulement ? `MESSAGE\n${devis.commentaire_deroulement}\n\n` : ''}${sourceLabel ? `Source: ${sourceLabel}\n\n` : ''}${source.length ? `${blocSourceTexte(source)}\n\n` : ''}
 ---
 SELECT CHÂTEAUX - Séminaires d'Exception
 60 Rue François 1er, 75008 Paris, France
@@ -562,7 +566,7 @@ async function sendEmail(to: string, subject: string, html: string, text: string
 }
 
 // Envoyer l'email de notification à l'administrateur
-export async function sendAdminNotification(devis: DemandeDevis, sourceLabel: string = ''): Promise<boolean> {
+export async function sendAdminNotification(devis: DemandeDevis, sourceLabel: string = '', source: LigneSource[] = []): Promise<boolean> {
   const adminEmail = process.env.EMAIL_ADMIN || process.env.SMTP_USER;
 
   if (!adminEmail) {
@@ -571,14 +575,11 @@ export async function sendAdminNotification(devis: DemandeDevis, sourceLabel: st
   }
 
   const subject = `🔔 Nouvelle demande de devis - ${devis.nom_prenom}`;
-  const html = getAdminEmailTemplate(devis, sourceLabel);
-  const text = getAdminEmailText(devis, sourceLabel);
+  const html = getAdminEmailTemplate(devis, sourceLabel, source);
+  const text = getAdminEmailText(devis, sourceLabel, source);
 
   return sendEmail(adminEmail, subject, html, text);
 }
-
-const echapperHtml = (v: string): string =>
-  v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // Prévenir l'administrateur qu'une demande a été refusée par la validation.
 // `saisie` vient tel quel du navigateur : rien n'est supposé sur sa forme.

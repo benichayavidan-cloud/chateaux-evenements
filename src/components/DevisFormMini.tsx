@@ -12,7 +12,8 @@ import { Button } from '@/components/ui-v2';
 import { Text } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
 import { trackFormSubmit, trackFormStart, trackFormError } from '@/components/Analytics';
-import { premierContactMemorise } from '@/lib/origine';
+import { clicAdsMemorise, consentementPublicitaire, premierContactMemorise } from '@/lib/origine';
+import { envoyerConversionDevis } from '@/lib/conversion-ads';
 
 interface DevisFormMiniProps {
   chateauId?: string;
@@ -154,6 +155,8 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
       const allIds = chateauIds || (chateauId ? [chateauId] : []);
       const formLabel = sourceLabel || chateauNom || 'Séminaire';
 
+      const consentementPub = consentementPublicitaire();
+
       const payload = {
         typeEvenement: 'seminaire' as const,
         dateArrivee: formData.dateArrivee,
@@ -178,6 +181,9 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         // Page d'ARRIVÉE et site d'origine à la première visite (Google, ChatGPT…) —
         // `sourcePage` ci-dessus n'est que la page du formulaire.
         premierContact: premierContactMemorise(),
+        // Dernier clic sur une annonce, et choix réel du visiteur sur les cookies.
+        clicAds: clicAdsMemorise(),
+        consentementPub,
       };
 
       const response = await fetch('/api/devis', {
@@ -207,7 +213,20 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
         // localStorage indisponible — non bloquant
       }
 
-      trackFormSubmit('devis-express');
+      // La demande est enregistrée : une panne de balise ne doit plus rien y changer.
+      try {
+        trackFormSubmit('devis-express');
+      } catch {
+        // Bloqueur ou balise modifiée — sans impact pour le visiteur.
+      }
+
+      // Après l'événement GA4 ci-dessus, pour qu'il ne porte pas les coordonnées.
+      envoyerConversionDevis(window.gtag, {
+        demandeId: typeof result.demandeId === 'string' ? result.demandeId : null,
+        email: formData.email,
+        telephone: formData.telephone,
+        consentement: consentementPub,
+      });
 
       // Plus de « numéro de référence » tiré au hasard : il n'existait ni dans
       // le CRM ni dans les emails (voir lib/cta-article.test.ts).

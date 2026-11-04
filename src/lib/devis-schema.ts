@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { parseClicAds } from './origine.ts';
 
 // Schema Zod pour validation serveur
 // Accepte deux formats :
@@ -42,6 +43,11 @@ export const formSchema = z.object({
   // Relu par parsePremierContact : une forme inattendue devient « inconnue »,
   // elle ne doit jamais faire perdre une demande.
   premierContact: z.unknown().optional(),
+  // Même règle pour le dernier clic Ads : le mot-clé vient de l'adresse de la
+  // page, n'importe qui peut y écrire n'importe quoi. Rien ici ne peut refuser
+  // une demande ; ce qui n'a pas la bonne forme est simplement ignoré.
+  clicAds: z.unknown().optional().transform((v) => parseClicAds(v)),
+  consentementPub: z.enum(['oui', 'non', 'inconnu']).optional().default('inconnu').catch('inconnu'),
 }).refine(
   (data) => data.datesFlexibles || data.datesSouhaitees || (data.dateArrivee && data.dateDepart),
   { message: "Veuillez sélectionner une date", path: ["datesSouhaitees"] }
