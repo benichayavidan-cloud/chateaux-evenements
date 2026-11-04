@@ -88,6 +88,8 @@ export function LandingFormat({ slug }: { slug: string }) {
     ],
   };
 
+  const sectionsFinales = l.sections.filter(s => s.enBasDePage);
+
   const ancres = [
     { label: "Les lieux", href: "#lieux", compteur: lieux.length },
     ...(activites.length ? [{ label: "Activités", href: "#activites", compteur: activites.length }] : []),
@@ -128,7 +130,7 @@ export function LandingFormat({ slug }: { slug: string }) {
         lien={{ href: "/lieux", label: `Voir les ${venues.length} lieux de séminaire en Île-de-France et Oise` }}
       />
 
-      {l.sections.map((s, i) => (
+      {l.sections.filter(s => !s.enBasDePage).map((s, i) => (
         <ProseSection
           key={s.titre}
           titre={s.titre}
@@ -187,6 +189,10 @@ export function LandingFormat({ slug }: { slug: string }) {
       </div>
 
       <DevisSection sourceLabel={l.h1} titre="Un projet en tête ?" background="white" />
+
+      {sectionsFinales.map(s => (
+        <ProseSection key={s.titre} titre={s.titre} paragraphes={s.paragraphes} background="gray" />
+      ))}
     </>
   );
 }

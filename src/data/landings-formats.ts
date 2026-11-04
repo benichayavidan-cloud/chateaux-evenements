@@ -26,7 +26,8 @@ export interface LandingFormat {
   /** Catégorie d'activités à afficher, si pertinent. */
   activites?: "tb" | "soiree";
   nbActivites?: number;
-  sections: { titre: string; paragraphes: string[] }[];
+  /** enBasDePage : section affichée après le formulaire, juste avant le pied de page. */
+  sections: { titre: string; paragraphes: string[]; enBasDePage?: boolean }[];
   faq: { question: string; reponse: string }[];
   titreLieux: string;
   sousTitreLieux: string;
@@ -54,6 +55,7 @@ export const landingsFormats: LandingFormat[] = [
     sections: [
       {
         titre: "Pourquoi Chantilly pour un team building",
+        enBasDePage: true,
         paragraphes: [
           "La forêt : 6 300 hectares de forêt domaniale font de Chantilly le plus grand terrain de jeu naturel aux portes de Paris. Course d'orientation, rallye photo, olympiades, biathlon laser, accrobranche : les formats outdoor qui demandent de l'espace y sont réalisables sans transfert depuis le lieu de séminaire.",
           "Le patrimoine comme décor : châteaux du XIXe, écuries monumentales, hippodrome. Un escape game ou une murder party prennent une autre dimension dans un château privatisé que dans une salle louée. C'est aussi le format sur lequel nos clients reviennent le plus — notre article sur la murder party en château est la page la plus consultée du site.",

@@ -259,6 +259,111 @@ export interface LinkedBlogPost {
   readingTime: number;
 }
 
+// Section « Pourquoi » : exportée pour pouvoir passer juste avant le pied de page,
+// après les blocs que la page ajoute sous ce gabarit (voir pourquoiEnBasDePage).
+export function GeoPourquoiSection({ data }: { data: GeoLandingPageData }) {
+  const pourquoiView = useInView();
+  const linkedChateaux = chateaux.filter((c) => data.chateauxIds.includes(c.id));
+
+  return (
+    <>
+        {/* ═══════════════════════════════════════════
+            POURQUOI — Background image + glassmorphism
+        ═══════════════════════════════════════════ */}
+        <section
+          style={{
+            position: "relative",
+            overflow: "hidden",
+            padding: "clamp(3rem, 6vw, 5rem) 0",
+          }}
+        >
+          {/* Background image */}
+          {linkedChateaux[1] ? (
+            <Image
+              src={linkedChateaux[1].images.hero[0]}
+              alt={data.pourquoiTitre}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              quality={75}
+            />
+          ) : linkedChateaux[0] && (
+            <Image
+              src={linkedChateaux[0].images.hero[0]}
+              alt={data.pourquoiTitre}
+              fill
+              className="object-cover"
+              sizes="100vw"
+              quality={75}
+            />
+          )}
+          <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.55)" }} />
+
+          <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
+            <div ref={pourquoiView.ref} className={`animate-on-scroll ${pourquoiView.isInView ? "is-visible" : ""}`}>
+              <div className="section-header" style={{ marginBottom: theme.spacing["3xl"] }}>
+                <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md, color: theme.colors.neutral.white, textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>
+                  {data.pourquoiTitre}
+                </Text>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.md }}>
+                  <div style={{ width: "40px", height: "1px", background: `linear-gradient(to right, transparent, ${theme.colors.primary.gold})` }} />
+                  <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
+                  <div style={{ width: "40px", height: "1px", background: `linear-gradient(to left, transparent, ${theme.colors.primary.gold})` }} />
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+                  gap: theme.spacing.xl,
+                }}
+              >
+                {data.pointsForts.map((point, index) => {
+                  const IconComponent = iconMap[point.icon] || Sparkles;
+                  return (
+                    <div
+                      key={index}
+                      className="hover-lift-sm"
+                      style={{
+                        background: "rgba(255,255,255,0.12)",
+                        backdropFilter: "blur(16px)",
+                        WebkitBackdropFilter: "blur(16px)",
+                        borderRadius: theme.effects.borderRadius.xl,
+                        padding: theme.spacing.xl,
+                        border: "1px solid rgba(255,255,255,0.2)",
+                        transition: "all 0.3s ease",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "48px",
+                          height: "48px",
+                          borderRadius: theme.effects.borderRadius.lg,
+                          background: "rgba(255,255,255,0.15)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          marginBottom: theme.spacing.md,
+                        }}
+                      >
+                        <IconComponent className="w-6 h-6" style={{ color: theme.colors.primary.gold }} />
+                      </div>
+                      <Text variant="h5" as="h3" style={{ marginBottom: theme.spacing.sm, color: theme.colors.neutral.white }}>{point.titre}</Text>
+                      <Text variant="bodySmall" style={{ lineHeight: theme.typography.lineHeight.relaxed, color: "rgba(255,255,255,0.8)" }}>
+                        {point.description}
+                      </Text>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </Container>
+        </section>
+    </>
+  );
+}
+
 interface GeoLandingPageProps {
   data: GeoLandingPageData;
   linkedBlogPosts?: LinkedBlogPost[];
@@ -270,7 +375,6 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
 
   const heroView = useInView();
   const introView = useInView();
-  const pourquoiView = useInView();
   const chateauxView = useInView();
   const infosView = useInView();
   const seoView = useInView();
@@ -635,99 +739,7 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
 
       {data.devisAvantPourquoi && devisExpressSection}
 
-      {/* ═══════════════════════════════════════════
-          POURQUOI — Background image + glassmorphism
-      ═══════════════════════════════════════════ */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          padding: "clamp(3rem, 6vw, 5rem) 0",
-        }}
-      >
-        {/* Background image */}
-        {linkedChateaux[1] ? (
-          <Image
-            src={linkedChateaux[1].images.hero[0]}
-            alt={data.pourquoiTitre}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            quality={75}
-          />
-        ) : linkedChateaux[0] && (
-          <Image
-            src={linkedChateaux[0].images.hero[0]}
-            alt={data.pourquoiTitre}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            quality={75}
-          />
-        )}
-        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.55)" }} />
-
-        <Container size="xl" style={{ position: "relative", zIndex: 1 }}>
-          <div ref={pourquoiView.ref} className={`animate-on-scroll ${pourquoiView.isInView ? "is-visible" : ""}`}>
-            <div className="section-header" style={{ marginBottom: theme.spacing["3xl"] }}>
-              <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md, color: theme.colors.neutral.white, textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}>
-                {data.pourquoiTitre}
-              </Text>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.md }}>
-                <div style={{ width: "40px", height: "1px", background: `linear-gradient(to right, transparent, ${theme.colors.primary.gold})` }} />
-                <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
-                <div style={{ width: "40px", height: "1px", background: `linear-gradient(to left, transparent, ${theme.colors.primary.gold})` }} />
-              </div>
-            </div>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                gap: theme.spacing.xl,
-              }}
-            >
-              {data.pointsForts.map((point, index) => {
-                const IconComponent = iconMap[point.icon] || Sparkles;
-                return (
-                  <div
-                    key={index}
-                    className="hover-lift-sm"
-                    style={{
-                      background: "rgba(255,255,255,0.12)",
-                      backdropFilter: "blur(16px)",
-                      WebkitBackdropFilter: "blur(16px)",
-                      borderRadius: theme.effects.borderRadius.xl,
-                      padding: theme.spacing.xl,
-                      border: "1px solid rgba(255,255,255,0.2)",
-                      transition: "all 0.3s ease",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "48px",
-                        height: "48px",
-                        borderRadius: theme.effects.borderRadius.lg,
-                        background: "rgba(255,255,255,0.15)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginBottom: theme.spacing.md,
-                      }}
-                    >
-                      <IconComponent className="w-6 h-6" style={{ color: theme.colors.primary.gold }} />
-                    </div>
-                    <Text variant="h5" as="h3" style={{ marginBottom: theme.spacing.sm, color: theme.colors.neutral.white }}>{point.titre}</Text>
-                    <Text variant="bodySmall" style={{ lineHeight: theme.typography.lineHeight.relaxed, color: "rgba(255,255,255,0.8)" }}>
-                      {point.description}
-                    </Text>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </Container>
-      </section>
+      {!data.pourquoiEnBasDePage && <GeoPourquoiSection data={data} />}
 
       {/* ═══════════════════════════════════════════
           CHÂTEAUX DE LA ZONE — Style éditorial (identique homepage)
