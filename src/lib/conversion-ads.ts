@@ -2,7 +2,7 @@
  * Conversion Google Ads « Demande de devis envoyée ».
  *
  * Envoyée seulement après une réponse réussie de /api/devis, avec le numéro de
- * la demande : Google ne la compte qu'une fois. Une balise absente ou bloquée ne
+ * la demande quand il existe : Google ne la compte alors qu'une fois. Une balise absente ou bloquée ne
  * doit jamais toucher au formulaire, d'où aucune exception possible ici.
  * Aucun type TS-only (enum…) : le fichier est testé par `node --test`.
  */
@@ -14,13 +14,19 @@ export const CONVERSION_SEND_TO = 'AW-18551949936/3rYLCJ-D7rEdEPCUoY5F';
 type Gtag = (...args: unknown[]) => void;
 
 interface DemandeEnregistree {
-  demandeId: string | null;
+  /** Tel que renvoyé par l'API : on ne suppose rien sur son type. */
+  demandeId: unknown;
   email: string;
   telephone: string;
   consentement: ConsentementPub;
 }
 
 const dejaEnvoyees = new Set<string>();
+
+function numeroDemande(id: unknown): string | null {
+  if (typeof id === 'string' && id) return id;
+  return typeof id === 'number' && Number.isFinite(id) ? String(id) : null;
+}
 
 /** Format international attendu par Google. Numéro non reconnu : null, plutôt qu'un numéro faux. */
 export function telephoneE164(brut: string): string | null {
@@ -32,8 +38,8 @@ export function telephoneE164(brut: string): string | null {
 
 /** Renvoie true si la conversion est partie. */
 export function envoyerConversionDevis(gtag: Gtag | undefined, demande: DemandeEnregistree): boolean {
-  const { demandeId } = demande;
-  if (typeof gtag !== 'function' || !demandeId || dejaEnvoyees.has(demandeId)) return false;
+  const numero = numeroDemande(demande.demandeId);
+  if (typeof gtag !== 'function' || (numero && dejaEnvoyees.has(numero))) return false;
 
   // Les coordonnées ne partent qu'avec un accord réel, et leur échec n'empêche pas la conversion.
   if (demande.consentement === 'oui') {
@@ -47,8 +53,12 @@ export function envoyerConversionDevis(gtag: Gtag | undefined, demande: DemandeE
   }
 
   try {
-    gtag('event', 'conversion', { send_to: CONVERSION_SEND_TO, transaction_id: demandeId });
-    dejaEnvoyees.add(demandeId);
+    // Sans numéro, pas d'anti-doublon : cela vaut mieux qu'une conversion perdue.
+    gtag('event', 'conversion', {
+      send_to: CONVERSION_SEND_TO,
+      ...(numero ? { transaction_id: numero } : {}),
+    });
+    if (numero) dejaEnvoyees.add(numero);
     return true;
   } catch {
     return false;

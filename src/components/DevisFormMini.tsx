@@ -222,7 +222,7 @@ export default function DevisFormMini({ chateauId, chateauNom, chateauIds, sourc
 
       // Après l'événement GA4 ci-dessus, pour qu'il ne porte pas les coordonnées.
       envoyerConversionDevis(window.gtag, {
-        demandeId: typeof result.demandeId === 'string' ? result.demandeId : null,
+        demandeId: result.demandeId,
         email: formData.email,
         telephone: formData.telephone,
         consentement: consentementPub,

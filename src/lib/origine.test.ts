@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   canalOrigine, clicAdsEnCours, clicAdsMemorise, clicAMemoriser, consentementPublicitaire, lireClicAds,
-  lirePremierContact, memoriserClicAds, memoriserPremierContact, origineAds, parseClicAds, parsePremierContact,
+  lirePremierContact, memoriserClicAds, memoriserPremierContact, origineAds, origineAdsCrm, parseClicAds, parsePremierContact,
 } from './origine.ts';
 
 const QUAND = new Date('2026-09-24T10:00:00Z');
@@ -241,4 +241,72 @@ test('contrat CRM : exactement les champs convenus, consentement inclus', () => 
   ]);
   assert.equal(origineAds(clic, 'non')?.consentement, 'non');
   assert.equal(origineAds(null, 'oui'), null);
+});
+
+// ── Caractères refusés par Postgres : une demande ne doit jamais être perdue ──
+
+const EMOJI_COUPE = 'x'.repeat(149) + '😀'; // coupé à 150 : il resterait un demi-caractère
+const sansCaractereRefuse = (v: unknown) => {
+  const json = JSON.stringify(v);
+  assert.equal(json.includes('\\u0000'), false, 'caractère nul');
+  assert.equal(/\\ud[89ab]/i.test(json), false, 'demi-caractère');
+};
+
+test('régression : %00 et emoji coupé disparaissent du clic lu dans l\'adresse', () => {
+  const u = new URL('https://www.selectchateaux.com/x%00y?gclid=abc&utm_campaign=a%00b');
+  u.searchParams.set('utm_term', EMOJI_COUPE);
+  u.searchParams.set('utm_content', '\u0000');
+  const clic = lireClicAds(u.toString(), CLIC_LE);
+  sansCaractereRefuse(clic);
+  assert.equal(clic?.campagne, 'ab');
+  assert.equal(clic?.motCle, 'x'.repeat(149));
+  assert.equal(clic?.annonceId, null, 'une valeur faite de caractères nuls est vide');
+});
+
+test('régression : le serveur filtre aussi ce que le navigateur envoie', () => {
+  const clic = parseClicAds({
+    page: '/a\u0000b', clicLe: CLIC_LE.toISOString(), campagne: 'a\u0000b', motCle: `seul\uD83D`, groupeId: '\uDE00fin',
+  });
+  sansCaractereRefuse(clic);
+  assert.equal(clic?.page, '/ab');
+  assert.equal(clic?.campagne, 'ab');
+  assert.equal(clic?.motCle, 'seul');
+  assert.equal(clic?.groupeId, 'fin');
+  assert.equal(parseClicAds({ page: '/a', clicLe: CLIC_LE.toISOString(), motCle: '😀' })?.motCle, '😀', 'un emoji entier reste');
+});
+
+test('régression : origine_utm et le premier contact sont filtrés de la même façon', () => {
+  const lu = lirePremierContact(`https://www.selectchateaux.com/a?utm_source=a%00b&utm_term=${encodeURIComponent(EMOJI_COUPE)}`, '', QUAND);
+  sansCaractereRefuse(lu);
+  assert.equal(lu.utm.source, 'ab');
+  const relu = parsePremierContact({
+    page: '/a\u0000', date: QUAND.toISOString(), referent: 'b\uD83D', utm: { source: 'a\u0000b', term: EMOJI_COUPE },
+  });
+  sansCaractereRefuse(relu);
+  assert.equal(relu?.utm.source, 'ab');
+});
+
+test('un clic sans numéro ne remplace pas un clic récent qui en a un', () => {
+  const avecNumero = lireClicAds('https://www.selectchateaux.com/a?gclid=un', CLIC_LE)!;
+  const utm = '?utm_source=google&utm_medium=cpc&utm_campaign=c';
+  const sansNumero = (quand: Date) => lireClicAds(`https://www.selectchateaux.com/b${utm}`, quand)!;
+  const JOUR = 86_400_000;
+  assert.deepEqual(clicAMemoriser(sansNumero(new Date(CLIC_LE.getTime() + 5 * JOUR)), avecNumero), avecNumero);
+  const tard = sansNumero(new Date(CLIC_LE.getTime() + 31 * JOUR));
+  assert.deepEqual(clicAMemoriser(tard, avecNumero), tard, 'au-delà de 30 jours, il est remplacé');
+  const premierSansNumero = sansNumero(CLIC_LE);
+  const suivant = sansNumero(new Date(CLIC_LE.getTime() + JOUR));
+  assert.deepEqual(clicAMemoriser(suivant, premierSansNumero), suivant);
+  const autreNumero = lireClicAds('https://www.selectchateaux.com/c?wbraid=w', new Date(CLIC_LE.getTime() + JOUR))!;
+  assert.deepEqual(clicAMemoriser(autreNumero, avecNumero), autreNumero);
+});
+
+test('contrat CRM : consentement booléen ou null, le reste identique', () => {
+  const clic = lireClicAds(ANNONCE, CLIC_LE);
+  assert.equal(origineAdsCrm(origineAds(clic, 'oui'))?.consentement, true);
+  assert.equal(origineAdsCrm(origineAds(clic, 'non'))?.consentement, false);
+  assert.equal(origineAdsCrm(origineAds(clic, 'inconnu'))?.consentement, null);
+  assert.equal(origineAdsCrm(null), null);
+  assert.deepEqual(Object.keys(origineAdsCrm(origineAds(clic, 'oui')) ?? {}), Object.keys(origineAds(clic, 'oui') ?? {}));
+  assert.equal(origineAds(clic, 'oui')?.consentement, 'oui', 'la base garde oui/non/inconnu');
 });

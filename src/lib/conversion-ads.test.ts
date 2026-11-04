@@ -43,11 +43,20 @@ test('une seule fois par demande', () => {
   assert.equal(b.appels.length, 1);
 });
 
-test('sans numéro de demande, pas de conversion : elle ne serait pas dédoublonnée', () => {
+test('un numéro de demande numérique part en chaîne, sans bloquer la conversion', () => {
   const b = fausseBalise();
-  assert.equal(envoyerConversionDevis(b.gtag, { ...demande('', 'oui') }), false);
-  assert.equal(envoyerConversionDevis(b.gtag, { ...demande('x', 'oui'), demandeId: null }), false);
-  assert.equal(b.appels.length, 0);
+  assert.equal(envoyerConversionDevis(b.gtag, { ...demande('x', 'non'), demandeId: 42 }), true);
+  assert.deepEqual(b.appels[0][2], { send_to: CONVERSION_SEND_TO, transaction_id: '42' });
+  assert.equal(envoyerConversionDevis(b.gtag, { ...demande('x', 'non'), demandeId: 42 }), false, 'une seule fois');
+  assert.equal(b.appels.length, 1);
+});
+
+test('numéro manquant après une réponse réussie : conversion envoyée quand même, sans anti-doublon', () => {
+  for (const demandeId of [null, undefined, '', {}, Number.NaN]) {
+    const b = fausseBalise();
+    assert.equal(envoyerConversionDevis(b.gtag, { ...demande('x', 'non'), demandeId }), true);
+    assert.deepEqual(b.appels, [['event', 'conversion', { send_to: CONVERSION_SEND_TO }]]);
+  }
 });
 
 test('balise absente ou en panne : jamais d\'exception', () => {

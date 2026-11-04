@@ -40,13 +40,13 @@ export interface PremierContact {
   date: string;
 }
 
-/** Dernier clic sur une annonce. Les clés sont le contrat `origine.ads` du CRM (avec `consentement`). */
+/** Dernier clic sur une annonce. Les clés sont le contrat `origine.ads` du CRM (avec `consentement`, voir `origineAdsCrm`). */
 export interface ClicAds {
   campagne: string | null;
   annonceId: string | null;
   groupeId: string | null;
   motCle: string | null;
-  /** e = exact, p = expression, b = large, a = code transmis par la campagne, sans libellé. */
+  /** e = exact, p = expression, b = large, a = sans mot-clé (AI Max). */
   correspondance: string | null;
   /** m = mobile, t = tablette, c = ordinateur. */
   appareil: string | null;
@@ -64,6 +64,10 @@ export type ConsentementPub = 'oui' | 'non' | 'inconnu';
 
 export interface OrigineAds extends ClicAds {
   consentement: ConsentementPub;
+}
+
+export interface OrigineAdsCrm extends ClicAds {
+  consentement: boolean | null;
 }
 
 export type CanalOrigine =
@@ -104,7 +108,13 @@ const MOTEURS: [CanalOrigine, RegExp][] = [
 const SOCIAL = /(^|\.)(linkedin\.com|lnkd\.in|facebook\.com|instagram\.com|t\.co|x\.com|twitter\.com|youtube\.com|pinterest\.[a-z.]+|tiktok\.com)$/;
 const INTERNE = /(^|\.)selectchateaux\.com$/;
 
-const coupe = (s: string, n: number) => s.slice(0, n);
+// Le caractère nul et les demi-caractères (emoji coupé) sont refusés par Postgres :
+// l'insertion échouerait et la demande serait perdue. Filtré à la lecture de
+// l'adresse ET à la relecture côté serveur, qui passent toutes deux par `coupe`.
+const REFUSES_POSTGRES = /\u0000|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g;
+const nettoie = (s: string) => s.replace(REFUSES_POSTGRES, '');
+// Second passage : la coupe elle-même peut séparer un emoji en deux.
+const coupe = (s: string, n: number) => nettoie(nettoie(s).slice(0, n));
 
 function domaine(url: string): string | null {
   try {
@@ -193,8 +203,8 @@ export function premierContactMemorise(): PremierContact | null {
 // Un paramètre que Google n'a pas remplacé arrive tel quel : `{keyword}` n'est pas un mot-clé.
 function texteClic(v: unknown): string | null {
   if (typeof v !== 'string') return null;
-  const t = v.trim();
-  return !t || /^\{.*\}$/.test(t) ? null : coupe(t, MAX_TEXTE);
+  const t = coupe(v.trim(), MAX_TEXTE).trim();
+  return !t || /^\{.*\}$/.test(t) ? null : t;
 }
 
 function codeClic(v: unknown, codes: string): string | null {
@@ -241,8 +251,16 @@ export function lireClicAds(url: string, maintenant: Date): ClicAds | null {
   return clic.gclid || clic.gbraid || clic.wbraid || parUtm ? clic : null;
 }
 
-/** Recharger la page d'arrivée n'est pas un nouveau clic : le même numéro garde sa date. */
+const aUnNumero = (c: ClicAds) => Boolean(c.gclid || c.gbraid || c.wbraid);
+
+/**
+ * Recharger la page d'arrivée n'est pas un nouveau clic : le même numéro garde sa date.
+ * Un clic sans numéro n'efface pas un clic récent qui en a un : ce numéro seul permet
+ * de rattacher la demande à l'annonce dans Google.
+ */
 export function clicAMemoriser(nouveau: ClicAds, precedent: ClicAds | null): ClicAds {
+  if (precedent && !aUnNumero(nouveau) && aUnNumero(precedent)
+    && clicAdsEnCours(precedent, new Date(nouveau.clicLe))) return precedent;
   const meme = precedent && (
     (nouveau.gclid && nouveau.gclid === precedent.gclid)
     || (nouveau.gbraid && nouveau.gbraid === precedent.gbraid)
@@ -303,4 +321,11 @@ export function consentementPublicitaire(): ConsentementPub {
 
 export function origineAds(clic: ClicAds | null, consentement: ConsentementPub): OrigineAds | null {
   return clic ? { ...clic, consentement } : null;
+}
+
+const CONSENTEMENT_CRM: Record<ConsentementPub, boolean | null> = { oui: true, non: false, inconnu: null };
+
+/** Corps envoyé au CRM : son contrat attend un booléen, ou null si le choix est inconnu. */
+export function origineAdsCrm(ads: OrigineAds | null): OrigineAdsCrm | null {
+  return ads ? { ...ads, consentement: CONSENTEMENT_CRM[ads.consentement] } : null;
 }

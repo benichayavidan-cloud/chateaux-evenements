@@ -3,7 +3,8 @@ import { createClient } from '@supabase/supabase-js';
 import { sendAdminNotification, sendAlerteDemandeRefusee, sendClientConfirmation } from '@/lib/email';
 import { chateaux } from '@/data/chateaux';
 import { chateauxDeLaDemande, formSchema } from '@/lib/devis-schema';
-import { canalOrigine, clicAdsEnCours, LIBELLE_CANAL, origineAds, parsePremierContact } from '@/lib/origine';
+import { canalOrigine, clicAdsEnCours, LIBELLE_CANAL, origineAds, origineAdsCrm, parsePremierContact } from '@/lib/origine';
+import { insererAvecRepli } from '@/lib/insertion-demande';
 import { lignesSourceDemande } from '@/lib/source-demande';
 
 export async function POST(request: NextRequest) {
@@ -106,10 +107,10 @@ export async function POST(request: NextRequest) {
     };
 
     // Insérer dans Supabase
-    const { data: insertedData, error } = await supabase
-      .from('demandes_devis_chateaux')
-      .insert([devisData])
-      .select();
+    const { data: insertedData, error } = await insererAvecRepli(
+      (ligne) => supabase.from('demandes_devis_chateaux').insert([ligne]).select(),
+      devisData,
+    );
 
     if (error) {
       console.error('Supabase insert error:', JSON.stringify(error));
@@ -147,7 +148,7 @@ export async function POST(request: NextRequest) {
                   page: premierContact?.page ?? null,
                   referent: premierContact?.referent ?? null,
                   premiereVisite: premierContact?.date ?? null,
-                  ads,
+                  ads: origineAdsCrm(ads),
                 },
               }),
             }).catch(() => {})

@@ -74,6 +74,7 @@ function libelleAnnonce(clic: ClicAds): string {
 }
 
 function libelleMotCle(clic: ClicAds): string {
+  if (clic.correspondance === 'a') return 'sans mot-clé (AI Max)';
   if (!clic.motCle) return NON_RENSEIGNE;
   const type = lire(CORRESPONDANCES, clic.correspondance) ?? clic.correspondance;
   return type ? `${clic.motCle} (${type})` : clic.motCle;

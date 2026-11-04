@@ -55,6 +55,15 @@ test('correspondance et appareil traduits ; variantes iPhone du numéro de clic'
   assert.equal(valeur(lignesSourceDemande({ canal: 'pub', premierContact: null, clic: clic(), consentement: 'non' }), 'Consentement'), 'Non');
 });
 
+test('sc_match=a : annonce sans mot-clé (AI Max)', () => {
+  const ligne = (motCle: string | null) => valeur(
+    lignesSourceDemande({ canal: 'pub', premierContact: null, clic: { ...clic(), motCle, correspondance: 'a' }, consentement: 'non' }),
+    'Mot-clé',
+  );
+  assert.equal(ligne(null), 'sans mot-clé (AI Max)');
+  assert.equal(ligne('château'), 'sans mot-clé (AI Max)');
+});
+
 test('demande hors Ads : canal, page d\'arrivée et première visite seulement', () => {
   const l = lignesSourceDemande({ canal: 'google', premierContact: naturel, clic: null, consentement: 'oui' });
   assert.deepEqual(l, [
