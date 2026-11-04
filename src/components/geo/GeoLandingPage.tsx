@@ -128,23 +128,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; style?: 
   Landmark, Star, Shield,
 };
 
-// ── Bloc GEO (Generative Engine Optimization) ──
-// Réponse directe + tableau comparatif EXTRACTIBLES par les moteurs IA
-// (ChatGPT, Perplexity, AI Overviews). Contenu GÉNÉRÉ depuis les data files
-// (chateaux.ts) — source de vérité unique, zéro dérive éditoriale.
-function GeoAnswerBlock({ data, linkedChateaux }: { data: GeoLandingPageData; linkedChateaux: typeof chateaux }) {
-  const capMin = Math.min(...linkedChateaux.map((c) => c.capacite.min));
-  const capMax = Math.max(...linkedChateaux.map((c) => c.capacite.max));
-  const roomsTotal = linkedChateaux.reduce((s, c) => s + (c.roomsTotal || 0), 0);
-  const sallesTotal = linkedChateaux.reduce((s, c) => s + (c.meetingRooms || 0), 0);
-  const n = linkedChateaux.length;
-
-  // Texte citable : data.reponseDirecte (override éditorial) ou généré depuis
-  // les données (chateaux.ts + pricing.ts — sources uniques, zéro dérive)
-  const answer =
-    data.reponseDirecte ??
-    `${n > 1 ? `${n} châteaux privatisables` : `1 château privatisable`} pour votre séminaire : de ${capMin} à ${capMax} participants, ${roomsTotal} chambres sur place et ${sallesTotal} salles de réunion. Budget ${PRICING.year} : de ${PRICING.seminaireMin}€ à ${PRICING.seminaireMax}€ par personne selon la formule — journée d'étude dès ${PRICING.journeeEtudeMin}€, séminaire résidentiel 2 jours/1 nuit autour de ${PRICING.residentielMoyen}€ tout compris. Devis gratuit avec réponse garantie sous 24h.`;
-
+// Tableau comparatif des 4 domaines, séparé de la réponse directe pour pouvoir
+// être affiché plus bas sur une page (voir comparatifEnBasDePage).
+function GeoComparatifTable({ data }: { data: GeoLandingPageData }) {
   const thStyle: React.CSSProperties = {
     padding: "10px 14px",
     textAlign: "left",
@@ -163,6 +149,69 @@ function GeoAnswerBlock({ data, linkedChateaux }: { data: GeoLandingPageData; li
     borderBottom: `1px solid ${theme.colors.neutral.gray200}`,
     verticalAlign: "top",
   };
+
+  // Tableau — format favori des moteurs IA
+  return (
+    <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch", borderRadius: "16px", border: `1px solid ${theme.colors.neutral.gray200}` }}>
+      <table style={{ width: "100%", borderCollapse: "collapse", background: theme.colors.neutral.white, minWidth: "640px" }}>
+        <caption style={{ captionSide: "top", textAlign: "left", padding: "12px 14px", fontSize: "0.8125rem", fontWeight: 600, color: theme.colors.neutral.gray600 }}>
+          Comparatif des 4 châteaux Select Châteaux en Île-de-France (2026)
+        </caption>
+        <thead>
+          <tr>
+            <th style={thStyle}>Château</th>
+            <th style={thStyle}>Zone</th>
+            <th style={thStyle}>Capacité</th>
+            <th style={thStyle}>Chambres</th>
+            <th style={thStyle}>Salles</th>
+            <th style={thStyle}>Atout clé</th>
+          </tr>
+        </thead>
+        <tbody>
+          {chateaux.map((c) => {
+            const inZone = data.chateauxIds.includes(c.id);
+            return (
+              <tr key={c.id} style={inZone ? { background: `${theme.colors.primary.gold}0A` } : undefined}>
+                <td style={{ ...tdStyle, fontWeight: inZone ? 600 : 400 }}>
+                  <NextLink href={`/chateaux/${c.slug}`} style={{ color: inZone ? theme.colors.primary.bronze : theme.colors.neutral.gray800, textDecoration: "none" }}>
+                    {c.nom}
+                  </NextLink>
+                  {inZone && (
+                    <span style={{ display: "inline-block", marginLeft: "8px", padding: "1px 8px", borderRadius: "10px", fontSize: "0.625rem", fontWeight: 700, textTransform: "uppercase", background: `${theme.colors.primary.bronze}15`, color: theme.colors.primary.bronze }}>
+                      Cette zone
+                    </span>
+                  )}
+                </td>
+                <td style={tdStyle}>{c.region}</td>
+                <td style={tdStyle}>{c.capacite.min}–{c.capacite.max} pers</td>
+                <td style={tdStyle}>{c.roomsTotal ?? "—"}</td>
+                <td style={tdStyle}>{c.meetingRooms ?? "—"}</td>
+                <td style={tdStyle}>{c.atouts[2] ?? c.atouts[0] ?? "—"}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+// ── Bloc GEO (Generative Engine Optimization) ──
+// Réponse directe + tableau comparatif EXTRACTIBLES par les moteurs IA
+// (ChatGPT, Perplexity, AI Overviews). Contenu GÉNÉRÉ depuis les data files
+// (chateaux.ts) — source de vérité unique, zéro dérive éditoriale.
+function GeoAnswerBlock({ data, linkedChateaux }: { data: GeoLandingPageData; linkedChateaux: typeof chateaux }) {
+  const capMin = Math.min(...linkedChateaux.map((c) => c.capacite.min));
+  const capMax = Math.max(...linkedChateaux.map((c) => c.capacite.max));
+  const roomsTotal = linkedChateaux.reduce((s, c) => s + (c.roomsTotal || 0), 0);
+  const sallesTotal = linkedChateaux.reduce((s, c) => s + (c.meetingRooms || 0), 0);
+  const n = linkedChateaux.length;
+
+  // Texte citable : data.reponseDirecte (override éditorial) ou généré depuis
+  // les données (chateaux.ts + pricing.ts — sources uniques, zéro dérive)
+  const answer =
+    data.reponseDirecte ??
+    `${n > 1 ? `${n} châteaux privatisables` : `1 château privatisable`} pour votre séminaire : de ${capMin} à ${capMax} participants, ${roomsTotal} chambres sur place et ${sallesTotal} salles de réunion. Budget ${PRICING.year} : de ${PRICING.seminaireMin}€ à ${PRICING.seminaireMax}€ par personne selon la formule — journée d'étude dès ${PRICING.journeeEtudeMin}€, séminaire résidentiel 2 jours/1 nuit autour de ${PRICING.residentielMoyen}€ tout compris. Devis gratuit avec réponse garantie sous 24h.`;
 
   return (
     <section style={{ background: theme.colors.neutral.white, padding: "clamp(1.5rem, 3vw, 2.5rem) 0 0" }}>
@@ -194,48 +243,7 @@ function GeoAnswerBlock({ data, linkedChateaux }: { data: GeoLandingPageData; li
           </p>
         </div>
 
-        {/* Tableau comparatif des 4 domaines — format favori des moteurs IA */}
-        <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch", borderRadius: "16px", border: `1px solid ${theme.colors.neutral.gray200}` }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", background: theme.colors.neutral.white, minWidth: "640px" }}>
-            <caption style={{ captionSide: "top", textAlign: "left", padding: "12px 14px", fontSize: "0.8125rem", fontWeight: 600, color: theme.colors.neutral.gray600 }}>
-              Comparatif des 4 châteaux Select Châteaux en Île-de-France (2026)
-            </caption>
-            <thead>
-              <tr>
-                <th style={thStyle}>Château</th>
-                <th style={thStyle}>Zone</th>
-                <th style={thStyle}>Capacité</th>
-                <th style={thStyle}>Chambres</th>
-                <th style={thStyle}>Salles</th>
-                <th style={thStyle}>Atout clé</th>
-              </tr>
-            </thead>
-            <tbody>
-              {chateaux.map((c) => {
-                const inZone = data.chateauxIds.includes(c.id);
-                return (
-                  <tr key={c.id} style={inZone ? { background: `${theme.colors.primary.gold}0A` } : undefined}>
-                    <td style={{ ...tdStyle, fontWeight: inZone ? 600 : 400 }}>
-                      <NextLink href={`/chateaux/${c.slug}`} style={{ color: inZone ? theme.colors.primary.bronze : theme.colors.neutral.gray800, textDecoration: "none" }}>
-                        {c.nom}
-                      </NextLink>
-                      {inZone && (
-                        <span style={{ display: "inline-block", marginLeft: "8px", padding: "1px 8px", borderRadius: "10px", fontSize: "0.625rem", fontWeight: 700, textTransform: "uppercase", background: `${theme.colors.primary.bronze}15`, color: theme.colors.primary.bronze }}>
-                          Cette zone
-                        </span>
-                      )}
-                    </td>
-                    <td style={tdStyle}>{c.region}</td>
-                    <td style={tdStyle}>{c.capacite.min}–{c.capacite.max} pers</td>
-                    <td style={tdStyle}>{c.roomsTotal ?? "—"}</td>
-                    <td style={tdStyle}>{c.meetingRooms ?? "—"}</td>
-                    <td style={tdStyle}>{c.atouts[2] ?? c.atouts[0] ?? "—"}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+        {!data.comparatifEnBasDePage && <GeoComparatifTable data={data} />}
       </Container>
     </section>
   );
@@ -1308,6 +1316,14 @@ export function GeoLandingPage({ data, linkedBlogPosts = [] }: GeoLandingPagePro
           </div>
         </Container>
       </section>
+
+      {data.comparatifEnBasDePage && (
+        <section style={{ background: theme.colors.neutral.white, padding: "clamp(2rem, 4vw, 3rem) 0" }}>
+          <Container size="xl">
+            <GeoComparatifTable data={data} />
+          </Container>
+        </section>
+      )}
 
       {/* ═══════════════════════════════════════════
           AVIS CLIENTS — Reviews (SEO AggregateRating)
