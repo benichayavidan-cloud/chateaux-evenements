@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { reviewsStats } from "@/data/reviewsData";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { useInView } from "@/hooks/useInView";
@@ -323,7 +324,7 @@ export default function EvenementsPage() {
               { value: "4", label: "Châteaux d'exception" },
               { value: "280", label: "Personnes max / site" },
               { value: "24h", label: "Réponse devis" },
-              { value: "4.8/5", label: "Satisfaction client" },
+              { value: `${reviewsStats.averageRating.replace(".", ",")}/5`, label: `Sur ${reviewsStats.total} avis Google` },
             ].map((stat, i) => (
               <div key={i} className={`animate-on-scroll ${statsView.isInView ? 'is-visible' : ''}`} style={{ textAlign: 'center', animationDelay: `${i * 100}ms` }}>
                 <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 800, color: theme.colors.primary.bronze, fontFamily: theme.typography.fonts.heading }}>
