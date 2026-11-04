@@ -1122,6 +1122,13 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
         </Container>
       </Section>
 
+      {/* Mini formulaire devis inline */}
+      <Section background="white" style={{ padding: '0' }}>
+        <Container size="lg">
+          <DevisFormMini chateauId={chateau.id} chateauNom={chateau.nom} />
+        </Container>
+      </Section>
+
       {/* Points forts - Grid avec image de fond */}
       <section style={{ position: 'relative', padding: 'clamp(5rem, 10vw, 8rem) 0', overflow: 'hidden' }}>
         {/* Image de fond */}
@@ -1309,13 +1316,6 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
               })()}
             </div>
           </div>
-        </Container>
-      </Section>
-
-      {/* Mini formulaire devis inline */}
-      <Section background="white" style={{ padding: '0' }}>
-        <Container size="lg">
-          <DevisFormMini chateauId={chateau.id} chateauNom={chateau.nom} />
         </Container>
       </Section>
 

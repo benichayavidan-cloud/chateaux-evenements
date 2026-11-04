@@ -1724,7 +1724,7 @@ const article6: BlogPost = {
   imageAlt: "Hôtel de séminaire à Chantilly - Châteaux et domaines pour événements d'entreprise",
   keywords: ["hotel seminaire chantilly", "château hôtel chantilly séminaire", "lieu séminaire chantilly oise", "domaine chantilly entreprise", "hébergement séminaire chantilly", "hôtel réunion chantilly"],
   faq: [
-    { question: "Quels hôtels de séminaire existent à Chantilly ?", answer: "Deux domaines premium : un manoir anglo-normand de 120 chambres (50-280 pers) avec spa Codage Paris et escape game, et un château 5★ InterContinental de 109 chambres (100-200 pers) avec spa Biologique Recherche et rooftop." },
+    { question: "Quels hôtels de séminaire existent à Chantilly ?", answer: "Deux domaines premium : un manoir anglo-normand de 120 chambres (50-280 pers) avec spa Codage Paris et escape game, et un château 5★ InterContinental de 109 chambres (100-300 pers) avec spa Biologique Recherche et rooftop." },
     { question: "Quel est le meilleur hôtel de séminaire à Chantilly pour un grand groupe ?", answer: "Le Manoir Anglo-Normand est idéal pour les grands groupes : 120 chambres, 21 salles de réunion, amphithéâtre de 280 places, et Immersive Room de 240 m². Il accueille jusqu'à 280 personnes." },
     { question: "Les hôtels de séminaire à Chantilly ont-ils des spas ?", answer: "Oui, les deux. Le Manoir dispose d'un spa Codage Paris, le Château 5★ d'un spa Biologique Recherche avec piscine chauffée. L'accès spa est inclus dans les forfaits résidentiels." },
     { question: "Combien coûte une nuit en hôtel de séminaire à Chantilly ?", answer: "Le Manoir Anglo-Normand : 240-320€/pers/nuit en forfait séminaire. Le Château 5★ InterContinental : 320-450€/pers/nuit. Les deux incluent hébergement, pension complète et salles." }
@@ -1763,7 +1763,7 @@ const article6: BlogPost = {
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Le Château 5★ InterContinental : Le Prestige Absolu</h2>
 
-<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Un palais musical du début du XXe</h3>
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Un château musical du début du XXe</h3>
 
 <p class="mb-6">Construit entre 1907 et 1911 par le compositeur Fernand Halphen, ce <strong>château 5 étoiles</strong> sous enseigne InterContinental incarne l'excellence hôtelière. Architecture Louis XV/XVI, salons nommés d'après des compositeurs, rooftop panoramique sur la forêt de Chantilly.</p>
 
@@ -1894,7 +1894,7 @@ const article7: BlogPost = {
     <tr>
       <td class="border border-gray-300 px-4 py-2"><a href="/seminaire-chateau-chantilly" class="text-blue-600 hover:underline">Château 5★</a></td>
       <td class="border border-gray-300 px-4 py-2">109</td>
-      <td class="border border-gray-300 px-4 py-2">100-200</td>
+      <td class="border border-gray-300 px-4 py-2">100-300</td>
       <td class="border border-gray-300 px-4 py-2">320-450€</td>
       <td class="border border-gray-300 px-4 py-2">Spa premium, 15 min CDG</td>
     </tr>
@@ -4933,7 +4933,7 @@ const placeholderArticles: BlogPost[] = [
     featured: true,
     content: `
     <div class="prose prose-lg max-w-none">
-<p class="mb-6">Vous avez décidé d'organiser votre séminaire dans un <strong>château de l'Oise (60)</strong> — excellent choix. Mais entre un palais 5 étoiles à Chantilly, une abbaye cistercienne à Fontaine-Chaalis, et un manoir de chasse secret en pleine forêt de Senlis, l'offre est vaste et les différences sont majeures. Mauvais château = mauvais séminaire, même avec le meilleur programme du monde.</p>
+<p class="mb-6">Vous avez décidé d'organiser votre séminaire dans un <strong>château de l'Oise (60)</strong> — excellent choix. Mais entre un château 5 étoiles à Chantilly, une abbaye cistercienne à Fontaine-Chaalis, et un manoir de chasse secret en pleine forêt de Senlis, l'offre est vaste et les différences sont majeures. Mauvais château = mauvais séminaire, même avec le meilleur programme du monde.</p>
 
 <p class="mb-6">Ce <strong>guide comparatif 2026</strong> passe au crible les <strong>7 meilleurs châteaux de l'Oise</strong> pour séminaire d'entreprise. Pour chacun : capacités exactes, budget réel par personne, atouts différenciants, et surtout le <strong>profil d'événement idéal</strong>. CODIR de 12, séminaire de 60 ou convention de 150 — vous saurez exactement quel château choisir en 5 minutes.</p>
 
@@ -5958,7 +5958,7 @@ const placeholderArticles: BlogPost[] = [
     faq: [
       { question: "Combien coûte un séminaire à Chantilly ?", answer: "Comptez 280 à 400€ par personne et par jour pour un séminaire résidentiel dans un château à Chantilly. Ce tarif inclut l'hébergement, la pension complète et les salles de réunion. Une privatisation des Grandes Écuries coûte 8 000 à 15 000€/jour hors restauration." },
       { question: "Comment se rendre à Chantilly depuis Paris ?", answer: "Chantilly est à 25 minutes en TER depuis Paris Gare du Nord (trains toutes les 30 min, gare Chantilly-Gouvieux). En voiture, comptez 35-45 min par l'A1. Depuis Roissy-CDG, seulement 15 minutes. Aucune autre destination prestige d'Île-de-France n'est aussi accessible en train." },
-      { question: "Quels châteaux peut-on privatiser à Chantilly pour un séminaire ?", answer: "Select Châteaux propose 2 domaines à Chantilly : un manoir anglo-normand de 120 chambres (50-280 personnes) avec spa et escape game privatif, et un château 5★ InterContinental de 109 chambres (100-200 personnes) avec rooftop panoramique et spa Biologique Recherche." },
+      { question: "Quels châteaux peut-on privatiser à Chantilly pour un séminaire ?", answer: "Select Châteaux propose 2 domaines à Chantilly : un manoir anglo-normand de 120 chambres (50-280 personnes) avec spa et escape game privatif, et un château 5★ InterContinental de 109 chambres (100-300 personnes) avec rooftop panoramique et spa Biologique Recherche." },
       { question: "Quelles activités de team building peut-on faire à Chantilly ?", answer: "Chantilly offre des expériences uniques : spectacles équestres privatisés, rallye 2CV dans la forêt de 6 300 hectares, escape game en château, sylvothérapie, olympiades outdoor, visite privatisée du Musée Condé, et dégustation de crème chantilly avec un chef étoilé." },
       { question: "Chantilly est-il adapté pour un séminaire international ?", answer: "Oui, Chantilly a une notoriété internationale (8/10 après Versailles). À 15 min de Roissy-CDG, c'est idéal pour des participants venant de l'étranger. Les châteaux offrent des services multilingues et un prestige reconnu mondialement." }
     ],
@@ -6371,7 +6371,7 @@ const placeholderArticles: BlogPost[] = [
 
 <div class="faq-item mb-6">
   <h3 class="text-xl font-semibold text-gray-800 mb-2">Quels châteaux peut-on privatiser à Chantilly ?</h3>
-  <p class="mb-4">Select Châteaux propose 2 domaines : un manoir anglo-normand de 120 chambres (50-280 pers) avec spa et escape game, et un château 5★ InterContinental de 109 chambres (100-200 pers) avec rooftop panoramique.</p>
+  <p class="mb-4">Select Châteaux propose 2 domaines : un manoir anglo-normand de 120 chambres (50-280 pers) avec spa et escape game, et un château 5★ InterContinental de 109 chambres (100-300 pers) avec rooftop panoramique.</p>
 </div>
 
 <div class="faq-item mb-6">
@@ -7545,7 +7545,7 @@ const placeholderArticles: BlogPost[] = [
     imageAlt: "Organiser un séminaire pour grands groupes 100+ personnes en château",
     keywords: ["château grande capacité", "séminaire 100 personnes", "hébergement groupe", "château convention", "château 200 personnes ile-de-france", "grand séminaire entreprise"],
     faq: [
-      { question: "Quel château peut accueillir 100+ personnes en Île-de-France ?", answer: "Notre Manoir Anglo-Normand à Chantilly accueille jusqu'à 280 personnes (120 chambres, 21 salles). Pour 100-200 pers, le Château 5★ de Chantilly (109 chambres) est idéal. Les deux sont à 35 min de Paris." },
+      { question: "Quel château peut accueillir 100+ personnes en Île-de-France ?", answer: "Notre Manoir Anglo-Normand à Chantilly accueille jusqu'à 280 personnes (120 chambres, 21 salles). Pour 100-300 pers, le Château 5★ de Chantilly (109 chambres) est idéal. Les deux sont à 35 min de Paris." },
       { question: "Comment organiser un séminaire pour 200 personnes ?", answer: "Clés du succès : réserver 6 mois à l'avance, prévoir des salles de sous-groupes (pas juste la plénière), organiser le transport en bus, et planifier la restauration en 2 services si nécessaire." },
       { question: "Quel budget pour un séminaire de 100 personnes en château ?", answer: "Comptez 25 000 à 40 000€ pour un séminaire résidentiel de 100 personnes (1 nuit), soit 250-400€/pers tout compris. Le prix par personne baisse significativement au-delà de 80 participants." }
     ],

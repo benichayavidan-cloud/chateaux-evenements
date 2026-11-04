@@ -39,7 +39,7 @@ function buildLlmsTxt(): string {
   lines.push('Informations clés :')
   lines.push('- Zone : Île-de-France, châteaux à 30-45 minutes de Paris (certains à 15 min de l\'aéroport CDG)')
   lines.push('- Formats : séminaire résidentiel, journée d\'étude, convention, kick-off, CODIR, soirée de gala, team building')
-  lines.push(`- Capacités : de 10 à 500 personnes selon le domaine, jusqu'à ${capMax} en plénière`)
+  lines.push(`- Capacités : de 10 à 500 personnes selon le domaine, jusqu'à ${capMax} selon le format`)
   lines.push(`- Hébergement : jusqu'à ${roomsMax} chambres sur site selon le château`)
   lines.push(`- Budget indicatif ${PRICING.year} : ${pricingSummary()}`)
   lines.push(`- Demande de devis (gratuit, réponse 24h) : ${BASE_URL}/devis`)

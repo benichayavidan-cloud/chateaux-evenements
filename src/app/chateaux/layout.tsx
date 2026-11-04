@@ -119,15 +119,15 @@ export default function ChateauxLayout({
         "position": 4,
         "item": {
           "@type": ["Place", "EventVenue", "LodgingBusiness"],
-          "name": "Le Palais Royal de la Forêt (Chantilly)",
-          "description": "Le Versailles de l'Oise. Un palais royal style Louis XV au cœur d'une forêt de 500 hectares. Lustres de cristal, moulures dorées et spa haut de gamme pour vos événements les plus prestigieux.",
+          "name": "Château 5 étoiles en forêt (Chantilly)",
+          "description": "Un château 5 étoiles de style Louis XV au cœur d'une forêt de 500 hectares. Lustres de cristal, moulures dorées et spa haut de gamme pour vos événements les plus prestigieux.",
           "address": {
             "@type": "PostalAddress",
             "addressRegion": "Oise",
             "postalCode": "60",
             "addressCountry": "FR"
           },
-          "maximumAttendeeCapacity": 350,
+          "maximumAttendeeCapacity": 300,
           "amenityFeature": [
             {
               "@type": "LocationFeatureSpecification",

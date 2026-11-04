@@ -45,7 +45,7 @@ const faq = [
   },
   {
     question: "Dans quels châteaux organisez-vous des team building près de Paris ?",
-    answer: "Nous disposons de 4 domaines d'exception en Île-de-France : un Manoir Anglo-Normand à Chantilly, un Domaine Historique dans les Hauts-de-Seine (92), une Abbaye Millénaire dans la Vallée de Chevreuse et un Palais Royal en Forêt de Chantilly. Tous sont privatisables et situés à moins d'1h de Paris."
+    answer: "Nous disposons de 4 domaines d'exception en Île-de-France : un Manoir Anglo-Normand à Chantilly, un Domaine Historique dans les Hauts-de-Seine (92), une Abbaye Millénaire dans la Vallée de Chevreuse et un Château 5 Étoiles en Forêt de Chantilly. Tous sont privatisables et situés à moins d'1h de Paris."
   },
   {
     question: "Organisez-vous des team building dans les Hauts-de-Seine (92) et à Issy-les-Moulineaux ?",

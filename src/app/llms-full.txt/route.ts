@@ -53,7 +53,7 @@ function buildLlmsFullTxt(): string {
   lines.push('')
   lines.push(`- Nombre de domaines privatisables : ${chateaux.length}`)
   lines.push('- Zone : Île-de-France, à 30-45 minutes de Paris (certains à 15 min de Roissy-CDG, un accessible en métro ligne 12)')
-  lines.push(`- Capacité : de 10 à 500 personnes selon le domaine, jusqu'à ${capMax} en plénière`)
+  lines.push(`- Capacité : de 10 à 500 personnes selon le domaine, jusqu'à ${capMax} selon le format`)
   lines.push(`- Hébergement : ${roomsTotal} chambres au total, jusqu'à ${roomsMax} sur un seul site`)
   lines.push(`- Salles de réunion : ${meetingTotal} au total`)
   lines.push("- Formats : séminaire résidentiel, journée d'étude, convention, kick-off, CODIR/COMEX, soirée de gala, team building")

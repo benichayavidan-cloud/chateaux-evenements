@@ -195,7 +195,7 @@ const faqData = [
   },
   {
     question: "Dans quels châteaux proche de Paris organiser une soirée d'entreprise ?",
-    answer: "Select Châteaux propose 4 domaines d'exception pour vos soirées d'entreprise : un château anglo-normand à Chantilly (280 pers., 35 min de Paris), un domaine 5 étoiles à Issy-les-Moulineaux accessible en métro (100 pers.), une abbaye cistercienne en Vallée de Chevreuse (250 pers., 45 min de Paris) et un château-palace en forêt de Chantilly (250 pers., 40 min de Paris). Tous disposent de salles de réception, terrasses, hébergement et restauration sur place."
+    answer: "Select Châteaux propose 4 domaines d'exception pour vos soirées d'entreprise : un château anglo-normand à Chantilly (280 pers., 35 min de Paris), un domaine 5 étoiles à Issy-les-Moulineaux accessible en métro (100 pers.), une abbaye cistercienne en Vallée de Chevreuse (250 pers., 45 min de Paris) et un château 5 étoiles en forêt de Chantilly (300 pers., 40 min de Paris). Tous disposent de salles de réception, terrasses, hébergement et restauration sur place."
   },
   {
     question: "Quel budget prévoir pour une soirée d'entreprise en château ?",
