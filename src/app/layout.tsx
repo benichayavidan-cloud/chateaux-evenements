@@ -130,7 +130,6 @@ export default function RootLayout({
                 'functionality_storage': 'granted',
                 'personalization_storage': 'denied',
                 'security_storage': 'granted',
-                'region': ['FR', 'BE', 'CH', 'LU', 'CA'],
                 'wait_for_update': 500
               });
             `,
