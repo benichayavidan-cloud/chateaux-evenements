@@ -46,18 +46,6 @@ const parseDates = (datesSouhaitees: string): { arrivee: string; depart: string 
   return { arrivee: datesSouhaitees, depart: null };
 };
 
-// Convertir la valeur numérique du dropdown en tranche lisible
-const formatParticipantsRange = (nombre: number): string => {
-  const ranges: Record<number, string> = {
-    20: '10 - 30 personnes',
-    50: '30 - 80 personnes',
-    100: '80 - 150 personnes',
-    200: '150 - 300 personnes',
-    400: '300 - 500 personnes',
-  };
-  return ranges[nombre] || `${nombre} personnes`;
-};
-
 // Fonction utilitaire pour obtenir les noms des châteaux sélectionnés avec département
 const getChateauxNoms = (chateauIds: string): string => {
   if (chateauIds === 'conseil') {
@@ -200,7 +188,7 @@ export const getAdminEmailTemplate = (devis: DemandeDevis, sourceLabel: string, 
                 <tr>
                   <td style="padding: 15px; background-color: #f8fafc; border-radius: 6px;">
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #1e3a8a;">Participants:</strong> ${formatParticipantsRange(devis.nombre_participants)}
+                      <strong style="color: #1e3a8a;">Participants:</strong> ${devis.nombre_participants} personnes
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #1e3a8a;">Date d'arrivée:</strong> ${formatDate(arrivee)}
@@ -366,7 +354,7 @@ const getClientEmailTemplate = (devis: DemandeDevis): string => {
                       <strong style="color: #059669;">Référence:</strong> #DEV-${devis.id.substring(0, 8).toUpperCase()}
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
-                      <strong style="color: #059669;">Participants:</strong> ${formatParticipantsRange(devis.nombre_participants)}
+                      <strong style="color: #059669;">Participants:</strong> ${devis.nombre_participants} personnes
                     </p>
                     <p style="margin: 8px 0; color: #334155; font-size: 15px;">
                       <strong style="color: #059669;">Date d'arrivée:</strong> ${formatDate(arrivee)}
@@ -490,7 +478,7 @@ ${devis.entreprise && devis.entreprise !== '-' ? `Entreprise: ${devis.entreprise
 Téléphone: ${devis.telephone_mobile}
 
 ÉVÉNEMENT
-Participants: ${formatParticipantsRange(devis.nombre_participants)}
+Participants: ${devis.nombre_participants} personnes
 Date d'arrivée: ${formatDate(arrivee)}
 ${depart ? `Date de départ: ${formatDate(depart)}\n` : ''}${devis.dates_flexibles ? `⚠️ Dates flexibles: le client a indiqué que ces dates ne sont pas encore définitives.\n` : ''}
 CHÂTEAUX SÉLECTIONNÉS
@@ -517,7 +505,7 @@ Notre équipe va étudier votre projet avec la plus grande attention.
 
 RÉCAPITULATIF
 Référence: #DEV-${devis.id.substring(0, 8).toUpperCase()}
-Participants: ${formatParticipantsRange(devis.nombre_participants)}
+Participants: ${devis.nombre_participants} personnes
 Date d'arrivée: ${formatDate(arrivee)}
 ${depart ? `Date de départ: ${formatDate(depart)}\n` : ''}Châteaux sélectionnés :
 ${getChateauxNomsText(devis.chateau_id)}
