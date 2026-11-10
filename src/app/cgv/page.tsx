@@ -5,7 +5,7 @@ export default function CGVPage() {
   return (
     <LegalPageLayout
       title="Conditions Générales de Vente"
-      subtitle="Dernière mise à jour : Janvier 2026"
+      subtitle="Dernière mise à jour : Novembre 2026"
     >
       <LegalSection title="Article 1 - Objet">
         <LegalContent>
@@ -92,9 +92,9 @@ export default function CGVPage() {
             Les pénalités suivantes s'appliquent automatiquement :
           </p>
           <LegalList items={[
-            "Plus de 90 jours avant : remboursement de l'acompte moins 500€ de frais de dossier",
-            "Entre 90 et 60 jours : retenue de 30% du montant total TTC",
-            "Entre 60 et 30 jours : retenue de 50% du montant total TTC",
+            "Plus de 90 jours avant : retenue de 30% du montant total TTC",
+            "Entre 90 et 60 jours : retenue de 50% du montant total TTC",
+            "Entre 60 et 30 jours : retenue de 70% du montant total TTC",
             "Moins de 30 jours : retenue de 100% du montant total TTC"
           ]} />
           <p className="mt-3">
