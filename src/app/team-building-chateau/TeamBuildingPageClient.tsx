@@ -379,7 +379,7 @@ export function TeamBuildingPointsForts() {
         <section className="points-forts-section" style={{ position: 'relative', padding: 'clamp(5rem, 10vw, 8rem) 0', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0 }}>
             <Image
-              src="/images/evenement-entreprise-tiara-mont-royal-chantilly-activites-team-building.webp"
+              src="/images/seminaire-chateau-foret-chantilly-activites-team-building.webp"
               alt="Activités team building en château — vue du domaine"
               fill sizes="100vw" className="object-cover" loading="lazy" quality={80}
             />

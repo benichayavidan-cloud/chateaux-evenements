@@ -22,10 +22,10 @@ export const LOGO_URL = "/brand/logo.png";
 
 /** Mapping dossier « métier » → dossier bucket Supabase (galeries châteaux). */
 const CHATEAU_FOLDER: Record<string, string> = {
-  "Abbaye des Veaux de cernay": "chevreuse",
+  "Abbaye Chevreuse": "abbaye-chevreuse",
   "Manoir Chantilly": "manoir-chantilly",
-  "Domaine Reine Margot": "hauts-de-seine",
-  "Chateau Mont Royal": "mont-royal",
+  "Hotel Paris 92": "hotel-paris-92",
+  "Chateau Foret Chantilly": "chateau-foret-chantilly",
 };
 
 /**

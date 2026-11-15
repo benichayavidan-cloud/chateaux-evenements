@@ -124,7 +124,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "TTC, enveloppe tenue", valeur: "13 000 €" },
       { label: "invités", valeur: "120" },
     ],
-    image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-diner-refectoire-des-moines.webp",
+    image: "/images/seminaire-abbaye-vallee-de-chevreuse-diner-refectoire-medieval.webp",
     imageAlt: "Dîner d'entreprise dressé dans le réfectoire d'une abbaye en Île-de-France",
   },
   {
@@ -146,7 +146,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "TTC, tout compris", valeur: "40 000 €" },
       { label: "zone recherchée", valeur: "78 / 77" },
     ],
-    image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-01-abbaye-des-vaux-de-cernay.webp",
+    image: "/images/seminaire-abbaye-vallee-de-chevreuse-abbaye-cistercienne-vue-generale.webp",
     imageAlt: "Château privatisable dans les Yvelines pour séminaire résidentiel",
   },
   {
