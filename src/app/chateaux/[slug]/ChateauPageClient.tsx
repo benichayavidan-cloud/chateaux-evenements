@@ -18,6 +18,10 @@ import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { useInView } from "@/hooks/useInView";
 import { lienFinal } from "@/data/redirections";
+import photosManoir from "@/data/photos-manoir-chantilly.json";
+import { creerAltPhoto } from "@/lib/photo-alt";
+
+const altPhoto = creerAltPhoto(photosManoir);
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 interface ChateauPageClientProps {
@@ -131,7 +135,7 @@ function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
             transition: 'opacity 0.6s ease-in-out',
           }}
         >
-          <Image src={img} alt={`${nom} - vue ${i + 1} du domaine`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+          <Image src={img} alt={altPhoto(img, `${nom} - vue ${i + 1} du domaine`)} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
         </div>
       ))}
       {/* Flèches */}
@@ -170,11 +174,11 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
   // Images de chambre : filtre auto + images forcées par château
   const extraBedroomImages: Record<string, string[]> = {
     "1": [
-      "/images/evenement-entreprise-chateau-montvillargenne-chambre-design-contemporaine.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-chambre-double-cosy.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-chambre-elegante-moderne.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-chambre-loft-industriel.webp",
+      "/images/seminaire-chateau-chantilly-chambre-design-contemporaine.webp",
+      "/images/seminaire-chateau-chantilly-chambre-double-cosy.webp",
+      "/images/seminaire-chateau-chantilly-chambre-elegante-moderne.webp",
+      "/images/seminaire-chateau-chantilly-chambre-prestige-rouge.webp",
+      "/images/seminaire-chateau-chantilly-chambre-loft-industriel.webp",
     ],
     "2": [
       "/images/evenement-entreprise-reine-margot-chambre-doree.webp",
@@ -276,7 +280,7 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
                     transition: 'opacity 0.8s ease-in-out',
                   }}
                 >
-                  <Image src={img} alt={`${chateau.seoH1} - chambre ${i + 1}`} fill sizes="50vw" className="object-cover" loading="lazy" quality={80} />
+                  <Image src={img} alt={altPhoto(img, `${chateau.seoH1} - chambre ${i + 1}`)} fill sizes="50vw" className="object-cover" loading="lazy" quality={80} />
                 </div>
               ))}
               {images.length > 1 && (
@@ -320,13 +324,13 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
 function RestaurantSlider({ chateau }: { chateau: Chateau }) {
   const extraRestaurantImages: Record<string, string[]> = {
     "1": [
-      "/images/evenement-entreprise-chateau-montvillargenne-restaurant-bar-lounge.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salon-lounge-bar.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-terrasse-restaurant-exterieur.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-bar-lounge-chic.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-brunch-buffet-patisseries.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-buffet-gastronomique-traiteur.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salon-cheminee-cosy.webp",
+      "/images/seminaire-chateau-chantilly-restaurant-bar-lounge.webp",
+      "/images/seminaire-chateau-chantilly-salon-lounge-bar.webp",
+      "/images/seminaire-chateau-chantilly-terrasse-restaurant-exterieur.webp",
+      "/images/seminaire-chateau-chantilly-bar-lounge-chic.webp",
+      "/images/seminaire-chateau-chantilly-brunch-buffet-patisseries.webp",
+      "/images/seminaire-chateau-chantilly-buffet-gastronomique-traiteur.webp",
+      "/images/seminaire-chateau-chantilly-salon-cheminee-cosy.webp",
     ],
     "2": [
       "/images/evenement-entreprise-reine-margot-restaurant-verriere.webp",
@@ -406,7 +410,7 @@ function RestaurantSlider({ chateau }: { chateau: Chateau }) {
             transition: 'opacity 0.6s ease-in-out',
           }}
         >
-          <Image src={img} alt={`${chateau.seoH1} - restaurant ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+          <Image src={img} alt={altPhoto(img, `${chateau.seoH1} - restaurant ${i + 1}`)} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
         </div>
       ))}
       {images.length > 1 && (
@@ -447,14 +451,14 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
   // Images forcées par château (prioritaires sur le filtre auto)
   const extraMeetingImages: Record<string, string[]> = {
     "1": [
-      "/images/evenement-entreprise-chateau-montvillargenne-lobby-salon-accueil.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-atelier-creatif.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-theatre.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-board-room.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-carte-murale.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-seminaire-verte.webp",
+      "/images/seminaire-chateau-chantilly-lobby-salon-accueil.webp",
+      "/images/seminaire-chateau-chantilly-salle-atelier-creatif.webp",
+      "/images/seminaire-chateau-chantilly-salle-pleniere-brique.webp",
+      "/images/seminaire-chateau-chantilly-salle-pleniere-theatre.webp",
+      "/images/seminaire-chateau-chantilly-salle-reunion-board-room.webp",
+      "/images/seminaire-chateau-chantilly-salle-reunion-carte-murale.webp",
+      "/images/seminaire-chateau-chantilly-salle-reunion-prestige.webp",
+      "/images/seminaire-chateau-chantilly-salle-seminaire-verte.webp",
     ],
     "3": [
       "/images/evenement-entreprise-abbaye-vaux-de-cernay-49-salon-saint-thibault-3.webp",
@@ -522,7 +526,7 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
             transition: 'opacity 0.6s ease-in-out',
           }}
         >
-          <Image src={img} alt={`${chateau.seoH1} - salle de réunion ${i + 1}`} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
+          <Image src={img} alt={altPhoto(img, `${chateau.seoH1} - salle de réunion ${i + 1}`)} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
         </div>
       ))}
       {images.length > 1 && (
@@ -562,14 +566,14 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
 function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
   const extraMeetingImagesOverlay: Record<string, string[]> = {
     "1": [
-      "/images/evenement-entreprise-chateau-montvillargenne-lobby-salon-accueil.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-atelier-creatif.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-theatre.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-board-room.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-carte-murale.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
-      "/images/evenement-entreprise-chateau-montvillargenne-salle-seminaire-verte.webp",
+      "/images/seminaire-chateau-chantilly-lobby-salon-accueil.webp",
+      "/images/seminaire-chateau-chantilly-salle-atelier-creatif.webp",
+      "/images/seminaire-chateau-chantilly-salle-pleniere-brique.webp",
+      "/images/seminaire-chateau-chantilly-salle-pleniere-theatre.webp",
+      "/images/seminaire-chateau-chantilly-salle-reunion-board-room.webp",
+      "/images/seminaire-chateau-chantilly-salle-reunion-carte-murale.webp",
+      "/images/seminaire-chateau-chantilly-salle-reunion-prestige.webp",
+      "/images/seminaire-chateau-chantilly-salle-seminaire-verte.webp",
     ],
     "3": [
       "/images/evenement-entreprise-abbaye-vaux-de-cernay-49-salon-saint-thibault-3.webp",
@@ -639,7 +643,7 @@ function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
               transition: 'opacity 0.8s ease-in-out',
             }}
           >
-            <Image src={img} alt={`${chateau.nom} - salle de réunion ${i + 1}`} fill sizes="100vw" className="object-cover" loading="lazy" quality={80} />
+            <Image src={img} alt={altPhoto(img, `${chateau.nom} - salle de réunion ${i + 1}`)} fill sizes="100vw" className="object-cover" loading="lazy" quality={80} />
           </div>
         ))}
         {/* Gradient overlay */}
@@ -815,7 +819,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           >
             <Image
               src={chateau.images.hero[0]}
-              alt={`${chateau.seoH1} - Vue principale`}
+              alt={altPhoto(chateau.images.hero[0], `${chateau.seoH1} - Vue principale`)}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               priority
@@ -829,7 +833,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.hero[1] || chateau.images.galerie[0])}>
             <Image
               src={chateau.images.hero[1] || chateau.images.galerie[0]}
-              alt={`${chateau.nom} - Intérieur`}
+              alt={altPhoto(chateau.images.hero[1] || chateau.images.galerie[0], `${chateau.nom} - Intérieur`)}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
@@ -841,7 +845,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.hero[2] || chateau.images.galerie[1])}>
             <Image
               src={chateau.images.hero[2] || chateau.images.galerie[1]}
-              alt={`${chateau.nom} - Espaces`}
+              alt={altPhoto(chateau.images.hero[2] || chateau.images.galerie[1], `${chateau.nom} - Espaces`)}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
@@ -853,7 +857,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.hero[3] || chateau.images.galerie[2])}>
             <Image
               src={chateau.images.hero[3] || chateau.images.galerie[2]}
-              alt={`${chateau.nom} - Chambres`}
+              alt={altPhoto(chateau.images.hero[3] || chateau.images.galerie[2], `${chateau.nom} - Chambres`)}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
@@ -865,7 +869,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.galerie[3] || chateau.images.hero[0])}>
             <Image
               src={chateau.images.galerie[3] || chateau.images.hero[0]}
-              alt={`${chateau.nom} - Vue complémentaire`}
+              alt={altPhoto(chateau.images.galerie[3] || chateau.images.hero[0], `${chateau.nom} - Vue complémentaire`)}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
@@ -1423,7 +1427,7 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
             onClick={(e) => e.stopPropagation()}
             style={{ position: 'relative', width: '100%', height: '100%', maxWidth: '1400px', maxHeight: '85vh', cursor: 'default' }}
           >
-            <Image src={allImages[lightboxIndex]} alt={`${chateau.nom} - Photo ${lightboxIndex + 1}`} fill sizes="100vw" className="object-contain" quality={85} priority />
+            <Image src={allImages[lightboxIndex]} alt={altPhoto(allImages[lightboxIndex], `${chateau.nom} - Photo ${lightboxIndex + 1}`)} fill sizes="100vw" className="object-contain" quality={85} priority />
           </div>
         </div>
       )}

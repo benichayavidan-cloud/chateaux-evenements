@@ -1925,7 +1925,7 @@ const article8: BlogPost = {
   author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   readingTime: 8,
-  image: "/images/evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
+  image: "/images/seminaire-chateau-chantilly-salle-reunion-prestige.webp",
   imageAlt: "Privatisation de journée d'étude en château - Salle de réunion prestige",
   keywords: ["privatisation journée d'étude", "journée étude château", "privatiser château séminaire", "location château journée entreprise", "salle réunion château ile-de-france", "journée séminaire privatisée"],
   faq: [

@@ -168,7 +168,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "par personne, tout compris", valeur: "≈ 570 €" },
       { label: "participants", valeur: "70" },
     ],
-    image: "/images/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp",
+    image: "/images/seminaire-chateau-chantilly-salle-pleniere-brique.webp",
     imageAlt: "Salle plénière d'un château pour un séminaire résidentiel de 70 personnes",
   },
   {
