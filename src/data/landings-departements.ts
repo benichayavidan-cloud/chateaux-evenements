@@ -127,7 +127,7 @@ export const landingsDepartements: LandingDepartement[] = [
       {
         titre: "Nos deux domaines en exclusivité à Chantilly",
         texte:
-          "Deux châteaux-hôtels en lisière de la forêt de Chantilly, en exclusivité chez Select Châteaux : un grand château de style anglo-normand de 119 chambres avec spa, et un château 5 étoiles avec vue panoramique sur la forêt. Leur page compare les deux domaines.",
+          "Deux châteaux-hôtels en lisière de la forêt de Chantilly, en exclusivité chez Select Châteaux : un grand château de style anglo-normand de 120 chambres avec spa, et un château 5 étoiles avec vue panoramique sur la forêt. Leur page compare les deux domaines.",
         lien: { href: "/seminaire-chateau-chantilly", label: "Séminaire en château à Chantilly" },
       },
     ],

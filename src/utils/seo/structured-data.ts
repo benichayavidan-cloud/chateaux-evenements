@@ -6,6 +6,7 @@
 import type { Chateau } from "@/types";
 import type { GeoLandingPage } from "@/data/geo-landing-pages";
 import { reviewsStats } from "@/data/reviewsData";
+import { localite } from "@/lib/fiche-chateau";
 import { CONTACT_PHONE_E164 } from "@/lib/contact";
 
 const BASE_URL = "https://www.selectchateaux.com";
@@ -90,7 +91,7 @@ export function generatePlaceSchema(chateau: Chateau) {
     url: `${BASE_URL}/chateaux/${chateau.slug}`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: chateau.region,
+      addressLocality: localite(chateau.region),
       addressCountry: "FR",
     },
     maximumAttendeeCapacity: chateau.capacite.max,

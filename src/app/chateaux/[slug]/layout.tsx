@@ -1,31 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { chateaux } from "@/data/chateaux";
-import { metaDescription, TITLE_MAX } from "@/lib/seo";
+import { descriptionFiche, localite, titreFiche } from "@/lib/fiche-chateau";
 
 type Props = {
   params: Promise<{ slug: string }>;
   children: React.ReactNode;
 };
 
-
-/**
- * « Séminaire <type de lieu> <ville> », borné à 60 caractères.
- *
- * Le nom des 4 châteaux est une périphrase (« Château 5 Étoiles avec Vue
- * Panoramique sur Forêt ») imposée par le blind booking : c'est elle qu'on
- * raccourcit, jamais le mot-clé ni la ville.
- */
-function titreChateau(typeLieu: string, ville: string): string {
-  const complet = `Séminaire ${typeLieu} ${ville}`;
-  if (complet.length <= TITLE_MAX) return complet;
-
-  const budget = TITLE_MAX - `Séminaire  ${ville}`.length;
-  const cut = typeLieu.slice(0, budget);
-  const lastSpace = cut.lastIndexOf(" ");
-  const court = cut.slice(0, lastSpace > 0 ? lastSpace : cut.length).replace(/[,;:.\s]+$/, "");
-  return `Séminaire ${court} ${ville}`;
-}
 
 // GÉNÉRATION DYNAMIQUE DES METADATA (SEO Optimisé - Blind Booking)
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -42,16 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const typeLieu = chateau.nom.split(" de ")[0].split(" à ")[0].split(" en ")[0];
 
   // Extraction de la ville (ex: "Chantilly", "Issy-les-Moulineaux", "Vallée de Chevreuse")
-  const ville = chateau.region.split("(")[0].trim();
+  const ville = localite(chateau.region);
 
   return {
-    // Borné à 60 caractères — le gabarit précédent ajoutait la capacité ET le
-    // suffixe de marque, ce qui donnait jusqu'à 97 caractères, tous coupés par
-    // Google. `absolute` : ces pages gardent le nom du lieu plutôt que la marque.
-    // On raccourcit le TYPE de lieu s'il le faut ; « Séminaire » et la ville,
-    // seuls mots sur lesquels la page se positionne, ne sont jamais sacrifiés.
-    title: { absolute: titreChateau(typeLieu, ville) },
-    description: metaDescription(`Séminaire d'entreprise dans ce ${typeLieu.toLowerCase()} d'exception en ${ville}. Capacité ${chateau.capacite.max} personnes, hébergement sur place. Devis gratuit en 24h.`),
+    // Titre et description écrits pour CETTE fiche (data/chateaux.ts), chiffres
+    // lus dans les données ; repli borné à 60 si le titre prévu dépasse.
+    // `absolute` : ces pages gardent le nom du lieu plutôt que la marque.
+    title: { absolute: titreFiche(chateau) },
+    description: descriptionFiche(chateau),
 
     robots: {
       index: true,
@@ -74,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
 
     openGraph: {
+      url: `/chateaux/${slug}`,
       title: `${typeLieu} ${ville} - ${chateau.capacite.max} pers`,
       description: chateau.accrocheHero,
       images: [

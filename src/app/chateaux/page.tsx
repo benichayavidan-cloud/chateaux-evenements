@@ -6,6 +6,9 @@
  */
 
 import { ChateauxPageView } from './chateaux-page-view';
+import { chateaux } from '@/data/chateaux';
+import { StructuredData } from '@/components/StructuredData';
+import { chateauxDuDepartement, itemListChateaux } from '@/lib/fiche-chateau';
 
 interface ChateauxPageProps {
   searchParams: Promise<{ dept?: string }>;
@@ -13,5 +16,12 @@ interface ChateauxPageProps {
 
 export default async function ChateauxPage({ searchParams }: ChateauxPageProps) {
   const { dept } = await searchParams;
-  return <ChateauxPageView dept={dept} />;
+  // Mêmes châteaux que ceux affichés (filtre ?dept= compris) : on ne balise que le visible.
+  const affiches = chateauxDuDepartement(chateaux, dept);
+  return (
+    <>
+      {affiches.length > 0 && <StructuredData data={itemListChateaux(affiches)} />}
+      <ChateauxPageView dept={dept} />
+    </>
+  );
 }
