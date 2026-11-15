@@ -14,6 +14,7 @@ import { Text, Card, Button } from '@/components/ui-v2';
 import { Users, Bed, Sparkles, Calendar, ArrowRight, Shield, Award, MapPin, Clock, CheckCircle, Phone, Check, DoorOpen, Send } from 'lucide-react';
 import { theme } from '@/design-system/tokens';
 import { chateaux } from "@/data/chateaux";
+import { chateauxDuDepartement } from "@/lib/fiche-chateau";
 import { useInView } from '@/hooks/useInView';
 import Image from "next/image";
 import Link from 'next/link';
@@ -31,9 +32,7 @@ interface ChateauxPageViewProps {
 export function ChateauxPageView({ dept }: ChateauxPageViewProps) {
 
   // Filtrer les châteaux selon le département (extrait du ref: #60-CHANTILLY -> 60)
-  const filteredChateaux = dept
-    ? chateaux.filter(c => c.ref.startsWith(`#${dept}-`))
-    : chateaux;
+  const filteredChateaux = chateauxDuDepartement(chateaux, dept);
 
   // Titre dynamique selon le filtre
   const getTitle = () => {

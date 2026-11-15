@@ -1,0 +1,37 @@
+{
+  "_doc": "Photos du Manoir (Chantilly) renommées le 15/11/2026 : l'ancien nom de fichier contenait le vrai nom du lieu (blind booking). Source unique pour les redirections 308 des anciennes adresses /images/ (next.config.ts) et pour les textes alternatifs (lib/photo-alt.ts). Le bucket Supabase garde les anciens fichiers ; les nouveaux sont copiés sous chateaux-images/manoir-chantilly/.",
+  "prefixeAncien": "evenement-entreprise-chateau-montvillargenne-",
+  "prefixeNouveau": "seminaire-chateau-chantilly-",
+  "stockageRenomme": {
+    "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp": "seminaire-chateau-chantilly-facade-anglo-normande.webp",
+    "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-j&f-4-copie.webp": "seminaire-chateau-chantilly-chambre-suite-rouge.webp"
+  },
+  "alt": {
+    "allee-parc-arboree": "Allée arborée du parc du château, séminaire en forêt de Chantilly",
+    "bar-lounge-chic": "Bar lounge du château anglo-normand, soirée de séminaire à Chantilly",
+    "brunch-buffet-patisseries": "Buffet de brunch et pâtisseries pour un séminaire au château, Chantilly",
+    "buffet-gastronomique-traiteur": "Buffet gastronomique servi lors d'un séminaire au château, Chantilly",
+    "chambre-design-contemporaine": "Chambre au design contemporain pour un séminaire résidentiel à Chantilly",
+    "chambre-double-cosy": "Chambre double chaleureuse, séminaire résidentiel en château à Chantilly",
+    "chambre-elegante-moderne": "Chambre élégante et moderne du château, séminaire résidentiel à Chantilly",
+    "chambre-loft-industriel": "Chambre de style loft industriel, séminaire résidentiel à Chantilly",
+    "chambre-prestige-rouge": "Chambre prestige aux tons rouges, séminaire résidentiel en château à Chantilly",
+    "chambre-suite-rouge": "Suite aux murs rouges et lit double, séminaire résidentiel en château à Chantilly",
+    "facade-chateau": "Façade du château anglo-normand, lieu de séminaire à Chantilly (Oise)",
+    "facade-anglo-normande": "Façade à colombages du château anglo-normand, séminaire à Chantilly (Oise)",
+    "jardin-amphitheatre-exterieur": "Amphithéâtre extérieur dans le jardin du château, séminaire à Chantilly",
+    "lobby-salon-accueil": "Salon d'accueil du château pour l'arrivée des participants au séminaire",
+    "restaurant-bar-lounge": "Restaurant et bar lounge du château, repas de séminaire à Chantilly",
+    "salle-atelier-creatif": "Salle d'atelier créatif pour les sous-commissions d'un séminaire à Chantilly",
+    "salle-pleniere-brique": "Salle plénière aux murs de brique, séminaire en château à Chantilly",
+    "salle-pleniere-theatre": "Salle plénière en configuration théâtre, convention en château à Chantilly",
+    "salle-reunion-board-room": "Salle de réunion en board room pour un comité de direction à Chantilly",
+    "salle-reunion-carte-murale": "Salle de réunion avec carte murale, séminaire en château à Chantilly",
+    "salle-reunion-prestige": "Salle de réunion de prestige du château, séminaire à Chantilly",
+    "salle-seminaire-verte": "Salle de séminaire aux tons verts, lumière naturelle, château à Chantilly",
+    "salon-cheminee-cosy": "Salon avec cheminée pour les pauses du séminaire, château à Chantilly",
+    "salon-lounge-bar": "Salon lounge du bar du château, fin de journée de séminaire à Chantilly",
+    "terrasse-restaurant-exterieur": "Terrasse extérieure du restaurant du château, déjeuner de séminaire à Chantilly",
+    "vue-aerienne-domaine": "Vue aérienne du domaine et de la forêt, château pour séminaire à Chantilly"
+  }
+}

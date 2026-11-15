@@ -521,7 +521,7 @@ const bleisureArticle: BlogPost = {
   },
   publishedAt: "2026-04-23",
   readingTime: 8,
-  image: "/images/evenement-entreprise-chateau-montvillargenne-lobby-salon-accueil.webp",
+  image: "/images/seminaire-chateau-chantilly-lobby-salon-accueil.webp",
   imageAlt:
     "Séminaire bleisure en château Île-de-France : travail et découverte culturelle",
   keywords: [

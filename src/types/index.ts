@@ -22,6 +22,8 @@ export interface Chateau {
   // Nouveaux champs SEO
   seoH1: string;
   seoTitle: string;
+  /** Meta description propre à la fiche ; jetons {chambres} {salles} {capacite} (lib/fiche-chateau). */
+  seoDescription?: string;
   accrocheHero: string;
   descriptionLongue: string;
   faq: Array<{

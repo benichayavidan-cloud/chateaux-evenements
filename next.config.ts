@@ -3,6 +3,8 @@ import mergedRedirects from "./src/data/merged-redirects.json";
 import venuesDepubliees from "./src/data/venues-depubliees.json";
 import redirectionsCommerciales from "./src/data/redirections-commerciales.json";
 import { creerResolveur } from "./src/lib/redirections";
+import photosManoir from "./src/data/photos-manoir-chantilly.json";
+import { redirectionsPhotos } from "./src/lib/photo-alt";
 
 // Toutes les destinations passent par le résolveur : une fusion de blog qui
 // visait une page redirigée depuis (landing → article, article → landing)
@@ -155,6 +157,9 @@ const nextConfig: NextConfig = {
   // Redirections 301 (SEO)
   async redirects() {
     return [
+      // Photos du Manoir renommées le 15/11/2026 (le nom de fichier portait le
+      // vrai nom du lieu). SOURCE UNIQUE : src/data/photos-manoir-chantilly.json.
+      ...redirectionsPhotos(photosManoir),
       // Lieux dépubliés faute de photos exploitables (06/09/2026) — chacun
       // redirige vers la landing de son département plutôt que de renvoyer un
       // 404. SOURCE UNIQUE : src/data/venues-depubliees.json. Voir le _doc du

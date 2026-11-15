@@ -19,12 +19,12 @@ interface ServiceCardProps {
 // Images de personnes heureuses pour chaque type de service
 const happyPeopleImages: Record<string, { src: string; alt: string }> = {
   'presentation': {
-    src: storage('montvillargene/evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp'),
-    alt: 'Séminaire résidentiel - chambre prestige château Montvillargenne pour hébergement premium'
+    src: storage('manoir-chantilly/seminaire-chateau-chantilly-chambre-prestige-rouge.webp'),
+    alt: 'Séminaire résidentiel - chambre prestige du château anglo-normand à Chantilly'
   },
   'book-open': {
-    src: storage('montvillargene/evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp'),
-    alt: 'Journée d\'étude entreprise - salle plénière pierre apparente château Montvillargenne'
+    src: storage('manoir-chantilly/seminaire-chateau-chantilly-salle-pleniere-brique.webp'),
+    alt: 'Journée d\'étude entreprise - salle plénière en brique du château anglo-normand à Chantilly'
   },
   'champagne': {
     src: '/images/services/soiree-entreprise-groupe-fete-theme-gatsby-costumes.webp',
