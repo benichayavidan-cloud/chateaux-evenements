@@ -1,0 +1,815 @@
+{
+  "_doc": "Photos des 4 châteaux renommées (blind booking) : le nom de fichier portait le vrai nom du lieu. Manoir le 15/11/2026 (PR #92), les 3 autres le même jour. SOURCE UNIQUE des redirections 308 /images/ (next.config.ts) et des textes alternatifs (lib/photo-alt.ts). « ou » : local = public/images, stockage = bucket Supabase chateaux-images (anciens fichiers conservés, copies sous dossierStockage.nouveau).",
+  "lots": [
+    {
+      "chateau": "manoir-anglo-normand-chantilly",
+      "dossierStockage": {
+        "ancien": "montvillargene",
+        "nouveau": "manoir-chantilly"
+      },
+      "photos": [
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-allee-parc-arboree.webp",
+          "nouveau": "seminaire-chateau-chantilly-allee-parc-arboree.webp",
+          "ou": "local",
+          "alt": "Allée arborée du parc du château, séminaire en forêt de Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-bar-lounge-chic.webp",
+          "nouveau": "seminaire-chateau-chantilly-bar-lounge-chic.webp",
+          "ou": "local",
+          "alt": "Bar lounge du château anglo-normand, soirée de séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-brunch-buffet-patisseries.webp",
+          "nouveau": "seminaire-chateau-chantilly-brunch-buffet-patisseries.webp",
+          "ou": "local",
+          "alt": "Buffet de brunch et pâtisseries pour un séminaire au château, Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-buffet-gastronomique-traiteur.webp",
+          "nouveau": "seminaire-chateau-chantilly-buffet-gastronomique-traiteur.webp",
+          "ou": "local",
+          "alt": "Buffet gastronomique servi lors d'un séminaire au château, Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-chambre-design-contemporaine.webp",
+          "nouveau": "seminaire-chateau-chantilly-chambre-design-contemporaine.webp",
+          "ou": "local",
+          "alt": "Chambre au design contemporain pour un séminaire résidentiel à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-chambre-double-cosy.webp",
+          "nouveau": "seminaire-chateau-chantilly-chambre-double-cosy.webp",
+          "ou": "local",
+          "alt": "Chambre double chaleureuse, séminaire résidentiel en château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-chambre-elegante-moderne.webp",
+          "nouveau": "seminaire-chateau-chantilly-chambre-elegante-moderne.webp",
+          "ou": "local",
+          "alt": "Chambre élégante et moderne du château, séminaire résidentiel à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-chambre-loft-industriel.webp",
+          "nouveau": "seminaire-chateau-chantilly-chambre-loft-industriel.webp",
+          "ou": "local",
+          "alt": "Chambre de style loft industriel, séminaire résidentiel à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp",
+          "nouveau": "seminaire-chateau-chantilly-chambre-prestige-rouge.webp",
+          "ou": "local",
+          "alt": "Chambre prestige aux tons rouges, séminaire résidentiel en château à Chantilly"
+        },
+        {
+          "ancien": "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-j&f-4-copie.webp",
+          "nouveau": "seminaire-chateau-chantilly-chambre-suite-rouge.webp",
+          "ou": "stockage",
+          "alt": "Suite aux murs rouges et lit double, séminaire résidentiel en château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-facade-chateau.webp",
+          "nouveau": "seminaire-chateau-chantilly-facade-chateau.webp",
+          "ou": "local",
+          "alt": "Façade du château anglo-normand, lieu de séminaire à Chantilly (Oise)"
+        },
+        {
+          "ancien": "chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-chateau-montvillargene-60-oise-facade-chateau-architecture-classique-francaise.webp",
+          "nouveau": "seminaire-chateau-chantilly-facade-anglo-normande.webp",
+          "ou": "stockage",
+          "alt": "Façade à colombages du château anglo-normand, séminaire à Chantilly (Oise)"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-jardin-amphitheatre-exterieur.webp",
+          "nouveau": "seminaire-chateau-chantilly-jardin-amphitheatre-exterieur.webp",
+          "ou": "local",
+          "alt": "Amphithéâtre extérieur dans le jardin du château, séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-lobby-salon-accueil.webp",
+          "nouveau": "seminaire-chateau-chantilly-lobby-salon-accueil.webp",
+          "ou": "local",
+          "alt": "Salon d'accueil du château pour l'arrivée des participants au séminaire"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-restaurant-bar-lounge.webp",
+          "nouveau": "seminaire-chateau-chantilly-restaurant-bar-lounge.webp",
+          "ou": "local",
+          "alt": "Restaurant et bar lounge du château, repas de séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-atelier-creatif.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-atelier-creatif.webp",
+          "ou": "local",
+          "alt": "Salle d'atelier créatif pour les sous-commissions d'un séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-pleniere-brique.webp",
+          "ou": "local",
+          "alt": "Salle plénière aux murs de brique, séminaire en château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-pleniere-theatre.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-pleniere-theatre.webp",
+          "ou": "local",
+          "alt": "Salle plénière en configuration théâtre, convention en château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-reunion-board-room.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-reunion-board-room.webp",
+          "ou": "local",
+          "alt": "Salle de réunion en board room pour un comité de direction à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-reunion-carte-murale.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-reunion-carte-murale.webp",
+          "ou": "local",
+          "alt": "Salle de réunion avec carte murale, séminaire en château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-reunion-prestige.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-reunion-prestige.webp",
+          "ou": "local",
+          "alt": "Salle de réunion de prestige du château, séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-seminaire-verte.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-seminaire-verte.webp",
+          "ou": "local",
+          "alt": "Salle de séminaire aux tons verts, lumière naturelle, château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salon-cheminee-cosy.webp",
+          "nouveau": "seminaire-chateau-chantilly-salon-cheminee-cosy.webp",
+          "ou": "local",
+          "alt": "Salon avec cheminée pour les pauses du séminaire, château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salon-lounge-bar.webp",
+          "nouveau": "seminaire-chateau-chantilly-salon-lounge-bar.webp",
+          "ou": "local",
+          "alt": "Salon lounge du bar du château, fin de journée de séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-terrasse-restaurant-exterieur.webp",
+          "nouveau": "seminaire-chateau-chantilly-terrasse-restaurant-exterieur.webp",
+          "ou": "local",
+          "alt": "Terrasse extérieure du restaurant du château, déjeuner de séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-vue-aerienne-domaine.webp",
+          "nouveau": "seminaire-chateau-chantilly-vue-aerienne-domaine.webp",
+          "ou": "local",
+          "alt": "Vue aérienne du domaine et de la forêt, château pour séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-vue-aerienne-domaine.webp",
+          "nouveau": "seminaire-chateau-chantilly-vue-aerienne-domaine.webp",
+          "ou": "stockage",
+          "alt": "Vue aérienne du domaine et de la forêt, château pour séminaire à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-chambre-prestige-rouge.webp",
+          "nouveau": "seminaire-chateau-chantilly-chambre-prestige-rouge.webp",
+          "ou": "stockage",
+          "alt": "Chambre prestige aux tons rouges, séminaire résidentiel en château à Chantilly"
+        },
+        {
+          "ancien": "evenement-entreprise-chateau-montvillargenne-salle-pleniere-brique.webp",
+          "nouveau": "seminaire-chateau-chantilly-salle-pleniere-brique.webp",
+          "ou": "stockage",
+          "alt": "Salle plénière aux murs de brique, séminaire en château à Chantilly"
+        }
+      ]
+    },
+    {
+      "chateau": "hotel-historique-seminaire-paris-92",
+      "dossierStockage": {
+        "ancien": "hauts-de-seine",
+        "nouveau": "hotel-paris-92"
+      },
+      "photos": [
+        {
+          "ancien": "evenement-entreprise-reine-margot-chambre-doree.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-chambre-doree.webp",
+          "ou": "local",
+          "alt": "Chambre aux tons dorés, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-chambre-prestige-bleue.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-chambre-prestige-bleue.webp",
+          "ou": "local",
+          "alt": "Chambre prestige aux tons bleus, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-chambre-vue-panoramique.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-chambre-vue-panoramique.webp",
+          "ou": "local",
+          "alt": "Chambre avec vue panoramique sur Paris, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-chapelle-exterieur-coucher-soleil.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-chapelle-exterieur-coucher-soleil.webp",
+          "ou": "local",
+          "alt": "Chapelle classée au coucher du soleil, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-chapelle-lounge-interieur.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-chapelle-lounge-interieur.webp",
+          "ou": "local",
+          "alt": "Bar lounge aménagé dans la chapelle historique, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-cour-interieure-passerelle.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-cour-interieure-passerelle.webp",
+          "ou": "local",
+          "alt": "Cour intérieure et passerelle du domaine, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-cuisine-gastronomique-dressage.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-cuisine-gastronomique-dressage.webp",
+          "ou": "local",
+          "alt": "Dressage d'une assiette gastronomique, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-espace-pause-cafe-accueil.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-espace-pause-cafe-accueil.webp",
+          "ou": "local",
+          "alt": "Espace de pause-café et d'accueil des participants, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-facade-illuminee-soiree.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-facade-illuminee-soiree.webp",
+          "ou": "local",
+          "alt": "Façade illuminée en soirée, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-facade-jardin-terrasse.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-facade-jardin-terrasse.webp",
+          "ou": "local",
+          "alt": "Façade, jardin et terrasse du domaine historique, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-jardin-paysager.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-jardin-paysager.webp",
+          "ou": "local",
+          "alt": "Jardin paysager du domaine, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-restaurant-verriere.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-restaurant-verriere.webp",
+          "ou": "local",
+          "alt": "Restaurant sous verrière, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-salle-de-bain-design.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-salle-de-bain-design.webp",
+          "ou": "local",
+          "alt": "Salle de bain au design contemporain, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-serre-verriere-diner.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-serre-verriere-diner.webp",
+          "ou": "local",
+          "alt": "Dîner dans la serre sous verrière, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-spa-piscine-interieure.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-spa-piscine-interieure.webp",
+          "ou": "local",
+          "alt": "Spa et piscine intérieure, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-suite-salon-vue-jardin.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-suite-salon-vue-jardin.webp",
+          "ou": "local",
+          "alt": "Suite avec salon et vue sur le jardin, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "evenement-entreprise-reine-margot-terrasse-jardin-potager.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-terrasse-jardin-potager.webp",
+          "ou": "local",
+          "alt": "Terrasse et jardin potager du domaine, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "domaine-reine-margot-92-hauts-de-seine-chambre-luxe-terrasse-balcon-vue-panoramique-paris-citation.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-chambre-luxe-terrasse-vue-paris.webp",
+          "ou": "stockage",
+          "alt": "Chambre de luxe avec terrasse et vue sur Paris, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "domaine-reine-margot-92-hauts-de-seine-facade-jour-vue-aerienne-terrasse-jardin-parasols-blancs.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-vue-aerienne-facade-jardin.webp",
+          "ou": "stockage",
+          "alt": "Vue aérienne de la façade, de la terrasse et du jardin, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "domaine-reine-margot-92-hauts-de-seine-restaurant-verriere-structure-metallique-tables-dressees-terrasse.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-restaurant-verriere-tables-dressees.webp",
+          "ou": "stockage",
+          "alt": "Restaurant sous verrière, tables dressées pour un déjeuner de groupe, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        },
+        {
+          "ancien": "domaine-reine-margot-92-hauts-de-seine-salle-reunion-board-bleue-bibliotheque-bois-rangements.webp",
+          "nouveau": "seminaire-hotel-historique-paris-92-salle-reunion-board-bleue.webp",
+          "ou": "stockage",
+          "alt": "Salle de réunion en board aux murs bleus et bibliothèque, séminaire en boutique-hôtel 5 étoiles aux portes de Paris (92)"
+        }
+      ]
+    },
+    {
+      "chateau": "abbaye-millenaire-vallee-chevreuse",
+      "dossierStockage": {
+        "ancien": "chevreuse",
+        "nouveau": "abbaye-chevreuse"
+      },
+      "photos": [
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-01-abbaye-des-vaux-de-cernay.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-abbaye-cistercienne-vue-generale.webp",
+          "ou": "local",
+          "alt": "Vue générale de l'abbaye cistercienne, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-49-salon-saint-thibault-3.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salon-reunion-abbaye.webp",
+          "ou": "local",
+          "alt": "Salon de réunion dans l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-50-salon-pivoine-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salon-reunion-ferme-1.webp",
+          "ou": "local",
+          "alt": "Salon de réunion de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-51-salon-dahlia-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salon-reunion-ferme-2.webp",
+          "ou": "local",
+          "alt": "Second salon de réunion de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-53-salon-orangerie-haras-2.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salon-orangerie-haras.webp",
+          "ou": "local",
+          "alt": "Salon de l'orangerie du haras, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-54-salon-ecuries-haras-1.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salon-ecuries-haras-1.webp",
+          "ou": "local",
+          "alt": "Salon aménagé dans les anciennes écuries du haras, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-56-salon-ecuries-haras-3.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salon-ecuries-haras-2.webp",
+          "ou": "local",
+          "alt": "Salon des anciennes écuries, configuration réunion, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-57-salon-cavaliers-haras.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salon-reunion-haras.webp",
+          "ou": "local",
+          "alt": "Salon de réunion du haras, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-58-salon-1900-haras-3.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-3.webp",
+          "ou": "local",
+          "alt": "Grand salon du haras, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-59-salon-1900-haras-4.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-4.webp",
+          "ou": "local",
+          "alt": "Grand salon du haras, configuration séminaire, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-60-salon-1900-haras-5.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-5.webp",
+          "ou": "local",
+          "alt": "Grand salon du haras, configuration banquet, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-61-salon-1900-haras-6.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-6.webp",
+          "ou": "local",
+          "alt": "Grand salon du haras, vue d'ensemble, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-salon-1900-haras-2.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-2.webp",
+          "ou": "local",
+          "alt": "Grand salon du haras aménagé pour une réunion, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-62-espace-pause-sellerie-1.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-espace-pause-sellerie-1.webp",
+          "ou": "local",
+          "alt": "Espace de pause dans l'ancienne sellerie, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-63-espace-pause-sellerie-2.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-espace-pause-sellerie-2.webp",
+          "ou": "local",
+          "alt": "Pause-café dans l'ancienne sellerie, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-64-pause-apres-midi.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-pause-apres-midi.webp",
+          "ou": "local",
+          "alt": "Pause gourmande de l'après-midi, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-68-activites-camion-maraicher.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-activite-camion-maraicher.webp",
+          "ou": "local",
+          "alt": "Activité de cohésion autour du camion maraîcher, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-bettys-bar-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-bar-ferme.webp",
+          "ou": "local",
+          "alt": "Bar de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-cosy-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-cosy-ferme.webp",
+          "ou": "local",
+          "alt": "Chambre cosy de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-cosy-haras.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-cosy-haras.webp",
+          "ou": "local",
+          "alt": "Chambre cosy du haras, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-cottage-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-cottage-ferme.webp",
+          "ou": "local",
+          "alt": "Chambre cottage de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-deluxe-abbaye.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-deluxe-abbaye.webp",
+          "ou": "local",
+          "alt": "Chambre deluxe de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-deluxe-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-deluxe-ferme.webp",
+          "ou": "local",
+          "alt": "Chambre deluxe de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-famille-abbaye.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-famille-abbaye.webp",
+          "ou": "local",
+          "alt": "Chambre familiale de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-particuliere-abbaye.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-particuliere-abbaye.webp",
+          "ou": "local",
+          "alt": "Chambre de caractère de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-singuliere-abbaye.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-singuliere-abbaye.webp",
+          "ou": "local",
+          "alt": "Chambre singulière sous les toits de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-superieure-abbaye-1.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-superieure-abbaye-1.webp",
+          "ou": "local",
+          "alt": "Chambre supérieure de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-superieure-abbaye-2.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-superieure-abbaye-2.webp",
+          "ou": "local",
+          "alt": "Seconde chambre supérieure de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-superieure-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-superieure-ferme.webp",
+          "ou": "local",
+          "alt": "Chambre supérieure de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-chambre-tiny-haras.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-petite-haras.webp",
+          "ou": "local",
+          "alt": "Petite chambre du haras, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-diner-refectoire-des-moines.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-diner-refectoire-medieval.webp",
+          "ou": "local",
+          "alt": "Dîner de gala dans le réfectoire médiéval voûté, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-james-bar-salon-anglais.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-bar-salon-anglais.webp",
+          "ou": "local",
+          "alt": "Bar et salon à l'anglaise, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-james-bar-salon-de-musique.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-bar-salon-de-musique.webp",
+          "ou": "local",
+          "alt": "Bar et salon de musique, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-james-bar-salon-ete.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-bar-salon-ete.webp",
+          "ou": "local",
+          "alt": "Salon d'été du bar, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-karaoke.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salle-karaoke.webp",
+          "ou": "local",
+          "alt": "Salle de karaoké pour les soirées d'équipe, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-pavillon-des-sources.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-pavillon-bien-etre.webp",
+          "ou": "local",
+          "alt": "Pavillon de bien-être du domaine, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-refectoire-des-moines.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-refectoire-medieval-voute.webp",
+          "ou": "local",
+          "alt": "Réfectoire médiéval voûté, salle plénière de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-restaurant-auberge.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-restaurant-auberge.webp",
+          "ou": "local",
+          "alt": "Restaurant de l'auberge, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-restaurant-les-chasses.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-restaurant-gastronomique.webp",
+          "ou": "local",
+          "alt": "Restaurant gastronomique de l'abbaye, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-restaurant-trattoria-ferme.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-restaurant-italien-ferme.webp",
+          "ou": "local",
+          "alt": "Restaurant italien de la ferme, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-terrasse-auberge.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-terrasse-auberge.webp",
+          "ou": "local",
+          "alt": "Terrasse de l'auberge, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "evenement-entreprise-abbaye-vaux-de-cernay-terrasse-restaurant-les-chasses.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-terrasse-restaurant-gastronomique.webp",
+          "ou": "local",
+          "alt": "Terrasse du restaurant gastronomique, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-chambre-luxe-combles-papier-peint-fleuri.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-chambre-luxe-combles.webp",
+          "ou": "stockage",
+          "alt": "Chambre de luxe sous les combles au papier peint fleuri, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-cottage-dependance-brique-parc.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-cottage-brique-parc.webp",
+          "ou": "stockage",
+          "alt": "Cottage en brique dans le parc, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-facade-batiment-principal-pierre-arbres.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-facade-batiment-principal.webp",
+          "ou": "stockage",
+          "alt": "Façade en pierre du bâtiment principal, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-hall-reception-voutes-gothiques-colonnes.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-hall-voutes-gothiques.webp",
+          "ou": "stockage",
+          "alt": "Hall de réception sous voûtes gothiques, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-pavillon-spa-bien-etre-charpente-transats.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-pavillon-spa-charpente.webp",
+          "ou": "stockage",
+          "alt": "Pavillon spa sous charpente avec transats, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-salle-seminaire-murs-oranges.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salle-seminaire-murs-oranges.webp",
+          "ou": "stockage",
+          "alt": "Salle de séminaire aux murs orangés, séminaire en abbaye en Vallée de Chevreuse (78)"
+        },
+        {
+          "ancien": "abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-abbaye-vaux-cernay-78-yvelines-salle-seminaire-verriere-charpente-verte.webp",
+          "nouveau": "seminaire-abbaye-vallee-de-chevreuse-salle-seminaire-verriere.webp",
+          "ou": "stockage",
+          "alt": "Salle de séminaire sous verrière à charpente verte, séminaire en abbaye en Vallée de Chevreuse (78)"
+        }
+      ]
+    },
+    {
+      "chateau": "palais-royal-foret-chantilly",
+      "dossierStockage": {
+        "ancien": "mont-royal",
+        "nouveau": "chateau-foret-chantilly"
+      },
+      "photos": [
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-activites-team-building.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-activites-team-building.webp",
+          "ou": "local",
+          "alt": "Activité de team building dans le parc, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-bar-stradivarius.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-bar-bibliotheque.webp",
+          "ou": "local",
+          "alt": "Bar aménagé dans l'ancienne bibliothèque, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-buffet-seminaire.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-buffet-seminaire.webp",
+          "ou": "local",
+          "alt": "Buffet de séminaire, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-cabines-de-soin-spa.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-cabines-de-soin-spa.webp",
+          "ou": "local",
+          "alt": "Cabines de soin du spa, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-chambre-premium-balcon.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-chambre-premium-balcon.webp",
+          "ou": "local",
+          "alt": "Chambre premium avec balcon sur la forêt, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-chambre-premium-terrasse.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-chambre-premium-terrasse.webp",
+          "ou": "local",
+          "alt": "Chambre premium avec terrasse, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-chambre-twin.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-chambre-twin.webp",
+          "ou": "local",
+          "alt": "Chambre twin pour séminaire résidentiel, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-chateau-facade.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-facade-chateau.webp",
+          "ou": "local",
+          "alt": "Façade du château, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-creativity-room.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salle-creative.webp",
+          "ou": "local",
+          "alt": "Salle créative pour ateliers, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-junior-suite.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-junior-suite.webp",
+          "ou": "local",
+          "alt": "Junior suite, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-patio.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-patio.webp",
+          "ou": "local",
+          "alt": "Patio central du centre de conférences, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-patio-2.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-patio-2.webp",
+          "ou": "local",
+          "alt": "Patio central, vue d'ensemble, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-piscine-interieure.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-piscine-interieure.webp",
+          "ou": "local",
+          "alt": "Piscine intérieure du spa, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-restaurant-opera.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-restaurant-gastronomique.webp",
+          "ou": "local",
+          "alt": "Restaurant gastronomique sous les lustres de l'ancien salon de musique, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-salle-callas.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salon-reunion-1.webp",
+          "ou": "local",
+          "alt": "Salon de réunion, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-salle-callas-2.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salon-reunion-1-bis.webp",
+          "ou": "local",
+          "alt": "Salon de réunion, autre configuration, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-salle-caruso.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salon-reunion-2.webp",
+          "ou": "local",
+          "alt": "Salon de réunion équipé, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-salle-de-bain.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salle-de-bain.webp",
+          "ou": "local",
+          "alt": "Salle de bain d'une chambre, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-salle-debussy.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salon-reunion-3.webp",
+          "ou": "local",
+          "alt": "Salon de réunion à la lumière naturelle, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-salle-pleniere-halphen.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salle-pleniere.webp",
+          "ou": "local",
+          "alt": "Salle plénière du centre de conférences, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-salle-vivaldi.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salon-reunion-4.webp",
+          "ou": "local",
+          "alt": "Salon de réunion en sous-commission, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-suite-prince-de-conde-1.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-suite-prestige-1.webp",
+          "ou": "local",
+          "alt": "Suite prestige, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-suite-prince-de-conde-2.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-suite-prestige-2.webp",
+          "ou": "local",
+          "alt": "Suite prestige, coin salon, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-suite-royale-1.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-suite-royale-1.webp",
+          "ou": "local",
+          "alt": "Suite royale, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-suite-royale-2.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-suite-royale-2.webp",
+          "ou": "local",
+          "alt": "Suite royale, chambre, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-terrasse-exterieure.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-terrasse-exterieure.webp",
+          "ou": "local",
+          "alt": "Terrasse extérieure face à la forêt, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "chateau-mont-royal-60-oise-chantilly-facade-exterieur-chateau-pierre-terrasse-parasols-parc.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-facade-terrasse-parc.webp",
+          "ou": "stockage",
+          "alt": "Façade en pierre et terrasse sur le parc, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "chateau-mont-royal-60-oise-chantilly-salle-reunion-board-u-rectangulaire-chaises-beiges-ecran.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-salle-reunion-en-u.webp",
+          "ou": "stockage",
+          "alt": "Salle de réunion en U avec écran, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "chateau-mont-royal-60-oise-chantilly-vue-aerienne-chateau-lever-soleil-foret-architecture-classique.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-vue-aerienne-foret-lever-soleil.webp",
+          "ou": "stockage",
+          "alt": "Vue aérienne du château et de la forêt au lever du soleil, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        },
+        {
+          "ancien": "evenement-entreprise-tiara-mont-royal-chantilly-terrasse-exterieure.webp",
+          "nouveau": "seminaire-chateau-foret-chantilly-terrasse-exterieure-stockage.webp",
+          "ou": "stockage",
+          "alt": "Terrasse extérieure face à la forêt, séminaire en château 5 étoiles en forêt de Chantilly (60)"
+        }
+      ]
+    }
+  ]
+}

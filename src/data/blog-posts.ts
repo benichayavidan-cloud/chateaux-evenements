@@ -1148,7 +1148,7 @@ const article4: BlogPost = {
   author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
   readingTime: 12,
-  image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-refectoire-des-moines.webp",
+  image: "/images/seminaire-abbaye-vallee-de-chevreuse-refectoire-medieval-voute.webp",
   imageAlt: "Séminaire en Vallée de Chevreuse - Abbaye cistercienne millénaire pour événements d'entreprise",
   keywords: ["seminaire vallee de chevreuse", "abbaye vaux de cernay séminaire", "séminaire yvelines nature", "lieu séminaire déconnexion", "château vallée chevreuse entreprise"],
   faq: [
@@ -2011,7 +2011,7 @@ const article9: BlogPost = {
   author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
   publishedAt: "2026-03-19",
   readingTime: 8,
-  image: "/images/evenement-entreprise-abbaye-vaux-de-cernay-refectoire-des-moines.webp",
+  image: "/images/seminaire-abbaye-vallee-de-chevreuse-refectoire-medieval-voute.webp",
   imageAlt: "Séminaire dans les Yvelines - Abbaye et châteaux pour événements d'entreprise",
   keywords: ["seminaire yvelines", "séminaire yvelines entreprise", "château séminaire yvelines 78", "abbaye séminaire yvelines", "lieu séminaire vallée chevreuse", "séminaire yvelines proche paris"],
   faq: [
@@ -2168,7 +2168,7 @@ const article11: BlogPost = {
   publishedAt: "2026-03-19",
   updatedAt: "2026-08-30",
   readingTime: 9,
-  image: "/images/evenement-entreprise-reine-margot-facade-illuminee-soiree.webp",
+  image: "/images/seminaire-hotel-historique-paris-92-facade-illuminee-soiree.webp",
   imageAlt: "Soirée d'entreprise en château - Thèmes et animations pour événements mémorables",
   keywords: ["soirée entreprise château", "soirée thématique château entreprise", "animation soirée séminaire château", "idées soirée entreprise", "soirée gala château", "soirée casino entreprise château"],
   faq: [

@@ -49,7 +49,7 @@ const faq = [
   },
   {
     question: "Organisez-vous des team building dans les Hauts-de-Seine (92) et à Issy-les-Moulineaux ?",
-    answer: "Oui. Notre Domaine Historique se trouve à Issy-les-Moulineaux, dans les Hauts-de-Seine : un hôtel MGallery 5 étoiles accessible en métro (5 min à pied), avec vue sur la Tour Eiffel, 9 salles de réunion, 83 chambres et un spa de 360 m². C'est le choix des équipes qui veulent un team building en Île-de-France sans temps de transport : de 80 à 180 participants, jardin suspendu pour les activités outdoor et privatisation totale possible."
+    answer: "Oui. Notre Domaine Historique se trouve à Issy-les-Moulineaux, dans les Hauts-de-Seine : un boutique-hôtel 5 étoiles accessible en métro (5 min à pied), avec vue sur la Tour Eiffel, 9 salles de réunion, 83 chambres et un spa de 360 m². C'est le choix des équipes qui veulent un team building en Île-de-France sans temps de transport : de 80 à 180 participants, jardin suspendu pour les activités outdoor et privatisation totale possible."
   },
   {
     question: "Comment organiser un team building en château près de Paris ?",
