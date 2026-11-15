@@ -84,7 +84,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       "4 domaines d'exception aux portes de Paris pour vos événements d'entreprise",
     heroImage: "/images/seminaires-soirees-entreprise-hero.webp",
     introTitre: "Séminaire en château en Île-de-France : 4 domaines d'exception pour vos événements d'entreprise",
-    introduction: `Un marché en pleine croissance : avec 9 milliards d'euros de chiffre d'affaires annuel, le séminaire d'entreprise est devenu un levier stratégique incontournable — et 95 % des collaborateurs confirment qu'il améliore la performance globale de leur équipe. L'Île-de-France concentre les plus beaux domaines historiques de France à moins de 45 minutes de Paris, offrant un dépaysement total sans contrainte logistique. 4 châteaux, 4 expériences uniques : un château anglo-normand de 120 chambres avec 21 salles et spa Codage Paris en forêt de Chantilly, un InterContinental 5 étoiles de 109 chambres avec centre de convention de 700 m² et rooftop panoramique, une abbaye cistercienne de 1118 entièrement rénovée en 2023 avec 144 chambres et 6 restaurants Paris Society sur 80 hectares, et un boutique-hôtel MGallery 5 étoiles de 83 chambres avec vue Tour Eiffel accessible en métro. Au total, plus de 450 chambres et 56 salles de réunion pour des séminaires résidentiels de 10 à 300 participants. Séminaire résidentiel, CODIR, kick-off annuel, convention, team building en forêt ou soirée de gala : chaque format trouve son lieu idéal parmi notre sélection. 54 % des salariés souhaitent davantage de moments de cohésion hors du bureau — offrez-leur un cadre qui allie patrimoine historique, espaces de travail équipés, gastronomie d'exception et activités de team building en pleine nature. Un seul interlocuteur Select Châteaux orchestre votre événement de A à Z : conception, logistique, hébergement, restauration et animations sur-mesure. Demandez votre devis gratuit sous 24 h.`,
+    introduction: `Un marché en pleine croissance : avec 9 milliards d'euros de chiffre d'affaires annuel, le séminaire d'entreprise est devenu un levier stratégique incontournable — et 95 % des collaborateurs confirment qu'il améliore la performance globale de leur équipe. L'Île-de-France concentre les plus beaux domaines historiques de France à moins de 45 minutes de Paris, offrant un dépaysement total sans contrainte logistique. 4 châteaux, 4 expériences uniques : un château anglo-normand de 120 chambres avec 21 salles et spa en forêt de Chantilly, un château-hôtel 5 étoiles de 109 chambres avec centre de convention de 700 m² et rooftop panoramique, une abbaye cistercienne du XIIe siècle entièrement rénovée en 2023 avec 144 chambres et 6 restaurants sur 80 hectares, et un boutique-hôtel 5 étoiles de 83 chambres avec vue Tour Eiffel accessible en métro. Au total, plus de 450 chambres et 56 salles de réunion pour des séminaires résidentiels de 10 à 300 participants. Séminaire résidentiel, CODIR, kick-off annuel, convention, team building en forêt ou soirée de gala : chaque format trouve son lieu idéal parmi notre sélection. 54 % des salariés souhaitent davantage de moments de cohésion hors du bureau — offrez-leur un cadre qui allie patrimoine historique, espaces de travail équipés, gastronomie d'exception et activités de team building en pleine nature. Un seul interlocuteur Select Châteaux orchestre votre événement de A à Z : conception, logistique, hébergement, restauration et animations sur-mesure. Demandez votre devis gratuit sous 24 h.`,
     pourquoiTitre: "Pourquoi organiser votre séminaire en château en Île-de-France ?",
     pointsForts: [
       {
@@ -172,13 +172,13 @@ export const geoLandingPages: GeoLandingPage[] = [
       },
     ],
     contenuSEO: `<h2>L'Île-de-France, terre de châteaux pour vos séminaires</h2>
-<p>Première région économique de France, l'Île-de-France est aussi un territoire au patrimoine architectural exceptionnel. Les 4 domaines se répartissent dans trois départements stratégiques : l'Oise (60) au nord avec un château anglo-normand de 120 chambres (21 salles, spa Codage Paris) et un InterContinental 5 étoiles de 109 chambres (centre de convention 700 m², à 15 min de CDG), les Yvelines (78) au sud-ouest avec une abbaye cistercienne rénovée en 2023 de 144 chambres (14 salles, 6 restaurants Paris Society, 80 hectares), et les Hauts-de-Seine (92) avec un boutique-hôtel MGallery 5 étoiles de 83 chambres (vue Tour Eiffel, spa 360 m², accessible métro).</p>
+<p>Première région économique de France, l'Île-de-France est aussi un territoire au patrimoine architectural exceptionnel. Les 4 domaines se répartissent dans trois départements stratégiques : l'Oise (60) au nord avec un château anglo-normand de 120 chambres (21 salles, spa) et un château-hôtel 5 étoiles de 109 chambres (centre de convention 700 m², à 15 min de CDG), les Yvelines (78) au sud-ouest avec une abbaye cistercienne rénovée en 2023 de 144 chambres (14 salles, 6 restaurants, 80 hectares), et les Hauts-de-Seine (92) avec un boutique-hôtel 5 étoiles de 83 chambres (vue Tour Eiffel, spa 360 m², accessible métro).</p>
 
 <h2>Un séminaire en château : l'impact sur vos équipes</h2>
 <p>Sortir du cadre habituel du bureau transforme radicalement la dynamique d'un séminaire. Un château offre un « effet wow » immédiat qui marque les esprits et favorise l'engagement des participants. L'architecture historique, les jardins d'exception et l'éloignement de la vie quotidienne créent les conditions idéales pour la créativité, la réflexion stratégique et le renforcement des liens entre collaborateurs. Selon notre expérience de plus de 500 événements organisés, 98% des entreprises constatent un impact positif sur la cohésion d'équipe après un séminaire en château.</p>
 
 <h2>Des formats adaptés à chaque besoin</h2>
-<p>Que vous planifiiez un CODIR de 10 personnes, un séminaire de direction de 80 cadres ou une convention annuelle de 300 collaborateurs, les châteaux franciliens s'adaptent. Plus de 56 salles de réunion au total, des configurations allant du board meeting intimiste au centre de convention de 700 m² avec la salle Halphen de 380 m² (250 en théâtre) ou le Réfectoire des Moines de 500 m² (300 en cocktail). Équipements complets : vidéoprojection, son professionnel, écrans LCD, WiFi haut débit.</p>
+<p>Que vous planifiiez un CODIR de 10 personnes, un séminaire de direction de 80 cadres ou une convention annuelle de 300 collaborateurs, les châteaux franciliens s'adaptent. Plus de 56 salles de réunion au total, des configurations allant du board meeting intimiste au centre de convention de 700 m² avec la salle plénière de 380 m² (250 en théâtre) ou le réfectoire médiéval de 500 m² (300 en cocktail). Équipements complets : vidéoprojection, son professionnel, écrans LCD, WiFi haut débit.</p>
 
 <h2>Château séminaire vs hôtel séminaire en Île-de-France</h2>
 <p>Le choix entre un <strong>château séminaire en Île-de-France</strong> et un hôtel de conférence classique repose sur trois critères : l'impact sur vos collaborateurs, la qualité du cadre, et le budget. Nos 4 domaines offrent un effet wow impossible à reproduire dans un hôtel standard — 94 % des participants se souviennent d'un séminaire en château 6 mois après, contre 31 % pour un hôtel de conférence. Pour un budget comparable (150 à 450 € par personne/jour), vous obtenez un cadre historique unique, des équipes dédiées et un programme d'activités immersives en forêt ou en domaine privatisé.</p>
@@ -276,7 +276,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Quel est le château le plus proche de Paris ?",
         answer:
-          "Notre boutique-hôtel MGallery 5 étoiles dans les Hauts-de-Seine (92) est le plus proche : à 4 minutes à pied de la station Mairie d'Issy (métro ligne 12), soit 2 arrêts de Paris. Vue Tour Eiffel, spa 360 m², restaurant bistronomique bio. Labellisé Clef Verte.",
+          "Notre boutique-hôtel 5 étoiles dans les Hauts-de-Seine (92) est le plus proche : à 4 minutes à pied de la station Mairie d'Issy (métro ligne 12), soit 2 arrêts de Paris. Vue Tour Eiffel, spa 360 m², restaurant bistronomique bio. Labellisé Clef Verte.",
       },
       {
         question: "Peut-on faire un séminaire à la journée sans hébergement ?",
@@ -300,13 +300,13 @@ export const geoLandingPages: GeoLandingPage[] = [
       },
     ],
     contenuSEO: `<h2>Paris et ses châteaux : un patrimoine à portée de main</h2>
-<p>La région parisienne regorge de domaines historiques qui ont traversé les siècles. Les 4 domaines incarnent cette diversité exceptionnelle. Au nord, la forêt de Chantilly abrite un château anglo-normand de 120 chambres (21 salles, spa Codage Paris) et un InterContinental 5 étoiles de 109 chambres (centre de convention 700 m², à 15 min de CDG). Au sud-ouest, la Vallée de Chevreuse accueille une abbaye cistercienne rénovée en 2023 de 144 chambres sur 80 hectares (14 salles, 6 restaurants Paris Society). Et aux portes mêmes de Paris, un boutique-hôtel MGallery 5 étoiles de 83 chambres avec vue Tour Eiffel, accessible en métro ligne 12.</p>
+<p>La région parisienne regorge de domaines historiques qui ont traversé les siècles. Les 4 domaines incarnent cette diversité exceptionnelle. Au nord, la forêt de Chantilly abrite un château anglo-normand de 120 chambres (21 salles, spa) et un château-hôtel 5 étoiles de 109 chambres (centre de convention 700 m², à 15 min de CDG). Au sud-ouest, la Vallée de Chevreuse accueille une abbaye cistercienne rénovée en 2023 de 144 chambres sur 80 hectares (14 salles, 6 restaurants). Et aux portes mêmes de Paris, un boutique-hôtel 5 étoiles de 83 chambres avec vue Tour Eiffel, accessible en métro ligne 12.</p>
 
 <h2>L'avantage décisif de la proximité</h2>
 <p>Organiser un séminaire proche de Paris élimine le principal frein logistique : le transport. Fini les billets d'avion, les transferts complexes et les demi-journées perdues en déplacement. En 30 à 45 minutes, vos collaborateurs passent de leur bureau à un cadre d'exception. Cette proximité permet aussi une grande flexibilité : séminaires à la journée, événements sur 2 jours / 1 nuit, ou formats plus longs. Les participants avec des contraintes peuvent facilement arriver plus tard ou repartir plus tôt.</p>
 
 <h2>Un château pour chaque format de séminaire</h2>
-<p>Du CODIR confidentiel de 10 personnes au kick-off annuel de 300 collaborateurs, les châteaux proches de Paris s'adaptent à tous les formats. Chaque lieu a sa personnalité : le charme anglo-normand d'un château de 120 chambres avec Immersive Room, le standing international d'un InterContinental 5 étoiles labellisé Green Key, l'authenticité d'une abbaye cistercienne millénaire rénovée par Cordélia de Castellane, ou l'élégance contemporaine d'un MGallery 5 étoiles vue Tour Eiffel. Votre conseiller Select Châteaux vous guide vers le domaine qui correspond le mieux à votre projet.</p>`,
+<p>Du CODIR confidentiel de 10 personnes au kick-off annuel de 300 collaborateurs, les châteaux proches de Paris s'adaptent à tous les formats. Chaque lieu a sa personnalité : le charme anglo-normand d'un château de 120 chambres avec salle immersive, le standing international d'un château-hôtel 5 étoiles labellisé Green Key, l'authenticité d'une abbaye cistercienne millénaire rénovée en 2023, ou l'élégance contemporaine d'un boutique-hôtel 5 étoiles vue Tour Eiffel. Votre conseiller Select Châteaux vous guide vers le domaine qui correspond le mieux à votre projet.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Proche Paris", url: "/seminaire-chateau-proche-paris" },
@@ -320,7 +320,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     slug: "seminaire-chateau-chantilly",
     pourquoiEnBasDePage: true,
     title: "Séminaire à Chantilly : 2 châteaux-hôtels dès 150 €/pers.",
-    description: "2 châteaux privatisables à Chantilly, 228 chambres et 33 salles en forêt de 6 300 ha. 35 min de Paris, 15 min de Roissy. Devis sous 24 h.",
+    description: "2 châteaux privatisables à Chantilly, 228 chambres et 33 salles en forêt de 6 344 ha. 35 min de Paris, 15 min de Roissy. Devis sous 24 h.",
     keywords: ["seminaire chantilly", "séminaire chantilly", "hotel seminaire chantilly", "château séminaire chantilly", "séminaire à chantilly", "lieu séminaire chantilly", "chantilly seminaire", "séminaire entreprise chantilly", "organiser séminaire chantilly", "séminaire forêt chantilly"],
     ogTitle: "Séminaire en Château à Chantilly | Select Châteaux",
     ogDescription:
@@ -331,7 +331,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       "2 domaines de prestige au cœur de la forêt de Chantilly",
     heroImage: "/images/seminaires-soirees-entreprise-hero.webp",
     introTitre: "Séminaire en château à Chantilly : prestige international et forêt d'exception",
-    introduction: `Chantilly, adresse de prestige mondial : terre des Grandes Écuries du XVIIIe siècle, du Prix du Jockey Club et du Musée Condé — 2e plus grande collection de peintures anciennes après le Louvre — Chantilly est l'une des destinations les plus prestigieuses de France. Organiser un séminaire d'entreprise à Chantilly, c'est offrir à vos collaborateurs et partenaires internationaux une adresse qui fait impression, au cœur d'une forêt domaniale de 6 344 hectares classée Natura 2000. 2 châteaux d'exception en forêt : un château anglo-normand majestueux de 120 chambres avec 21 salles de réunion, spa Codage Paris, Immersive Room de 240 m² pour 280 personnes et escape game privatif. Et un InterContinental 5 étoiles de 109 chambres avec une salle Halphen de 380 m² (300 en cocktail), rooftop panoramique, 12 salons aux noms de compositeurs et un spa avec piscine intérieure chauffée — labellisé Clef Verte. 228 chambres combinées, dont 151 en Twin, 33 salles de réunion : de quoi accueillir du CODIR intimiste au kick-off annuel de 300 personnes. À 35 min de Paris et 15 min de Roissy-CDG : Chantilly conjugue accessibilité optimale et dépaysement garanti. Rallye 2CV en forêt, escape game, sylvothérapie, atelier crème Chantilly, balade équestre ou visite privée du château — le catalogue d'activités team building est aussi riche que le patrimoine. Chaque détail de votre séminaire résidentiel est orchestré par Select Châteaux : un seul interlocuteur, zéro logistique. Demandez votre devis sous 24 h.`,
+    introduction: `Chantilly, adresse de prestige mondial : terre des Grandes Écuries du XVIIIe siècle, du Prix du Jockey Club et du Musée Condé — 2e plus grande collection de peintures anciennes après le Louvre — Chantilly est l'une des destinations les plus prestigieuses de France. Organiser un séminaire d'entreprise à Chantilly, c'est offrir à vos collaborateurs et partenaires internationaux une adresse qui fait impression, au cœur d'une forêt domaniale de 6 344 hectares classée Natura 2000. 2 châteaux d'exception en forêt : un château anglo-normand majestueux de 120 chambres avec 21 salles de réunion, spa, salle immersive de 240 m² pour 280 personnes et escape game privatif. Et un château-hôtel 5 étoiles de 109 chambres avec une salle plénière de 380 m² (300 en cocktail), rooftop panoramique, 12 salons aux noms de compositeurs et un spa avec piscine intérieure chauffée — labellisé Clef Verte. 228 chambres combinées, dont 151 en Twin, 33 salles de réunion : de quoi accueillir du CODIR intimiste au kick-off annuel de 300 personnes. À 35 min de Paris et 15 min de Roissy-CDG : Chantilly conjugue accessibilité optimale et dépaysement garanti. Rallye 2CV en forêt, escape game, sylvothérapie, atelier crème Chantilly, balade équestre ou visite privée du château — le catalogue d'activités team building est aussi riche que le patrimoine. Chaque détail de votre séminaire résidentiel est orchestré par Select Châteaux : un seul interlocuteur, zéro logistique. Demandez votre devis sous 24 h.`,
     pourquoiTitre: "Pourquoi Chantilly pour votre séminaire en château ?",
     pointsForts: [
       {
@@ -349,7 +349,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         titre: "2 domaines, 2 caractères",
         description:
-          "Un château anglo-normand de 120 chambres avec 21 salles et spa Codage Paris, et un InterContinental 5 étoiles de 109 chambres avec centre de convention 700 m² et rooftop. Deux lieux complémentaires pour tous vos formats.",
+          "Un château anglo-normand de 120 chambres avec 21 salles et spa, et un château-hôtel 5 étoiles de 109 chambres avec centre de convention 700 m² et rooftop. Deux lieux complémentaires pour tous vos formats.",
         icon: "Building2",
       },
       {
@@ -366,7 +366,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       { label: "Depuis Orly", value: "55 min" },
       { label: "Gare la plus proche", value: "Orry-la-Ville (8 min)" },
       { label: "Capacité combinée", value: "Jusqu'à 300 pers. en cocktail" },
-      { label: "Chambres", value: "119 + 109 = 228 chambres" },
+      { label: "Chambres", value: "120 + 109 = 229 chambres" },
     ],
     blogLinks: [
       {
@@ -390,7 +390,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Quels sont les deux châteaux disponibles à Chantilly ?",
         answer:
-          "Nous proposons un château anglo-normand (120 chambres, 21 salles de réunion, spa Codage Paris, Immersive Room 240 m²) et un InterContinental 5 étoiles (109 chambres, centre de convention 700 m², salle Halphen 380 m², rooftop, labellisé Green Key). Deux expériences distinctes et complémentaires.",
+          "Nous proposons un château anglo-normand (120 chambres, 21 salles de réunion, spa, salle immersive 240 m²) et un château-hôtel 5 étoiles (109 chambres, centre de convention 700 m², salle plénière 380 m², rooftop, labellisé Green Key). Deux expériences distinctes et complémentaires.",
       },
       {
         question: "À quelle distance se trouvent les châteaux de Chantilly du centre-ville ?",
@@ -410,11 +410,11 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Les châteaux de Chantilly disposent-ils d'un spa ?",
         answer:
-          "Le château anglo-normand dispose du spa Codage Paris avec piscine intérieure, sauna et hammam. L'InterContinental propose un spa complet avec piscine intérieure chauffée, jacuzzi, sauna finlandais et salle fitness. Les deux espaces sont privatisables pour vos événements.",
+          "Le château anglo-normand dispose d'un spa avec piscine intérieure, sauna et hammam. Le château 5 étoiles en forêt propose un spa complet avec piscine intérieure chauffée, jacuzzi, sauna finlandais et salle fitness. Les deux espaces sont privatisables pour vos événements.",
       },
       {
         question: "Quels sont les meilleurs hôtels séminaires à Chantilly ?",
-        answer: "Nos deux domaines sont les références en matière d'hôtel séminaire à Chantilly : un InterContinental 5 étoiles de 109 chambres (centre de convention 700 m², labellisé Green Key, à 15 min de CDG) et un château-hôtel de 120 chambres avec spa Codage Paris et Immersive Room 240 m². Deux expériences distinctes, une même qualité de service 5 étoiles. Devis comparatif gratuit sous 24h.",
+        answer: "Nos deux domaines sont les références en matière d'hôtel séminaire à Chantilly : un château-hôtel 5 étoiles de 109 chambres (centre de convention 700 m², labellisé Green Key, à 15 min de CDG) et un château-hôtel de 120 chambres avec spa et salle immersive 240 m². Deux expériences distinctes, une même qualité de service 5 étoiles. Devis comparatif gratuit sous 24h.",
       },
       {
         question: "Quels sont les tarifs d'un séminaire en château à Chantilly en 2026 ?",
@@ -422,15 +422,15 @@ export const geoLandingPages: GeoLandingPage[] = [
       },
       {
         question: "Comment organiser un séminaire d'entreprise à Chantilly ?",
-        answer: "5 étapes clés : (1) définir le format (journée d'étude, résidentiel 1 ou 2 nuits, convention), (2) cadrer le nombre de participants (30 à 300), (3) choisir le domaine (château anglo-normand ou InterContinental 5★), (4) sélectionner les activités team building (forêt, escape game, atelier Chantilly), (5) confier la logistique à Select Châteaux — un seul interlocuteur de A à Z. Délai idéal de réservation : 3 à 6 mois avant.",
+        answer: "5 étapes clés : (1) définir le format (journée d'étude, résidentiel 1 ou 2 nuits, convention), (2) cadrer le nombre de participants (30 à 300), (3) choisir le domaine (château anglo-normand ou château-hôtel 5★ en forêt), (4) sélectionner les activités team building (forêt, escape game, atelier Chantilly), (5) confier la logistique à Select Châteaux — un seul interlocuteur de A à Z. Délai idéal de réservation : 3 à 6 mois avant.",
       },
       {
         question: "Quelles activités pour un séminaire à Chantilly ?",
-        answer: "La forêt de Chantilly (6 344 ha) permet une diversité unique : rallye 2CV, VTT électrique, parcours d'orientation, course d'aventure, chasse au trésor, olympiades sportives, sylvothérapie. En intérieur : escape game privatif (Manoir anglo-normand), atelier crème Chantilly avec chef étoilé, team building œnologie, Immersive Room 240 m² pour conventions. Visite privée du Musée Condé et Grandes Écuries en option.",
+        answer: "La forêt de Chantilly (6 344 ha) permet une diversité unique : rallye 2CV, VTT électrique, parcours d'orientation, course d'aventure, chasse au trésor, olympiades sportives, sylvothérapie. En intérieur : escape game privatif (Manoir anglo-normand), atelier crème Chantilly avec chef étoilé, team building œnologie, salle immersive 240 m² pour conventions. Visite privée du Musée Condé et Grandes Écuries en option.",
       },
       {
         question: "Select Châteaux vs Châteauform à Chantilly : quelle différence ?",
-        answer: "Châteauform propose des lieux standardisés orientés formation. Select Châteaux propose deux adresses uniques : un château anglo-normand avec spa Codage Paris et un InterContinental 5★ avec rooftop — deux hôtels de prestige international privatisables pour vos séminaires. Notre différence : des lieux d'exception (pas des centres de séminaires standardisés), un service hôtelier 5 étoiles, et une orchestration sur-mesure par un interlocuteur unique.",
+        answer: "Châteauform propose des lieux standardisés orientés formation. Select Châteaux propose deux adresses uniques : un château anglo-normand avec spa et un château-hôtel 5★ avec rooftop — deux hôtels de prestige international privatisables pour vos séminaires. Notre différence : des lieux d'exception (pas des centres de séminaires standardisés), un service hôtelier 5 étoiles, et une orchestration sur-mesure par un interlocuteur unique.",
       },
       {
         question: "Peut-on faire un escape game en château à Chantilly ?",
@@ -445,19 +445,19 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>Depuis des siècles, Chantilly attire les esprits brillants et les événements de prestige. La ville doit sa renommée au Domaine de Chantilly, mais c'est toute la région qui respire l'excellence : forêts domaniales majestueuses, hippodromes mythiques, restaurants gastronomiques et hôtels de caractère. Organiser un séminaire en château à Chantilly, c'est inscrire votre événement dans cette tradition d'exception.</p>
 
 <h2>Deux domaines complémentaires</h2>
-<p>Le château anglo-normand est le choix idéal pour les grandes conventions et kick-offs annuels. Avec ses 120 chambres (103 en Twin), ses 21 salles de réunion dont une Immersive Room de 240 m² pour 280 personnes, et son spa Codage Paris avec piscine intérieure, il peut accueillir vos événements les plus ambitieux. L'InterContinental 5 étoiles, labellisé Green Key, propose quant à lui 109 chambres surplombant la forêt, un centre de convention de 700 m² avec terrasses privées, une salle Halphen de 380 m² (300 en cocktail), un rooftop exclusif et un spa avec piscine et jacuzzi. À seulement 15 minutes de Roissy-CDG, c'est le choix stratégique pour les conventions internationales.</p>
+<p>Le château anglo-normand est le choix idéal pour les grandes conventions et kick-offs annuels. Avec ses 120 chambres (103 en Twin), ses 21 salles de réunion dont une salle immersive de 240 m² pour 280 personnes, et son spa avec piscine intérieure, il peut accueillir vos événements les plus ambitieux. Le château-hôtel 5 étoiles en forêt, labellisé Green Key, propose quant à lui 109 chambres surplombant la forêt, un centre de convention de 700 m² avec terrasses privées, une salle plénière de 380 m² (300 en cocktail), un rooftop exclusif et un spa avec piscine et jacuzzi. À seulement 15 minutes de Roissy-CDG, c'est le choix stratégique pour les conventions internationales.</p>
 
 <h2>Un territoire d'activités team building</h2>
 <p>La forêt de Chantilly, qui s'étend sur plus de 6 000 hectares, est un terrain d'aventure naturel pour vos activités de cohésion. Rallyes en forêt, parcours d'orientation, olympiades sportives, promenades à cheval : les possibilités sont infinies. Le soir, Chantilly et ses alentours offrent également des expériences gastronomiques et culturelles pour prolonger l'événement dans une ambiance plus décontractée.</p>
 
 <h2>Hôtel séminaire à Chantilly : château ou hôtel classique ?</h2>
-<p>Quand on cherche un <strong>hôtel séminaire à Chantilly</strong>, on pense souvent aux grandes chaînes hôtelières. Nos deux domaines offrent pourtant une expérience supérieure : un <strong>hôtel de séminaire à Chantilly</strong> 5 étoiles InterContinental labellisé Green Key et un château-hôtel avec spa Codage Paris privatif. La différence avec un hôtel séminaire classique ? Un cadre historique unique, des équipes entièrement dédiées à votre événement, et un programme d'activités impossible à reproduire en hôtel de chaîne. Nos <strong>hôtels séminaires à Chantilly</strong> combinent la capacité d'un grand hôtel de conférence (228 chambres, 33 salles) avec l'âme d'un lieu d'exception en forêt.</p>
+<p>Quand on cherche un <strong>hôtel séminaire à Chantilly</strong>, on pense souvent aux grandes chaînes hôtelières. Nos deux domaines offrent pourtant une expérience supérieure : un <strong>hôtel de séminaire à Chantilly</strong> 5 étoiles labellisé Green Key et un château-hôtel avec spa privatif. La différence avec un hôtel séminaire classique ? Un cadre historique unique, des équipes entièrement dédiées à votre événement, et un programme d'activités impossible à reproduire en hôtel de chaîne. Nos <strong>hôtels séminaires à Chantilly</strong> combinent la capacité d'un grand hôtel de conférence (228 chambres, 33 salles) avec l'âme d'un lieu d'exception en forêt.</p>
 
 <h2>Tarifs séminaire à Chantilly en 2026</h2>
 <p>Les tarifs pour un <strong>séminaire en château à Chantilly</strong> varient selon le format et la saison. En moyenne : 150 à 200 € par personne pour une journée d'étude (déjeuner inclus), 280 à 350 € par personne pour un séminaire résidentiel 2 jours/1 nuit (hébergement, repas, une activité team building). Les grandes conventions de 200 à 300 participants bénéficient de tarifs dégressifs. Devis gratuit sous 24h.</p>
 
 <h2>Hôtel séminaire Chantilly : pourquoi choisir un château plutôt qu'un hôtel de chaîne ?</h2>
-<p>La recherche d'un <strong>hôtel séminaire à Chantilly</strong> amène souvent vers les grandes chaînes hôtelières standardisées. Pourtant, nos deux propriétés cumulent tous les services hôteliers haut de gamme (228 chambres 5 étoiles, 6 restaurants gastronomiques, 3 spas avec piscines intérieures, rooftop panoramique, centre de convention de 700 m²) avec une dimension patrimoniale inégalable. Résultat : un ROI événementiel supérieur, car vos collaborateurs se souviennent d'un cadre exceptionnel, pas d'une salle de conférence lambda. Notre <strong>hôtel de séminaire à Chantilly</strong> InterContinental 5★ labellisé Green Key est à 15 minutes de Roissy-CDG, idéal pour les délégations internationales. Le château anglo-normand (120 chambres, 21 salles, Immersive Room 240 m²) convient aux conventions thématiques et kick-offs annuels nécessitant un cadre immersif.</p>
+<p>La recherche d'un <strong>hôtel séminaire à Chantilly</strong> amène souvent vers les grandes chaînes hôtelières standardisées. Pourtant, nos deux propriétés cumulent tous les services hôteliers haut de gamme (228 chambres 5 étoiles, 6 restaurants gastronomiques, 3 spas avec piscines intérieures, rooftop panoramique, centre de convention de 700 m²) avec une dimension patrimoniale inégalable. Résultat : un ROI événementiel supérieur, car vos collaborateurs se souviennent d'un cadre exceptionnel, pas d'une salle de conférence lambda. Notre <strong>hôtel de séminaire à Chantilly</strong> 5★ labellisé Green Key est à 15 minutes de Roissy-CDG, idéal pour les délégations internationales. Le château anglo-normand (120 chambres, 21 salles, salle immersive 240 m²) convient aux conventions thématiques et kick-offs annuels nécessitant un cadre immersif.</p>
 
 <h2>Séminaire à Chantilly en forêt : le cadre nature qui booste la cohésion</h2>
 <p>Les neurosciences confirment que le cadre naturel augmente de 40 % la créativité collective. La <strong>forêt domaniale de Chantilly</strong> (6 344 hectares, classée Natura 2000) borde directement nos deux domaines : sylvothérapie guidée, rallye en 2CV, parcours d'orientation GPS, VTT électrique, course d'orientation photo. L'<strong>activité séminaire Chantilly</strong> la plus demandée reste le rallye en forêt avec épreuves de cohésion (3h, 10 à 200 personnes), suivi de l'atelier "crème Chantilly" avec un chef étoilé dans les cuisines du château. Chaque <strong>séminaire en nature à Chantilly</strong> est cadré par un coordinateur Select Châteaux qui assure la logistique, les briefings et la gestion des imprévus météo.</p>
@@ -483,14 +483,14 @@ export const geoLandingPages: GeoLandingPage[] = [
     keywords: ["seminaire entreprise hauts-de-seine", "séminaire château 92", "hôtel séminaire paris 92", "lieu séminaire hauts-de-seine", "séminaire métro paris", "séminaire entreprise issy"],
     ogTitle: "Séminaire en Château Hauts-de-Seine (92) | Select Châteaux",
     ogDescription:
-      "Boutique-hôtel MGallery 5★ dans le 92. 83 chambres vue Tour Eiffel, spa 360m², restaurant bio, accessible métro L12. Séminaires de prestige.",
+      "Boutique-hôtel 5★ dans le 92. 83 chambres vue Tour Eiffel, spa 360m², restaurant bio, accessible métro L12. Séminaires de prestige.",
     canonical: "/seminaire-chateau-hauts-de-seine-92",
     h1: "Séminaire en Château dans les Hauts-de-Seine",
     heroAccroche:
-      "Boutique-hôtel MGallery 5 étoiles avec vue Tour Eiffel, accessible métro",
+      "Boutique-hôtel 5 étoiles avec vue Tour Eiffel, accessible métro",
     heroImage: "/images/seminaires-soirees-entreprise-hero.webp",
     introTitre: "Séminaire en château dans les Hauts-de-Seine : un hôtel 5 étoiles confidentiel aux portes de Paris",
-    introduction: `L'adresse la plus confidentielle d'Île-de-France : à 4 minutes à pied du métro Mairie d'Issy (ligne 12), soit 2 arrêts de Paris, ce boutique-hôtel MGallery 5 étoiles est le secret le mieux gardé des organisateurs de CODIR et COMEX. Classé Monument Historique depuis 1996, ce domaine du XVIIe siècle — ancienne retraite royale de Marguerite de Valois en 1606 — offre un dépaysement saisissant : vue imprenable sur la Tour Eiffel, jardin botanique de 5 000 m² et chapelle désacralisée transformée en bar à rhum exclusif avec 400 références. 83 chambres et suites au design contemporain, 9 espaces de réunion modulables : du CODIR de 10 personnes au séminaire stratégique de 180 participants, chaque format est sublimé par un cadre 5 étoiles. Spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga, restaurant bistronomique Marguerite 1606 privilégiant les produits bio et locaux, institut de beauté Anne Semonin — vos collaborateurs alternent sessions de travail et moments de bien-être dans un même lieu. Le chef Jean-Philippe Perol compose des menus sur-mesure pour vos déjeuners de travail et dîners de gala. Confidentialité et standing pour vos décisions stratégiques : les Hauts-de-Seine abritent 14 entreprises du CAC 40 et le premier quartier d'affaires d'Europe à La Défense. Ce lieu confidentiel, labellisé Clef Verte, est l'adresse de référence pour les réunions de direction où discrétion et inspiration sont essentielles. Accessible en métro, zéro logistique de transport — vos participants arrivent détendus et opérationnels. Select Châteaux vous accompagne de la conception à la réalisation : demandez votre devis gratuit sous 24 h.`,
+    introduction: `L'adresse la plus confidentielle d'Île-de-France : à 4 minutes à pied du métro Mairie d'Issy (ligne 12), soit 2 arrêts de Paris, ce boutique-hôtel 5 étoiles est le secret le mieux gardé des organisateurs de CODIR et COMEX. Classé Monument Historique depuis 1996, ce domaine du XVIIe siècle — ancienne retraite royale — offre un dépaysement saisissant : vue imprenable sur la Tour Eiffel, jardin botanique de 5 000 m² et chapelle désacralisée transformée en bar à rhum exclusif avec 400 références. 83 chambres et suites au design contemporain, 9 espaces de réunion modulables : du CODIR de 10 personnes au séminaire stratégique de 180 participants, chaque format est sublimé par un cadre 5 étoiles. Spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga, restaurant bistronomique privilégiant les produits bio et locaux, institut de beauté haut de gamme — vos collaborateurs alternent sessions de travail et moments de bien-être dans un même lieu. Le chef du domaine compose des menus sur-mesure pour vos déjeuners de travail et dîners de gala. Confidentialité et standing pour vos décisions stratégiques : les Hauts-de-Seine abritent 14 entreprises du CAC 40 et le premier quartier d'affaires d'Europe à La Défense. Ce lieu confidentiel, labellisé Clef Verte, est l'adresse de référence pour les réunions de direction où discrétion et inspiration sont essentielles. Accessible en métro, zéro logistique de transport — vos participants arrivent détendus et opérationnels. Select Châteaux vous accompagne de la conception à la réalisation : demandez votre devis gratuit sous 24 h.`,
     pourquoiTitre: "Pourquoi les Hauts-de-Seine pour votre séminaire en château ?",
     pointsForts: [
       {
@@ -508,7 +508,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         titre: "Standing 5 étoiles",
         description:
-          "83 chambres et suites MGallery dont des Junior Suites vue Tour Eiffel. Spa 360 m² avec piscine, sauna, hammam et studio de yoga. Restaurant bistronomique bio Marguerite 1606. Service de conciergerie dédié.",
+          "83 chambres et suites dont des Junior Suites vue Tour Eiffel. Spa 360 m² avec piscine, sauna, hammam et studio de yoga. Restaurant bistronomique bio. Service de conciergerie dédié.",
         icon: "Star",
       },
       {
@@ -525,7 +525,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       { label: "Depuis Paris centre", value: "2 arrêts de métro" },
       { label: "Capacité", value: "80 à 180 personnes" },
       { label: "Chambres", value: "83 chambres et suites" },
-      { label: "Standing", value: "MGallery 5★ — Labellisé Clef Verte" },
+      { label: "Standing", value: "Boutique-hôtel 5★ — Labellisé Clef Verte" },
     ],
     blogLinks: [
       {
@@ -549,7 +549,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Quel château proposez-vous dans les Hauts-de-Seine ?",
         answer:
-          "Le domaine dans le 92 est un boutique-hôtel 5 étoiles de la collection MGallery by Accor. Il dispose de 83 chambres et suites (dont des Junior Suites vue Tour Eiffel), d'un jardin botanique de 5 000 m², d'un spa de 360 m² avec piscine, d'une chapelle transformée en bar à rhum et du restaurant bistronomique bio Marguerite 1606. Labellisé Clef Verte.",
+          "Le domaine dans le 92 est un boutique-hôtel 5 étoiles. Il dispose de 83 chambres et suites (dont des Junior Suites vue Tour Eiffel), d'un jardin botanique de 5 000 m², d'un spa de 360 m² avec piscine, d'une chapelle transformée en bar à rhum et d'un restaurant bistronomique bio. Labellisé Clef Verte.",
       },
       {
         question: "Comment accéder au domaine en transports en commun ?",
@@ -564,22 +564,22 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Le domaine dispose-t-il d'un restaurant gastronomique ?",
         answer:
-          "Le restaurant Marguerite 1606 propose une cuisine bistronomique engagée, privilégiant les produits bio, de saison et sourcés localement. 2 bars dont le bar à rhum dans la chapelle. Menus personnalisables, dégustations œnologiques. Tous les régimes alimentaires accommodés.",
+          "Le restaurant du domaine propose une cuisine bistronomique engagée, privilégiant les produits bio, de saison et sourcés localement. 2 bars dont le bar à rhum dans la chapelle. Menus personnalisables, dégustations œnologiques. Tous les régimes alimentaires accommodés.",
       },
       {
         question: "Peut-on organiser un événement en soirée avec le jardin suspendu ?",
         answer:
-          "Le jardin botanique de 5 000 m² et la terrasse avec vue sur la Tour Eiffel sont magiques pour vos cocktails en plein air. Le restaurant Marguerite 1606 (160 m²) accueille 100 personnes en cocktail, la terrasse jardin 98 personnes. Privatisation complète possible.",
+          "Le jardin botanique de 5 000 m² et la terrasse avec vue sur la Tour Eiffel sont magiques pour vos cocktails en plein air. Le restaurant (160 m²) accueille 100 personnes en cocktail, la terrasse jardin 98 personnes. Privatisation complète possible.",
       },
     ],
     contenuSEO: `<h2>Les Hauts-de-Seine : le prestige aux portes de Paris</h2>
-<p>Les Hauts-de-Seine sont le département le plus dynamique de la première couronne parisienne. Siège de La Défense, premier quartier d'affaires européen, le 92 concentre les sièges sociaux des plus grandes entreprises. C'est dans ce contexte de business premium que se cache ce domaine d'exception : un boutique-hôtel MGallery 5 étoiles, oasis de calme et de verdure à seulement 2 arrêts de métro de Paris.</p>
+<p>Les Hauts-de-Seine sont le département le plus dynamique de la première couronne parisienne. Siège de La Défense, premier quartier d'affaires européen, le 92 concentre les sièges sociaux des plus grandes entreprises. C'est dans ce contexte de business premium que se cache ce domaine d'exception : un boutique-hôtel 5 étoiles, oasis de calme et de verdure à seulement 2 arrêts de métro de Paris.</p>
 
-<h2>Un domaine MGallery au charme unique</h2>
-<p>Ce boutique-hôtel de la collection MGallery by Accor offre 83 chambres et suites au design contemporain raffiné, dont des Junior Suites avec vue sur la Tour Eiffel. Le domaine se distingue par ses espaces uniques : une chapelle désacralisée transformée en bar à rhum, un jardin botanique de 5 000 m² avec terrasse panoramique, un spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga, et le restaurant bistronomique Marguerite 1606 privilégiant les produits bio et locaux. Labellisé Clef Verte, le domaine allie prestige et engagement environnemental.</p>
+<h2>Un boutique-hôtel au charme unique</h2>
+<p>Ce boutique-hôtel offre 83 chambres et suites au design contemporain raffiné, dont des Junior Suites avec vue sur la Tour Eiffel. Le domaine se distingue par ses espaces uniques : une chapelle désacralisée transformée en bar à rhum, un jardin botanique de 5 000 m² avec terrasse panoramique, un spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga, et le restaurant bistronomique privilégiant les produits bio et locaux. Labellisé Clef Verte, le domaine allie prestige et engagement environnemental.</p>
 
 <h2>L'adresse des décideurs</h2>
-<p>9 espaces de réunion modulables s'adaptent à tous les formats : du salon board Agastache (50 m², 17 personnes) pour vos CODIR, au restaurant Marguerite 1606 (160 m², 100 en cocktail) pour vos réceptions. La terrasse jardin de 100 m² accueille vos cocktails en plein air face à la Tour Eiffel. Accessible en 4 minutes à pied depuis la station Mairie d'Issy (métro ligne 12), c'est l'adresse privilégiée des entreprises qui exigent confidentialité, standing et accessibilité.</p>`,
+<p>9 espaces de réunion modulables s'adaptent à tous les formats : du salon board de 50 m² (17 personnes en boardroom) pour vos CODIR, au restaurant (160 m², 100 en cocktail) pour vos réceptions. La terrasse jardin de 100 m² accueille vos cocktails en plein air face à la Tour Eiffel. Accessible en 4 minutes à pied depuis la station Mairie d'Issy (métro ligne 12), c'est l'adresse privilégiée des entreprises qui exigent confidentialité, standing et accessibilité.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Hauts-de-Seine", url: "/seminaire-chateau-hauts-de-seine-92" },
@@ -596,18 +596,18 @@ export const geoLandingPages: GeoLandingPage[] = [
     devisAvantPourquoi: true,
     title: "Séminaire Vallée de Chevreuse : abbaye 5★",
     description:
-      "Abbaye cistercienne du XIIe siècle rénovée 2023 en Vallée de Chevreuse. 144 chambres, 80 ha, 6 restaurants Paris Society. Devis gratuit 24h.",
+      "Abbaye cistercienne du XIIe siècle rénovée 2023 en Vallée de Chevreuse. 144 chambres, 80 ha, 6 restaurants. Devis gratuit 24h.",
     keywords: ["seminaire vallee de chevreuse", "seminaire chevreuse", "hotel seminaire vallée de chevreuse", "séminaire abbaye chevreuse", "lieu séminaire vallée chevreuse", "séminaire nature chevreuse", "abbaye seminaire yvelines"],
     ogTitle: "Séminaire Vallée de Chevreuse | Abbaye Cistercienne 5★ | Select Châteaux",
     ogDescription:
-      "Abbaye cistercienne du XIIe siècle en Vallée de Chevreuse. 144 chambres, 14 salles, 80 hectares, 6 restaurants Paris Society. À 45 min de Paris.",
+      "Abbaye cistercienne du XIIe siècle en Vallée de Chevreuse. 144 chambres, 14 salles, 80 hectares, 6 restaurants. À 45 min de Paris.",
     canonical: "/seminaire-vallee-de-chevreuse",
     h1: "Séminaire en Vallée de Chevreuse",
     heroAccroche:
       "Une abbaye cistercienne du XIIe siècle dans un parc naturel de 80 hectares, à 45 min de Paris",
     heroImage: "/images/evenement-entreprise-abbaye-vaux-de-cernay-01-abbaye-des-vaux-de-cernay.webp",
     introTitre: "Séminaire en Vallée de Chevreuse : l'abbaye cistercienne qui transforme vos équipes",
-    introduction: `La Vallée de Chevreuse concentre 191 impressions mensuelles sur Google pour un séminaire en pleine nature à moins d'une heure de Paris — et une seule adresse à la hauteur de ces attentes : notre abbaye cistercienne fondée en 1118, entièrement rénovée en 2023 dans un décor signé Cordélia de Castellane. Classée Parc naturel régional, la Vallée de Chevreuse offre ce que les salles de conférence ne peuvent pas donner : 80 hectares de forêt de Rambouillet, un lac privé, un silence absolu propice à la réflexion stratégique, et l'absence de réseau GSM comme bouclier anti-distraction. 144 chambres dans 3 bâtisses, 14 salles de réunion équipées, 6 restaurants et bars Paris Society dont le mythique Réfectoire des Moines (500 m², 300 personnes en cocktail sous des voûtes du XIIe siècle), un cinéma privé de 200 m², une gaming room et un karaoké. Pour les CODIR, retraites de leadership et séminaires de transformation, c'est le lieu n°1 à 45 minutes de Paris par l'A13.`,
+    introduction: `La Vallée de Chevreuse concentre 191 impressions mensuelles sur Google pour un séminaire en pleine nature à moins d'une heure de Paris — et une seule adresse à la hauteur de ces attentes : notre abbaye cistercienne fondée au XIIe siècle, entièrement rénovée en 2023 dans un décor signé par une grande décoratrice. Classée Parc naturel régional, la Vallée de Chevreuse offre ce que les salles de conférence ne peuvent pas donner : 80 hectares de forêt de Rambouillet, un lac privé, un silence absolu propice à la réflexion stratégique, et l'absence de réseau GSM comme bouclier anti-distraction. 144 chambres dans 3 bâtisses, 14 salles de réunion équipées, 6 restaurants et bars dont le mythique réfectoire médiéval (500 m², 300 personnes en cocktail sous des voûtes du XIIe siècle), un cinéma privé de 200 m², une gaming room et un karaoké. Pour les CODIR, retraites de leadership et séminaires de transformation, c'est le lieu n°1 à 45 minutes de Paris par l'A13.`,
     pourquoiTitre: "Pourquoi choisir la Vallée de Chevreuse pour votre séminaire ?",
     pointsForts: [
       {
@@ -619,7 +619,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         titre: "Abbaye du XIIe siècle",
         description:
-          "Fondée en 1118, rénovée en 2023 par Cordélia de Castellane. Architecture monastique authentique, voûtes en pierre, cloître médiéval — un cadre qui marque les esprits.",
+          "Fondée au XIIe siècle, rénovée en 2023. Architecture monastique authentique, voûtes en pierre, cloître médiéval — un cadre qui marque les esprits.",
         icon: "Building2",
       },
       {
@@ -671,7 +671,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Quel est le tarif d'un séminaire en Vallée de Chevreuse ?",
         answer:
-          "Les formules résidentielles débutent à 240 € par personne par jour, incluant hébergement, petits-déjeuners et dîner gastronomique. Les packages complets avec activités team building et restauration Paris Society sont compris entre 280 et 350 €/pers/jour. Devis gratuit sous 24h.",
+          "Les formules résidentielles débutent à 240 € par personne par jour, incluant hébergement, petits-déjeuners et dîner gastronomique. Les packages complets avec activités team building et restauration sont compris entre 280 et 350 €/pers/jour. Devis gratuit sous 24h.",
       },
       {
         question: "L'abbaye est-elle accessible en transports en commun ?",
@@ -681,7 +681,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Combien de personnes peut accueillir l'abbaye pour un séminaire ?",
         answer:
-          "De 20 à 300 personnes selon la configuration. En résidentiel : 144 chambres dans 3 bâtisses (Abbaye principale, Moulin, Ferme). En cocktail : jusqu'à 300 personnes dans le Réfectoire des Moines (500 m²) sous les voûtes du XIIe siècle. 14 salles de réunion équipées.",
+          "De 20 à 300 personnes selon la configuration. En résidentiel : 144 chambres dans 3 bâtisses (Abbaye principale, Moulin, Ferme). En cocktail : jusqu'à 300 personnes dans le réfectoire médiéval (500 m²) sous les voûtes du XIIe siècle. 14 salles de réunion équipées.",
       },
       {
         question: "Quelles activités team building sont disponibles en Vallée de Chevreuse ?",
@@ -698,13 +698,13 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>À 45 minutes de Paris par l'A13, la <strong>Vallée de Chevreuse</strong> est l'un des secrets les mieux gardés d'Île-de-France pour les séminaires d'entreprise. Classée Parc naturel régional, cette vallée préservée offre un dépaysement total sans la contrainte d'un long déplacement. L'absence de réseau GSM dans le domaine agit comme un filtre naturel : vos équipes sont présentes à 100 %, les échanges sont plus riches, les décisions plus rapides. C'est ce que recherchent 73 % des DRH qui nous contactent pour un <strong>séminaire en Vallée de Chevreuse</strong>.</p>
 
 <h2>L'abbaye cistercienne : le seul hôtel séminaire 5★ de la Vallée de Chevreuse</h2>
-<p>Il n'existe qu'un seul <strong>hôtel séminaire en Vallée de Chevreuse</strong> à ce niveau : notre abbaye cistercienne fondée en 1118, entièrement rénovée en 2023 dans un décor signé Cordélia de Castellane. 144 chambres réparties dans 3 bâtisses historiques (Abbaye, Moulin, Ferme), 14 salles de réunion entièrement équipées, 6 restaurants et bars signés Paris Society dont le Réfectoire des Moines sous des voûtes de 12 mètres — un lieu de séminaire unique en France. À titre de comparaison, les hôtels classiques de la région proposent 40 à 80 chambres avec des salles de conférence standard. L'abbaye offre une expérience totalement différente.</p>
+<p>Il n'existe qu'un seul <strong>hôtel séminaire en Vallée de Chevreuse</strong> à ce niveau : notre abbaye cistercienne fondée au XIIe siècle, entièrement rénovée en 2023 dans un décor signé par une grande décoratrice. 144 chambres réparties dans 3 bâtisses historiques (Abbaye, Moulin, Ferme), 14 salles de réunion entièrement équipées, 6 restaurants et bars dont le réfectoire médiéval sous des voûtes de 12 mètres — un lieu de séminaire unique en France. À titre de comparaison, les hôtels classiques de la région proposent 40 à 80 chambres avec des salles de conférence standard. L'abbaye offre une expérience totalement différente.</p>
 
 <h2>Tarifs séminaire en Vallée de Chevreuse en 2026</h2>
-<p>Les formules résidentielles à l'abbaye débutent à <strong>240 € par personne par jour</strong> pour un package hébergement + petits-déjeuners + dîner gastronomique. Les packages complets incluant restauration Paris Society midi et soir, accès aux activités team building et spa, sont compris entre <strong>280 et 350 € par personne par jour</strong>. Pour les CODIR de 10 à 20 personnes, des salons intimistes sont disponibles avec des tarifs et conditions sur mesure. Toutes les formules incluent WiFi haut débit, parkings, et l'accès aux 80 hectares de forêt et au lac privé. Devis personnalisé gratuit sous 24h.</p>
+<p>Les formules résidentielles à l'abbaye débutent à <strong>240 € par personne par jour</strong> pour un package hébergement + petits-déjeuners + dîner gastronomique. Les packages complets incluant restauration midi et soir, accès aux activités team building et spa, sont compris entre <strong>280 et 350 € par personne par jour</strong>. Pour les CODIR de 10 à 20 personnes, des salons intimistes sont disponibles avec des tarifs et conditions sur mesure. Toutes les formules incluent WiFi haut débit, parkings, et l'accès aux 80 hectares de forêt et au lac privé. Devis personnalisé gratuit sous 24h.</p>
 
 <h2>Séminaire au vert en Vallée de Chevreuse : les 5 formats les plus demandés</h2>
-<p>Les entreprises viennent en Vallée de Chevreuse pour des formats bien précis : le <strong>séminaire de transformation</strong> (2-3 jours en résidentiel pour repenser la stratégie), la <strong>retraite CODIR</strong> (10-20 personnes, cadre contemplatif, déconnexion totale), le <strong>kick-off annuel</strong> (50-150 personnes, plénière + team building + soirée gala dans le Réfectoire), le <strong>séminaire RSE et bien-être</strong> (forêt, lac, cuisine biologique, yoga), et la <strong>convention commerciale</strong> (300 personnes maximum dans l'espace Réfectoire des Moines). Notre équipe adapte le programme à vos objectifs et votre budget.</p>`,
+<p>Les entreprises viennent en Vallée de Chevreuse pour des formats bien précis : le <strong>séminaire de transformation</strong> (2-3 jours en résidentiel pour repenser la stratégie), la <strong>retraite CODIR</strong> (10-20 personnes, cadre contemplatif, déconnexion totale), le <strong>kick-off annuel</strong> (50-150 personnes, plénière + team building + soirée gala dans le Réfectoire), le <strong>séminaire RSE et bien-être</strong> (forêt, lac, cuisine biologique, yoga), et la <strong>convention commerciale</strong> (300 personnes maximum dans le réfectoire médiéval). Notre équipe adapte le programme à vos objectifs et votre budget.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Vallée de Chevreuse", url: "/seminaire-vallee-de-chevreuse" },
