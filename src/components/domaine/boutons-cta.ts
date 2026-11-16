@@ -38,5 +38,4 @@ export const BOUTON_TELEPHONE: CSSProperties = {
   background: "rgba(0, 0, 0, 0.4)",
   borderColor: "rgba(255, 255, 255, 0.4)",
   color: "#FFFFFF",
-  backdropFilter: "blur(12px)",
 };

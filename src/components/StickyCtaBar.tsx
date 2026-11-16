@@ -32,15 +32,25 @@ export function StickyCtaBar({ cible = "/devis#formulaire" }: StickyCtaBarProps)
     // Le formulaire est relu à chaque défilement plutôt qu'observé une fois
     // (IntersectionObserver) : si React remplace son nœud après le montage,
     // l'observateur surveillerait un élément détaché et ne verrait plus rien.
-    const handleScroll = () => {
+    // Une seule mesure par image affichée (requestAnimationFrame) : mesurer à
+    // chaque événement de défilement faisait ramer les pages château (16/11).
+    let enAttente = 0;
+    const mesurer = () => {
+      enAttente = 0;
       const formulaire = cible.startsWith("#") ? document.querySelector(cible) : null;
       const r = formulaire?.getBoundingClientRect();
       const formulaireVisible = !!r && r.top < window.innerHeight * 0.85 && r.bottom > 0;
       setShow(window.scrollY > 300 && !formulaireVisible);
     };
-    handleScroll();
+    const handleScroll = () => {
+      if (!enAttente) enAttente = requestAnimationFrame(mesurer);
+    };
+    mesurer();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (enAttente) cancelAnimationFrame(enAttente);
+    };
   }, [cible]);
 
   return (
@@ -58,8 +68,8 @@ export function StickyCtaBar({ cible = "/devis#formulaire" }: StickyCtaBarProps)
     >
       <div
         style={{
-          background: "rgba(255, 255, 255, 0.97)",
-          backdropFilter: "blur(16px)",
+          // Fond presque opaque, sans flou : le flou était recalculé à chaque image du défilement.
+          background: "rgba(255, 255, 255, 0.98)",
           borderTop: "1px solid rgba(163, 126, 44, 0.15)",
           boxShadow: "0 -4px 24px rgba(0, 0, 0, 0.1)",
           padding: "clamp(10px, 2vw, 14px) clamp(16px, 4vw, 32px)",
