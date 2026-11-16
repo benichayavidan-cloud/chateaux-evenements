@@ -49,7 +49,7 @@ const getMeetingRoomImageIndex = (chateauId: string): number => {
 };
 
 // Wrapper Sticky CSS — hardware-accelerated, pas de JS scroll listener
-function StickySlider({ children }: { children: React.ReactNode }) {
+export function StickySlider({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ position: 'sticky', top: '100px', alignSelf: 'flex-start' }}>
       {children}
@@ -58,7 +58,7 @@ function StickySlider({ children }: { children: React.ReactNode }) {
 }
 
 // Paragraph Card — Design Cards avec bordure dorée
-function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
+export function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
   const [hovered, setHovered] = useState(false);
 
   // Détecte "Label : Contenu" pour extraire un titre de carte
@@ -107,7 +107,7 @@ function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gra
 }
 
 // Slider pour la section Vue d'ensemble
-function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
+export function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
