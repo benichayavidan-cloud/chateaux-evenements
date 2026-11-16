@@ -1,0 +1,10 @@
+/* Libellé du bouton téléphone : « Appeler » sur mobile, le numéro au-delà.
+   En CSS module car les variantes Tailwind sm: ne s'appliquent pas sur ce
+   site (reset global `* { margin:0; padding:0 }` hors couche). */
+.libelleLong { display: none; }
+.libelleCourt { display: inline; }
+
+@media (min-width: 640px) {
+  .libelleLong { display: inline; }
+  .libelleCourt { display: none; }
+}
