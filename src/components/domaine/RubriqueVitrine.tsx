@@ -47,8 +47,11 @@ const ETIQUETTE: Record<RubriqueId, string> = {
   acces: "Accès",
 };
 
+/** Seuls champs du château envoyés au navigateur (le reste de la fiche n'a rien à faire dans le payload). */
+export type ChateauVitrine = Pick<Chateau, "nom" | "region" | "ref" | "images">;
+
 interface RubriqueVitrineProps {
-  chateau: Chateau;
+  chateau: ChateauVitrine;
   id: RubriqueId;
   r: Rubrique;
   /** Fil d'Ariane (Server Component). */
@@ -63,7 +66,7 @@ interface Photo {
 }
 
 /** Photos de la rubrique, complétées par celles du domaine pour remplir la grille de 5. */
-function photosGrille(r: Rubrique, chateau: Chateau): Photo[] {
+function photosGrille(r: Rubrique, chateau: ChateauVitrine): Photo[] {
   const toutes: Photo[] = [
     ...r.photos.map((p) => ({ src: p.src, alt: p.legende })),
     ...[...chateau.images.hero, ...chateau.images.galerie].map((src) => ({ src, alt: `${chateau.nom} — le domaine` })),

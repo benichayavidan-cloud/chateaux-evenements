@@ -19,15 +19,18 @@ const NOMS_REELS = [
   'Saint-Thibault', 'Montfort', 'Savigny', 'Auffargis', 'Perray',
   'Montvillargenne', 'Jeanne and the Forest', 'Gouvieux',
   'Mont Royal', 'Tiara', 'Chapelle-en-Serval',
-  'Margot', 'MGallery', 'Wilmotte', 'Monastic',
+  'Margot', 'MGallery', 'Wilmotte', 'Monastic', 'Agastache', 'Mélisse', 'Marguerite', 'Valois', 'Accor',
+  'InterContinental', 'IHG', 'Callas', 'Vivaldi', 'Halphen', 'Stradivarius',
 ];
 
 const toutesLesRubriques = Object.entries(RUBRIQUES_PAR_CHATEAU).flatMap(([slug, rubs]) =>
   Object.entries(rubs).map(([id, r]) => ({ slug, id, r: r! })),
 );
 
-test('au moins le pilote (Abbaye) a ses 7 rubriques', () => {
-  assert.deepEqual(rubriquesPubliees('abbaye-millenaire-vallee-chevreuse'), [...RUBRIQUES]);
+test('les 4 domaines ont leurs 7 rubriques', () => {
+  for (const slug of ['abbaye-millenaire-vallee-chevreuse', 'manoir-anglo-normand-chantilly', 'palais-royal-foret-chantilly', 'hotel-historique-seminaire-paris-92']) {
+    assert.deepEqual(rubriquesPubliees(slug), [...RUBRIQUES], slug);
+  }
 });
 
 test('un château sans données n’a aucune rubrique, et ne plante pas', () => {
