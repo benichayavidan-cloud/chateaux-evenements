@@ -6,6 +6,7 @@
 'use client';
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Users, Check, Sparkles, Bed, Building2, UtensilsCrossed, Plus, Minus, HelpCircle, MapPin, Phone, FileText, Clock, Lock, Package } from "lucide-react";
 import { Section, Container } from '@/components/layout-v2';
@@ -18,13 +19,18 @@ import { trackChateauView, trackPhoneClick } from "@/components/Analytics";
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { useInView } from "@/hooks/useInView";
-import { useDiaporama } from "@/hooks/useDiaporama";
+import { Diaporama } from "@/components/domaine/Diaporama";
+import { ParaCard, StickySlider } from "@/components/domaine/briques-fiche";
 import { lienFinal } from "@/data/redirections";
 import photosRenommees from "@/data/photos-renommees.json";
 import { creerAltPhoto, type PhotosRenommees } from "@/lib/photo-alt";
 
 const altPhoto = creerAltPhoto(photosRenommees as PhotosRenommees);
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
+
+
+/** Visionneuse chargée seulement au premier clic sur une photo (hors du chargement de la page). */
+const Visionneuse = dynamic(() => import("@/components/domaine/Visionneuse").then((m) => m.Visionneuse), { ssr: false });
 
 interface ChateauPageClientProps {
   chateau: Chateau;
@@ -50,112 +56,6 @@ const getMeetingRoomImageIndex = (chateauId: string): number => {
   return mapping[chateauId] ?? 1;
 };
 
-// Wrapper Sticky CSS — hardware-accelerated, pas de JS scroll listener
-export function StickySlider({ children }: { children: React.ReactNode }) {
-  return (
-    <div style={{ position: 'sticky', top: '100px', alignSelf: 'flex-start' }}>
-      {children}
-    </div>
-  );
-}
-
-// Paragraph Card — Design Cards avec bordure dorée
-export function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
-  const [hovered, setHovered] = useState(false);
-
-  // Détecte "Label : Contenu" pour extraire un titre de carte
-  const colonMatch = text.match(/^(.{5,55}?)\s:\s/);
-  const label = colonMatch ? colonMatch[1] : null;
-  const body = colonMatch && label ? text.substring(colonMatch[0].length) : text;
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        background: sectionBg === 'gray' ? 'white' : theme.colors.neutral.gray50,
-        borderRadius: '16px',
-        padding: 'clamp(16px, 3vw, 24px) clamp(18px, 3vw, 28px)',
-        marginBottom: '12px',
-        borderLeft: `3px solid ${theme.colors.primary.gold}`,
-        boxShadow: hovered ? '0 8px 30px rgba(0,0,0,0.08)' : '0 2px 12px rgba(0,0,0,0.04)',
-        transform: hovered ? 'translateX(4px)' : 'translateX(0)',
-        transition: 'all 0.3s ease',
-      }}
-    >
-      {label && (
-        <div style={{
-          fontSize: '0.6875rem', fontWeight: 700, textTransform: 'uppercase' as const,
-          letterSpacing: '0.08em', color: theme.colors.primary.bronze,
-          marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px',
-        }}>
-          <div style={{
-            width: '18px', height: '18px', borderRadius: '50%',
-            background: `${theme.colors.primary.bronze}10`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '9px', color: theme.colors.primary.bronze,
-          }}>✦</div>
-          {label}
-        </div>
-      )}
-      <p style={{
-        fontSize: 'clamp(0.8125rem, 1.5vw, 0.9375rem)', lineHeight: 1.8,
-        color: theme.colors.neutral.gray600, margin: 0,
-      }}>
-        {body}
-      </p>
-    </div>
-  );
-}
-
-// Slider pour la section Vue d'ensemble
-export function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
-  const { current, goTo, zone, proche } = useDiaporama(images.length);
-
-  return (
-    <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-      {images.map((img, i) => proche(i) && (
-        <div
-          key={i}
-          style={{
-            position: 'absolute', inset: 0,
-            opacity: current === i ? 1 : 0,
-            transition: 'opacity 0.6s ease-in-out',
-          }}
-        >
-          <Image src={img} alt={altPhoto(img, `${nom} - vue ${i + 1} du domaine`)} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
-        </div>
-      ))}
-      {/* Flèches */}
-      <button
-        onClick={() => goTo((current - 1 + images.length) % images.length)}
-        style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-        aria-label="Précédent"
-      >‹</button>
-      <button
-        onClick={() => goTo((current + 1) % images.length)}
-        style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-        aria-label="Suivant"
-      >›</button>
-      {/* Dots */}
-      <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
-        {images.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            style={{
-              width: current === i ? '20px' : '8px', height: '8px',
-              borderRadius: '4px', border: 'none', cursor: 'pointer',
-              background: current === i ? 'white' : 'rgba(255,255,255,0.5)',
-              transition: 'all 0.3s ease',
-            }}
-            aria-label={`Photo ${i + 1}`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 // Section Hébergement — Variant Overlay avec slider
 function HebergementOverlay({ chateau }: { chateau: Chateau }) {
@@ -206,7 +106,6 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
   const allBedroomImages = [...forcedImages, ...autoBedroomImages.filter(img => !forcedImages.includes(img))];
   const fallbackImg = chateau.images.galerie[getBedroomImageIndex(chateau.id)] || chateau.images.hero[2];
   const images = allBedroomImages.length > 0 ? allBedroomImages : [fallbackImg];
-  const { current, goTo, zone, proche } = useDiaporama(images.length);
 
   return (
     <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
@@ -239,49 +138,7 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
           </div>
           {/* Slider RIGHT — sticky JS */}
           <StickySlider>
-            <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-              {images.map((img, i) => proche(i) && (
-                <div
-                  key={i}
-                  style={{
-                    position: 'absolute', inset: 0,
-                    opacity: current === i ? 1 : 0,
-                    transition: 'opacity 0.8s ease-in-out',
-                  }}
-                >
-                  <Image src={img} alt={altPhoto(img, `${chateau.seoH1} - chambre ${i + 1}`)} fill sizes="50vw" className="object-cover" loading="lazy" quality={80} />
-                </div>
-              ))}
-              {images.length > 1 && (
-                <>
-                  <button
-                    onClick={() => goTo((current - 1 + images.length) % images.length)}
-                    style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-                    aria-label="Précédent"
-                  >‹</button>
-                  <button
-                    onClick={() => goTo((current + 1) % images.length)}
-                    style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-                    aria-label="Suivant"
-                  >›</button>
-                  <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
-                    {images.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => goTo(i)}
-                        style={{
-                          width: current === i ? '20px' : '8px', height: '8px',
-                          borderRadius: '4px', border: 'none', cursor: 'pointer',
-                          background: current === i ? 'white' : 'rgba(255,255,255,0.5)',
-                          transition: 'all 0.3s ease',
-                        }}
-                        aria-label={`Photo ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
+            <Diaporama photos={images.map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.seoH1} - chambre ${i + 1}`) }))} fonduMs={800} />
           </StickySlider>
         </div>
       </Container>
@@ -348,53 +205,7 @@ function RestaurantSlider({ chateau }: { chateau: Chateau }) {
   const restImages = forced || chateau.images.galerie.filter(img => /restaurant|terrasse|bar|buffet|brunch|cuisine|traiteur/i.test(img));
   const fallbackImg = chateau.images.hero[0];
   const images = restImages.length > 0 ? restImages : [fallbackImg];
-  const { current, goTo, zone, proche } = useDiaporama(images.length);
-
-  return (
-    <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-      {images.map((img, i) => proche(i) && (
-        <div
-          key={i}
-          style={{
-            position: 'absolute', inset: 0,
-            opacity: current === i ? 1 : 0,
-            transition: 'opacity 0.6s ease-in-out',
-          }}
-        >
-          <Image src={img} alt={altPhoto(img, `${chateau.seoH1} - restaurant ${i + 1}`)} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
-        </div>
-      ))}
-      {images.length > 1 && (
-        <>
-          <button
-            onClick={() => goTo((current - 1 + images.length) % images.length)}
-            style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-            aria-label="Précédent"
-          >‹</button>
-          <button
-            onClick={() => goTo((current + 1) % images.length)}
-            style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-            aria-label="Suivant"
-          >›</button>
-          <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
-            {images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                style={{
-                  width: current === i ? '20px' : '8px', height: '8px',
-                  borderRadius: '4px', border: 'none', cursor: 'pointer',
-                  background: current === i ? 'white' : 'rgba(255,255,255,0.5)',
-                  transition: 'all 0.3s ease',
-                }}
-                aria-label={`Photo restauration ${i + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
+  return <Diaporama photos={images.map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.seoH1} - restaurant ${i + 1}`) }))} libellePoint="Photo restauration" />;
 }
 
 // Slider pour la section Espaces de Réunion
@@ -446,176 +257,9 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
   const meetingImages = forcedMeeting || chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
   const fallbackImg = chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1];
   const images = meetingImages.length > 0 ? meetingImages : [fallbackImg];
-  const { current, goTo, zone, proche } = useDiaporama(images.length);
-
-  return (
-    <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-      {images.map((img, i) => proche(i) && (
-        <div
-          key={i}
-          style={{
-            position: 'absolute', inset: 0,
-            opacity: current === i ? 1 : 0,
-            transition: 'opacity 0.6s ease-in-out',
-          }}
-        >
-          <Image src={img} alt={altPhoto(img, `${chateau.seoH1} - salle de réunion ${i + 1}`)} fill className="object-cover" loading="lazy" quality={80} sizes="50vw" />
-        </div>
-      ))}
-      {images.length > 1 && (
-        <>
-          <button
-            onClick={() => goTo((current - 1 + images.length) % images.length)}
-            style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-            aria-label="Précédent"
-          >‹</button>
-          <button
-            onClick={() => goTo((current + 1) % images.length)}
-            style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)', width: '40px', height: '40px', borderRadius: '50%', background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: '#333', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 2 }}
-            aria-label="Suivant"
-          >›</button>
-          <div style={{ position: 'absolute', bottom: '0.75rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 2 }}>
-            {images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                style={{
-                  width: current === i ? '20px' : '8px', height: '8px',
-                  borderRadius: '4px', border: 'none', cursor: 'pointer',
-                  background: current === i ? 'white' : 'rgba(255,255,255,0.5)',
-                  transition: 'all 0.3s ease',
-                }}
-                aria-label={`Photo ${i + 1}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
+  return <Diaporama photos={images.map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.seoH1} - salle de réunion ${i + 1}`) }))} />;
 }
 
-// Section Espaces de Réunion — Overlay avec slider
-function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
-  const extraMeetingImagesOverlay: Record<string, string[]> = {
-    "1": [
-      "/images/seminaire-chateau-chantilly-lobby-salon-accueil.webp",
-      "/images/seminaire-chateau-chantilly-salle-atelier-creatif.webp",
-      "/images/seminaire-chateau-chantilly-salle-pleniere-brique.webp",
-      "/images/seminaire-chateau-chantilly-salle-pleniere-theatre.webp",
-      "/images/seminaire-chateau-chantilly-salle-reunion-board-room.webp",
-      "/images/seminaire-chateau-chantilly-salle-reunion-carte-murale.webp",
-      "/images/seminaire-chateau-chantilly-salle-reunion-prestige.webp",
-      "/images/seminaire-chateau-chantilly-salle-seminaire-verte.webp",
-    ],
-    "3": [
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-reunion-abbaye.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-reunion-ferme-1.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-reunion-ferme-2.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-orangerie-haras.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-ecuries-haras-1.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-ecuries-haras-2.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-reunion-haras.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-4.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-5.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-6.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-2.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-espace-pause-sellerie-1.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-espace-pause-sellerie-2.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-pause-apres-midi.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-bar-salon-ete.webp",
-      "/images/seminaire-abbaye-vallee-de-chevreuse-salon-soiree-animee.webp",
-    ],
-    "4": [
-      "/images/seminaire-chateau-foret-chantilly-salon-reunion-4.webp",
-      "/images/seminaire-chateau-foret-chantilly-salle-pleniere.webp",
-      "/images/seminaire-chateau-foret-chantilly-salon-reunion-3.webp",
-      "/images/seminaire-chateau-foret-chantilly-salon-reunion-2.webp",
-      "/images/seminaire-chateau-foret-chantilly-salon-reunion-1.webp",
-      "/images/seminaire-chateau-foret-chantilly-salon-reunion-1-bis.webp",
-      "/images/seminaire-chateau-foret-chantilly-patio-2.webp",
-      "/images/seminaire-chateau-foret-chantilly-salle-creative.webp",
-      "/images/seminaire-chateau-foret-chantilly-bar-bibliotheque.webp",
-    ],
-  };
-  const forcedMeeting = extraMeetingImagesOverlay[chateau.id];
-  const meetingImages = forcedMeeting || chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
-  const fallbackImg = chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1];
-  const images = meetingImages.length > 0 ? meetingImages : [fallbackImg];
-  const { current, goTo, zone, proche } = useDiaporama(images.length);
-
-  return (
-    <section style={{ padding: 0 }}>
-      <div ref={zone} style={{ position: 'relative', height: 'clamp(28rem, 60vw, 38rem)', overflow: 'hidden' }}>
-        {/* Slider images */}
-        {images.map((img, i) => proche(i) && (
-          <div
-            key={i}
-            style={{
-              position: 'absolute', inset: 0,
-              opacity: current === i ? 1 : 0,
-              transition: 'opacity 0.8s ease-in-out',
-            }}
-          >
-            <Image src={img} alt={altPhoto(img, `${chateau.nom} - salle de réunion ${i + 1}`)} fill sizes="100vw" className="object-cover" loading="lazy" quality={80} />
-          </div>
-        ))}
-        {/* Gradient overlay */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%)', zIndex: 1 }} />
-        {/* Flèches */}
-        {images.length > 1 && (
-          <>
-            <button
-              onClick={() => goTo((current - 1 + images.length) % images.length)}
-              style={{ position: 'absolute', right: '4.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
-              aria-label="Précédent"
-            >‹</button>
-            <button
-              onClick={() => goTo((current + 1) % images.length)}
-              style={{ position: 'absolute', right: '1.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
-              aria-label="Suivant"
-            >›</button>
-          </>
-        )}
-        {/* Contenu overlay */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem)', zIndex: 2 }}>
-          <Container size="xl">
-            <div style={{ maxWidth: '800px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                <Building2 className="w-6 h-6" style={{ color: theme.colors.primary.gold }} />
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: theme.colors.primary.gold, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Espaces de travail</span>
-              </div>
-              <h2 style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)', fontWeight: 600, fontFamily: theme.typography.fonts.heading, color: 'white', marginBottom: '1rem', lineHeight: 1.2 }}>
-                Espaces de Réunion
-              </h2>
-              <div style={{ fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '650px' }}>
-                {chateau.meetingText.split('\n\n').map((paragraph, i) => (
-                  <p key={i} style={{ marginBottom: i < chateau.meetingText.split('\n\n').length - 1 ? '1rem' : 0 }}>
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
-                  <Check className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>Lumière naturelle</span>
-                </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
-                  <Check className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>Équipement AV complet</span>
-                </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
-                  <Check className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>Salles modulables</span>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function ChateauPageClient({ chateau, navRubriques, sectionRubriques }: ChateauPageClientProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -631,8 +275,6 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
     setLightboxIndex(idx >= 0 ? idx : 0);
   };
   const closeLightbox = () => setLightboxIndex(null);
-  const prevImage = () => setLightboxIndex(i => i !== null ? (i - 1 + allImages.length) % allImages.length : null);
-  const nextImage = () => setLightboxIndex(i => i !== null ? (i + 1) % allImages.length : null);
 
   const pointsFortsView = useInView();
   const faqCtaView = useInView();
@@ -932,7 +574,7 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
           <div className="responsive-grid" style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)' }}>
             {/* Slider LEFT — sticky */}
             <StickySlider>
-              <OverviewSlider images={chateau.images.hero} nom={chateau.nom} />
+              <Diaporama photos={chateau.images.hero.map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.nom} - vue ${i + 1} du domaine`) }))} />
             </StickySlider>
             {/* Cards RIGHT */}
             <div>
@@ -1278,60 +920,14 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
       {/* Barre fixe commune : descend au formulaire de la fiche, s'efface quand il est à l'écran */}
       <StickyCtaBar cible="#devis-express" />
 
-      {/* Lightbox carrousel avec flèches */}
+      {/* Visionneuse plein écran, chargée au premier clic */}
       {lightboxIndex !== null && (
-        <div
-          className="animate-fade-only"
-          onClick={closeLightbox}
-          onKeyDown={(e) => {
-            if (e.key === 'ArrowLeft') prevImage();
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'Escape') closeLightbox();
-          }}
-          tabIndex={0}
-          ref={(el) => el?.focus()}
-          style={{ position: 'fixed', inset: 0, background: 'rgba(0, 0, 0, 0.95)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem', outline: 'none' }}
-        >
-          {/* Bouton fermer */}
-          <button
-            onClick={closeLightbox}
-            style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.1)', border: '2px solid rgba(255, 255, 255, 0.2)', color: 'white', fontSize: '24px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000 }}
-            aria-label="Fermer"
-          >
-            ✕
-          </button>
-
-          {/* Compteur */}
-          <div style={{ position: 'absolute', top: '1.5rem', left: '50%', transform: 'translateX(-50%)', color: 'rgba(255,255,255,0.8)', fontSize: '0.9375rem', fontWeight: 600, zIndex: 10000 }}>
-            {lightboxIndex + 1} / {allImages.length}
-          </div>
-
-          {/* Flèche gauche */}
-          <button
-            onClick={(e) => { e.stopPropagation(); prevImage(); }}
-            style={{ position: 'absolute', left: 'clamp(0.5rem, 2vw, 1.5rem)', top: '50%', transform: 'translateY(-50%)', width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000, transition: 'all 0.2s ease' }}
-            aria-label="Image précédente"
-          >
-            ‹
-          </button>
-
-          {/* Flèche droite */}
-          <button
-            onClick={(e) => { e.stopPropagation(); nextImage(); }}
-            style={{ position: 'absolute', right: 'clamp(0.5rem, 2vw, 1.5rem)', top: '50%', transform: 'translateY(-50%)', width: '52px', height: '52px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.15)', border: '2px solid rgba(255, 255, 255, 0.3)', color: 'white', fontSize: '1.5rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(10px)', zIndex: 10000, transition: 'all 0.2s ease' }}
-            aria-label="Image suivante"
-          >
-            ›
-          </button>
-
-          {/* Image */}
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{ position: 'relative', width: '100%', height: '100%', maxWidth: '1400px', maxHeight: '85vh', cursor: 'default' }}
-          >
-            <Image src={allImages[lightboxIndex]} alt={altPhoto(allImages[lightboxIndex], `${chateau.nom} - Photo ${lightboxIndex + 1}`)} fill sizes="100vw" className="object-contain" quality={85} priority />
-          </div>
-        </div>
+        <Visionneuse
+          photos={allImages.map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.nom} - Photo ${i + 1}`) }))}
+          index={lightboxIndex}
+          onIndex={setLightboxIndex}
+          onFermer={closeLightbox}
+        />
       )}
     </>
   );

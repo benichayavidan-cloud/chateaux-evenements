@@ -7,14 +7,14 @@
  *  - section « photos sticky à gauche, cartes de texte à droite ».
  * Pas de grande photo pleine largeur au milieu de la page.
  *
- * Les briques StickySlider, OverviewSlider et ParaCard sont celles de la fiche
- * (exportées telles quelles) ; la grille du haut et la visionneuse reprennent
- * son markup. Leur extraction commune de la fiche est un chantier à part.
+ * Briques communes avec la fiche : Diaporama, Visionneuse, StickySlider et
+ * ParaCard (src/components/domaine). La grille du haut reprend son markup.
  */
 'use client';
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import { FileText, MapPin, Phone, Sparkles } from "lucide-react";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
@@ -23,9 +23,13 @@ import { theme } from "@/design-system/tokens";
 import { trackPhoneClick } from "@/components/Analytics";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
-import { OverviewSlider, ParaCard, StickySlider } from "@/app/chateaux/[slug]/ChateauPageClient";
+import { ParaCard, StickySlider } from "@/components/domaine/briques-fiche";
+import { Diaporama } from "@/components/domaine/Diaporama";
 import type { Chateau } from "@/types";
 import type { Rubrique, RubriqueId } from "@/types/rubriques";
+
+/** Visionneuse chargée seulement au premier clic sur une photo. */
+const Visionneuse = dynamic(() => import("@/components/domaine/Visionneuse").then((m) => m.Visionneuse), { ssr: false });
 
 /** Titre de la section sticky, commun à tous les domaines (le contenu, lui, est propre au lieu). */
 const TITRE_SECTION: Record<RubriqueId, string> = {
@@ -85,28 +89,8 @@ export function RubriqueVitrine({ chateau, id, titre, lieu, r, filAriane, navRub
   const photos = photosGrille(r, chateau);
   const grille = photos.slice(0, 5);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const visionneuseRef = useRef<HTMLDivElement>(null);
-  const declencheurRef = useRef<HTMLElement | null>(null);
-  const ouverte = lightboxIndex !== null;
-
-  // Focus donné UNE fois à l'ouverture, rendu au déclencheur à la fermeture
-  // (un ref-callback le reprenait à chaque photo et cassait la tabulation).
-  useEffect(() => {
-    if (!ouverte) return;
-    declencheurRef.current = document.activeElement as HTMLElement | null;
-    visionneuseRef.current?.focus();
-    const defilement = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = defilement;
-      declencheurRef.current?.focus();
-    };
-  }, [ouverte]);
-
   const ouvrir = (i: number) => setLightboxIndex(i);
   const fermer = () => setLightboxIndex(null);
-  const precedente = () => setLightboxIndex((i) => (i !== null ? (i - 1 + photos.length) % photos.length : null));
-  const suivante = () => setLightboxIndex((i) => (i !== null ? (i + 1) % photos.length : null));
 
   return (
     <>
@@ -290,7 +274,7 @@ export function RubriqueVitrine({ chateau, id, titre, lieu, r, filAriane, navRub
         <Container size="xl">
           <div className="responsive-grid" style={{ display: "grid", gridTemplateColumns: "1.15fr 1fr", gap: "clamp(2rem, 4vw, 3rem)" }}>
             <StickySlider>
-              <OverviewSlider images={(r.photos.length >= 2 ? r.photos.map((p) => p.src) : grille.map((p) => p.src))} nom={chateau.nom} />
+              <Diaporama photos={r.photos.length >= 2 ? r.photos.map((p) => ({ src: p.src, alt: p.legende })) : grille} />
             </StickySlider>
             <div>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: "1rem" }}>
@@ -311,54 +295,9 @@ export function RubriqueVitrine({ chateau, id, titre, lieu, r, filAriane, navRub
 
       <StickyCtaBar cible="#devis-express" />
 
-      {/* Visionneuse — même comportement que la fiche */}
+      {/* Visionneuse plein écran, chargée au premier clic */}
       {lightboxIndex !== null && (
-        <div
-          className="animate-fade-only"
-          onClick={fermer}
-          onKeyDown={(e) => {
-            if (e.key === "ArrowLeft") precedente();
-            if (e.key === "ArrowRight") suivante();
-            if (e.key === "Escape") fermer();
-          }}
-          tabIndex={0}
-          role="dialog"
-          aria-label="Photos du domaine"
-          aria-modal="true"
-          ref={visionneuseRef}
-          style={{ position: "fixed", inset: 0, background: "rgba(0, 0, 0, 0.95)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem", outline: "none" }}
-        >
-          <button
-            onClick={fermer}
-            style={{ position: "absolute", top: "1.5rem", right: "1.5rem", width: "48px", height: "48px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.1)", border: "2px solid rgba(255, 255, 255, 0.2)", color: "white", fontSize: "24px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 10000 }}
-            aria-label="Fermer"
-          >
-            ✕
-          </button>
-          <div style={{ position: "absolute", top: "1.5rem", left: "50%", transform: "translateX(-50%)", color: "rgba(255,255,255,0.8)", fontSize: "0.9375rem", fontWeight: 600, zIndex: 10000 }}>
-            {lightboxIndex + 1} / {photos.length}
-          </div>
-          <button
-            onClick={(e) => { e.stopPropagation(); precedente(); }}
-            style={{ position: "absolute", left: "clamp(0.5rem, 2vw, 1.5rem)", top: "50%", transform: "translateY(-50%)", width: "52px", height: "52px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.15)", border: "2px solid rgba(255, 255, 255, 0.3)", color: "white", fontSize: "1.5rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 10000 }}
-            aria-label="Image précédente"
-          >
-            ‹
-          </button>
-          <button
-            onClick={(e) => { e.stopPropagation(); suivante(); }}
-            style={{ position: "absolute", right: "clamp(0.5rem, 2vw, 1.5rem)", top: "50%", transform: "translateY(-50%)", width: "52px", height: "52px", borderRadius: "50%", background: "rgba(255, 255, 255, 0.15)", border: "2px solid rgba(255, 255, 255, 0.3)", color: "white", fontSize: "1.5rem", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 10000 }}
-            aria-label="Image suivante"
-          >
-            ›
-          </button>
-          <figure onClick={(e) => e.stopPropagation()} style={{ position: "relative", width: "100%", height: "100%", maxWidth: "1400px", maxHeight: "85vh", cursor: "default" }}>
-            <Image src={photos[lightboxIndex].src} alt={photos[lightboxIndex].alt} fill sizes="100vw" className="object-contain" quality={85} priority />
-            <figcaption style={{ position: "absolute", bottom: "-2rem", left: 0, right: 0, textAlign: "center", color: "rgba(255,255,255,0.85)", fontSize: "0.875rem" }}>
-              {photos[lightboxIndex].alt}
-            </figcaption>
-          </figure>
-        </div>
+        <Visionneuse photos={photos} index={lightboxIndex} onIndex={setLightboxIndex} onFermer={fermer} legendes />
       )}
     </>
   );
