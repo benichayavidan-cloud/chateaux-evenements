@@ -12,12 +12,13 @@ import { Section, Container } from '@/components/layout-v2';
 import { Text, Badge, Button } from '@/components/ui-v2';
 import { BOUTON_DEVIS, BOUTON_TELEPHONE } from "@/components/domaine/boutons-cta";
 import { theme } from '@/design-system/tokens';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import type { Chateau } from "@/types";
 import { trackChateauView, trackPhoneClick } from "@/components/Analytics";
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { useInView } from "@/hooks/useInView";
+import { useDiaporama } from "@/hooks/useDiaporama";
 import { lienFinal } from "@/data/redirections";
 import photosRenommees from "@/data/photos-renommees.json";
 import { creerAltPhoto, type PhotosRenommees } from "@/lib/photo-alt";
@@ -109,29 +110,11 @@ export function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg
 
 // Slider pour la section Vue d'ensemble
 export function OverviewSlider({ images, nom }: { images: string[]; nom: string }) {
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoplay = () => {
-    timerRef.current = setInterval(() => {
-      setCurrent(prev => (prev + 1) % images.length);
-    }, 2000);
-  };
-  useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images.length]);
-
-  const goTo = (index: number) => {
-    setCurrent(index);
-    if (timerRef.current) clearInterval(timerRef.current);
-    startAutoplay();
-  };
+  const { current, goTo, zone, proche } = useDiaporama(images.length);
 
   return (
-    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-      {images.map((img, i) => (
+    <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+      {images.map((img, i) => proche(i) && (
         <div
           key={i}
           style={{
@@ -223,26 +206,7 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
   const allBedroomImages = [...forcedImages, ...autoBedroomImages.filter(img => !forcedImages.includes(img))];
   const fallbackImg = chateau.images.galerie[getBedroomImageIndex(chateau.id)] || chateau.images.hero[2];
   const images = allBedroomImages.length > 0 ? allBedroomImages : [fallbackImg];
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoplay = () => {
-    timerRef.current = setInterval(() => {
-      setCurrent(prev => (prev + 1) % images.length);
-    }, 2000);
-  };
-
-  useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images.length]);
-
-  const goTo = (index: number) => {
-    setCurrent(index);
-    if (timerRef.current) clearInterval(timerRef.current);
-    startAutoplay();
-  };
+  const { current, goTo, zone, proche } = useDiaporama(images.length);
 
   return (
     <Section spacing="lg" background="white" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
@@ -275,8 +239,8 @@ function HebergementOverlay({ chateau }: { chateau: Chateau }) {
           </div>
           {/* Slider RIGHT — sticky JS */}
           <StickySlider>
-            <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-              {images.map((img, i) => (
+            <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+              {images.map((img, i) => proche(i) && (
                 <div
                   key={i}
                   style={{
@@ -384,29 +348,11 @@ function RestaurantSlider({ chateau }: { chateau: Chateau }) {
   const restImages = forced || chateau.images.galerie.filter(img => /restaurant|terrasse|bar|buffet|brunch|cuisine|traiteur/i.test(img));
   const fallbackImg = chateau.images.hero[0];
   const images = restImages.length > 0 ? restImages : [fallbackImg];
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoplay = () => {
-    timerRef.current = setInterval(() => {
-      setCurrent(prev => (prev + 1) % images.length);
-    }, 2000);
-  };
-  useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images.length]);
-
-  const goTo = (index: number) => {
-    setCurrent(index);
-    if (timerRef.current) clearInterval(timerRef.current);
-    startAutoplay();
-  };
+  const { current, goTo, zone, proche } = useDiaporama(images.length);
 
   return (
-    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-      {images.map((img, i) => (
+    <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+      {images.map((img, i) => proche(i) && (
         <div
           key={i}
           style={{
@@ -500,29 +446,11 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
   const meetingImages = forcedMeeting || chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
   const fallbackImg = chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1];
   const images = meetingImages.length > 0 ? meetingImages : [fallbackImg];
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoplay = () => {
-    timerRef.current = setInterval(() => {
-      setCurrent(prev => (prev + 1) % images.length);
-    }, 2000);
-  };
-  useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images.length]);
-
-  const goTo = (index: number) => {
-    setCurrent(index);
-    if (timerRef.current) clearInterval(timerRef.current);
-    startAutoplay();
-  };
+  const { current, goTo, zone, proche } = useDiaporama(images.length);
 
   return (
-    <div style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
-      {images.map((img, i) => (
+    <div ref={zone} style={{ position: 'relative', height: '420px', borderRadius: '1rem', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.12)' }}>
+      {images.map((img, i) => proche(i) && (
         <div
           key={i}
           style={{
@@ -614,32 +542,13 @@ function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
   const meetingImages = forcedMeeting || chateau.images.galerie.filter(img => /salle|reunion|seminaire|auditorium|conference|theatre|board/i.test(img));
   const fallbackImg = chateau.images.galerie[getMeetingRoomImageIndex(chateau.id)] || chateau.images.hero[1];
   const images = meetingImages.length > 0 ? meetingImages : [fallbackImg];
-  const [current, setCurrent] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const startAutoplay = () => {
-    timerRef.current = setInterval(() => {
-      setCurrent(prev => (prev + 1) % images.length);
-    }, 2000);
-  };
-
-  useEffect(() => {
-    startAutoplay();
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [images.length]);
-
-  const goTo = (index: number) => {
-    setCurrent(index);
-    if (timerRef.current) clearInterval(timerRef.current);
-    startAutoplay();
-  };
+  const { current, goTo, zone, proche } = useDiaporama(images.length);
 
   return (
     <section style={{ padding: 0 }}>
-      <div style={{ position: 'relative', height: 'clamp(28rem, 60vw, 38rem)', overflow: 'hidden' }}>
+      <div ref={zone} style={{ position: 'relative', height: 'clamp(28rem, 60vw, 38rem)', overflow: 'hidden' }}>
         {/* Slider images */}
-        {images.map((img, i) => (
+        {images.map((img, i) => proche(i) && (
           <div
             key={i}
             style={{
@@ -658,12 +567,12 @@ function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
           <>
             <button
               onClick={() => goTo((current - 1 + images.length) % images.length)}
-              style={{ position: 'absolute', right: '4.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
+              style={{ position: 'absolute', right: '4.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
               aria-label="Précédent"
             >‹</button>
             <button
               onClick={() => goTo((current + 1) % images.length)}
-              style={{ position: 'absolute', right: '1.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
+              style={{ position: 'absolute', right: '1.5rem', bottom: '1.5rem', width: '42px', height: '42px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.3)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.25rem', color: 'white', zIndex: 3 }}
               aria-label="Suivant"
             >›</button>
           </>
@@ -687,15 +596,15 @@ function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
                 ))}
               </div>
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
                   <Check className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
                   <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>Lumière naturelle</span>
                 </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
                   <Check className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
                   <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>Équipement AV complet</span>
                 </div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 16px', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: theme.effects.borderRadius.full }}>
                   <Check className="w-4 h-4" style={{ color: theme.colors.primary.gold }} />
                   <span style={{ fontSize: '0.8125rem', fontWeight: 600, color: 'white' }}>Salles modulables</span>
                 </div>
@@ -1171,9 +1080,7 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
               >
                 <div style={{
                   padding: '1.25rem 2rem',
-                  background: 'rgba(255,255,255,0.12)',
-                  backdropFilter: 'blur(16px)',
-                  WebkitBackdropFilter: 'blur(16px)',
+                  background: 'rgba(255,255,255,0.16)',
                   borderRadius: '1rem',
                   border: '1px solid rgba(255,255,255,0.2)',
                   textAlign: 'center',
