@@ -1,0 +1,85 @@
+/*
+ * Marges et espacements des rubriques de domaine.
+ *
+ * Pourquoi ce fichier. globals.css contient, HORS de toute couche,
+ * `* { margin: 0; padding: 0 }`. Une règle hors couche l'emporte sur toute
+ * règle en couche, quelle que soit sa spécificité : les utilitaires Tailwind
+ * v4 (`@layer utilities`) px-4, mt-6… sont donc sans effet sur tout le site —
+ * c'est pour ça que la fiche château écrit ses marges en style en ligne.
+ *
+ * Ici, on rétablit les utilitaires d'espacement employés par les composants
+ * domaine/*, SUR et SOUS la classe racine `.domaine` (règles hors couche,
+ * spécificité 0,2,0 > 0,0,0). Le reste du site n'est pas touché.
+ * Une classe d'espacement ajoutée dans ces composants doit être ajoutée ici.
+ */
+
+.domaine:global(.mx-auto),
+.domaine :global(.mx-auto) { margin-left: auto; margin-right: auto; }
+.domaine:global(.-mx-4),
+.domaine :global(.-mx-4) { margin-left: -1rem; margin-right: -1rem; }
+
+.domaine:global(.p-4),
+.domaine :global(.p-4) { padding: 1rem; }
+.domaine:global(.px-2),
+.domaine :global(.px-2) { padding-left: 0.5rem; padding-right: 0.5rem; }
+.domaine:global(.px-4),
+.domaine :global(.px-4) { padding-left: 1rem; padding-right: 1rem; }
+.domaine:global(.py-2),
+.domaine :global(.py-2) { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.domaine:global(.py-3),
+.domaine :global(.py-3) { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.domaine:global(.py-12),
+.domaine :global(.py-12) { padding-top: 3rem; padding-bottom: 3rem; }
+.domaine:global(.pt-4),
+.domaine :global(.pt-4) { padding-top: 1rem; }
+.domaine:global(.pb-16),
+.domaine :global(.pb-16) { padding-bottom: 4rem; }
+.domaine:global(.pr-4),
+.domaine :global(.pr-4) { padding-right: 1rem; }
+
+.domaine:global(.mt-1),
+.domaine :global(.mt-1) { margin-top: 0.25rem; }
+.domaine:global(.mt-2),
+.domaine :global(.mt-2) { margin-top: 0.5rem; }
+.domaine:global(.mt-3),
+.domaine :global(.mt-3) { margin-top: 0.75rem; }
+.domaine:global(.mt-6),
+.domaine :global(.mt-6) { margin-top: 1.5rem; }
+.domaine:global(.mt-8),
+.domaine :global(.mt-8) { margin-top: 2rem; }
+.domaine:global(.mt-10),
+.domaine :global(.mt-10) { margin-top: 2.5rem; }
+.domaine:global(.mt-12),
+.domaine :global(.mt-12) { margin-top: 3rem; }
+.domaine:global(.mt-14),
+.domaine :global(.mt-14) { margin-top: 3.5rem; }
+.domaine:global(.mb-2),
+.domaine :global(.mb-2) { margin-bottom: 0.5rem; }
+.domaine:global(.mb-3),
+.domaine :global(.mb-3) { margin-bottom: 0.75rem; }
+.domaine:global(.mb-4),
+.domaine :global(.mb-4) { margin-bottom: 1rem; }
+.domaine:global(.mb-6),
+.domaine :global(.mb-6) { margin-bottom: 1.5rem; }
+
+@media (min-width: 768px) {
+  .domaine:global(.md\:mx-0),
+  .domaine :global(.md\:mx-0) { margin-left: 0; margin-right: 0; }
+  .domaine:global(.md\:px-0),
+  .domaine :global(.md\:px-0) { padding-left: 0; padding-right: 0; }
+  .domaine:global(.md\:px-8),
+  .domaine :global(.md\:px-8) { padding-left: 2rem; padding-right: 2rem; }
+  .domaine:global(.md\:p-5),
+  .domaine :global(.md\:p-5) { padding: 1.25rem; }
+  .domaine:global(.md\:pt-6),
+  .domaine :global(.md\:pt-6) { padding-top: 1.5rem; }
+  .domaine:global(.md\:py-16),
+  .domaine :global(.md\:py-16) { padding-top: 4rem; padding-bottom: 4rem; }
+}
+
+/*
+ * globals.css force `nav a { color: #1F2937 !important }` sur mobile (menu du
+ * header) : la pastille active du menu des rubriques passait en texte sombre
+ * sur fond bronze. Spécificité supérieure + !important pour la rétablir.
+ */
+.domaine :global(a[aria-current="page"]) { color: #FFFFFF !important; }

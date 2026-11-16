@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next'
 import { chateaux } from '@/data/chateaux'
+import { RUBRIQUES_PAR_CHATEAU } from '@/data/rubriques'
+import { rubriquesPubliees, urlRubrique } from '@/lib/rubriques'
+
 import { blogPosts } from '@/data/blog-posts'
 import { venues, GENERATED_AT } from '@/data/venues'
 import { landingsDepartements } from '@/data/landings-departements'
@@ -7,6 +10,9 @@ import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { estRedirige } from '@/data/redirections'
 import { estHorsGoogle } from '@/data/articles-hors-google'
+
+/** Date de la dernière mise à jour importante des rubriques (à changer à chaque enrichissement). */
+const RUBRIQUES_MAJ = new Date('2026-11-16')
 
 /**
  * Sitemap.ts - Génération dynamique du sitemap XML
@@ -103,6 +109,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8, // Priorité importante pour les pages produits
   }))
 
+  // 3 bis. Rubriques des domaines (/chateaux/<slug>/salles…)
+  const rubriquesPages: MetadataRoute.Sitemap = Object.keys(RUBRIQUES_PAR_CHATEAU).flatMap((slug) =>
+    rubriquesPubliees(slug).map((id) => ({
+      url: `${baseUrl}${urlRubrique(slug, id)}`,
+      lastModified: RUBRIQUES_MAJ,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  )
+
   // 4. Pages blog
   const referencesPage: MetadataRoute.Sitemap = [
     {
@@ -195,6 +211,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...landingsFormatPages,
     ...staticPages,
     ...chateauxPages,
+    ...rubriquesPages,
     ...lieuxListingPage,
     ...lieuxPages,
     ...geoPages,
