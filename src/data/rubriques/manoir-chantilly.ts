@@ -42,7 +42,6 @@ const img = (nom: string) => `/images/seminaire-chateau-chantilly-${nom}.webp`;
 
 export const rubriquesManoirChantilly: RubriquesDomaine = {
   salles: {
-    titre: 'Nos salles de réunion',
     seoTitle: 'Salles de séminaire en château, forêt de Chantilly',
     seoDescription:
       "21 espaces de réunion de 15 à 300 m² : plénière de 280 places avec écran de 18 m², grand salon de 264 m², serre dans le parc. Capacités salle par salle.",
@@ -118,7 +117,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   },
 
   chambres: {
-    titre: 'Nos chambres et suites',
     seoTitle: 'Séminaire résidentiel à Chantilly : 119 chambres (60)',
     seoDescription:
       "119 chambres et suites, dont 39 pensées pour travailler, jusqu'à 243 personnes hébergées. Spa avec piscine intérieure chauffée, sauna et hammam inclus.",
@@ -165,7 +163,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   },
 
   exterieurs: {
-    titre: 'Nos espaces extérieurs',
     seoTitle: 'Château avec parc de 6 hectares en forêt de Chantilly',
     seoDescription:
       "Un parc de 6 hectares entouré de forêts, des terrasses en cascade, un amphithéâtre de verdure et une serre de 300 m² pour vos pauses et ateliers en plein air.",
@@ -207,7 +204,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   },
 
   restauration: {
-    titre: 'Notre restauration',
     seoTitle: 'Restaurants du château : terrasse plein sud, Chantilly',
     seoDescription:
       "3 restaurants et un bar à cocktails, terrasse plein sud sur le parc, buffet de produits de saison, brunch du dimanche. Banquets jusqu'à 250 convives.",
@@ -248,7 +244,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   },
 
   soirees: {
-    titre: "Vos soirées d'entreprise",
     seoTitle: "Soirée d'entreprise dans un château à Chantilly",
     seoDescription:
       "Dîner de gala jusqu'à 240 convives, cocktail jusqu'à 250, bar à cocktails ouvert tard, soirée DJ, billard : vos soirées sans quitter le château.",
@@ -288,7 +283,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   },
 
   activites: {
-    titre: 'Nos activités',
     seoTitle: 'Team building en forêt de Chantilly, au château',
     seoDescription:
       "Challenges nature, ateliers créatifs, VTT, dragon boat, rallye 2CV, atelier crème Chantilly, yoga, équitation : activités de cohésion sur place et autour.",
@@ -327,7 +321,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   },
 
   acces: {
-    titre: 'Venir au domaine',
     seoTitle: 'Accès au château : A1, TER Paris-Nord et Roissy à 25 min',
     seoDescription:
       "À moins de 35 km de Paris par l'A1, gare de Chantilly à 5 min (TER direct depuis Paris-Nord en 25 min environ), Roissy-CDG à 25 min. Parking gratuit.",

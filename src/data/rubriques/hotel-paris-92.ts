@@ -56,7 +56,6 @@ const stockage = (fichier: string) => chateauImage('Hotel Paris 92', `seminaire-
 
 export const rubriquesHotelParis92: RubriquesDomaine = {
   salles: {
-    titre: 'Nos salles de réunion',
     seoTitle: 'Salles de réunion 5 étoiles à Issy-les-Moulineaux',
     seoDescription:
       "9 espaces de réunion dans un bâtiment classé aux portes de Paris : salons de 22 à 50 m², chapelle, terrasses et jardin. Capacités salle par salle.",
@@ -115,7 +114,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   },
 
   chambres: {
-    titre: 'Nos chambres et suites',
     seoTitle: 'Séminaire résidentiel aux portes de Paris : 83 chambres',
     seoDescription:
       "83 chambres et suites de 24 à 50 m², dont des chambres et suites avec vue sur la tour Eiffel. Spa avec piscine, hammam et sauna, à deux pas du métro.",
@@ -159,7 +157,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   },
 
   exterieurs: {
-    titre: 'Nos espaces extérieurs',
     seoTitle: 'Jardin historique avec vue tour Eiffel pour séminaire',
     seoDescription:
       "Un jardin de 9 500 m² avec vue sur la tour Eiffel, un potager, trois terrasses et une chapelle : vos pauses et cocktails en plein air, aux portes de Paris.",
@@ -202,7 +199,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   },
 
   restauration: {
-    titre: 'Notre restauration',
     seoTitle: 'Restaurant bistronomique et terrasse jardin, séminaire 92',
     seoDescription:
       "Cuisine gourmande et végétale nourrie du potager, terrasse de 100 m² pour 70 convives, pauses gourmandes, bar lounge : la restauration de vos séminaires.",
@@ -250,7 +246,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   },
 
   soirees: {
-    titre: "Vos soirées d'entreprise",
     seoTitle: "Soirée d'entreprise : bar à rhum dans une chapelle (92)",
     seoDescription:
       "Bar à rhum caché dans une chapelle désacralisée, dîner privé en chapelle dès 8 convives, cocktail jusqu'à 300 invités au jardin face à la tour Eiffel.",
@@ -291,7 +286,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   },
 
   activites: {
-    titre: 'Nos activités',
     seoTitle: 'Team building aux portes de Paris : vin, rhum, yoga',
     seoDescription:
       "Ateliers de vin, masterclass de rhum, yoga, spa de 300 m² avec piscine et vélos électriques : nos activités de cohésion pour vos équipes.",
@@ -332,7 +326,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   },
 
   acces: {
-    titre: 'Venir au domaine',
     seoTitle: "Accès en métro ligne 12 : Mairie d'Issy, hôtel 5 étoiles",
     seoDescription:
       "Métro ligne 12 à 5 min à pied, Porte de Versailles à 5 min en voiture, Orly à 25 min, CDG à 50 min. Parking avec voiturier et bornes de recharge.",

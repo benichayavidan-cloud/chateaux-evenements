@@ -14,7 +14,7 @@ import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
 import { theme } from "@/design-system/tokens";
 import styles from "@/components/domaine/domaine.module.css";
-import { rubrique as lireRubrique, urlRubrique } from "@/lib/rubriques";
+import { TITRES, rubrique as lireRubrique, urlRubrique } from "@/lib/rubriques";
 import type { RubriqueId } from "@/types/rubriques";
 
 interface DecouvrirDomaineProps {
@@ -50,7 +50,7 @@ export function DecouvrirDomaine({ slug, rubriques, titre = "Découvrir le domai
                   )}
                   <div className={styles.carteCorps}>
                     <span style={{ fontFamily: theme.typography.fonts.heading, fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)", fontWeight: 600, color: theme.colors.neutral.gray900, lineHeight: 1.25 }}>
-                      {r.titre}
+                      {TITRES[id]}
                     </span>
                     <span className={styles.resumeCourt} style={{ fontSize: "0.8125rem", lineHeight: 1.5, color: theme.colors.neutral.gray600 }}>
                       {r.resume}

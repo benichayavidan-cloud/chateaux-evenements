@@ -7,7 +7,7 @@
  * est publiée quand même.
  */
 import { RUBRIQUES, type Rubrique, type RubriqueId, type RubriquesDomaine } from '../types/rubriques.ts';
-import { RUBRIQUES_PAR_CHATEAU } from '../data/rubriques/index.ts';
+import { LIEU_DANS_TITRE, RUBRIQUES_PAR_CHATEAU } from '../data/rubriques/index.ts';
 
 /** Libellés courts du menu des rubriques. */
 export const LIBELLES: Record<RubriqueId, string> = {
@@ -19,6 +19,25 @@ export const LIBELLES: Record<RubriqueId, string> = {
   activites: 'Activités',
   acces: 'Accès',
 };
+
+/**
+ * Première ligne du titre de page (H1), un mot-clé différent par rubrique
+ * (validé PO 16/11/2026) : la même phrase sur les 7 pages serait du texte
+ * passe-partout. La seconde ligne, propre au lieu, vient de LIEU_DANS_TITRE.
+ */
+export const TITRES: Record<RubriqueId, string> = {
+  salles: 'Nos salles de séminaire',
+  chambres: 'Nos chambres pour votre séminaire résidentiel',
+  exterieurs: 'Nos extérieurs pour la cohésion de vos équipes',
+  restauration: 'Notre restauration pour vos séminaires et banquets',
+  soirees: "Vos soirées d'entreprise et dîners de gala",
+  activites: 'Nos activités de team building',
+  acces: 'Venir en séminaire',
+};
+
+export function lieuDansTitre(slug: string): string | undefined {
+  return LIEU_DANS_TITRE[slug];
+}
 
 /** Cible de remplissage par rubrique — un repère, jamais une condition. */
 const CIBLES: Record<RubriqueId, { photos: number; faits: number; tableauSalles?: true }> = {

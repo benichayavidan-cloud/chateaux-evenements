@@ -22,7 +22,6 @@ const img = (nom: string) => `/images/seminaire-abbaye-vallee-de-chevreuse-${nom
 
 export const rubriquesAbbaye: RubriquesDomaine = {
   salles: {
-    titre: 'Nos salles de réunion',
     seoTitle: 'Salles de séminaire en abbaye, Vallée de Chevreuse',
     seoDescription:
       "14 espaces de réunion dans une abbaye du XIIe siècle : réfectoire médiéval de 250 couverts, salon de 209 m², cinéma privé. Capacités salle par salle.",
@@ -84,7 +83,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   },
 
   chambres: {
-    titre: 'Nos chambres et suites',
     seoTitle: 'Séminaire résidentiel en abbaye : 144 chambres (78)',
     seoDescription:
       "144 chambres et suites réparties entre l'abbaye, les haras et la ferme, rénovées en 2023. Spa avec 7 cabines de soins, piscine chauffée et bains nordiques.",
@@ -129,7 +127,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   },
 
   exterieurs: {
-    titre: 'Nos espaces extérieurs',
     seoTitle: 'Abbaye avec parc de 80 hectares et lac, séminaire 78',
     seoDescription:
       "80 hectares de forêt, un lac, des ruines médiévales : le parc du domaine accueille vos pauses, activités et cocktails en plein air, à 45 minutes de Paris.",
@@ -171,7 +168,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   },
 
   restauration: {
-    titre: 'Notre restauration',
     seoTitle: 'Restaurants du domaine : réfectoire et gastronomie (78)',
     seoDescription:
       "4 restaurants et 2 bars : dîner de gala de 250 couverts au réfectoire médiéval, cuisine française, trattoria, auberge. Menus sur mesure pour vos séminaires.",
@@ -214,7 +210,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   },
 
   soirees: {
-    titre: "Vos soirées d'entreprise",
     seoTitle: "Soirée d'entreprise dans une abbaye, Vallée de Chevreuse",
     seoDescription:
       "Dîner de gala au réfectoire médiéval pour 250 convives, bars et salons, karaoké, salle de jeux de 200 m², cinéma privé : vos soirées sans quitter le domaine.",
@@ -257,7 +252,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   },
 
   activites: {
-    titre: 'Nos activités',
     seoTitle: "Activités de team building dans un domaine de 80 ha",
     seoDescription:
       "Tennis, padel, vélos, barques sur le lac, parcours sportif, spa, yoga, karaoké, arcade : les activités en libre accès et encadrées du domaine pour vos équipes.",
@@ -298,7 +292,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   },
 
   acces: {
-    titre: 'Venir au domaine',
     seoTitle: 'Accès au domaine : RER B, train et route depuis Paris',
     seoDescription:
       "À 45 min de Paris en voiture, RER B ou train depuis Montparnasse puis transfert de 15 min, Orly à 40 min. Itinéraires, parking et transferts.",
