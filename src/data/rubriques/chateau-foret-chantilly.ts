@@ -8,7 +8,7 @@
  *               écran LED, p.7 plan des espaces, p.8 tableau des capacités,
  *               p.9 accès, p.11 team building.
  *  - SITE     : site officiel du lieu, page d'accueil (style Louis XVI, terrasses,
- *               brasserie dans l'ancienne bibliothèque, court de tennis).
+ *               restaurant de la bibliothèque, court de tennis).
  *  - PRATIQUE : site officiel, page « informations pratiques » (gares et
  *               distances, Roissy-CDG, parking, transferts, piscine chauffée,
  *               sentier de 20 min, horaires d'arrivée et de départ).
@@ -188,9 +188,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
   restauration: {
     seoTitle: 'Restauration de séminaire en château, forêt de Chantilly',
     seoDescription:
-      "Restaurant, brasserie dans l'ancienne bibliothèque, bar du patio : produits frais et de saison, dîners de gala jusqu'à 200 couverts, show cooking, barbecue.",
+      "Restaurant gastronomique, restaurant de la bibliothèque, bar du patio : produits de saison, dîners de gala jusqu'à 200 couverts, show cooking.",
     resume:
-      "Un restaurant, une brasserie dans l'ancienne bibliothèque et un bar de patio, avec des menus de saison composés pour vos séminaires.",
+      "Un restaurant gastronomique, le restaurant de la bibliothèque et un bar de patio, avec des menus de saison composés pour vos séminaires.",
     intro:
       "Notre offre de restauration associe savoir-faire gastronomique et flexibilité. Nos menus mettent en avant des produits frais, locaux et de saison, sélectionnés auprès de partenaires de confiance. Cocktail, déjeuner, dîner de gala ou animation culinaire : chaque prestation est composée pour votre groupe.",
     faits: [
@@ -201,16 +201,16 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     ],
     photos: [
       { src: img('restaurant-gastronomique'), legende: 'Le restaurant, baigné de lumière naturelle' },
-      { src: img('bar-bibliotheque'), legende: "La brasserie de l'ancienne bibliothèque, boiseries et cheminée" },
-      { src: img('buffet-seminaire'), legende: 'Pâtisseries et desserts au buffet' },
+      { src: img('bar-bibliotheque'), legende: 'Le restaurant de la bibliothèque, boiseries et cheminée' },
+      { src: img('pause-gourmande-patisseries'), legende: 'Pâtisseries et desserts de la pause gourmande' },
       { src: img('patio-2'), legende: 'Le bar et le salon sous la verrière du patio' },
       { src: img('terrasse-exterieure'), legende: 'Déjeuner en terrasse, face à la forêt' },
     ],
     blocs: [
       {
-        titre: 'Le restaurant et la brasserie',
+        titre: 'Deux restaurants, du petit-déjeuner au dîner',
         texte:
-          "Le restaurant sert le petit-déjeuner de 7 h à 10 h, le déjeuner de 12 h à 14 h 30 et le dîner de 19 h à 21 h 30. La brasserie, installée dans l'ancienne bibliothèque avec sa cheminée, propose une carte de saison et de terroir, avec une terrasse face à la forêt.",
+          "Le restaurant sert le petit-déjeuner de 7 h à 10 h, le déjeuner de 12 h à 14 h 30 et le dîner de 19 h à 21 h 30. Le restaurant de la bibliothèque, avec ses boiseries et sa cheminée, propose une carte de saison et de terroir, avec une terrasse face à la forêt.",
       },
       {
         titre: 'Pauses et déjeuners de séminaire',
@@ -220,7 +220,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         titre: 'Animations culinaires',
         texte:
-          "Pour animer un repas : show cooking dès 15 personnes, barbecue en complément du buffet dès 50 personnes, ou atelier autour de la crème Chantilly avec dégustation de fruits de saison dès 10 personnes.",
+          "Pour animer un repas : show cooking dès 15 personnes, déjeuner grillé en plein air en complément du déjeuner en libre-service raffiné dès 50 personnes, ou atelier autour de la crème Chantilly avec dégustation de fruits de saison dès 10 personnes.",
       },
     ],
     sources: [BROCHURE, SITE],
@@ -285,7 +285,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       { src: img('activites-team-building'), legende: 'Le boulodrome du parc, prêt pour un tournoi' },
       { src: img('piscine-interieure'), legende: 'La piscine intérieure du spa' },
       { src: img('cabines-de-soin-spa'), legende: 'Une cabine de soins du spa' },
-      { src: img('buffet-seminaire'), legende: "Pâtisseries maison, à l'image de l'atelier du chef pâtissier" },
+      { src: img('pause-gourmande-patisseries'), legende: "Pâtisseries maison, à l'image de l'atelier du chef pâtissier" },
     ],
     blocs: [
       {

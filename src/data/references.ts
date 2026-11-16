@@ -124,7 +124,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "TTC, enveloppe tenue", valeur: "13 000 €" },
       { label: "invités", valeur: "120" },
     ],
-    image: "/images/seminaire-abbaye-vallee-de-chevreuse-diner-refectoire-medieval.webp",
+    image: "/images/seminaire-abbaye-vallee-de-chevreuse-diner-gala-grande-salle-voutes.webp",
     imageAlt: "Dîner d'entreprise dressé dans le réfectoire d'une abbaye en Île-de-France",
   },
   {

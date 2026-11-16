@@ -13,7 +13,7 @@ test('une photo renommée reçoit sa description, avec accents', () => {
     altPhoto('/images/seminaire-chateau-chantilly-salle-pleniere-theatre.webp', 'repli'),
     'Salle plénière en configuration théâtre, convention en château à Chantilly',
   );
-  assert.match(altPhoto('/images/seminaire-abbaye-vallee-de-chevreuse-refectoire-medieval-voute.webp', 'repli'), /^Réfectoire médiéval voûté/);
+  assert.match(altPhoto('/images/seminaire-abbaye-vallee-de-chevreuse-grande-salle-voutes.webp', 'repli'), /^Grande Salle des Voûtes/);
 });
 
 test('une photo du stockage (URL complète, encodée) est reconnue aussi', () => {
@@ -43,10 +43,16 @@ test('aucun fichier du site ni nouveau nom ne porte un vrai nom de lieu', () => 
 test('chaque ancienne adresse /images/ redirige (308) vers la nouvelle', () => {
   const r = redirectionsPhotos(photos);
   const locaux = photos.lots.flatMap((l) => l.photos).filter((p) => p.ou === 'local');
-  assert.equal(r.length, locaux.length);
+  assert.equal(r.length, locaux.reduce((n, p) => n + 1 + (p.intermediaires?.length ?? 0), 0));
   for (const x of r) {
     assert.match(x.source, /^\/images\/.+\.webp$/);
     assert.doesNotMatch(x.destination, VRAIS_NOMS);
     assert.equal(x.permanent, true);
   }
+});
+
+test('un nom intermédiaire (renommage du 16/11) redirige aussi vers le nom actuel', () => {
+  const r = redirectionsPhotos(photos);
+  const x = r.find((y) => y.source === '/images/seminaire-abbaye-vallee-de-chevreuse-refectoire-medieval-voute.webp');
+  assert.equal(x?.destination, '/images/seminaire-abbaye-vallee-de-chevreuse-grande-salle-voutes.webp');
 });

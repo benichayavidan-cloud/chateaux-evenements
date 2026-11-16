@@ -17,6 +17,12 @@ export interface PhotoRenommee {
   /** local = public/images ; stockage = bucket Supabase chateaux-images. */
   ou: 'local' | 'stockage';
   alt: string;
+  /**
+   * Noms publiés entre `ancien` et `nouveau` (16/11/2026 : « réfectoire »,
+   * « buffet », « auberge »… retirés des noms de fichier, vocabulaire séminaire).
+   * Ils redirigent aussi vers `nouveau`.
+   */
+  intermediaires?: string[];
 }
 
 export interface PhotosRenommees {
@@ -43,5 +49,11 @@ export function redirectionsPhotos(photos: PhotosRenommees) {
   return photos.lots
     .flatMap((l) => l.photos)
     .filter((p) => p.ou === 'local')
-    .map((p) => ({ source: `/images/${p.ancien}`, destination: `/images/${p.nouveau}`, permanent: true }));
+    .flatMap((p) =>
+      [p.ancien, ...(p.intermediaires ?? [])].map((nom) => ({
+        source: `/images/${nom}`,
+        destination: `/images/${p.nouveau}`,
+        permanent: true,
+      })),
+    );
 }

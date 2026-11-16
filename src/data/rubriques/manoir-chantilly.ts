@@ -206,20 +206,20 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   restauration: {
     seoTitle: 'Restaurants du château : terrasse plein sud, Chantilly',
     seoDescription:
-      "3 restaurants et un bar à cocktails, terrasse plein sud sur le parc, buffet de produits de saison, brunch du dimanche. Banquets jusqu'à 250 convives.",
+      "3 restaurants et un bar à cocktails, terrasse plein sud sur le parc, déjeuner en libre-service raffiné de produits de saison. Banquets jusqu'à 250 convives.",
     resume:
       "3 restaurants et un bar, une terrasse plein sud sur le parc, et des banquets jusqu'à 250 convives.",
     intro:
-      "Nos 3 restaurants et notre bar permettent de varier les cadres au fil d'un séminaire de plusieurs jours : buffet de saison, carte servie à toute heure, table bistronomique. La terrasse plein sud, avec sa vue panoramique sur le parc, accueille les déjeuners à la belle saison.",
+      "Nos 3 restaurants et notre bar permettent de varier les cadres au fil d'un séminaire de plusieurs jours : déjeuner en libre-service raffiné, carte servie à toute heure, table bistronomique. La terrasse plein sud, avec sa vue panoramique sur le parc, accueille les déjeuners à la belle saison.",
     faits: [
       { label: 'Restaurants', valeur: '3, et un bar', source: SITE },
       { label: 'Banquet au Grand Salon', valeur: '240 convives', source: MICE },
       { label: 'Banquet dans la serre', valeur: '250 convives', source: MICE },
-      { label: 'Régimes particuliers', valeur: 'tous pris en charge', source: FICHE },
+      { label: 'Régimes alimentaires', valeur: 'tous pris en charge', source: FICHE },
     ],
     photos: [
-      { src: img('buffet-gastronomique-traiteur'), legende: 'Buffet de produits de saison, dans un salon lambrissé' },
-      { src: img('brunch-buffet-patisseries'), legende: 'Le buffet du brunch et ses pâtisseries' },
+      { src: img('dejeuner-libre-service-raffine'), legende: 'Déjeuner en libre-service raffiné, produits de saison, dans un salon lambrissé' },
+      { src: img('patisseries-pause-gourmande'), legende: 'Les pâtisseries de la pause gourmande' },
       { src: img('restaurant-bar-lounge'), legende: 'La salle du restaurant, sur deux niveaux, au sol en damier' },
       { src: img('terrasse-restaurant-exterieur'), legende: 'Déjeuner en terrasse, face au parc' },
     ],
@@ -227,7 +227,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Trois façons de passer à table',
         texte:
-          "Un buffet de saison aux influences du monde, dans un esprit de partage ; une carte généreuse qui mêle classiques français et inspirations internationales, servie à toute heure ; une table bistronomique où les chefs revisitent les produits du terroir. Chaque repas du séminaire peut avoir son propre cadre.",
+          "Un déjeuner en libre-service raffiné, de saison et aux influences du monde, dans un esprit de partage ; une carte généreuse qui mêle classiques français et inspirations internationales, servie à toute heure ; une table bistronomique où les chefs revisitent les produits du terroir. Chaque repas du séminaire peut avoir son propre cadre.",
       },
       {
         titre: 'Banquets et dîners assis',
@@ -237,7 +237,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Petit-déjeuner, pauses et menus sur mesure',
         texte:
-          "Le petit-déjeuner est servi en buffet, avec des produits locaux et de saison et le miel du domaine. Notre équipe compose les menus selon votre programme et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher. Le dimanche, un brunch clôt les séminaires de week-end.",
+          "Le petit-déjeuner est servi en libre-service, avec des produits locaux et de saison et le miel du domaine. Les pauses gourmandes sont servies dans les salons attenants aux salles de réunion. Notre équipe compose les menus selon votre programme et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher.",
       },
     ],
     sources: [SITE, MICE, FICHE],

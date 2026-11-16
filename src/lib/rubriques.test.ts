@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { RUBRIQUES } from '../types/rubriques.ts';
 import { RUBRIQUES_PAR_CHATEAU } from '../data/rubriques/index.ts';
-import { paragraphesEnDouble, rapportRemplissage, rubriquesPubliees, urlRubrique } from './rubriques.ts';
+import { motsBannis, paragraphesEnDouble, rapportRemplissage, rubriquesPubliees, urlRubrique } from './rubriques.ts';
 import { TITLE_MAX } from './seo.ts';
 
 const DESCRIPTION_MAX = 160;
@@ -102,4 +102,26 @@ test('paragraphes en double : détectés entre deux domaines', () => {
   const doublons = paragraphesEnDouble({ a: { salles: r('Même texte.') }, b: { salles: r('Même texte.') } });
   assert.equal(doublons.length, 1);
   assert.deepEqual(paragraphesEnDouble({ a: { salles: r('Un.') }, b: { salles: r('Deux.') } }), []);
+});
+
+test('mots bannis : repérés sans accents ni casse, sur toutes les zones publiées', () => {
+  const r = {
+    seoTitle: 't', seoDescription: 'd', resume: 'Le BUFFETS du midi', intro: 'Dîner au Réfectoire.',
+    faits: [{ label: 'Régimes particuliers', valeur: 'oui' }],
+    photos: [{ src: '/x.webp', legende: 'La salle de karaoke' }],
+    blocs: [{ titre: 'Soirée', texte: "Tournoi d’arcade et brunchs." }],
+    salles: [{ nom: "L'Auberge", surfaceM2: null, theatre: null, classe: null, enU: null, banquet: null, cocktail: null, cabaret: null }],
+    sources: ['brasserie (source jamais affichée : ignorée)'],
+  };
+  assert.deepEqual(motsBannis({ x: { restauration: r } }), [
+    'x/restauration : réfectoire', 'x/restauration : auberge', 'x/restauration : buffet',
+    'x/restauration : karaoké', "x/restauration : d'arcade", 'x/restauration : brunch',
+    'x/restauration : régimes particuliers',
+  ]);
+  const propre = { ...r, resume: 'Pause gourmande', intro: 'Les arcades du cloître.', faits: [], photos: [], blocs: [], salles: [] };
+  assert.deepEqual(motsBannis({ x: { restauration: propre } }), []);
+});
+
+test('mots bannis : aucun dans les rubriques publiées', () => {
+  assert.deepEqual(motsBannis(), []);
 });

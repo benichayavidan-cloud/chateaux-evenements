@@ -234,7 +234,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'Petit-déjeuner et pauses',
         texte:
-          "Le petit-déjeuner est servi en buffet, sucré et salé, continental ou américain, avec brioches maison et miel du jardin. Pendant la journée, nous servons des pauses buffet gourmandes et des menus de banquet préparés avec des ingrédients de saison.",
+          "Le petit-déjeuner est servi en libre-service, sucré et salé, continental ou américain, avec brioches maison et miel du jardin. Pendant la journée, nous servons des pauses gourmandes et des menus de banquet préparés avec des ingrédients de saison.",
       },
       {
         titre: 'Le bar lounge',
