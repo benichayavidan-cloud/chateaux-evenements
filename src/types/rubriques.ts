@@ -50,8 +50,6 @@ export interface BlocTexte {
 }
 
 export interface Rubrique {
-  /** H1, à la manière d'un site d'hôtel : « Nos salles de réunion ». */
-  titre: string;
   /** Titre de l'onglet (≤ 60 caractères, contrôlé au build). */
   seoTitle: string;
   /** Meta description (≤ 160 caractères). */

@@ -13,6 +13,7 @@ import { RubriqueVitrine } from "@/components/domaine/RubriqueVitrine";
 import { DecouvrirDomaine } from "@/components/domaine/DecouvrirDomaine";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
+import { LIBELLES, TITRES, lieuDansTitre } from "@/lib/rubriques";
 import type { Chateau } from "@/types";
 import type { Rubrique, RubriqueId, SalleReunion } from "@/types/rubriques";
 
@@ -93,7 +94,7 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
         <li><Link href="/" className="hover:underline">Accueil</Link> <span aria-hidden>›</span></li>
         <li><Link href="/chateaux" className="hover:underline">Nos châteaux</Link> <span aria-hidden>›</span></li>
         <li><Link href={`/chateaux/${chateau.slug}`} className="hover:underline">{chateau.nom}</Link> <span aria-hidden>›</span></li>
-        <li aria-current="page">{r.titre}</li>
+        <li aria-current="page">{LIBELLES[id]}</li>
       </ol>
     </nav>
   );
@@ -103,6 +104,8 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
       <RubriqueVitrine
         chateau={{ nom: chateau.nom, region: chateau.region, ref: chateau.ref, images: chateau.images }}
         id={id}
+        titre={TITRES[id]}
+        lieu={lieuDansTitre(chateau.slug)}
         r={versNavigateur(r)}
         filAriane={filAriane}
         navRubriques={<RubriquesNav slug={chateau.slug} rubriques={rubriques} active={id} />}
@@ -127,7 +130,7 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
       <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
         <Container size="xl">
           <div id="devis-express" className="scroll-mt-24">
-            <DevisFormMini chateauId={chateau.id} chateauNom={chateau.nom} sourceLabel={`${chateau.nom} — ${r.titre}`} />
+            <DevisFormMini chateauId={chateau.id} chateauNom={chateau.nom} sourceLabel={`${chateau.nom} — ${LIBELLES[id]}`} />
           </div>
         </Container>
       </Section>

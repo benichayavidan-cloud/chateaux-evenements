@@ -85,7 +85,7 @@ test('rapport de remplissage : une ligne par rubrique, ne lève jamais', () => {
 
 test('rapport : signale ce qui manque par rapport à la cible', () => {
   const vide = {
-    titre: 't', seoTitle: 't', seoDescription: 'd', resume: 'r', intro: 'i',
+    seoTitle: 't', seoDescription: 'd', resume: 'r', intro: 'i',
     faits: [], photos: [], blocs: [], sources: [],
   };
   const [ligne] = rapportRemplissage({ x: { salles: vide } });
@@ -96,7 +96,7 @@ test('rapport : signale ce qui manque par rapport à la cible', () => {
 
 test('paragraphes en double : détectés entre deux domaines', () => {
   const r = (texte: string) => ({
-    titre: 't', seoTitle: 't', seoDescription: 'd', resume: 'r', intro: texte,
+    seoTitle: 't', seoDescription: 'd', resume: 'r', intro: texte,
     faits: [], photos: [], blocs: [], sources: [],
   });
   const doublons = paragraphesEnDouble({ a: { salles: r('Même texte.') }, b: { salles: r('Même texte.') } });

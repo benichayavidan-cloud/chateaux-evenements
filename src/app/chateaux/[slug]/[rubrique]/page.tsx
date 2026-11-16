@@ -13,7 +13,7 @@ import { RUBRIQUES_PAR_CHATEAU } from "@/data/rubriques";
 import { StructuredData } from "@/components/StructuredData";
 import { RubriquePage } from "@/components/domaine/RubriquePage";
 import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
-import { rubrique as lireRubrique, rubriquesPubliees, urlRubrique } from "@/lib/rubriques";
+import { LIBELLES, TITRES, rubrique as lireRubrique, rubriquesPubliees, urlRubrique } from "@/lib/rubriques";
 import type { RubriqueId } from "@/types/rubriques";
 
 type Props = {
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url,
       title: page.r.seoTitle,
       description: page.r.seoDescription,
-      images: [{ url: image, alt: page.r.photos[0]?.legende ?? page.r.titre }],
+      images: [{ url: image, alt: page.r.photos[0]?.legende ?? TITRES[page.id] }],
     },
     twitter: {
       card: "summary_large_image",
@@ -77,7 +77,7 @@ export default async function RubriqueDomaine({ params }: Props) {
         { name: "Accueil", url: "/" },
         { name: "Nos châteaux", url: "/chateaux" },
         { name: chateau.nom, url: `/chateaux/${slug}` },
-        { name: r.titre, url: urlRubrique(slug, id) },
+        { name: LIBELLES[id], url: urlRubrique(slug, id) },
       ]),
     ],
   };

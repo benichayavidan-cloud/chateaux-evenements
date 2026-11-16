@@ -54,6 +54,10 @@ export type ChateauVitrine = Pick<Chateau, "nom" | "region" | "ref" | "images">;
 interface RubriqueVitrineProps {
   chateau: ChateauVitrine;
   id: RubriqueId;
+  /** H1, ligne 1 : mot-clé de la rubrique. Passé en props : importer lib/rubriques ici enverrait toutes les données (et leurs sources) au navigateur. */
+  titre: string;
+  /** H1, ligne 2 dorée : « à l'Ancienne Abbaye Cistercienne ». */
+  lieu?: string;
   r: Rubrique;
   /** Fil d'Ariane (Server Component). */
   filAriane: React.ReactNode;
@@ -77,7 +81,7 @@ function photosGrille(r: Rubrique, chateau: ChateauVitrine): Photo[] {
   return toutes.filter((p) => (vues.has(p.src) ? false : (vues.add(p.src), true)));
 }
 
-export function RubriqueVitrine({ chateau, id, r, filAriane, navRubriques }: RubriqueVitrineProps) {
+export function RubriqueVitrine({ chateau, id, titre, lieu, r, filAriane, navRubriques }: RubriqueVitrineProps) {
   const photos = photosGrille(r, chateau);
   const grille = photos.slice(0, 5);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -154,7 +158,20 @@ export function RubriqueVitrine({ chateau, id, r, filAriane, navRubriques }: Rub
               marginBottom: "0.5rem",
             }}
           >
-            {r.titre}
+            {titre}
+            {lieu && (
+              <span
+                style={{
+                  display: "block",
+                  fontSize: "0.72em",
+                  fontStyle: "italic",
+                  color: theme.colors.primary.bronze,
+                  marginTop: "0.15em",
+                }}
+              >
+                {lieu}
+              </span>
+            )}
           </h1>
 
           <div className="flex flex-wrap items-center" style={{ color: theme.colors.neutral.gray600, fontSize: "0.9375rem", columnGap: "1.25rem", rowGap: "0.25rem" }}>

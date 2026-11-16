@@ -40,7 +40,6 @@ const stock = (nom: string) => chateauImage('Chateau Foret Chantilly', `seminair
 
 export const rubriquesChateauForet: RubriquesDomaine = {
   salles: {
-    titre: 'Nos salles de réunion',
     seoTitle: 'Salles de séminaire en forêt de Chantilly : 380 m²',
     seoDescription:
       "Plénière de 380 m² pour 250 personnes, mur LED de 5 m, 9 salles de sous-commission de 33 à 75 m² autour d'un patio. Capacités salle par salle.",
@@ -103,7 +102,6 @@ export const rubriquesChateauForet: RubriquesDomaine = {
   },
 
   chambres: {
-    titre: 'Nos chambres et suites',
     seoTitle: 'Séminaire résidentiel à Chantilly : 109 chambres (60)',
     seoDescription:
       "109 chambres et suites ouvertes sur la forêt de Chantilly, dont 18 suites et 45 chambres convertibles en twin. Balcons, terrasses, room service 24h/24.",
@@ -147,7 +145,6 @@ export const rubriquesChateauForet: RubriquesDomaine = {
   },
 
   exterieurs: {
-    titre: 'Nos espaces extérieurs',
     seoTitle: 'Château avec parc de 5 ha en forêt de Chantilly',
     seoDescription:
       "Un parc de 5 hectares en forêt de Chantilly : terrasses face aux arbres, sentier de promenade, tennis, boulodrome, vélos électriques et VTT.",
@@ -189,7 +186,6 @@ export const rubriquesChateauForet: RubriquesDomaine = {
   },
 
   restauration: {
-    titre: 'Notre restauration',
     seoTitle: 'Restauration de séminaire en château, forêt de Chantilly',
     seoDescription:
       "Restaurant, brasserie dans l'ancienne bibliothèque, bar du patio : produits frais et de saison, dîners de gala jusqu'à 200 couverts, show cooking, barbecue.",
@@ -231,7 +227,6 @@ export const rubriquesChateauForet: RubriquesDomaine = {
   },
 
   soirees: {
-    titre: "Vos soirées d'entreprise",
     seoTitle: "Soirée d'entreprise dans un château près de Roissy",
     seoDescription:
       "Dîner de gala jusqu'à 200 convives, cocktail de 270 personnes, bar de la bibliothèque, apéritif sous la verrière du patio : vos soirées sur place.",
@@ -273,7 +268,6 @@ export const rubriquesChateauForet: RubriquesDomaine = {
   },
 
   activites: {
-    titre: 'Nos activités',
     seoTitle: 'Team building en forêt de Chantilly : parc et spa',
     seoDescription:
       "Atelier crème Chantilly avec notre chef pâtissier, défis culinaires, olympiades dans le parc, tennis, VTT, spa avec piscine, initiation au polo à proximité.",
@@ -319,7 +313,6 @@ export const rubriquesChateauForet: RubriquesDomaine = {
   },
 
   acces: {
-    titre: 'Venir au château',
     seoTitle: 'Accès : 20 min de Roissy-CDG, 45 min de Paris',
     seoDescription:
       "À 45 min de Paris en voiture, 20 min de Roissy-CDG et de sa gare TGV, train depuis Paris Gare du Nord. Parking de 70 places et bornes de recharge.",
