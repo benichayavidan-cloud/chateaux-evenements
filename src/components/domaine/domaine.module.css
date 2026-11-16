@@ -144,3 +144,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/*
+ * Menu des rubriques : une ligne qui défile sur mobile ; centré et sur
+ * plusieurs lignes dès 768 px (demande PO 16/11). Écrit ici car les
+ * variantes md:… de Tailwind ne s'appliquent pas sur ce site.
+ */
+.menuRubriques { width: max-content; }
+@media (min-width: 768px) {
+  .menuRubriques { width: auto; flex-wrap: wrap; justify-content: center; }
+}

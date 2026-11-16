@@ -26,7 +26,7 @@ export function RubriquesNav({ slug, rubriques, active }: RubriquesNavProps) {
 
   return (
     <nav aria-label="Rubriques du domaine" className={`${styles.domaine} -mx-4 overflow-x-auto px-4 md:mx-0 md:px-0`}>
-      <ul className="flex w-max gap-2 py-2 md:w-auto md:flex-wrap">
+      <ul className={`${styles.menuRubriques} flex gap-2 py-2`}>
         {liens.map((l) => (
           <li key={l.href}>
             <Link
