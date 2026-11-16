@@ -14,7 +14,7 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FileText, MapPin, Phone, Sparkles } from "lucide-react";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
@@ -64,18 +64,36 @@ interface Photo {
 
 /** Photos de la rubrique, complétées par celles du domaine pour remplir la grille de 5. */
 function photosGrille(r: Rubrique, chateau: Chateau): Photo[] {
-  const propres: Photo[] = r.photos.map((p) => ({ src: p.src, alt: p.legende }));
-  const vues = new Set(propres.map((p) => p.src));
-  const domaine: Photo[] = [...chateau.images.hero, ...chateau.images.galerie]
-    .filter((src) => !vues.has(src))
-    .map((src) => ({ src, alt: `${chateau.nom} — le domaine` }));
-  return [...propres, ...domaine];
+  const toutes: Photo[] = [
+    ...r.photos.map((p) => ({ src: p.src, alt: p.legende })),
+    ...[...chateau.images.hero, ...chateau.images.galerie].map((src) => ({ src, alt: `${chateau.nom} — le domaine` })),
+  ];
+  // Une photo n'apparaît qu'une fois (grille, curseur, visionneuse) : la première légende gagne.
+  const vues = new Set<string>();
+  return toutes.filter((p) => (vues.has(p.src) ? false : (vues.add(p.src), true)));
 }
 
 export function RubriqueVitrine({ chateau, id, r, filAriane, navRubriques }: RubriqueVitrineProps) {
   const photos = photosGrille(r, chateau);
   const grille = photos.slice(0, 5);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const visionneuseRef = useRef<HTMLDivElement>(null);
+  const declencheurRef = useRef<HTMLElement | null>(null);
+  const ouverte = lightboxIndex !== null;
+
+  // Focus donné UNE fois à l'ouverture, rendu au déclencheur à la fermeture
+  // (un ref-callback le reprenait à chaque photo et cassait la tabulation).
+  useEffect(() => {
+    if (!ouverte) return;
+    declencheurRef.current = document.activeElement as HTMLElement | null;
+    visionneuseRef.current?.focus();
+    const defilement = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = defilement;
+      declencheurRef.current?.focus();
+    };
+  }, [ouverte]);
 
   const ouvrir = (i: number) => setLightboxIndex(i);
   const fermer = () => setLightboxIndex(null);
@@ -269,7 +287,7 @@ export function RubriqueVitrine({ chateau, id, r, filAriane, navRubriques }: Rub
               </Text>
               <ParaCard text={r.intro} sectionBg="gray" />
               {r.blocs.map((b) => (
-                <ParaCard key={b.titre} text={`${b.titre} : ${b.texte}`} sectionBg="gray" />
+                <ParaCard key={`${b.titre}-${b.texte.slice(0, 20)}`} text={`${b.titre} : ${b.texte}`} sectionBg="gray" />
               ))}
             </div>
           </div>
@@ -291,7 +309,8 @@ export function RubriqueVitrine({ chateau, id, r, filAriane, navRubriques }: Rub
           tabIndex={0}
           role="dialog"
           aria-label="Photos du domaine"
-          ref={(el) => el?.focus()}
+          aria-modal="true"
+          ref={visionneuseRef}
           style={{ position: "fixed", inset: 0, background: "rgba(0, 0, 0, 0.95)", zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem", outline: "none" }}
         >
           <button
