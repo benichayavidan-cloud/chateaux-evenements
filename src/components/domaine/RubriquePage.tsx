@@ -10,9 +10,9 @@ import styles from "@/components/domaine/domaine.module.css";
 import DevisFormMini from "@/components/DevisFormMini";
 import { RubriquesNav } from "@/components/domaine/RubriquesNav";
 import { RubriqueVitrine } from "@/components/domaine/RubriqueVitrine";
+import { DecouvrirDomaine } from "@/components/domaine/DecouvrirDomaine";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
-import { LIBELLES, rubrique as lireRubrique, urlRubrique } from "@/lib/rubriques";
 import type { Chateau } from "@/types";
 import type { Rubrique, RubriqueId, SalleReunion } from "@/types/rubriques";
 
@@ -112,32 +112,7 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
         </Section>
       )}
 
-      {autres.length > 0 && (
-        <Section spacing="lg" background="gray" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
-          <Container size="xl">
-            <div className={styles.domaine}>
-              <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "left" }}>Découvrir aussi le domaine</Text>
-              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {autres.map((x) => {
-                  const autre = lireRubrique(chateau.slug, x);
-                  return (
-                    <li key={x}>
-                      <Link
-                        href={urlRubrique(chateau.slug, x)}
-                        className="block h-full rounded-xl p-4 transition-shadow hover:shadow-md"
-                        style={{ border: `1px solid ${theme.colors.neutral.gray200}`, background: "#FFFFFF", borderLeft: `3px solid ${theme.colors.primary.gold}` }}
-                      >
-                        <span className="block font-semibold" style={{ color: theme.colors.primary.bronze }}>{autre?.titre ?? LIBELLES[x]} →</span>
-                        {autre && <span className="mt-1 block text-sm" style={{ color: theme.colors.neutral.gray600 }}>{autre.resume}</span>}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </Container>
-        </Section>
-      )}
+      <DecouvrirDomaine slug={chateau.slug} rubriques={autres} titre="Découvrir aussi le domaine" />
 
       <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
         <Container size="xl">

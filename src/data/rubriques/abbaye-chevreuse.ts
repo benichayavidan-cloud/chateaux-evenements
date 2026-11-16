@@ -12,6 +12,7 @@
  * sont celles de la source.
  */
 import type { RubriquesDomaine } from '../../types/rubriques.ts';
+import { chateauImage } from '../../lib/media.ts';
 
 const FICHE = 'Fiche Select Châteaux (data/chateaux.ts), 16/11/2026';
 const CVENT = 'Fiche salons Cvent du lieu, consultée le 16/11/2026';
@@ -228,8 +229,8 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       { label: 'Bars', valeur: '2', source: CVENT },
     ],
     photos: [
-      { src: img('diner-refectoire-medieval'), legende: 'Le réfectoire dressé pour un dîner de gala' },
       { src: img('bar-salon-anglais'), legende: 'Le salon anglais' },
+      { src: img('diner-refectoire-medieval'), legende: 'Le réfectoire dressé pour un dîner de gala' },
       { src: img('bar-salon-de-musique'), legende: 'Le salon de musique' },
       { src: img('bar-salon-ete'), legende: "Le salon d'été" },
       { src: img('salle-karaoke'), legende: 'La salle de karaoké' },
@@ -312,7 +313,8 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       { label: 'Aéroport Roissy-CDG', valeur: '1 h 10', source: CVENT },
     ],
     photos: [
-      { src: img('abbaye-cistercienne-vue-generale'), legende: "L'arrivée au domaine" },
+      { src: chateauImage('Abbaye Chevreuse', 'seminaire-abbaye-vallee-de-chevreuse-facade-batiment-principal.webp'), legende: "La façade du bâtiment principal, à l'arrivée" },
+      { src: img('abbaye-cistercienne-vue-generale'), legende: 'Le domaine vu du ciel, entre forêt et lac' },
     ],
     blocs: [
       {

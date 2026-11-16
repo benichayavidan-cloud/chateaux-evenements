@@ -1,10 +1,17 @@
 /**
- * Accueil du domaine : une carte par rubrique (photo, résumé, « Découvrir → »).
- * Server Component, rendu dans la fiche château entre la vue d'ensemble et
- * l'hébergement. Rien n'est rendu si le château n'a pas encore de rubriques.
+ * Accueil du domaine : une petite carte par rubrique (vignette, titre,
+ * résumé sur 2 lignes, « Découvrir → »), au gabarit des sections de la fiche
+ * (badge, titre H2, fond gris). Server Component rendu entre la vue
+ * d'ensemble et l'hébergement ; rien si le château n'a pas de rubriques.
+ *
+ * 16/11 : la première version (cartes pleine largeur, photos géantes) a été
+ * refusée par le PO — la grille est désormais écrite dans domaine.module.css.
  */
 import Image from "next/image";
 import Link from "next/link";
+import { Sparkles } from "lucide-react";
+import { Section, Container } from "@/components/layout-v2";
+import { Text } from "@/components/ui-v2";
 import { theme } from "@/design-system/tokens";
 import styles from "@/components/domaine/domaine.module.css";
 import { rubrique as lireRubrique, urlRubrique } from "@/lib/rubriques";
@@ -13,60 +20,49 @@ import type { RubriqueId } from "@/types/rubriques";
 interface DecouvrirDomaineProps {
   slug: string;
   rubriques: RubriqueId[];
+  /** Titre de la section (défaut : « Découvrir le domaine »). */
+  titre?: string;
 }
 
-export function DecouvrirDomaine({ slug, rubriques }: DecouvrirDomaineProps) {
+export function DecouvrirDomaine({ slug, rubriques, titre = "Découvrir le domaine" }: DecouvrirDomaineProps) {
   if (rubriques.length === 0) return null;
 
   return (
-    <section className={`${styles.domaine} py-12 md:py-16`} aria-labelledby="decouvrir-domaine">
-      <div className="mx-auto w-full max-w-[1200px] px-4 md:px-8">
-        <h2
-          id="decouvrir-domaine"
-          className="mb-6 text-2xl font-semibold md:text-3xl"
-          style={{ fontFamily: theme.typography.fonts.heading, color: theme.colors.neutral.gray900 }}
-        >
-          Découvrir le domaine
-        </h2>
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+    <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
+      <Container size="xl">
+        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: "1rem" }}>
+          <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+          <span style={{ fontSize: "0.75rem", fontWeight: 600, color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>Le domaine en détail</span>
+        </div>
+        <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "left" }}>{titre}</Text>
+        <ul className={styles.grilleRubriques}>
           {rubriques.map((id) => {
             const r = lireRubrique(slug, id);
             if (!r) return null;
             const photo = r.photos[0];
             return (
               <li key={id}>
-                <Link
-                  href={urlRubrique(slug, id)}
-                  className="group block h-full overflow-hidden rounded-2xl transition-shadow hover:shadow-lg"
-                  style={{ border: `1px solid ${theme.colors.neutral.gray200}`, background: "#FFFFFF" }}
-                >
+                <Link href={urlRubrique(slug, id)} className={styles.carteRubrique}>
                   {photo && (
-                    <div className="relative aspect-[4/3] w-full overflow-hidden">
-                      <Image
-                        src={photo.src}
-                        alt={photo.legende}
-                        fill
-                        loading="lazy"
-                        sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
+                    <div className={styles.vignette}>
+                      <Image src={photo.src} alt={photo.legende} fill loading="lazy" sizes="(min-width: 1024px) 280px, (min-width: 768px) 33vw, 50vw" className="object-cover" />
                     </div>
                   )}
-                  <div className="p-4 md:p-5">
-                    <h3 className="text-lg font-semibold" style={{ fontFamily: theme.typography.fonts.heading, color: theme.colors.neutral.gray900 }}>
+                  <div className={styles.carteCorps}>
+                    <span style={{ fontFamily: theme.typography.fonts.heading, fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)", fontWeight: 600, color: theme.colors.neutral.gray900, lineHeight: 1.25 }}>
                       {r.titre}
-                    </h3>
-                    <p className="mt-1 text-sm leading-relaxed" style={{ color: theme.colors.neutral.gray600 }}>{r.resume}</p>
-                    <span className="mt-3 inline-block text-sm font-semibold" style={{ color: theme.colors.primary.bronze }}>
-                      Découvrir →
                     </span>
+                    <span className={styles.resumeCourt} style={{ fontSize: "0.8125rem", lineHeight: 1.5, color: theme.colors.neutral.gray600 }}>
+                      {r.resume}
+                    </span>
+                    <span style={{ marginTop: "auto", fontSize: "0.8125rem", fontWeight: 600, color: theme.colors.primary.bronze }}>Découvrir →</span>
                   </div>
                 </Link>
               </li>
             );
           })}
         </ul>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

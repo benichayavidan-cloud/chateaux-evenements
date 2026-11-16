@@ -83,3 +83,59 @@
  * sur fond bronze. Spécificité supérieure + !important pour la rétablir.
  */
 .domaine :global(a[aria-current="page"]) { color: #FFFFFF !important; }
+
+/*
+ * Grille des cartes de rubriques. Les variantes responsives Tailwind
+ * (sm:grid-cols-2, lg:grid-cols-3) ne s'appliquaient pas en production :
+ * mesuré le 16/11, une seule colonne de 1136 px et des vignettes géantes.
+ * Grille écrite ici, sans dépendre du thème : 2 colonnes sur mobile,
+ * 3 dès 768 px, 4 dès 1024 px.
+ */
+.grilleRubriques {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+}
+@media (min-width: 768px) {
+  .grilleRubriques { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+}
+@media (min-width: 1024px) {
+  .grilleRubriques { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+}
+
+.carteRubrique {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.carteRubrique:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+.vignette {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.carteCorps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  padding: 12px 14px 14px;
+}
+.resumeCourt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
