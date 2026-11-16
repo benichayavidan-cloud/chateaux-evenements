@@ -24,19 +24,19 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   salles: {
     seoTitle: 'Salles de séminaire en abbaye, Vallée de Chevreuse',
     seoDescription:
-      "14 espaces de réunion dans une abbaye du XIIe siècle : réfectoire médiéval de 250 couverts, salon de 209 m², cinéma privé. Capacités salle par salle.",
+      "14 espaces de réunion dans une abbaye du XIIe siècle : Grande Salle des Voûtes de 250 couverts, salon de 209 m², cinéma privé. Capacités salle par salle.",
     resume:
-      "14 espaces, du salon de 25 m² pour un comité de direction au réfectoire médiéval qui reçoit 250 convives. Toutes les capacités, salle par salle.",
+      "14 espaces, du salon de 25 m² pour un comité de direction à la Grande Salle des Voûtes qui reçoit 250 convives. Toutes les capacités, salle par salle.",
     intro:
-      "Nos 14 espaces de réunion sont répartis entre l'abbaye et les anciens haras du domaine. La plénière se tient sous les voûtes du réfectoire des moines ou dans le grand salon des haras ; les ateliers se déroulent dans des salons de 25 à 171 m², presque tous éclairés par la lumière du jour. Le tableau ci-dessous détaille 10 de ces espaces : surface et capacité selon la disposition choisie.",
+      "Nos 14 espaces de réunion sont répartis entre l'abbaye et les anciens haras du domaine. La plénière se tient dans la Grande Salle des Voûtes, sous une voûte du XIIe siècle, ou dans le grand salon des haras ; les ateliers se déroulent dans des salons de 25 à 171 m², presque tous éclairés par la lumière du jour. Le tableau ci-dessous détaille 10 de ces espaces : surface et capacité selon la disposition choisie.",
     faits: [
       { label: 'Espaces de réunion', valeur: '14', source: FICHE },
       { label: 'Plus grand salon', valeur: '209 m²', source: CVENT },
-      { label: 'Banquet au réfectoire', valeur: '250 couverts', source: FICHE },
+      { label: 'Banquet sous les voûtes', valeur: '250 couverts', source: FICHE },
       { label: 'Cinéma privatif', valeur: '50 fauteuils', source: CVENT },
     ],
     salles: [
-      { nom: 'Le Réfectoire médiéval', surfaceM2: null, theatre: null, classe: null, enU: null, banquet: 250, cocktail: null, cabaret: null, note: '150 personnes en réunion' },
+      { nom: 'La Grande Salle des Voûtes', surfaceM2: null, theatre: null, classe: null, enU: null, banquet: 250, cocktail: null, cabaret: null, note: '150 personnes en réunion' },
       { nom: 'Le Grand Salon des Haras', surfaceM2: 209, theatre: 90, classe: 70, enU: 40, banquet: 100, cocktail: 150, cabaret: 40 },
       { nom: 'Le Cinéma', surfaceM2: 199, theatre: 50, classe: null, enU: null, banquet: null, cocktail: null, cabaret: null, note: 'fauteuils de cinéma' },
       { nom: "L'Orangerie", surfaceM2: 171, theatre: 110, classe: 80, enU: 52, banquet: null, cocktail: 80, cabaret: 80 },
@@ -48,7 +48,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       { nom: 'Le Salon privé', surfaceM2: 25, theatre: null, classe: null, enU: 8, banquet: null, cocktail: null, cabaret: null, note: '8 personnes autour d’une table' },
     ],
     photos: [
-      { src: img('refectoire-medieval-voute'), legende: 'Le réfectoire médiéval et ses voûtes du XIIe siècle' },
+      { src: img('grande-salle-voutes'), legende: 'La Grande Salle des Voûtes, prête pour votre plénière' },
       { src: img('grand-salon-haras-4'), legende: 'Le grand salon des haras, 209 m², en disposition théâtre' },
       { src: img('salon-orangerie-haras'), legende: "L'Orangerie, 171 m², ouverte sur le parc" },
       { src: img('salon-ecuries-haras-1'), legende: 'Le salon des écuries, 102 m²' },
@@ -61,7 +61,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         titre: 'La plénière sous des voûtes de neuf siècles',
         texte:
-          "Le réfectoire, où les moines cisterciens prenaient leurs repas, accueille 150 personnes en réunion et 250 en banquet. Pour une plénière plus technique, le grand salon des haras offre 209 m² modulables : 90 places en théâtre, 70 en classe, ou 150 debout pour un cocktail de lancement.",
+          "Au cœur de l'abbaye cistercienne, la Grande Salle des Voûtes accueille 150 personnes en réunion et 250 en banquet : vos prises de parole y gagnent en solennité. Pour une plénière plus technique, le grand salon des haras offre 209 m² modulables : 90 places en théâtre, 70 en classe, ou 150 debout pour un cocktail de lancement.",
       },
       {
         titre: 'Des ateliers à deux pas de la plénière',
@@ -100,7 +100,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       { src: img('chambre-deluxe-abbaye'), legende: "Chambre deluxe dans le bâtiment de l'abbaye" },
       { src: img('chambre-superieure-abbaye-1'), legende: "Chambre supérieure à l'abbaye" },
       { src: img('chambre-singuliere-abbaye'), legende: 'Une chambre « singulière », sous les poutres' },
-      { src: img('chambre-famille-abbaye'), legende: "Chambre familiale à l'abbaye" },
+      { src: img('chambre-deux-pieces-abbaye'), legende: "Chambre en deux pièces sous les combles de l'abbaye" },
       { src: img('chambre-cosy-haras'), legende: 'Chambre cosy aux haras' },
       { src: img('chambre-cottage-ferme'), legende: 'Chambre cottage à la ferme' },
       { src: img('chambre-deluxe-ferme'), legende: 'Chambre deluxe à la ferme' },
@@ -115,7 +115,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         titre: 'Des catégories pour chaque participant',
         texte:
-          "Petites chambres et chambres cosy pour les grands groupes, chambres supérieures et deluxe pour l'encadrement, chambres familiales et suites pour vos invités. Toutes offrent le Wi-Fi haut débit et une literie haut de gamme.",
+          "Petites chambres et chambres cosy pour les grands groupes, chambres supérieures et deluxe pour l'encadrement, suites pour vos dirigeants et vos invités de marque. Toutes offrent le Wi-Fi haut débit et une literie haut de gamme.",
       },
       {
         titre: 'Le spa',
@@ -143,7 +143,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     photos: [
       { src: img('abbaye-cistercienne-vue-generale'), legende: "Vue générale de l'abbaye dans son parc" },
       { src: img('terrasse-restaurant-gastronomique'), legende: 'La terrasse du restaurant gastronomique' },
-      { src: img('terrasse-auberge'), legende: "La terrasse de l'auberge" },
+      { src: img('terrasse-table-champetre'), legende: 'La terrasse de la table champêtre du domaine' },
       { src: img('activite-camion-maraicher'), legende: 'Le camion du maraîcher, dans le parc' },
       { src: img('pavillon-bien-etre'), legende: 'Le pavillon bien-être, ouvert sur le parc' },
     ],
@@ -156,7 +156,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         titre: 'Des terrasses pour chaque moment',
         texte:
-          "Les terrasses du restaurant gastronomique et de l'auberge reçoivent les déjeuners et les pauses à la belle saison. Elles prolongent la salle de réunion sans transfert : un atout quand le programme est serré.",
+          "Les terrasses du restaurant gastronomique et de la table champêtre du domaine reçoivent les déjeuners d'équipe et les pauses à la belle saison. Elles prolongent la salle de réunion sans transfert : un atout quand le programme est serré.",
       },
       {
         titre: 'Le parc comme terrain de jeu',
@@ -168,37 +168,37 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   },
 
   restauration: {
-    seoTitle: 'Restaurants du domaine : réfectoire et gastronomie (78)',
+    seoTitle: 'Restauration de séminaire : dîner sous les voûtes (78)',
     seoDescription:
-      "4 restaurants et 2 bars : dîner de gala de 250 couverts au réfectoire médiéval, cuisine française, trattoria, auberge. Menus sur mesure pour vos séminaires.",
+      "4 restaurants et 2 bars : dîner de gala de 250 couverts sous les voûtes du XIIe siècle, cuisine française, table italienne, table champêtre. Menus sur mesure.",
     resume:
-      "4 restaurants et 2 bars, du dîner de gala de 250 couverts au réfectoire à la trattoria de la ferme.",
+      "4 restaurants et 2 bars, du dîner de gala de 250 couverts dans la Grande Salle des Voûtes à la table italienne de la ferme.",
     intro:
-      "Nos 4 restaurants et 2 bars permettent de ne jamais servir deux repas dans le même cadre au cours d'un séminaire de plusieurs jours. Déjeuner d'affaires au restaurant gastronomique, dîner de gala au réfectoire, soirée conviviale à la trattoria : chaque repas devient un moment du programme.",
+      "Nos 4 restaurants et 2 bars permettent de ne jamais servir deux repas dans le même cadre au cours d'un séminaire de plusieurs jours. Déjeuner d'affaires au restaurant gastronomique, dîner de gala dans la Grande Salle des Voûtes, dîner de cohésion à la table italienne de la ferme : chaque repas devient un moment du programme.",
     faits: [
       { label: 'Restaurants', valeur: '4', source: CVENT },
       { label: 'Bars', valeur: '2', source: CVENT },
-      { label: 'Banquet au réfectoire', valeur: '250 couverts', source: FICHE },
-      { label: 'Régimes particuliers', valeur: 'tous pris en charge', source: FICHE },
+      { label: 'Banquet sous les voûtes', valeur: '250 couverts', source: FICHE },
+      { label: 'Régimes alimentaires', valeur: 'tous pris en charge', source: FICHE },
     ],
     photos: [
-      { src: img('diner-refectoire-medieval'), legende: 'Dîner de gala au réfectoire médiéval' },
+      { src: img('diner-gala-grande-salle-voutes'), legende: 'Dîner de gala dans la Grande Salle des Voûtes' },
       { src: img('restaurant-gastronomique'), legende: 'Le restaurant gastronomique' },
-      { src: img('restaurant-italien-ferme'), legende: 'La trattoria de la ferme' },
-      { src: img('restaurant-auberge'), legende: "L'auberge du domaine" },
+      { src: img('restaurant-italien-ferme'), legende: 'La table italienne de la ferme' },
+      { src: img('table-champetre-domaine'), legende: "La table champêtre du domaine, pour les déjeuners d'équipe" },
       { src: img('pause-apres-midi'), legende: "La pause de l'après-midi" },
       { src: img('espace-pause-sellerie-2'), legende: 'Pause café dans la sellerie' },
     ],
     blocs: [
       {
-        titre: 'Le réfectoire, pour vos dîners de gala',
+        titre: 'La Grande Salle des Voûtes, de la plénière au gala',
         texte:
-          "Sous les voûtes où les moines partageaient leurs repas, le réfectoire reçoit jusqu'à 250 convives assis. Le même lieu sert le brunch du dimanche : la façon la plus simple de clôturer un séminaire résidentiel.",
+          "Sous ses voûtes du XIIe siècle, la Grande Salle des Voûtes accueille votre plénière de 150 personnes, puis votre dîner de gala de 250 convives. Le temps fort de la journée et la soirée se tiennent dans le même cadre, sans changer de bâtiment.",
       },
       {
-        titre: 'Cuisine française et trattoria',
+        titre: 'Cuisine française et table italienne',
         texte:
-          "Le restaurant gastronomique sert une cuisine française élégante, adaptée aux déjeuners d'affaires. À la ferme, la trattoria propose une cuisine italienne généreuse à partager sur de grandes tablées, idéale pour un dîner de cohésion. L'auberge complète l'offre pour les déjeuners rapides entre deux sessions.",
+          "Le restaurant gastronomique sert une cuisine française élégante, adaptée aux déjeuners d'affaires. À la ferme, la table italienne propose une cuisine généreuse à partager sur de grandes tablées, idéale pour un dîner de cohésion. La table champêtre du domaine complète l'offre pour les déjeuners d'équipe entre deux sessions.",
       },
       {
         titre: 'Pauses et menus sur mesure',
@@ -212,30 +212,30 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   soirees: {
     seoTitle: "Soirée d'entreprise dans une abbaye, Vallée de Chevreuse",
     seoDescription:
-      "Dîner de gala au réfectoire médiéval pour 250 convives, bars et salons, karaoké, salle de jeux de 200 m², cinéma privé : vos soirées sans quitter le domaine.",
+      "Dîner de gala sous les voûtes du XIIe siècle pour 250 convives, bars et salons, espace jeux privatisé de 200 m², cinéma privé : vos soirées sur le domaine.",
     resume:
-      "Dîner de gala au réfectoire, bars et salons, karaoké, salle de jeux d'arcade et cinéma : la soirée se passe sur place.",
+      "Dîner de gala dans la Grande Salle des Voûtes, bars et salons, soirée animée et cinéma : la soirée se passe sur place.",
     intro:
-      "Après la journée de travail, la soirée se déroule sans quitter le domaine. Dîner de gala au réfectoire, verre dans l'un de nos salons, karaoké ou tournoi d'arcade : vos participants rejoignent leur chambre à pied, sans navette ni horaire de retour.",
+      "Après la journée de travail, la soirée se déroule sans quitter le domaine. Dîner de gala dans la Grande Salle des Voûtes, verre dans l'un de nos salons, soirée animée dans l'espace jeux privatisé : vos participants rejoignent leur chambre à pied, sans navette ni horaire de retour.",
     faits: [
       { label: 'Dîner de gala', valeur: '250 convives', source: FICHE },
-      { label: "Salle de jeux d'arcade", valeur: '200 m²', source: CVENT },
+      { label: 'Espace jeux privatisé', valeur: '200 m²', source: CVENT },
       { label: 'Cinéma privatif', valeur: '50 fauteuils', source: CVENT },
       { label: 'Bars', valeur: '2', source: CVENT },
     ],
     photos: [
       { src: img('bar-salon-anglais'), legende: 'Le salon anglais' },
-      { src: img('diner-refectoire-medieval'), legende: 'Le réfectoire dressé pour un dîner de gala' },
+      { src: img('diner-gala-grande-salle-voutes'), legende: 'La Grande Salle des Voûtes dressée pour un dîner de gala' },
       { src: img('bar-salon-de-musique'), legende: 'Le salon de musique' },
       { src: img('bar-salon-ete'), legende: "Le salon d'été" },
-      { src: img('salle-karaoke'), legende: 'La salle de karaoké' },
+      { src: img('salon-soiree-animee'), legende: 'Le salon des soirées animées, privatisable pour votre groupe' },
       { src: img('bar-ferme'), legende: 'Le bar de la ferme' },
     ],
     blocs: [
       {
         titre: 'Le dîner de gala',
         texte:
-          "Le réfectoire médiéval reçoit jusqu'à 250 convives en banquet. Pour un groupe plus restreint, le grand salon des haras accueille 100 personnes à table ronde et 150 en cocktail dînatoire.",
+          "La Grande Salle des Voûtes reçoit jusqu'à 250 convives en banquet. Pour un groupe plus restreint, le grand salon des haras accueille 100 personnes à table ronde et 150 en cocktail dînatoire.",
       },
       {
         titre: 'Des salons pour prolonger la soirée',
@@ -243,9 +243,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Salon anglais, salon de musique, salon d'été, bar de la ferme : chacun a son ambiance, et l'on peut en privatiser un pour votre groupe après le dîner.",
       },
       {
-        titre: 'Karaoké, quiz musical, arcade et cinéma',
+        titre: 'Soirée animée, quiz musical et cinéma',
         texte:
-          "Pour une soirée plus animée : la salle de karaoké, un quiz musical, la salle de jeux de 200 m² et ses bornes d'arcade, ou une séance privée dans notre cinéma. Autant de formats qui mélangent les équipes sans effort.",
+          "Pour une soirée plus animée : un salon privatisé pour votre groupe, un quiz musical, l'espace jeux privatisé de 200 m², ou une séance privée dans notre cinéma. Autant de formats qui mélangent les équipes sans effort.",
       },
     ],
     sources: [FICHE, CVENT],
@@ -254,21 +254,21 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   activites: {
     seoTitle: "Activités de team building dans un domaine de 80 ha",
     seoDescription:
-      "Tennis, padel, vélos, barques sur le lac, parcours sportif, spa, yoga, karaoké, arcade : les activités en libre accès et encadrées du domaine pour vos équipes.",
+      "Tennis, padel, vélos, barques sur le lac, parcours sportif, spa, yoga, espace jeux privatisé : les activités en libre accès et encadrées pour vos équipes.",
     resume:
-      "Tennis, padel, barques, vélos, spa, yoga, arcade : des activités en accès libre et des formats encadrés pour la cohésion.",
+      "Tennis, padel, barques, vélos, spa, yoga, espace jeux : des activités en accès libre et des formats encadrés pour la cohésion.",
     intro:
       "Le domaine propose deux types d'activités : celles que vos participants pratiquent librement pendant leurs temps de pause, et celles que notre équipe organise pour l'ensemble du groupe. Tout se déroule sur place, sans transfert.",
     faits: [
       { label: 'Courts de tennis', valeur: '2', source: CVENT },
       { label: 'Courts de padel', valeur: '2', source: CVENT },
       { label: 'Cabines de soins', valeur: '7', source: CVENT },
-      { label: 'Salle de jeux', valeur: '200 m²', source: CVENT },
+      { label: 'Espace jeux privatisé', valeur: '200 m²', source: CVENT },
     ],
     photos: [
       { src: img('activite-camion-maraicher'), legende: 'Atelier autour du camion du maraîcher' },
       { src: img('pavillon-bien-etre'), legende: 'Le pavillon bien-être' },
-      { src: img('salle-karaoke'), legende: 'La salle de karaoké' },
+      { src: img('salon-soiree-animee'), legende: 'Le salon des soirées animées' },
       { src: img('abbaye-cistercienne-vue-generale'), legende: 'Le parc et le lac, terrain des activités de plein air' },
     ],
     blocs: [
@@ -280,7 +280,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         titre: 'Encadrées pour votre groupe',
         texte:
-          "Olympiades dans le parc, paintball, ball-trap, séances de yoga, quiz musical ou tournoi d'arcade : notre équipe organise l'activité à l'horaire prévu dans votre programme et l'adapte à la taille du groupe.",
+          "Olympiades dans le parc, paintball, ball-trap, séances de yoga, quiz musical ou soirée animée dans l'espace jeux : notre équipe organise l'activité à l'horaire prévu dans votre programme et l'adapte à la taille du groupe.",
       },
       {
         titre: 'Le bien-être',

@@ -107,3 +107,50 @@ export function paragraphesEnDouble(source: Record<string, RubriquesDomaine> = R
   }
   return doublons;
 }
+
+/**
+ * Vocabulaire « bon marché » ou « particuliers » banni des pages château
+ * (décision PO du 16/11/2026) : chaque espace se décrit par ce qu'il apporte
+ * au séminaire (plénière, ateliers, déjeuner d'équipe, dîner de gala).
+ * Comparaison sans accents ni casse, au début d'un mot (« buffet » trouve
+ * « buffets »). « d'arcade » plutôt que « arcade » : les arcades d'un cloître
+ * restent permises.
+ */
+export const MOTS_BANNIS = [
+  'réfectoire', 'auberge', 'brasserie', 'buffet', 'barbecue', 'trattoria',
+  'karaoké', "d'arcade", 'brunch', 'familial', 'régimes particuliers',
+  'cantine', 'bistrot',
+] as const;
+
+const sansAccents = (s: string) =>
+  s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’‘]/g, "'").toLowerCase();
+
+const MOTIFS_BANNIS = MOTS_BANNIS.map((mot) => ({
+  mot,
+  motif: new RegExp(`(^|[^a-z0-9])${sansAccents(mot).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`),
+}));
+
+/**
+ * Mots bannis trouvés dans le texte publié des rubriques (« slug/rubrique : mot »).
+ * Affichage seulement : ne bloque aucune publication (décision PO du 16/11/2026).
+ */
+export function motsBannis(source: Record<string, RubriquesDomaine> = RUBRIQUES_PAR_CHATEAU): string[] {
+  const trouves: string[] = [];
+  for (const [slug, rubs] of Object.entries(source)) {
+    for (const id of RUBRIQUES) {
+      const r = rubs[id];
+      if (!r) continue;
+      const texte = sansAccents(
+        [
+          r.seoTitle, r.seoDescription, r.intro, r.resume,
+          ...r.blocs.flatMap((b) => [b.titre, b.texte]),
+          ...r.faits.flatMap((f) => [f.label, f.valeur]),
+          ...r.photos.map((p) => p.legende),
+          ...(r.salles ?? []).map((s) => s.nom),
+        ].join('\n'),
+      );
+      for (const { mot, motif } of MOTIFS_BANNIS) if (motif.test(texte)) trouves.push(`${slug}/${id} : ${mot}`);
+    }
+  }
+  return trouves;
+}
