@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from "react";
 import { FileText, MapPin, Phone, Sparkles } from "lucide-react";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
+import { BOUTON_DEVIS, BOUTON_TELEPHONE } from "@/components/domaine/boutons-cta";
 import { theme } from "@/design-system/tokens";
 import { trackPhoneClick } from "@/components/Analytics";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
@@ -222,13 +223,7 @@ export function RubriqueVitrine({ chateau, id, r, filAriane, navRubriques }: Rub
           <div className="flex flex-wrap gap-2.5 items-center" style={{ maxWidth: "100%" }}>
             <a
               href="#devis-express"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: "8px", padding: "12px 24px",
-                borderRadius: theme.effects.borderRadius.full,
-                background: `linear-gradient(135deg, ${theme.colors.primary.gold} 0%, ${theme.colors.primary.bronze} 100%)`,
-                color: "#FFFFFF", fontWeight: theme.typography.fontWeight.bold, fontSize: "0.875rem",
-                textDecoration: "none", boxShadow: `0 4px 16px ${theme.colors.primary.bronze}40`, whiteSpace: "nowrap",
-              }}
+              style={BOUTON_DEVIS}
             >
               <FileText className="w-4 h-4" />
               Devis Gratuit en 24h
@@ -236,8 +231,8 @@ export function RubriqueVitrine({ chateau, id, r, filAriane, navRubriques }: Rub
             <a
               href={`tel:${CONTACT_PHONE_E164}`}
               onClick={() => trackPhoneClick()}
-              className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
-              style={{ textDecoration: "none", whiteSpace: "nowrap", color: "white" }}
+              className="hover:opacity-90"
+              style={BOUTON_TELEPHONE}
             >
               <Phone className="w-4 h-4" style={{ color: "white" }} />
               {CONTACT_PHONE_DISPLAY}
