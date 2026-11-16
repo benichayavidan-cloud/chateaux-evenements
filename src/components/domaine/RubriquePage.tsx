@@ -74,6 +74,16 @@ function TableauSalles({ salles }: { salles: SalleReunion[] }) {
   );
 }
 
+/**
+ * Ce qui part dans le payload du composant client : sans `sources` ni
+ * `faits[].source`, qui peuvent nommer le lieu (URL du site officiel…).
+ * Non affiché ≠ non envoyé : mesuré le 16/11, une URL source du #92 était
+ * lisible dans le HTML.
+ */
+function versNavigateur(r: Rubrique): Rubrique {
+  return { ...r, sources: [], faits: r.faits.map(({ label, valeur }) => ({ label, valeur })) };
+}
+
 export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
   const autres = rubriques.filter((x) => x !== id);
 
@@ -91,9 +101,9 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
   return (
     <>
       <RubriqueVitrine
-        chateau={chateau}
+        chateau={{ nom: chateau.nom, region: chateau.region, ref: chateau.ref, images: chateau.images }}
         id={id}
-        r={r}
+        r={versNavigateur(r)}
         filAriane={filAriane}
         navRubriques={<RubriquesNav slug={chateau.slug} rubriques={rubriques} active={id} />}
       />
