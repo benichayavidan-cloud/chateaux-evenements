@@ -11,6 +11,9 @@ import { generatePlaceSchema, generateFAQSchema, generateBreadcrumbSchema } from
 import ChateauPageClient from "./ChateauPageClient";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
+import { RubriquesNav } from "@/components/domaine/RubriquesNav";
+import { DecouvrirDomaine } from "@/components/domaine/DecouvrirDomaine";
+import { rubriquesPubliees } from "@/lib/rubriques";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -34,6 +37,8 @@ export default async function ChateauPage({ params }: Props) {
     notFound();
   }
 
+  const rubriques = rubriquesPubliees(chateau.slug);
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -50,7 +55,11 @@ export default async function ChateauPage({ params }: Props) {
   return (
     <>
       <StructuredData data={structuredData} />
-      <ChateauPageClient chateau={chateau} />
+      <ChateauPageClient
+        chateau={chateau}
+        navRubriques={<RubriquesNav slug={chateau.slug} rubriques={rubriques} />}
+        sectionRubriques={<DecouvrirDomaine slug={chateau.slug} rubriques={rubriques} />}
+      />
       <LogoCarousel />
       <ReviewsSection />
     </>

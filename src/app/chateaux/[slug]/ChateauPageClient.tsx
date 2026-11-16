@@ -26,6 +26,10 @@ import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 interface ChateauPageClientProps {
   chateau: Chateau;
+  /** Menu des rubriques du domaine (Server Component), sous la barre d'appel. */
+  navRubriques?: React.ReactNode;
+  /** Section « Découvrir le domaine » (Server Component), après la vue d'ensemble. */
+  sectionRubriques?: React.ReactNode;
 }
 
 // Helper pour obtenir l'index de l'image d'hébergement selon le château
@@ -703,7 +707,7 @@ function EspacesReunionOverlay({ chateau }: { chateau: Chateau }) {
   );
 }
 
-export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
+export default function ChateauPageClient({ chateau, navRubriques, sectionRubriques }: ChateauPageClientProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<'overview' | 'accommodation' | 'spaces'>('overview');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -968,6 +972,8 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
             </a>
           </div>
         </div>
+
+        {navRubriques && <div style={{ marginTop: 'clamp(0.75rem, 2vw, 1rem)' }}>{navRubriques}</div>}
       </div>
 
       {/* Bandeau chiffres clés — Arguments annonce Google Ads */}
@@ -1056,6 +1062,8 @@ export default function ChateauPageClient({ chateau }: ChateauPageClientProps) {
           </div>
         </Container>
       </Section>
+
+      {sectionRubriques}
 
       {/* Section Hébergement — Overlay slider pleine largeur */}
       <HebergementOverlay chateau={chateau} />
