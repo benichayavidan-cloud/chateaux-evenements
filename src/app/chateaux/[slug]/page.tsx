@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import { chateaux as chateauxData } from "@/data/chateaux";
 import { StructuredData } from "@/components/StructuredData";
 import { generatePlaceSchema, generateFAQSchema, generateBreadcrumbSchema } from "@/utils/seo/structured-data";
-import ChateauPageClient from "./ChateauPageClient";
+import ChateauFiche from "./ChateauFiche";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { RubriquesNav } from "@/components/domaine/RubriquesNav";
@@ -55,7 +55,7 @@ export default async function ChateauPage({ params }: Props) {
   return (
     <>
       <StructuredData data={structuredData} />
-      <ChateauPageClient
+      <ChateauFiche
         chateau={chateau}
         navRubriques={<RubriquesNav slug={chateau.slug} rubriques={rubriques} />}
         sectionRubriques={<DecouvrirDomaine slug={chateau.slug} rubriques={rubriques} />}

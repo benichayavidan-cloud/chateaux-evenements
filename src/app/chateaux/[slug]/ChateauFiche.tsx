@@ -1,24 +1,21 @@
 /**
- * CHÂTEAU PAGE CLIENT - Composant interactif
- * Reçoit les données du château depuis le Server Component
+ * Fiche château — rendue par le SERVEUR (16/11/2026 ; ex-ChateauPageClient,
+ * entièrement côté navigateur). Seuls les îlots interactifs partent dans le
+ * JavaScript du navigateur : grille photos + visionneuse, FAQ, diaporamas,
+ * apparitions au défilement, suivi des appels (components/domaine).
  */
 
-'use client';
-
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Users, Check, Sparkles, Bed, Building2, UtensilsCrossed, Plus, Minus, HelpCircle, MapPin, Phone, FileText, Clock, Lock, Package } from "lucide-react";
+import { Users, Check, Sparkles, Bed, Building2, UtensilsCrossed, HelpCircle, MapPin, Phone, FileText, Clock, Lock, Package } from "lucide-react";
 import { Section, Container } from '@/components/layout-v2';
-import { Text, Badge, Button } from '@/components/ui-v2';
+import { Text, Button } from '@/components/ui-v2';
 import { BOUTON_DEVIS, BOUTON_TELEPHONE } from "@/components/domaine/boutons-cta";
 import { theme } from '@/design-system/tokens';
-import { useState, useEffect } from "react";
 import type { Chateau } from "@/types";
-import { trackChateauView, trackPhoneClick } from "@/components/Analytics";
+import { Apparition, FaqAccordeon, GaleriePhotosFiche, LienTelephone, SuiviVueChateau } from "@/components/domaine/fiche-interactions";
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
-import { useInView } from "@/hooks/useInView";
 import { Diaporama } from "@/components/domaine/Diaporama";
 import { ParaCard, StickySlider } from "@/components/domaine/briques-fiche";
 import { lienFinal } from "@/data/redirections";
@@ -29,10 +26,8 @@ const altPhoto = creerAltPhoto(photosRenommees as PhotosRenommees);
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 
-/** Visionneuse chargée seulement au premier clic sur une photo (hors du chargement de la page). */
-const Visionneuse = dynamic(() => import("@/components/domaine/Visionneuse").then((m) => m.Visionneuse), { ssr: false });
 
-interface ChateauPageClientProps {
+interface ChateauFicheProps {
   chateau: Chateau;
   /** Menu des rubriques du domaine (Server Component), sous la barre d'appel. */
   navRubriques?: React.ReactNode;
@@ -261,32 +256,22 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
 }
 
 
-export default function ChateauPageClient({ chateau, navRubriques, sectionRubriques }: ChateauPageClientProps) {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'accommodation' | 'spaces'>('overview');
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-
-  // Toutes les images combinées pour le carrousel lightbox
-  const allImages = [...chateau.images.hero, ...chateau.images.galerie.filter(img => !chateau.images.hero.includes(img))];
-
-  const openLightbox = (clickedImage: string) => {
-    const idx = allImages.indexOf(clickedImage);
-    setLightboxIndex(idx >= 0 ? idx : 0);
-  };
-  const closeLightbox = () => setLightboxIndex(null);
-
-  const pointsFortsView = useInView();
-  const faqCtaView = useInView();
-  const ctaView = useInView();
-  const ctaButtonsView = useInView();
-
-  useEffect(() => {
-    trackChateauView(chateau.nom);
-  }, [chateau.nom]);
+export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }: ChateauFicheProps) {
+  // Toutes les photos, dans l'ordre de la visionneuse ; textes alternatifs calculés ici, côté serveur.
+  const toutes = [...chateau.images.hero, ...chateau.images.galerie.filter(img => !chateau.images.hero.includes(img))]
+    .map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.nom} - Photo ${i + 1}`) }));
+  const { hero, galerie } = chateau.images;
+  const grille = [
+    { src: hero[0], alt: altPhoto(hero[0], `${chateau.seoH1} - Vue principale`) },
+    { src: hero[1] || galerie[0], alt: altPhoto(hero[1] || galerie[0], `${chateau.nom} - Intérieur`) },
+    { src: hero[2] || galerie[1], alt: altPhoto(hero[2] || galerie[1], `${chateau.nom} - Espaces`) },
+    { src: hero[3] || galerie[2], alt: altPhoto(hero[3] || galerie[2], `${chateau.nom} - Chambres`) },
+    { src: galerie[3] || hero[0], alt: altPhoto(galerie[3] || hero[0], `${chateau.nom} - Vue complémentaire`) },
+  ];
 
   return (
     <>
+      <SuiviVueChateau nom={chateau.nom} />
       {/* Hero Section — Style Airbnb hybride */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) 0' }}>
         {/* Titre + infos au-dessus des photos */}
@@ -356,112 +341,8 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
           </div>
         </div>
 
-        {/* Grille photos style Airbnb */}
-        <div
-          className="hero-grid-listing rounded-2xl overflow-hidden"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '2fr 1fr 1fr',
-            gridTemplateRows: '1fr 1fr',
-            gap: '4px',
-            height: 'clamp(300px, 55vh, 500px)',
-          }}
-        >
-          {/* Grande image principale à gauche — occupe 2 lignes */}
-          <div
-            className="relative cursor-pointer group overflow-hidden"
-            style={{ gridRow: '1 / 3', gridColumn: '1 / 2' }}
-            onClick={() => openLightbox(chateau.images.hero[0])}
-          >
-            <Image
-              src={chateau.images.hero[0]}
-              alt={altPhoto(chateau.images.hero[0], `${chateau.seoH1} - Vue principale`)}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              priority
-              fetchPriority="high"
-              quality={85}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-
-          {/* 4 petites images à droite — grille 2x2 */}
-          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.hero[1] || chateau.images.galerie[0])}>
-            <Image
-              src={chateau.images.hero[1] || chateau.images.galerie[0]}
-              alt={altPhoto(chateau.images.hero[1] || chateau.images.galerie[0], `${chateau.nom} - Intérieur`)}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              quality={80}
-              sizes="25vw"
-            />
-          </div>
-
-          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.hero[2] || chateau.images.galerie[1])}>
-            <Image
-              src={chateau.images.hero[2] || chateau.images.galerie[1]}
-              alt={altPhoto(chateau.images.hero[2] || chateau.images.galerie[1], `${chateau.nom} - Espaces`)}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              quality={80}
-              sizes="25vw"
-            />
-          </div>
-
-          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.hero[3] || chateau.images.galerie[2])}>
-            <Image
-              src={chateau.images.hero[3] || chateau.images.galerie[2]}
-              alt={altPhoto(chateau.images.hero[3] || chateau.images.galerie[2], `${chateau.nom} - Chambres`)}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              quality={80}
-              sizes="25vw"
-            />
-          </div>
-
-          <div className="relative cursor-pointer group overflow-hidden" onClick={() => openLightbox(chateau.images.galerie[3] || chateau.images.hero[0])}>
-            <Image
-              src={chateau.images.galerie[3] || chateau.images.hero[0]}
-              alt={altPhoto(chateau.images.galerie[3] || chateau.images.hero[0], `${chateau.nom} - Vue complémentaire`)}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-              quality={80}
-              sizes="25vw"
-            />
-            {/* Bouton "Voir toutes les photos" */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setLightboxIndex(0);
-              }}
-              style={{
-                position: 'absolute',
-                bottom: '0.75rem',
-                right: '0.75rem',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '8px 16px',
-                background: 'rgba(255, 255, 255, 0.95)',
-                border: `1px solid ${theme.colors.neutral.gray300}`,
-                borderRadius: theme.effects.borderRadius.lg,
-                fontSize: '0.8125rem',
-                fontWeight: theme.typography.fontWeight.semibold,
-                color: theme.colors.neutral.gray900,
-                cursor: 'pointer',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                zIndex: 10,
-              }}
-            >
-              <Sparkles className="w-4 h-4" />
-              Toutes les photos
-            </button>
-          </div>
-        </div>
+        {/* Grille photos style Airbnb + visionneuse (îlot client) */}
+        <GaleriePhotosFiche grille={grille} toutes={toutes} />
 
         {/* CTA Bar sous les photos */}
         <div
@@ -499,15 +380,10 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
               <FileText className="w-4 h-4" />
               Devis Gratuit en 24h
             </a>
-            <a
-              href={`tel:${CONTACT_PHONE_E164}`}
-              onClick={() => trackPhoneClick()}
-              className="hover:opacity-90"
-              style={BOUTON_TELEPHONE}
-            >
+            <LienTelephone href={`tel:${CONTACT_PHONE_E164}`} className="hover:opacity-90" style={BOUTON_TELEPHONE}>
               <Phone className="w-4 h-4" style={{ color: 'white' }} />
               {CONTACT_PHONE_DISPLAY}
-            </a>
+            </LienTelephone>
           </div>
         </div>
 
@@ -700,26 +576,19 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
         </div>
         <Container size="xl" style={{ position: 'relative', zIndex: 2 }}>
           <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
-            <div
-              ref={pointsFortsView.ref}
-              className={`animate-on-scroll ${pointsFortsView.isInView ? 'is-visible' : ''}`}
-            >
+            <Apparition>
               <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center', color: 'white', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
                 Points forts
               </Text>
               <Text variant="bodyLarge" style={{ textAlign: 'center', color: 'rgba(255,255,255,0.8)' }}>
                 Ce qui rend ce lieu unique
               </Text>
-            </div>
+            </Apparition>
           </div>
 
           <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 1.5rem)', maxWidth: '1200px', margin: '0 auto', justifyContent: 'center', flexWrap: 'wrap', padding: '1.5rem 0' }}>
             {chateau.atouts.map((atout: string, index: number) => (
-              <div
-                key={index}
-                className={`animate-on-scroll ${pointsFortsView.isInView ? 'is-visible' : ''}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
+              <Apparition key={index} style={{ transitionDelay: `${index * 150}ms` }}>
                 <div style={{
                   padding: '1.25rem 2rem',
                   background: 'rgba(255,255,255,0.16)',
@@ -742,7 +611,7 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
                     {atout}
                   </span>
                 </div>
-              </div>
+              </Apparition>
             ))}
           </div>
         </Container>
@@ -768,65 +637,10 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
                 </Text>
               </div>
 
-              <div>
-                {chateau.faq.map((item, index) => {
-                  const isOpen = openFaqIndex === index;
-                  return (
-                    <div key={index} style={{ marginBottom: '0.75rem' }}>
-                      <button
-                        onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                        className="w-full text-left group"
-                        style={{
-                          display: 'flex', alignItems: 'center', gap: '1rem',
-                          padding: '1rem 1.25rem',
-                          background: isOpen ? 'white' : 'transparent',
-                          borderRadius: '0.75rem',
-                          border: `1px solid ${isOpen ? theme.colors.primary.bronze + '40' : 'transparent'}`,
-                          boxShadow: isOpen ? '0 4px 16px rgba(0,0,0,0.06)' : 'none',
-                          transition: 'all 0.3s ease',
-                          cursor: 'pointer',
-                        }}
-                      >
-                        <div style={{
-                          width: '32px', height: '32px', borderRadius: '50%', flexShrink: 0,
-                          background: isOpen ? theme.colors.primary.bronze : `${theme.colors.primary.bronze}10`,
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          transition: 'all 0.3s ease',
-                        }}>
-                          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: isOpen ? 'white' : theme.colors.primary.bronze }}>
-                            {String(index + 1).padStart(2, '0')}
-                          </span>
-                        </div>
-                        <span style={{ flex: 1, fontSize: '0.9375rem', fontWeight: 600, color: theme.colors.neutral.gray800, lineHeight: 1.4 }}>
-                          {item.question}
-                        </span>
-                        <div style={{ flexShrink: 0, transition: 'transform 0.3s ease', transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-                          {isOpen ? (
-                            <Minus className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-                          ) : (
-                            <Plus className="w-4 h-4" style={{ color: theme.colors.neutral.gray500 }} />
-                          )}
-                        </div>
-                      </button>
-                      <div style={{
-                        overflow: 'hidden',
-                        maxHeight: isOpen ? '300px' : '0px',
-                        opacity: isOpen ? 1 : 0,
-                        transition: 'max-height 0.4s ease, opacity 0.3s ease',
-                      }}>
-                        <div style={{ padding: '0.75rem 1.25rem 0.75rem 4.25rem' }}>
-                          <Text variant="body" color="muted" style={{ lineHeight: 1.7, fontSize: '0.9rem' }}>
-                            {item.answer}
-                          </Text>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              <FaqAccordeon faq={chateau.faq} />
 
               {/* CTA sous la FAQ */}
-              <div ref={faqCtaView.ref} className={`animate-on-scroll ${faqCtaView.isInView ? 'is-visible' : ''}`} style={{ marginTop: '1.5rem' }}>
+              <Apparition style={{ marginTop: '1.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem 1.25rem', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: '0.75rem' }}>
                   <Text variant="body" color="muted" style={{ flex: 1, fontSize: '0.875rem' }}>
                     Une autre question ?
@@ -835,7 +649,7 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
                     <Button variant="primary" size="sm">Nous contacter</Button>
                   </Link>
                 </div>
-              </div>
+              </Apparition>
             </div>
 
             {/* Colonne droite — Images FAQ par château */}
@@ -871,15 +685,15 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
       <Section background="gradient" style={{ padding: '30px 0' }}>
         <Container size="lg">
           <div className="section-header" style={{ textAlign: 'center' }}>
-            <div ref={ctaView.ref} className={`animate-on-scroll ${ctaView.isInView ? 'is-visible' : ''}`}>
+            <Apparition>
               <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
                 Prêt à organiser votre événement ?
               </Text>
-            </div>
-            <div ref={ctaButtonsView.ref} className={`animate-on-scroll ${ctaButtonsView.isInView ? 'is-visible' : ''}`} style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '200ms' }}>
+            </Apparition>
+            <Apparition style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '200ms' }}>
               <Link href="/devis#formulaire"><Button variant="primary" size="lg">Demander un Devis</Button></Link>
               <Link href="/chateaux"><Button variant="outline" size="lg">Voir d'autres châteaux</Button></Link>
-            </div>
+            </Apparition>
             {/* Liens SEO vers pages géographiques */}
             {(() => {
               const geoLinks: Record<string, { label: string; href: string }[]> = {
@@ -920,15 +734,6 @@ export default function ChateauPageClient({ chateau, navRubriques, sectionRubriq
       {/* Barre fixe commune : descend au formulaire de la fiche, s'efface quand il est à l'écran */}
       <StickyCtaBar cible="#devis-express" />
 
-      {/* Visionneuse plein écran, chargée au premier clic */}
-      {lightboxIndex !== null && (
-        <Visionneuse
-          photos={allImages.map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.nom} - Photo ${i + 1}`) }))}
-          index={lightboxIndex}
-          onIndex={setLightboxIndex}
-          onFermer={closeLightbox}
-        />
-      )}
     </>
   );
 }
