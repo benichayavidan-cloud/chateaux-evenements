@@ -65,4 +65,44 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 1]],
     },
   },
+  'abbaye-millenaire-vallee-chevreuse': {
+    titres: {
+      lieu: 'Une abbaye du XIIe siècle sur 80 hectares',
+      hebergement: 'Séminaire résidentiel : {chambres} chambres au cœur du domaine',
+      reunion: '{salles} salles de séminaire, de la Grande Salle des Voûtes aux salons à la lumière du jour',
+      restauration: '4 restaurants et 2 bars, dîner de gala sous les voûtes',
+      activites: 'Team building sur 80 hectares et spa',
+      acces: 'Venir en séminaire : à 45 min de Paris',
+    },
+    lieu: {
+      intro:
+        "Pour un séminaire résidentiel au vert, cette abbaye cistercienne fondée au XIIe siècle plonge vos équipes dans un cadre sans équivalent, à 45 minutes de Paris. Classé Monument Historique, le domaine de 80 hectares a été entièrement rénové en 2023.",
+      blocs: [
+        {
+          titre: 'Neuf siècles d’histoire pour décor',
+          texte:
+            "Ruines de l'église abbatiale, bâtiments conventuels, voûtes médiévales : vos participants ne sont pas dans un centre de congrès, et ils le sentent dès leur arrivée. Ce patrimoine donne du poids aux temps forts de votre convention et ancre les messages de votre entreprise dans les mémoires.",
+        },
+        {
+          titre: 'Un lac et 80 hectares de forêt',
+          texte:
+            "Le domaine s'étend en lisière de la forêt de Rambouillet, autour d'un lac qui reflète les ruines. Vos sessions de travail se prolongent dehors, et les rives du lac accueillent la photo de groupe de fin de séminaire.",
+        },
+        {
+          titre: 'Une vraie coupure avec le quotidien',
+          texte:
+            "À 45 minutes de Paris, vos collaborateurs sont coupés du bureau et disponibles pour le travail en commun. Tout se déroule sur place : vous n'avez aucun transfert à organiser entre la journée de réunion, la soirée et la nuit.",
+        },
+      ],
+      faits: [
+        { label: 'Domaine', valeur: '80 hectares' },
+        { label: 'Fondation', valeur: 'XIIe siècle' },
+        { label: 'Rénovation', valeur: '2023' },
+      ],
+    },
+    blocs: {
+      restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 1]],
+      acces: [['acces', 0], ['acces', 2], ['acces', 3]],
+    },
+  },
 };
