@@ -41,10 +41,7 @@ export interface Chateau {
   // Hébergement
   roomsTotal: number;
   roomsTwin: number | null; // null = "Modulables"
-  bedroomText: string;
-  meetingText: string;
   meetingRooms: number;
-  restaurationText: string;
 }
 
 export interface TypeEvenement {

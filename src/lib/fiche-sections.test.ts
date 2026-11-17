@@ -148,3 +148,22 @@ for (const slug of Object.keys(FICHE_SECTIONS)) {
     }
   });
 }
+
+/**
+ * Chiffres retirés le 17/11/2026 : les questions fréquentes, le texte de
+ * partage et la description contredisaient les sections (sources officielles).
+ */
+const CHIFFRES_RETIRES: Record<string, RegExp> = {
+  'manoir-anglo-normand-chantilly': /\b120 chambres|23 minutes de TER/i,
+  'hotel-historique-seminaire-paris-92': /4 minutes à pied|36 minutes|5 000 m²|360 ?m²/i,
+  'abbaye-millenaire-vallee-chevreuse': /48 places/i,
+  'palais-royal-foret-chantilly': /\b12 salons|\b11 salons|15 min(utes)? de (l'aéroport |Roissy|CDG)|35 minutes de Paris|48 chambres twin|300 (en cocktail|personnes)/i,
+};
+
+for (const [slug, motif] of Object.entries(CHIFFRES_RETIRES)) {
+  test(`${slug} : plus aucun chiffre retiré dans la fiche (questions fréquentes, partage, description)`, () => {
+    const c = parSlug[slug];
+    const textes = [c.description, c.accrocheHero, c.seoDescription ?? '', c.descriptionLongue, ...c.atouts, ...c.faq.flatMap((f) => [f.question, f.answer])];
+    for (const t of textes) assert.doesNotMatch(t, motif);
+  });
+}
