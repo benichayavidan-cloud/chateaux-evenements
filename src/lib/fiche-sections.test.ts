@@ -101,3 +101,7 @@ test('titre principal : aucun titre de section ne le répète', () => {
     for (const s of sectionsFiche(slug, parSlug[slug])) assert.notEqual(s.titre, h1, `${slug} / ${s.id}`);
   }
 });
+
+test('ligne d’infos : chaque fiche annonce son trajet', () => {
+  for (const c of chateaux.filter((f) => f.titreFiche)) assert.match(c.trajet ?? '', /^à \d+ min /, c.slug);
+});

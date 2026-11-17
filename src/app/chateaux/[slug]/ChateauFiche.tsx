@@ -346,13 +346,23 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
               <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
               {chateau.styleArchitectural}
             </span>
+            {chateau.trajet && (
+              <>
+                <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                  {chateau.trajet}
+                </span>
+              </>
+            )}
           </div>
         </div>
 
         {/* Grille photos style Airbnb + visionneuse (îlot client) */}
         <GaleriePhotosFiche grille={grille} toutes={toutes} />
 
-        {/* CTA Bar sous les photos */}
+        {/* Boutons devis et téléphone sous les photos. L'accroche n'y est plus affichée
+            (décision PO du 17/11/2026) ; accrocheHero reste le texte de partage (layout.tsx). */}
         <div
           style={{
             display: 'flex',
@@ -368,18 +378,6 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
             flexWrap: 'wrap',
           }}
         >
-          <p
-            style={{
-              fontSize: 'clamp(0.875rem, 2vw, 1rem)',
-              color: theme.colors.neutral.gray600,
-              fontStyle: 'italic',
-              margin: 0,
-              flex: '1 1 auto',
-              minWidth: 0,
-            }}
-          >
-            {chateau.accrocheHero}
-          </p>
           <div className="flex gap-2.5 flex-shrink-0 items-center">
             <a
               href="#devis-express"

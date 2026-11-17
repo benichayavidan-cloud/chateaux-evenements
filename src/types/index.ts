@@ -27,6 +27,8 @@ export interface Chateau {
    * Absent → la fiche affiche seoH1 seul.
    */
   titreFiche?: { motCle: string; lieu: string };
+  /** Trajet affiché dans la ligne d'infos sous le titre (« à 45 min de Paris »). */
+  trajet?: string;
   seoTitle: string;
   /** Meta description propre à la fiche ; jetons {chambres} {salles} {capacite} (lib/fiche-chateau). */
   seoDescription?: string;
