@@ -499,6 +499,29 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           "Soirée DJ, billard, ping-pong ou échecs dans les salons du château : notre équipe adapte la fin de soirée à l'énergie du groupe. De mai à octobre, la serre du parc accueille aussi des cocktails jusqu'à 200 personnes.",
       },
     ],
+    blocsSection: [0],
+    sections: [
+      {
+        ancre: "apres-diner",
+        etiquette: "Après le dîner",
+        titre: "Après le dîner : bar à cocktails, billard et soirée DJ au château",
+        intro:
+          "Une fois le dîner terminé, la soirée de votre séminaire continue sur le domaine, au bar ou dans les salons du château.",
+        reprend: [1, 2],
+        blocs: [
+        ],
+        faits: [
+          { label: "Bar", valeur: "jusqu'à 1 h le vendredi et le samedi, 0 h 30 les autres soirs" },
+          { label: "Salons du château", valeur: "billard, ping-pong, échecs" },
+          { label: "Cocktails du bar", valeur: "sirops et hydrolats maison" },
+        ],
+        reprendPhotos: [0, 1, 2],
+        photos: [
+        ],
+        conseil:
+          "Après le dîner de votre séminaire, vos participants se retrouvent au bar ou autour du billard ; la soirée DJ, elle, s'organise avec notre équipe.",
+      },
+    ],
     sources: [MICE, SITE, FACTSHEET],
   },
 

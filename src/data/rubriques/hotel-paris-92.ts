@@ -501,6 +501,30 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           "Aux beaux jours, le jardin reçoit votre groupe, jusqu'à 300 invités, pour un cocktail ou un dîner, et la grande terrasse 70 convives à table. La façade illuminée et la tour Eiffel au loin font le reste.",
       },
     ],
+    blocsSection: [0, 1],
+    sections: [
+      {
+        ancre: "cocktail-jardin",
+        etiquette: "Cocktail au jardin",
+        titre: "Cocktail de séminaire au jardin, face à la tour Eiffel",
+        intro:
+          "La soirée de votre séminaire peut commencer dehors : cocktail au jardin, puis dîner sur la terrasse.",
+        reprend: [2],
+        blocs: [
+          { titre: "Un dîner dressé dans la serre", texte: "Pour un dîner en plus petit comité, une table se dresse dans la serre vitrée du jardin." },
+        ],
+        faits: [
+          { label: "Dîner sur la grande terrasse", valeur: "70 convives" },
+          { label: "Jardin", valeur: "vue sur la tour Eiffel" },
+          { label: "Cocktail au jardin", valeur: "jusqu'à 300 invités" },
+        ],
+        reprendPhotos: [0, 2],
+        photos: [
+        ],
+        conseil:
+          "Pour le cocktail de clôture de votre convention, le jardin reçoit jusqu'à 300 invités ; pour passer à table ensuite, la grande terrasse accueille 70 convives.",
+      },
+    ],
     sources: [URL_OFFICIEL, URL_RESTO, URL_REUNIONS, URL_PRESSE],
   },
 

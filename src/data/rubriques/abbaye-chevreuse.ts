@@ -436,7 +436,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     seoTitle: "Soirée d'entreprise dans une abbaye, Vallée de Chevreuse",
     titreSection: "Soirée d'entreprise à l'abbaye : gala, salons et cinéma privé",
     conseil:
-      "Après le dîner de gala, privatisez un salon pour vos participants, ou finissez par un quiz musical dans l'espace jeux de 200 m² : des formats qui mélangent les équipes sans effort.",
+      "Pour un dîner de séminaire en plus petit groupe, demandez-moi le grand salon des haras : 100 convives à table ronde.",
     seoDescription:
       "Dîner de gala sous les voûtes du XIIe siècle pour 250 convives, bars et salons, espace jeux privatisé de 200 m², cinéma privé : vos soirées sur le domaine.",
     resume:
@@ -472,6 +472,29 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         titre: 'Soirée animée, quiz musical et cinéma',
         texte:
           "Pour une soirée plus animée : un salon privatisé pour votre groupe, un quiz musical, l'espace jeux privatisé de 200 m², ou une séance privée dans notre cinéma. Autant de formats qui mélangent les équipes sans effort.",
+      },
+    ],
+    blocsSection: [0],
+    sections: [
+      {
+        ancre: "apres-diner",
+        etiquette: "Après le dîner",
+        titre: "Après le dîner à l'abbaye : salons privatisés, quiz musical et cinéma",
+        intro:
+          "Une fois le dîner terminé, la soirée de votre séminaire se poursuit dans les salons et les bars du domaine, ou autour d'une animation réservée à votre groupe.",
+        reprend: [1, 2],
+        blocs: [
+        ],
+        faits: [
+          { label: "Salons et bars", valeur: "un salon privatisable après le dîner" },
+          { label: "Espace jeux", valeur: "quiz musical et soirée animée" },
+          { label: "Cinéma", valeur: "séance privée pour votre groupe" },
+        ],
+        reprendPhotos: [0, 2, 3, 4, 5],
+        photos: [
+        ],
+        conseil:
+          "Pour finir la soirée de votre séminaire au calme, demandez-moi une séance privée au cinéma du domaine pour vos participants.",
       },
     ],
     sources: [FICHE, CVENT],
