@@ -371,7 +371,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         ancre: "banquets",
         etiquette: "Banquets et dîners de groupe",
-        titre: "Banquet de séminaire à Chantilly : jusqu'à 250 convives à table",
+        titre: "Banquet de séminaire à Chantilly : du salon privé à 250 convives",
         intro:
           "Pour le dîner de gala de votre convention comme pour un repas en petit comité, les tables se dressent sur le domaine : au Grand Salon du château, en salle plénière, dans la serre du parc ou dans un salon privé.",
         reprend: [1],
@@ -393,9 +393,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         ancre: "pauses",
         etiquette: "Pauses et petit-déjeuner",
-        titre: "Petit-déjeuner, pauses et régimes alimentaires de votre séminaire au château",
+        titre: "Pauses de séminaire à Chantilly : petit-déjeuner et régimes alimentaires",
         intro:
-          "Entre deux sessions, vos participants n'ont pas à traverser le domaine : le petit-déjeuner et les pauses de votre séminaire sont servis sur place, et les menus s'adaptent aux régimes de chacun.",
+          "Du petit-déjeuner aux pauses de la journée, les repas courts de votre séminaire sont servis sur le domaine, et les menus s'adaptent aux régimes de vos participants.",
         reprend: [],
         blocs: [
           { titre: "Le petit-déjeuner et les pauses gourmandes", texte: "Avant la première session, le petit-déjeuner est servi en libre-service, avec des produits locaux et de saison et le miel du domaine. Dans la journée, les pauses gourmandes de votre groupe sont servies dans les salons attenants aux salles de réunion." },

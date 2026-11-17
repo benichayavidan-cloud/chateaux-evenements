@@ -372,7 +372,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         ancre: "banquets",
         etiquette: "Banquets et dîners de groupe",
-        titre: "Banquet de séminaire aux portes de Paris : terrasse de 70 convives et jardin",
+        titre: "Banquet de séminaire aux portes de Paris : 70 convives en terrasse",
         intro:
           "Pour le repas de groupe de votre séminaire, le restaurant et sa terrasse se réservent pour vous seuls. L'été, le jardin accueille les grands banquets.",
         reprend: [1],
@@ -388,14 +388,14 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         photos: [
         ],
         conseil:
-          "Pour le grand banquet d'été de votre convention, pensez au jardin : il accueille jusqu'à 300 invités.",
+          "Pour un déjeuner de séminaire en exclusivité, demandez-moi la privatisation du restaurant et de sa terrasse.",
       },
       {
         ancre: "pauses",
         etiquette: "Pauses et petit-déjeuner",
         titre: "Petit-déjeuner, pauses et bar lounge : la journée de vos participants",
         intro:
-          "Du petit-déjeuner à la fin de journée, vos participants restent sur le domaine : libre-service du matin, pauses gourmandes pendant le séminaire, puis bar lounge ouvert sur le jardin.",
+          "Du petit-déjeuner à la fin de journée, vos participants restent sur le domaine : libre-service du matin, pauses gourmandes pendant le séminaire, puis bar lounge, avec sa terrasse ouverte sur le jardin.",
         reprend: [2, 3],
         blocs: [
         ],
@@ -409,7 +409,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           { src: "/images/seminaire-hotel-historique-paris-92-terrasse-jardin-potager.webp", legende: "Un coin de terrasse au-dessus du potager" },
         ],
         conseil:
-          "Pour clore une journée de séminaire aux beaux jours, donnez rendez-vous à vos participants sur la terrasse du bar lounge, ouverte sur le jardin.",
+          "Pour une pause de séminaire qui change du café, demandez pour vos participants les infusions du bar lounge, aux herbes du jardin.",
       },
     ],
     sources: [URL_RESTO, URL_REUNIONS, URL_HISTOIRE, URL_CVENT],

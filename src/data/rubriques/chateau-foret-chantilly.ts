@@ -313,7 +313,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     seoTitle: 'Restauration de séminaire en château, forêt de Chantilly',
     titreSection: "Restauration de séminaire : deux restaurants et le bar du patio",
     conseil:
-      "Pour un déjeuner de séminaire à la belle saison, demandez-moi la terrasse du restaurant de la bibliothèque : vos participants déjeunent face à la forêt.",
+      "Calez le programme de votre séminaire sur les horaires du restaurant : le déjeuner de vos participants est servi de 12 h à 14 h 30, le dîner de 19 h à 21 h 30.",
     seoDescription:
       "Restaurant gastronomique, restaurant de la bibliothèque, bar du patio : produits de saison, dîners de gala jusqu'à 200 couverts, show cooking.",
     resume:
@@ -375,7 +375,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           { src: "/images/seminaire-chateau-foret-chantilly-salon-reunion-4.webp", legende: "Un salon du château, ici en disposition classe" },
         ],
         conseil:
-          "Pour un grand groupe aux beaux jours, pensez au déjeuner grillé en plein air : il se réserve dès 50 participants.",
+          "Pour un grand groupe, pensez au déjeuner grillé en plein air : il se réserve dès 50 participants.",
       },
       {
         ancre: "pauses",
@@ -385,18 +385,18 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           "Pour un séminaire à la journée, tout se passe au même endroit : les pauses sont servies au centre des salons de réunion, et le déjeuner est compris dans l'offre.",
         reprend: [1],
         blocs: [
-          { titre: "Le bar de la bibliothèque, de midi à 22 h", texte: "Entre deux sessions ou en fin de journée, vos participants se retrouvent au bar de l'ancienne bibliothèque, avec ses boiseries et sa cheminée : il est ouvert tous les jours de midi à 22 h." },
+          { titre: "Le patio sous verrière, votre espace de pause", texte: "Sous sa verrière, le patio est l'espace de pause de votre séminaire : vos participants s'y retrouvent entre deux sessions. Son bar se réserve aussi pour l'apéritif de votre groupe." },
         ],
         faits: [
           { label: "Pauses", valeur: "servies dans le patio" },
           { label: "Déjeuner de journée d'étude", valeur: "compris dans l'offre" },
-          { label: "Bar de la bibliothèque", valeur: "de 12 h à 22 h" },
+          { label: "Bar du patio", valeur: "sur réservation, pour vos apéritifs" },
         ],
         reprendPhotos: [2, 3],
         photos: [
         ],
         conseil:
-          "Pour une journée d'étude, les pauses et le déjeuner sont compris dans nos offres. À la belle saison, faites servir le déjeuner de vos participants en terrasse.",
+          "Votre séminaire tient en une demi-journée ? Demandez-moi l'offre de demi-journée d'étude pour vos participants.",
       },
     ],
     sources: [BROCHURE, SITE],

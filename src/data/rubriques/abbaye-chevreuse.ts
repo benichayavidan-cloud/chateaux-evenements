@@ -384,7 +384,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         photos: [
         ],
         conseil:
-          "Pour une journée de séminaire dense, prévoyez la pause de l'après-midi dans la sellerie : vos participants s'y retrouvent entre deux sessions.",
+          "Envoyez-moi le programme de votre séminaire avec votre demande : l'équipe compose les menus de vos participants à partir de celui-ci.",
       },
     ],
     sources: [FICHE, CVENT],
