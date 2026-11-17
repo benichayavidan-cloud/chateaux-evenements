@@ -23,7 +23,7 @@ test('plénière : sans disposition théâtre, la capacité « en réunion » du
 });
 
 test('ateliers : jusqu’à 80 places en classe ; comité : jusqu’à 25 en U, les plus petites d’abord', () => {
-  const formats = sallesParFormat([salle('Grande', { classe: 140, enU: 90 }), salle('Atelier', { classe: 40, enU: 25 }), salle('Bureau', { classe: 12, enU: 8 })]);
+  const formats = sallesParFormat([salle('Grande', { classe: 140, enU: 90 }), salle('Atelier', { classe: 40, enU: 25 }), salle('Bureau', { classe: 12, enU: 8 }), salle('Réduit', { classe: 4 })]);
   const ateliers = formats.find((f) => f.id === 'ateliers')!;
   assert.deepEqual(ateliers.salles.map((s) => s.nom), ['Atelier', 'Bureau']);
   assert.equal(ateliers.resume, '2 salles, de 12 à 40 places en classe');

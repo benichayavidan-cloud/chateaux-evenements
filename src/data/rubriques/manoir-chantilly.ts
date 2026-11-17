@@ -123,11 +123,11 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         etiquette: "La salle plénière",
         titre: "Une plénière de 280 places pour votre convention à Chantilly",
         intro:
-          "Pour une convention, un lancement de produit ou un kick-off, notre salle plénière de 240 m² reçoit 280 participants en théâtre, sous 6,7 mètres de plafond. Elle occupe son propre bâtiment, à côté du château et de l'aile contemporaine.",
+          "Pour une convention, un lancement de produit ou un kick-off, notre salle plénière de 240 m² reçoit 280 participants en théâtre, sous 6,7 mètres de plafond. Elle occupe son propre bâtiment.",
         blocs: [
           { titre: "Une scène, un écran de 18 m² et une régie", texte: "La salle dispose d'un écran géant de 18 m², d'une scène équipée, d'une régie intégrée et d'éclairages personnalisables : les prises de parole de votre convention y prennent une autre ampleur." },
           { titre: "Du théâtre au dîner de gala", texte: "280 places en théâtre pour la plénière, 120 en classe pour une séance de travail, 140 convives en banquet le soir : la même salle suit le déroulé de votre séminaire. Le dîner s'y tient avec scène, écran géant et éclairages personnalisés, pour les discours et les remises de prix." },
-          { titre: "Les ateliers à côté", texte: "Après la plénière, vos participants rejoignent les salles d'ateliers du château et de l'aile contemporaine, sans quitter le domaine." },
+          { titre: "Puis les ateliers", texte: "Après la plénière, vos participants rejoignent les salles d'ateliers du château et de l'aile contemporaine, sans quitter le domaine." },
         ],
         faits: [
           { label: "Surface", valeur: "240 m²" },
@@ -140,7 +140,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           { src: img('salle-pleniere-brique'), legende: "Salle de réunion aux murs de pierre et au plafond boisé, en disposition théâtre" },
         ],
         conseil:
-          "Pour une remise de prix pendant votre convention, je vous conseille la plénière en banquet : 140 convives à table, face à la scène et à l'écran.",
+          "Pour une remise de prix pendant votre convention, je vous conseille la plénière en banquet : 140 convives à table, avec scène, écran géant et éclairages personnalisés.",
       },
       {
         ancre: 'ateliers',

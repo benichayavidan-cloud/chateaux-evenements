@@ -123,7 +123,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           "Notre ancienne chapelle désacralisée offre 50 m² sous 7 mètres de plafond, entre statues et vitraux. On y tient une réunion stratégique ou un déjeuner de 14 participants autour d'une même table.",
         blocs: [
           { titre: "Le soir, un dîner privé", texte: "Pour un comité de direction ou des clients privilégiés, nous dressons un dîner privé dans la chapelle, à partir de 8 convives. Une dégustation de quatre rhums peut clôturer la soirée." },
-          { titre: "Une masterclass pour souder le groupe", texte: "La chapelle abrite aussi notre bar à rhum : une masterclass ou une dégustation privée de quatre rhums réunit vos équipes autour d'un même récit, en fin de journée de séminaire." },
+          { titre: "Une masterclass pour souder le groupe", texte: "La chapelle abrite aussi notre bar à rhum : une masterclass ou une dégustation privée réunit vos équipes autour d'un même récit, en fin de journée de séminaire." },
         ],
         faits: [
           { label: "Surface", valeur: "50 m²" },

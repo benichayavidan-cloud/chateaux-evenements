@@ -139,7 +139,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         faits: [
           { label: "Salles de sous-commission", valeur: "9, de 33 à 75 m²" },
           { label: "Grand salon", valeur: "70 places en théâtre" },
-          { label: "Comité de direction", valeur: "de 15 à 21 places à table" },
+          { label: "Comité de direction", valeur: "de 15 à 21 places dans la plupart des salons" },
         ],
         reprendPhotos: [2, 3, 6],
         photos: [],

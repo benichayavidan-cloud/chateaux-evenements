@@ -32,6 +32,8 @@ const LIGNES_MAX = 3;
 const MENTION_MAX = 20;
 /** Un atelier ou une sous-commission : pas plus de 80 places en classe. */
 const ATELIER_MAX = 80;
+/** En dessous de 10 places en classe, la salle sert à un comité, pas à un atelier (« 4 places en classe » ne dit rien). */
+const ATELIER_MIN = 10;
 /** Un comité de direction : pas plus de 25 places en U. */
 const COMITE_MAX = 25;
 
@@ -76,7 +78,7 @@ export function sallesParFormat(salles: SalleReunion[]): FormatSalles[] {
     .sort((a, b) => b.valeur - a.valeur);
 
   const ateliers = salles
-    .filter((s) => s.classe !== null && s.classe <= ATELIER_MAX)
+    .filter((s) => s.classe !== null && s.classe >= ATELIER_MIN && s.classe <= ATELIER_MAX)
     .map((salle) => ({ salle, valeur: salle.classe!, libelle: `${salle.classe} places en classe` }))
     .sort((a, b) => b.valeur - a.valeur);
 

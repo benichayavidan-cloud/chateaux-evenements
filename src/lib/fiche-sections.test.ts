@@ -299,3 +299,12 @@ test('la fiche château garde tous les blocs de la rubrique Salles, même quand 
   const fiche = sectionsFiche('manoir-anglo-normand-chantilly', parSlug['manoir-anglo-normand-chantilly']).find((s) => s.id === 'reunion')!;
   assert.equal(fiche.blocs.length, RUBRIQUES_PAR_CHATEAU['manoir-anglo-normand-chantilly'].salles!.blocs.length);
 });
+
+test('pages détaillées : une photo n’apparaît que dans un seul diaporama de la page', () => {
+  for (const [slug, rubs] of Object.entries(RUBRIQUES_PAR_CHATEAU)) {
+    for (const id of RUBRIQUES.filter((x) => rubs[x])) {
+      const srcs = [sectionRubrique(id, rubs[id]!), ...sectionsSupplementaires(id, rubs[id]!)].flatMap((x) => x.photos.map((p) => p.src));
+      assert.equal(new Set(srcs).size, srcs.length, `${slug}/${id}`);
+    }
+  }
+});

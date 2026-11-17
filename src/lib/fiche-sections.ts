@@ -235,6 +235,17 @@ export const ETIQUETTES_RUBRIQUE: Record<RubriqueId, string> = {
   acces: 'Accès',
 };
 
+/**
+ * Photos de la section principale : celles que les sections supplémentaires
+ * montrent déjà en sont retirées (une photo n'apparaît qu'une fois dans les
+ * diaporamas de la page). S'il n'en restait aucune, on garde tout.
+ */
+function photosPrincipales(r: Rubrique) {
+  const prises = new Set((r.sections ?? []).flatMap((x) => [...(x.reprendPhotos ?? []).map((i) => r.photos[i]?.src), ...x.photos.map((p) => p.src)]));
+  const libres = r.photos.filter((p) => !prises.has(p.src));
+  return libres.length > 0 ? libres : r.photos;
+}
+
 export function sectionRubrique(rubrique: RubriqueId, r: Rubrique): SectionFiche {
   return {
     id: THEME_DE_RUBRIQUE[rubrique],
@@ -243,7 +254,7 @@ export function sectionRubrique(rubrique: RubriqueId, r: Rubrique): SectionFiche
     intro: r.intro,
     blocs: r.blocsSection ? r.blocsSection.map((i) => r.blocs[i]).filter((b): b is BlocTexte => b !== undefined) : r.blocs,
     faits: r.faits.map(({ label, valeur }) => ({ label, valeur })),
-    photos: r.photos.map((p) => ({ src: p.src, alt: p.legende })),
+    photos: photosPrincipales(r).map((p) => ({ src: p.src, alt: p.legende })),
     liens: [],
     conseil: r.conseil,
   };
