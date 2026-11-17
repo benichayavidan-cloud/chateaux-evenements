@@ -462,7 +462,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     resume:
       "Dîner de gala jusqu'à 200 convives, cocktail jusqu'à 270 personnes, bar de la bibliothèque et bar du patio.",
     intro:
-      "Après la journée de travail, la soirée se déroule sans quitter le château. Cocktail en terrasse, dîner de gala dans la salle plénière, dernier verre près de la cheminée de l'ancienne bibliothèque : vos participants rejoignent leur chambre à pied.",
+      "Après la journée de travail, la soirée se déroule sans quitter le château. Cocktail en terrasse, dîner de gala dans la salle plénière, dernier verre près de la cheminée de l'ancienne bibliothèque.",
     faits: [
       { label: 'Dîner de gala', valeur: '200 convives', source: BROCHURE },
       { label: 'Cocktail dînatoire', valeur: '270 personnes', source: BROCHURE },
@@ -491,6 +491,30 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         titre: 'Les terrasses à la belle saison',
         texte:
           "Les terrasses face à la forêt se prêtent à un cocktail de fin de journée, avant de passer à table. Notre équipe compose le menu et le déroulé de la soirée avec vous.",
+      },
+    ],
+    blocsSection: [0, 2],
+    sections: [
+      {
+        ancre: "apres-diner",
+        etiquette: "Après le dîner",
+        titre: "Après le dîner au château : bar de la bibliothèque et bar du patio",
+        intro:
+          "Une fois le dîner terminé, la soirée de votre séminaire se prolonge sans quitter le château, dans l'un de ses deux bars.",
+        reprend: [1],
+        blocs: [
+          { titre: "Une fin de soirée sur place", texte: "Vos participants rejoignent leur chambre à pied à la fin de la soirée. Le room service répond 24h/24." },
+        ],
+        faits: [
+          { label: "Bar de la bibliothèque", valeur: "tous les jours, de midi à 22 h" },
+          { label: "Bar du patio", valeur: "apéritifs et soirées privées" },
+          { label: "Room service", valeur: "24h/24" },
+        ],
+        reprendPhotos: [0, 2],
+        photos: [
+        ],
+        conseil:
+          "Pour une soirée privée pendant votre séminaire, demandez-moi le bar du patio : il se réserve pour votre groupe, sous la verrière.",
       },
     ],
     sources: [BROCHURE],
