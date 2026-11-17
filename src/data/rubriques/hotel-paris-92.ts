@@ -213,7 +213,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         reprend: [],
         blocs: [
           { titre: "Des équipes logées côte à côte", texte: "Nos 30 chambres communicantes permettent de loger vos équipes côte à côte : pratique pour un grand groupe ou un séminaire qui réunit plusieurs équipes." },
-          { titre: "Chambres classiques et supérieures", texte: "Les chambres classiques et supérieures conviennent aux grands groupes : c'est là que loge l'essentiel des participants de votre séminaire." },
+          { titre: "Chambres classiques et supérieures", texte: "Les chambres classiques et supérieures conviennent aux grands groupes : réservez-les pour le gros des participants de votre séminaire." },
         ],
         faits: [
           { label: "Chambres communicantes", valeur: "30" },

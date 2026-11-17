@@ -193,9 +193,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           { titre: "Le soir, chacun rejoint sa chambre", texte: "Après le dîner de gala ou une soirée sur le domaine, vos participants rejoignent leur chambre sans navette ni horaire de retour : pour un grand groupe, c'est une logistique en moins." },
         ],
         faits: [
-          { label: "Chambres à l'abbaye", valeur: "59" },
-          { label: "Chambres aux haras", valeur: "47" },
-          { label: "Chambres à la ferme", valeur: "38" },
+          { label: "Chambres aux haras", valeur: "47, près des salles de réunion" },
+          { label: "Petites chambres et chambres cosy", valeur: "pour les grands groupes" },
+          { label: "Retour en chambre", valeur: "sans navette, le soir" },
         ],
         reprendPhotos: [4, 5],
         photos: [
