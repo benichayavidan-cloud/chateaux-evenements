@@ -50,7 +50,7 @@ const CHIFFRES: Table = [
   [/environnemental/i, Leaf],
   [/label|classement/i, Award],
   [/fondation|rénovation|voûte/i, Landmark],
-  [/parc|jardin|domaine|cadre|serre|sentier|terrasse|légumes/i, Trees],
+  [/parc|jardin|domaine|cadre|serre|sentier|terrasse|légumes|vélos?|barques/i, Trees],
 ];
 
 const choisir = (table: Table, texte: string): LucideIcon | undefined => table.find(([motif]) => motif.test(texte))?.[1];

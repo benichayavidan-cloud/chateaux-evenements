@@ -258,13 +258,13 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     seoTitle: 'Abbaye avec parc de 80 hectares et lac, séminaire 78',
     titreSection: "80 hectares de forêt et un lac pour votre séminaire au vert",
     conseil:
-      "Pour le cocktail de fin de journée de votre séminaire, pensez aux rives du lac, face aux ruines de l'église abbatiale. Vos participants y font aussi la photo de groupe.",
+      "Pour une pause qui change de la salle de réunion pendant votre séminaire, donnez rendez-vous à vos participants au bord du lac, au cœur du domaine.",
     seoDescription:
       "80 hectares de forêt, un lac, des ruines médiévales : le parc du domaine accueille vos pauses, activités et cocktails en plein air, à 45 minutes de Paris.",
     resume:
       "80 hectares de forêt et d'étangs autour des ruines de l'abbaye : lac, terrasses, piscine chauffée et parcours sportif.",
     intro:
-      "Le domaine s'étend sur 80 hectares en lisière de la forêt de Rambouillet. Les ruines de l'église abbatiale, le lac et les bois centenaires composent le décor de vos pauses, de vos activités et de vos cocktails en plein air. On passe de la salle de réunion au parc en quelques pas.",
+      "Le domaine s'étend sur 80 hectares en lisière de la forêt de Rambouillet. Les ruines de l'église abbatiale, le lac et les bois centenaires composent le décor de vos pauses, de vos activités et de vos cocktails en plein air.",
     faits: [
       { label: 'Surface du domaine', valeur: '80 hectares', source: FICHE },
       { label: 'Parcours sportif', valeur: '500 m', source: CVENT },
@@ -276,23 +276,65 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       { src: img('terrasse-restaurant-gastronomique'), legende: 'La terrasse du restaurant gastronomique' },
       { src: img('terrasse-table-champetre'), legende: 'La terrasse de la table champêtre du domaine' },
       { src: img('activite-camion-maraicher'), legende: 'Le camion du maraîcher, dans le parc' },
-      { src: img('pavillon-bien-etre'), legende: 'Le pavillon bien-être, ouvert sur le parc' },
+      { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/abbaye-chevreuse/seminaire-abbaye-vallee-de-chevreuse-cottage-brique-parc.webp", legende: 'Un bâtiment de brique du domaine, sous les grands arbres du parc' },
+      { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/abbaye-chevreuse/seminaire-abbaye-vallee-de-chevreuse-facade-batiment-principal.webp", legende: 'La façade du bâtiment principal' },
     ],
     blocs: [
       {
         titre: 'Le lac et les ruines',
         texte:
-          "Au cœur du domaine, le lac reflète les ruines de l'église abbatiale. Barques et pédalos sont à disposition des participants ; ses rives accueillent un cocktail de fin de journée ou une photo de groupe que vos équipes garderont.",
+          "Au cœur du domaine, le lac reflète les ruines de l'église abbatiale. Vos participants passent de la salle de réunion au parc en quelques pas.",
       },
       {
         titre: 'Des terrasses pour chaque moment',
         texte:
           "Les terrasses du restaurant gastronomique et de la table champêtre du domaine reçoivent les déjeuners d'équipe et les pauses à la belle saison. Elles prolongent la salle de réunion sans transfert : un atout quand le programme est serré.",
       },
+    ],
+    blocsSection: [0],
+    sections: [
       {
-        titre: 'Le parc comme terrain de jeu',
-        texte:
-          "Deux courts de tennis, deux courts de padel, un parcours sportif de 500 mètres, des vélos et une piscine extérieure chauffée : le parc se prête aux olympiades d'entreprise comme aux pauses libres entre deux sessions.",
+        ancre: "plein-air",
+        etiquette: "Travailler et recevoir dehors",
+        titre: "Cocktail au bord du lac et déjeuner en terrasse pour votre séminaire",
+        intro:
+          "À la belle saison, les repas et les temps forts de votre séminaire sortent des salles : déjeuner d'équipe en terrasse, cocktail au bord du lac.",
+        reprend: [1],
+        blocs: [
+          { titre: "Cocktail et photo de groupe au bord du lac", texte: "Les rives du lac accueillent un cocktail de fin de journée ou une photo de groupe que vos équipes garderont, avec les ruines de l'église abbatiale en arrière-plan." },
+        ],
+        faits: [
+          { label: "Cocktail au bord du lac", valeur: "en fin de journée" },
+          { label: "Terrasses de restaurant", valeur: "restaurant gastronomique et table champêtre" },
+          { label: "Déjeuner en terrasse", valeur: "à la belle saison" },
+        ],
+        reprendPhotos: [1, 2],
+        photos: [
+        ],
+        conseil:
+          "Pour le cocktail de fin de journée de votre séminaire, pensez aux rives du lac, face aux ruines de l'église abbatiale. Vos participants y font aussi la photo de groupe.",
+      },
+      {
+        ancre: "detente",
+        etiquette: "S'aérer entre deux sessions",
+        titre: "Tennis, padel et barques : les pauses actives de votre séminaire à l'abbaye",
+        intro:
+          "Entre deux sessions de travail, vos participants choisissent leur pause selon leur énergie du moment, sans quitter le domaine.",
+        reprend: [],
+        blocs: [
+          { titre: "Tennis, padel et parcours sportif", texte: "Deux courts de tennis, deux courts de padel et un parcours sportif de 500 mètres : le parc se prête aux pauses libres entre deux sessions de votre séminaire." },
+          { titre: "Vélos, barques et piscine extérieure", texte: "Des vélos permettent de parcourir le domaine, des barques et des pédalos attendent vos participants sur le lac, et la piscine extérieure est chauffée." },
+        ],
+        faits: [
+          { label: "Tennis et padel", valeur: "deux courts chacun" },
+          { label: "Barques et pédalos", valeur: "sur le lac" },
+          { label: "Vélos", valeur: "pour parcourir le domaine" },
+        ],
+        reprendPhotos: [3, 4],
+        photos: [
+        ],
+        conseil:
+          "Laissez un vrai temps libre dans le programme de votre séminaire : vos participants en profitent pour une partie de padel ou un tour en barque sur le lac.",
       },
     ],
     sources: [FICHE, CVENT],

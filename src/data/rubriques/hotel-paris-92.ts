@@ -279,7 +279,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     seoTitle: 'Jardin historique avec vue tour Eiffel pour séminaire',
     titreSection: "Un jardin de 9 500 m² face à la tour Eiffel pour votre séminaire",
     conseil:
-      "Pour un déjeuner de comité ou une pause à l'écart du groupe pendant votre séminaire, demandez-moi l'une des deux terrasses intimes, de 35 et 20 m².",
+      "Pour le cocktail de votre séminaire, pensez au jardin : il accueille jusqu'à 300 invités, avec la tour Eiffel à l'horizon.",
     seoDescription:
       "Un jardin de 9 500 m² avec vue sur la tour Eiffel, un potager, trois terrasses et une chapelle : vos pauses et cocktails en plein air, aux portes de Paris.",
     resume:
@@ -315,6 +315,51 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         titre: 'Trois terrasses pour chaque moment',
         texte:
           "La grande terrasse de 100 m² prolonge le restaurant et reçoit 70 convives à table. Deux terrasses plus intimes, de 35 et 20 m², accueillent un déjeuner de comité ou une pause à l'écart du groupe.",
+      },
+    ],
+    blocsSection: [0],
+    sections: [
+      {
+        ancre: "plein-air",
+        etiquette: "Travailler et recevoir dehors",
+        titre: "Réunion et déjeuner de séminaire au jardin : trois terrasses et une serre",
+        intro:
+          "Aux beaux jours, une partie de votre séminaire se tient dehors : un déjeuner sur la grande terrasse, un comité sur une terrasse à l'écart, une réunion dans la serre du jardin.",
+        reprend: [2],
+        blocs: [
+          { titre: "Une réunion dans la serre du jardin", texte: "Au milieu du jardin, la serre vitrée accueille une réunion en petit comité : vos participants travaillent entourés de verdure." },
+        ],
+        faits: [
+          { label: "Grande terrasse", valeur: "100 m², 70 convives" },
+          { label: "Terrasses intimes", valeur: "35 et 20 m²" },
+          { label: "Serre du jardin", valeur: "réunion en petit comité" },
+        ],
+        reprendPhotos: [4, 1],
+        photos: [
+        ],
+        conseil:
+          "Pour un déjeuner de comité ou une pause à l'écart du groupe pendant votre séminaire, demandez-moi l'une des deux terrasses intimes, de 35 et 20 m².",
+      },
+      {
+        ancre: "detente",
+        etiquette: "S'aérer entre deux sessions",
+        titre: "Potager, ruches et vélos électriques : la pause au vert de vos participants",
+        intro:
+          "Entre deux sessions, vos participants sortent prendre l'air dans le jardin, entre le potager et les ruches, ou partent pour une courte sortie à vélo.",
+        reprend: [1],
+        blocs: [
+          { titre: "Des vélos électriques pour une sortie", texte: "Le domaine met des vélos électriques à la disposition de vos participants, pour une sortie entre deux sessions de votre séminaire." },
+        ],
+        faits: [
+          { label: "Potager du jardin", valeur: "80 variétés" },
+          { label: "Ruches du jardin", valeur: "le miel du petit-déjeuner" },
+          { label: "Vélos électriques", valeur: "à disposition" },
+        ],
+        reprendPhotos: [2, 3],
+        photos: [
+        ],
+        conseil:
+          "Pour une pause au calme pendant votre séminaire, proposez à vos participants un tour du potager : herbes, fruits et miel du jardin se retrouvent ensuite dans leurs assiettes.",
       },
     ],
     sources: [URL_REUNIONS, URL_OFFICIEL, URL_HISTOIRE, URL_PRESSE],
