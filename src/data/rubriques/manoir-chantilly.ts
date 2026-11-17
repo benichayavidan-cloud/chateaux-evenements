@@ -116,6 +116,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           "Nichée en pleine nature dans le parc, notre serre de 300 m² reçoit 250 personnes en théâtre, 120 en classe ou 200 en cocktail. On y organise un séminaire créatif, un atelier de réflexion collective ou un cocktail au milieu des arbres.",
       },
     ],
+    blocsSection: [1, 3],
     sections: [
       {
         ancre: 'salle-signature',
@@ -140,6 +141,27 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         conseil:
           "Pour une remise de prix pendant votre convention, je vous conseille la plénière en banquet : 140 convives à table, face à la scène et à l'écran.",
+      },
+      {
+        ancre: 'ateliers',
+        etiquette: 'Ateliers et sous-commissions',
+        titre: "Des salles d'ateliers pour vos sous-commissions, à Chantilly",
+        intro:
+          "Après la plénière, votre séminaire se poursuit en ateliers : une quinzaine de salles de 15 à 134 m² se répartissent entre les salons du château et l'aile contemporaine.",
+        reprend: [2],
+        blocs: [
+          { titre: "Les pauses à deux pas des salles", texte: "Les pauses gourmandes de votre séminaire sont servies dans les salons attenants aux salles de réunion : vos participants reprennent la séance sans perdre de temps." },
+          { titre: "Toutes à la lumière du jour", texte: "Nos 21 espaces de réunion sont tous éclairés par la lumière du jour : un confort qui compte quand vos ateliers durent toute la journée." },
+        ],
+        faits: [
+          { label: "Salles d'ateliers", valeur: "une quinzaine, de 15 à 134 m²" },
+          { label: "Salle confidentielle", valeur: "21 m², 8 personnes" },
+          { label: "Lumière du jour", valeur: "dans tous les espaces" },
+        ],
+        reprendPhotos: [4, 6, 5, 7],
+        photos: [],
+        conseil:
+          "Pour vos sous-commissions, donnez-moi le nombre de groupes et leur taille : entre les salons du château et l'aile contemporaine, chaque atelier de votre séminaire a sa salle.",
       },
     ],
     sources: [MICE, FACTSHEET, FICHE, CVENT],

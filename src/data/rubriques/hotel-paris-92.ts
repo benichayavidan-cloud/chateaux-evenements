@@ -113,6 +113,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           "Nos salles de réunion sont équipées d'un matériel audiovisuel récent et baignées de lumière naturelle. Notre équipe dédiée à l'événementiel vous aide à choisir l'espace, prépare la disposition et organise les pauses de votre groupe.",
       },
     ],
+    blocsSection: [2, 3],
     sections: [
       {
         ancre: 'salle-signature',
@@ -135,6 +136,26 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         ],
         conseil:
           "Pour un séminaire de comité de direction, pensez à la chapelle sur toute la journée : la réunion stratégique le matin, puis le déjeuner à 14 à la même table.",
+      },
+      {
+        ancre: 'ateliers',
+        etiquette: 'Ateliers et sous-commissions',
+        titre: "Des salons pour vos comités et vos ateliers, côté jardin",
+        intro:
+          "Pour vos comités et vos ateliers, nous proposons cinq salons intérieurs de 22 à 50 m², dans le bâtiment classé du domaine, avec vue sur le jardin historique.",
+        reprend: [0],
+        blocs: [
+          { titre: "Les pauses de votre journée", texte: "Pendant la journée de séminaire, nous servons des pauses gourmandes préparées avec des ingrédients de saison, à côté des salons." },
+        ],
+        faits: [
+          { label: "Salons intérieurs", valeur: "5, de 22 à 50 m²" },
+          { label: "Salon modulable", valeur: "32 places en théâtre" },
+          { label: "Comité de direction", valeur: "de 8 à 12 personnes autour d'une table" },
+        ],
+        reprendPhotos: [0, 3],
+        photos: [],
+        conseil:
+          "Pour un atelier en sous-groupes pendant votre séminaire, les deux petits salons de 27 et 22 m² réunissent 12 et 8 participants autour d'une table.",
       },
     ],
     sources: [URL_REUNIONS, URL_PRESSE, FICHE],

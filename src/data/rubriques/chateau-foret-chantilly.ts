@@ -101,6 +101,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           "Le patio lumineux, au centre des salons, accueille les pauses et les échanges entre deux sessions. Un bureau de coordination événementielle se trouve sur le même niveau : notre équipe y suit votre programme pendant toute la journée.",
       },
     ],
+    blocsSection: [0, 1],
     sections: [
       {
         ancre: 'salle-signature',
@@ -124,6 +125,26 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         ],
         conseil:
           "Pour une convention suivie d'une soirée, restez dans la plénière : 250 participants en théâtre la journée, puis 200 convives à table pour le dîner de gala.",
+      },
+      {
+        ancre: 'ateliers',
+        etiquette: 'Ateliers et sous-commissions',
+        titre: "Neuf salles de sous-commission autour d'un patio",
+        intro:
+          "Après la plénière, les sous-commissions de votre séminaire se répartissent dans neuf salles de 33 à 75 m², autour d'un patio lumineux.",
+        reprend: [2, 3],
+        blocs: [
+          { titre: "Deux terrasses pour prolonger les ateliers", texte: "Deux grandes terrasses prolongent nos salons de réunion : vos participants y prennent la pause ou le déjeuner à la belle saison." },
+        ],
+        faits: [
+          { label: "Salles de sous-commission", valeur: "9, de 33 à 75 m²" },
+          { label: "Grand salon", valeur: "70 places en théâtre" },
+          { label: "Comité de direction", valeur: "de 15 à 21 places à table" },
+        ],
+        reprendPhotos: [2, 3, 6],
+        photos: [],
+        conseil:
+          "Pour une session de créativité pendant votre séminaire, demandez-moi l'Atelier créatif : 19 participants, quelle que soit la disposition.",
       },
     ],
     sources: [BROCHURE, FICHE],

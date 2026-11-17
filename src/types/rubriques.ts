@@ -67,9 +67,15 @@ export interface SectionSupplementaire {
   etiquette: string;
   titre: string;
   intro: string;
+  /** Blocs propres à cette section. */
   blocs: BlocTexte[];
+  /** Blocs de la rubrique repris ici (rangs dans `Rubrique.blocs`), affichés avant les blocs propres. */
+  reprend?: number[];
   faits: Array<{ label: string; valeur: string }>;
+  /** Photos propres à cette section. */
   photos: PhotoRubrique[];
+  /** Photos de la rubrique reprises ici (rangs dans `Rubrique.photos`). */
+  reprendPhotos?: number[];
   conseil?: string;
 }
 
@@ -96,6 +102,13 @@ export interface Rubrique {
   photos: PhotoRubrique[];
   blocs: BlocTexte[];
   salles?: SalleReunion[];
+  /**
+   * Blocs affichés dans la section principale de la page (rangs dans `blocs`).
+   * Absent : tous. Sert quand des sections supplémentaires reprennent certains
+   * blocs : un bloc n'apparaît qu'une fois sur la page (testé). La fiche
+   * château, elle, lit toujours `blocs` en entier.
+   */
+  blocsSection?: number[];
   /** Sections de texte après la section principale, dans l'ordre d'affichage. */
   sections?: SectionSupplementaire[];
   /** Pages consultées pour les chiffres (noté pour s'y retrouver). */

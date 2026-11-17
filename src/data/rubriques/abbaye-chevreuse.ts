@@ -82,6 +82,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Chaque espace dispose d'un équipement audiovisuel professionnel. Notre équipe événementielle installe la disposition voulue, organise les pauses dans les salons attenants et prépare le passage de la plénière aux ateliers.",
       },
     ],
+    blocsSection: [2, 3],
     sections: [
       {
         ancre: 'salle-signature',
@@ -104,6 +105,27 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         ],
         conseil:
           "Pour un séminaire qui doit marquer vos collaborateurs, gardez les voûtes pour deux temps forts : la plénière d'ouverture et le dîner de gala, jusqu'à 250 convives.",
+      },
+      {
+        ancre: 'ateliers',
+        etiquette: 'Ateliers et sous-commissions',
+        titre: "Des salons pour vos ateliers, à deux pas de la plénière",
+        intro:
+          "Après la plénière, les ateliers de votre séminaire se tiennent dans les salons de l'abbaye et des anciens haras, de 25 à 171 m².",
+        reprend: [1],
+        blocs: [
+          { titre: "Une seconde plénière aux haras", texte: "Pour une plénière plus technique ou une restitution d'ateliers, le grand salon des haras offre 209 m² modulables : 90 places en théâtre, 70 en classe, ou 150 debout pour un cocktail de lancement." },
+          { titre: "Lumière du jour et terrasses", texte: "Nos salons d'ateliers sont presque tous éclairés par la lumière du jour. À la belle saison, les terrasses du domaine prolongent la salle de réunion pour les pauses de vos participants." },
+        ],
+        faits: [
+          { label: "Salons d'ateliers", valeur: "de 25 à 171 m²" },
+          { label: "Grand salon des haras", valeur: "209 m², 90 places en théâtre" },
+          { label: "Comité de direction", valeur: "8 personnes autour d'une table" },
+        ],
+        reprendPhotos: [2, 3, 5, 6],
+        photos: [],
+        conseil:
+          "Pour vos sous-commissions, pensez à répartir vos groupes entre l'Orangerie et le salon des écuries : une centaine de participants chacun, à deux pas de la plénière.",
       },
     ],
     sources: [FICHE, CVENT],

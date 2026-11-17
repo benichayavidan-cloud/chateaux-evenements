@@ -250,8 +250,8 @@ const supplementaires = Object.entries(RUBRIQUES_PAR_CHATEAU).flatMap(([slug, ru
   RUBRIQUES.filter((id) => rubs[id]).flatMap((id) => sectionsSupplementaires(id, rubs[id]!).map((s) => ({ slug, id, s }))),
 );
 
-test('sections supplémentaires : les 4 pages Salles ont leur salle signature, avec photos et texte', () => {
-  assert.deepEqual(supplementaires.filter((x) => x.id === 'salles').map((x) => x.s.ancre), Array(4).fill('salle-signature'));
+test('sections supplémentaires : les 4 pages Salles ont leur salle signature et leurs ateliers, avec photos et texte', () => {
+  assert.deepEqual(supplementaires.filter((x) => x.id === 'salles').map((x) => x.s.ancre), Array(4).fill(['salle-signature', 'ateliers']).flat());
   for (const { slug, id, s } of supplementaires) {
     assert.ok(s.titre && s.intro && s.blocs.length >= 2 && s.faits.length >= 3, `${slug}/${id}`);
     assert.ok(s.photos.length >= 2, `${slug}/${id} : il faut au moins 2 photos pour le diaporama`);
@@ -282,4 +282,20 @@ test('sections supplémentaires : aucun chiffre qui ne soit déjà publié sur l
     const texte = [s.titre, s.intro, s.conseil ?? '', ...s.blocs.flatMap((b) => [b.titre, b.texte]), ...s.faits.flatMap((f) => [f.label, f.valeur])].join(' ');
     assert.deepEqual(nombres(texte).filter((n) => !publies.has(n)), [], `${slug}/${id}`);
   }
+});
+
+test('pages détaillées : un bloc de texte et un titre de bloc n’apparaissent qu’une fois sur la page', () => {
+  for (const [slug, rubs] of Object.entries(RUBRIQUES_PAR_CHATEAU)) {
+    for (const id of RUBRIQUES.filter((x) => rubs[x])) {
+      const sections = [sectionRubrique(id, rubs[id]!), ...sectionsSupplementaires(id, rubs[id]!)];
+      const titres = sections.flatMap((s) => s.blocs.map((b) => b.titre));
+      assert.equal(new Set(titres).size, titres.length, `${slug}/${id} : ${titres.join(' | ')}`);
+      assert.equal(new Set(sections.map((s) => ('ancre' in s ? (s as { ancre: string }).ancre : s.id))).size, sections.length, `${slug}/${id} : ancres en double`);
+    }
+  }
+});
+
+test('la fiche château garde tous les blocs de la rubrique Salles, même quand la page les répartit', () => {
+  const fiche = sectionsFiche('manoir-anglo-normand-chantilly', parSlug['manoir-anglo-normand-chantilly']).find((s) => s.id === 'reunion')!;
+  assert.equal(fiche.blocs.length, RUBRIQUES_PAR_CHATEAU['manoir-anglo-normand-chantilly'].salles!.blocs.length);
 });
