@@ -16,7 +16,8 @@ import { RubriqueVitrine } from "@/components/domaine/RubriqueVitrine";
 import { EnTeteDomaine } from "@/components/domaine/EnTeteDomaine";
 import { BandeauConfiance } from "@/components/domaine/BandeauConfiance";
 import { SectionFiche } from "@/components/domaine/SectionFiche";
-import { sectionRubrique } from "@/lib/fiche-sections";
+import { SallesParFormat } from "@/components/domaine/SallesParFormat";
+import { sectionRubrique, sectionsSupplementaires } from "@/lib/fiche-sections";
 import { DecouvrirDomaine } from "@/components/domaine/DecouvrirDomaine";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
@@ -123,11 +124,19 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
       {/* Section de texte : même brique que la fiche (étiquette, titre à mot-clé, conseil, cartes, chiffres). */}
       <SectionFiche section={section} photos={section.photos} rang={0} />
 
+      {/* Sections supplémentaires : disposition inversée d'une section à l'autre (texte à gauche, puis à droite…). */}
+      {sectionsSupplementaires(id, r).map((s, i) => (
+        <SectionFiche key={s.ancre} section={s} photos={s.photos} rang={i + 1} ancre={s.ancre} />
+      ))}
+
+      {/* Quelle salle pour quel format : calculé depuis le tableau, placé juste avant lui. */}
+      {r.salles && r.salles.length > 0 && <SallesParFormat salles={r.salles} lieu={lieuDansTitre(chateau.slug)} />}
+
       {r.salles && r.salles.length > 0 && (
         <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
           <Container size="xl">
             <div className={styles.domaine}>
-              <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "left" }}>Capacités salle par salle</Text>
+              <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "center" }}>Capacités salle par salle</Text>
               <TableauSalles salles={r.salles} />
               <p className="mt-2 text-xs" style={{ color: theme.colors.neutral.gray600 }}>
                 « – » : disposition non proposée ou non communiquée. Faites défiler le tableau pour voir toutes les dispositions.
@@ -137,7 +146,7 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
         </Section>
       )}
 
-      <DecouvrirDomaine slug={chateau.slug} rubriques={autres} titre="Découvrir aussi le domaine" />
+      <DecouvrirDomaine slug={chateau.slug} rubriques={autres} titre="Les autres espaces de votre séminaire" lieu={lieuDansTitre(chateau.slug)} />
 
       <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
         <Container size="xl">

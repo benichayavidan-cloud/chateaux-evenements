@@ -235,16 +235,43 @@ export const ETIQUETTES_RUBRIQUE: Record<RubriqueId, string> = {
   acces: 'Accès',
 };
 
+/**
+ * Photos de la section principale : celles que les sections supplémentaires
+ * montrent déjà en sont retirées (une photo n'apparaît qu'une fois dans les
+ * diaporamas de la page). S'il n'en restait aucune, on garde tout.
+ */
+function photosPrincipales(r: Rubrique) {
+  const prises = new Set((r.sections ?? []).flatMap((x) => [...(x.reprendPhotos ?? []).map((i) => r.photos[i]?.src), ...x.photos.map((p) => p.src)]));
+  const libres = r.photos.filter((p) => !prises.has(p.src));
+  return libres.length > 0 ? libres : r.photos;
+}
+
 export function sectionRubrique(rubrique: RubriqueId, r: Rubrique): SectionFiche {
   return {
     id: THEME_DE_RUBRIQUE[rubrique],
     etiquette: ETIQUETTES_RUBRIQUE[rubrique],
     titre: r.titreSection,
     intro: r.intro,
-    blocs: r.blocs,
+    blocs: r.blocsSection ? r.blocsSection.map((i) => r.blocs[i]).filter((b): b is BlocTexte => b !== undefined) : r.blocs,
     faits: r.faits.map(({ label, valeur }) => ({ label, valeur })),
-    photos: r.photos.map((p) => ({ src: p.src, alt: p.legende })),
+    photos: photosPrincipales(r).map((p) => ({ src: p.src, alt: p.legende })),
     liens: [],
     conseil: r.conseil,
   };
+}
+
+/** Sections supplémentaires d'une page détaillée, au format de la brique de section. */
+export function sectionsSupplementaires(rubrique: RubriqueId, r: Rubrique): Array<SectionFiche & { ancre: string }> {
+  return (r.sections ?? []).map((x) => ({
+    id: THEME_DE_RUBRIQUE[rubrique],
+    ancre: x.ancre,
+    etiquette: x.etiquette,
+    titre: x.titre,
+    intro: x.intro,
+    blocs: [...(x.reprend ?? []).map((i) => r.blocs[i]).filter((b): b is BlocTexte => b !== undefined), ...x.blocs],
+    faits: x.faits,
+    photos: [...(x.reprendPhotos ?? []).map((i) => r.photos[i]).filter((p) => p !== undefined), ...x.photos].map((p) => ({ src: p.src, alt: p.legende })),
+    liens: [],
+    conseil: x.conseil,
+  }));
 }

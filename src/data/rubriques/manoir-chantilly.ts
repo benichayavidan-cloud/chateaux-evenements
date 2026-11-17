@@ -116,6 +116,54 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           "Nichée en pleine nature dans le parc, notre serre de 300 m² reçoit 250 personnes en théâtre, 120 en classe ou 200 en cocktail. On y organise un séminaire créatif, un atelier de réflexion collective ou un cocktail au milieu des arbres.",
       },
     ],
+    blocsSection: [1, 3],
+    sections: [
+      {
+        ancre: 'salle-signature',
+        etiquette: "La salle plénière",
+        titre: "Une plénière de 280 places pour votre convention à Chantilly",
+        intro:
+          "Pour une convention, un lancement de produit ou un kick-off, notre salle plénière de 240 m² reçoit 280 participants en théâtre, sous 6,7 mètres de plafond. Elle occupe son propre bâtiment.",
+        blocs: [
+          { titre: "Une scène, un écran de 18 m² et une régie", texte: "La salle dispose d'un écran géant de 18 m², d'une scène équipée, d'une régie intégrée et d'éclairages personnalisables : les prises de parole de votre convention y prennent une autre ampleur." },
+          { titre: "Du théâtre au dîner de gala", texte: "280 places en théâtre pour la plénière, 120 en classe pour une séance de travail, 140 convives en banquet le soir : la même salle suit le déroulé de votre séminaire. Le dîner s'y tient avec scène, écran géant et éclairages personnalisés, pour les discours et les remises de prix." },
+          { titre: "Puis les ateliers", texte: "Après la plénière, vos participants rejoignent les salles d'ateliers du château et de l'aile contemporaine, sans quitter le domaine." },
+        ],
+        faits: [
+          { label: "Surface", valeur: "240 m²" },
+          { label: "En théâtre", valeur: "280 places" },
+          { label: "En banquet", valeur: "140 convives" },
+          { label: "Hauteur sous plafond", valeur: "6,7 m" },
+        ],
+        photos: [
+          { src: img('salle-pleniere-theatre'), legende: "La salle plénière en disposition théâtre, écrans géants et scène" },
+          { src: img('salle-pleniere-brique'), legende: "Salle de réunion aux murs de pierre et au plafond boisé, en disposition théâtre" },
+        ],
+        conseil:
+          "Pour une remise de prix pendant votre convention, je vous conseille la plénière en banquet : 140 convives à table, avec scène, écran géant et éclairages personnalisés.",
+      },
+      {
+        ancre: 'ateliers',
+        etiquette: 'Ateliers et sous-commissions',
+        titre: "Des salles d'ateliers pour vos sous-commissions, à Chantilly",
+        intro:
+          "Après la plénière, votre séminaire se poursuit en ateliers : une quinzaine de salles de 15 à 134 m² se répartissent entre les salons du château et l'aile contemporaine.",
+        reprend: [2],
+        blocs: [
+          { titre: "Les pauses à deux pas des salles", texte: "Les pauses gourmandes de votre séminaire sont servies dans les salons attenants aux salles de réunion : vos participants reprennent la séance sans perdre de temps." },
+          { titre: "Toutes à la lumière du jour", texte: "Nos 21 espaces de réunion sont tous éclairés par la lumière du jour : un confort qui compte quand vos ateliers durent toute la journée." },
+        ],
+        faits: [
+          { label: "Salles d'ateliers", valeur: "une quinzaine, de 15 à 134 m²" },
+          { label: "Salle confidentielle", valeur: "21 m², 8 personnes" },
+          { label: "Lumière du jour", valeur: "dans tous les espaces" },
+        ],
+        reprendPhotos: [4, 6, 5, 7],
+        photos: [],
+        conseil:
+          "Pour vos sous-commissions, donnez-moi le nombre de groupes et leur taille : entre les salons du château et l'aile contemporaine, chaque atelier de votre séminaire a sa salle.",
+      },
+    ],
     sources: [MICE, FACTSHEET, FICHE, CVENT],
   },
 

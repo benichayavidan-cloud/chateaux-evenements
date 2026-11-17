@@ -78,7 +78,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       { nom: 'Le Salon sous haut plafond', surfaceM2: 41, theatre: 35, classe: 8, enU: null, banquet: null, cocktail: null, cabaret: null, note: '5 m sous plafond ; 35 personnes autour d’une table de conférence' },
       { nom: 'Le Salon du jardin', surfaceM2: 27, theatre: 25, classe: 4, enU: null, banquet: null, cocktail: null, cabaret: null, note: '12 personnes autour d’une table' },
       { nom: 'Le Salon privé', surfaceM2: 22, theatre: 8, classe: 4, enU: null, banquet: null, cocktail: null, cabaret: null, note: '8 personnes autour d’une table' },
-      { nom: 'La Grande Terrasse', surfaceM2: 100, theatre: null, classe: null, enU: null, banquet: 70, cocktail: null, cabaret: null, note: 'en plein air, jusqu’à 100 personnes en réunion' },
+      { nom: 'La Grande Terrasse', surfaceM2: 100, theatre: null, classe: null, enU: null, banquet: 70, cocktail: null, cabaret: null, note: 'en plein air, jusqu’à 100 personnes en réunion', reunion: 100 },
       { nom: 'La Terrasse haute', surfaceM2: 35, theatre: null, classe: null, enU: null, banquet: 30, cocktail: null, cabaret: null, note: 'en plein air' },
       { nom: 'La Terrasse vue tour Eiffel', surfaceM2: 20, theatre: null, classe: null, enU: null, banquet: 20, cocktail: null, cabaret: null, note: 'en plein air' },
       { nom: 'Le Jardin', surfaceM2: 9500, theatre: null, classe: null, enU: null, banquet: 300, cocktail: null, cabaret: null, note: 'en plein air' },
@@ -111,6 +111,51 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         titre: 'Ce qui est compris',
         texte:
           "Nos salles de réunion sont équipées d'un matériel audiovisuel récent et baignées de lumière naturelle. Notre équipe dédiée à l'événementiel vous aide à choisir l'espace, prépare la disposition et organise les pauses de votre groupe.",
+      },
+    ],
+    blocsSection: [2, 3],
+    sections: [
+      {
+        ancre: 'salle-signature',
+        etiquette: "La chapelle",
+        titre: "Une réunion de direction dans une chapelle, aux portes de Paris",
+        intro:
+          "Notre ancienne chapelle désacralisée offre 50 m² sous 7 mètres de plafond, entre statues et vitraux. On y tient une réunion stratégique ou un déjeuner de 14 participants autour d'une même table.",
+        blocs: [
+          { titre: "Le soir, un dîner privé", texte: "Pour un comité de direction ou des clients privilégiés, nous dressons un dîner privé dans la chapelle, à partir de 8 convives. Une dégustation de quatre rhums peut clôturer la soirée." },
+          { titre: "Une masterclass pour souder le groupe", texte: "La chapelle abrite aussi notre bar à rhum : une masterclass ou une dégustation privée réunit vos équipes autour d'un même récit, en fin de journée de séminaire." },
+        ],
+        faits: [
+          { label: "Surface", valeur: "50 m²" },
+          { label: "Hauteur sous plafond", valeur: "7 m" },
+          { label: "Autour d'une table", valeur: "14 personnes" },
+        ],
+        photos: [
+          { src: img('chapelle-lounge-interieur'), legende: "La chapelle, 50 m² sous 7 m de plafond" },
+          { src: img('chapelle-exterieur-coucher-soleil'), legende: "La chapelle au coucher du soleil" },
+        ],
+        conseil:
+          "Pour un séminaire de comité de direction, pensez à la chapelle sur toute la journée : la réunion stratégique le matin, puis le déjeuner à 14 à la même table.",
+      },
+      {
+        ancre: 'ateliers',
+        etiquette: 'Ateliers et sous-commissions',
+        titre: "Des salons pour vos comités et vos ateliers, côté jardin",
+        intro:
+          "Pour vos comités et vos ateliers, nous proposons cinq salons intérieurs de 22 à 50 m², dans le bâtiment classé du domaine, avec vue sur le jardin historique.",
+        reprend: [0],
+        blocs: [
+          { titre: "Les pauses de votre journée", texte: "Pendant la journée de séminaire, nous servons des pauses gourmandes préparées avec des ingrédients de saison, à côté des salons." },
+        ],
+        faits: [
+          { label: "Salons intérieurs", valeur: "5, de 22 à 50 m²" },
+          { label: "Salon modulable", valeur: "32 places en théâtre" },
+          { label: "Comité de direction", valeur: "de 8 à 12 personnes autour d'une table" },
+        ],
+        reprendPhotos: [0, 3],
+        photos: [],
+        conseil:
+          "Pour un atelier en sous-groupes pendant votre séminaire, les deux petits salons de 27 et 22 m² réunissent 12 et 8 participants autour d'une table.",
       },
     ],
     sources: [URL_REUNIONS, URL_PRESSE, FICHE],

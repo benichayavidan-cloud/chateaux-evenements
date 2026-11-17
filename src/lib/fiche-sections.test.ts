@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { chateaux } from '../data/chateaux.ts';
 import { FICHE_SECTIONS, SECTIONS_FICHE } from '../data/fiche-sections.ts';
-import { angleSeminaire, angleSuffisant, chiffresHorsSection, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionRubrique, sectionsFiche } from './fiche-sections.ts';
+import { angleSeminaire, angleSuffisant, chiffresHorsSection, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionRubrique, sectionsFiche, sectionsSupplementaires } from './fiche-sections.ts';
 
 const CHIFFRES = { roomsTotal: 119, meetingRooms: 21, capacite: { min: 10, max: 280 } };
 const parSlug = Object.fromEntries(chateaux.map((c) => [c.slug, c]));
@@ -243,4 +243,68 @@ test('pages détaillées : conseils tous différents, et différents de ceux des
 
 test('pages détaillées : un conseil n’avance aucun chiffre absent de sa page', () => {
   for (const { slug, id, s } of pagesDetaillees) assert.deepEqual(chiffresHorsSection(s), [], `${slug}/${id}`);
+});
+
+// ---- Sections supplémentaires des pages détaillées
+const supplementaires = Object.entries(RUBRIQUES_PAR_CHATEAU).flatMap(([slug, rubs]) =>
+  RUBRIQUES.filter((id) => rubs[id]).flatMap((id) => sectionsSupplementaires(id, rubs[id]!).map((s) => ({ slug, id, s }))),
+);
+
+test('sections supplémentaires : les 4 pages Salles ont leur salle signature et leurs ateliers, avec photos et texte', () => {
+  assert.deepEqual(supplementaires.filter((x) => x.id === 'salles').map((x) => x.s.ancre), Array(4).fill(['salle-signature', 'ateliers']).flat());
+  for (const { slug, id, s } of supplementaires) {
+    assert.ok(s.titre && s.intro && s.blocs.length >= 2 && s.faits.length >= 3, `${slug}/${id}`);
+    assert.ok(s.photos.length >= 2, `${slug}/${id} : il faut au moins 2 photos pour le diaporama`);
+    for (const p of s.photos) if (!p.src.startsWith('http')) assert.ok(fs.existsSync(path.join('public', p.src)), p.src);
+    assert.match(s.conseil ?? '', /séminaire|participants|convention|collaborateurs/i, `${slug}/${id}`);
+  }
+});
+
+test('sections supplémentaires : titre et conseil différents de ceux de la page et des fiches', () => {
+  const pris = new Set([...pagesDetaillees.flatMap((p) => [p.s.titre, p.s.conseil]), ...sectionsDesFiches.flatMap((s) => [s.titre, s.conseil])]);
+  for (const { slug, id, s } of supplementaires) {
+    assert.ok(!pris.has(s.titre), `${slug}/${id} : titre déjà utilisé`);
+    assert.ok(!pris.has(s.conseil), `${slug}/${id} : conseil déjà utilisé`);
+  }
+  assert.equal(new Set(supplementaires.map((x) => x.s.titre)).size, supplementaires.length);
+});
+
+test('sections supplémentaires : aucun chiffre qui ne soit déjà publié sur les pages du même domaine', () => {
+  const nombres = (t: string) => t.match(/\d+(?:[,.]\d+)?/g) ?? [];
+  for (const { slug, id, s } of supplementaires) {
+    const rubs = RUBRIQUES_PAR_CHATEAU[slug];
+    const publies = new Set(
+      Object.values(rubs).flatMap((r) => [
+        ...nombres([r!.intro, r!.resume, ...r!.blocs.flatMap((b) => [b.titre, b.texte]), ...r!.faits.flatMap((f) => [f.label, f.valeur]), ...r!.photos.map((p) => p.legende)].join(' ')),
+        ...(r!.salles ?? []).flatMap((x) => [x.surfaceM2, x.theatre, x.classe, x.enU, x.banquet, x.cocktail, x.cabaret, x.reunion].filter((v) => v != null).map(String).concat(nombres(x.note ?? ''))),
+      ]),
+    );
+    const texte = [s.titre, s.intro, s.conseil ?? '', ...s.blocs.flatMap((b) => [b.titre, b.texte]), ...s.faits.flatMap((f) => [f.label, f.valeur])].join(' ');
+    assert.deepEqual(nombres(texte).filter((n) => !publies.has(n)), [], `${slug}/${id}`);
+  }
+});
+
+test('pages détaillées : un bloc de texte et un titre de bloc n’apparaissent qu’une fois sur la page', () => {
+  for (const [slug, rubs] of Object.entries(RUBRIQUES_PAR_CHATEAU)) {
+    for (const id of RUBRIQUES.filter((x) => rubs[x])) {
+      const sections = [sectionRubrique(id, rubs[id]!), ...sectionsSupplementaires(id, rubs[id]!)];
+      const titres = sections.flatMap((s) => s.blocs.map((b) => b.titre));
+      assert.equal(new Set(titres).size, titres.length, `${slug}/${id} : ${titres.join(' | ')}`);
+      assert.equal(new Set(sections.map((s) => ('ancre' in s ? (s as { ancre: string }).ancre : s.id))).size, sections.length, `${slug}/${id} : ancres en double`);
+    }
+  }
+});
+
+test('la fiche château garde tous les blocs de la rubrique Salles, même quand la page les répartit', () => {
+  const fiche = sectionsFiche('manoir-anglo-normand-chantilly', parSlug['manoir-anglo-normand-chantilly']).find((s) => s.id === 'reunion')!;
+  assert.equal(fiche.blocs.length, RUBRIQUES_PAR_CHATEAU['manoir-anglo-normand-chantilly'].salles!.blocs.length);
+});
+
+test('pages détaillées : une photo n’apparaît que dans un seul diaporama de la page', () => {
+  for (const [slug, rubs] of Object.entries(RUBRIQUES_PAR_CHATEAU)) {
+    for (const id of RUBRIQUES.filter((x) => rubs[x])) {
+      const srcs = [sectionRubrique(id, rubs[id]!), ...sectionsSupplementaires(id, rubs[id]!)].flatMap((x) => x.photos.map((p) => p.src));
+      assert.equal(new Set(srcs).size, srcs.length, `${slug}/${id}`);
+    }
+  }
 });

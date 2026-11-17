@@ -42,11 +42,41 @@ export interface SalleReunion {
   cocktail: number | null;
   cabaret: number | null;
   note?: string;
+  /**
+   * Capacité « en réunion » quand le lieu ne donne aucune disposition assise
+   * chiffrée pour cette salle (le tableau ne l'affiche pas : elle est déjà
+   * dans `note`). Sert au choix d'une salle par format.
+   */
+  reunion?: number;
 }
 
 export interface BlocTexte {
   titre: string;
   texte: string;
+}
+
+/**
+ * Section de texte supplémentaire d'une page détaillée, après la section
+ * principale (17/11/2026) : même gabarit, disposition inversée d'une section
+ * à l'autre. Elle n'avance que des faits déjà publiés sur les pages du même
+ * domaine (testé sur les chiffres) et montre des photos de son sujet.
+ */
+export interface SectionSupplementaire {
+  /** Ancre unique dans la page (« salle-signature »). */
+  ancre: string;
+  etiquette: string;
+  titre: string;
+  intro: string;
+  /** Blocs propres à cette section. */
+  blocs: BlocTexte[];
+  /** Blocs de la rubrique repris ici (rangs dans `Rubrique.blocs`), affichés avant les blocs propres. */
+  reprend?: number[];
+  faits: Array<{ label: string; valeur: string }>;
+  /** Photos propres à cette section. */
+  photos: PhotoRubrique[];
+  /** Photos de la rubrique reprises ici (rangs dans `Rubrique.photos`). */
+  reprendPhotos?: number[];
+  conseil?: string;
 }
 
 export interface Rubrique {
@@ -72,6 +102,15 @@ export interface Rubrique {
   photos: PhotoRubrique[];
   blocs: BlocTexte[];
   salles?: SalleReunion[];
+  /**
+   * Blocs affichés dans la section principale de la page (rangs dans `blocs`).
+   * Absent : tous. Sert quand des sections supplémentaires reprennent certains
+   * blocs : un bloc n'apparaît qu'une fois sur la page (testé). La fiche
+   * château, elle, lit toujours `blocs` en entier.
+   */
+  blocsSection?: number[];
+  /** Sections de texte après la section principale, dans l'ordre d'affichage. */
+  sections?: SectionSupplementaire[];
   /** Pages consultées pour les chiffres (noté pour s'y retrouver). */
   sources: string[];
 }

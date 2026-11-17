@@ -101,6 +101,52 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           "Le patio lumineux, au centre des salons, accueille les pauses et les échanges entre deux sessions. Un bureau de coordination événementielle se trouve sur le même niveau : notre équipe y suit votre programme pendant toute la journée.",
       },
     ],
+    blocsSection: [0, 1],
+    sections: [
+      {
+        ancre: 'salle-signature',
+        etiquette: "La salle plénière",
+        titre: "Une plénière de 380 m² à la lumière du jour, face à la forêt",
+        intro:
+          "Notre salle plénière de 380 m² reçoit 250 participants en théâtre pour votre convention. Éclairée par la lumière du jour, elle s'ouvre sur une terrasse avec vue sur la forêt de Chantilly.",
+        blocs: [
+          { titre: "Une terrasse dans le prolongement", texte: "La terrasse de la plénière accueille la pause, le déjeuner ou le cocktail de vos participants à la belle saison : on passe de la séance de travail au grand air en quelques pas." },
+          { titre: "Le soir, votre dîner de gala", texte: "Après la convention, la même salle reçoit jusqu'à 200 convives en banquet et 270 en cocktail dînatoire." },
+        ],
+        faits: [
+          { label: "Surface", valeur: "380 m²" },
+          { label: "En théâtre", valeur: "250 places" },
+          { label: "En banquet", valeur: "200 convives" },
+          { label: "Mur LED", valeur: "5 × 2,5 m" },
+        ],
+        photos: [
+          { src: img('salle-pleniere'), legende: "La salle plénière en configuration cabaret, tables rondes et écran" },
+          { src: img('terrasse-exterieure'), legende: "La terrasse dressée, vue vers la forêt" },
+        ],
+        conseil:
+          "Pour une convention suivie d'une soirée, restez dans la plénière : 250 participants en théâtre la journée, puis 200 convives à table pour le dîner de gala.",
+      },
+      {
+        ancre: 'ateliers',
+        etiquette: 'Ateliers et sous-commissions',
+        titre: "Neuf salles de sous-commission autour d'un patio",
+        intro:
+          "Après la plénière, les sous-commissions de votre séminaire se répartissent dans neuf salles de 33 à 75 m², autour d'un patio lumineux.",
+        reprend: [2, 3],
+        blocs: [
+          { titre: "Deux terrasses pour prolonger les ateliers", texte: "Deux grandes terrasses prolongent nos salons de réunion : vos participants y prennent la pause ou le déjeuner à la belle saison." },
+        ],
+        faits: [
+          { label: "Salles de sous-commission", valeur: "9, de 33 à 75 m²" },
+          { label: "Grand salon", valeur: "70 places en théâtre" },
+          { label: "Comité de direction", valeur: "de 15 à 21 places dans la plupart des salons" },
+        ],
+        reprendPhotos: [2, 3, 6],
+        photos: [],
+        conseil:
+          "Pour une session de créativité pendant votre séminaire, demandez-moi l'Atelier créatif : 19 participants, quelle que soit la disposition.",
+      },
+    ],
     sources: [BROCHURE, FICHE],
   },
 

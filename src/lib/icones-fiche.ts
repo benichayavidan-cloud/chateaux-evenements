@@ -5,8 +5,8 @@
  * Le premier motif reconnu l'emporte : l'ordre des lignes compte.
  */
 import {
-  Accessibility, Award, Bed, Bus, Car, Clock, Film, Gamepad2, Landmark, Leaf, Monitor, ParkingCircle, Plane,
-  Presentation, Ruler, Sparkles, TrainFront, TramFront, Trees, Trophy, Users, UtensilsCrossed, Waves, Wine,
+  Accessibility, Award, Bed, Briefcase, Bus, Car, Clock, Film, Gamepad2, Landmark, Leaf, Monitor, ParkingCircle, Plane,
+  Presentation, Ruler, Sparkles, Sun, TrainFront, TramFront, Trees, Trophy, Users, UtensilsCrossed, Waves, Wine,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -37,17 +37,19 @@ const CHIFFRES: Table = [
   [/jeux/i, Gamepad2],
   // Hébergement
   [/room service/i, Clock],
-  [/capacité|participants|cohésion/i, Users],
+  [/capacité|participants|cohésion|en théâtre|en réunion|autour d'une table/i, Users],
   [/surface|hauteur/i, Ruler],
   [/chambre|suite|twin|lits|haras|abbaye|ferme/i, Bed],
   // Réunion
+  [/comité/i, Briefcase],
+  [/lumière/i, Sun],
   [/cinéma/i, Film],
   [/écran|mur led/i, Monitor],
   [/plénière|salon|espaces|salle/i, Presentation],
   // Le lieu
   [/environnemental/i, Leaf],
   [/label|classement/i, Award],
-  [/fondation|rénovation/i, Landmark],
+  [/fondation|rénovation|voûte/i, Landmark],
   [/parc|jardin|domaine|cadre|serre|sentier|terrasse|légumes/i, Trees],
 ];
 
