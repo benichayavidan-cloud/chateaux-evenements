@@ -193,10 +193,11 @@ export default function ChateauFiche({ chateau, navRubriques }: ChateauFicheProp
         </div>
       </div>
 
-      {/* Menu des thèmes, sous les badges et détaché d'eux (décision PO du 17/11/2026). */}
+      {/* Menu des thèmes : onglets collés sous les badges, ligne fine sur toute la
+          largeur (modèle PO du 17/11/2026). */}
       {navRubriques && (
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1.5rem, 3vw, 2.25rem) clamp(16px, 4vw, 32px)' }}>
-          {navRubriques}
+        <div style={{ background: '#FFFFFF', borderBottom: `1px solid ${theme.colors.neutral.gray200}` }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>{navRubriques}</div>
         </div>
       )}
 
