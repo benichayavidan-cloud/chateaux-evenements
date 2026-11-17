@@ -511,15 +511,15 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         blocs: [
         ],
         faits: [
-          { label: "Bar en semaine", valeur: "jusqu'à 0 h 30" },
-          { label: "Jeux dans les salons", valeur: "billard, ping-pong, échecs" },
-          { label: "Cocktail dans la serre", valeur: "jusqu'à 200 personnes, de mai à octobre" },
+          { label: "Bar", valeur: "jusqu'à 1 h le vendredi et le samedi, 0 h 30 les autres soirs" },
+          { label: "Salons du château", valeur: "billard, ping-pong, échecs" },
+          { label: "Cocktails du bar", valeur: "sirops et hydrolats maison" },
         ],
         reprendPhotos: [0, 1, 2],
         photos: [
         ],
         conseil:
-          "Après le dîner de votre séminaire, laissez le choix à vos participants : un cocktail au bar, une partie de billard ou la soirée DJ.",
+          "Après le dîner de votre séminaire, vos participants se retrouvent au bar ou autour du billard ; la soirée DJ, elle, s'organise avec notre équipe.",
       },
     ],
     sources: [MICE, SITE, FACTSHEET],

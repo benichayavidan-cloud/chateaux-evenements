@@ -497,10 +497,10 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     sections: [
       {
         ancre: "apres-diner",
-        etiquette: "Après le dîner",
-        titre: "Après le dîner au château : bar de la bibliothèque et bar du patio",
+        etiquette: "Les bars du château",
+        titre: "Apéritif et fin de soirée au château : deux bars pour votre séminaire",
         intro:
-          "Une fois le dîner terminé, la soirée de votre séminaire se prolonge sans quitter le château, dans l'un de ses deux bars.",
+          "Avant comme après le dîner, la soirée de votre séminaire se passe au château : le bar de la bibliothèque est ouvert jusqu'à 22 h, et le bar du patio se réserve pour votre groupe.",
         reprend: [1],
         blocs: [
           { titre: "Une fin de soirée sur place", texte: "Vos participants rejoignent leur chambre à pied à la fin de la soirée. Le room service répond 24h/24." },
@@ -508,7 +508,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         faits: [
           { label: "Bar de la bibliothèque", valeur: "tous les jours, de midi à 22 h" },
           { label: "Bar du patio", valeur: "apéritifs et soirées privées" },
-          { label: "Room service", valeur: "24h/24" },
+          { label: "Chambres", valeur: "à pied depuis les bars" },
         ],
         reprendPhotos: [0, 2],
         photos: [

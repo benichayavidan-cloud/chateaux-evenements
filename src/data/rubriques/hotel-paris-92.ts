@@ -508,21 +508,21 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         etiquette: "Cocktail au jardin",
         titre: "Cocktail de séminaire au jardin, face à la tour Eiffel",
         intro:
-          "Aux beaux jours, la soirée de votre séminaire commence dehors : cocktail au jardin, puis dîner sur la terrasse.",
+          "La soirée de votre séminaire peut commencer dehors : cocktail au jardin, puis dîner sur la terrasse.",
         reprend: [2],
         blocs: [
-          { titre: "Un dîner dressé dans la serre", texte: "Une table peut aussi se dresser dans la serre vitrée du jardin, pour le dîner de votre groupe." },
+          { titre: "Un dîner dressé dans la serre", texte: "Pour un dîner en plus petit comité, une table se dresse dans la serre vitrée du jardin." },
         ],
         faits: [
           { label: "Dîner sur la grande terrasse", valeur: "70 convives" },
           { label: "Jardin", valeur: "vue sur la tour Eiffel" },
-          { label: "Dîner dans la serre", valeur: "table dressée pour votre groupe" },
+          { label: "Cocktail au jardin", valeur: "jusqu'à 300 invités" },
         ],
         reprendPhotos: [0, 2],
         photos: [
         ],
         conseil:
-          "Aux beaux jours, commencez la soirée de votre séminaire par un cocktail au jardin, avant de passer à table sur la terrasse.",
+          "Pour le cocktail de clôture de votre convention, le jardin reçoit jusqu'à 300 invités ; pour passer à table ensuite, la grande terrasse accueille 70 convives.",
       },
     ],
     sources: [URL_OFFICIEL, URL_RESTO, URL_REUNIONS, URL_PRESSE],

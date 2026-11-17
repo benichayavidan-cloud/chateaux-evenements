@@ -486,7 +486,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         blocs: [
         ],
         faits: [
-          { label: "Salons et bars", valeur: "salon anglais, salon de musique, salon d'été, bar de la ferme" },
+          { label: "Salons et bars", valeur: "un salon privatisable après le dîner" },
           { label: "Espace jeux", valeur: "quiz musical et soirée animée" },
           { label: "Cinéma", valeur: "séance privée pour votre groupe" },
         ],
@@ -494,7 +494,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         photos: [
         ],
         conseil:
-          "Après le dîner de gala, privatisez un salon pour vos participants, ou finissez par un quiz musical dans l'espace jeux de 200 m².",
+          "Pour finir la soirée de votre séminaire au calme, demandez-moi une séance privée au cinéma du domaine pour vos participants.",
       },
     ],
     sources: [FICHE, CVENT],
