@@ -165,7 +165,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     seoTitle: 'Séminaire résidentiel aux portes de Paris : 83 chambres',
     titreSection: "Hébergement de séminaire à Paris : 83 chambres et suites",
     conseil:
-      "Pour les participants d'un grand groupe, les chambres classiques de 24 m² et supérieures de 28 m² ; pour l'encadrement et vos invités, les suites junior de 35 m² et les suites de 50 m².",
+      "Pour loger chaque participant de votre séminaire selon son rôle, envoyez-moi votre liste : je vous propose une répartition par catégorie, de la chambre classique à la suite.",
     seoDescription:
       "83 chambres et suites de 24 à 50 m², dont des chambres et suites avec vue sur la tour Eiffel. Pour un séminaire résidentiel à deux pas du métro.",
     resume:
@@ -196,23 +196,29 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         texte:
           "Les chambres deluxe, dont certaines avec balcon, la suite junior vue tour Eiffel et notre plus grande suite, avec sa terrasse privée, regardent Paris et la tour Eiffel. Une attention appréciée pour un comité de direction ou des clients invités.",
       },
+      {
+        titre: "De la chambre classique à la suite de 50 m²",
+        texte:
+          "Chambres classiques de 24 m², supérieures et deluxe de 28 m², suites junior de 35 m² et suites de 50 m² : vous logez chaque participant de votre séminaire selon son rôle.",
+      },
     ],
+    blocsSection: [2],
     sections: [
       {
         ancre: "grand-groupe",
         etiquette: "Grands groupes",
         titre: "30 chambres communicantes pour loger vos équipes côte à côte",
         intro:
-          "Pour un séminaire résidentiel aux portes de Paris, tout votre groupe loge sur place, entre le bâtiment historique et une aile contemporaine.",
+          "Pour un séminaire résidentiel aux portes de Paris, tout votre groupe loge sur place, et les équipes qui travaillent ensemble dorment côte à côte.",
         reprend: [],
         blocs: [
           { titre: "Des équipes logées côte à côte", texte: "Nos 30 chambres communicantes permettent de loger vos équipes côte à côte : pratique pour un grand groupe ou un séminaire qui réunit plusieurs équipes." },
-          { titre: "Chambres classiques et supérieures", texte: "Les chambres classiques de 24 m² et supérieures de 28 m² conviennent aux grands groupes, dans une atmosphère de boutique-hôtel." },
+          { titre: "Chambres classiques et supérieures", texte: "Les chambres classiques et supérieures conviennent aux grands groupes : c'est là que loge l'essentiel des participants de votre séminaire." },
         ],
         faits: [
           { label: "Chambres communicantes", valeur: "30" },
-          { label: "Chambre classique", valeur: "24 m²" },
-          { label: "Chambre supérieure", valeur: "28 m²" },
+          { label: "Chambres et suites", valeur: "83" },
+          { label: "Chambres pour grands groupes", valeur: "classiques et supérieures" },
         ],
         reprendPhotos: [0, 1],
         photos: [
@@ -229,7 +235,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         reprend: [],
         blocs: [
           { titre: "Une terrasse privée pour votre invité d'honneur", texte: "Notre plus grande suite dispose d'une terrasse privée, face à Paris et à la tour Eiffel : réservez-la au dirigeant ou à l'invité qui ouvre votre séminaire." },
-          { titre: "Des suites de 35 à 50 m²", texte: "Les suites junior de 35 m² et les suites de 50 m² reviennent à l'encadrement et aux invités de votre séminaire." },
+          { titre: "Des suites pour l'encadrement", texte: "Les suites junior et les suites reviennent à l'encadrement et aux invités de votre séminaire. La suite junior vue tour Eiffel regarde Paris." },
         ],
         faits: [
           { label: "Suite junior", valeur: "35 m²" },
