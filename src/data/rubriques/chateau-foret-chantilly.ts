@@ -577,8 +577,8 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         blocs: [
         ],
         faits: [
-          { label: "Spa", valeur: "piscine intérieure chauffée, sauna, bain à remous" },
-          { label: "Soins", valeur: "3 cabines" },
+          { label: "Spa", valeur: "sauna, bain à remous, salle de fitness" },
+          { label: "Tennis", valeur: "un court sous les arbres" },
           { label: "Vélos électriques et VTT", valeur: "pour la forêt de Chantilly" },
         ],
         reprendPhotos: [0, 1, 2],

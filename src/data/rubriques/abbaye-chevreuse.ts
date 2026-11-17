@@ -502,7 +502,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
 
   activites: {
     seoTitle: "Activités de team building dans un domaine de 80 ha",
-    titreSection: "Team building à l'abbaye : tennis, padel, lac et olympiades",
+    titreSection: "Team building à l'abbaye : olympiades, paintball et ball-trap",
     conseil:
       "Pour un temps fort de cohésion pendant votre séminaire, demandez-moi le paintball ou le ball-trap : notre équipe l'organise à l'horaire prévu dans votre programme.",
     seoDescription:
@@ -548,19 +548,20 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         titre: "Temps libre à l'abbaye : spa, tennis, padel et barques sur le lac",
         intro:
           "Entre deux sessions de travail, vos participants choisissent : une partie de padel, un tour en barque sur le lac ou un moment au spa.",
-        reprend: [0, 2],
+        reprend: [0],
         blocs: [
+          { titre: "Le spa, pour récupérer", texte: "Entre deux sessions, vos participants profitent du spa et de ses 7 cabines de soins : un moment de récupération qui change la dynamique d'un séminaire de deux ou trois jours." },
         ],
         faits: [
-          { label: "Spa", valeur: "7 cabines de soins, 2 bains nordiques" },
-          { label: "Tennis et padel", valeur: "deux courts chacun" },
+          { label: "Vélos", valeur: "pour parcourir le domaine" },
+          { label: "Parcours sportif", valeur: "500 m" },
           { label: "Barques et pédalos", valeur: "sur le lac" },
         ],
         reprendPhotos: [1, 3],
         photos: [
         ],
         conseil:
-          "Pour ouvrir une journée de séminaire, demandez-moi une séance de yoga pour vos participants, avant la première session.",
+          "Pour vos participants qui aiment bouger, signalez le parcours sportif de 500 mètres : il se fait librement, entre deux sessions.",
       },
     ],
     sources: [FICHE, CVENT],

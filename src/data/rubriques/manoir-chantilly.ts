@@ -570,22 +570,22 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         etiquette: "Spa et temps libre",
         titre: "Spa et temps libre au château : vos participants soufflent entre deux sessions",
         intro:
-          "Entre deux sessions de travail, vos participants disposent du spa du château et du parc.",
+          "Entre deux sessions de travail, vos participants disposent du spa du château et des équipements du parc.",
         reprend: [2],
         blocs: [
-          { titre: "La visite du rucher", texte: "Le domaine abrite un rucher. En saison, sur réservation, l'apiculteur fait visiter les ruches à votre groupe." },
+          { titre: "Le parc en accès libre", texte: "Dans le parc, un court de tennis, des vélos, la pétanque et le mölkky attendent vos participants pendant leurs temps de pause." },
         ],
         faits: [
-          { label: "Spa", valeur: "gratuit pour les résidents, de 7 h à 22 h" },
+          { label: "Spa", valeur: "gratuit pour les résidents" },
           { label: "Soins et massages", valeur: "sur réservation" },
-          { label: "Rucher du domaine", valeur: "visite en saison, sur réservation" },
+          { label: "Jeux d'extérieur", valeur: "pétanque, mölkky" },
         ],
         reprendPhotos: [2],
         photos: [
-          { src: "/images/seminaire-chateau-chantilly-vue-aerienne-domaine.webp", legende: "Le château et son parc, vus du ciel" },
+          { src: "/images/seminaire-chateau-chantilly-vue-aerienne-domaine.webp", legende: "Le château anglo-normand et ses terrasses, vus du ciel" },
         ],
         conseil:
-          "Pour un séminaire de plusieurs jours, proposez à vos participants un réveil au yoga ou un créneau de massage : les soins se font sur réservation.",
+          "Pour un séminaire de plusieurs jours, laissez à vos participants un créneau libre en fin de journée : le spa reste ouvert jusqu'à 22 h.",
       },
     ],
     sources: [SITE, MICE],

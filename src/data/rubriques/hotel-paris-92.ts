@@ -532,7 +532,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     seoTitle: 'Team building aux portes de Paris : vin, rhum, yoga',
     titreSection: "Activités de team building à Paris : vin, rhum, yoga et spa",
     conseil:
-      "Pour mélanger vos équipes en fin de journée de séminaire, demandez-moi un atelier de vin : notre équipe l'adapte à la taille de votre groupe.",
+      "Pour le team building de votre séminaire, demandez-moi un atelier de vin : notre équipe l'organise à l'horaire prévu dans votre programme et l'adapte à la taille de votre groupe.",
     seoDescription:
       "Ateliers de vin, masterclass de rhum, yoga, spa de 300 m² avec piscine et vélos électriques : nos activités de cohésion pour vos équipes.",
     resume:
@@ -576,7 +576,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         etiquette: "Spa et temps libre",
         titre: "Spa de 300 m² et pause au jardin entre deux sessions de séminaire",
         intro:
-          "Entre deux sessions de travail, vos participants restent sur le domaine : le spa ouvre sur le jardin, et des vélos électriques les attendent pour une sortie.",
+          "Entre deux sessions de travail, vos participants ont le spa, le jardin et des vélos électriques à leur disposition.",
         reprend: [2],
         blocs: [
           { titre: "Une pause au jardin", texte: "Le jardin de 9 500 m² sert de décor aux pauses de vos participants, avec la tour Eiffel à l'horizon." },
@@ -590,7 +590,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         photos: [
         ],
         conseil:
-          "Entre deux sessions de votre séminaire, pensez aux vélos électriques du domaine pour une sortie en groupe, ou à un cours de yoga pour vos participants.",
+          "Pensez à l'heure d'accès au spa incluse par nuit : placez-la avant le dîner dans le programme de votre séminaire.",
       },
     ],
     sources: [URL_REUNIONS, URL_OFFICIEL, URL_BIEN_ETRE, URL_HISTOIRE],
