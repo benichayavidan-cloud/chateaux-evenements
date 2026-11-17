@@ -37,22 +37,22 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
     },
     lieu: {
       intro:
-        "Construit au début du XXe siècle pour une grande famille de banquiers, ce château de style anglo-normand est aujourd'hui le plus grand château-hôtel de France. Il se dresse en lisière de la forêt de Chantilly, dans l'Oise, à moins de 35 km de Paris.",
+        "Pour un séminaire résidentiel aux portes de Paris, ce château de style anglo-normand offre à vos équipes un cadre qu'elles n'oublient pas. Construit au début du XXe siècle pour une grande famille de banquiers, c'est aujourd'hui le plus grand château-hôtel de France, en lisière de la forêt de Chantilly, à moins de 35 km de la capitale.",
       blocs: [
         {
-          titre: 'Une façade à colombages',
+          titre: 'Un décor qui marque le début du séminaire',
           texte:
-            "Colombages, fenêtres à l'anglaise, toitures d'inspiration germanique et blasons gravés dans la pierre : l'architecture donne le ton dès l'allée bordée d'arbres. À l'intérieur, les boiseries d'époque ont été conservées.",
+            "Colombages, fenêtres à l'anglaise, toitures d'inspiration germanique et blasons gravés dans la pierre : dès l'allée bordée d'arbres, vos participants comprennent que cette convention ne ressemblera pas aux autres. À l'intérieur, les boiseries d'époque donnent du caractère aux temps d'accueil et aux pauses de votre groupe.",
         },
         {
-          titre: 'Un parc de 6 hectares, entouré de forêts',
+          titre: 'Un parc de 6 hectares pour sortir de la salle',
           texte:
-            "Le parc est planté d'arbres centenaires et bordé par trois forêts. Des terrasses en cascade, dessinées à la manière d'un jardin italien, descendent par paliers de la façade vers les bois, jusqu'à un amphithéâtre de verdure aux gradins de pierre.",
+            "Le parc, planté d'arbres centenaires et bordé par trois forêts, prolonge vos sessions de travail au grand air. Des terrasses en cascade, dessinées à la manière d'un jardin italien, descendent jusqu'à un amphithéâtre de verdure aux gradins de pierre : un lieu tout trouvé pour une prise de parole en plein air ou la photo de groupe de fin de séminaire.",
         },
         {
-          titre: 'Tout le séminaire sur un seul site',
+          titre: 'Tout votre événement sur un seul site',
           texte:
-            "Travail, repas, soirée et nuit se déroulent au domaine : vos participants restent ensemble du café d'accueil au dernier verre, et vous n'avez aucune navette à organiser. Le domaine est labellisé Clef Verte pour son engagement environnemental.",
+            "Travail, repas, soirée et nuit se déroulent au domaine : vos collaborateurs restent ensemble du café d'accueil au dernier verre, et vous n'avez aucune navette à organiser. Labellisé Clef Verte, le domaine répond aussi aux engagements environnementaux de votre entreprise.",
         },
       ],
       faits: [

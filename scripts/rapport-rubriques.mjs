@@ -24,11 +24,13 @@ try {
   for (const m of motsBannis()) console.log(`  · mot banni — ${m}`);
 
   // Fiches château : une section = un sujet (décision PO du 17/11/2026).
-  const { rapportHorsSujet } = await import('../src/lib/fiche-sections.ts');
+  const { rapportHorsSujet, rapportAngleSeminaire } = await import('../src/lib/fiche-sections.ts');
   const { chateaux } = await import('../src/data/chateaux.ts');
-  const horsSujet = rapportHorsSujet(Object.fromEntries(chateaux.map((c) => [c.slug, c])));
+  const parSlug = Object.fromEntries(chateaux.map((c) => [c.slug, c]));
+  const horsSujet = rapportHorsSujet(parSlug);
   console.log(`[fiches] ${horsSujet.length} section(s) hors sujet`);
   for (const h of horsSujet) console.log(`  · hors sujet — ${h}`);
+  for (const a of rapportAngleSeminaire(parSlug)) console.log(`  · trop descriptif — ${a}`);
 } catch (e) {
   console.log(`[rubriques] rapport non produit (${e instanceof Error ? e.message : e}) — sans effet sur le build`);
 }

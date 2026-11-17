@@ -142,3 +142,48 @@ export function rapportHorsSujet(
     });
   });
 }
+
+/**
+ * Mots qui signent une phrase écrite pour un organisateur de séminaire
+ * (décision PO du 17/11/2026 : les sections décrivaient le lieu comme un site
+ * d'hôtel — 45 % de phrases orientées séminaire sur le pilote).
+ */
+export const MOTS_SEMINAIRE = [
+  'séminaire', 'résidentiel', 'participant', 'groupe', 'plénière', 'atelier', 'convention', 'kick-off',
+  'comité', 'session', 'collaborateur', 'vos équipes', 'programme', 'coordinateur', 'entreprise',
+  'sous-commission', 'cohésion', 'team building', 'réunion', 'gala', 'banquet', 'intervenant',
+] as const;
+
+const MOTIF_SEMINAIRE = new RegExp(`(^|[^a-z0-9])(${MOTS_SEMINAIRE.map((m) => sansAccents(m).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`);
+
+/** Phrases du texte d'une section (introduction et blocs), coupées à la ponctuation forte. */
+export function phrases(section: Pick<SectionFiche, 'intro' | 'blocs'>): string[] {
+  return [section.intro, ...section.blocs.map((b) => b.texte)]
+    .flatMap((t) => t.split(/(?<=[.!?])\s+/))
+    .map((p) => p.trim())
+    .filter(Boolean);
+}
+
+/** Combien de phrases parlent à un organisateur de séminaire, sur combien. */
+export function angleSeminaire(section: Pick<SectionFiche, 'intro' | 'blocs'>): { pro: number; total: number } {
+  const toutes = phrases(section);
+  return { pro: toutes.filter((p) => MOTIF_SEMINAIRE.test(sansAccents(p))).length, total: toutes.length };
+}
+
+/** Repère : au moins 2 phrases sur 3. */
+export const angleSuffisant = ({ pro, total }: { pro: number; total: number }) => total > 0 && pro * 3 >= total * 2;
+
+/** Rapport pour le build : sections sous le repère. Affichage seulement. */
+export function rapportAngleSeminaire(
+  chiffresParSlug: Record<string, Chiffres>,
+  config: Record<string, FicheSectionsChateau> = FICHE_SECTIONS,
+): string[] {
+  return Object.keys(config).flatMap((slug) => {
+    const chiffres = chiffresParSlug[slug];
+    if (!chiffres) return [];
+    return sectionsFiche(slug, chiffres, config).flatMap((s) => {
+      const a = angleSeminaire(s);
+      return angleSuffisant(a) ? [] : [`${slug} / ${s.id} : ${a.pro} phrase(s) sur ${a.total} orientée(s) séminaire`];
+    });
+  });
+}

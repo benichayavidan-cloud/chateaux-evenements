@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { chateaux } from '../data/chateaux.ts';
 import { FICHE_SECTIONS, SECTIONS_FICHE } from '../data/fiche-sections.ts';
-import { horsSujet, rapportHorsSujet, sectionsFiche } from './fiche-sections.ts';
+import { angleSeminaire, angleSuffisant, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionsFiche } from './fiche-sections.ts';
 
 const CHIFFRES = { roomsTotal: 119, meetingRooms: 21, capacite: { min: 10, max: 280 } };
 const parSlug = Object.fromEntries(chateaux.map((c) => [c.slug, c]));
@@ -105,3 +105,42 @@ test('titre principal : aucun titre de section ne le répète', () => {
 test('ligne d’infos : chaque fiche annonce son trajet', () => {
   for (const c of chateaux.filter((f) => f.titreFiche)) assert.match(c.trajet ?? '', /^à \d+ min /, c.slug);
 });
+
+test('angle séminaire : compte les phrases qui parlent à un organisateur', () => {
+  const s = { intro: 'Au château, 80 chambres gardent l’esprit Belle Époque. Pour un séminaire résidentiel, tout le groupe dort sur place.', blocs: [{ titre: 't', texte: 'Le bar ferme à 1 h. Vos participants s’y retrouvent.' }] };
+  assert.equal(phrases(s).length, 4);
+  assert.deepEqual(angleSeminaire(s), { pro: 2, total: 4 });
+});
+
+test('angle séminaire : repère à 2 phrases sur 3, jamais atteint sans texte', () => {
+  assert.equal(angleSuffisant({ pro: 8, total: 12 }), true);
+  assert.equal(angleSuffisant({ pro: 7, total: 12 }), false);
+  assert.equal(angleSuffisant({ pro: 0, total: 0 }), false);
+});
+
+test('angle séminaire : le rapport nomme la section trop descriptive', () => {
+  const config = {
+    x: {
+      titres: { lieu: 'a', hebergement: 'b', reunion: 'c', restauration: 'd', activites: 'e', acces: 'f' },
+      lieu: { intro: 'Un parc de 6 hectares. Une façade à colombages.', blocs: [], faits: [] },
+    },
+  };
+  assert.deepEqual(rapportAngleSeminaire({ x: CHIFFRES }, config), ['x / lieu : 0 phrase(s) sur 2 orientée(s) séminaire']);
+});
+
+for (const slug of Object.keys(FICHE_SECTIONS)) {
+  const sections = sectionsFiche(slug, parSlug[slug]);
+
+  test(`${slug} : chaque section parle séminaire (2 phrases sur 3 au moins)`, () => {
+    for (const s of sections) {
+      const a = angleSeminaire(s);
+      assert.ok(angleSuffisant(a), `${s.id} : ${a.pro}/${a.total}`);
+    }
+  });
+
+  test(`${slug} : « séminaire résidentiel » dans le lieu, l’hébergement et l’accès`, () => {
+    for (const s of sections.filter((x) => ['lieu', 'hebergement', 'acces'].includes(x.id))) {
+      assert.match(phrases(s).join(' '), /séminaire résidentiel/i, s.id);
+    }
+  });
+}
