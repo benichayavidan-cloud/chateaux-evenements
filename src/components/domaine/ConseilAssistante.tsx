@@ -10,22 +10,16 @@ import styles from "@/components/domaine/domaine.module.css";
 
 export function ConseilAssistante({ texte }: { texte: string }) {
   return (
-    <figure className={styles.conseil}>
-      <Image
-        src={ASSISTANTE.portrait}
-        alt={`${ASSISTANTE.prenom}, ${ASSISTANTE.role}`}
-        width={ASSISTANTE.largeur}
-        height={ASSISTANTE.hauteur}
-        className={styles.conseilPortrait}
-        loading="lazy"
-      />
+    <aside className={styles.conseil} aria-label={`Le conseil de ${ASSISTANTE.prenom}, ${ASSISTANTE.role}`}>
+      {/* alt vide : le prénom et le titre sont écrits juste à côté, un lecteur d'écran les lirait deux fois. */}
+      <Image src={ASSISTANTE.portrait} alt="" width={ASSISTANTE.largeur} height={ASSISTANTE.hauteur} className={styles.conseilPortrait} loading="lazy" />
       <div className={styles.conseilBulle}>
-        <figcaption className={styles.conseilQui}>
+        <p className={styles.conseilQui}>
           <strong>{ASSISTANTE.prenom}</strong>
           <span>{ASSISTANTE.role}</span>
-        </figcaption>
-        <blockquote>{texte}</blockquote>
+        </p>
+        <p className={styles.conseilTexte}>{texte}</p>
       </div>
-    </figure>
+    </aside>
   );
 }

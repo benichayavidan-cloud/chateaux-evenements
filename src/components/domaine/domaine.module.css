@@ -202,34 +202,38 @@
   .separateurInfos { display: inline; }
 }
 
-/* Chiffres clés d'une section de la fiche : cases égales. La valeur passe
-   avant son libellé à l'écran (flex inverse), l'ordre dt puis dd reste celui
-   attendu dans une liste de définitions. */
+/* Chiffres clés d'une section de la fiche : cases égales, médaillon à gauche,
+   valeur en gras au-dessus de son libellé. */
 .chiffresSection {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.625rem;
   margin: 1.25rem 0 0;
   padding: 0;
+  list-style: none;
 }
 .chiffre {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  gap: 0.125rem;
+  align-items: center;
+  gap: 0.75rem;
   padding: 0.75rem 0.875rem;
   background: rgba(163, 126, 44, 0.05);
   border: 1px solid rgba(163, 126, 44, 0.16);
   border-radius: 0.75rem;
 }
-.chiffre dd {
-  margin: 0;
+.chiffreTexte {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+.chiffreTexte strong {
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.3;
   color: #171717;
 }
-.chiffre dt {
+.chiffreTexte span {
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -261,20 +265,6 @@
 .medaillon svg { width: 17px; height: 17px; }
 .medaillonPetit { width: 26px; height: 26px; }
 .medaillonPetit svg { width: 13px; height: 13px; }
-
-/* Case de chiffre : médaillon à gauche, valeur et libellé à droite. */
-.chiffre {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.75rem;
-}
-.chiffreTexte {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 0.125rem;
-  min-width: 0;
-}
 
 /* Conseil de l'assistante séminaire : portrait à gauche (la tête dépasse du
    cercle, d'où la marge négative), bulle de message à droite avec sa pointe. */
@@ -312,6 +302,7 @@
   transform: rotate(45deg);
 }
 .conseilQui {
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -321,7 +312,7 @@
 }
 .conseilQui strong { color: #8B6A24; font-weight: 700; }
 .conseilQui span { color: #737373; font-size: 0.75rem; }
-.conseilBulle blockquote {
+.conseilTexte {
   margin: 0;
   font-size: 0.9375rem;
   line-height: 1.6;

@@ -64,17 +64,17 @@ export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
           texte, se rangeaient en 1 + 2 + 1. Deux cases par ligne, trois quand il y a
           trois chiffres. */}
       {section.faits.length > 0 && (
-        <dl className={`${styles.chiffresSection} ${section.faits.length === 3 ? styles.chiffresPar3 : ""}`}>
+        <ul className={`${styles.chiffresSection} ${section.faits.length === 3 ? styles.chiffresPar3 : ""}`}>
           {section.faits.map((f) => (
-            <div key={f.label} className={styles.chiffre}>
+            <li key={f.label} className={styles.chiffre}>
               <Medaillon icone={iconeChiffre(f.label)} />
               <div className={styles.chiffreTexte}>
-                <dt>{f.label}</dt>
-                <dd>{f.valeur}</dd>
+                <strong>{f.valeur}</strong>
+                <span>{f.label}</span>
               </div>
-            </div>
+            </li>
           ))}
-        </dl>
+        </ul>
       )}
       {section.liens.length > 0 && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1.5rem", marginTop: "1.25rem" }}>
