@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { chateaux } from '../data/chateaux.ts';
 import { FICHE_SECTIONS, SECTIONS_FICHE } from '../data/fiche-sections.ts';
-import { angleSeminaire, angleSuffisant, chiffresHorsSection, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionsFiche } from './fiche-sections.ts';
+import { angleSeminaire, angleSuffisant, chiffresHorsSection, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionRubrique, sectionsFiche } from './fiche-sections.ts';
 
 const CHIFFRES = { roomsTotal: 119, meetingRooms: 21, capacite: { min: 10, max: 280 } };
 const parSlug = Object.fromEntries(chateaux.map((c) => [c.slug, c]));
@@ -205,4 +205,40 @@ test('balises : le title de chaque fiche commence par « Séminaire », sans jet
     assert.ok(d.length <= 160 && !/[{}]/.test(d) && /séminaire|équipes/i.test(d), `${fiches[i].slug} : « ${d} »`);
   }
   assert.equal(new Set(titres).size, titres.length);
+});
+
+// ---- Pages détaillées : même brique de section que la fiche
+import { RUBRIQUES } from '../types/rubriques.ts';
+import { RUBRIQUES_PAR_CHATEAU } from '../data/rubriques/index.ts';
+
+const pagesDetaillees = Object.entries(RUBRIQUES_PAR_CHATEAU).flatMap(([slug, rubs]) =>
+  RUBRIQUES.filter((id) => rubs[id]).map((id) => ({ slug, id, s: sectionRubrique(slug, id, rubs[id]!, parSlug[slug]) })),
+);
+
+test('pages détaillées : 28 sections, chacune avec titre sans jeton, texte et photos', () => {
+  assert.equal(pagesDetaillees.length, 28);
+  for (const { slug, id, s } of pagesDetaillees) {
+    assert.ok(s.titre && !/[{}]/.test(s.titre), `${slug}/${id} : titre « ${s.titre} »`);
+    assert.ok(s.intro && s.blocs.length >= 2 && s.photos.length >= 1, `${slug}/${id}`);
+    assert.deepEqual(s.liens, [], `${slug}/${id} : la page ne renvoie pas vers elle-même`);
+  }
+});
+
+test('pages détaillées : aucun titre de section commun à deux pages', () => {
+  const titres = pagesDetaillees.map((p) => p.s.titre);
+  assert.equal(new Set(titres).size, titres.length);
+});
+
+test('pages détaillées : salles, chambres, restauration, activités et accès reprennent le titre et le conseil de la fiche', () => {
+  const fiche = Object.fromEntries(sectionsFiche('manoir-anglo-normand-chantilly', parSlug['manoir-anglo-normand-chantilly']).map((s) => [s.id, s]));
+  const page = (id: string) => pagesDetaillees.find((p) => p.slug === 'manoir-anglo-normand-chantilly' && p.id === id)!.s;
+  assert.equal(page('salles').titre, fiche.reunion.titre);
+  assert.equal(page('salles').conseil, fiche.reunion.conseil);
+  assert.equal(page('chambres').titre, fiche.hebergement.titre);
+  assert.equal(page('exterieurs').conseil, undefined);
+  assert.equal(page('soirees').conseil, undefined);
+});
+
+test('pages détaillées : un conseil n’avance aucun chiffre absent de sa page', () => {
+  for (const { slug, id, s } of pagesDetaillees) assert.deepEqual(chiffresHorsSection(s), [], `${slug}/${id}`);
 });

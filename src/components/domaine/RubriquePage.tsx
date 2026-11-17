@@ -1,8 +1,9 @@
 /**
  * Gabarit unique des rubriques d'un domaine (salles, chambres, accès…).
- * Server Component. Haut de page et section sticky au design de la fiche
- * château (RubriqueVitrine) ; ici : tableau des salles, autres rubriques,
- * formulaire. Le contenu vient des données du lieu.
+ * Server Component, assemblé avec les briques de la fiche château
+ * (EnTeteDomaine, BandeauConfiance, RubriquesNav, SectionFiche) depuis le
+ * 17/11/2026 ; ici en plus : tableau des salles, autres rubriques,
+ * formulaire. Seule la galerie est un îlot client (RubriqueVitrine).
  */
 import Link from "next/link";
 import { theme } from "@/design-system/tokens";
@@ -10,6 +11,10 @@ import styles from "@/components/domaine/domaine.module.css";
 import DevisFormMini from "@/components/DevisFormMini";
 import { RubriquesNav } from "@/components/domaine/RubriquesNav";
 import { RubriqueVitrine } from "@/components/domaine/RubriqueVitrine";
+import { EnTeteDomaine } from "@/components/domaine/EnTeteDomaine";
+import { BandeauConfiance } from "@/components/domaine/BandeauConfiance";
+import { SectionFiche } from "@/components/domaine/SectionFiche";
+import { sectionRubrique } from "@/lib/fiche-sections";
 import { DecouvrirDomaine } from "@/components/domaine/DecouvrirDomaine";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
@@ -75,18 +80,11 @@ function TableauSalles({ salles }: { salles: SalleReunion[] }) {
   );
 }
 
-/**
- * Ce qui part dans le payload du composant client : sans `sources` ni
- * `faits[].source`, qui peuvent nommer le lieu (URL du site officiel…).
- * Non affiché ≠ non envoyé : mesuré le 16/11, une URL source du #92 était
- * lisible dans le HTML.
- */
-function versNavigateur(r: Rubrique): Rubrique {
-  return { ...r, sources: [], faits: r.faits.map(({ label, valeur }) => ({ label, valeur })) };
-}
 
 export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
   const autres = rubriques.filter((x) => x !== id);
+  // Les sources des chiffres (qui peuvent nommer le lieu) restent côté serveur : sectionRubrique ne garde que libellé et valeur.
+  const section = sectionRubrique(chateau.slug, id, r, chateau);
 
   const filAriane = (
     <nav aria-label="Fil d'Ariane" className={`${styles.domaine} mb-3 text-xs md:text-sm`} style={{ color: theme.colors.neutral.gray600 }}>
@@ -102,14 +100,27 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
   return (
     <>
       <RubriqueVitrine
-        chateau={{ nom: chateau.nom, region: chateau.region, ref: chateau.ref, images: chateau.images }}
-        id={id}
-        titre={TITRES[id]}
-        lieu={lieuDansTitre(chateau.slug)}
-        r={versNavigateur(r)}
-        filAriane={filAriane}
-        navRubriques={<RubriquesNav slug={chateau.slug} rubriques={rubriques} active={id} />}
+        chateau={{ nom: chateau.nom, images: chateau.images }}
+        photosRubrique={section.photos}
+        enTete={
+          <>
+            {filAriane}
+            <EnTeteDomaine chateau={chateau} titre={TITRES[id]} lieu={lieuDansTitre(chateau.slug)} />
+          </>
+        }
       />
+
+      <BandeauConfiance />
+
+      {/* Menu des thèmes : onglets collés sous les badges, comme sur la fiche. */}
+      <div style={{ background: "#FFFFFF", borderBottom: `1px solid ${theme.colors.neutral.gray200}` }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <RubriquesNav slug={chateau.slug} rubriques={rubriques} active={id} />
+        </div>
+      </div>
+
+      {/* Section de texte : même brique que la fiche (étiquette, titre à mot-clé, conseil, cartes, chiffres). */}
+      <SectionFiche section={section} photos={section.photos} rang={0} />
 
       {r.salles && r.salles.length > 0 && (
         <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>

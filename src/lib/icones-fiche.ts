@@ -30,14 +30,14 @@ const CHIFFRES: Table = [
   [/distance|voiture|paris expo/i, Car],
   // Restauration (avant les salles : « Banquet sous les voûtes », « Cocktail en plénière »)
   [/rhum|dégustation|masterclass|\bbars?\b/i, Wine],
-  [/restaurant|banquet|gala|cocktail|petit-déjeuner|régimes|viande|show cooking/i, UtensilsCrossed],
+  [/restaurant|banquet|gala|dîner|cocktail|petit-déjeuner|régimes|viande|show cooking/i, UtensilsCrossed],
   // Activités
   [/spa|soins|piscine/i, Waves],
   [/tennis|padel/i, Trophy],
   [/jeux/i, Gamepad2],
   // Hébergement
   [/room service/i, Clock],
-  [/capacité|participants/i, Users],
+  [/capacité|participants|cohésion/i, Users],
   [/surface|hauteur/i, Ruler],
   [/chambre|suite|twin|lits|haras|abbaye|ferme/i, Bed],
   // Réunion
@@ -48,7 +48,7 @@ const CHIFFRES: Table = [
   [/environnemental/i, Leaf],
   [/label|classement/i, Award],
   [/fondation|rénovation/i, Landmark],
-  [/parc|jardin|domaine|cadre|serre/i, Trees],
+  [/parc|jardin|domaine|cadre|serre|sentier|terrasse|légumes/i, Trees],
 ];
 
 const choisir = (table: Table, texte: string): LucideIcon | undefined => table.find(([motif]) => motif.test(texte))?.[1];

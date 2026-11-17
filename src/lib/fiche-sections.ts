@@ -205,3 +205,57 @@ export function chiffresHorsSection(section: Pick<SectionFiche, 'titre' | 'intro
   );
   return nombres(section.conseil).filter((n) => !connus.has(n));
 }
+
+/**
+ * Section de texte d'une page détaillée (/chateaux/<slug>/<rubrique>), au
+ * même format que celles de la fiche pour passer par la même brique.
+ *
+ * Titre : celui de la section correspondante de la fiche quand elle existe
+ * (validé PO, mot-clé + détail du lieu) ; sinon le titre propre à la page
+ * (extérieurs, soirées). Jamais un titre commun aux 4 châteaux : Google
+ * demande d'éviter le texte passe-partout sur un groupe de pages.
+ * Conseil : celui de la section correspondante de la fiche, s'il existe.
+ */
+const SECTION_DE_RUBRIQUE: Partial<Record<RubriqueId, SectionFicheId>> = {
+  salles: 'reunion',
+  chambres: 'hebergement',
+  restauration: 'restauration',
+  activites: 'activites',
+  acces: 'acces',
+};
+
+/** Étiquette au-dessus du titre, par rubrique. */
+export const ETIQUETTES_RUBRIQUE: Record<RubriqueId, string> = {
+  salles: 'Espaces de réunion',
+  chambres: 'Hébergement',
+  exterieurs: 'Le parc',
+  restauration: 'Restauration',
+  soirees: 'Soirées',
+  activites: 'Activités',
+  acces: 'Accès',
+};
+
+/** Thème d'icône et d'ancre d'une rubrique sans section sur la fiche. */
+const THEME_PAR_DEFAUT: Partial<Record<RubriqueId, SectionFicheId>> = { exterieurs: 'lieu', soirees: 'restauration' };
+
+export function sectionRubrique(
+  slug: string,
+  rubrique: RubriqueId,
+  r: Rubrique,
+  chiffres: Chiffres,
+  config: Record<string, FicheSectionsChateau> = FICHE_SECTIONS,
+): SectionFiche {
+  const section = SECTION_DE_RUBRIQUE[rubrique];
+  const c = config[slug];
+  return {
+    id: section ?? THEME_PAR_DEFAUT[rubrique] ?? 'lieu',
+    etiquette: ETIQUETTES_RUBRIQUE[rubrique],
+    titre: section && c ? remplitChiffres(c.titres[section], chiffres) : r.seoTitle,
+    intro: r.intro,
+    blocs: r.blocs,
+    faits: r.faits.map(({ label, valeur }) => ({ label, valeur })),
+    photos: r.photos.map((p) => ({ src: p.src, alt: p.legende })),
+    liens: [],
+    conseil: section ? c?.conseils?.[section] : undefined,
+  };
+}
