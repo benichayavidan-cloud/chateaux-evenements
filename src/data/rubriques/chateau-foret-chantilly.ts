@@ -46,7 +46,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     resume:
       "10 salons autour d'un patio : une plénière de 380 m² pour 250 personnes et 9 salles de sous-commission de 33 à 75 m².",
     intro:
-      "Notre centre de séminaires réunit 10 salons autour d'un patio lumineux où se prennent les pauses. La salle plénière de 380 m², éclairée par la lumière du jour, s'ouvre sur une terrasse face à la forêt ; elle se divise en plusieurs espaces. Neuf salles de sous-commission, de 33 à 75 m², accueillent vos ateliers. Le tableau ci-dessous reprend la surface et la capacité de chaque espace selon la disposition.",
+      "Notre centre de séminaires réunit 10 salons autour d'un patio lumineux où se prennent les pauses. La salle plénière de 380 m², éclairée par la lumière du jour, s'ouvre sur une terrasse face à la forêt ; elle se divise en plusieurs espaces. Neuf salles de sous-commission, de 33 à 75 m², accueillent vos ateliers.",
     faits: [
       { label: 'Salons', valeur: '10', source: BROCHURE },
       { label: 'Salle plénière', valeur: '380 m²', source: BROCHURE },
@@ -108,7 +108,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     resume:
       "109 chambres et suites ouvertes sur la forêt, dont 18 suites et 45 chambres convertibles en twin pour vos groupes.",
     intro:
-      "Nos 109 chambres et suites offrent un cadre lumineux, ouvert sur la forêt de Chantilly. Pour un séminaire résidentiel, tous vos participants logent sur place, à quelques pas des salles de réunion. Le château peut être privatisé sur demande.",
+      "Pour un séminaire résidentiel, nos 109 chambres et suites logent tous vos participants sur place, à quelques pas des salles de réunion. Lumineuses, elles ouvrent sur la forêt de Chantilly. Le château peut être privatisé sur demande pour votre événement d'entreprise.",
     faits: [
       { label: 'Chambres et suites', valeur: '109', source: BROCHURE },
       { label: 'Suites', valeur: '18', source: BROCHURE },
@@ -128,17 +128,17 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         titre: 'Des catégories pour chaque participant',
         texte:
-          "91 chambres en trois catégories (cosy, classique et premium) et 18 suites. Certaines chambres ont un balcon ou une terrasse. Les suites conviennent à vos intervenants et à votre direction.",
+          "91 chambres en trois catégories (cosy, classique et premium) et 18 suites vous permettent de loger chaque participant selon son rôle. Certaines chambres ont un balcon ou une terrasse. Les suites conviennent à vos intervenants et à votre direction.",
       },
       {
         titre: 'Pensées pour les groupes',
         texte:
-          "45 chambres peuvent être converties en twin, avec deux lits séparés : une solution pratique pour loger un grand groupe. Des chambres accessibles aux personnes à mobilité réduite sont disponibles.",
+          "45 chambres peuvent être converties en twin, avec deux lits séparés : une solution pratique pour loger un grand groupe. Des chambres accessibles aux participants à mobilité réduite sont disponibles.",
       },
       {
         titre: 'Le confort pour travailler',
         texte:
-          "Chaque chambre est climatisée et dispose d'un espace de travail. Le room service fonctionne 24 heures sur 24. L'arrivée se fait à partir de 15 h et le départ jusqu'à midi.",
+          "Chaque chambre est climatisée et dispose d'un espace de travail, pour préparer la session du lendemain. Le room service fonctionne 24 heures sur 24. L'arrivée de vos participants se fait à partir de 15 h et le départ jusqu'à midi.",
       },
     ],
     sources: [BROCHURE, PRATIQUE],
@@ -192,7 +192,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     resume:
       "Un restaurant gastronomique, le restaurant de la bibliothèque et un bar de patio, avec des menus de saison composés pour vos séminaires.",
     intro:
-      "Notre offre de restauration associe savoir-faire gastronomique et flexibilité. Nos menus mettent en avant des produits frais, locaux et de saison, sélectionnés auprès de partenaires de confiance. Cocktail, déjeuner, dîner de gala ou animation culinaire : chaque prestation est composée pour votre groupe.",
+      "Pour vos séminaires, notre offre de restauration associe savoir-faire gastronomique et flexibilité. Nos menus mettent en avant des produits frais, locaux et de saison, sélectionnés auprès de partenaires de confiance. Cocktail, déjeuner, dîner de gala ou animation culinaire : chaque prestation est composée pour votre groupe.",
     faits: [
       { label: 'Dîner de gala en plénière', valeur: '200 couverts', source: BROCHURE },
       { label: 'Cocktail en plénière', valeur: '270 personnes', source: BROCHURE },
@@ -210,17 +210,17 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         titre: 'Deux restaurants, du petit-déjeuner au dîner',
         texte:
-          "Le restaurant sert le petit-déjeuner de 7 h à 10 h, le déjeuner de 12 h à 14 h 30 et le dîner de 19 h à 21 h 30. Le restaurant de la bibliothèque, avec ses boiseries et sa cheminée, propose une carte de saison et de terroir, avec une terrasse face à la forêt.",
+          "Le restaurant sert à vos participants le petit-déjeuner de 7 h à 10 h, le déjeuner de 12 h à 14 h 30 et le dîner de 19 h à 21 h 30. Le restaurant de la bibliothèque, avec ses boiseries et sa cheminée, propose une carte de saison et de terroir, avec une terrasse face à la forêt.",
       },
       {
         titre: 'Pauses et déjeuners de séminaire',
         texte:
-          "Nos offres de journée et de demi-journée d'étude comprennent les pauses et le déjeuner. Les pauses sont servies dans le patio, au centre des salons ; à la belle saison, le déjeuner peut se prendre en terrasse.",
+          "Pour un séminaire à la journée, nos offres de journée et de demi-journée d'étude comprennent les pauses et le déjeuner. Les pauses sont servies dans le patio, au centre des salons de réunion ; à la belle saison, le déjeuner peut se prendre en terrasse.",
       },
       {
         titre: 'Animations culinaires',
         texte:
-          "Pour animer un repas : show cooking dès 15 personnes, déjeuner grillé en plein air en complément du déjeuner en libre-service raffiné dès 50 personnes, ou atelier autour de la crème Chantilly avec dégustation de fruits de saison dès 10 personnes.",
+          "Pour animer un repas de groupe : show cooking dès 15 personnes, ou déjeuner grillé en plein air en complément du déjeuner en libre-service raffiné dès 50 personnes.",
       },
     ],
     sources: [BROCHURE, SITE],
@@ -274,7 +274,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     resume:
       "Ateliers culinaires, olympiades dans le parc, tennis, VTT et spa sur place ; polo, dragon boat et visites autour de Chantilly.",
     intro:
-      "Nous organisons des activités sur mesure dans nos espaces et dans notre parc de 5 hectares, pour fédérer vos équipes entre deux sessions de travail. Les environs de Chantilly offrent d'autres formats, à quelques minutes du château.",
+      "Pour votre team building, nous organisons des activités sur mesure dans nos espaces et dans notre parc de 5 hectares, pour fédérer vos équipes entre deux sessions de travail. Les environs de Chantilly offrent d'autres formats, à quelques minutes du château.",
     faits: [
       { label: 'Parc pour les activités', valeur: '5 hectares', source: BROCHURE },
       { label: 'Cabines de soins', valeur: '3', source: BROCHURE },
@@ -301,12 +301,12 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         titre: 'Le spa',
         texte:
-          "Notre espace bien-être comprend une piscine intérieure chauffée, un bain à remous, un sauna, une salle de fitness et une zone de relaxation, ainsi que 3 cabines de soins.",
+          "Entre deux sessions, vos participants profitent de notre espace bien-être : piscine intérieure chauffée, bain à remous, sauna, salle de fitness et zone de relaxation, ainsi que 3 cabines de soins.",
       },
       {
         titre: 'Autour de Chantilly',
         texte:
-          "Initiation au polo dans un club de Chantilly, dragon boat challenge, visite du château de Chantilly, rallyes de découverte du territoire : des sorties à organiser en demi-journée.",
+          "Pour une sortie de groupe : initiation au polo dans un club de Chantilly, dragon boat challenge, visite du château de Chantilly, rallyes de découverte du territoire, à organiser en demi-journée.",
       },
     ],
     sources: [BROCHURE, PRATIQUE],
@@ -319,7 +319,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     resume:
       "45 minutes de Paris, 20 minutes de Roissy-CDG, train depuis la gare du Nord. Parking de 70 places sur place.",
     intro:
-      "Le château se trouve au cœur de la forêt de Chantilly, dans l'Oise, à 45 minutes de Paris et à 20 minutes de l'aéroport Roissy-Charles-de-Gaulle. Une adresse pratique pour réunir des participants venus de Paris, de province ou de l'étranger.",
+      "Pour un séminaire résidentiel facile d'accès, le château se trouve au cœur de la forêt de Chantilly, dans l'Oise, à 45 minutes de Paris et à 20 minutes de l'aéroport Roissy-Charles-de-Gaulle. Une adresse pratique pour réunir des participants venus de Paris, de province ou de l'étranger.",
     faits: [
       { label: 'Paris en voiture', valeur: '45 min', source: BROCHURE },
       { label: 'Aéroport Roissy-CDG', valeur: '20 min', source: BROCHURE },
@@ -334,12 +334,12 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         titre: 'En voiture',
         texte:
-          "Comptez 45 minutes depuis Paris et 15 minutes depuis Chantilly. Le château dispose d'un parking privé et gratuit de 70 places, réservé à ses hôtes, avec 4 bornes de recharge pour véhicules électriques.",
+          "Comptez 45 minutes depuis Paris et 15 minutes depuis Chantilly. Le château dispose d'un parking privé et gratuit de 70 places, réservé à ses hôtes et donc à vos participants, avec 4 bornes de recharge pour véhicules électriques.",
       },
       {
         titre: 'En train',
         texte:
-          "Depuis Paris Gare du Nord, la gare d'Orry-la-Ville-Coye est à 20 minutes de train ; elle se trouve à environ 7 km du château, soit 10 minutes en voiture. La gare de Chantilly est à environ 10 km (15 minutes), celles de Survilliers-Fosses et de Mitry-Claye à environ 15 minutes.",
+          "Pour vos participants venus en train : depuis Paris Gare du Nord, la gare d'Orry-la-Ville-Coye est à 20 minutes de train ; elle se trouve à environ 7 km du château, soit 10 minutes en voiture. La gare de Chantilly est à environ 10 km (15 minutes), celles de Survilliers-Fosses et de Mitry-Claye à environ 15 minutes.",
       },
       {
         titre: 'En avion',

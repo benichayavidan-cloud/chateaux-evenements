@@ -105,4 +105,43 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
       acces: [['acces', 0], ['acces', 2], ['acces', 3]],
     },
   },
+  'palais-royal-foret-chantilly': {
+    titres: {
+      lieu: 'Un château Louis XVI dans 5 hectares de forêt',
+      hebergement: 'Séminaire résidentiel : {chambres} chambres face à la forêt',
+      reunion: '{salles} salons de séminaire autour d’un patio, plénière à la lumière du jour',
+      restauration: 'Restaurant gastronomique et dîner de gala jusqu’à 200 couverts',
+      activites: 'Team building en forêt de Chantilly et spa',
+      acces: 'Venir en séminaire : à 20 min de Roissy, 45 min de Paris',
+    },
+    lieu: {
+      intro:
+        "Pour un séminaire résidentiel en pleine forêt, ce château 5 étoiles de style Louis XVI offre à vos équipes le calme d'un domaine privé, à 20 minutes de l'aéroport de Roissy. Construit au début du XXe siècle par un compositeur, il se dresse dans un parc de 5 hectares au cœur de la forêt de Chantilly.",
+      blocs: [
+        {
+          titre: 'Un château né de la musique',
+          texte:
+            "Façade classique ornée de bas-reliefs, salons qui portent des noms de compositeurs, ancienne bibliothèque aux boiseries d'origine : chaque espace raconte une histoire à vos participants. Ce cadre donne du relief aux temps forts de votre convention.",
+        },
+        {
+          titre: 'La forêt à la porte des salons',
+          texte:
+            "Les salons de réunion ouvrent directement sur le domaine : votre groupe passe de la séance de travail à la terrasse en quelques pas. Un sentier d'une vingtaine de minutes fait le tour du parc, pour une réunion en marchant ou une pause au grand air.",
+        },
+        {
+          titre: 'Un point de rendez-vous pour les équipes internationales',
+          texte:
+            "À 45 minutes de Paris et à 20 minutes de Roissy, le château réunit facilement des collaborateurs venus de province ou de l'étranger. Labellisé Clef Verte, il répond aussi aux engagements environnementaux de votre entreprise.",
+        },
+      ],
+      faits: [
+        { label: 'Parc', valeur: '5 hectares' },
+        { label: 'Classement', valeur: '5 étoiles' },
+        { label: 'Label', valeur: 'Clef Verte' },
+      ],
+    },
+    blocs: {
+      restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 0]],
+    },
+  },
 };
