@@ -194,3 +194,10 @@
     order: -1;
   }
 }
+
+/* Ligne d'infos sous le titre de la fiche : sur mobile chaque info passe à la
+   ligne, le point de séparation resterait seul en bout de ligne. */
+.separateurInfos { display: none; }
+@media not all and (max-width: 768px) {
+  .separateurInfos { display: inline; }
+}

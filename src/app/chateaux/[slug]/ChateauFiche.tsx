@@ -16,6 +16,7 @@ import { Apparition, FaqAccordeon, GaleriePhotosFiche, SuiviVueChateau } from "@
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { SectionFiche } from "@/components/domaine/SectionFiche";
+import styles from "@/components/domaine/domaine.module.css";
 import { sectionsFiche } from "@/lib/fiche-sections";
 import { lienFinal } from "@/data/redirections";
 import photosRenommees from "@/data/photos-renommees.json";
@@ -109,20 +110,20 @@ export default function ChateauFiche({ chateau, navRubriques }: ChateauFicheProp
               <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
               {chateau.capacite.min}–{chateau.capacite.max} personnes
             </span>
-            <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
+            <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
             <span className="inline-flex items-center gap-1.5">
               <Bed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
               {chateau.roomsTotal} chambres
               {chateau.roomsTwin ? ` (${chateau.roomsTwin} twins)` : ''}
             </span>
-            <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
+            <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
             <span className="inline-flex items-center gap-1.5">
               <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
               {chateau.styleArchitectural}
             </span>
             {chateau.trajet && (
               <>
-                <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
+                <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
                 <span className="inline-flex items-center gap-1.5">
                   <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
                   {chateau.trajet}
