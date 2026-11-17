@@ -41,7 +41,13 @@ const TRANSPORTS: Array<[RegExp, LucideIcon]> = [
 
 function iconeTransport(titre: string) {
   const Icone = TRANSPORTS.find(([motif]) => motif.test(titre))?.[1];
-  return Icone ? <Icone className="w-4 h-4" style={{ color: theme.colors.primary.bronze, flexShrink: 0 }} aria-hidden /> : undefined;
+  if (!Icone) return undefined;
+  // Pastille de 32 px : l'icône doit se lire d'un coup d'œil, pas à la taille de l'étoile qu'elle remplace.
+  return (
+    <span aria-hidden style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "32px", height: "32px", borderRadius: "50%", background: `${theme.colors.primary.bronze}14`, flexShrink: 0, marginRight: "2px" }}>
+      <Icone style={{ width: "18px", height: "18px", color: theme.colors.primary.bronze }} />
+    </span>
+  );
 }
 
 interface SectionFicheProps {
