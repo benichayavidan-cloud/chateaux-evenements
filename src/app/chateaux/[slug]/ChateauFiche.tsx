@@ -30,7 +30,7 @@ interface ChateauFicheProps {
   chateau: Chateau;
   /** Menu des rubriques du domaine (Server Component), sous la barre d'appel. */
   navRubriques?: React.ReactNode;
-  /** Blocs de la page à afficher entre l'appel final et les questions fréquentes (logos, avis). */
+  /** Blocs de la page à afficher après le formulaire, avant l'appel final et les questions fréquentes (logos, avis). */
   avantFaq?: React.ReactNode;
 }
 
@@ -228,6 +228,10 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
       {/* La section « Points forts » a été retirée (décision PO du 17/11/2026) : ses 4 mots-clés
           répétaient la ligne d'infos sous le titre et les chiffres de chaque section. */}
 
+      {/* Logos et avis clients, puis l'appel final, puis les questions fréquentes
+          (ordre demandé par le PO le 17/11/2026). */}
+      {avantFaq}
+
       {/* CTA finale */}
       <Section background="gradient" style={{ padding: '30px 0' }}>
         <Container size="lg">
@@ -277,8 +281,6 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
           </div>
         </Container>
       </Section>
-
-      {avantFaq}
 
       {/* Questions fréquentes — dernier bloc de la page, juste avant le pied de page
           (décision PO du 17/11/2026), après les logos et les avis passés par `avantFaq`. */}
