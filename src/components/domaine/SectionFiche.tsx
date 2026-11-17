@@ -6,13 +6,15 @@
  * Le contenu vient de lib/fiche-sections (une section = un seul sujet).
  */
 import Link from "next/link";
-import { Accessibility, ArrowRight, Bed, Building2, Bus, Car, MapPin, Plane, Sparkles, TrainFront, TramFront, TreePine, UtensilsCrossed, type LucideIcon } from "lucide-react";
+import { ArrowRight, Bed, Building2, MapPin, Sparkles, TreePine, UtensilsCrossed, type LucideIcon } from "lucide-react";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
 import { theme } from "@/design-system/tokens";
 import { Diaporama, type PhotoDiaporama } from "@/components/domaine/Diaporama";
 import { ParaCard, StickySlider } from "@/components/domaine/briques-fiche";
 import styles from "@/components/domaine/domaine.module.css";
+import { Medaillon } from "@/components/domaine/Medaillon";
+import { iconeChiffre, iconeTransport } from "@/lib/icones-fiche";
 import type { SectionFiche as Contenu } from "@/lib/fiche-sections";
 import type { SectionFicheId } from "@/data/fiche-sections";
 
@@ -25,31 +27,6 @@ const ICONES: Record<SectionFicheId, LucideIcon> = {
   acces: MapPin,
 };
 
-/**
- * Icône du moyen de transport, d'après le titre d'un bloc de la section Accès
- * (« En voiture », « En train ou en RER », « En métro »…). Le premier mot
- * reconnu l'emporte ; un titre inconnu garde l'étoile par défaut.
- */
-const TRANSPORTS: Array<[RegExp, LucideIcon]> = [
-  [/voiture/i, Car],
-  [/métro/i, TramFront],
-  [/train|rer/i, TrainFront],
-  [/avion|hélicoptère/i, Plane],
-  [/transfert|navette/i, Bus],
-  [/accessibilité/i, Accessibility],
-];
-
-function iconeTransport(titre: string) {
-  const Icone = TRANSPORTS.find(([motif]) => motif.test(titre))?.[1];
-  if (!Icone) return undefined;
-  // Pastille de 32 px : l'icône doit se lire d'un coup d'œil, pas à la taille de l'étoile qu'elle remplace.
-  return (
-    <span aria-hidden style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: "32px", height: "32px", borderRadius: "50%", background: `${theme.colors.primary.bronze}14`, flexShrink: 0, marginRight: "2px" }}>
-      <Icone style={{ width: "18px", height: "18px", color: theme.colors.primary.bronze }} />
-    </span>
-  );
-}
-
 interface SectionFicheProps {
   section: Contenu;
   photos: PhotoDiaporama[];
@@ -59,6 +36,12 @@ interface SectionFicheProps {
 
 const bronze = theme.colors.primary.bronze;
 
+/** Médaillon du moyen de transport d'un bloc de la section Accès ; rien (l'étoile reste) si le titre n'en nomme aucun. */
+function medaillonTransport(titre: string) {
+  const icone = iconeTransport(titre);
+  return icone ? <Medaillon icone={icone} /> : undefined;
+}
+
 export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
   const Icone = ICONES[section.id];
   const pair = rang % 2 === 0;
@@ -66,14 +49,14 @@ export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
 
   const texte = (
     <div>
-      <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: `${bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${bronze}30`, marginBottom: "1rem" }}>
-        <Icone className="w-4 h-4" style={{ color: bronze }} />
+      <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "5px 14px 5px 5px", background: `${bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${bronze}30`, marginBottom: "1rem" }}>
+        <Medaillon icone={Icone} taille="petit" />
         <span style={{ fontSize: "0.75rem", fontWeight: 600, color: bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>{section.etiquette}</span>
       </div>
       <Text variant="h2" style={{ marginBottom: "1rem", textAlign: "left" }}>{section.titre}</Text>
       <p style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)", lineHeight: 1.75, color: theme.colors.neutral.gray700, margin: "0 0 1.25rem" }}>{section.intro}</p>
       {section.blocs.map((b) => (
-        <ParaCard key={b.titre} text={`${b.titre} : ${b.texte}`} sectionBg={fond} icone={section.id === "acces" ? iconeTransport(b.titre) : undefined} />
+        <ParaCard key={b.titre} text={`${b.titre} : ${b.texte}`} sectionBg={fond} icone={section.id === "acces" ? medaillonTransport(b.titre) : undefined} />
       ))}
       {/* Chiffres clés en cases égales (17/11/2026) : les pastilles, larges comme leur
           texte, se rangeaient en 1 + 2 + 1. Deux cases par ligne, trois quand il y a
@@ -82,8 +65,11 @@ export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
         <dl className={`${styles.chiffresSection} ${section.faits.length === 3 ? styles.chiffresPar3 : ""}`}>
           {section.faits.map((f) => (
             <div key={f.label} className={styles.chiffre}>
-              <dt>{f.label}</dt>
-              <dd>{f.valeur}</dd>
+              <Medaillon icone={iconeChiffre(f.label)} />
+              <div className={styles.chiffreTexte}>
+                <dt>{f.label}</dt>
+                <dd>{f.valeur}</dd>
+              </div>
             </div>
           ))}
         </dl>

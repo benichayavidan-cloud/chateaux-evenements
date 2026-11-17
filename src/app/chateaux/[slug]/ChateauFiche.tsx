@@ -16,6 +16,7 @@ import { Apparition, FaqAccordeon, GaleriePhotosFiche, SuiviVueChateau } from "@
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { SectionFiche } from "@/components/domaine/SectionFiche";
+import { Medaillon } from "@/components/domaine/Medaillon";
 import styles from "@/components/domaine/domaine.module.css";
 import { sectionsFiche } from "@/lib/fiche-sections";
 import { lienFinal } from "@/data/redirections";
@@ -161,24 +162,24 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
             }}
           >
             {[
-              { icon: <Check className="w-3.5 h-3.5" />, label: '500+ Événements' },
-              { icon: <Clock className="w-3.5 h-3.5" />, label: 'Devis sous 24h' },
-              { icon: <Lock className="w-3.5 h-3.5" />, label: 'Privatisation Totale' },
-              { icon: <Package className="w-3.5 h-3.5" />, label: 'Tout Inclus' },
+              { icone: Check, label: '500+ Événements' },
+              { icone: Clock, label: 'Devis sous 24h' },
+              { icone: Lock, label: 'Privatisation Totale' },
+              { icone: Package, label: 'Tout Inclus' },
             ].map((item, i) => (
               <div
                 key={i}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  padding: '8px 14px',
-                  background: `${theme.colors.primary.bronze}08`,
+                  gap: '8px',
+                  padding: '5px 14px 5px 5px',
+                  background: '#FFFFFF',
                   border: `1px solid ${theme.colors.primary.bronze}20`,
                   borderRadius: theme.effects.borderRadius.full,
                 }}
               >
-                <span style={{ color: theme.colors.primary.bronze, display: 'flex' }}>{item.icon}</span>
+                <Medaillon icone={item.icone} taille="petit" />
                 <span
                   style={{
                     fontSize: 'clamp(10px, 1.5vw, 12px)',
