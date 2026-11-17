@@ -21,6 +21,8 @@ export interface SectionFiche {
   /** Vide pour « Le lieu » : la fiche y montre ses photos d'en-tête. */
   photos: Array<{ src: string; alt: string }>;
   liens: Array<{ href: string; label: string }>;
+  /** Conseil de l'assistante séminaire pour cette section, s'il est écrit. */
+  conseil?: string;
 }
 
 export const ETIQUETTES: Record<SectionFicheId, string> = {
@@ -75,7 +77,7 @@ export function sectionsFiche(
   return SECTIONS_FICHE.flatMap((id): SectionFiche[] => {
     const titre = remplitChiffres(c.titres[id], chiffres);
     if (id === 'lieu') {
-      return [{ id, etiquette: ETIQUETTES[id], titre, ...c.lieu, photos: [], liens: liens(id) }];
+      return [{ id, etiquette: ETIQUETTES[id], titre, ...c.lieu, photos: [], liens: liens(id), conseil: c.conseils?.[id] }];
     }
     const principale: Rubrique | undefined = rubs[MATIERE[id][0]];
     if (!principale) return [];
@@ -94,6 +96,7 @@ export function sectionsFiche(
         .filter((p) => !vues.has(p.src) && vues.add(p.src))
         .map((p) => ({ src: p.src, alt: p.legende })),
       liens: liens(id),
+      conseil: c.conseils?.[id],
     }];
   });
 }
@@ -122,9 +125,9 @@ const motif = (mot: string) =>
   );
 
 /** Mots hors sujet présents dans le texte d'une section (titre, introduction, blocs, chiffres). */
-export function horsSujet(section: Pick<SectionFiche, 'id' | 'titre' | 'intro' | 'blocs' | 'faits'>): string[] {
+export function horsSujet(section: Pick<SectionFiche, 'id' | 'titre' | 'intro' | 'blocs' | 'faits'> & { conseil?: string }): string[] {
   const texte = sansAccents(
-    [section.titre, section.intro, ...section.blocs.flatMap((b) => [b.titre, b.texte]), ...section.faits.flatMap((f) => [f.label, f.valeur])].join('\n'),
+    [section.titre, section.intro, section.conseil ?? '', ...section.blocs.flatMap((b) => [b.titre, b.texte]), ...section.faits.flatMap((f) => [f.label, f.valeur])].join('\n'),
   );
   return HORS_SUJET[section.id].filter((mot) => motif(mot).test(texte));
 }
@@ -187,4 +190,18 @@ export function rapportAngleSeminaire(
       return angleSuffisant(a) ? [] : [`${slug} / ${s.id} : ${a.pro} phrase(s) sur ${a.total} orientée(s) séminaire`];
     });
   });
+}
+
+/**
+ * Chiffres d'un conseil qui ne figurent nulle part dans sa section (titre,
+ * introduction, blocs, chiffres clés). Un conseil est signé d'une personne
+ * réelle : il ne peut rien affirmer que la section ne dit pas déjà.
+ */
+export function chiffresHorsSection(section: Pick<SectionFiche, 'titre' | 'intro' | 'blocs' | 'faits' | 'conseil'>): string[] {
+  if (!section.conseil) return [];
+  const nombres = (t: string) => t.match(/\d+(?:[,.]\d+)?/g) ?? [];
+  const connus = new Set(
+    nombres([section.titre, section.intro, ...section.blocs.flatMap((b) => [b.titre, b.texte]), ...section.faits.flatMap((f) => [f.label, f.valeur])].join(' ')),
+  );
+  return nombres(section.conseil).filter((n) => !connus.has(n));
 }

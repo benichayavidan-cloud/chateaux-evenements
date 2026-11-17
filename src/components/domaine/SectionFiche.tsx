@@ -14,6 +14,7 @@ import { Diaporama, type PhotoDiaporama } from "@/components/domaine/Diaporama";
 import { ParaCard, StickySlider } from "@/components/domaine/briques-fiche";
 import styles from "@/components/domaine/domaine.module.css";
 import { Medaillon } from "@/components/domaine/Medaillon";
+import { ConseilAssistante } from "@/components/domaine/ConseilAssistante";
 import { iconeChiffre, iconeTransport } from "@/lib/icones-fiche";
 import type { SectionFiche as Contenu } from "@/lib/fiche-sections";
 import type { SectionFicheId } from "@/data/fiche-sections";
@@ -55,6 +56,7 @@ export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
       </div>
       <Text variant="h2" style={{ marginBottom: "1rem", textAlign: "left" }}>{section.titre}</Text>
       <p style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)", lineHeight: 1.75, color: theme.colors.neutral.gray700, margin: "0 0 1.25rem" }}>{section.intro}</p>
+      {section.conseil && <ConseilAssistante texte={section.conseil} />}
       {section.blocs.map((b) => (
         <ParaCard key={b.titre} text={`${b.titre} : ${b.texte}`} sectionBg={fond} icone={section.id === "acces" ? medaillonTransport(b.titre) : undefined} />
       ))}

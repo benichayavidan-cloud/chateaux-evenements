@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { chateaux } from '../data/chateaux.ts';
 import { FICHE_SECTIONS, SECTIONS_FICHE } from '../data/fiche-sections.ts';
-import { angleSeminaire, angleSuffisant, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionsFiche } from './fiche-sections.ts';
+import { angleSeminaire, angleSuffisant, chiffresHorsSection, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionsFiche } from './fiche-sections.ts';
 
 const CHIFFRES = { roomsTotal: 119, meetingRooms: 21, capacite: { min: 10, max: 280 } };
 const parSlug = Object.fromEntries(chateaux.map((c) => [c.slug, c]));
@@ -165,5 +165,27 @@ for (const [slug, motif] of Object.entries(CHIFFRES_RETIRES)) {
     const c = parSlug[slug];
     const textes = [c.description, c.accrocheHero, c.seoDescription ?? '', c.descriptionLongue, ...c.atouts, ...c.faq.flatMap((f) => [f.question, f.answer])];
     for (const t of textes) assert.doesNotMatch(t, motif);
+  });
+}
+
+test('conseil : un chiffre absent de la section est signalé', () => {
+  const base = { titre: '21 salles', intro: 'Une plénière de 280 places.', blocs: [], faits: [{ label: 'Écran', valeur: '18 m²' }] };
+  assert.deepEqual(chiffresHorsSection({ ...base, conseil: 'Plénière de 280 places, 21 salles, écran de 18 m².' }), []);
+  assert.deepEqual(chiffresHorsSection({ ...base, conseil: 'Jusqu’à 300 personnes en 12 salles.' }), ['300', '12']);
+  assert.deepEqual(chiffresHorsSection({ ...base }), []);
+});
+
+for (const slug of Object.keys(FICHE_SECTIONS).filter((s) => FICHE_SECTIONS[s].conseils)) {
+  const sections = sectionsFiche(slug, parSlug[slug]);
+
+  test(`${slug} : un conseil par section, dans le vocabulaire du séminaire`, () => {
+    for (const s of sections) {
+      assert.ok(s.conseil && s.conseil.length <= 260, `${s.id} : conseil manquant ou trop long`);
+      assert.match(s.conseil, /séminaire|participants|convention|collaborateurs/i, s.id);
+    }
+  });
+
+  test(`${slug} : aucun conseil n’avance un chiffre absent de sa section`, () => {
+    for (const s of sections) assert.deepEqual(chiffresHorsSection(s), [], s.id);
   });
 }

@@ -275,3 +275,55 @@
   gap: 0.125rem;
   min-width: 0;
 }
+
+/* Conseil de l'assistante séminaire : portrait à gauche (la tête dépasse du
+   cercle, d'où la marge négative), bulle de message à droite avec sa pointe. */
+.conseil {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0.25rem 0 1.25rem;
+}
+.conseilPortrait {
+  flex-shrink: 0;
+  width: 72px;
+  height: 84px;
+  margin-top: -14px;
+}
+.conseilBulle {
+  position: relative;
+  min-width: 0;
+  padding: 0.625rem 0.875rem 0.75rem;
+  background: linear-gradient(180deg, #FFFDF7 0%, #FBF5E6 100%);
+  border: 1px solid #E8DCC0;
+  border-radius: 4px 16px 16px 16px;
+  box-shadow: 0 2px 10px rgba(139, 106, 36, 0.08);
+}
+.conseilBulle::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  background: #FFFDF7;
+  border-left: 1px solid #E8DCC0;
+  border-bottom: 1px solid #E8DCC0;
+  transform: rotate(45deg);
+}
+.conseilQui {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.5rem;
+  margin-bottom: 0.125rem;
+  font-size: 0.8125rem;
+}
+.conseilQui strong { color: #8B6A24; font-weight: 700; }
+.conseilQui span { color: #737373; font-size: 0.75rem; }
+.conseilBulle blockquote {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #262626;
+}

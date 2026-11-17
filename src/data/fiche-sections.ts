@@ -21,6 +21,12 @@ export interface FicheSectionsChateau {
   titres: Record<SectionFicheId, string>;
   /** « Le lieu » : histoire, architecture, parc. Seul texte propre à la fiche. */
   lieu: { intro: string; blocs: BlocTexte[]; faits: Array<{ label: string; valeur: string }> };
+  /**
+   * Le conseil de l'assistante séminaire, un par section (bulle sous l'introduction).
+   * Écrit à partir des faits de la section : aucun chiffre qui n'y figure pas
+   * (testé). Signé d'un prénom réel : à faire relire par l'intéressée.
+   */
+  conseils?: Partial<Record<SectionFicheId, string>>;
   /** Blocs repris, quand l'ordre par défaut (tous ceux de la rubrique) ne convient pas. */
   blocs?: Partial<Record<Exclude<SectionFicheId, 'lieu'>, ChoixBloc[]>>;
 }
@@ -63,6 +69,14 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
     },
     blocs: {
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 1]],
+    },
+    conseils: {
+      lieu: "Dès l'allée bordée d'arbres, vos collaborateurs comprennent que ce séminaire sera différent. Et tout votre événement se tient sur un seul site : aucune navette à organiser pour vos participants.",
+      hebergement: "Pour un séminaire résidentiel en grand groupe, pensez aux 103 chambres à lits jumeaux : vous logez jusqu'à 243 participants sur place, en tenant le budget de votre événement.",
+      reunion: "Plénière de 280 places le matin, ateliers en sous-commission l'après-midi : avec 21 salles de séminaire, chaque groupe de travail a la sienne. De mai à octobre, demandez-moi la serre pour un séminaire créatif.",
+      restauration: "Sur un séminaire de plusieurs jours, faites tourner les 3 restaurants : vos participants ne déjeunent jamais deux fois au même endroit. Et gardez le Grand Salon pour le dîner de gala de votre convention.",
+      activites: "Entre deux sessions de travail, le spa est gratuit pour vos participants résidents, de 7 h à 22 h. Laissez un créneau libre dans le programme de votre séminaire, avant le dîner : vos équipes en profiteront ensemble.",
+      acces: "Pour les participants qui viennent à votre séminaire sans voiture : un TER direct depuis la gare du Nord en 25 minutes environ, puis nous organisons le transfert du groupe depuis la gare.",
     },
   },
   'abbaye-millenaire-vallee-chevreuse': {
