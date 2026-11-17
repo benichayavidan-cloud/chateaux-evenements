@@ -21,6 +21,14 @@ export interface Chateau {
   slug: string;
   // Nouveaux champs SEO
   seoH1: string;
+  /**
+   * Titre principal de la fiche, sur deux lignes (décision PO du 17/11/2026,
+   * comme les rubriques) : le mot-clé et le cadre, puis le nom du lieu.
+   * Absent → la fiche affiche seoH1 seul.
+   */
+  titreFiche?: { motCle: string; lieu: string };
+  /** Trajet affiché dans la ligne d'infos sous le titre (« à 45 min de Paris »). */
+  trajet?: string;
   seoTitle: string;
   /** Meta description propre à la fiche ; jetons {chambres} {salles} {capacite} (lib/fiche-chateau). */
   seoDescription?: string;
@@ -33,10 +41,7 @@ export interface Chateau {
   // Hébergement
   roomsTotal: number;
   roomsTwin: number | null; // null = "Modulables"
-  bedroomText: string;
-  meetingText: string;
   meetingRooms: number;
-  restaurationText: string;
 }
 
 export interface TypeEvenement {

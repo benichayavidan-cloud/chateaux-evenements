@@ -12,7 +12,6 @@ import ChateauFiche from "./ChateauFiche";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { RubriquesNav } from "@/components/domaine/RubriquesNav";
-import { DecouvrirDomaine } from "@/components/domaine/DecouvrirDomaine";
 import { rubriquesPubliees } from "@/lib/rubriques";
 
 type Props = {
@@ -58,10 +57,13 @@ export default async function ChateauPage({ params }: Props) {
       <ChateauFiche
         chateau={chateau}
         navRubriques={<RubriquesNav slug={chateau.slug} rubriques={rubriques} />}
-        sectionRubriques={<DecouvrirDomaine slug={chateau.slug} rubriques={rubriques} />}
+        avantFaq={
+          <>
+            <LogoCarousel />
+            <ReviewsSection />
+          </>
+        }
       />
-      <LogoCarousel />
-      <ReviewsSection />
     </>
   );
 }

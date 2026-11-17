@@ -1,10 +1,11 @@
 /**
  * Menu des rubriques d'un domaine (« Le domaine · Salles · Chambres… »).
  * Server Component : de vrais liens <a href> que Google suit.
- * Mobile : une ligne qui défile horizontalement.
+ * Onglets soulignés (modèle PO du 17/11/2026) : texte simple, onglet actif
+ * doré avec un trait ; la ligne fine sous le menu est tracée par le parent,
+ * sur la largeur qu'il choisit. Centré ; sur mobile, une ligne qui défile.
  */
 import Link from "next/link";
-import { theme } from "@/design-system/tokens";
 import styles from "@/components/domaine/domaine.module.css";
 import { LIBELLES, urlRubrique } from "@/lib/rubriques";
 import type { RubriqueId } from "@/types/rubriques";
@@ -25,23 +26,14 @@ export function RubriquesNav({ slug, rubriques, active }: RubriquesNavProps) {
   ];
 
   return (
-    <nav aria-label="Rubriques du domaine" className={`${styles.domaine} -mx-4 overflow-x-auto px-4 md:mx-0 md:px-0`}>
-      <ul className={`${styles.menuRubriques} flex gap-2 py-2`}>
+    <nav aria-label="Rubriques du domaine" className={`${styles.domaine} ${styles.navRubriques}`}>
+      <ul className={styles.menuRubriques}>
         {liens.map((l) => (
           <li key={l.href}>
             <Link
               href={l.href}
               aria-current={l.actif ? "page" : undefined}
-              className="inline-block whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-colors"
-              style={
-                l.actif
-                  ? { background: theme.colors.primary.bronze, color: "#FFFFFF" }
-                  : {
-                      background: theme.colors.neutral.gray50,
-                      color: theme.colors.neutral.gray700,
-                      border: `1px solid ${theme.colors.neutral.gray200}`,
-                    }
-              }
+              className={`${styles.onglet} ${l.actif ? styles.ongletActif : ""}`}
             >
               {l.label}
             </Link>

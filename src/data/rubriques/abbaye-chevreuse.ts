@@ -28,7 +28,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     resume:
       "14 espaces, du salon de 25 m² pour un comité de direction à la Grande Salle des Voûtes qui reçoit 250 convives. Toutes les capacités, salle par salle.",
     intro:
-      "Nos 14 espaces de réunion sont répartis entre l'abbaye et les anciens haras du domaine. La plénière se tient dans la Grande Salle des Voûtes, sous une voûte du XIIe siècle, ou dans le grand salon des haras ; les ateliers se déroulent dans des salons de 25 à 171 m², presque tous éclairés par la lumière du jour. Le tableau ci-dessous détaille 10 de ces espaces : surface et capacité selon la disposition choisie.",
+      "Nos 14 espaces de réunion sont répartis entre l'abbaye et les anciens haras du domaine. La plénière se tient dans la Grande Salle des Voûtes, sous une voûte du XIIe siècle, ou dans le grand salon des haras ; les ateliers se déroulent dans des salons de 25 à 171 m², presque tous éclairés par la lumière du jour.",
     faits: [
       { label: 'Espaces de réunion', valeur: '14', source: FICHE },
       { label: 'Plus grand salon', valeur: '209 m²', source: CVENT },
@@ -85,11 +85,11 @@ export const rubriquesAbbaye: RubriquesDomaine = {
   chambres: {
     seoTitle: 'Séminaire résidentiel en abbaye : 144 chambres (78)',
     seoDescription:
-      "144 chambres et suites réparties entre l'abbaye, les haras et la ferme, rénovées en 2023. Spa avec 7 cabines de soins, piscine chauffée et bains nordiques.",
+      "144 chambres et suites réparties entre l'abbaye, les haras et la ferme, rénovées en 2023. Pour un séminaire résidentiel, tout le groupe loge sur place.",
     resume:
-      "144 chambres et suites dans trois bâtiments : l'abbaye, les anciens haras et la ferme. Rénovées en 2023, avec spa et piscine chauffée.",
+      "144 chambres et suites dans trois bâtiments : l'abbaye, les anciens haras et la ferme. Toutes rénovées en 2023.",
     intro:
-      "Nos 144 chambres et suites se répartissent entre trois bâtiments du domaine : l'abbaye elle-même, les anciens haras et la ferme, à trois minutes en voiture. Toutes ont été rénovées en 2023, dans un décor de pierres apparentes, de boiseries et de teintes naturelles. Pour un séminaire résidentiel, vous logez l'ensemble de vos participants sur place, sans navette le matin.",
+      "Pour un séminaire résidentiel, nos 144 chambres et suites logent l'ensemble de vos participants sur place, sans navette le matin. Elles se répartissent entre trois bâtiments du domaine : l'abbaye elle-même, les anciens haras et la ferme, à trois minutes en voiture. Toutes ont été rénovées en 2023, dans un décor de pierres apparentes, de boiseries et de teintes naturelles.",
     faits: [
       { label: 'Chambres et suites', valeur: '144', source: FICHE },
       { label: "À l'abbaye", valeur: '59', source: CVENT },
@@ -110,17 +110,12 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         titre: "L'abbaye, les haras, la ferme",
         texte:
-          "Les 59 chambres de l'abbaye donnent sur les ruines, le lac ou la forêt. Les 47 chambres des haras occupent les anciennes écuries du domaine, au plus près des salons de réunion. La ferme, avec ses 38 chambres, son restaurant et son bar, fonctionne comme un hameau à part : on peut y loger une équipe ou un comité de direction à l'écart du groupe.",
+          "Vous répartissez vos participants entre trois lieux : les 59 chambres de l'abbaye donnent sur les ruines, le lac ou la forêt. Les 47 chambres des haras occupent les anciennes écuries du domaine, au plus près des salons de réunion. La ferme, avec ses 38 chambres, fonctionne comme un hameau à part : on peut y loger une équipe ou un comité de direction à l'écart du groupe.",
       },
       {
         titre: 'Des catégories pour chaque participant',
         texte:
-          "Petites chambres et chambres cosy pour les grands groupes, chambres supérieures et deluxe pour l'encadrement, suites pour vos dirigeants et vos invités de marque. Toutes offrent le Wi-Fi haut débit et une literie haut de gamme.",
-      },
-      {
-        titre: 'Le spa',
-        texte:
-          "Le spa compte 7 cabines de soins, une piscine extérieure chauffée, 2 bains nordiques et une salle de sport. Des séances de yoga peuvent ouvrir la journée de travail : un moment de récupération qui change la dynamique d'un séminaire de deux ou trois jours.",
+          "Petites chambres et chambres cosy pour les grands groupes, chambres supérieures et deluxe pour l'encadrement, suites pour vos dirigeants et vos invités de marque. Toutes offrent à vos participants le Wi-Fi haut débit et une literie haut de gamme.",
       },
     ],
     sources: [FICHE, CVENT],
@@ -258,7 +253,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     resume:
       "Tennis, padel, barques, vélos, spa, yoga, espace jeux : des activités en accès libre et des formats encadrés pour la cohésion.",
     intro:
-      "Le domaine propose deux types d'activités : celles que vos participants pratiquent librement pendant leurs temps de pause, et celles que notre équipe organise pour l'ensemble du groupe. Tout se déroule sur place, sans transfert.",
+      "Pour votre team building, le domaine propose deux types d'activités : celles que vos participants pratiquent librement pendant leurs temps de pause, et celles que notre équipe organise pour l'ensemble du groupe. Tout se déroule sur place : votre groupe n'a aucun transfert à prévoir.",
     faits: [
       { label: 'Courts de tennis', valeur: '2', source: CVENT },
       { label: 'Courts de padel', valeur: '2', source: CVENT },
@@ -283,9 +278,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Olympiades dans le parc, paintball, ball-trap, séances de yoga, quiz musical ou soirée animée dans l'espace jeux : notre équipe organise l'activité à l'horaire prévu dans votre programme et l'adapte à la taille du groupe.",
       },
       {
-        titre: 'Le bien-être',
+        titre: "Le spa et le bien-être",
         texte:
-          "Le spa compte 7 cabines de soins. Un créneau de soins ou une séance de yoga au réveil donne un rythme différent à un séminaire de plusieurs jours.",
+          "Entre deux sessions, vos participants profitent du spa : 7 cabines de soins, une piscine extérieure chauffée, 2 bains nordiques et une salle de sport. Des séances de yoga peuvent ouvrir la journée de travail : un moment de récupération qui change la dynamique d'un séminaire de deux ou trois jours.",
       },
     ],
     sources: [FICHE, CVENT],
@@ -298,7 +293,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     resume:
       "45 minutes de Paris en voiture, RER B ou train depuis Montparnasse puis 15 minutes de transfert. Parking privé sur place.",
     intro:
-      "Le domaine se trouve au cœur du Parc naturel régional de la Haute Vallée de Chevreuse (Yvelines). Il est à 45 minutes de Paris en voiture et accessible en transports en commun, avec un transfert depuis la gare sur réservation.",
+      "Pour un séminaire résidentiel au vert, le domaine se trouve au cœur du Parc naturel régional de la Haute Vallée de Chevreuse (Yvelines), à 45 minutes de Paris en voiture. Vos participants peuvent aussi venir en transports en commun, avec un transfert depuis la gare sur réservation.",
     faits: [
       { label: 'Paris en voiture', valeur: '45 min', source: CVENT },
       { label: 'Gare la plus proche', valeur: '15 min', source: CVENT },
@@ -313,7 +308,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         titre: 'En voiture',
         texte:
-          "Depuis la porte de Saint-Cloud : A13, A12 puis N10 en direction de Rambouillet. Depuis le sud-ouest de Paris (pont de Sèvres, porte d'Orléans) : N118 ou A10, puis les routes de la vallée de Chevreuse. Comptez 45 minutes hors heures de pointe. L'itinéraire détaillé est joint à votre confirmation. Le domaine dispose d'un parking privé avec bornes de recharge électrique.",
+          "Depuis la porte de Saint-Cloud : A13, A12 puis N10 en direction de Rambouillet ; depuis le sud-ouest de Paris (pont de Sèvres, porte d'Orléans) : N118 ou A10, puis les routes de la vallée de Chevreuse. Comptez 45 minutes hors heures de pointe pour vos participants venus de Paris. L'itinéraire détaillé est joint à votre confirmation, pour le transmettre à votre groupe. Le domaine dispose d'un parking privé avec bornes de recharge électrique.",
       },
       {
         titre: 'Travaux sur l’A13 jusqu’à fin août 2027',
@@ -328,7 +323,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         titre: 'En avion ou en hélicoptère',
         texte:
-          "Orly est à environ 40 minutes de route, Roissy-Charles-de-Gaulle à 1 h 10. Un transfert avec chauffeur peut être organisé depuis l'aéroport, et l'atterrissage d'un hélicoptère sur le domaine est possible sur demande.",
+          "Pour vos participants venus de province ou de l'étranger, Orly est à environ 40 minutes de route, Roissy-Charles-de-Gaulle à 1 h 10. Un transfert de groupe avec chauffeur peut être organisé depuis l'aéroport, et l'atterrissage d'un hélicoptère sur le domaine est possible sur demande.",
       },
     ],
     sources: [CVENT, ACCES],

@@ -48,7 +48,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     resume:
       "21 espaces à la lumière du jour, de 15 à 240 m², plus une serre de 300 m² dans le parc. La plénière reçoit 280 personnes en théâtre.",
     intro:
-      "Nos 21 espaces de réunion, tous éclairés par la lumière du jour, se répartissent entre le château, une aile contemporaine et le bâtiment de la plénière. De la salle confidentielle de 21 m² pour un comité restreint à la plénière de 240 m² qui reçoit 280 personnes, chaque format a sa salle. De mai à octobre, une serre de 300 m² s'ajoute dans le parc. Le tableau ci-dessous reprend surface et capacité selon la disposition choisie.",
+      "Nos 21 espaces de réunion, tous éclairés par la lumière du jour, se répartissent entre le château, une aile contemporaine et le bâtiment de la plénière : votre séminaire passe de la plénière aux ateliers sans quitter le domaine. De la salle confidentielle de 21 m² pour un comité restreint à la plénière de 240 m² qui reçoit 280 personnes, chaque format de réunion a sa salle. De mai à octobre, une serre de 300 m² s'ajoute dans le parc pour vos séminaires créatifs.",
     faits: [
       { label: 'Espaces de réunion', valeur: '21, de 15 à 240 m²', source: MICE },
       { label: 'Plénière en théâtre', valeur: '280 places', source: MICE },
@@ -105,7 +105,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Des ateliers pour chaque taille de groupe',
         texte:
-          "Pour les sous-commissions, une quinzaine de salles de 15 à 134 m² se répartissent entre les salons du château, aux boiseries d'époque, et l'aile contemporaine. Une salle confidentielle de 21 m² accueille 8 personnes pour les échanges qui ne doivent pas sortir de la pièce.",
+          "Pour les sous-commissions, une quinzaine de salles de 15 à 134 m² se répartissent entre les salons du château, aux boiseries d'époque, et l'aile contemporaine. Certaines, au rez-de-jardin, ouvrent sur une terrasse privée pour les pauses à la belle saison. Une salle confidentielle de 21 m² accueille 8 personnes pour les échanges qui ne doivent pas sortir de la pièce.",
       },
       {
         titre: 'La serre, de mai à octobre',
@@ -119,11 +119,11 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   chambres: {
     seoTitle: 'Séminaire résidentiel à Chantilly : 119 chambres (60)',
     seoDescription:
-      "119 chambres et suites, dont 39 pensées pour travailler, jusqu'à 243 personnes hébergées. Spa avec piscine intérieure chauffée, sauna et hammam inclus.",
+      "119 chambres et suites de 18 à 60 m², dont 103 à lits jumeaux et 39 pensées pour travailler. Jusqu'à 243 personnes hébergées sur place, à Chantilly.",
     resume:
-      "119 chambres et suites de 18 à 60 m², jusqu'à 243 personnes logées sur place. Spa et piscine intérieure inclus pour les résidents.",
+      "119 chambres et suites de 18 à 60 m², jusqu'à 243 personnes logées sur place, dont 103 chambres à lits jumeaux.",
     intro:
-      "Nos 119 chambres et suites se partagent entre deux univers. Au château, 80 chambres de 18 à 60 m² gardent l'esprit Belle Époque des lieux. Dans l'aile contemporaine, 39 chambres et suites de 18 à 38 m² sont pensées pour travailler, au calme, entre deux sessions. Avec les chambres partagées, nous logeons jusqu'à 243 participants sur place.",
+      "Pour un séminaire résidentiel, nos 119 chambres et suites logent tout votre groupe sur place, jusqu'à 243 participants avec les chambres partagées. Au château, 80 chambres de 18 à 60 m² gardent l'esprit Belle Époque des lieux. Dans l'aile contemporaine, 39 chambres et suites de 18 à 38 m² sont pensées pour travailler au calme entre deux sessions.",
     faits: [
       { label: 'Chambres et suites', valeur: '119 (110 chambres, 9 suites)', source: FACTSHEET },
       { label: 'Capacité d’hébergement', valeur: '243 personnes', source: SITE },
@@ -141,22 +141,17 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Au château ou dans l’aile contemporaine',
         texte:
-          "Les chambres du château vont de la chambre standard de 19 à 22 m² à la chambre prestige de 40 m², certaines avec vue sur le parc. Dans l'aile contemporaine, les 21 chambres de 18 à 19 m² et les 9 suites de 38 m² offrent une ambiance minimaliste, avec un vrai coin bureau.",
+          "Vous répartissez vos participants selon leur rôle : les chambres du château vont de la chambre standard de 19 à 22 m² à la chambre prestige de 40 m², certaines avec vue sur le parc, pour vos intervenants ou votre comité de direction. Dans l'aile contemporaine, les 21 chambres de 18 à 19 m² et les 9 suites de 38 m² offrent une ambiance minimaliste, avec un vrai coin bureau pour préparer la session du lendemain.",
       },
       {
         titre: 'Des lits jumeaux pour les grands groupes',
         texte:
-          "103 chambres se configurent en lits jumeaux : un levier précieux pour loger un grand groupe en chambres partagées sans renoncer au confort. Votre coordinateur répartit les participants selon votre liste.",
+          "103 chambres se configurent en lits jumeaux : un levier précieux pour loger un grand groupe en chambres partagées sans renoncer au confort, et pour tenir le budget d'un séminaire de plusieurs jours. Votre coordinateur répartit les participants selon votre liste.",
       },
       {
         titre: 'Ce que chaque chambre comprend',
         texte:
-          "Wi-Fi haut débit, douche ou baignoire, peignoir et chaussons, coin bureau, télévision avec Chromecast, machine à café, coffre-fort. Toutes les chambres sont non-fumeur.",
-      },
-      {
-        titre: 'Le spa, inclus pour les résidents',
-        texte:
-          "Notre spa est ouvert gratuitement aux résidents, tous les jours de 7 h à 22 h : piscine intérieure chauffée, sauna, hammam, tisanerie, salle de fitness et de yoga. Cabines de soins et cabine de massage en duo sont disponibles sur réservation.",
+          "Chaque participant dispose du Wi-Fi haut débit, d'un coin bureau, d'une douche ou d'une baignoire, d'un peignoir et de chaussons, d'une télévision avec Chromecast, d'une machine à café et d'un coffre-fort. Toutes les chambres sont non-fumeur.",
       },
     ],
     sources: [FACTSHEET, MICE, SITE, FICHE],
@@ -210,7 +205,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     resume:
       "3 restaurants et un bar, une terrasse plein sud sur le parc, et des banquets jusqu'à 250 convives.",
     intro:
-      "Nos 3 restaurants et notre bar permettent de varier les cadres au fil d'un séminaire de plusieurs jours : déjeuner en libre-service raffiné, carte servie à toute heure, table bistronomique. La terrasse plein sud, avec sa vue panoramique sur le parc, accueille les déjeuners à la belle saison.",
+      "Nos 3 restaurants et notre bar permettent de varier les cadres au fil d'un séminaire de plusieurs jours : déjeuner en libre-service raffiné, carte servie à toute heure, table bistronomique. La terrasse plein sud, avec sa vue panoramique sur le parc, accueille les déjeuners de votre groupe à la belle saison.",
     faits: [
       { label: 'Restaurants', valeur: '3, et un bar', source: SITE },
       { label: 'Banquet au Grand Salon', valeur: '240 convives', source: MICE },
@@ -227,7 +222,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Trois façons de passer à table',
         texte:
-          "Un déjeuner en libre-service raffiné, de saison et aux influences du monde, dans un esprit de partage ; une carte généreuse qui mêle classiques français et inspirations internationales, servie à toute heure ; une table bistronomique où les chefs revisitent les produits du terroir. Chaque repas du séminaire peut avoir son propre cadre.",
+          "Vos participants ne déjeunent pas deux fois au même endroit : un libre-service raffiné, de saison et aux influences du monde, dans un esprit de partage ; une carte généreuse qui mêle classiques français et inspirations internationales, servie à toute heure ; une table bistronomique où les chefs revisitent les produits du terroir. Chaque repas du séminaire peut avoir son propre cadre.",
       },
       {
         titre: 'Banquets et dîners assis',
@@ -237,7 +232,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Petit-déjeuner, pauses et menus sur mesure',
         texte:
-          "Le petit-déjeuner est servi en libre-service, avec des produits locaux et de saison et le miel du domaine. Les pauses gourmandes sont servies dans les salons attenants aux salles de réunion. Notre équipe compose les menus selon votre programme et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher.",
+          "Le petit-déjeuner de vos participants est servi en libre-service, avec des produits locaux et de saison et le miel du domaine. Les pauses gourmandes sont servies dans les salons attenants aux salles de réunion. Notre équipe compose les menus selon votre programme et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher.",
       },
     ],
     sources: [SITE, MICE, FICHE],
@@ -271,7 +266,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Le bar à cocktails',
         texte:
-          "Dans une ambiance feutrée, nos barmans préparent des cocktails signatures à base de sirops et d'hydrolats maison, inspirés de l'herboristerie, aux côtés des grands classiques. Le bar reste ouvert jusqu'à 1 h le vendredi et le samedi, jusqu'à 0 h 30 les autres soirs.",
+          "Après le dîner, vos participants se retrouvent au bar : dans une ambiance feutrée, nos barmans préparent des cocktails signatures à base de sirops et d'hydrolats maison, inspirés de l'herboristerie, aux côtés des grands classiques. Le bar reste ouvert jusqu'à 1 h le vendredi et le samedi, jusqu'à 0 h 30 les autres soirs.",
       },
       {
         titre: 'Prolonger la soirée',
@@ -289,7 +284,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     resume:
       "Challenges nature dans le parc, VTT, dragon boat, rallye 2CV, atelier crème Chantilly, yoga : des formats de cohésion sur place et alentour.",
     intro:
-      "Le parc de 6 hectares et la forêt de Chantilly servent de terrain aux activités de cohésion. Certaines se pratiquent librement pendant les temps de pause ; d'autres sont organisées par notre équipe pour l'ensemble du groupe, à l'horaire prévu dans votre programme.",
+      "Le parc de 6 hectares et la forêt de Chantilly servent de terrain aux activités de team building et de cohésion. Certaines se pratiquent librement pendant les temps de pause ; d'autres sont organisées par notre équipe pour l'ensemble du groupe, à l'horaire prévu dans votre programme.",
     faits: [
       { label: 'Parc', valeur: '6 hectares', source: SITE },
       { label: 'Spa', valeur: 'ouvert de 7 h à 22 h', source: SITE },
@@ -309,12 +304,12 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Des formats de cohésion autour de Chantilly',
         texte:
-          "VTT en forêt, dragon boat, rallye en 2CV dans les environs, atelier autour de la crème Chantilly, soirée DJ : notre équipe organise l'activité et l'adapte à la taille du groupe. La région se prête aussi aux balades à cheval et aux visites du domaine de Chantilly en calèche.",
+          "VTT en forêt, dragon boat, rallye en 2CV dans les environs, atelier autour de la crème Chantilly, soirée DJ : notre équipe organise l'activité et l'adapte à la taille du groupe. Pour une sortie de groupe, la région se prête aussi aux balades à cheval et aux visites du domaine de Chantilly en calèche.",
       },
       {
-        titre: 'Le bien-être',
+        titre: 'Le spa et le bien-être',
         texte:
-          "Des séances de yoga ont lieu au spa, qui réunit piscine intérieure chauffée, sauna, hammam et salle de fitness. Un réveil au yoga ou un créneau de massage donne un autre rythme à un séminaire de plusieurs jours.",
+          "Entre deux sessions, vos participants profitent du spa, ouvert gratuitement aux résidents tous les jours de 7 h à 22 h : piscine intérieure chauffée, sauna, hammam, tisanerie, salle de fitness et de yoga. Cabines de soins et cabine de massage en duo sont disponibles sur réservation. Un réveil au yoga ou un créneau de massage donne un autre rythme à un séminaire de plusieurs jours.",
       },
     ],
     sources: [SITE, MICE],
@@ -327,7 +322,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     resume:
       "À moins de 35 km de Paris par l'A1, à 5 minutes de la gare de Chantilly et 25 minutes de Roissy-CDG. Parking gratuit sur place.",
     intro:
-      "Le domaine se trouve en lisière de la forêt de Chantilly, dans l'Oise, à moins de 35 km de Paris. On y vient en voiture par l'A1, en train depuis la gare du Nord, ou en avion par Roissy-Charles-de-Gaulle.",
+      "Pour un séminaire résidentiel proche de Paris, le domaine se trouve en lisière de la forêt de Chantilly, dans l'Oise, à moins de 35 km de la capitale. Vos participants viennent en voiture par l'A1, en train depuis la gare du Nord, ou en avion par Roissy-Charles-de-Gaulle.",
     faits: [
       { label: 'Distance de Paris', valeur: 'moins de 35 km', source: SITE },
       { label: 'Gare de Chantilly', valeur: '5 min en voiture', source: SITE },
@@ -343,7 +338,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'En voiture',
         texte:
-          "Depuis Paris, prenez l'A1 vers le nord et sortez à Survilliers-Chantilly (sortie 7), puis suivez Chantilly par la N17 et la D924a ; le château est ensuite fléché. Depuis Bruxelles, sortez de l'A1 à Senlis (sortie 8). L'itinéraire détaillé est joint à votre confirmation. Le parking est gratuit sur place.",
+          "Depuis Paris, prenez l'A1 vers le nord et sortez à Survilliers-Chantilly (sortie 7), puis suivez Chantilly par la N17 et la D924a ; le château est ensuite fléché. Depuis Bruxelles, sortez de l'A1 à Senlis (sortie 8). L'itinéraire détaillé est joint à votre confirmation, pour le transmettre à vos participants. Le parking est gratuit sur place pour tout le groupe.",
       },
       {
         titre: 'En train ou en RER',
@@ -353,11 +348,11 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'En avion',
         texte:
-          "L'aéroport Roissy-Charles-de-Gaulle est à 25 minutes de route : un atout pour les séminaires internationaux et les participants venus de province. Un transfert depuis l'aéroport peut être organisé sur demande.",
+          "L'aéroport Roissy-Charles-de-Gaulle est à 25 minutes de route : un atout pour les séminaires internationaux et les participants venus de province. Un transfert de groupe depuis l'aéroport peut être organisé sur demande.",
       },
       {
         titre: 'Accessibilité',
-        texte: "Le domaine est accessible aux personnes à mobilité réduite.",
+        texte: "Le domaine est accessible aux participants à mobilité réduite.",
       },
     ],
     sources: [SITE, FACTSHEET, TRAIN, FICHE],

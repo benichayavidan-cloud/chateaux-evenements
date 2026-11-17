@@ -241,7 +241,7 @@ export function RubriqueVitrine({ chateau, id, titre, lieu, r, filAriane, navRub
           </div>
         </div>
 
-        <div style={{ marginTop: "clamp(0.75rem, 2vw, 1rem)" }}>{navRubriques}</div>
+        <div style={{ marginTop: "clamp(0.75rem, 2vw, 1rem)", borderBottom: `1px solid ${theme.colors.neutral.gray200}` }}>{navRubriques}</div>
       </div>
 
       {/* Bandeau chiffres clés de la rubrique */}
