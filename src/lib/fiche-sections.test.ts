@@ -27,6 +27,12 @@ test('hors sujet : mot entier seulement, accents et pluriels compris', () => {
   assert.deepEqual(horsSujet(section('Deux BARS et une Plénière.')), ['bar', 'plénière']);
 });
 
+test('hors sujet : pluriel et trait d’union dans une expression de plusieurs mots', () => {
+  const s = (id: 'activites' | 'reunion', intro: string) => ({ id, titre: '', intro, blocs: [], faits: [] });
+  assert.deepEqual(horsSujet(s('activites', 'Nos salles de réunion sont au château.')), ['salle de réunion']);
+  assert.deepEqual(horsSujet(s('reunion', 'Un team-building en fin de journée.')), ['team building']);
+});
+
 test('hors sujet : les activités de cohésion dans les salles sont signalées', () => {
   const s = { id: 'reunion' as const, titre: '', intro: 'Rallye en 2CV, VTT en forêt et team building.', blocs: [], faits: [] };
   assert.deepEqual(horsSujet(s), ['team building', 'rallye', 'vtt']);

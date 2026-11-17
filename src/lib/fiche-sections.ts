@@ -111,8 +111,14 @@ export const HORS_SUJET: Record<SectionFicheId, string[]> = {
   acces: ['spa', 'piscine', 'chambre', 'restaurant', 'plénière', 'team building'],
 };
 
+/** Pluriel accepté sur chaque mot, espace ou trait d'union entre deux mots (« salles de réunion », « team-building »). */
 const motif = (mot: string) =>
-  new RegExp(`(^|[^a-z0-9])${sansAccents(mot).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(s|x)?($|[^a-z0-9])`);
+  new RegExp(
+    `(^|[^a-z0-9])${sansAccents(mot)
+      .split(/\s+/)
+      .map((m) => `${m.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(s|x)?`)
+      .join('[\\s-]+')}($|[^a-z0-9])`,
+  );
 
 /** Mots hors sujet présents dans le texte d'une section (titre, introduction, blocs, chiffres). */
 export function horsSujet(section: Pick<SectionFiche, 'id' | 'titre' | 'intro' | 'blocs' | 'faits'>): string[] {

@@ -157,7 +157,7 @@
 
 /* Fiche château : photos à gauche du texte sur grand écran seulement
    (jusqu'à 768px la grille .responsive-grid passe sur une colonne, texte d'abord). */
-@media (min-width: 769px) {
+@media not all and (max-width: 768px) {
   .photosAGauche {
     order: -1;
   }
