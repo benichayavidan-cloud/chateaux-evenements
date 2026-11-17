@@ -6,8 +6,8 @@
  *
  * Portrait : détouré depuis la photo d'équipe du site, tête dépassant d'un
  * cercle doré (fichier 248 × 288, affiché à 72 × 84).
- * ⚠️ Avant mise en ligne : confirmer avec le PO que cette photo montre bien
- * la personne nommée (question posée le 17/11/2026, sans réponse à ce jour).
+ * Photo d'équipe authentique (confirmé par le PO le 17/11/2026) : ne pas la
+ * remplacer ni la retoucher sans demande.
  */
 export const ASSISTANTE = {
   prenom: 'Salomé',
