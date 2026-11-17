@@ -201,3 +201,42 @@
 @media not all and (max-width: 768px) {
   .separateurInfos { display: inline; }
 }
+
+/* Chiffres clés d'une section de la fiche : cases égales. La valeur passe
+   avant son libellé à l'écran (flex inverse), l'ordre dt puis dd reste celui
+   attendu dans une liste de définitions. */
+.chiffresSection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.625rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+.chiffre {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 0.125rem;
+  padding: 0.75rem 0.875rem;
+  background: rgba(163, 126, 44, 0.05);
+  border: 1px solid rgba(163, 126, 44, 0.16);
+  border-radius: 0.75rem;
+}
+.chiffre dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #171717;
+}
+.chiffre dt {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.35;
+  color: #8B6A24;
+}
+@media not all and (max-width: 768px) {
+  .chiffresPar3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

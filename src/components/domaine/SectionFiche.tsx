@@ -50,14 +50,18 @@ export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
       {section.blocs.map((b) => (
         <ParaCard key={b.titre} text={`${b.titre} : ${b.texte}`} sectionBg={fond} />
       ))}
+      {/* Chiffres clés en cases égales (17/11/2026) : les pastilles, larges comme leur
+          texte, se rangeaient en 1 + 2 + 1. Deux cases par ligne, trois quand il y a
+          trois chiffres. */}
       {section.faits.length > 0 && (
-        <ul style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", margin: "1rem 0 0", padding: 0, listStyle: "none" }}>
+        <dl className={`${styles.chiffresSection} ${section.faits.length === 3 ? styles.chiffresPar3 : ""}`}>
           {section.faits.map((f) => (
-            <li key={f.label} style={{ padding: "6px 12px", background: `${bronze}08`, border: `1px solid ${bronze}20`, borderRadius: theme.effects.borderRadius.full, fontSize: "0.75rem", color: theme.colors.neutral.gray700 }}>
-              {f.label} : <strong style={{ fontWeight: 600, color: theme.colors.neutral.gray900 }}>{f.valeur}</strong>
-            </li>
+            <div key={f.label} className={styles.chiffre}>
+              <dt>{f.label}</dt>
+              <dd>{f.valeur}</dd>
+            </div>
           ))}
-        </ul>
+        </dl>
       )}
       {section.liens.length > 0 && (
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1.5rem", marginTop: "1.25rem" }}>
