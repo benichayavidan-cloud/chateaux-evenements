@@ -274,7 +274,7 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
     <>
       <SuiviVueChateau nom={chateau.nom} />
       {/* Hero Section — Style Airbnb hybride */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) 0' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 2vw, 1.5rem)' }}>
         {/* Titre + infos au-dessus des photos */}
         <div style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
           <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: '0.5rem' }}>
@@ -362,7 +362,6 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
         {/* Le cadre « devis + téléphone » sous les photos a été retiré (décision PO du 17/11/2026) :
             le menu, la barre fixe et le formulaire portent ces deux actions. accrocheHero reste
             le texte de partage (layout.tsx). */}
-        {navRubriques && <div style={{ marginTop: 'clamp(0.75rem, 2vw, 1rem)' }}>{navRubriques}</div>}
       </div>
 
       {/* Bandeau chiffres clés — Arguments annonce Google Ads */}
@@ -418,6 +417,13 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
           </div>
         </div>
       </div>
+
+      {/* Menu des thèmes, sous les badges et détaché d'eux (décision PO du 17/11/2026). */}
+      {navRubriques && (
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1.5rem, 3vw, 2.25rem) clamp(16px, 4vw, 32px)' }}>
+          {navRubriques}
+        </div>
+      )}
 
       {/* 7 sections strictes (17/11/2026) : une section = un sujet, matière des rubriques.
           Un château sans configuration (data/fiche-sections) garde l'ancien gabarit. */}
