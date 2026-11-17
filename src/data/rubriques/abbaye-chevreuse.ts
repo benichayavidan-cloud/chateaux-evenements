@@ -540,6 +540,29 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Entre deux sessions, vos participants profitent du spa : 7 cabines de soins, une piscine extérieure chauffée, 2 bains nordiques et une salle de sport. Des séances de yoga peuvent ouvrir la journée de travail : un moment de récupération qui change la dynamique d'un séminaire de deux ou trois jours.",
       },
     ],
+    blocsSection: [1],
+    sections: [
+      {
+        ancre: "temps-libre",
+        etiquette: "Spa et temps libre",
+        titre: "Temps libre à l'abbaye : spa, tennis, padel et barques sur le lac",
+        intro:
+          "Entre deux sessions de travail, vos participants choisissent : une partie de padel, un tour en barque sur le lac ou un moment au spa.",
+        reprend: [0, 2],
+        blocs: [
+        ],
+        faits: [
+          { label: "Spa", valeur: "7 cabines de soins, 2 bains nordiques" },
+          { label: "Tennis et padel", valeur: "deux courts chacun" },
+          { label: "Barques et pédalos", valeur: "sur le lac" },
+        ],
+        reprendPhotos: [1, 3],
+        photos: [
+        ],
+        conseil:
+          "Pour ouvrir une journée de séminaire, demandez-moi une séance de yoga pour vos participants, avant la première session.",
+      },
+    ],
     sources: [FICHE, CVENT],
   },
 

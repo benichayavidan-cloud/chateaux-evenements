@@ -565,6 +565,29 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           "Pour une sortie de groupe : initiation au polo dans un club de Chantilly, dragon boat challenge, visite du château de Chantilly, rallyes de découverte du territoire, à organiser en demi-journée.",
       },
     ],
+    blocsSection: [0, 3],
+    sections: [
+      {
+        ancre: "temps-libre",
+        etiquette: "Spa et temps libre",
+        titre: "Spa, tennis et VTT : le temps libre de vos participants en forêt de Chantilly",
+        intro:
+          "Entre deux sessions de travail, vos participants ont le choix entre l'espace bien-être du château et les équipements du parc.",
+        reprend: [1, 2],
+        blocs: [
+        ],
+        faits: [
+          { label: "Spa", valeur: "piscine intérieure chauffée, sauna, bain à remous" },
+          { label: "Soins", valeur: "3 cabines" },
+          { label: "Vélos électriques et VTT", valeur: "pour la forêt de Chantilly" },
+        ],
+        reprendPhotos: [0, 1, 2],
+        photos: [
+        ],
+        conseil:
+          "Laissez un créneau libre dans le programme de votre séminaire : vos participants le passent au spa, sur le court de tennis ou à VTT en forêt.",
+      },
+    ],
     sources: [BROCHURE, PRATIQUE],
   },
 

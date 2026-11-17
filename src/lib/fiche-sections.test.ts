@@ -258,6 +258,7 @@ test('sections supplémentaires : les 4 pages Salles ont leur salle signature et
   assert.deepEqual(supplementaires.filter((x) => x.id === 'restauration').map((x) => x.s.ancre), Array(4).fill(['banquets', 'pauses']).flat());
   assert.deepEqual(supplementaires.filter((x) => x.id === 'exterieurs').map((x) => x.s.ancre), Array(4).fill(['plein-air', 'detente']).flat());
   assert.deepEqual(supplementaires.filter((x) => x.id === 'soirees').map((x) => x.s.ancre).sort(), ['apres-diner', 'apres-diner', 'apres-diner', 'cocktail-jardin']);
+  assert.deepEqual(supplementaires.filter((x) => x.id === 'activites').map((x) => x.s.ancre), Array(4).fill('temps-libre'));
   for (const { slug, id, s } of supplementaires) {
     assert.ok(s.titre && s.intro && s.blocs.length >= 2 && s.faits.length >= 3, `${slug}/${id}`);
     assert.ok(s.photos.length >= 2, `${slug}/${id} : il faut au moins 2 photos pour le diaporama`);
