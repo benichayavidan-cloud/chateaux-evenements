@@ -56,8 +56,9 @@ type Chiffres = Pick<Chateau, 'roomsTotal' | 'meetingRooms' | 'capacite'>;
 
 /**
  * Les 6 sections d'une fiche, dans l'ordre d'affichage. Tableau vide si le
- * château n'a pas encore sa configuration : la fiche garde alors son ancien
- * gabarit. Une section dont la rubrique manque est simplement absente.
+ * château n'a pas de configuration : la fiche n'affiche alors aucune section
+ * de texte (les 4 châteaux en ont une ; un test le vérifie). Une section dont
+ * la rubrique manque est simplement absente.
  */
 export function sectionsFiche(
   slug: string,

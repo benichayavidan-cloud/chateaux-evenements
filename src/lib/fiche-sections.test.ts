@@ -10,7 +10,11 @@ import { angleSeminaire, angleSuffisant, horsSujet, phrases, rapportAngleSeminai
 const CHIFFRES = { roomsTotal: 119, meetingRooms: 21, capacite: { min: 10, max: 280 } };
 const parSlug = Object.fromEntries(chateaux.map((c) => [c.slug, c]));
 
-test('un château sans configuration garde son ancien gabarit (aucune section)', () => {
+test('chaque château de data/chateaux.ts a ses 6 sections configurées', () => {
+  for (const c of chateaux) assert.equal(sectionsFiche(c.slug, c).length, 6, c.slug);
+});
+
+test('un château sans configuration n’affiche aucune section (et ne plante pas)', () => {
   assert.deepEqual(sectionsFiche('inconnu', CHIFFRES), []);
 });
 

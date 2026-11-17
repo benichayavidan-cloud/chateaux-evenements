@@ -29,11 +29,11 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
   'manoir-anglo-normand-chantilly': {
     titres: {
       lieu: 'Un château anglo-normand dans un parc de 6 hectares',
-      hebergement: 'Séminaire résidentiel : {chambres} chambres sur place',
+      hebergement: 'Séminaire résidentiel : {chambres} chambres et suites sur place',
       reunion: '{salles} salles de séminaire à la lumière du jour, au cœur du parc',
       restauration: 'Déjeuners, cocktails et dîner de gala au château',
       activites: 'Team building et spa au domaine',
-      acces: 'Venir depuis Paris : 35 km, 25 min de Roissy',
+      acces: 'Venir depuis Paris : moins de 35 km, 25 min de Roissy',
     },
     lieu: {
       intro:
@@ -68,7 +68,7 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
   'abbaye-millenaire-vallee-chevreuse': {
     titres: {
       lieu: 'Une abbaye du XIIe siècle sur 80 hectares',
-      hebergement: 'Séminaire résidentiel : {chambres} chambres au cœur du domaine',
+      hebergement: 'Séminaire résidentiel : {chambres} chambres et suites au cœur du domaine',
       reunion: '{salles} salles de séminaire, de la Grande Salle des Voûtes aux salons à la lumière du jour',
       restauration: '4 restaurants et 2 bars, dîner de gala sous les voûtes',
       activites: 'Team building sur 80 hectares et spa',
@@ -108,7 +108,7 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
   'palais-royal-foret-chantilly': {
     titres: {
       lieu: 'Un château Louis XVI dans 5 hectares de forêt',
-      hebergement: 'Séminaire résidentiel : {chambres} chambres face à la forêt',
+      hebergement: 'Séminaire résidentiel : {chambres} chambres et suites face à la forêt',
       reunion: '{salles} salons de séminaire autour d’un patio, plénière à la lumière du jour',
       restauration: 'Restaurant gastronomique et dîner de gala jusqu’à 200 couverts',
       activites: 'Team building en forêt de Chantilly et spa',
@@ -147,7 +147,7 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
   'hotel-historique-seminaire-paris-92': {
     titres: {
       lieu: 'Un domaine du XVIIe siècle face à la tour Eiffel',
-      hebergement: 'Séminaire résidentiel : {chambres} chambres aux portes de Paris',
+      hebergement: 'Séminaire résidentiel : {chambres} chambres et suites aux portes de Paris',
       reunion: '{salles} espaces de réunion à la lumière du jour, côté jardin',
       restauration: 'Cuisine du potager, déjeuner en terrasse et cocktail au jardin',
       activites: 'Team building, masterclass et spa',
