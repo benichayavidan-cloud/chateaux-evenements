@@ -30,11 +30,14 @@ export function DecouvrirDomaine({ slug, rubriques, titre = "Découvrir le domai
   return (
     <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
       <Container size="xl">
-        <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: "1rem" }}>
-          <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-          <span style={{ fontSize: "0.75rem", fontWeight: 600, color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>Le domaine en détail</span>
+        {/* Étiquette et titre centrés : section pleine largeur (demande PO du 17/11/2026). */}
+        <div style={{ textAlign: "center" }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 14px", background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: "1rem" }}>
+            <Sparkles className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+            <span style={{ fontSize: "0.75rem", fontWeight: 600, color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>Le domaine en détail</span>
+          </div>
         </div>
-        <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "left" }}>{titre}</Text>
+        <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "center" }}>{titre}</Text>
         <ul className={styles.grilleRubriques}>
           {rubriques.map((id) => {
             const r = lireRubrique(slug, id);

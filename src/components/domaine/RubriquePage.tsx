@@ -131,7 +131,7 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
         <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
           <Container size="xl">
             <div className={styles.domaine}>
-              <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "left" }}>Capacités salle par salle</Text>
+              <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "center" }}>Capacités salle par salle</Text>
               <TableauSalles salles={r.salles} />
               <p className="mt-2 text-xs" style={{ color: theme.colors.neutral.gray600 }}>
                 « – » : disposition non proposée ou non communiquée. Faites défiler le tableau pour voir toutes les dispositions.

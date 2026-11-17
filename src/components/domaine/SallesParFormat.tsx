@@ -33,7 +33,7 @@ export function SallesParFormat({ salles, lieu }: SallesParFormatProps) {
   return (
     <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
       <Container size="xl">
-        <Text variant="h2" style={{ marginBottom: "0.5rem", textAlign: "left" }}>
+        <Text variant="h2" style={{ marginBottom: "0.5rem", textAlign: "center" }}>
           Quelle salle de séminaire choisir{lieu ? ` ${lieu}` : ""} ?
         </Text>
         <p className={styles.formatsChapo}>Selon le format de votre événement, les salles qui conviennent le mieux.</p>
