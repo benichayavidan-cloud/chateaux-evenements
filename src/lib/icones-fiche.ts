@@ -30,7 +30,7 @@ const CHIFFRES: Table = [
   [/distance|voiture|paris expo/i, Car],
   // Restauration (avant les salles : « Banquet sous les voûtes », « Cocktail en plénière »)
   [/rhum|dégustation|masterclass|\bbars?\b/i, Wine],
-  [/restaurant|banquet|gala|dîner|cocktail|petit-déjeuner|régimes|viande|show cooking/i, UtensilsCrossed],
+  [/restaurant|banquet|gala|dîner|cocktail|déjeuner|pauses?|menus?|régimes|viande|show cooking/i, UtensilsCrossed],
   // Activités
   [/spa|soins|piscine/i, Waves],
   [/tennis|padel/i, Trophy],

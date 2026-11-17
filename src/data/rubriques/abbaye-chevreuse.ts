@@ -340,6 +340,53 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Les pauses sont servies dans les salons attenants aux salles de réunion. Notre équipe compose les menus selon votre programme et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher.",
       },
     ],
+    blocsSection: [1],
+    sections: [
+      {
+        ancre: "banquets",
+        etiquette: "Banquets et dîners de groupe",
+        titre: "Dîner de gala de séminaire sous les voûtes : 250 convives à table",
+        intro:
+          "Pour le dîner de gala de votre convention, les tables se dressent sous des voûtes du XIIe siècle. Pour un groupe plus restreint, le grand salon des haras prend le relais.",
+        reprend: [0],
+        blocs: [
+          { titre: "Un banquet aux haras pour 100 convives", texte: "Pour un dîner de séminaire en groupe plus restreint, le grand salon des haras accueille 100 personnes à table ronde, et 150 en cocktail dînatoire." },
+        ],
+        faits: [
+          { label: "Dîner de gala sous les voûtes", valeur: "250 convives" },
+          { label: "Banquet au grand salon des haras", valeur: "100 convives" },
+          { label: "Cocktail dînatoire aux haras", valeur: "150 personnes" },
+        ],
+        reprendPhotos: [0],
+        photos: [
+          { src: "/images/seminaire-abbaye-vallee-de-chevreuse-grand-salon-haras-2.webp", legende: "Le grand salon des haras en configuration cabaret" },
+        ],
+        conseil:
+          "Pour votre convention, enchaînez la plénière et le dîner de gala dans la Grande Salle des Voûtes : vos participants ne changent pas de bâtiment.",
+      },
+      {
+        ancre: "pauses",
+        etiquette: "Pauses et menus",
+        titre: "Pauses de séminaire et menus sur mesure à l'abbaye",
+        intro:
+          "Les pauses rythment la journée de travail : à l'abbaye, elles sont servies à côté de vos salles, et les menus de votre séminaire s'adaptent aux régimes de vos participants.",
+        reprend: [],
+        blocs: [
+          { titre: "Des pauses servies à côté de vos salles", texte: "Les pauses de votre séminaire sont servies dans les salons attenants aux salles de réunion : vos participants ne traversent pas le domaine entre deux sessions. La sellerie sert aussi d'espace de pause." },
+          { titre: "Des menus composés selon votre programme", texte: "Notre équipe compose les menus selon le programme de votre séminaire et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher." },
+        ],
+        faits: [
+          { label: "Pauses", valeur: "dans les salons attenants aux salles" },
+          { label: "Menus", valeur: "composés selon votre programme" },
+          { label: "Régimes alimentaires", valeur: "végétarien, végan, sans gluten, halal, casher" },
+        ],
+        reprendPhotos: [4, 5],
+        photos: [
+        ],
+        conseil:
+          "Envoyez-moi le programme de votre séminaire avec votre demande : l'équipe compose les menus de vos participants à partir de celui-ci.",
+      },
+    ],
     sources: [FICHE, CVENT],
   },
 
