@@ -28,7 +28,7 @@ export interface FicheSectionsChateau {
 export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
   'manoir-anglo-normand-chantilly': {
     titres: {
-      lieu: 'Un château pour votre séminaire à Chantilly',
+      lieu: 'Un château anglo-normand dans un parc de 6 hectares',
       hebergement: 'Séminaire résidentiel : {chambres} chambres sur place',
       reunion: '{salles} salles de séminaire à la lumière du jour, au cœur du parc',
       restauration: 'Déjeuners, cocktails et dîner de gala au château',

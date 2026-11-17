@@ -21,6 +21,12 @@ export interface Chateau {
   slug: string;
   // Nouveaux champs SEO
   seoH1: string;
+  /**
+   * Titre principal de la fiche, sur deux lignes (décision PO du 17/11/2026,
+   * comme les rubriques) : le mot-clé et le cadre, puis le nom du lieu.
+   * Absent → la fiche affiche seoH1 seul.
+   */
+  titreFiche?: { motCle: string; lieu: string };
   seoTitle: string;
   /** Meta description propre à la fiche ; jetons {chambres} {salles} {capacite} (lib/fiche-chateau). */
   seoDescription?: string;

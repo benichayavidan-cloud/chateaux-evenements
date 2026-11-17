@@ -322,7 +322,12 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
               marginBottom: '0.5rem',
             }}
           >
-            {chateau.seoH1}
+            {chateau.titreFiche?.motCle ?? chateau.seoH1}
+            {chateau.titreFiche && (
+              <span style={{ display: 'block', fontSize: '0.72em', fontStyle: 'italic', color: theme.colors.primary.bronze, marginTop: '0.15em' }}>
+                {chateau.titreFiche.lieu}
+              </span>
+            )}
           </h1>
 
           <div className="flex flex-wrap items-center gap-3" style={{ color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>

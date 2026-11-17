@@ -84,3 +84,20 @@ test('rapport hors sujet : une ligne par section fautive, ne lève jamais', () =
   assert.deepEqual(rapportHorsSujet({ x: CHIFFRES }, config), ['x / lieu : spa']);
   assert.deepEqual(rapportHorsSujet({}, config), ['x : château absent de data/chateaux.ts']);
 });
+
+test('titre principal : un mot-clé « séminaire » et un lieu par fiche, jamais deux fois le même', () => {
+  const fiches = chateaux.filter((c) => c.titreFiche);
+  assert.equal(fiches.length, 4);
+  for (const c of fiches) {
+    assert.match(c.titreFiche!.motCle, /^Séminaire /, c.slug);
+    assert.ok(c.titreFiche!.lieu.length > 0 && !c.titreFiche!.lieu.includes('{'), c.slug);
+  }
+  assert.equal(new Set(fiches.map((c) => c.titreFiche!.motCle)).size, 4);
+});
+
+test('titre principal : aucun titre de section ne le répète', () => {
+  for (const slug of Object.keys(FICHE_SECTIONS)) {
+    const h1 = parSlug[slug].titreFiche!.motCle;
+    for (const s of sectionsFiche(slug, parSlug[slug])) assert.notEqual(s.titre, h1, `${slug} / ${s.id}`);
+  }
+});
