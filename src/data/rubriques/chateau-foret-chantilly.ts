@@ -313,7 +313,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     seoTitle: 'Restauration de séminaire en château, forêt de Chantilly',
     titreSection: "Restauration de séminaire : deux restaurants et le bar du patio",
     conseil:
-      "Pour une journée d'étude, les pauses et le déjeuner sont compris dans nos offres. À la belle saison, faites servir le déjeuner de vos participants en terrasse.",
+      "Pour un déjeuner de séminaire à la belle saison, demandez-moi la terrasse du restaurant de la bibliothèque : vos participants déjeunent face à la forêt.",
     seoDescription:
       "Restaurant gastronomique, restaurant de la bibliothèque, bar du patio : produits de saison, dîners de gala jusqu'à 200 couverts, show cooking.",
     resume:
@@ -348,6 +348,55 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         titre: 'Animations culinaires',
         texte:
           "Pour animer un repas de groupe : show cooking dès 15 personnes, ou déjeuner grillé en plein air en complément du déjeuner en libre-service raffiné dès 50 personnes.",
+      },
+    ],
+    blocsSection: [0],
+    sections: [
+      {
+        ancre: "banquets",
+        etiquette: "Banquets et dîners de groupe",
+        titre: "Banquet de séminaire au château : gala de 200 couverts et show cooking",
+        intro:
+          "Dîner de gala, cocktail ou animation culinaire : pour les repas de groupe de votre séminaire, la salle plénière et les salons du château deviennent vos salles de réception.",
+        reprend: [],
+        blocs: [
+          { titre: "Dîner de gala et cocktail en salle plénière", texte: "La salle plénière reçoit jusqu'à 200 convives pour le dîner de gala de votre convention, et 270 personnes en cocktail." },
+          { titre: "Un repas de groupe en salon", texte: "Pour un groupe plus restreint, le grand salon et le salon du rez-de-chaussée accueillent chacun 50 personnes à table." },
+          { titre: "Show cooking et déjeuner grillé", texte: "Pour animer un repas de séminaire, le show cooking se réserve dès 15 personnes. Dès 50 personnes, un déjeuner grillé en plein air vient compléter le déjeuner en libre-service raffiné." },
+        ],
+        faits: [
+          { label: "Banquet en salon", valeur: "50 convives" },
+          { label: "Show cooking", valeur: "dès 15 personnes" },
+          { label: "Déjeuner grillé en plein air", valeur: "dès 50 personnes" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/seminaire-chateau-foret-chantilly-salle-pleniere.webp", legende: "La salle plénière dressée en tables rondes" },
+          { src: "/images/seminaire-chateau-foret-chantilly-salon-reunion-4.webp", legende: "Un salon du château, ici en disposition classe" },
+        ],
+        conseil:
+          "Pour un grand groupe aux beaux jours, pensez au déjeuner grillé en plein air : il se réserve dès 50 participants.",
+      },
+      {
+        ancre: "pauses",
+        etiquette: "Pauses et journée d'étude",
+        titre: "Journée d'étude en forêt de Chantilly : pauses et déjeuner compris",
+        intro:
+          "Pour un séminaire à la journée, tout se passe au même endroit : les pauses sont servies au centre des salons de réunion, et le déjeuner est compris dans l'offre.",
+        reprend: [1],
+        blocs: [
+          { titre: "Le bar de la bibliothèque, de midi à 22 h", texte: "Entre deux sessions ou en fin de journée, vos participants se retrouvent au bar de l'ancienne bibliothèque, avec ses boiseries et sa cheminée : il est ouvert tous les jours de midi à 22 h." },
+        ],
+        faits: [
+          { label: "Pauses", valeur: "servies dans le patio" },
+          { label: "Déjeuner de journée d'étude", valeur: "compris dans l'offre" },
+          { label: "Bar de la bibliothèque", valeur: "de 12 h à 22 h" },
+        ],
+        reprendPhotos: [2, 3],
+        photos: [
+        ],
+        conseil:
+          "Pour une journée d'étude, les pauses et le déjeuner sont compris dans nos offres. À la belle saison, faites servir le déjeuner de vos participants en terrasse.",
       },
     ],
     sources: [BROCHURE, SITE],

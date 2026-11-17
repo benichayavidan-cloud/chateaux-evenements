@@ -367,6 +367,51 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           "Notre bar lounge prépare des infusions et des cocktails signature aux fruits et aux herbes du jardin. Sa terrasse, ouverte sur le jardin, prolonge la fin de journée aux beaux jours.",
       },
     ],
+    blocsSection: [0],
+    sections: [
+      {
+        ancre: "banquets",
+        etiquette: "Banquets et dîners de groupe",
+        titre: "Banquet de séminaire aux portes de Paris : terrasse de 70 convives et jardin",
+        intro:
+          "Pour le repas de groupe de votre séminaire, le restaurant et sa terrasse se réservent pour vous seuls. L'été, le jardin accueille les grands banquets.",
+        reprend: [1],
+        blocs: [
+          { titre: "Un dîner privé dès 8 convives", texte: "Pour un comité de direction ou des clients privilégiés, nous dressons un dîner privé dans l'ancienne chapelle du domaine, à partir de 8 convives." },
+        ],
+        faits: [
+          { label: "Terrasse du restaurant", valeur: "100 m²" },
+          { label: "Dîner privé en chapelle", valeur: "dès 8 convives" },
+          { label: "Banquet d'été au jardin", valeur: "jusqu'à 300 invités" },
+        ],
+        reprendPhotos: [1, 3, 5],
+        photos: [
+        ],
+        conseil:
+          "Pour le grand banquet d'été de votre convention, pensez au jardin : il accueille jusqu'à 300 invités.",
+      },
+      {
+        ancre: "pauses",
+        etiquette: "Pauses et petit-déjeuner",
+        titre: "Petit-déjeuner, pauses et bar lounge : la journée de vos participants",
+        intro:
+          "Du petit-déjeuner à la fin de journée, vos participants restent sur le domaine : libre-service du matin, pauses gourmandes pendant le séminaire, puis bar lounge ouvert sur le jardin.",
+        reprend: [2, 3],
+        blocs: [
+        ],
+        faits: [
+          { label: "Petit-déjeuner", valeur: "continental ou américain" },
+          { label: "Pauses gourmandes", valeur: "ingrédients de saison" },
+          { label: "Bar lounge", valeur: "infusions et cocktails du jardin" },
+        ],
+        reprendPhotos: [4],
+        photos: [
+          { src: "/images/seminaire-hotel-historique-paris-92-terrasse-jardin-potager.webp", legende: "Un coin de terrasse au-dessus du potager" },
+        ],
+        conseil:
+          "Pour clore une journée de séminaire aux beaux jours, donnez rendez-vous à vos participants sur la terrasse du bar lounge, ouverte sur le jardin.",
+      },
+    ],
     sources: [URL_RESTO, URL_REUNIONS, URL_HISTOIRE, URL_CVENT],
   },
 

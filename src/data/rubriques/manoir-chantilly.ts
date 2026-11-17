@@ -330,7 +330,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     seoTitle: 'Restaurants du château : terrasse plein sud, Chantilly',
     titreSection: "Restauration de séminaire à Chantilly : 3 restaurants et banquets",
     conseil:
-      "Pour le repas d'un groupe restreint pendant votre séminaire, demandez-moi le salon privé : 40 convives à table, dans un cadre à part.",
+      "À la belle saison, demandez-moi la terrasse plein sud pour le déjeuner de vos participants : elle donne sur le parc du château.",
     seoDescription:
       "3 restaurants et un bar à cocktails, terrasse plein sud sur le parc, déjeuner en libre-service raffiné de produits de saison. Banquets jusqu'à 250 convives.",
     resume:
@@ -364,6 +364,54 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         titre: 'Petit-déjeuner, pauses et menus sur mesure',
         texte:
           "Le petit-déjeuner de vos participants est servi en libre-service, avec des produits locaux et de saison et le miel du domaine. Les pauses gourmandes sont servies dans les salons attenants aux salles de réunion. Notre équipe compose les menus selon votre programme et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher.",
+      },
+    ],
+    blocsSection: [0],
+    sections: [
+      {
+        ancre: "banquets",
+        etiquette: "Banquets et dîners de groupe",
+        titre: "Banquet de séminaire à Chantilly : jusqu'à 250 convives à table",
+        intro:
+          "Pour le dîner de gala de votre convention comme pour un repas en petit comité, les tables se dressent sur le domaine : au Grand Salon du château, en salle plénière, dans la serre du parc ou dans un salon privé.",
+        reprend: [1],
+        blocs: [
+          { titre: "En cocktail dînatoire", texte: "Si vous préférez un format debout pour la soirée de votre séminaire, le Grand Salon reçoit 250 personnes en cocktail dînatoire. De mai à octobre, la serre du parc accueille aussi des cocktails jusqu'à 200 personnes." },
+        ],
+        faits: [
+          { label: "Dîner assis en salle plénière", valeur: "140 convives" },
+          { label: "Salon privé", valeur: "40 convives à table" },
+          { label: "Cocktail au Grand Salon", valeur: "250 personnes" },
+        ],
+        reprendPhotos: [2],
+        photos: [
+          { src: "/images/seminaire-chateau-chantilly-salle-pleniere-theatre.webp", legende: "La salle plénière et sa scène, ici en disposition théâtre" },
+        ],
+        conseil:
+          "Pour le repas d'un groupe restreint pendant votre séminaire, demandez-moi le salon privé : 40 convives à table, dans un cadre à part.",
+      },
+      {
+        ancre: "pauses",
+        etiquette: "Pauses et petit-déjeuner",
+        titre: "Petit-déjeuner, pauses et régimes alimentaires de votre séminaire au château",
+        intro:
+          "Entre deux sessions, vos participants n'ont pas à traverser le domaine : le petit-déjeuner et les pauses de votre séminaire sont servis sur place, et les menus s'adaptent aux régimes de chacun.",
+        reprend: [],
+        blocs: [
+          { titre: "Le petit-déjeuner et les pauses gourmandes", texte: "Avant la première session, le petit-déjeuner est servi en libre-service, avec des produits locaux et de saison et le miel du domaine. Dans la journée, les pauses gourmandes de votre groupe sont servies dans les salons attenants aux salles de réunion." },
+          { titre: "Régimes alimentaires et menus sur mesure", texte: "Notre équipe compose les menus de votre séminaire selon votre programme. Elle prend en charge les régimes végétarien, végan, sans gluten, halal ou casher de vos participants." },
+        ],
+        faits: [
+          { label: "Petit-déjeuner", valeur: "en libre-service" },
+          { label: "Pauses gourmandes", valeur: "dans les salons attenants aux salles" },
+          { label: "Régimes alimentaires", valeur: "végétarien, végan, sans gluten, halal, casher" },
+        ],
+        reprendPhotos: [1],
+        photos: [
+          { src: "/images/seminaire-chateau-chantilly-lobby-salon-accueil.webp", legende: "Le salon de travail et de pause, ouvert sur le parc" },
+        ],
+        conseil:
+          "Pensez à me transmettre les régimes alimentaires de vos participants avec votre demande : les menus de votre séminaire en tiennent compte.",
       },
     ],
     sources: [SITE, MICE, FICHE],
