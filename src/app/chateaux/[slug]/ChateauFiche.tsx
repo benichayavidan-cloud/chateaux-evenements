@@ -18,6 +18,8 @@ import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { Diaporama } from "@/components/domaine/Diaporama";
 import { ParaCard, StickySlider } from "@/components/domaine/briques-fiche";
+import { SectionFiche } from "@/components/domaine/SectionFiche";
+import { sectionsFiche } from "@/lib/fiche-sections";
 import { lienFinal } from "@/data/redirections";
 import photosRenommees from "@/data/photos-renommees.json";
 import { creerAltPhoto, type PhotosRenommees } from "@/lib/photo-alt";
@@ -257,6 +259,7 @@ function MeetingRoomSlider({ chateau }: { chateau: Chateau }) {
 
 
 export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }: ChateauFicheProps) {
+  const sections = sectionsFiche(chateau.slug, chateau);
   // Toutes les photos, dans l'ordre de la visionneuse ; textes alternatifs calculés ici, côté serveur.
   const toutes = [...chateau.images.hero, ...chateau.images.galerie.filter(img => !chateau.images.hero.includes(img))]
     .map((img, i) => ({ src: img, alt: altPhoto(img, `${chateau.nom} - Photo ${i + 1}`) }));
@@ -444,6 +447,21 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
         </div>
       </div>
 
+      {/* 7 sections strictes (17/11/2026) : une section = un sujet, matière des rubriques.
+          Un château sans configuration (data/fiche-sections) garde l'ancien gabarit. */}
+      {sections.length > 0 ? (
+        sections.map((section, rang) => (
+          <SectionFiche
+            key={section.id}
+            section={section}
+            rang={rang}
+            photos={section.id === 'lieu'
+              ? chateau.images.hero.map((img, n) => ({ src: img, alt: altPhoto(img, `${chateau.nom} - vue ${n + 1} du domaine`) }))
+              : section.photos}
+          />
+        ))
+      ) : (
+        <>
       {/* Section Vue d'ensemble — Slider gauche (sticky) + Cards droite */}
       <Section spacing="lg" background="gray" style={{ padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
         <Container size="xl">
@@ -547,6 +565,8 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
           </div>
         </Container>
       </Section>
+        </>
+      )}
 
       {/* Mini formulaire devis inline */}
       <Section background="white" style={{ padding: '0' }}>

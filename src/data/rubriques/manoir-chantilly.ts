@@ -105,7 +105,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Des ateliers pour chaque taille de groupe',
         texte:
-          "Pour les sous-commissions, une quinzaine de salles de 15 à 134 m² se répartissent entre les salons du château, aux boiseries d'époque, et l'aile contemporaine. Une salle confidentielle de 21 m² accueille 8 personnes pour les échanges qui ne doivent pas sortir de la pièce.",
+          "Pour les sous-commissions, une quinzaine de salles de 15 à 134 m² se répartissent entre les salons du château, aux boiseries d'époque, et l'aile contemporaine. Certaines, au rez-de-jardin, ouvrent sur une terrasse privée pour les pauses à la belle saison. Une salle confidentielle de 21 m² accueille 8 personnes pour les échanges qui ne doivent pas sortir de la pièce.",
       },
       {
         titre: 'La serre, de mai à octobre',
@@ -119,9 +119,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
   chambres: {
     seoTitle: 'Séminaire résidentiel à Chantilly : 119 chambres (60)',
     seoDescription:
-      "119 chambres et suites, dont 39 pensées pour travailler, jusqu'à 243 personnes hébergées. Spa avec piscine intérieure chauffée, sauna et hammam inclus.",
+      "119 chambres et suites de 18 à 60 m², dont 103 à lits jumeaux et 39 pensées pour travailler. Jusqu'à 243 personnes hébergées sur place, à Chantilly.",
     resume:
-      "119 chambres et suites de 18 à 60 m², jusqu'à 243 personnes logées sur place. Spa et piscine intérieure inclus pour les résidents.",
+      "119 chambres et suites de 18 à 60 m², jusqu'à 243 personnes logées sur place, dont 103 chambres à lits jumeaux.",
     intro:
       "Nos 119 chambres et suites se partagent entre deux univers. Au château, 80 chambres de 18 à 60 m² gardent l'esprit Belle Époque des lieux. Dans l'aile contemporaine, 39 chambres et suites de 18 à 38 m² sont pensées pour travailler, au calme, entre deux sessions. Avec les chambres partagées, nous logeons jusqu'à 243 participants sur place.",
     faits: [
@@ -152,11 +152,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         titre: 'Ce que chaque chambre comprend',
         texte:
           "Wi-Fi haut débit, douche ou baignoire, peignoir et chaussons, coin bureau, télévision avec Chromecast, machine à café, coffre-fort. Toutes les chambres sont non-fumeur.",
-      },
-      {
-        titre: 'Le spa, inclus pour les résidents',
-        texte:
-          "Notre spa est ouvert gratuitement aux résidents, tous les jours de 7 h à 22 h : piscine intérieure chauffée, sauna, hammam, tisanerie, salle de fitness et de yoga. Cabines de soins et cabine de massage en duo sont disponibles sur réservation.",
       },
     ],
     sources: [FACTSHEET, MICE, SITE, FICHE],
@@ -289,7 +284,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     resume:
       "Challenges nature dans le parc, VTT, dragon boat, rallye 2CV, atelier crème Chantilly, yoga : des formats de cohésion sur place et alentour.",
     intro:
-      "Le parc de 6 hectares et la forêt de Chantilly servent de terrain aux activités de cohésion. Certaines se pratiquent librement pendant les temps de pause ; d'autres sont organisées par notre équipe pour l'ensemble du groupe, à l'horaire prévu dans votre programme.",
+      "Le parc de 6 hectares et la forêt de Chantilly servent de terrain aux activités de team building et de cohésion. Certaines se pratiquent librement pendant les temps de pause ; d'autres sont organisées par notre équipe pour l'ensemble du groupe, à l'horaire prévu dans votre programme.",
     faits: [
       { label: 'Parc', valeur: '6 hectares', source: SITE },
       { label: 'Spa', valeur: 'ouvert de 7 h à 22 h', source: SITE },
@@ -312,9 +307,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           "VTT en forêt, dragon boat, rallye en 2CV dans les environs, atelier autour de la crème Chantilly, soirée DJ : notre équipe organise l'activité et l'adapte à la taille du groupe. La région se prête aussi aux balades à cheval et aux visites du domaine de Chantilly en calèche.",
       },
       {
-        titre: 'Le bien-être',
+        titre: 'Le spa et le bien-être',
         texte:
-          "Des séances de yoga ont lieu au spa, qui réunit piscine intérieure chauffée, sauna, hammam et salle de fitness. Un réveil au yoga ou un créneau de massage donne un autre rythme à un séminaire de plusieurs jours.",
+          "Notre spa est ouvert gratuitement aux résidents, tous les jours de 7 h à 22 h : piscine intérieure chauffée, sauna, hammam, tisanerie, salle de fitness et de yoga. Cabines de soins et cabine de massage en duo sont disponibles sur réservation. Un réveil au yoga ou un créneau de massage donne un autre rythme à un séminaire de plusieurs jours.",
       },
     ],
     sources: [SITE, MICE],

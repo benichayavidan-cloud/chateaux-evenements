@@ -122,7 +122,7 @@ export const MOTS_BANNIS = [
   'cantine', 'bistrot',
 ] as const;
 
-const sansAccents = (s: string) =>
+export const sansAccents = (s: string) =>
   s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’‘]/g, "'").toLowerCase();
 
 const MOTIFS_BANNIS = MOTS_BANNIS.map((mot) => ({

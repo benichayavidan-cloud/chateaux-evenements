@@ -154,3 +154,11 @@
 @media (min-width: 768px) {
   .menuRubriques { width: auto; flex-wrap: wrap; justify-content: center; }
 }
+
+/* Fiche château : photos à gauche du texte sur grand écran seulement
+   (jusqu'à 768px la grille .responsive-grid passe sur une colonne, texte d'abord). */
+@media (min-width: 769px) {
+  .photosAGauche {
+    order: -1;
+  }
+}
