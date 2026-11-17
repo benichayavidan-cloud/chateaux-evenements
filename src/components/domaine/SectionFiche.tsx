@@ -33,6 +33,8 @@ interface SectionFicheProps {
   photos: PhotoDiaporama[];
   /** Rang dans la page : alterne le fond et le côté du diaporama. */
   rang: number;
+  /** Ancre de la section, quand deux sections du même thème sont sur la page. */
+  ancre?: string;
 }
 
 const bronze = theme.colors.primary.bronze;
@@ -43,7 +45,7 @@ function medaillonTransport(titre: string) {
   return icone ? <Medaillon icone={icone} /> : undefined;
 }
 
-export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
+export function SectionFiche({ section, photos, rang, ancre }: SectionFicheProps) {
   const Icone = ICONES[section.id];
   const pair = rang % 2 === 0;
   const fond = pair ? "gray" : "white";
@@ -100,7 +102,7 @@ export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
   );
 
   return (
-    <Section id={section.id} spacing="lg" background={fond} style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
+    <Section id={ancre ?? section.id} spacing="lg" background={fond} style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
       <Container size="xl">
         {diaporama ? (
           <div className="responsive-grid" style={{ display: "grid", gridTemplateColumns: pair ? "1.15fr 1fr" : "1fr 1.15fr", gap: "clamp(2rem, 4vw, 3rem)" }}>

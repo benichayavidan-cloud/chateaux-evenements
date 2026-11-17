@@ -55,6 +55,24 @@ export interface BlocTexte {
   texte: string;
 }
 
+/**
+ * Section de texte supplémentaire d'une page détaillée, après la section
+ * principale (17/11/2026) : même gabarit, disposition inversée d'une section
+ * à l'autre. Elle n'avance que des faits déjà publiés sur les pages du même
+ * domaine (testé sur les chiffres) et montre des photos de son sujet.
+ */
+export interface SectionSupplementaire {
+  /** Ancre unique dans la page (« salle-signature »). */
+  ancre: string;
+  etiquette: string;
+  titre: string;
+  intro: string;
+  blocs: BlocTexte[];
+  faits: Array<{ label: string; valeur: string }>;
+  photos: PhotoRubrique[];
+  conseil?: string;
+}
+
 export interface Rubrique {
   /** Titre de l'onglet (≤ 60 caractères, contrôlé au build). */
   seoTitle: string;
@@ -78,6 +96,8 @@ export interface Rubrique {
   photos: PhotoRubrique[];
   blocs: BlocTexte[];
   salles?: SalleReunion[];
+  /** Sections de texte après la section principale, dans l'ordre d'affichage. */
+  sections?: SectionSupplementaire[];
   /** Pages consultées pour les chiffres (noté pour s'y retrouver). */
   sources: string[];
 }

@@ -82,6 +82,30 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Chaque espace dispose d'un équipement audiovisuel professionnel. Notre équipe événementielle installe la disposition voulue, organise les pauses dans les salons attenants et prépare le passage de la plénière aux ateliers.",
       },
     ],
+    sections: [
+      {
+        ancre: 'salle-signature',
+        etiquette: "La Grande Salle des Voûtes",
+        titre: "Votre plénière sous des voûtes du XIIe siècle",
+        intro:
+          "Au cœur de l'abbaye cistercienne, la Grande Salle des Voûtes reçoit 150 participants en réunion. Sous une voûte du XIIe siècle, les prises de parole de votre séminaire gagnent en solennité.",
+        blocs: [
+          { titre: "De la plénière au dîner de gala", texte: "La même salle accueille votre plénière de 150 personnes, puis votre dîner de gala de 250 convives : le temps fort de la journée et la soirée se tiennent dans le même cadre, sans changer de bâtiment." },
+          { titre: "Pour un groupe plus restreint", texte: "Quand votre séminaire réunit moins de monde, le grand salon des haras prend le relais pour le dîner : 100 personnes à table ronde, ou 150 en cocktail dînatoire." },
+        ],
+        faits: [
+          { label: "En réunion", valeur: "150 personnes" },
+          { label: "En banquet", valeur: "250 convives" },
+          { label: "Voûte", valeur: "XIIe siècle" },
+        ],
+        photos: [
+          { src: img('grande-salle-voutes'), legende: "La Grande Salle des Voûtes, prête pour votre plénière" },
+          { src: img('diner-gala-grande-salle-voutes'), legende: "La Grande Salle des Voûtes dressée pour un dîner de gala" },
+        ],
+        conseil:
+          "Pour un séminaire qui doit marquer vos collaborateurs, gardez les voûtes pour deux temps forts : la plénière d'ouverture et le dîner de gala, jusqu'à 250 convives.",
+      },
+    ],
     sources: [FICHE, CVENT],
   },
 

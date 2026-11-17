@@ -113,6 +113,30 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           "Nos salles de réunion sont équipées d'un matériel audiovisuel récent et baignées de lumière naturelle. Notre équipe dédiée à l'événementiel vous aide à choisir l'espace, prépare la disposition et organise les pauses de votre groupe.",
       },
     ],
+    sections: [
+      {
+        ancre: 'salle-signature',
+        etiquette: "La chapelle",
+        titre: "Une réunion de direction dans une chapelle, aux portes de Paris",
+        intro:
+          "Notre ancienne chapelle désacralisée offre 50 m² sous 7 mètres de plafond, entre statues et vitraux. On y tient une réunion stratégique ou un déjeuner de 14 participants autour d'une même table.",
+        blocs: [
+          { titre: "Le soir, un dîner privé", texte: "Pour un comité de direction ou des clients privilégiés, nous dressons un dîner privé dans la chapelle, à partir de 8 convives. Une dégustation de quatre rhums peut clôturer la soirée." },
+          { titre: "Une masterclass pour souder le groupe", texte: "La chapelle abrite aussi notre bar à rhum : une masterclass ou une dégustation privée de quatre rhums réunit vos équipes autour d'un même récit, en fin de journée de séminaire." },
+        ],
+        faits: [
+          { label: "Surface", valeur: "50 m²" },
+          { label: "Hauteur sous plafond", valeur: "7 m" },
+          { label: "Autour d'une table", valeur: "14 personnes" },
+        ],
+        photos: [
+          { src: img('chapelle-lounge-interieur'), legende: "La chapelle, 50 m² sous 7 m de plafond" },
+          { src: img('chapelle-exterieur-coucher-soleil'), legende: "La chapelle au coucher du soleil" },
+        ],
+        conseil:
+          "Pour un séminaire de comité de direction, pensez à la chapelle sur toute la journée : la réunion stratégique le matin, puis le déjeuner à 14 à la même table.",
+      },
+    ],
     sources: [URL_REUNIONS, URL_PRESSE, FICHE],
   },
 

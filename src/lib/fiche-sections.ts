@@ -248,3 +248,19 @@ export function sectionRubrique(rubrique: RubriqueId, r: Rubrique): SectionFiche
     conseil: r.conseil,
   };
 }
+
+/** Sections supplémentaires d'une page détaillée, au format de la brique de section. */
+export function sectionsSupplementaires(rubrique: RubriqueId, r: Rubrique): Array<SectionFiche & { ancre: string }> {
+  return (r.sections ?? []).map((x) => ({
+    id: THEME_DE_RUBRIQUE[rubrique],
+    ancre: x.ancre,
+    etiquette: x.etiquette,
+    titre: x.titre,
+    intro: x.intro,
+    blocs: x.blocs,
+    faits: x.faits,
+    photos: x.photos.map((p) => ({ src: p.src, alt: p.legende })),
+    liens: [],
+    conseil: x.conseil,
+  }));
+}

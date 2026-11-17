@@ -37,7 +37,7 @@ const CHIFFRES: Table = [
   [/jeux/i, Gamepad2],
   // Hébergement
   [/room service/i, Clock],
-  [/capacité|participants|cohésion/i, Users],
+  [/capacité|participants|cohésion|en théâtre|en réunion|autour d'une table/i, Users],
   [/surface|hauteur/i, Ruler],
   [/chambre|suite|twin|lits|haras|abbaye|ferme/i, Bed],
   // Réunion
@@ -47,7 +47,7 @@ const CHIFFRES: Table = [
   // Le lieu
   [/environnemental/i, Leaf],
   [/label|classement/i, Award],
-  [/fondation|rénovation/i, Landmark],
+  [/fondation|rénovation|voûte/i, Landmark],
   [/parc|jardin|domaine|cadre|serre|sentier|terrasse|légumes/i, Trees],
 ];
 

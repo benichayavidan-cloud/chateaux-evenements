@@ -17,7 +17,7 @@ import { EnTeteDomaine } from "@/components/domaine/EnTeteDomaine";
 import { BandeauConfiance } from "@/components/domaine/BandeauConfiance";
 import { SectionFiche } from "@/components/domaine/SectionFiche";
 import { SallesParFormat } from "@/components/domaine/SallesParFormat";
-import { sectionRubrique } from "@/lib/fiche-sections";
+import { sectionRubrique, sectionsSupplementaires } from "@/lib/fiche-sections";
 import { DecouvrirDomaine } from "@/components/domaine/DecouvrirDomaine";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
@@ -123,6 +123,11 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
 
       {/* Section de texte : même brique que la fiche (étiquette, titre à mot-clé, conseil, cartes, chiffres). */}
       <SectionFiche section={section} photos={section.photos} rang={0} />
+
+      {/* Sections supplémentaires : disposition inversée d'une section à l'autre (texte à gauche, puis à droite…). */}
+      {sectionsSupplementaires(id, r).map((s, i) => (
+        <SectionFiche key={s.ancre} section={s} photos={s.photos} rang={i + 1} ancre={s.ancre} />
+      ))}
 
       {/* Quelle salle pour quel format : calculé depuis le tableau, placé juste avant lui. */}
       {r.salles && r.salles.length > 0 && <SallesParFormat salles={r.salles} lieu={lieuDansTitre(chateau.slug)} />}
