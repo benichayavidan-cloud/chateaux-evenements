@@ -193,6 +193,75 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           "Chaque chambre est climatisée et dispose d'un espace de travail, pour préparer la session du lendemain. Le room service fonctionne 24 heures sur 24. L'arrivée de vos participants se fait à partir de 15 h et le départ jusqu'à midi.",
       },
     ],
+    blocsSection: [0, 2],
+    sections: [
+      {
+        ancre: "grand-groupe",
+        etiquette: "Grands groupes",
+        titre: "45 chambres twin pour loger un grand groupe en forêt de Chantilly",
+        intro:
+          "Pour un séminaire résidentiel en grand groupe, tous vos participants logent au château, à quelques pas des salles de réunion.",
+        reprend: [1],
+        blocs: [
+          { titre: "Le château pour votre événement", texte: "Le château peut être privatisé sur demande pour votre événement d'entreprise, avec ses 109 chambres et suites." },
+        ],
+        faits: [
+          { label: "Chambres et suites", valeur: "109" },
+          { label: "Chambres convertibles en twin", valeur: "45" },
+          { label: "Chambres accessibles", valeur: "aux participants à mobilité réduite" },
+        ],
+        reprendPhotos: [2, 1],
+        photos: [
+        ],
+        conseil:
+          "Pour une convention, dites-moi combien de participants partagent une chambre : 45 chambres se convertissent en twin, avec deux lits séparés.",
+      },
+      {
+        ancre: "direction-invites",
+        etiquette: "Direction et invités",
+        titre: "18 suites pour vos intervenants et votre comité de direction",
+        intro:
+          "Pour votre direction, vos intervenants et vos invités, le château compte 18 suites, lumineuses et ouvertes sur la forêt de Chantilly.",
+        reprend: [],
+        blocs: [
+          { titre: "Des suites pour la direction", texte: "Nos 18 suites conviennent à vos intervenants et à votre direction : ils y disposent d'un espace de travail pour préparer la session du lendemain." },
+          { titre: "Balcon ou terrasse sur la forêt", texte: "Certaines chambres ont un balcon ou une terrasse : une attention pour les invités de votre séminaire." },
+        ],
+        faits: [
+          { label: "Suites", valeur: "18" },
+          { label: "Balcon ou terrasse", valeur: "dans certaines chambres" },
+          { label: "Catégories de chambres", valeur: "cosy, classique et premium" },
+        ],
+        reprendPhotos: [3, 4, 0],
+        photos: [
+        ],
+        conseil:
+          "Pour les intervenants de votre séminaire, réservez les suites dès votre demande : le château en compte 18.",
+      },
+      {
+        ancre: "sejour",
+        etiquette: "Le séjour de vos participants",
+        titre: "Petit-déjeuner, parking, conciergerie : le séjour de vos participants",
+        intro:
+          "Pendant votre séminaire résidentiel, les services du château suivent le programme de travail de vos participants, du petit-déjeuner au départ.",
+        reprend: [],
+        blocs: [
+          { titre: "Le petit-déjeuner avant la première session", texte: "Le petit-déjeuner de vos participants est servi de 7 h à 10 h, avant la première session de la journée." },
+          { titre: "Stationnement et taxis", texte: "Le parking privé et gratuit de 70 places est réservé à vos participants, avec 4 bornes de recharge pour véhicules électriques. Notre conciergerie réserve les taxis." },
+        ],
+        faits: [
+          { label: "Room service", valeur: "24h/24" },
+          { label: "Petit-déjeuner", valeur: "7 h - 10 h" },
+          { label: "Parking", valeur: "70 places, 4 bornes de recharge" },
+        ],
+        reprendPhotos: [6],
+        photos: [
+          { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chateau-foret-chantilly/seminaire-chateau-foret-chantilly-facade-terrasse-parc.webp", legende: "La façade du château, à l'arrivée" },
+        ],
+        conseil:
+          "Pour les participants de votre séminaire qui viennent en voiture électrique, le parking du château compte 4 bornes de recharge.",
+      },
+    ],
     sources: [BROCHURE, PRATIQUE],
   },
 

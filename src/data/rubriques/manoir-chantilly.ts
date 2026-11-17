@@ -208,6 +208,77 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           "Chaque participant dispose du Wi-Fi haut débit, d'un coin bureau, d'une douche ou d'une baignoire, d'un peignoir et de chaussons, d'une télévision avec Chromecast, d'une machine à café et d'un coffre-fort. Toutes les chambres sont non-fumeur.",
       },
     ],
+    blocsSection: [0, 2],
+    sections: [
+      {
+        ancre: "grand-groupe",
+        etiquette: "Grands groupes",
+        titre: "103 chambres à lits jumeaux pour loger votre convention",
+        intro:
+          "Pour une convention ou un séminaire résidentiel en grand groupe, tous vos participants dorment sur le domaine : 80 chambres au château et 39 chambres et suites dans l'aile contemporaine.",
+        reprend: [1],
+        blocs: [
+          { titre: "Tout le groupe sur le même domaine", texte: "Vos participants se répartissent entre le château et l'aile contemporaine. Le soir, après le dîner, chacun regagne sa chambre à pied, sans navette ni horaire de retour." },
+        ],
+        faits: [
+          { label: "Capacité d'hébergement", valeur: "243 participants" },
+          { label: "Chambres à lits jumeaux", valeur: "103" },
+          { label: "Chambres au château", valeur: "80" },
+        ],
+        reprendPhotos: [2, 3],
+        photos: [
+        ],
+        conseil:
+          "Pour une convention, envoyez-moi la liste de vos participants : nous préparons avec vous leur répartition, y compris dans les chambres à lits jumeaux.",
+      },
+      {
+        ancre: "direction-invites",
+        etiquette: "Direction et invités",
+        titre: "Chambres prestige et suites pour votre comité de direction",
+        intro:
+          "Pour vos intervenants, vos invités et votre comité de direction, réservez les plus belles chambres du domaine : les chambres prestige du château et les suites de l'aile contemporaine.",
+        reprend: [],
+        blocs: [
+          { titre: "Les chambres prestige du château", texte: "Au château, les chambres prestige de 40 m² gardent l'esprit Belle Époque des lieux. Certaines chambres ont vue sur le parc : une attention pour les intervenants et les invités de votre séminaire." },
+          { titre: "Neuf suites dans l'aile contemporaine", texte: "Les 9 suites de 38 m² de l'aile contemporaine offrent une ambiance minimaliste et un vrai coin bureau : votre comité de direction y prépare la session du lendemain." },
+        ],
+        faits: [
+          { label: "Chambre prestige", valeur: "40 m²" },
+          { label: "Suites", valeur: "9, de 38 m²" },
+          { label: "Surface des chambres", valeur: "jusqu'à 60 m²" },
+        ],
+        reprendPhotos: [4, 0],
+        photos: [
+        ],
+        conseil:
+          "Pour les intervenants de votre séminaire, pensez aux chambres prestige du château : 40 m² dans l'esprit Belle Époque.",
+      },
+      {
+        ancre: "sejour",
+        etiquette: "Le séjour de vos participants",
+        titre: "De l'arrivée au petit-déjeuner : le séjour de vos participants à Chantilly",
+        intro:
+          "Pendant votre séminaire résidentiel, tout est prévu pour que vos participants n'aient à penser qu'à leur programme de travail, de l'arrivée sur le domaine au petit-déjeuner du lendemain.",
+        reprend: [],
+        blocs: [
+          { titre: "Arrivée et stationnement", texte: "Vos participants venus en voiture se garent sur le parking gratuit du domaine. Pour ceux qui arrivent en train, la gare de Chantilly est à 5 minutes en voiture, et notre équipe peut organiser un transfert pour l'ensemble du groupe. Le domaine est accessible aux participants à mobilité réduite." },
+          { titre: "Le petit-déjeuner avant la première session", texte: "Le petit-déjeuner de vos participants est servi en libre-service, avec des produits locaux et de saison et le miel du domaine." },
+        ],
+        faits: [
+          { label: "Parking", valeur: "gratuit, sur place" },
+          { label: "Gare de Chantilly", valeur: "à 5 min en voiture" },
+          { label: "Petit-déjeuner", valeur: "en libre-service" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/manoir-chantilly/seminaire-chateau-chantilly-facade-anglo-normande.webp", legende: "La façade anglo-normande, à votre arrivée" },
+          { src: "/images/seminaire-chateau-chantilly-allee-parc-arboree.webp", legende: "L'allée d'arrivée, à travers le parc" },
+          { src: "/images/seminaire-chateau-chantilly-lobby-salon-accueil.webp", legende: "Le salon de travail et de pause, ouvert sur le parc" },
+        ],
+        conseil:
+          "Pour les participants de votre séminaire qui viennent en voiture, le parking du domaine est gratuit : précisez-le dans votre convocation.",
+      },
+    ],
     sources: [FACTSHEET, MICE, SITE, FICHE],
   },
 

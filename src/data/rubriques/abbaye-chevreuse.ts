@@ -156,7 +156,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       { src: img('chambre-cosy-haras'), legende: 'Chambre cosy aux haras' },
       { src: img('chambre-cottage-ferme'), legende: 'Chambre cottage à la ferme' },
       { src: img('chambre-deluxe-ferme'), legende: 'Chambre deluxe à la ferme' },
-      { src: img('pavillon-bien-etre'), legende: 'Le pavillon bien-être du domaine' },
     ],
     blocs: [
       {
@@ -168,6 +167,77 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         titre: 'Des catégories pour chaque participant',
         texte:
           "Petites chambres et chambres cosy pour les grands groupes, chambres supérieures et deluxe pour l'encadrement, suites pour vos dirigeants et vos invités de marque. Toutes offrent à vos participants le Wi-Fi haut débit et une literie haut de gamme.",
+      },
+    ],
+    sections: [
+      {
+        ancre: "grand-groupe",
+        etiquette: "Grands groupes",
+        titre: "Abbaye, haras, ferme : répartir vos participants sur le domaine",
+        intro:
+          "Pour un séminaire résidentiel en grand groupe, nos 144 chambres et suites se partagent entre trois bâtiments : vous choisissez qui loge où, selon vos équipes et votre programme.",
+        reprend: [],
+        blocs: [
+          { titre: "Au plus près des salles de réunion", texte: "Les 47 chambres des haras sont au plus près des salons de réunion : logez-y les équipes de votre séminaire qui passent la journée en ateliers." },
+          { titre: "Pour les grands groupes", texte: "Les petites chambres et les chambres cosy conviennent aux grands groupes. Et comme tous vos participants dorment sur le domaine, votre séminaire démarre le matin sans navette. La ferme se trouve à trois minutes en voiture." },
+        ],
+        faits: [
+          { label: "Chambres à l'abbaye", valeur: "59" },
+          { label: "Chambres aux haras", valeur: "47" },
+          { label: "Chambres à la ferme", valeur: "38" },
+        ],
+        reprendPhotos: [4, 5],
+        photos: [
+          { src: "/images/seminaire-abbaye-vallee-de-chevreuse-chambre-petite-haras.webp", legende: "Petite chambre mansardée aux haras" },
+        ],
+        conseil:
+          "Pour un séminaire en grand groupe, donnez-moi la composition de vos équipes : nous les répartissons entre l'abbaye, les haras et la ferme.",
+      },
+      {
+        ancre: "direction-invites",
+        etiquette: "Direction et invités",
+        titre: "Suites et hameau de la ferme pour votre comité de direction",
+        intro:
+          "Pour vos dirigeants, vos intervenants et vos invités de marque, le domaine réserve ses suites et ses chambres deluxe.",
+        reprend: [],
+        blocs: [
+          { titre: "Un hameau à part pour le comité de direction", texte: "La ferme et ses 38 chambres fonctionnent comme un hameau à part : vous y logez votre comité de direction ou une équipe à l'écart du groupe, le temps de votre séminaire." },
+          { titre: "Des chambres avec vue pour vos invités", texte: "À l'abbaye, les chambres donnent sur les ruines, le lac ou la forêt. Les suites reviennent à vos dirigeants et à vos invités de marque, les chambres supérieures et deluxe à l'encadrement." },
+        ],
+        faits: [
+          { label: "Chambres à la ferme", valeur: "38, à l'écart du groupe" },
+          { label: "Suites", valeur: "pour vos dirigeants et invités" },
+          { label: "Chambres de l'abbaye", valeur: "vue sur les ruines, le lac ou la forêt" },
+        ],
+        reprendPhotos: [0, 3, 6],
+        photos: [
+        ],
+        conseil:
+          "Pour les invités de marque de votre séminaire, réservez les suites en premier : dites-moi combien de dirigeants et d'intervenants vous attendez.",
+      },
+      {
+        ancre: "sejour",
+        etiquette: "Le séjour de vos participants",
+        titre: "Wi-Fi, parking, transferts : le séjour de vos participants à l'abbaye",
+        intro:
+          "Pendant votre séminaire résidentiel, vos participants trouvent sur place de quoi travailler et se reposer, dans des chambres toutes rénovées en 2023.",
+        reprend: [],
+        blocs: [
+          { titre: "Dans chaque chambre", texte: "Toutes nos chambres offrent à vos participants le Wi-Fi haut débit et une literie haut de gamme : de quoi travailler le soir et bien dormir avant la session du lendemain." },
+          { titre: "Arriver au domaine", texte: "Vos participants venus en voiture disposent d'un parking privé sur place. Pour ceux qui arrivent en train, les gares sont à environ 15 minutes en voiture : un transfert vers le domaine est organisé sur réservation, pour un participant comme pour tout le groupe." },
+        ],
+        faits: [
+          { label: "Chambres rénovées", valeur: "en 2023" },
+          { label: "Parking", valeur: "privé, sur place" },
+          { label: "Transfert depuis la gare", valeur: "environ 15 min" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/seminaire-abbaye-vallee-de-chevreuse-chambre-superieure-abbaye-2.webp", legende: "Salle de bains d'une chambre à l'abbaye" },
+          { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/abbaye-chevreuse/seminaire-abbaye-vallee-de-chevreuse-facade-batiment-principal.webp", legende: "La façade du bâtiment principal, à l'arrivée" },
+        ],
+        conseil:
+          "Pour les participants de votre séminaire qui viennent en train, réservez le transfert avec moi : les gares sont à environ 15 minutes du domaine.",
       },
     ],
     sources: [FICHE, CVENT],

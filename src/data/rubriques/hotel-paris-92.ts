@@ -184,7 +184,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       { src: stockage('chambre-luxe-terrasse-vue-paris'), legende: 'Une chambre avec terrasse sur les toits de Paris' },
       { src: img('suite-salon-vue-jardin'), legende: 'Le salon d’une suite, vue sur le jardin' },
       { src: img('salle-de-bain-design'), legende: 'Une salle de bains' },
-      { src: img('spa-piscine-interieure'), legende: 'La piscine intérieure du spa' },
     ],
     blocs: [
       {
@@ -196,6 +195,75 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         titre: 'La tour Eiffel depuis la chambre',
         texte:
           "Les chambres deluxe, dont certaines avec balcon, la suite junior vue tour Eiffel et notre plus grande suite, avec sa terrasse privée, regardent Paris et la tour Eiffel. Une attention appréciée pour un comité de direction ou des clients invités.",
+      },
+    ],
+    sections: [
+      {
+        ancre: "grand-groupe",
+        etiquette: "Grands groupes",
+        titre: "30 chambres communicantes pour loger vos équipes côte à côte",
+        intro:
+          "Pour un séminaire résidentiel aux portes de Paris, tout votre groupe loge sur place, entre le bâtiment historique et une aile contemporaine.",
+        reprend: [],
+        blocs: [
+          { titre: "Des équipes logées côte à côte", texte: "Nos 30 chambres communicantes permettent de loger vos équipes côte à côte : pratique pour un grand groupe ou un séminaire qui réunit plusieurs équipes." },
+          { titre: "Chambres classiques et supérieures", texte: "Les chambres classiques de 24 m² et supérieures de 28 m² conviennent aux grands groupes, dans une atmosphère de boutique-hôtel." },
+        ],
+        faits: [
+          { label: "Chambres communicantes", valeur: "30" },
+          { label: "Chambre classique", valeur: "24 m²" },
+          { label: "Chambre supérieure", valeur: "28 m²" },
+        ],
+        reprendPhotos: [0, 1],
+        photos: [
+        ],
+        conseil:
+          "Pour un séminaire à plusieurs équipes, dites-moi qui travaille avec qui : je regroupe vos participants dans les chambres communicantes.",
+      },
+      {
+        ancre: "direction-invites",
+        etiquette: "Direction et invités",
+        titre: "Suites et chambres vue tour Eiffel pour votre comité de direction",
+        intro:
+          "Pour votre comité de direction, vos intervenants et vos clients invités, réservez les chambres et les suites qui regardent Paris.",
+        reprend: [],
+        blocs: [
+          { titre: "Une terrasse privée pour votre invité d'honneur", texte: "Notre plus grande suite dispose d'une terrasse privée, face à Paris et à la tour Eiffel : réservez-la au dirigeant ou à l'invité qui ouvre votre séminaire." },
+          { titre: "Des suites de 35 à 50 m²", texte: "Les suites junior de 35 m² et les suites de 50 m² reviennent à l'encadrement et aux invités de votre séminaire." },
+        ],
+        faits: [
+          { label: "Suite junior", valeur: "35 m²" },
+          { label: "Suite", valeur: "50 m²" },
+          { label: "Chambre deluxe", valeur: "28 m², vue tour Eiffel" },
+        ],
+        reprendPhotos: [2, 3],
+        photos: [
+        ],
+        conseil:
+          "Pour les clients que vous invitez à votre séminaire, demandez-moi les chambres deluxe : elles regardent la tour Eiffel, et certaines ont un balcon.",
+      },
+      {
+        ancre: "sejour",
+        etiquette: "Le séjour de vos participants",
+        titre: "Métro, voiturier, petit-déjeuner : le séjour de vos participants à Paris",
+        intro:
+          "Pendant votre séminaire résidentiel, vos participants arrivent sans navette ni transfert, et le domaine s'occupe du reste.",
+        reprend: [],
+        blocs: [
+          { titre: "Arriver sans navette", texte: "Vos participants arrivent en métro, à 5 minutes à pied du domaine. Pour ceux qui viennent en voiture, notre parking propose un service de voiturier et des bornes de recharge pour véhicules électriques." },
+          { titre: "Le petit-déjeuner avant la première session", texte: "Le petit-déjeuner est servi en libre-service, sucré et salé, continental ou américain, avec brioches maison et miel du jardin." },
+        ],
+        faits: [
+          { label: "Métro", valeur: "à 5 min à pied" },
+          { label: "Parking", valeur: "voiturier et bornes de recharge" },
+          { label: "Petit-déjeuner", valeur: "en libre-service" },
+        ],
+        reprendPhotos: [5],
+        photos: [
+          { src: "/images/seminaire-hotel-historique-paris-92-cour-interieure-passerelle.webp", legende: "La cour intérieure, à l'arrivée" },
+        ],
+        conseil:
+          "Pour les participants de votre séminaire, indiquez le métro dans votre convocation : la station est à 5 minutes à pied du domaine.",
       },
     ],
     sources: [URL_RESA, URL_OFFICIEL, URL_BIEN_ETRE, URL_CVENT, URL_PRESSE, FICHE],

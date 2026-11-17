@@ -36,7 +36,7 @@ const CHIFFRES: Table = [
   [/tennis|padel/i, Trophy],
   [/jeux/i, Gamepad2],
   // Hébergement
-  [/room service/i, Clock],
+  [/room service|arrivée/i, Clock],
   [/capacité|participants|cohésion|en théâtre|en réunion|autour d'une table/i, Users],
   [/surface|hauteur/i, Ruler],
   [/chambre|suite|twin|lits|haras|abbaye|ferme/i, Bed],
