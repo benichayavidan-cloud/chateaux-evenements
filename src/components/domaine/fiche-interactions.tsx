@@ -11,7 +11,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { Minus, Plus, Sparkles } from "lucide-react";
 import { Text } from "@/components/ui-v2";
 import { theme } from "@/design-system/tokens";
-import { trackChateauView, trackPhoneClick } from "@/components/Analytics";
+import { trackChateauView } from "@/components/Analytics";
 import { useInView } from "@/hooks/useInView";
 import type { PhotoDiaporama } from "@/components/domaine/Diaporama";
 
@@ -130,15 +130,6 @@ export function Apparition({ children, style }: { children: ReactNode; style?: C
     <div ref={ref} className={`animate-on-scroll ${isInView ? "is-visible" : ""}`} style={style}>
       {children}
     </div>
-  );
-}
-
-/** Lien d'appel suivi dans les statistiques. */
-export function LienTelephone({ href, children, className, style }: { href: string; children: ReactNode; className?: string; style?: CSSProperties }) {
-  return (
-    <a href={href} onClick={() => trackPhoneClick()} className={className} style={style}>
-      {children}
-    </a>
   );
 }
 

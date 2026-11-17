@@ -7,13 +7,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Users, Check, Sparkles, Bed, Building2, UtensilsCrossed, HelpCircle, MapPin, Phone, FileText, Clock, Lock, Package } from "lucide-react";
+import { Users, Check, Sparkles, Bed, Building2, UtensilsCrossed, HelpCircle, MapPin, Clock, Lock, Package } from "lucide-react";
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Button } from '@/components/ui-v2';
-import { BOUTON_DEVIS, BOUTON_TELEPHONE } from "@/components/domaine/boutons-cta";
 import { theme } from '@/design-system/tokens';
 import type { Chateau } from "@/types";
-import { Apparition, FaqAccordeon, GaleriePhotosFiche, LienTelephone, SuiviVueChateau } from "@/components/domaine/fiche-interactions";
+import { Apparition, FaqAccordeon, GaleriePhotosFiche, SuiviVueChateau } from "@/components/domaine/fiche-interactions";
 import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { Diaporama } from "@/components/domaine/Diaporama";
@@ -25,7 +24,6 @@ import photosRenommees from "@/data/photos-renommees.json";
 import { creerAltPhoto, type PhotosRenommees } from "@/lib/photo-alt";
 
 const altPhoto = creerAltPhoto(photosRenommees as PhotosRenommees);
-import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 
 
@@ -361,38 +359,9 @@ export default function ChateauFiche({ chateau, navRubriques, sectionRubriques }
         {/* Grille photos style Airbnb + visionneuse (îlot client) */}
         <GaleriePhotosFiche grille={grille} toutes={toutes} />
 
-        {/* Boutons devis et téléphone sous les photos. L'accroche n'y est plus affichée
-            (décision PO du 17/11/2026) ; accrocheHero reste le texte de partage (layout.tsx). */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-            marginTop: 'clamp(1rem, 2vw, 1.25rem)',
-            padding: 'clamp(1rem, 2vw, 1.25rem)',
-            background: theme.colors.neutral.gray50,
-            borderRadius: theme.effects.borderRadius.xl,
-            border: `1px solid ${theme.colors.neutral.gray200}`,
-            flexWrap: 'wrap',
-          }}
-        >
-          <div className="flex gap-2.5 flex-shrink-0 items-center">
-            <a
-              href="#devis-express"
-              style={BOUTON_DEVIS}
-            >
-              <FileText className="w-4 h-4" />
-              Devis Gratuit en 24h
-            </a>
-            <LienTelephone href={`tel:${CONTACT_PHONE_E164}`} className="hover:opacity-90" style={BOUTON_TELEPHONE}>
-              <Phone className="w-4 h-4" style={{ color: 'white' }} />
-              {CONTACT_PHONE_DISPLAY}
-            </LienTelephone>
-          </div>
-        </div>
-
+        {/* Le cadre « devis + téléphone » sous les photos a été retiré (décision PO du 17/11/2026) :
+            le menu, la barre fixe et le formulaire portent ces deux actions. accrocheHero reste
+            le texte de partage (layout.tsx). */}
         {navRubriques && <div style={{ marginTop: 'clamp(0.75rem, 2vw, 1rem)' }}>{navRubriques}</div>}
       </div>
 
