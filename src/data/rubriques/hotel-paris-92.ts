@@ -600,7 +600,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     seoTitle: "Accès en métro ligne 12 : Mairie d'Issy, hôtel 5 étoiles",
     titreSection: "Accès au séminaire : métro, Porte de Versailles et Orly",
     conseil:
-      "Si votre séminaire suit un salon professionnel, Paris Expo Porte de Versailles est à 5 minutes en voiture. Et pour vos participants en avion, Orly est à 25 minutes.",
+      "Si votre séminaire suit un salon professionnel, pensez-y : Paris Expo Porte de Versailles est à 5 minutes en voiture, et vos participants peuvent aussi venir en métro.",
     seoDescription:
       "Métro ligne 12 à 5 min à pied, Porte de Versailles à 5 min en voiture, Orly à 25 min, CDG à 50 min. Parking avec voiturier et bornes de recharge.",
     resume:

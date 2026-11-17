@@ -615,7 +615,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         ancre: "sans-voiture",
         etiquette: "Train, avion et transferts",
-        titre: "Venir en séminaire sans voiture : RER B, train depuis Montparnasse et Orly",
+        titre: "Venir en séminaire sans voiture : RER B, train depuis Montparnasse, aéroport d'Orly",
         intro:
           "Pour vos participants sans voiture, le domaine se rejoint en RER ou en train, puis par un transfert depuis la gare. Orly et Roissy desservent ceux qui viennent de plus loin.",
         reprend: [2, 3],

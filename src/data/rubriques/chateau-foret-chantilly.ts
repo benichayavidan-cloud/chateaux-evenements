@@ -595,7 +595,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     seoTitle: 'Accès : 20 min de Roissy-CDG, 45 min de Paris',
     titreSection: "Accès au séminaire : Roissy à 20 min, gare du Nord en train",
     conseil:
-      "Pour vos participants qui viennent en voiture électrique, précisez-le dans votre convocation : le parking du château compte 4 bornes de recharge.",
+      "Certains de vos participants viennent en voiture électrique ? Signalez dans votre convocation que le parking du château compte 4 bornes de recharge.",
     seoDescription:
       "À 45 min de Paris en voiture, 20 min de Roissy-CDG et de sa gare TGV, train depuis Paris Gare du Nord. Parking de 70 places et bornes de recharge.",
     resume:
@@ -647,7 +647,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         ],
         faits: [
           { label: "Gare d'Orry-la-Ville-Coye", valeur: "10 min en voiture" },
-          { label: "Gare de Chantilly", valeur: "15 min en voiture" },
+          { label: "Gare de Chantilly", valeur: "environ 10 km, 15 minutes" },
           { label: "Transferts privés", valeur: "depuis la gare ou l'aéroport" },
         ],
         reprendPhotos: [],
@@ -656,7 +656,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/chateau-foret-chantilly/seminaire-chateau-foret-chantilly-terrasse-exterieure-stockage.webp", legende: "La terrasse face à la forêt, au pied du château" },
         ],
         conseil:
-          "Le château n'a pas de navette régulière : pour vos participants qui arrivent en train, prévoyez avec nous un transfert privé depuis la gare d'Orry-la-Ville-Coye, à 10 minutes en voiture.",
+          "Pour vos participants qui arrivent par la gare TGV de Roissy, demandez-moi un transfert privé : notre équipe l'organise pour un participant comme pour tout le groupe.",
       },
     ],
     sources: [BROCHURE, PRATIQUE],
