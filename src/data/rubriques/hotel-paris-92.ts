@@ -532,7 +532,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     seoTitle: 'Team building aux portes de Paris : vin, rhum, yoga',
     titreSection: "Activités de team building à Paris : vin, rhum, yoga et spa",
     conseil:
-      "Entre deux sessions de votre séminaire, pensez aux vélos électriques du domaine pour une sortie en groupe, ou à un cours de yoga pour vos participants.",
+      "Pour le team building de votre séminaire, demandez-moi un atelier de vin : notre équipe l'organise à l'horaire prévu dans votre programme et l'adapte à la taille de votre groupe.",
     seoDescription:
       "Ateliers de vin, masterclass de rhum, yoga, spa de 300 m² avec piscine et vélos électriques : nos activités de cohésion pour vos équipes.",
     resume:
@@ -567,6 +567,30 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         titre: "Le spa et le plein air",
         texte:
           "Le spa de 300 m² ouvre sur le jardin : piscine intérieure, hammam, sauna et salle de fitness sont ouverts à vos participants, avec une heure d'accès incluse par nuit ; massages et soins se réservent en complément. Le domaine met aussi à disposition des vélos électriques pour une sortie entre deux sessions.",
+      },
+    ],
+    blocsSection: [0, 1],
+    sections: [
+      {
+        ancre: "temps-libre",
+        etiquette: "Spa et temps libre",
+        titre: "Spa de 300 m² et pause au jardin entre deux sessions de séminaire",
+        intro:
+          "Entre deux sessions de travail, vos participants ont le spa, le jardin et des vélos électriques à leur disposition.",
+        reprend: [2],
+        blocs: [
+          { titre: "Une pause au jardin", texte: "Le jardin de 9 500 m² sert de décor aux pauses de vos participants, avec la tour Eiffel à l'horizon." },
+        ],
+        faits: [
+          { label: "Spa", valeur: "piscine intérieure, hammam, sauna" },
+          { label: "Soins et massages", valeur: "en complément, sur réservation" },
+          { label: "Vélos électriques", valeur: "à disposition" },
+        ],
+        reprendPhotos: [0, 1],
+        photos: [
+        ],
+        conseil:
+          "Pensez à l'heure d'accès au spa incluse par nuit : placez-la avant le dîner dans le programme de votre séminaire.",
       },
     ],
     sources: [URL_REUNIONS, URL_OFFICIEL, URL_BIEN_ETRE, URL_HISTOIRE],

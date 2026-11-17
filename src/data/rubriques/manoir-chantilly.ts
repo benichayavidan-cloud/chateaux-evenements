@@ -563,6 +563,31 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           "Entre deux sessions, vos participants profitent du spa, ouvert gratuitement aux résidents tous les jours de 7 h à 22 h : piscine intérieure chauffée, sauna, hammam, tisanerie, salle de fitness et de yoga. Cabines de soins et cabine de massage en duo sont disponibles sur réservation. Un réveil au yoga ou un créneau de massage donne un autre rythme à un séminaire de plusieurs jours.",
       },
     ],
+    blocsSection: [0, 1],
+    sections: [
+      {
+        ancre: "temps-libre",
+        etiquette: "Spa et temps libre",
+        titre: "Spa et temps libre au château : vos participants soufflent entre deux sessions",
+        intro:
+          "Entre deux sessions de travail, vos participants disposent du spa du château et des équipements du parc.",
+        reprend: [2],
+        blocs: [
+          { titre: "Le parc en accès libre", texte: "Dans le parc, un court de tennis, des vélos, la pétanque et le mölkky attendent vos participants pendant leurs temps de pause." },
+        ],
+        faits: [
+          { label: "Spa", valeur: "gratuit pour les résidents" },
+          { label: "Soins et massages", valeur: "sur réservation" },
+          { label: "Jeux d'extérieur", valeur: "pétanque, mölkky" },
+        ],
+        reprendPhotos: [2],
+        photos: [
+          { src: "/images/seminaire-chateau-chantilly-vue-aerienne-domaine.webp", legende: "Le château anglo-normand et ses terrasses, vus du ciel" },
+        ],
+        conseil:
+          "Pour un séminaire de plusieurs jours, laissez à vos participants un créneau libre en fin de journée : le spa reste ouvert jusqu'à 22 h.",
+      },
+    ],
     sources: [SITE, MICE],
   },
 
