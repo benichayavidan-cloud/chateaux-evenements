@@ -79,10 +79,12 @@
 
 /*
  * globals.css force `nav a { color: #1F2937 !important }` sur mobile (menu du
- * header) : la pastille active du menu des rubriques passait en texte sombre
- * sur fond bronze. Spécificité supérieure + !important pour la rétablir.
+ * header) : l'onglet actif du menu des rubriques y perdrait sa couleur dorée.
+ * Spécificité supérieure + !important pour la rétablir. (Jusqu'au 17/11/2026,
+ * cette règle mettait le texte en blanc, pour l'ancienne pastille sur fond
+ * bronze : avec les onglets, le texte actif devenait invisible sur fond blanc.)
  */
-.domaine :global(a[aria-current="page"]) { color: #FFFFFF !important; }
+.domaine :global(a[aria-current="page"]) { color: #8B6A24 !important; } /* primary.bronzeDark */
 
 /*
  * Grille des cartes de rubriques. Les variantes responsives Tailwind
