@@ -49,10 +49,11 @@ export default function ChateauFiche({ chateau, navRubriques }: ChateauFicheProp
     <>
       <SuiviVueChateau nom={chateau.nom} />
       {/* Hero Section — Style Airbnb hybride */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 2vw, 1.5rem)' }}>
-        {/* Titre + infos au-dessus des photos */}
-        <div style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
-          <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: '0.5rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 2vw, 1.5rem)' }}>
+        {/* Titre + infos au-dessus des photos — espacements élargis le 17/11/2026 (demande PO :
+            le haut de page était tassé par rapport à la galerie et aux sections). */}
+        <div style={{ marginBottom: 'clamp(1.25rem, 3vw, 2.5rem)' }}>
+          <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: 'clamp(0.75rem, 1.5vw, 1.25rem)' }}>
             <div
               className="inline-flex items-center gap-2"
               style={{
@@ -92,18 +93,18 @@ export default function ChateauFiche({ chateau, navRubriques }: ChateauFicheProp
               fontFamily: theme.typography.fonts.heading,
               lineHeight: 1.2,
               color: theme.colors.neutral.gray900,
-              marginBottom: '0.5rem',
+              marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
             }}
           >
             {chateau.titreFiche?.motCle ?? chateau.seoH1}
             {chateau.titreFiche && (
-              <span style={{ display: 'block', fontSize: '0.72em', fontStyle: 'italic', color: theme.colors.primary.bronze, marginTop: '0.15em' }}>
+              <span style={{ display: 'block', fontSize: '0.62em', fontStyle: 'italic', color: theme.colors.primary.bronze, marginTop: '0.3em' }}>
                 {chateau.titreFiche.lieu}
               </span>
             )}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-3" style={{ color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>
+          <div className="flex flex-wrap items-center" style={{ columnGap: 'clamp(0.625rem, 1.6vw, 1.25rem)', rowGap: '0.5rem', color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>
             <span className="inline-flex items-center gap-1.5">
               <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
               {chateau.capacite.min}–{chateau.capacite.max} personnes
