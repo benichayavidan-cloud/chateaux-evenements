@@ -193,3 +193,16 @@ for (const slug of Object.keys(FICHE_SECTIONS).filter((s) => FICHE_SECTIONS[s].c
     for (const s of sections) assert.deepEqual(chiffresHorsSection(s), [], s.id);
   });
 }
+
+test('balises : le title de chaque fiche commence par « Séminaire », sans jeton oublié, et tous diffèrent', async () => {
+  const { titreFiche, descriptionFiche } = await import('./fiche-chateau.ts');
+  const fiches = chateaux.filter((c) => c.titreFiche);
+  const titres = fiches.map((c) => titreFiche(c));
+  for (const [i, t] of titres.entries()) {
+    assert.match(t, /^Séminaire /, fiches[i].slug);
+    assert.ok(t.length <= 60 && !/[{}]/.test(t), `${fiches[i].slug} : « ${t} »`);
+    const d = descriptionFiche(fiches[i]);
+    assert.ok(d.length <= 160 && !/[{}]/.test(d) && /séminaire|équipes/i.test(d), `${fiches[i].slug} : « ${d} »`);
+  }
+  assert.equal(new Set(titres).size, titres.length);
+});
