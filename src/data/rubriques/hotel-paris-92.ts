@@ -62,7 +62,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     resume:
       "9 espaces, du salon de 22 m² pour un comité restreint à la terrasse de 100 m² face à la tour Eiffel. Toutes les capacités, salle par salle.",
     intro:
-      "Nos salles de réunion occupent le bâtiment classé du domaine : hauts plafonds, murs d'époque et lumière naturelle, avec vue sur le jardin historique et la tour Eiffel. Nous proposons 9 espaces, cinq salons intérieurs de 22 à 50 m² et quatre espaces extérieurs, pour des réunions jusqu'à 70 participants. Le tableau ci-dessous détaille chaque espace : surface et capacité selon la disposition choisie.",
+      "Nos salles de réunion occupent le bâtiment classé du domaine : hauts plafonds, murs d'époque et lumière naturelle, avec vue sur le jardin historique et la tour Eiffel. Nous proposons 9 espaces, cinq salons intérieurs de 22 à 50 m² et quatre espaces extérieurs, pour des réunions jusqu'à 70 participants.",
     faits: [
       { label: 'Espaces de réunion', valeur: '9', source: REUNIONS },
       { label: 'Participants en réunion', valeur: "jusqu'à 70", source: REUNIONS },
@@ -92,12 +92,12 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'Des salons pour les comités et les ateliers',
         texte:
-          "Le salon modulable (50 m²) reçoit 32 personnes en théâtre, 17 en U ou 40 autour d'une table de conférence. Le salon sous haut plafond (41 m², 5 m de hauteur) accueille 35 personnes en théâtre. Pour les sous-groupes et les comités de direction, deux salons de 27 et 22 m² réunissent 12 et 8 personnes autour d'une table.",
+          "Pour vos ateliers, le salon modulable (50 m²) reçoit 32 personnes en théâtre, 17 en U ou 40 autour d'une table de conférence. Le salon sous haut plafond (41 m², 5 m de hauteur) accueille 35 personnes en théâtre. Pour les sous-groupes et les comités de direction, deux salons de 27 et 22 m² réunissent 12 et 8 personnes autour d'une table.",
       },
       {
         titre: 'Une réunion dans une chapelle',
         texte:
-          "Notre ancienne chapelle désacralisée offre 50 m² sous 7 mètres de plafond, entre statues et vitraux. On y tient une réunion stratégique ou un déjeuner de 14 personnes autour d'une même table, dans un cadre que vos invités n'oublieront pas.",
+          "Pour une réunion à part, notre ancienne chapelle désacralisée offre 50 m² sous 7 mètres de plafond, entre statues et vitraux. On y tient une réunion stratégique ou un déjeuner de 14 personnes autour d'une même table, dans un cadre que vos invités n'oublieront pas.",
       },
       {
         titre: 'Les terrasses et le jardin',
@@ -107,7 +107,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'Ce qui est compris',
         texte:
-          "Nos salles sont équipées d'un matériel audiovisuel récent et baignées de lumière naturelle. Notre équipe dédiée à l'événementiel vous aide à choisir l'espace, prépare la disposition et organise les pauses.",
+          "Nos salles de réunion sont équipées d'un matériel audiovisuel récent et baignées de lumière naturelle. Notre équipe dédiée à l'événementiel vous aide à choisir l'espace, prépare la disposition et organise les pauses de votre groupe.",
       },
     ],
     sources: [URL_REUNIONS, URL_PRESSE, FICHE],
@@ -116,16 +116,15 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   chambres: {
     seoTitle: 'Séminaire résidentiel aux portes de Paris : 83 chambres',
     seoDescription:
-      "83 chambres et suites de 24 à 50 m², dont des chambres et suites avec vue sur la tour Eiffel. Spa avec piscine, hammam et sauna, à deux pas du métro.",
+      "83 chambres et suites de 24 à 50 m², dont des chambres et suites avec vue sur la tour Eiffel. Pour un séminaire résidentiel à deux pas du métro.",
     resume:
-      "83 chambres et suites de 24 à 50 m², certaines avec vue sur la tour Eiffel, et un spa avec piscine intérieure.",
+      "83 chambres et suites de 24 à 50 m², certaines avec vue sur la tour Eiffel, et 30 chambres communicantes.",
     intro:
-      "Nos 83 chambres et suites se répartissent entre le bâtiment historique et une aile contemporaine. Bois naturels, tons minéraux et portraits historiques : la décoration, signée par un grand architecte français, mêle le passé du lieu au confort d'un hôtel 5 étoiles. Avec ce nombre de chambres, vous logez tout votre groupe sur place, dans une atmosphère de boutique-hôtel.",
+      "Pour un séminaire résidentiel, nos 83 chambres et suites logent tout votre groupe sur place, dans une atmosphère de boutique-hôtel. Vos participants se répartissent entre le bâtiment historique et une aile contemporaine. Bois naturels, tons minéraux et portraits historiques : la décoration, signée par un grand architecte français, mêle le passé du lieu au confort d'un hôtel 5 étoiles.",
     faits: [
       { label: 'Chambres et suites', valeur: '83', source: CVENT },
       { label: 'Surface des chambres', valeur: 'de 24 à 50 m²', source: RESA },
       { label: 'Chambres communicantes', valeur: '30', source: OFFICIEL },
-      { label: 'Accès au spa', valeur: '1 h par nuit incluse', source: OFFICIEL },
     ],
     photos: [
       { src: img('chambre-doree'), legende: 'Une chambre aux tons dorés, ouverte sur la verdure' },
@@ -140,17 +139,12 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'Des chambres pour chaque participant',
         texte:
-          "Chambres classiques de 24 m² et supérieures de 28 m² pour les grands groupes, chambres deluxe de 28 m² avec vue sur la tour Eiffel, suites junior de 35 m² et suites de 50 m² pour l'encadrement et vos invités. Nous disposons aussi de 30 chambres communicantes.",
+          "Chambres classiques de 24 m² et supérieures de 28 m² pour les grands groupes, chambres deluxe de 28 m² avec vue sur la tour Eiffel, suites junior de 35 m² et suites de 50 m² pour l'encadrement et vos invités. Nous disposons aussi de 30 chambres communicantes, pour loger vos équipes côte à côte.",
       },
       {
         titre: 'La tour Eiffel depuis la chambre',
         texte:
           "Les chambres deluxe, dont certaines avec balcon, la suite junior vue tour Eiffel et notre plus grande suite, avec sa terrasse privée, regardent Paris et la tour Eiffel. Une attention appréciée pour un comité de direction ou des clients invités.",
-      },
-      {
-        titre: 'Le spa',
-        texte:
-          "Notre spa de 300 m² ouvre sur le jardin : piscine intérieure, hammam, sauna et salle de fitness. Une heure d'accès par nuit est incluse pour chaque chambre ; massages et soins se réservent en complément. Un moment de récupération entre deux journées de travail.",
       },
     ],
     sources: [URL_RESA, URL_OFFICIEL, URL_BIEN_ETRE, URL_CVENT, URL_PRESSE, FICHE],
@@ -205,7 +199,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     resume:
       "Un restaurant bistronomique gourmand et végétal, une terrasse de 70 couverts face au jardin et un bar lounge aux herbes du potager.",
     intro:
-      "Notre restaurant bistronomique sert une cuisine à la fois gourmande et végétale, nourrie de produits de saison et locaux, parfois cueillis le matin même au jardin. Petit-déjeuner, pauses, déjeuner d'affaires ou banquet : notre équipe compose les menus selon votre programme.",
+      "Pour vos séminaires, notre restaurant bistronomique sert une cuisine à la fois gourmande et végétale, nourrie de produits de saison et locaux, parfois cueillis le matin même au jardin. Petit-déjeuner, pauses, déjeuner d'affaires ou banquet : notre équipe compose les menus selon votre programme.",
     faits: [
       { label: 'Banquet en terrasse', valeur: '70 couverts', source: REUNIONS },
       { label: 'Banquet dans le jardin', valeur: '300 invités', source: REUNIONS },
@@ -224,7 +218,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'Une cuisine du potager',
         texte:
-          "La carte privilégie les recettes à base de plantes et les produits de saison, sans viande rouge. Poissons, viandes et pain viennent de producteurs d'Île-de-France ; fruits, herbes et miel du jardin. Cette cuisine s'adapte facilement aux régimes et aux allergies de vos participants.",
+          "Pour les repas de votre groupe, la carte privilégie les recettes à base de plantes et les produits de saison, sans viande rouge. Poissons, viandes et pain viennent de producteurs d'Île-de-France ; fruits, herbes et miel du jardin. Cette cuisine s'adapte facilement aux régimes et aux allergies de vos participants.",
       },
       {
         titre: 'Restaurant et terrasse privatisables',
@@ -279,7 +273,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'Le cocktail au jardin',
         texte:
-          "Aux beaux jours, le jardin reçoit jusqu'à 300 invités pour un cocktail ou un dîner, et la grande terrasse 70 convives à table. La façade illuminée et la tour Eiffel au loin font le reste.",
+          "Aux beaux jours, le jardin reçoit votre groupe, jusqu'à 300 invités, pour un cocktail ou un dîner, et la grande terrasse 70 convives à table. La façade illuminée et la tour Eiffel au loin font le reste.",
       },
     ],
     sources: [URL_OFFICIEL, URL_RESTO, URL_REUNIONS, URL_PRESSE],
@@ -292,9 +286,10 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     resume:
       "Ateliers de vin, masterclass de rhum, yoga et spa : des activités de cohésion sans quitter le domaine.",
     intro:
-      "Notre équipe propose des expériences de cohésion conçues pour inspirer vos équipes entre deux sessions de travail. Tout se passe sur place : au jardin, dans la chapelle ou au spa.",
+      "Pour votre team building, notre équipe propose des expériences de cohésion conçues pour inspirer vos équipes entre deux sessions de travail. Tout se passe sur place : au jardin, dans la chapelle ou au spa.",
     faits: [
       { label: 'Spa', valeur: '300 m²', source: OFFICIEL },
+      { label: 'Accès au spa', valeur: '1 h par nuit incluse', source: OFFICIEL },
       { label: 'Dégustation privée en chapelle', valeur: '4 rhums', source: OFFICIEL },
       { label: 'Masterclass de rhum', valeur: 'dès 18 h, du jeudi au dimanche', source: OFFICIEL },
       { label: 'Formats de cohésion', valeur: 'vin, rhum, yoga', source: REUNIONS },
@@ -317,9 +312,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           "Dans notre ancienne chapelle, une masterclass de rhum ou une dégustation privée de quatre rhums réunit le groupe autour d'un même récit. Un format de fin de journée qui mélange les équipes sans effort.",
       },
       {
-        titre: 'Bien-être et plein air',
+        titre: "Le spa et le plein air",
         texte:
-          "Le spa de 300 m² (piscine, hammam, sauna) et la salle de fitness sont ouverts aux participants. Le domaine met aussi à disposition des vélos électriques pour une sortie entre deux sessions.",
+          "Le spa de 300 m² ouvre sur le jardin : piscine intérieure, hammam, sauna et salle de fitness sont ouverts à vos participants, avec une heure d'accès incluse par nuit ; massages et soins se réservent en complément. Le domaine met aussi à disposition des vélos électriques pour une sortie entre deux sessions.",
       },
     ],
     sources: [URL_REUNIONS, URL_OFFICIEL, URL_BIEN_ETRE, URL_HISTOIRE],
@@ -332,7 +327,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     resume:
       "Métro ligne 12 (Mairie d'Issy) à 5 minutes à pied, Orly à 25 minutes. Parking avec voiturier et bornes de recharge.",
     intro:
-      "Le domaine se trouve à Issy-les-Moulineaux, aux portes du sud-ouest de Paris. Vos participants arrivent en métro, sans navette ni transfert ; pour ceux qui viennent en voiture, notre parking dispose d'un voiturier et de bornes de recharge.",
+      "Pour un séminaire résidentiel aux portes de Paris, le domaine se trouve à Issy-les-Moulineaux, au sud-ouest de la capitale. Vos participants arrivent en métro, sans navette ni transfert ; pour ceux qui viennent en voiture, notre parking dispose d'un voiturier et de bornes de recharge.",
     faits: [
       { label: "Métro Mairie d'Issy (ligne 12)", valeur: '5 min à pied', source: RESA },
       { label: 'Paris Expo Porte de Versailles', valeur: '5 min en voiture', source: RESA },
@@ -357,12 +352,12 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'En voiture',
         texte:
-          "La sortie d'autoroute d'Issy est à 2 km, soit 5 minutes. Paris Expo Porte de Versailles est à 5 minutes en voiture : le domaine prolonge naturellement un salon professionnel. Notre parking propose un service de voiturier et des bornes de recharge pour véhicules électriques.",
+          "La sortie d'autoroute d'Issy est à 2 km, soit 5 minutes. Paris Expo Porte de Versailles est à 5 minutes en voiture : le domaine prolonge naturellement un salon professionnel pour vos équipes. Notre parking propose à vos participants un service de voiturier et des bornes de recharge pour véhicules électriques.",
       },
       {
         titre: 'En avion ou en hélicoptère',
         texte:
-          "L'aéroport d'Orly est à 25 minutes de route, Roissy-Charles-de-Gaulle à 50 minutes. L'héliport d'Issy se trouve à 2,3 km, à 8 minutes en voiture.",
+          "Pour vos participants venus de province ou de l'étranger, l'aéroport d'Orly est à 25 minutes de route, Roissy-Charles-de-Gaulle à 50 minutes. L'héliport d'Issy se trouve à 2,3 km, à 8 minutes en voiture.",
       },
     ],
     sources: [URL_OFFICIEL, URL_RESA, URL_PRESSE],

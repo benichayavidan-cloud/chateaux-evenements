@@ -144,4 +144,44 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 0]],
     },
   },
+  'hotel-historique-seminaire-paris-92': {
+    titres: {
+      lieu: 'Un domaine du XVIIe siècle face à la tour Eiffel',
+      hebergement: 'Séminaire résidentiel : {chambres} chambres aux portes de Paris',
+      reunion: '{salles} espaces de réunion à la lumière du jour, côté jardin',
+      restauration: 'Cuisine du potager, déjeuner en terrasse et cocktail au jardin',
+      activites: 'Team building, masterclass et spa',
+      acces: 'Venir en séminaire : en métro, à 5 min à pied',
+    },
+    lieu: {
+      intro:
+        "Pour un séminaire résidentiel sans quitter Paris, ce domaine du XVIIe siècle offre à vos équipes un jardin au calme, avec la tour Eiffel à l'horizon. Devenu hôtel 5 étoiles, il se rejoint en métro : vos participants arrivent sans navette ni transfert.",
+      blocs: [
+        {
+          titre: 'Quatre siècles d’histoire',
+          texte:
+            "Au début du XVIIe siècle, une reine de France fuyant la peste trouvait refuge sur cette colline. Bâtiment classé, chapelle ornée de statues et de vitraux : ce patrimoine donne du caractère aux temps forts de votre événement d'entreprise.",
+        },
+        {
+          titre: 'Un jardin de 9 500 m² face à la capitale',
+          texte:
+            "Potager, verger et terrasses composent le décor des pauses de votre groupe. On oublie la ville, alors que Paris est à quelques stations de métro : un vrai changement d'air pour vos collaborateurs, sans temps de trajet.",
+        },
+        {
+          titre: 'L’intimité d’un boutique-hôtel',
+          texte:
+            "Ici, votre séminaire n'est pas noyé dans un hôtel de congrès : le domaine reçoit des réunions jusqu'à 70 participants, dans une atmosphère intimiste qui favorise les échanges. Labellisé Clef Verte, il répond aussi aux engagements environnementaux de votre entreprise.",
+        },
+      ],
+      faits: [
+        { label: 'Jardin', valeur: '9 500 m²' },
+        { label: 'Classement', valeur: '5 étoiles' },
+        { label: 'Label', valeur: 'Clef Verte' },
+      ],
+    },
+    blocs: {
+      restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 2]],
+      acces: [['acces', 0], ['acces', 2], ['acces', 3]],
+    },
+  },
 };
