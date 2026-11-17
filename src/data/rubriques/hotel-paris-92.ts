@@ -78,7 +78,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       { nom: 'Le Salon sous haut plafond', surfaceM2: 41, theatre: 35, classe: 8, enU: null, banquet: null, cocktail: null, cabaret: null, note: '5 m sous plafond ; 35 personnes autour d’une table de conférence' },
       { nom: 'Le Salon du jardin', surfaceM2: 27, theatre: 25, classe: 4, enU: null, banquet: null, cocktail: null, cabaret: null, note: '12 personnes autour d’une table' },
       { nom: 'Le Salon privé', surfaceM2: 22, theatre: 8, classe: 4, enU: null, banquet: null, cocktail: null, cabaret: null, note: '8 personnes autour d’une table' },
-      { nom: 'La Grande Terrasse', surfaceM2: 100, theatre: null, classe: null, enU: null, banquet: 70, cocktail: null, cabaret: null, note: 'en plein air, jusqu’à 100 personnes en réunion' },
+      { nom: 'La Grande Terrasse', surfaceM2: 100, theatre: null, classe: null, enU: null, banquet: 70, cocktail: null, cabaret: null, note: 'en plein air, jusqu’à 100 personnes en réunion', reunion: 100 },
       { nom: 'La Terrasse haute', surfaceM2: 35, theatre: null, classe: null, enU: null, banquet: 30, cocktail: null, cabaret: null, note: 'en plein air' },
       { nom: 'La Terrasse vue tour Eiffel', surfaceM2: 20, theatre: null, classe: null, enU: null, banquet: 20, cocktail: null, cabaret: null, note: 'en plein air' },
       { nom: 'Le Jardin', surfaceM2: 9500, theatre: null, classe: null, enU: null, banquet: 300, cocktail: null, cabaret: null, note: 'en plein air' },

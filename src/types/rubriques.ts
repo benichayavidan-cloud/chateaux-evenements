@@ -42,6 +42,12 @@ export interface SalleReunion {
   cocktail: number | null;
   cabaret: number | null;
   note?: string;
+  /**
+   * Capacité « en réunion » quand le lieu ne donne aucune disposition assise
+   * chiffrée pour cette salle (le tableau ne l'affiche pas : elle est déjà
+   * dans `note`). Sert au choix d'une salle par format.
+   */
+  reunion?: number;
 }
 
 export interface BlocTexte {

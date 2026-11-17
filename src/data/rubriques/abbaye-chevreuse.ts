@@ -39,7 +39,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       { label: 'Cinéma privatif', valeur: '50 fauteuils', source: CVENT },
     ],
     salles: [
-      { nom: 'La Grande Salle des Voûtes', surfaceM2: null, theatre: null, classe: null, enU: null, banquet: 250, cocktail: null, cabaret: null, note: '150 personnes en réunion' },
+      { nom: 'La Grande Salle des Voûtes', surfaceM2: null, theatre: null, classe: null, enU: null, banquet: 250, cocktail: null, cabaret: null, note: '150 personnes en réunion', reunion: 150 },
       { nom: 'Le Grand Salon des Haras', surfaceM2: 209, theatre: 90, classe: 70, enU: 40, banquet: 100, cocktail: 150, cabaret: 40 },
       { nom: 'Le Cinéma', surfaceM2: 199, theatre: 50, classe: null, enU: null, banquet: null, cocktail: null, cabaret: null, note: 'fauteuils de cinéma' },
       { nom: "L'Orangerie", surfaceM2: 171, theatre: 110, classe: 80, enU: 52, banquet: null, cocktail: 80, cabaret: 80 },
