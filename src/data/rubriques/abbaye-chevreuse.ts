@@ -610,6 +610,31 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Pour vos participants venus de province ou de l'étranger, Orly est à environ 40 minutes de route, Roissy-Charles-de-Gaulle à 1 h 10. Un transfert de groupe avec chauffeur peut être organisé depuis l'aéroport, et l'atterrissage d'un hélicoptère sur le domaine est possible sur demande.",
       },
     ],
+    blocsSection: [0, 1],
+    sections: [
+      {
+        ancre: "sans-voiture",
+        etiquette: "Train, avion et transferts",
+        titre: "Venir en séminaire sans voiture : RER B, train depuis Montparnasse et Orly",
+        intro:
+          "Pour vos participants sans voiture, le domaine se rejoint en RER ou en train, puis par un transfert depuis la gare. Orly et Roissy desservent ceux qui viennent de plus loin.",
+        reprend: [2, 3],
+        blocs: [
+        ],
+        faits: [
+          { label: "RER B", valeur: "terminus Saint-Rémy-lès-Chevreuse" },
+          { label: "Train depuis Paris-Montparnasse", valeur: "jusqu'à Rambouillet" },
+          { label: "Transfert depuis la gare", valeur: "sur réservation" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/abbaye-chevreuse/seminaire-abbaye-vallee-de-chevreuse-cottage-brique-parc.webp", legende: "Un bâtiment de brique du domaine, sous les grands arbres du parc" },
+          { src: "/images/seminaire-abbaye-vallee-de-chevreuse-terrasse-restaurant-gastronomique.webp", legende: "La terrasse du restaurant gastronomique" },
+        ],
+        conseil:
+          "Pour un intervenant de votre séminaire à l'agenda serré, sachez que l'atterrissage d'un hélicoptère sur le domaine est possible sur demande.",
+      },
+    ],
     sources: [CVENT, ACCES],
   },
 };

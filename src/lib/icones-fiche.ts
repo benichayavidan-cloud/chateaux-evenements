@@ -23,9 +23,10 @@ const TRANSPORTS: Table = [
 
 const CHIFFRES: Table = [
   // Accès
-  [/aéroport/i, Plane],
+  [/aéroport|héliport/i, Plane],
   [/métro/i, TramFront],
-  [/gare|ter\b|train/i, TrainFront],
+  [/transfert/i, Bus],
+  [/gare|ter\b|rer\b|train/i, TrainFront],
   [/parking/i, ParkingCircle],
   [/distance|voiture|paris expo/i, Car],
   // Restauration (avant les salles : « Banquet sous les voûtes », « Cocktail en plénière »)

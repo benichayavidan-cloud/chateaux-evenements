@@ -634,6 +634,31 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         texte: "Le domaine est accessible aux participants à mobilité réduite.",
       },
     ],
+    blocsSection: [0, 3],
+    sections: [
+      {
+        ancre: "sans-voiture",
+        etiquette: "Train, avion et transferts",
+        titre: "Venir en séminaire sans voiture : TER direct depuis Paris et Roissy à 25 min",
+        intro:
+          "Tous vos participants ne viennent pas en voiture : le domaine se rejoint aussi en train depuis Paris et en avion par Roissy, avec un transfert de groupe possible.",
+        reprend: [1, 2],
+        blocs: [
+        ],
+        faits: [
+          { label: "Train direct", valeur: "Paris-Gare du Nord - Chantilly" },
+          { label: "Gare d'Orry-la-Ville (RER D)", valeur: "15 min en voiture" },
+          { label: "Transfert de groupe", valeur: "depuis la gare ou l'aéroport" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/seminaire-chateau-chantilly-vue-aerienne-domaine.webp", legende: "Le château et son parc, vus du ciel" },
+          { src: "/images/seminaire-chateau-chantilly-facade-chateau.webp", legende: "La façade à colombages et sa terrasse à balustres" },
+        ],
+        conseil:
+          "Pour un séminaire avec des participants venus de l'étranger, donnez rendez-vous à Roissy : un transfert de groupe depuis l'aéroport peut être organisé sur demande.",
+      },
+    ],
     sources: [SITE, FACTSHEET, TRAIN, FICHE],
   },
 };
