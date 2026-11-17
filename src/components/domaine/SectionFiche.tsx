@@ -6,7 +6,7 @@
  * Le contenu vient de lib/fiche-sections (une section = un seul sujet).
  */
 import Link from "next/link";
-import { ArrowRight, Bed, Building2, MapPin, Sparkles, TreePine, UtensilsCrossed, type LucideIcon } from "lucide-react";
+import { Accessibility, ArrowRight, Bed, Building2, Bus, Car, MapPin, Plane, Sparkles, TrainFront, TramFront, TreePine, UtensilsCrossed, type LucideIcon } from "lucide-react";
 import { Section, Container } from "@/components/layout-v2";
 import { Text } from "@/components/ui-v2";
 import { theme } from "@/design-system/tokens";
@@ -24,6 +24,25 @@ const ICONES: Record<SectionFicheId, LucideIcon> = {
   activites: TreePine,
   acces: MapPin,
 };
+
+/**
+ * Icône du moyen de transport, d'après le titre d'un bloc de la section Accès
+ * (« En voiture », « En train ou en RER », « En métro »…). Le premier mot
+ * reconnu l'emporte ; un titre inconnu garde l'étoile par défaut.
+ */
+const TRANSPORTS: Array<[RegExp, LucideIcon]> = [
+  [/voiture/i, Car],
+  [/métro/i, TramFront],
+  [/train|rer/i, TrainFront],
+  [/avion|hélicoptère/i, Plane],
+  [/transfert|navette/i, Bus],
+  [/accessibilité/i, Accessibility],
+];
+
+function iconeTransport(titre: string) {
+  const Icone = TRANSPORTS.find(([motif]) => motif.test(titre))?.[1];
+  return Icone ? <Icone className="w-4 h-4" style={{ color: theme.colors.primary.bronze, flexShrink: 0 }} aria-hidden /> : undefined;
+}
 
 interface SectionFicheProps {
   section: Contenu;
@@ -48,7 +67,7 @@ export function SectionFiche({ section, photos, rang }: SectionFicheProps) {
       <Text variant="h2" style={{ marginBottom: "1rem", textAlign: "left" }}>{section.titre}</Text>
       <p style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)", lineHeight: 1.75, color: theme.colors.neutral.gray700, margin: "0 0 1.25rem" }}>{section.intro}</p>
       {section.blocs.map((b) => (
-        <ParaCard key={b.titre} text={`${b.titre} : ${b.texte}`} sectionBg={fond} />
+        <ParaCard key={b.titre} text={`${b.titre} : ${b.texte}`} sectionBg={fond} icone={section.id === "acces" ? iconeTransport(b.titre) : undefined} />
       ))}
       {/* Chiffres clés en cases égales (17/11/2026) : les pastilles, larges comme leur
           texte, se rangeaient en 1 + 2 + 1. Deux cases par ligne, trois quand il y a

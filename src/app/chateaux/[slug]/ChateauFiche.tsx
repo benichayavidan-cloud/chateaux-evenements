@@ -30,9 +30,11 @@ interface ChateauFicheProps {
   chateau: Chateau;
   /** Menu des rubriques du domaine (Server Component), sous la barre d'appel. */
   navRubriques?: React.ReactNode;
+  /** Blocs de la page à afficher entre l'appel final et les questions fréquentes (logos, avis). */
+  avantFaq?: React.ReactNode;
 }
 
-export default function ChateauFiche({ chateau, navRubriques }: ChateauFicheProps) {
+export default function ChateauFiche({ chateau, navRubriques, avantFaq }: ChateauFicheProps) {
   const sections = sectionsFiche(chateau.slug, chateau);
   // Toutes les photos, dans l'ordre de la visionneuse ; textes alternatifs calculés ici, côté serveur.
   const toutes = [...chateau.images.hero, ...chateau.images.galerie.filter(img => !chateau.images.hero.includes(img))]
@@ -223,70 +225,63 @@ export default function ChateauFiche({ chateau, navRubriques }: ChateauFicheProp
         </Container>
       </Section>
 
-      {/* Points forts - Grid avec image de fond */}
-      <section style={{ position: 'relative', padding: 'clamp(5rem, 10vw, 8rem) 0', overflow: 'hidden' }}>
-        {/* Image de fond */}
-        <div style={{ position: 'absolute', inset: 0 }}>
-          {(() => {
-            const pointsFortsImages: Record<string, { src: string; position: string }> = {
-              "2": { src: "/images/seminaire-hotel-historique-paris-92-facade-jardin-terrasse.webp", position: "center 60%" },
-            };
-            const img = pointsFortsImages[chateau.id] || { src: chateau.images.hero[0], position: "center center" };
-            return (
-              <Image
-                src={img.src}
-                alt={`Vue du ${chateau.nom} — Points forts du domaine`}
-                fill sizes="100vw" className="object-cover" style={{ objectPosition: img.position }} loading="lazy" quality={80}
-              />
-            );
-          })()}
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)' }} />
-        </div>
-        <Container size="xl" style={{ position: 'relative', zIndex: 2 }}>
-          <div className="section-header" style={{ textAlign: 'center', marginBottom: theme.spacing.xl }}>
+      {/* La section « Points forts » a été retirée (décision PO du 17/11/2026) : ses 4 mots-clés
+          répétaient la ligne d'infos sous le titre et les chiffres de chaque section. */}
+
+      {/* CTA finale */}
+      <Section background="gradient" style={{ padding: '30px 0' }}>
+        <Container size="lg">
+          <div className="section-header" style={{ textAlign: 'center' }}>
             <Apparition>
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center', color: 'white', textShadow: '0 2px 8px rgba(0,0,0,0.4)' }}>
-                Points forts
-              </Text>
-              <Text variant="bodyLarge" style={{ textAlign: 'center', color: 'rgba(255,255,255,0.8)' }}>
-                Ce qui rend ce lieu unique
+              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
+                Prêt à organiser votre événement ?
               </Text>
             </Apparition>
-          </div>
-
-          <div style={{ display: 'flex', gap: 'clamp(1rem, 2vw, 1.5rem)', maxWidth: '1200px', margin: '0 auto', justifyContent: 'center', flexWrap: 'wrap', padding: '1.5rem 0' }}>
-            {chateau.atouts.map((atout: string, index: number) => (
-              <Apparition key={index} style={{ transitionDelay: `${index * 150}ms` }}>
-                <div style={{
-                  padding: '1.25rem 2rem',
-                  background: 'rgba(255,255,255,0.16)',
-                  borderRadius: '1rem',
-                  border: '1px solid rgba(255,255,255,0.2)',
-                  textAlign: 'center',
-                  display: 'flex', alignItems: 'center', gap: '0.75rem',
-                  transition: 'all 0.3s ease',
-                  cursor: 'default',
-                  minWidth: '200px',
-                }}>
-                  <div style={{
-                    width: '40px', height: '40px', borderRadius: '50%',
-                    background: `linear-gradient(135deg, ${theme.colors.primary.gold}, ${theme.colors.primary.bronze})`,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                  }}>
-                    <Check className="w-5 h-5" style={{ color: 'white' }} />
-                  </div>
-                  <span style={{ fontSize: '0.9375rem', fontWeight: 600, color: 'white' }}>
-                    {atout}
-                  </span>
+            <Apparition style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '200ms' }}>
+              <Link href="/devis#formulaire"><Button variant="primary" size="lg">Demander un Devis</Button></Link>
+              <Link href="/chateaux"><Button variant="outline" size="lg">Voir d'autres châteaux</Button></Link>
+            </Apparition>
+            {/* Liens SEO vers pages géographiques */}
+            {(() => {
+              const geoLinks: Record<string, { label: string; href: string }[]> = {
+                "1": [
+                  { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
+                  { label: "Séminaire château Oise", href: lienFinal("/seminaire-chateau-oise-60") },
+                ],
+                "2": [
+                  { label: "Séminaire château Hauts-de-Seine", href: "/seminaire-chateau-hauts-de-seine-92" },
+                  { label: "Séminaire château proche Paris", href: "/seminaire-chateau-proche-paris" },
+                ],
+                "3": [
+                  { label: "Séminaire château Yvelines", href: lienFinal("/seminaire-chateau-yvelines-78") },
+                  { label: "Séminaire château Île-de-France", href: "/seminaire-chateau-ile-de-france" },
+                ],
+                "4": [
+                  { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
+                  { label: "Séminaire château Oise", href: lienFinal("/seminaire-chateau-oise-60") },
+                ],
+              };
+              const links = geoLinks[chateau.id];
+              if (!links) return null;
+              return (
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.lg, marginTop: theme.spacing.xl, flexWrap: "wrap" }}>
+                  <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze, opacity: 0.7 }} />
+                  {links.map((link, i) => (
+                    <Link key={i} href={link.href} style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
-              </Apparition>
-            ))}
+              );
+            })()}
           </div>
         </Container>
-      </section>
+      </Section>
 
+      {avantFaq}
 
-      {/* Section FAQ — 2 colonnes : FAQ + Image équipe */}
+      {/* Questions fréquentes — dernier bloc de la page, juste avant le pied de page
+          (décision PO du 17/11/2026), après les logos et les avis passés par `avantFaq`. */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>
         <Container size="xl">
           <div className="responsive-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'start' }}>
@@ -345,56 +340,6 @@ export default function ChateauFiche({ chateau, navRubriques }: ChateauFicheProp
                 ));
               })()}
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* CTA finale */}
-      <Section background="gradient" style={{ padding: '30px 0' }}>
-        <Container size="lg">
-          <div className="section-header" style={{ textAlign: 'center' }}>
-            <Apparition>
-              <Text variant="h2" style={{ marginBottom: theme.spacing.md, textAlign: 'center' }}>
-                Prêt à organiser votre événement ?
-              </Text>
-            </Apparition>
-            <Apparition style={{ display: 'flex', gap: theme.spacing.md, justifyContent: 'center', flexWrap: 'wrap', transitionDelay: '200ms' }}>
-              <Link href="/devis#formulaire"><Button variant="primary" size="lg">Demander un Devis</Button></Link>
-              <Link href="/chateaux"><Button variant="outline" size="lg">Voir d'autres châteaux</Button></Link>
-            </Apparition>
-            {/* Liens SEO vers pages géographiques */}
-            {(() => {
-              const geoLinks: Record<string, { label: string; href: string }[]> = {
-                "1": [
-                  { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
-                  { label: "Séminaire château Oise", href: lienFinal("/seminaire-chateau-oise-60") },
-                ],
-                "2": [
-                  { label: "Séminaire château Hauts-de-Seine", href: "/seminaire-chateau-hauts-de-seine-92" },
-                  { label: "Séminaire château proche Paris", href: "/seminaire-chateau-proche-paris" },
-                ],
-                "3": [
-                  { label: "Séminaire château Yvelines", href: lienFinal("/seminaire-chateau-yvelines-78") },
-                  { label: "Séminaire château Île-de-France", href: "/seminaire-chateau-ile-de-france" },
-                ],
-                "4": [
-                  { label: "Séminaire château Chantilly", href: "/seminaire-chateau-chantilly" },
-                  { label: "Séminaire château Oise", href: lienFinal("/seminaire-chateau-oise-60") },
-                ],
-              };
-              const links = geoLinks[chateau.id];
-              if (!links) return null;
-              return (
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.lg, marginTop: theme.spacing.xl, flexWrap: "wrap" }}>
-                  <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze, opacity: 0.7 }} />
-                  {links.map((link, i) => (
-                    <Link key={i} href={link.href} style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              );
-            })()}
           </div>
         </Container>
       </Section>

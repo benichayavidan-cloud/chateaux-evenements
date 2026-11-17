@@ -17,7 +17,8 @@ export function StickySlider({ children }: { children: React.ReactNode }) {
 }
 
 // Paragraph Card — Design Cards avec bordure dorée
-export function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg?: 'gray' | 'white' }) {
+/** `icone` : remplace l'étoile devant le titre (ex. le moyen de transport dans la section Accès). */
+export function ParaCard({ text, sectionBg = 'gray', icone }: { text: string; sectionBg?: 'gray' | 'white'; icone?: React.ReactNode }) {
   const [hovered, setHovered] = useState(false);
 
   // Détecte "Label : Contenu" pour extraire un titre de carte
@@ -46,12 +47,14 @@ export function ParaCard({ text, sectionBg = 'gray' }: { text: string; sectionBg
           letterSpacing: '0.08em', color: theme.colors.primary.bronze,
           marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px',
         }}>
-          <div style={{
-            width: '18px', height: '18px', borderRadius: '50%',
-            background: `${theme.colors.primary.bronze}10`,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '9px', color: theme.colors.primary.bronze,
-          }}>✦</div>
+          {icone ?? (
+            <div style={{
+              width: '18px', height: '18px', borderRadius: '50%',
+              background: `${theme.colors.primary.bronze}10`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '9px', color: theme.colors.primary.bronze,
+            }}>✦</div>
+          )}
           {label}
         </div>
       )}

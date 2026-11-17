@@ -57,9 +57,13 @@ export default async function ChateauPage({ params }: Props) {
       <ChateauFiche
         chateau={chateau}
         navRubriques={<RubriquesNav slug={chateau.slug} rubriques={rubriques} />}
+        avantFaq={
+          <>
+            <LogoCarousel />
+            <ReviewsSection />
+          </>
+        }
       />
-      <LogoCarousel />
-      <ReviewsSection />
     </>
   );
 }
