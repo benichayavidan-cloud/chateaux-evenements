@@ -23,6 +23,9 @@ const img = (nom: string) => `/images/seminaire-abbaye-vallee-de-chevreuse-${nom
 export const rubriquesAbbaye: RubriquesDomaine = {
   salles: {
     seoTitle: 'Salles de séminaire en abbaye, Vallée de Chevreuse',
+    titreSection: "Salles de séminaire en Vallée de Chevreuse : plénière sous les voûtes",
+    conseil:
+      "Pour lancer votre séminaire, pensez au cinéma privatif : une cinquantaine de fauteuils pour projeter un film d'entreprise, avant de passer en ateliers dans les salons.",
     seoDescription:
       "14 espaces de réunion dans une abbaye du XIIe siècle : Grande Salle des Voûtes de 250 couverts, salon de 209 m², cinéma privé. Capacités salle par salle.",
     resume:
@@ -84,6 +87,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
 
   chambres: {
     seoTitle: 'Séminaire résidentiel en abbaye : 144 chambres (78)',
+    titreSection: "Hébergement de séminaire à l'abbaye : 144 chambres sur trois bâtiments",
+    conseil:
+      "Pour que vos participants restent au plus près des salles de réunion, demandez-moi les 47 chambres des haras. Les 59 chambres de l'abbaye, elles, donnent sur les ruines, le lac ou la forêt.",
     seoDescription:
       "144 chambres et suites réparties entre l'abbaye, les haras et la ferme, rénovées en 2023. Pour un séminaire résidentiel, tout le groupe loge sur place.",
     resume:
@@ -123,6 +129,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
 
   exterieurs: {
     seoTitle: 'Abbaye avec parc de 80 hectares et lac, séminaire 78',
+    titreSection: "80 hectares de forêt et un lac pour votre séminaire au vert",
+    conseil:
+      "Pour le cocktail de fin de journée de votre séminaire, pensez aux rives du lac, face aux ruines de l'église abbatiale. Vos participants y font aussi la photo de groupe.",
     seoDescription:
       "80 hectares de forêt, un lac, des ruines médiévales : le parc du domaine accueille vos pauses, activités et cocktails en plein air, à 45 minutes de Paris.",
     resume:
@@ -164,6 +173,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
 
   restauration: {
     seoTitle: 'Restauration de séminaire : dîner sous les voûtes (78)',
+    titreSection: "Restauration de séminaire à l'abbaye : 4 restaurants et 2 bars",
+    conseil:
+      "Pour un dîner de cohésion pendant votre séminaire, demandez-moi la table italienne de la ferme : une cuisine généreuse à partager sur de grandes tablées.",
     seoDescription:
       "4 restaurants et 2 bars : dîner de gala de 250 couverts sous les voûtes du XIIe siècle, cuisine française, table italienne, table champêtre. Menus sur mesure.",
     resume:
@@ -206,6 +218,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
 
   soirees: {
     seoTitle: "Soirée d'entreprise dans une abbaye, Vallée de Chevreuse",
+    titreSection: "Soirée d'entreprise à l'abbaye : gala, salons et cinéma privé",
+    conseil:
+      "Après le dîner de gala, privatisez un salon pour vos participants, ou finissez par un quiz musical dans l'espace jeux de 200 m² : des formats qui mélangent les équipes sans effort.",
     seoDescription:
       "Dîner de gala sous les voûtes du XIIe siècle pour 250 convives, bars et salons, espace jeux privatisé de 200 m², cinéma privé : vos soirées sur le domaine.",
     resume:
@@ -248,6 +263,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
 
   activites: {
     seoTitle: "Activités de team building dans un domaine de 80 ha",
+    titreSection: "Team building à l'abbaye : tennis, padel, lac et olympiades",
+    conseil:
+      "Pour un temps fort de cohésion pendant votre séminaire, demandez-moi le paintball ou le ball-trap : notre équipe l'organise à l'horaire prévu dans votre programme.",
     seoDescription:
       "Tennis, padel, vélos, barques sur le lac, parcours sportif, spa, yoga, espace jeux privatisé : les activités en libre accès et encadrées pour vos équipes.",
     resume:
@@ -288,6 +306,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
 
   acces: {
     seoTitle: 'Accès au domaine : RER B, train et route depuis Paris',
+    titreSection: "Accès au séminaire : 45 min de Paris, RER B et Orly",
+    conseil:
+      "Si vos participants viennent de Paris en voiture, conseillez-leur la N118 ou l'A10 : le tunnel de Saint-Cloud est fermé vers la province jusqu'à fin août 2027.",
     seoDescription:
       "À 45 min de Paris en voiture, RER B ou train depuis Montparnasse puis transfert de 15 min, Orly à 40 min. Itinéraires, parking et transferts.",
     resume:

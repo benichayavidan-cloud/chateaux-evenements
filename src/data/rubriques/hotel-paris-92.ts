@@ -57,6 +57,9 @@ const stockage = (fichier: string) => chateauImage('Hotel Paris 92', `seminaire-
 export const rubriquesHotelParis92: RubriquesDomaine = {
   salles: {
     seoTitle: 'Salles de réunion 5 étoiles à Issy-les-Moulineaux',
+    titreSection: "Salles de réunion aux portes de Paris : de 8 à 70 participants",
+    conseil:
+      "À la belle saison, sortez la réunion dehors avec vos participants : la grande terrasse de 100 m² et le jardin prolongent vos salons, avec la tour Eiffel en toile de fond.",
     seoDescription:
       "9 espaces de réunion dans un bâtiment classé aux portes de Paris : salons de 22 à 50 m², chapelle, terrasses et jardin. Capacités salle par salle.",
     resume:
@@ -115,6 +118,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
 
   chambres: {
     seoTitle: 'Séminaire résidentiel aux portes de Paris : 83 chambres',
+    titreSection: "Hébergement de séminaire à Paris : 83 chambres et suites",
+    conseil:
+      "Pour les participants d'un grand groupe, les chambres classiques de 24 m² et supérieures de 28 m² ; pour l'encadrement et vos invités, les suites junior de 35 m² et les suites de 50 m².",
     seoDescription:
       "83 chambres et suites de 24 à 50 m², dont des chambres et suites avec vue sur la tour Eiffel. Pour un séminaire résidentiel à deux pas du métro.",
     resume:
@@ -152,6 +158,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
 
   exterieurs: {
     seoTitle: 'Jardin historique avec vue tour Eiffel pour séminaire',
+    titreSection: "Un jardin de 9 500 m² face à la tour Eiffel pour votre séminaire",
+    conseil:
+      "Pour un déjeuner de comité ou une pause à l'écart du groupe pendant votre séminaire, demandez-moi l'une des deux terrasses intimes, de 35 et 20 m².",
     seoDescription:
       "Un jardin de 9 500 m² avec vue sur la tour Eiffel, un potager, trois terrasses et une chapelle : vos pauses et cocktails en plein air, aux portes de Paris.",
     resume:
@@ -194,6 +203,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
 
   restauration: {
     seoTitle: 'Restaurant bistronomique et terrasse jardin, séminaire 92',
+    titreSection: "Restauration de séminaire à Paris : la cuisine du potager",
+    conseil:
+      "À savoir pour vos participants : la carte ne propose pas de viande rouge, et elle s'adapte facilement aux régimes et aux allergies. Le miel du petit-déjeuner vient du jardin.",
     seoDescription:
       "Cuisine gourmande et végétale nourrie du potager, terrasse de 100 m² pour 70 convives, pauses gourmandes, bar lounge : la restauration de vos séminaires.",
     resume:
@@ -241,6 +253,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
 
   soirees: {
     seoTitle: "Soirée d'entreprise : bar à rhum dans une chapelle (92)",
+    titreSection: "Soirée d'entreprise à Paris : bar à rhum dans une chapelle",
+    conseil:
+      "Pour un comité de direction en séminaire, demandez-moi le dîner privé dans la chapelle, à partir de 8 convives. Une dégustation de quatre rhums peut clôturer la soirée.",
     seoDescription:
       "Bar à rhum caché dans une chapelle désacralisée, dîner privé en chapelle dès 8 convives, cocktail jusqu'à 300 invités au jardin face à la tour Eiffel.",
     resume:
@@ -281,6 +296,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
 
   activites: {
     seoTitle: 'Team building aux portes de Paris : vin, rhum, yoga',
+    titreSection: "Activités de team building à Paris : vin, rhum, yoga et spa",
+    conseil:
+      "Entre deux sessions de votre séminaire, pensez aux vélos électriques du domaine pour une sortie en groupe, ou à un cours de yoga pour vos participants.",
     seoDescription:
       "Ateliers de vin, masterclass de rhum, yoga, spa de 300 m² avec piscine et vélos électriques : nos activités de cohésion pour vos équipes.",
     resume:
@@ -322,6 +340,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
 
   acces: {
     seoTitle: "Accès en métro ligne 12 : Mairie d'Issy, hôtel 5 étoiles",
+    titreSection: "Accès au séminaire : métro, Porte de Versailles et Orly",
+    conseil:
+      "Si votre séminaire suit un salon professionnel, Paris Expo Porte de Versailles est à 5 minutes en voiture. Et pour vos participants en avion, Orly est à 25 minutes.",
     seoDescription:
       "Métro ligne 12 à 5 min à pied, Porte de Versailles à 5 min en voiture, Orly à 25 min, CDG à 50 min. Parking avec voiturier et bornes de recharge.",
     resume:

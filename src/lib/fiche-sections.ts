@@ -209,17 +209,17 @@ export function chiffresHorsSection(section: Pick<SectionFiche, 'titre' | 'intro
 /**
  * Section de texte d'une page détaillée (/chateaux/<slug>/<rubrique>), au
  * même format que celles de la fiche pour passer par la même brique.
- *
- * Titre : celui de la section correspondante de la fiche quand elle existe
- * (validé PO, mot-clé + détail du lieu) ; sinon le titre propre à la page
- * (extérieurs, soirées). Jamais un titre commun aux 4 châteaux : Google
- * demande d'éviter le texte passe-partout sur un groupe de pages.
- * Conseil : celui de la section correspondante de la fiche, s'il existe.
+ * Titre et conseil sont propres à la page (rubrique.titreSection et
+ * rubrique.conseil) : ni ceux de la fiche, ni un titre commun aux 4 châteaux
+ * (Google demande d'éviter le texte passe-partout sur un groupe de pages).
  */
-const SECTION_DE_RUBRIQUE: Partial<Record<RubriqueId, SectionFicheId>> = {
+/** Thème d'icône et d'ancre de la section, par rubrique. */
+const THEME_DE_RUBRIQUE: Record<RubriqueId, SectionFicheId> = {
   salles: 'reunion',
   chambres: 'hebergement',
+  exterieurs: 'lieu',
   restauration: 'restauration',
+  soirees: 'restauration',
   activites: 'activites',
   acces: 'acces',
 };
@@ -235,27 +235,16 @@ export const ETIQUETTES_RUBRIQUE: Record<RubriqueId, string> = {
   acces: 'Accès',
 };
 
-/** Thème d'icône et d'ancre d'une rubrique sans section sur la fiche. */
-const THEME_PAR_DEFAUT: Partial<Record<RubriqueId, SectionFicheId>> = { exterieurs: 'lieu', soirees: 'restauration' };
-
-export function sectionRubrique(
-  slug: string,
-  rubrique: RubriqueId,
-  r: Rubrique,
-  chiffres: Chiffres,
-  config: Record<string, FicheSectionsChateau> = FICHE_SECTIONS,
-): SectionFiche {
-  const section = SECTION_DE_RUBRIQUE[rubrique];
-  const c = config[slug];
+export function sectionRubrique(rubrique: RubriqueId, r: Rubrique): SectionFiche {
   return {
-    id: section ?? THEME_PAR_DEFAUT[rubrique] ?? 'lieu',
+    id: THEME_DE_RUBRIQUE[rubrique],
     etiquette: ETIQUETTES_RUBRIQUE[rubrique],
-    titre: section && c ? remplitChiffres(c.titres[section], chiffres) : r.seoTitle,
+    titre: r.titreSection,
     intro: r.intro,
     blocs: r.blocs,
     faits: r.faits.map(({ label, valeur }) => ({ label, valeur })),
     photos: r.photos.map((p) => ({ src: p.src, alt: p.legende })),
     liens: [],
-    conseil: section ? c?.conseils?.[section] : undefined,
+    conseil: r.conseil,
   };
 }

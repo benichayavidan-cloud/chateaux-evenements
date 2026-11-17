@@ -43,6 +43,9 @@ const img = (nom: string) => `/images/seminaire-chateau-chantilly-${nom}.webp`;
 export const rubriquesManoirChantilly: RubriquesDomaine = {
   salles: {
     seoTitle: 'Salles de séminaire en château, forêt de Chantilly',
+    titreSection: "Salles de séminaire à Chantilly : de 8 à 280 participants",
+    conseil:
+      "Pour une convention, demandez-moi la plénière de 280 places, avec son écran de 18 m². Et si vos ateliers demandent de l'air, la serre du parc reçoit vos groupes de mai à octobre.",
     seoDescription:
       "21 espaces de réunion de 15 à 300 m² : plénière de 280 places avec écran de 18 m², grand salon de 264 m², serre dans le parc. Capacités salle par salle.",
     resume:
@@ -118,6 +121,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
 
   chambres: {
     seoTitle: 'Séminaire résidentiel à Chantilly : 119 chambres (60)',
+    titreSection: "Hébergement de séminaire à Chantilly : 243 participants logés sur place",
+    conseil:
+      "Pour les intervenants de votre séminaire et votre comité de direction, demandez-moi les 9 suites de l'aile contemporaine : 38 m² et un vrai coin bureau pour préparer la session du lendemain.",
     seoDescription:
       "119 chambres et suites de 18 à 60 m², dont 103 à lits jumeaux et 39 pensées pour travailler. Jusqu'à 243 personnes hébergées sur place, à Chantilly.",
     resume:
@@ -159,6 +165,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
 
   exterieurs: {
     seoTitle: 'Château avec parc de 6 hectares en forêt de Chantilly',
+    titreSection: "Un parc de 6 hectares pour vos pauses et vos ateliers de séminaire",
+    conseil:
+      "Pour une prise de parole qui marque vos participants, pensez à l'amphithéâtre de verdure, au pied des terrasses. C'est aussi là que se fait la photo de groupe de fin de séminaire.",
     seoDescription:
       "Un parc de 6 hectares entouré de forêts, des terrasses en cascade, un amphithéâtre de verdure et une serre de 300 m² pour vos pauses et ateliers en plein air.",
     resume:
@@ -200,6 +209,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
 
   restauration: {
     seoTitle: 'Restaurants du château : terrasse plein sud, Chantilly',
+    titreSection: "Restauration de séminaire à Chantilly : 3 restaurants et banquets",
+    conseil:
+      "Pour le repas d'un groupe restreint pendant votre séminaire, demandez-moi le salon privé : 40 convives à table, dans un cadre à part.",
     seoDescription:
       "3 restaurants et un bar à cocktails, terrasse plein sud sur le parc, déjeuner en libre-service raffiné de produits de saison. Banquets jusqu'à 250 convives.",
     resume:
@@ -240,6 +252,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
 
   soirees: {
     seoTitle: "Soirée d'entreprise dans un château à Chantilly",
+    titreSection: "Soirée d'entreprise et dîner de gala au château, à Chantilly",
+    conseil:
+      "Pour clore votre convention, le dîner de gala se tient au Grand Salon, jusqu'à 240 convives. Ensuite, vos participants prolongent au bar, ouvert jusqu'à 1 h le vendredi et le samedi.",
     seoDescription:
       "Dîner de gala jusqu'à 240 convives, cocktail jusqu'à 250, bar à cocktails ouvert tard, soirée DJ, billard : vos soirées sans quitter le château.",
     resume:
@@ -279,6 +294,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
 
   activites: {
     seoTitle: 'Team building en forêt de Chantilly, au château',
+    titreSection: "Activités de team building au château et en forêt de Chantilly",
+    conseil:
+      "Pour souder vos équipes pendant le séminaire, deux formats à regarder : le rallye en 2CV dans les environs, ou le dragon boat. Nous adaptons l'activité à la taille de votre groupe.",
     seoDescription:
       "Challenges nature, ateliers créatifs, VTT, dragon boat, rallye 2CV, atelier crème Chantilly, yoga, équitation : activités de cohésion sur place et autour.",
     resume:
@@ -317,6 +335,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
 
   acces: {
     seoTitle: 'Accès au château : A1, TER Paris-Nord et Roissy à 25 min',
+    titreSection: "Accès au séminaire : A1, gare de Chantilly et Roissy",
+    conseil:
+      "Donnez le choix à vos participants : la voiture par l'A1, avec parking gratuit sur place, ou le TER direct jusqu'à la gare de Chantilly, à 5 minutes du domaine.",
     seoDescription:
       "À moins de 35 km de Paris par l'A1, gare de Chantilly à 5 min (TER direct depuis Paris-Nord en 25 min environ), Roissy-CDG à 25 min. Parking gratuit.",
     resume:

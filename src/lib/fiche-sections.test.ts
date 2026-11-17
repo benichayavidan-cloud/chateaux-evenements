@@ -212,31 +212,33 @@ import { RUBRIQUES } from '../types/rubriques.ts';
 import { RUBRIQUES_PAR_CHATEAU } from '../data/rubriques/index.ts';
 
 const pagesDetaillees = Object.entries(RUBRIQUES_PAR_CHATEAU).flatMap(([slug, rubs]) =>
-  RUBRIQUES.filter((id) => rubs[id]).map((id) => ({ slug, id, s: sectionRubrique(slug, id, rubs[id]!, parSlug[slug]) })),
+  RUBRIQUES.filter((id) => rubs[id]).map((id) => ({ slug, id, s: sectionRubrique(id, rubs[id]!) })),
 );
+const sectionsDesFiches = Object.keys(FICHE_SECTIONS).flatMap((slug) => sectionsFiche(slug, parSlug[slug]));
 
-test('pages détaillées : 28 sections, chacune avec titre sans jeton, texte et photos', () => {
+test('pages détaillées : 28 sections, chacune avec titre, texte, photos et conseil', () => {
   assert.equal(pagesDetaillees.length, 28);
   for (const { slug, id, s } of pagesDetaillees) {
-    assert.ok(s.titre && !/[{}]/.test(s.titre), `${slug}/${id} : titre « ${s.titre} »`);
+    assert.ok(s.titre && s.titre.length <= 75 && !/[{}]/.test(s.titre), `${slug}/${id} : titre « ${s.titre} »`);
     assert.ok(s.intro && s.blocs.length >= 2 && s.photos.length >= 1, `${slug}/${id}`);
+    assert.ok(s.conseil && s.conseil.length <= 260, `${slug}/${id} : conseil manquant ou trop long`);
+    assert.match(s.conseil, /séminaire|participants|convention|collaborateurs/i, `${slug}/${id}`);
     assert.deepEqual(s.liens, [], `${slug}/${id} : la page ne renvoie pas vers elle-même`);
   }
 });
 
-test('pages détaillées : aucun titre de section commun à deux pages', () => {
+test('pages détaillées : titres de section tous différents, et différents de ceux des fiches', () => {
   const titres = pagesDetaillees.map((p) => p.s.titre);
   assert.equal(new Set(titres).size, titres.length);
+  const desFiches = new Set(sectionsDesFiches.map((s) => s.titre));
+  assert.deepEqual(titres.filter((t) => desFiches.has(t)), []);
 });
 
-test('pages détaillées : salles, chambres, restauration, activités et accès reprennent le titre et le conseil de la fiche', () => {
-  const fiche = Object.fromEntries(sectionsFiche('manoir-anglo-normand-chantilly', parSlug['manoir-anglo-normand-chantilly']).map((s) => [s.id, s]));
-  const page = (id: string) => pagesDetaillees.find((p) => p.slug === 'manoir-anglo-normand-chantilly' && p.id === id)!.s;
-  assert.equal(page('salles').titre, fiche.reunion.titre);
-  assert.equal(page('salles').conseil, fiche.reunion.conseil);
-  assert.equal(page('chambres').titre, fiche.hebergement.titre);
-  assert.equal(page('exterieurs').conseil, undefined);
-  assert.equal(page('soirees').conseil, undefined);
+test('pages détaillées : conseils tous différents, et différents de ceux des fiches', () => {
+  const conseils = pagesDetaillees.map((p) => p.s.conseil!);
+  assert.equal(new Set(conseils).size, conseils.length);
+  const desFiches = new Set(sectionsDesFiches.map((s) => s.conseil));
+  assert.deepEqual(conseils.filter((c) => desFiches.has(c)), []);
 });
 
 test('pages détaillées : un conseil n’avance aucun chiffre absent de sa page', () => {

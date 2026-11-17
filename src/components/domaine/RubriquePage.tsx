@@ -9,6 +9,8 @@ import Link from "next/link";
 import { theme } from "@/design-system/tokens";
 import styles from "@/components/domaine/domaine.module.css";
 import DevisFormMini from "@/components/DevisFormMini";
+import { LogoCarousel } from "@/components/LogoCarousel";
+import { ReviewsSection } from "@/components/ReviewsSection";
 import { RubriquesNav } from "@/components/domaine/RubriquesNav";
 import { RubriqueVitrine } from "@/components/domaine/RubriqueVitrine";
 import { EnTeteDomaine } from "@/components/domaine/EnTeteDomaine";
@@ -80,11 +82,10 @@ function TableauSalles({ salles }: { salles: SalleReunion[] }) {
   );
 }
 
-
 export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
   const autres = rubriques.filter((x) => x !== id);
   // Les sources des chiffres (qui peuvent nommer le lieu) restent côté serveur : sectionRubrique ne garde que libellé et valeur.
-  const section = sectionRubrique(chateau.slug, id, r, chateau);
+  const section = sectionRubrique(id, r);
 
   const filAriane = (
     <nav aria-label="Fil d'Ariane" className={`${styles.domaine} mb-3 text-xs md:text-sm`} style={{ color: theme.colors.neutral.gray600 }}>
@@ -145,6 +146,10 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
           </div>
         </Container>
       </Section>
+
+      {/* Confiance et avis Google, après le formulaire, comme sur la fiche château (demande PO du 17/11/2026). */}
+      <LogoCarousel />
+      <ReviewsSection />
     </>
   );
 }
