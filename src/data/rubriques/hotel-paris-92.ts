@@ -600,7 +600,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
     seoTitle: "Accès en métro ligne 12 : Mairie d'Issy, hôtel 5 étoiles",
     titreSection: "Accès au séminaire : métro, Porte de Versailles et Orly",
     conseil:
-      "Si votre séminaire suit un salon professionnel, Paris Expo Porte de Versailles est à 5 minutes en voiture. Et pour vos participants en avion, Orly est à 25 minutes.",
+      "Si votre séminaire suit un salon professionnel, pensez-y : Paris Expo Porte de Versailles est à 5 minutes en voiture, et vos participants peuvent aussi venir en métro.",
     seoDescription:
       "Métro ligne 12 à 5 min à pied, Porte de Versailles à 5 min en voiture, Orly à 25 min, CDG à 50 min. Parking avec voiturier et bornes de recharge.",
     resume:
@@ -637,6 +637,31 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         titre: 'En avion ou en hélicoptère',
         texte:
           "Pour vos participants venus de province ou de l'étranger, l'aéroport d'Orly est à 25 minutes de route, Roissy-Charles-de-Gaulle à 50 minutes. L'héliport d'Issy se trouve à 2,3 km, à 8 minutes en voiture.",
+      },
+    ],
+    blocsSection: [0, 2],
+    sections: [
+      {
+        ancre: "sans-voiture",
+        etiquette: "Train, avion et transferts",
+        titre: "Venir en séminaire en train ou en avion : Montparnasse, Orly et Roissy",
+        intro:
+          "Pour vos participants venus de province ou de l'étranger, le domaine se rejoint depuis la gare Montparnasse et depuis les deux aéroports parisiens.",
+        reprend: [1, 3],
+        blocs: [
+        ],
+        faits: [
+          { label: "Gare Montparnasse", valeur: "20 min en voiture" },
+          { label: "Transferts en taxi", valeur: "sur demande" },
+          { label: "Héliport", valeur: "8 min en voiture" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/hotel-paris-92/seminaire-hotel-historique-paris-92-vue-aerienne-facade-jardin.webp", legende: "Le bâtiment classé et son jardin vus du ciel" },
+          { src: "/images/seminaire-hotel-historique-paris-92-facade-jardin-terrasse.webp", legende: "La grande terrasse au pied de la façade" },
+        ],
+        conseil:
+          "Pour vos participants qui arrivent en train à Montparnasse, demandez-moi un transfert privé en taxi : la gare est à 20 minutes en voiture.",
       },
     ],
     sources: [URL_OFFICIEL, URL_RESA, URL_PRESSE],

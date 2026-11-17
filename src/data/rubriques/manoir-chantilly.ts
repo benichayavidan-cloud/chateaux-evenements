@@ -595,7 +595,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     seoTitle: 'Accès au château : A1, TER Paris-Nord et Roissy à 25 min',
     titreSection: "Accès au séminaire : A1, gare de Chantilly et Roissy",
     conseil:
-      "Donnez le choix à vos participants : la voiture par l'A1, avec parking gratuit sur place, ou le TER direct jusqu'à la gare de Chantilly, à 5 minutes du domaine.",
+      "Pour vos participants qui viennent en voiture, indiquez dans votre convocation la sortie 7 de l'A1 et le parking gratuit sur place.",
     seoDescription:
       "À moins de 35 km de Paris par l'A1, gare de Chantilly à 5 min (TER direct depuis Paris-Nord en 25 min environ), Roissy-CDG à 25 min. Parking gratuit.",
     resume:
@@ -632,6 +632,31 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Accessibilité',
         texte: "Le domaine est accessible aux participants à mobilité réduite.",
+      },
+    ],
+    blocsSection: [0, 3],
+    sections: [
+      {
+        ancre: "sans-voiture",
+        etiquette: "Train, avion et transferts",
+        titre: "Venir en séminaire sans voiture : TER direct depuis Paris, Roissy à 25 min",
+        intro:
+          "Tous vos participants ne viennent pas en voiture : le domaine se rejoint aussi en train depuis Paris et en avion par Roissy, avec un transfert de groupe possible.",
+        reprend: [1, 2],
+        blocs: [
+        ],
+        faits: [
+          { label: "Train direct", valeur: "Paris-Gare du Nord - Chantilly" },
+          { label: "Gare d'Orry-la-Ville (RER D)", valeur: "15 min en voiture" },
+          { label: "Transfert de groupe", valeur: "depuis l'aéroport, sur demande" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/seminaire-chateau-chantilly-vue-aerienne-domaine.webp", legende: "Le château anglo-normand et ses terrasses, vus du ciel" },
+          { src: "/images/seminaire-chateau-chantilly-facade-chateau.webp", legende: "La façade à colombages et sa terrasse à balustres" },
+        ],
+        conseil:
+          "Pour vos participants qui viennent en train, indiquez-leur le TER direct depuis Paris-Gare du Nord : la gare de Chantilly est à 5 minutes en voiture du domaine.",
       },
     ],
     sources: [SITE, FACTSHEET, TRAIN, FICHE],
