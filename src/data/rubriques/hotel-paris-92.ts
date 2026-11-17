@@ -57,7 +57,7 @@ const stockage = (fichier: string) => chateauImage('Hotel Paris 92', `seminaire-
 export const rubriquesHotelParis92: RubriquesDomaine = {
   salles: {
     seoTitle: 'Salles de réunion 5 étoiles à Issy-les-Moulineaux',
-    titreSection: "Salles de réunion aux portes de Paris : de 8 à 70 participants",
+    titreSection: "Salles de réunion aux portes de Paris : jusqu'à 70 participants",
     conseil:
       "À la belle saison, sortez la réunion dehors avec vos participants : la grande terrasse de 100 m² et le jardin prolongent vos salons, avec la tour Eiffel en toile de fond.",
     seoDescription:

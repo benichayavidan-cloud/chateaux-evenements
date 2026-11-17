@@ -43,7 +43,7 @@ const img = (nom: string) => `/images/seminaire-chateau-chantilly-${nom}.webp`;
 export const rubriquesManoirChantilly: RubriquesDomaine = {
   salles: {
     seoTitle: 'Salles de séminaire en château, forêt de Chantilly',
-    titreSection: "Salles de séminaire à Chantilly : de 8 à 280 participants",
+    titreSection: "Salles de séminaire à Chantilly : jusqu'à 280 participants",
     conseil:
       "Pour une convention, demandez-moi la plénière de 280 places, avec son écran de 18 m². Et si vos ateliers demandent de l'air, la serre du parc reçoit vos groupes de mai à octobre.",
     seoDescription:
@@ -123,7 +123,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     seoTitle: 'Séminaire résidentiel à Chantilly : 119 chambres (60)',
     titreSection: "Hébergement de séminaire à Chantilly : 243 participants logés sur place",
     conseil:
-      "Pour les intervenants de votre séminaire et votre comité de direction, demandez-moi les 9 suites de l'aile contemporaine : 38 m² et un vrai coin bureau pour préparer la session du lendemain.",
+      "Pour les participants de votre séminaire qui préparent une session le soir, demandez-moi les 9 suites de l'aile contemporaine : 38 m² et un vrai coin bureau.",
     seoDescription:
       "119 chambres et suites de 18 à 60 m², dont 103 à lits jumeaux et 39 pensées pour travailler. Jusqu'à 243 personnes hébergées sur place, à Chantilly.",
     resume:
