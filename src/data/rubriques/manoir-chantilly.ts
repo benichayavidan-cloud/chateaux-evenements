@@ -286,13 +286,13 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     seoTitle: 'Château avec parc de 6 hectares en forêt de Chantilly',
     titreSection: "Un parc de 6 hectares pour vos pauses et vos ateliers de séminaire",
     conseil:
-      "Pour une prise de parole qui marque vos participants, pensez à l'amphithéâtre de verdure, au pied des terrasses. C'est aussi là que se fait la photo de groupe de fin de séminaire.",
+      "Prévoyez un temps dehors dans le programme de votre séminaire : les terrasses sont au pied du château, vos participants y sont en quelques pas.",
     seoDescription:
       "Un parc de 6 hectares entouré de forêts, des terrasses en cascade, un amphithéâtre de verdure et une serre de 300 m² pour vos pauses et ateliers en plein air.",
     resume:
       "6 hectares de parc entourés de forêts : terrasses en cascade, amphithéâtre de verdure, serre de 300 m² et terrasse plein sud.",
     intro:
-      "Le château se dresse au cœur d'un parc de 6 hectares, entouré de trois forêts et planté d'arbres centenaires. Des terrasses en cascade, dessinées à la manière d'un jardin italien, descendent du château vers les bois. Vos participants passent de la salle de réunion au grand air en quelques pas.",
+      "Le château se dresse au cœur d'un parc de 6 hectares, entouré de trois forêts et planté d'arbres centenaires. Vos participants passent de la salle de réunion au grand air en quelques pas.",
     faits: [
       { label: 'Surface du parc', valeur: '6 hectares', source: SITE },
       { label: 'Serre événementielle', valeur: '300 m², de mai à octobre', source: MICE },
@@ -305,22 +305,65 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       { src: img('jardin-amphitheatre-exterieur'), legende: "L'amphithéâtre de verdure, au pied des terrasses" },
       { src: img('facade-chateau'), legende: 'La façade à colombages et sa terrasse à balustres' },
       { src: img('terrasse-restaurant-exterieur'), legende: 'La terrasse du restaurant, face aux arbres du parc' },
+      { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/manoir-chantilly/seminaire-chateau-chantilly-facade-anglo-normande.webp", legende: 'La façade anglo-normande du château' },
     ],
     blocs: [
       {
         titre: 'Des terrasses en cascade',
         texte:
-          "Au pied de la façade à colombages, les terrasses descendent par paliers vers le parc. Un amphithéâtre de verdure, avec ses gradins de pierre, se prête à une prise de parole en plein air ou à la photo de groupe de fin de séminaire.",
+          "Au pied de la façade à colombages, des terrasses en cascade, dessinées à la manière d'un jardin italien, descendent par paliers du château vers les bois.",
       },
       {
         titre: 'La serre, au milieu des arbres',
         texte:
           "De mai à octobre, notre serre de 300 m² accueille séminaires créatifs, cocktails et activités de cohésion en pleine nature : un cadre propice à la déconnexion et à la réflexion collective, à quelques minutes à pied du château.",
       },
+    ],
+    blocsSection: [0],
+    sections: [
       {
-        titre: 'Le parc comme terrain de jeu',
-        texte:
-          "Court de tennis, vélos, pétanque, mölkky et jeux d'extérieur sont à disposition. Le domaine abrite aussi un rucher : en saison, sur réservation, l'apiculteur fait visiter les ruches, d'où vient le miel servi au petit-déjeuner.",
+        ancre: "plein-air",
+        etiquette: "Travailler et recevoir dehors",
+        titre: "Séminaire en plein air à Chantilly : serre, amphithéâtre et terrasse",
+        intro:
+          "À la belle saison, une partie de votre séminaire peut se tenir dehors : un atelier dans la serre du parc, une prise de parole dans l'amphithéâtre de verdure, un déjeuner sur la terrasse du restaurant.",
+        reprend: [1],
+        blocs: [
+          { titre: "L'amphithéâtre de verdure", texte: "Au pied des terrasses, un amphithéâtre de verdure, avec ses gradins de pierre, se prête à une prise de parole en plein air ou à la photo de groupe de fin de séminaire." },
+          { titre: "Le déjeuner en terrasse, plein sud", texte: "La terrasse du restaurant, orientée plein sud, accueille les déjeuners de votre groupe à la belle saison, avec une vue panoramique sur le parc." },
+        ],
+        faits: [
+          { label: "Serre du parc", valeur: "séminaires créatifs et cocktails" },
+          { label: "Amphithéâtre du parc", valeur: "gradins de pierre" },
+          { label: "Terrasse du restaurant", valeur: "plein sud, vue sur le parc" },
+        ],
+        reprendPhotos: [2, 4],
+        photos: [
+        ],
+        conseil:
+          "Pour un atelier de votre séminaire entre mai et octobre, demandez-moi la serre du parc : 300 m² au milieu des arbres.",
+      },
+      {
+        ancre: "detente",
+        etiquette: "S'aérer entre deux sessions",
+        titre: "Entre deux sessions : tennis, vélos et rucher dans le parc du château",
+        intro:
+          "Entre deux sessions de travail, vos participants trouvent dans le parc de quoi bouger ou souffler.",
+        reprend: [],
+        blocs: [
+          { titre: "Tennis, vélos et pétanque à disposition", texte: "Court de tennis, vélos, pétanque, mölkky et jeux d'extérieur sont à la disposition de vos participants pendant leurs temps de pause." },
+          { titre: "Le rucher du domaine", texte: "Le domaine abrite un rucher. En saison, sur réservation, l'apiculteur fait visiter les ruches à votre groupe : c'est de là que vient le miel servi au petit-déjeuner." },
+        ],
+        faits: [
+          { label: "Tennis", valeur: "un court à disposition" },
+          { label: "Jeux d'extérieur", valeur: "pétanque, mölkky" },
+          { label: "Rucher du domaine", valeur: "visite en saison, sur réservation" },
+        ],
+        reprendPhotos: [1, 5],
+        photos: [
+        ],
+        conseil:
+          "Pour une pause originale pendant votre séminaire, demandez-moi la visite du rucher : elle se réserve en saison pour vos participants.",
       },
     ],
     sources: [SITE, MICE, FACTSHEET, FICHE],

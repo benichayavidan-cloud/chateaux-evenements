@@ -269,13 +269,13 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     seoTitle: 'Château avec parc de 5 ha en forêt de Chantilly',
     titreSection: "Un parc de 5 hectares en pleine forêt pour votre séminaire",
     conseil:
-      "Essayez la réunion en marchant avec vos participants : un sentier d'une vingtaine de minutes fait le tour du domaine, sans quitter le parc.",
+      "Pour un séminaire au vert, prévoyez un temps dehors dans votre programme : vos participants ont 5 hectares de parc au pied des salons.",
     seoDescription:
       "Un parc de 5 hectares en forêt de Chantilly : terrasses face aux arbres, sentier de promenade, tennis, boulodrome, vélos électriques et VTT.",
     resume:
       "Un parc de 5 hectares en pleine forêt de Chantilly, avec terrasses, sentier, tennis et boulodrome.",
     intro:
-      "Le château, d'inspiration Louis XVI, se dresse dans un parc de 5 hectares au cœur de la forêt de Chantilly. Les salons et le restaurant ouvrent directement sur le domaine : on passe de la salle de réunion à la terrasse en quelques pas.",
+      "Le château, d'inspiration Louis XVI, se dresse dans un parc de 5 hectares au cœur de la forêt de Chantilly.",
     faits: [
       { label: 'Parc', valeur: '5 hectares', source: BROCHURE },
       { label: 'Sentier de promenade', valeur: '20 min', source: PRATIQUE },
@@ -288,8 +288,14 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       { src: stock('facade-terrasse-parc'), legende: 'La façade, la terrasse et la pelouse du parc' },
       { src: img('terrasse-exterieure'), legende: 'La terrasse dressée, vue vers la forêt' },
       { src: img('activites-team-building'), legende: 'Le boulodrome, sous les arbres du parc' },
+      { src: img('facade-chateau'), legende: 'Le château dans la forêt de Chantilly, vu du ciel' },
     ],
     blocs: [
+      {
+        titre: 'De la salle de réunion au parc en quelques pas',
+        texte:
+          "Les salons et le restaurant ouvrent directement sur le domaine : vos participants passent de la salle de réunion à la terrasse en quelques pas.",
+      },
       {
         titre: 'Des terrasses face à la forêt',
         texte:
@@ -303,7 +309,51 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         titre: 'Tennis et boulodrome',
         texte:
-          "Un court de tennis caché sous les arbres et un boulodrome complètent le parc. Ils servent aux pauses libres comme aux tournois entre équipes.",
+          "Un court de tennis caché sous les arbres et un boulodrome complètent le parc. Ils sont à la disposition de vos participants pendant les pauses.",
+      },
+    ],
+    blocsSection: [0],
+    sections: [
+      {
+        ancre: "plein-air",
+        etiquette: "Recevoir en plein air",
+        titre: "Pause, déjeuner ou cocktail de séminaire en terrasse, face à la forêt",
+        intro:
+          "À la belle saison, les terrasses du château deviennent des lieux de réception pour votre séminaire, dans le prolongement direct de vos salles.",
+        reprend: [1],
+        blocs: [
+          { titre: "Un cocktail en terrasse avant le dîner", texte: "Les terrasses face à la forêt se prêtent à un cocktail de fin de journée, avant de passer à table. Notre équipe compose le déroulé de la soirée avec vous." },
+        ],
+        faits: [
+          { label: "Terrasse de la salle plénière", valeur: "vue sur la forêt" },
+          { label: "Déjeuner en terrasse", valeur: "à la belle saison" },
+          { label: "Cocktail en terrasse", valeur: "en fin de journée" },
+        ],
+        reprendPhotos: [0, 3],
+        photos: [
+        ],
+        conseil:
+          "Pour la pause de votre séminaire à la belle saison, demandez-moi un service en terrasse : deux d'entre elles prolongent directement les salons de réunion.",
+      },
+      {
+        ancre: "detente",
+        etiquette: "S'aérer entre deux sessions",
+        titre: "Sentier, tennis et boulodrome : s'aérer entre deux sessions de travail",
+        intro:
+          "Entre deux sessions, le parc et la forêt offrent à vos participants de quoi marcher, pédaler ou disputer une partie.",
+        reprend: [2, 3],
+        blocs: [
+        ],
+        faits: [
+          { label: "Sentier du domaine", valeur: "une vingtaine de minutes" },
+          { label: "Vélos électriques et VTT", valeur: "pour la forêt de Chantilly" },
+          { label: "Boulodrome du parc", valeur: "sous les arbres" },
+        ],
+        reprendPhotos: [4, 1],
+        photos: [
+        ],
+        conseil:
+          "Pour une pause active pendant votre séminaire, pensez aux vélos électriques et aux VTT : la forêt de Chantilly commence au-delà du parc.",
       },
     ],
     sources: [BROCHURE, SITE, PRATIQUE],
