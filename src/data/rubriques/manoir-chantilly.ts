@@ -311,7 +311,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       {
         titre: 'Des terrasses en cascade',
         texte:
-          "Au pied de la façade à colombages, des terrasses en cascade, dessinées à la manière d'un jardin italien, descendent par paliers du château vers les bois. Entre deux sessions de votre séminaire, elles sont le premier lieu de pause de vos participants.",
+          "Au pied de la façade à colombages, des terrasses en cascade, dessinées à la manière d'un jardin italien, descendent par paliers du château vers les bois.",
       },
       {
         titre: 'La serre, au milieu des arbres',
@@ -341,14 +341,14 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         photos: [
         ],
         conseil:
-          "Pour une prise de parole qui marque vos participants, pensez à l'amphithéâtre de verdure, au pied des terrasses. C'est aussi là que se fait la photo de groupe de fin de séminaire.",
+          "Pour un atelier de votre séminaire entre mai et octobre, demandez-moi la serre du parc : 300 m² au milieu des arbres.",
       },
       {
         ancre: "detente",
         etiquette: "S'aérer entre deux sessions",
         titre: "Entre deux sessions : tennis, vélos et rucher dans le parc du château",
         intro:
-          "Entre deux sessions de travail, vos participants trouvent dans le parc de quoi bouger ou souffler, sans rien réserver.",
+          "Entre deux sessions de travail, vos participants trouvent dans le parc de quoi bouger ou souffler.",
         reprend: [],
         blocs: [
           { titre: "Tennis, vélos et pétanque à disposition", texte: "Court de tennis, vélos, pétanque, mölkky et jeux d'extérieur sont à la disposition de vos participants pendant leurs temps de pause." },
@@ -359,7 +359,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           { label: "Jeux d'extérieur", valeur: "pétanque, mölkky" },
           { label: "Rucher du domaine", valeur: "visite en saison, sur réservation" },
         ],
-        reprendPhotos: [1, 0],
+        reprendPhotos: [1, 5],
         photos: [
         ],
         conseil:

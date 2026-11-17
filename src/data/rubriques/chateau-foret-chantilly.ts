@@ -269,7 +269,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     seoTitle: 'Château avec parc de 5 ha en forêt de Chantilly',
     titreSection: "Un parc de 5 hectares en pleine forêt pour votre séminaire",
     conseil:
-      "Prévoyez un temps dehors dans le programme de votre séminaire : les salons de réunion ouvrent directement sur le parc, vos participants n'ont que quelques pas à faire.",
+      "Pour un séminaire au vert, prévoyez un temps dehors dans votre programme : vos participants ont 5 hectares de parc au pied des salons.",
     seoDescription:
       "Un parc de 5 hectares en forêt de Chantilly : terrasses face aux arbres, sentier de promenade, tennis, boulodrome, vélos électriques et VTT.",
     resume:
@@ -288,13 +288,13 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       { src: stock('facade-terrasse-parc'), legende: 'La façade, la terrasse et la pelouse du parc' },
       { src: img('terrasse-exterieure'), legende: 'La terrasse dressée, vue vers la forêt' },
       { src: img('activites-team-building'), legende: 'Le boulodrome, sous les arbres du parc' },
-      { src: img('facade-chateau'), legende: 'La façade du château' },
+      { src: img('facade-chateau'), legende: 'Le château dans la forêt de Chantilly, vu du ciel' },
     ],
     blocs: [
       {
         titre: 'De la salle de réunion au parc en quelques pas',
         texte:
-          "Les salons et le restaurant ouvrent directement sur le domaine : vos participants passent de la salle de réunion à la terrasse en quelques pas, sans changer de bâtiment ni prévoir de transfert.",
+          "Les salons et le restaurant ouvrent directement sur le domaine : vos participants passent de la salle de réunion à la terrasse en quelques pas.",
       },
       {
         titre: 'Des terrasses face à la forêt',
@@ -309,14 +309,14 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         titre: 'Tennis et boulodrome',
         texte:
-          "Un court de tennis caché sous les arbres et un boulodrome complètent le parc. Ils servent aux pauses libres comme aux tournois entre équipes.",
+          "Un court de tennis caché sous les arbres et un boulodrome complètent le parc. Ils sont à la disposition de vos participants pendant les pauses.",
       },
     ],
     blocsSection: [0],
     sections: [
       {
         ancre: "plein-air",
-        etiquette: "Travailler et recevoir dehors",
+        etiquette: "Recevoir en plein air",
         titre: "Pause, déjeuner ou cocktail de séminaire en terrasse, face à la forêt",
         intro:
           "À la belle saison, les terrasses du château deviennent des lieux de réception pour votre séminaire, dans le prolongement direct de vos salles.",
@@ -340,7 +340,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         etiquette: "S'aérer entre deux sessions",
         titre: "Sentier, tennis et boulodrome : s'aérer entre deux sessions de travail",
         intro:
-          "Entre deux sessions, le parc et la forêt offrent à vos participants de quoi marcher, pédaler ou disputer une partie, sans rien organiser.",
+          "Entre deux sessions, le parc et la forêt offrent à vos participants de quoi marcher, pédaler ou disputer une partie.",
         reprend: [2, 3],
         blocs: [
         ],
@@ -353,7 +353,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         photos: [
         ],
         conseil:
-          "Essayez la réunion en marchant avec vos participants : un sentier d'une vingtaine de minutes fait le tour du domaine, sans quitter le parc.",
+          "Pour une pause active pendant votre séminaire, pensez aux vélos électriques et aux VTT : la forêt de Chantilly commence au-delà du parc.",
       },
     ],
     sources: [BROCHURE, SITE, PRATIQUE],

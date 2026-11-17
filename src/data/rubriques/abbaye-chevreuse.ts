@@ -295,10 +295,10 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     sections: [
       {
         ancre: "plein-air",
-        etiquette: "Travailler et recevoir dehors",
+        etiquette: "Recevoir en plein air",
         titre: "Cocktail au bord du lac et déjeuner en terrasse pour votre séminaire",
         intro:
-          "À la belle saison, les repas et les temps forts de votre séminaire sortent des salles : déjeuner d'équipe en terrasse, cocktail au bord du lac.",
+          "Les repas et les temps forts de votre séminaire sortent des salles : déjeuner d'équipe en terrasse à la belle saison, cocktail au bord du lac.",
         reprend: [1],
         blocs: [
           { titre: "Cocktail et photo de groupe au bord du lac", texte: "Les rives du lac accueillent un cocktail de fin de journée ou une photo de groupe que vos équipes garderont, avec les ruines de l'église abbatiale en arrière-plan." },
@@ -308,11 +308,11 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           { label: "Terrasses de restaurant", valeur: "restaurant gastronomique et table champêtre" },
           { label: "Déjeuner en terrasse", valeur: "à la belle saison" },
         ],
-        reprendPhotos: [1, 2],
+        reprendPhotos: [1, 2, 3],
         photos: [
         ],
         conseil:
-          "Pour le cocktail de fin de journée de votre séminaire, pensez aux rives du lac, face aux ruines de l'église abbatiale. Vos participants y font aussi la photo de groupe.",
+          "À la belle saison, demandez-moi un déjeuner d'équipe en terrasse pour vos participants : celle du restaurant gastronomique ou celle de la table champêtre.",
       },
       {
         ancre: "detente",
@@ -330,7 +330,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           { label: "Barques et pédalos", valeur: "sur le lac" },
           { label: "Vélos", valeur: "pour parcourir le domaine" },
         ],
-        reprendPhotos: [3, 4],
+        reprendPhotos: [0, 4],
         photos: [
         ],
         conseil:
