@@ -198,7 +198,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         etiquette: "Direction et invités",
         titre: "Suites et hameau de la ferme pour votre comité de direction",
         intro:
-          "Pour vos dirigeants, vos intervenants et vos invités de marque, le domaine réserve ses suites et ses chambres deluxe, dans un décor de pierres apparentes et de boiseries.",
+          "Pour vos dirigeants, vos intervenants et vos invités de marque, le domaine réserve ses suites et ses chambres deluxe.",
         reprend: [],
         blocs: [
           { titre: "Un hameau à part pour le comité de direction", texte: "La ferme et ses 38 chambres fonctionnent comme un hameau à part : vous y logez votre comité de direction ou une équipe à l'écart du groupe, le temps de votre séminaire." },
@@ -223,7 +223,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           "Pendant votre séminaire résidentiel, vos participants trouvent sur place de quoi travailler et se reposer, dans des chambres toutes rénovées en 2023.",
         reprend: [],
         blocs: [
-          { titre: "Dans chaque chambre", texte: "Toutes nos chambres offrent à vos participants le Wi-Fi haut débit et une literie haut de gamme, dans un décor de pierres apparentes, de boiseries et de teintes naturelles." },
+          { titre: "Dans chaque chambre", texte: "Toutes nos chambres offrent à vos participants le Wi-Fi haut débit et une literie haut de gamme : de quoi travailler le soir et bien dormir avant la session du lendemain." },
           { titre: "Arriver au domaine", texte: "Vos participants venus en voiture disposent d'un parking privé sur place. Pour ceux qui arrivent en train, les gares sont à environ 15 minutes en voiture : un transfert vers le domaine est organisé sur réservation, pour un participant comme pour tout le groupe." },
         ],
         faits: [

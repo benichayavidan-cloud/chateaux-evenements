@@ -210,11 +210,11 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           { label: "Chambres convertibles en twin", valeur: "45" },
           { label: "Chambres accessibles", valeur: "aux participants à mobilité réduite" },
         ],
-        reprendPhotos: [2, 0],
+        reprendPhotos: [2, 1],
         photos: [
         ],
         conseil:
-          "Pour une convention, pensez à la privatisation : sur demande, le château est réservé à vos participants.",
+          "Pour une convention, dites-moi combien de participants partagent une chambre : 45 chambres se convertissent en twin, avec deux lits séparés.",
       },
       {
         ancre: "direction-invites",
@@ -225,14 +225,14 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         reprend: [],
         blocs: [
           { titre: "Des suites pour la direction", texte: "Nos 18 suites conviennent à vos intervenants et à votre direction : ils y disposent d'un espace de travail pour préparer la session du lendemain." },
-          { titre: "Balcon ou terrasse sur la forêt", texte: "Certaines chambres ont un balcon ou une terrasse : une attention pour les invités de votre séminaire, face à la forêt de Chantilly." },
+          { titre: "Balcon ou terrasse sur la forêt", texte: "Certaines chambres ont un balcon ou une terrasse : une attention pour les invités de votre séminaire." },
         ],
         faits: [
           { label: "Suites", valeur: "18" },
           { label: "Balcon ou terrasse", valeur: "dans certaines chambres" },
           { label: "Catégories de chambres", valeur: "cosy, classique et premium" },
         ],
-        reprendPhotos: [3, 4, 5],
+        reprendPhotos: [3, 4, 0],
         photos: [
         ],
         conseil:
@@ -247,7 +247,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         reprend: [],
         blocs: [
           { titre: "Le petit-déjeuner avant la première session", texte: "Le petit-déjeuner de vos participants est servi de 7 h à 10 h, avant la première session de la journée." },
-          { titre: "Stationnement et taxis", texte: "Le parking privé et gratuit de 70 places est réservé à vos participants, avec 4 bornes de recharge pour véhicules électriques. Pour les départs, notre conciergerie réserve les taxis." },
+          { titre: "Stationnement et taxis", texte: "Le parking privé et gratuit de 70 places est réservé à vos participants, avec 4 bornes de recharge pour véhicules électriques. Notre conciergerie réserve les taxis." },
         ],
         faits: [
           { label: "Room service", valeur: "24h/24" },

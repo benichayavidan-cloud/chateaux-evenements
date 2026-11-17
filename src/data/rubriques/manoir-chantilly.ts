@@ -229,7 +229,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         photos: [
         ],
         conseil:
-          "Pour une convention, envoyez-moi la liste de vos participants : nous préparons avec vous la répartition entre chambres individuelles et chambres à lits jumeaux.",
+          "Pour une convention, envoyez-moi la liste de vos participants : nous préparons avec vous leur répartition, y compris dans les chambres à lits jumeaux.",
       },
       {
         ancre: "direction-invites",
