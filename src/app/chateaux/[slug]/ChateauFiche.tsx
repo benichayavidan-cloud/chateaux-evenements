@@ -7,7 +7,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Users, Check, Bed, Building2, HelpCircle, MapPin, Clock, Lock, Package } from "lucide-react";
+import { HelpCircle, MapPin } from "lucide-react";
 import { Section, Container } from '@/components/layout-v2';
 import { Text, Button } from '@/components/ui-v2';
 import { theme } from '@/design-system/tokens';
@@ -17,7 +17,8 @@ import DevisFormMini from "@/components/DevisFormMini";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { SectionFiche } from "@/components/domaine/SectionFiche";
 import { Medaillon } from "@/components/domaine/Medaillon";
-import styles from "@/components/domaine/domaine.module.css";
+import { EnTeteDomaine } from "@/components/domaine/EnTeteDomaine";
+import { BandeauConfiance } from "@/components/domaine/BandeauConfiance";
 import { sectionsFiche } from "@/lib/fiche-sections";
 import { lienFinal } from "@/data/redirections";
 import photosRenommees from "@/data/photos-renommees.json";
@@ -54,87 +55,7 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
       <SuiviVueChateau nom={chateau.nom} />
       {/* Hero Section — Style Airbnb hybride */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 2vw, 1.5rem)' }}>
-        {/* Titre + infos au-dessus des photos — espacements élargis le 17/11/2026 (demande PO :
-            le haut de page était tassé par rapport à la galerie et aux sections). */}
-        <div style={{ marginBottom: 'clamp(1.25rem, 3vw, 2.5rem)' }}>
-          <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: 'clamp(0.75rem, 1.5vw, 1.25rem)' }}>
-            <div
-              className="inline-flex items-center gap-2"
-              style={{
-                padding: '4px 12px 4px 4px',
-                background: `linear-gradient(135deg, ${theme.colors.primary.bronze}12, ${theme.colors.primary.gold}08)`,
-                border: `1px solid ${theme.colors.primary.bronze}40`,
-                borderRadius: theme.effects.borderRadius.full,
-              }}
-            >
-              <Medaillon icone={MapPin} taille="petit" />
-              <span style={{ fontSize: '0.8125rem', fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
-                {chateau.region}
-              </span>
-            </div>
-            <div
-              className="inline-flex items-center gap-1.5"
-              style={{
-                padding: '0.375rem 0.75rem',
-                background: `${theme.colors.primary.bronze}08`,
-                border: `1px solid ${theme.colors.primary.bronze}25`,
-                borderRadius: theme.effects.borderRadius.full,
-              }}
-            >
-              <span style={{ fontSize: '0.6875rem', fontWeight: theme.typography.fontWeight.bold, color: theme.colors.primary.bronze, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                Réf.
-              </span>
-              <span style={{ fontSize: '0.75rem', fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronzeDark, fontFamily: 'monospace' }}>
-                {chateau.ref}
-              </span>
-            </div>
-          </div>
-
-          <h1
-            style={{
-              fontSize: 'clamp(1.5rem, 3.5vw, 2.25rem)',
-              fontWeight: theme.typography.fontWeight.semibold,
-              fontFamily: theme.typography.fonts.heading,
-              lineHeight: 1.2,
-              color: theme.colors.neutral.gray900,
-              marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
-            }}
-          >
-            {chateau.titreFiche?.motCle ?? chateau.seoH1}
-            {chateau.titreFiche && (
-              <span style={{ display: 'block', fontSize: '0.62em', fontStyle: 'italic', color: theme.colors.primary.bronze, marginTop: '0.3em' }}>
-                {chateau.titreFiche.lieu}
-              </span>
-            )}
-          </h1>
-
-          <div className="flex flex-wrap items-center" style={{ columnGap: 'clamp(0.625rem, 1.6vw, 1.25rem)', rowGap: '0.5rem', color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>
-            <span className="inline-flex items-center gap-1.5">
-              <Medaillon icone={Users} taille="petit" />
-              {chateau.capacite.min}–{chateau.capacite.max} personnes
-            </span>
-            <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
-            <span className="inline-flex items-center gap-1.5">
-              <Medaillon icone={Bed} taille="petit" />
-              {chateau.roomsTotal} chambres
-              {chateau.roomsTwin ? ` (${chateau.roomsTwin} twins)` : ''}
-            </span>
-            <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
-            <span className="inline-flex items-center gap-1.5">
-              <Medaillon icone={Building2} taille="petit" />
-              {chateau.styleArchitectural}
-            </span>
-            {chateau.trajet && (
-              <>
-                <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
-                <span className="inline-flex items-center gap-1.5">
-                  <Medaillon icone={MapPin} taille="petit" />
-                  {chateau.trajet}
-                </span>
-              </>
-            )}
-          </div>
-        </div>
+        <EnTeteDomaine chateau={chateau} titre={chateau.titreFiche?.motCle ?? chateau.seoH1} lieu={chateau.titreFiche?.lieu} />
 
         {/* Grille photos style Airbnb + visionneuse (îlot client) */}
         <GaleriePhotosFiche grille={grille} toutes={toutes} />
@@ -144,59 +65,7 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
             le texte de partage (layout.tsx). */}
       </div>
 
-      {/* Bandeau chiffres clés — Arguments annonce Google Ads */}
-      <div
-        style={{
-          background: `${theme.colors.primary.bronze}05`,
-          borderBottom: `1px solid ${theme.colors.primary.bronze}15`,
-          padding: 'clamp(12px, 2vw, 16px) 0',
-        }}
-      >
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 32px)' }}>
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              gap: 'clamp(8px, 2vw, 16px)',
-            }}
-          >
-            {[
-              { icone: Check, label: '500+ Événements' },
-              { icone: Clock, label: 'Devis sous 24h' },
-              { icone: Lock, label: 'Privatisation Totale' },
-              { icone: Package, label: 'Tout Inclus' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '5px 14px 5px 5px',
-                  background: '#FFFFFF',
-                  border: `1px solid ${theme.colors.primary.bronze}20`,
-                  borderRadius: theme.effects.borderRadius.full,
-                }}
-              >
-                <Medaillon icone={item.icone} taille="petit" />
-                <span
-                  style={{
-                    fontSize: 'clamp(10px, 1.5vw, 12px)',
-                    fontWeight: theme.typography.fontWeight.semibold,
-                    color: theme.colors.primary.bronze,
-                    textTransform: 'uppercase',
-                    letterSpacing: theme.typography.letterSpacing.wide,
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {item.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <BandeauConfiance />
 
       {/* Menu des thèmes : onglets collés sous les badges, ligne fine sur toute la
           largeur (modèle PO du 17/11/2026). */}

@@ -52,6 +52,17 @@ export interface BlocTexte {
 export interface Rubrique {
   /** Titre de l'onglet (≤ 60 caractères, contrôlé au build). */
   seoTitle: string;
+  /**
+   * Titre de la section de texte de la page (H2) : un mot-clé et un détail du
+   * lieu, propre à cette page — ni celui de la fiche château, ni un titre
+   * commun aux 4 domaines (décision PO du 17/11/2026).
+   */
+  titreSection: string;
+  /**
+   * Le conseil de l'assistante séminaire pour cette page. Propre à la page,
+   * sans chiffre absent de la rubrique (testé). Signé d'un prénom réel.
+   */
+  conseil: string;
   /** Meta description (≤ 160 caractères). */
   seoDescription: string;
   /** Résumé repris sur l'accueil du domaine. */

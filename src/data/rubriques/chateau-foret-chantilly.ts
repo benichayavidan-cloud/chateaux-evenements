@@ -41,6 +41,9 @@ const stock = (nom: string) => chateauImage('Chateau Foret Chantilly', `seminair
 export const rubriquesChateauForet: RubriquesDomaine = {
   salles: {
     seoTitle: 'Salles de séminaire en forêt de Chantilly : 380 m²',
+    titreSection: "Centre de séminaires en forêt de Chantilly : plénière de 380 m²",
+    conseil:
+      "Pour une convention, la plénière s'équipe d'un mur LED de 5 mètres sur 2,5. Et notre bureau de coordination, au même niveau que les salons, suit votre programme toute la journée.",
     seoDescription:
       "Plénière de 380 m² pour 250 personnes, mur LED de 5 m, 9 salles de sous-commission de 33 à 75 m² autour d'un patio. Capacités salle par salle.",
     resume:
@@ -103,6 +106,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
 
   chambres: {
     seoTitle: 'Séminaire résidentiel à Chantilly : 109 chambres (60)',
+    titreSection: "Hébergement de séminaire en château 5 étoiles : 109 chambres et suites",
+    conseil:
+      "Pour les participants qui arrivent tôt ou repartent tard de votre séminaire : l'arrivée se fait à partir de 15 h, le départ jusqu'à midi, et le room service fonctionne 24 heures sur 24.",
     seoDescription:
       "109 chambres et suites ouvertes sur la forêt de Chantilly, dont 18 suites et 45 chambres convertibles en twin. Balcons, terrasses, room service 24h/24.",
     resume:
@@ -146,6 +152,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
 
   exterieurs: {
     seoTitle: 'Château avec parc de 5 ha en forêt de Chantilly',
+    titreSection: "Un parc de 5 hectares en pleine forêt pour votre séminaire",
+    conseil:
+      "Essayez la réunion en marchant avec vos participants : un sentier d'une vingtaine de minutes fait le tour du domaine, sans quitter le parc.",
     seoDescription:
       "Un parc de 5 hectares en forêt de Chantilly : terrasses face aux arbres, sentier de promenade, tennis, boulodrome, vélos électriques et VTT.",
     resume:
@@ -187,6 +196,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
 
   restauration: {
     seoTitle: 'Restauration de séminaire en château, forêt de Chantilly',
+    titreSection: "Restauration de séminaire : deux restaurants et le bar du patio",
+    conseil:
+      "Pour une journée d'étude, les pauses et le déjeuner sont compris dans nos offres. À la belle saison, faites servir le déjeuner de vos participants en terrasse.",
     seoDescription:
       "Restaurant gastronomique, restaurant de la bibliothèque, bar du patio : produits de saison, dîners de gala jusqu'à 200 couverts, show cooking.",
     resume:
@@ -228,6 +240,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
 
   soirees: {
     seoTitle: "Soirée d'entreprise dans un château près de Roissy",
+    titreSection: "Soirée d'entreprise au château : gala de 200 convives et deux bars",
+    conseil:
+      "Pour le cocktail de fin de séminaire, commencez sur les terrasses face à la forêt, puis passez à table en salle plénière. Notre équipe compose le déroulé de la soirée avec vous.",
     seoDescription:
       "Dîner de gala jusqu'à 200 convives, cocktail de 270 personnes, bar de la bibliothèque, apéritif sous la verrière du patio : vos soirées sur place.",
     resume:
@@ -269,6 +284,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
 
   activites: {
     seoTitle: 'Team building en forêt de Chantilly : parc et spa',
+    titreSection: "Team building au château 5 étoiles : polo, dragon boat et ateliers",
+    conseil:
+      "Pour une demi-journée hors du château pendant votre séminaire, demandez-moi l'initiation au polo dans un club de Chantilly, ou le dragon boat challenge.",
     seoDescription:
       "Atelier crème Chantilly avec notre chef pâtissier, défis culinaires, olympiades dans le parc, tennis, VTT, spa avec piscine, initiation au polo à proximité.",
     resume:
@@ -314,6 +332,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
 
   acces: {
     seoTitle: 'Accès : 20 min de Roissy-CDG, 45 min de Paris',
+    titreSection: "Accès au séminaire : Roissy à 20 min, gare du Nord en train",
+    conseil:
+      "Le château n'a pas de navette régulière : pour vos participants qui arrivent en train, prévoyez avec nous un transfert privé depuis la gare d'Orry-la-Ville-Coye, à 10 minutes en voiture.",
     seoDescription:
       "À 45 min de Paris en voiture, 20 min de Roissy-CDG et de sa gare TGV, train depuis Paris Gare du Nord. Parking de 70 places et bornes de recharge.",
     resume:

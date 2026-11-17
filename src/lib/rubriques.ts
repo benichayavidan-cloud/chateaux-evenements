@@ -142,7 +142,7 @@ export function motsBannis(source: Record<string, RubriquesDomaine> = RUBRIQUES_
       if (!r) continue;
       const texte = sansAccents(
         [
-          r.seoTitle, r.seoDescription, r.intro, r.resume,
+          r.seoTitle, r.seoDescription, r.titreSection, r.conseil, r.intro, r.resume,
           ...r.blocs.flatMap((b) => [b.titre, b.texte]),
           ...r.faits.flatMap((f) => [f.label, f.valeur]),
           ...r.photos.map((p) => p.legende),

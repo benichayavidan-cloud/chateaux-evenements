@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { chateaux } from '../data/chateaux.ts';
 import { FICHE_SECTIONS, SECTIONS_FICHE } from '../data/fiche-sections.ts';
-import { angleSeminaire, angleSuffisant, chiffresHorsSection, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionsFiche } from './fiche-sections.ts';
+import { angleSeminaire, angleSuffisant, chiffresHorsSection, horsSujet, phrases, rapportAngleSeminaire, rapportHorsSujet, sectionRubrique, sectionsFiche } from './fiche-sections.ts';
 
 const CHIFFRES = { roomsTotal: 119, meetingRooms: 21, capacite: { min: 10, max: 280 } };
 const parSlug = Object.fromEntries(chateaux.map((c) => [c.slug, c]));
@@ -205,4 +205,42 @@ test('balises : le title de chaque fiche commence par « Séminaire », sans jet
     assert.ok(d.length <= 160 && !/[{}]/.test(d) && /séminaire|équipes/i.test(d), `${fiches[i].slug} : « ${d} »`);
   }
   assert.equal(new Set(titres).size, titres.length);
+});
+
+// ---- Pages détaillées : même brique de section que la fiche
+import { RUBRIQUES } from '../types/rubriques.ts';
+import { RUBRIQUES_PAR_CHATEAU } from '../data/rubriques/index.ts';
+
+const pagesDetaillees = Object.entries(RUBRIQUES_PAR_CHATEAU).flatMap(([slug, rubs]) =>
+  RUBRIQUES.filter((id) => rubs[id]).map((id) => ({ slug, id, s: sectionRubrique(id, rubs[id]!) })),
+);
+const sectionsDesFiches = Object.keys(FICHE_SECTIONS).flatMap((slug) => sectionsFiche(slug, parSlug[slug]));
+
+test('pages détaillées : 28 sections, chacune avec titre, texte, photos et conseil', () => {
+  assert.equal(pagesDetaillees.length, 28);
+  for (const { slug, id, s } of pagesDetaillees) {
+    assert.ok(s.titre && s.titre.length <= 75 && !/[{}]/.test(s.titre), `${slug}/${id} : titre « ${s.titre} »`);
+    assert.ok(s.intro && s.blocs.length >= 2 && s.photos.length >= 1, `${slug}/${id}`);
+    assert.ok(s.conseil && s.conseil.length <= 260, `${slug}/${id} : conseil manquant ou trop long`);
+    assert.match(s.conseil, /séminaire|participants|convention|collaborateurs/i, `${slug}/${id}`);
+    assert.deepEqual(s.liens, [], `${slug}/${id} : la page ne renvoie pas vers elle-même`);
+  }
+});
+
+test('pages détaillées : titres de section tous différents, et différents de ceux des fiches', () => {
+  const titres = pagesDetaillees.map((p) => p.s.titre);
+  assert.equal(new Set(titres).size, titres.length);
+  const desFiches = new Set(sectionsDesFiches.map((s) => s.titre));
+  assert.deepEqual(titres.filter((t) => desFiches.has(t)), []);
+});
+
+test('pages détaillées : conseils tous différents, et différents de ceux des fiches', () => {
+  const conseils = pagesDetaillees.map((p) => p.s.conseil!);
+  assert.equal(new Set(conseils).size, conseils.length);
+  const desFiches = new Set(sectionsDesFiches.map((s) => s.conseil));
+  assert.deepEqual(conseils.filter((c) => desFiches.has(c)), []);
+});
+
+test('pages détaillées : un conseil n’avance aucun chiffre absent de sa page', () => {
+  for (const { slug, id, s } of pagesDetaillees) assert.deepEqual(chiffresHorsSection(s), [], `${slug}/${id}`);
 });

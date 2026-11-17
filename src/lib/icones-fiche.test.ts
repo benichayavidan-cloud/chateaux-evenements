@@ -32,3 +32,11 @@ test('chiffre : tous les libellés affichés sur les 4 fiches ont une icône cho
   );
   assert.deepEqual(sansIcone, []);
 });
+
+test('chiffre : tous les libellés des 28 pages détaillées ont une icône choisie', async () => {
+  const { RUBRIQUES_PAR_CHATEAU } = await import('../data/rubriques/index.ts');
+  const sansIcone = Object.entries(RUBRIQUES_PAR_CHATEAU).flatMap(([slug, rubs]) =>
+    Object.entries(rubs).flatMap(([id, r]) => r!.faits.filter((f) => iconeChiffre(f.label) === ICONE_PAR_DEFAUT).map((f) => `${slug}/${id} : ${f.label}`)),
+  );
+  assert.deepEqual(sansIcone, []);
+});

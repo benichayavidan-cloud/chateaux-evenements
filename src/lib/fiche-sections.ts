@@ -205,3 +205,46 @@ export function chiffresHorsSection(section: Pick<SectionFiche, 'titre' | 'intro
   );
   return nombres(section.conseil).filter((n) => !connus.has(n));
 }
+
+/**
+ * Section de texte d'une page détaillée (/chateaux/<slug>/<rubrique>), au
+ * même format que celles de la fiche pour passer par la même brique.
+ * Titre et conseil sont propres à la page (rubrique.titreSection et
+ * rubrique.conseil) : ni ceux de la fiche, ni un titre commun aux 4 châteaux
+ * (Google demande d'éviter le texte passe-partout sur un groupe de pages).
+ */
+/** Thème d'icône et d'ancre de la section, par rubrique. */
+const THEME_DE_RUBRIQUE: Record<RubriqueId, SectionFicheId> = {
+  salles: 'reunion',
+  chambres: 'hebergement',
+  exterieurs: 'lieu',
+  restauration: 'restauration',
+  soirees: 'restauration',
+  activites: 'activites',
+  acces: 'acces',
+};
+
+/** Étiquette au-dessus du titre, par rubrique. */
+export const ETIQUETTES_RUBRIQUE: Record<RubriqueId, string> = {
+  salles: 'Espaces de réunion',
+  chambres: 'Hébergement',
+  exterieurs: 'Le parc',
+  restauration: 'Restauration',
+  soirees: 'Soirées',
+  activites: 'Activités',
+  acces: 'Accès',
+};
+
+export function sectionRubrique(rubrique: RubriqueId, r: Rubrique): SectionFiche {
+  return {
+    id: THEME_DE_RUBRIQUE[rubrique],
+    etiquette: ETIQUETTES_RUBRIQUE[rubrique],
+    titre: r.titreSection,
+    intro: r.intro,
+    blocs: r.blocs,
+    faits: r.faits.map(({ label, valeur }) => ({ label, valeur })),
+    photos: r.photos.map((p) => ({ src: p.src, alt: p.legende })),
+    liens: [],
+    conseil: r.conseil,
+  };
+}
