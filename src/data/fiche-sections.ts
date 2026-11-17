@@ -118,6 +118,14 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 1]],
       acces: [['acces', 0], ['acces', 2], ['acces', 3]],
     },
+    conseils: {
+      lieu: "Ici, vos collaborateurs ne sont pas dans un centre de congrès, et ils le sentent dès leur arrivée. À 45 minutes de Paris, votre séminaire gagne une vraie coupure avec le quotidien.",
+      hebergement: "Pour un séminaire résidentiel, pensez à loger votre comité de direction à la ferme : ses 38 chambres fonctionnent comme un hameau à l'écart, pendant que le reste de vos participants dort à l'abbaye et aux haras.",
+      reunion: "Gardez la Grande Salle des Voûtes pour votre plénière : 150 participants sous une voûte du XIIe siècle, vos prises de parole marquent les esprits. Pour les ateliers, les salons des haras sont à deux pas.",
+      restauration: "Sur un séminaire de plusieurs jours, alternez : déjeuner d'affaires au restaurant gastronomique, dîner de cohésion à la table italienne de la ferme, et dîner de gala de 250 convives sous les voûtes pour clore votre convention.",
+      activites: "Laissez du temps libre dans le programme de votre séminaire : tennis, padel, barques sur le lac, vos participants choisissent. Pour souder le groupe, demandez-moi les olympiades dans le parc.",
+      acces: "Pour les participants qui viennent à votre séminaire sans voiture : RER B ou train depuis Montparnasse, puis nous organisons le transfert du groupe depuis la gare, à 15 minutes du domaine.",
+    },
   },
   'palais-royal-foret-chantilly': {
     titres: {
@@ -156,6 +164,14 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
     },
     blocs: {
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 0]],
+    },
+    conseils: {
+      lieu: "Pour un séminaire avec des équipes internationales, c'est l'adresse la plus simple : vos collaborateurs atterrissent à Roissy et sont au château 20 minutes plus tard, en pleine forêt.",
+      hebergement: "Pour un séminaire résidentiel en grand groupe, 45 chambres se convertissent en twin. Et gardez les 18 suites pour vos intervenants et votre direction.",
+      reunion: "Votre plénière de 250 participants se cloisonne l'après-midi pour les ateliers : vous passez de la séance commune aux sous-commissions sans changer de bâtiment. Les pauses se prennent dans le patio.",
+      restauration: "Pour le dîner de gala de votre convention, la salle plénière reçoit jusqu'à 200 convives. Et pour animer un déjeuner de séminaire, demandez-moi le show cooking, dès 15 participants.",
+      activites: "Pour souder vos équipes pendant le séminaire : olympiades dans le parc ou atelier crème Chantilly avec notre chef pâtissier. Et entre deux sessions de travail, l'espace bien-être attend vos participants.",
+      acces: "Pour un séminaire avec des participants venus de l'étranger : Roissy est à 20 minutes, et nous organisons les transferts privés du groupe depuis l'aéroport ou la gare.",
     },
   },
   'hotel-historique-seminaire-paris-92': {
@@ -196,6 +212,14 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
     blocs: {
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 2]],
       acces: [['acces', 0], ['acces', 2], ['acces', 3]],
+    },
+    conseils: {
+      lieu: "Pour un séminaire à Paris sans l'ambiance d'un hôtel de congrès : vos participants arrivent en métro et se retrouvent dans un jardin, avec la tour Eiffel à l'horizon.",
+      hebergement: "Pour un séminaire résidentiel, les 30 chambres communicantes logent vos équipes côte à côte. Et réservez les chambres avec vue sur la tour Eiffel à votre comité de direction.",
+      reunion: "Pour un comité de direction, demandez-moi la chapelle : une réunion stratégique à 14 autour d'une même table, sous 7 mètres de plafond. Vos participants s'en souviendront.",
+      restauration: "Aux beaux jours, installez le déjeuner de votre séminaire sur la terrasse, jusqu'à 70 convives, puis le cocktail au jardin. La cuisine du potager s'adapte aux régimes de vos participants.",
+      activites: "Pour clore une journée de séminaire, la masterclass de rhum dans la chapelle réunit le groupe autour d'un même récit. Entre deux sessions de travail, le spa est ouvert à vos participants.",
+      acces: "Pour un séminaire à Paris, vos participants viennent en métro : la ligne 12 s'arrête à 5 minutes à pied. Aucune navette à organiser pour le groupe.",
     },
   },
 };

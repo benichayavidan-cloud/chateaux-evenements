@@ -175,6 +175,10 @@ test('conseil : un chiffre absent de la section est signalé', () => {
   assert.deepEqual(chiffresHorsSection({ ...base }), []);
 });
 
+test('conseils : écrits pour les 4 châteaux', () => {
+  assert.equal(Object.values(FICHE_SECTIONS).filter((c) => c.conseils).length, 4);
+});
+
 for (const slug of Object.keys(FICHE_SECTIONS).filter((s) => FICHE_SECTIONS[s].conseils)) {
   const sections = sectionsFiche(slug, parSlug[slug]);
 
