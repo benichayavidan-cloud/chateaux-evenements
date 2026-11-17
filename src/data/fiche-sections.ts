@@ -115,6 +115,8 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
       ],
     },
     blocs: {
+      // La page Chambres a ses propres paragraphes d'ouverture (rangs 2 et suivants) : la fiche garde les deux premiers.
+      hebergement: [['chambres', 0], ['chambres', 1]],
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 1]],
       acces: [['acces', 0], ['acces', 2], ['acces', 3]],
     },
@@ -210,6 +212,8 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
       ],
     },
     blocs: {
+      // La page Chambres a ses propres paragraphes d'ouverture (rangs 2 et suivants) : la fiche garde les deux premiers.
+      hebergement: [['chambres', 0], ['chambres', 1]],
       restauration: [['restauration', 0], ['restauration', 1], ['restauration', 2], ['soirees', 2]],
       acces: [['acces', 0], ['acces', 2], ['acces', 3]],
     },

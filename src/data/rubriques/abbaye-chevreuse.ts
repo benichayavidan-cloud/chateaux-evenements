@@ -135,7 +135,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
     seoTitle: 'Séminaire résidentiel en abbaye : 144 chambres (78)',
     titreSection: "Hébergement de séminaire à l'abbaye : 144 chambres sur trois bâtiments",
     conseil:
-      "Pour que vos participants restent au plus près des salles de réunion, demandez-moi les 47 chambres des haras. Les 59 chambres de l'abbaye, elles, donnent sur les ruines, le lac ou la forêt.",
+      "Pour loger chaque participant de votre séminaire au bon endroit, envoyez-moi votre liste : je vous propose une répartition entre l'abbaye, les haras et la ferme.",
     seoDescription:
       "144 chambres et suites réparties entre l'abbaye, les haras et la ferme, rénovées en 2023. Pour un séminaire résidentiel, tout le groupe loge sur place.",
     resume:
@@ -168,30 +168,41 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         texte:
           "Petites chambres et chambres cosy pour les grands groupes, chambres supérieures et deluxe pour l'encadrement, suites pour vos dirigeants et vos invités de marque. Toutes offrent à vos participants le Wi-Fi haut débit et une literie haut de gamme.",
       },
+      {
+        titre: "Trois lieux, trois ambiances",
+        texte:
+          "Les 59 chambres de l'abbaye donnent sur les ruines, le lac ou la forêt. Les 47 chambres des haras occupent les anciennes écuries du domaine. La ferme compte 38 chambres : vos participants se répartissent entre ces trois lieux.",
+      },
+      {
+        titre: "De la petite chambre à la suite",
+        texte:
+          "Petites chambres, chambres cosy, supérieures, deluxe et suites : vous logez chaque participant de votre séminaire selon son rôle dans l'événement.",
+      },
     ],
+    blocsSection: [2, 3],
     sections: [
       {
         ancre: "grand-groupe",
         etiquette: "Grands groupes",
         titre: "Abbaye, haras, ferme : répartir vos participants sur le domaine",
         intro:
-          "Pour un séminaire résidentiel en grand groupe, nos 144 chambres et suites se partagent entre trois bâtiments : vous choisissez qui loge où, selon vos équipes et votre programme.",
+          "Pour un séminaire résidentiel en grand groupe, vous choisissez qui loge où, selon vos équipes et le programme de vos journées.",
         reprend: [],
         blocs: [
-          { titre: "Au plus près des salles de réunion", texte: "Les 47 chambres des haras sont au plus près des salons de réunion : logez-y les équipes de votre séminaire qui passent la journée en ateliers." },
-          { titre: "Pour les grands groupes", texte: "Les petites chambres et les chambres cosy conviennent aux grands groupes. Et comme tous vos participants dorment sur le domaine, votre séminaire démarre le matin sans navette. La ferme se trouve à trois minutes en voiture." },
+          { titre: "Les haras, au plus près des salles de réunion", texte: "Les 47 chambres des haras sont au plus près des salons de réunion : logez-y les équipes de votre séminaire qui passent la journée en ateliers. Les petites chambres et les chambres cosy conviennent aux grands groupes." },
+          { titre: "Le soir, chacun rejoint sa chambre", texte: "Après le dîner de gala ou une soirée sur le domaine, vos participants rejoignent leur chambre sans navette ni horaire de retour : pour un grand groupe, c'est une logistique en moins." },
         ],
         faits: [
-          { label: "Chambres à l'abbaye", valeur: "59" },
-          { label: "Chambres aux haras", valeur: "47" },
-          { label: "Chambres à la ferme", valeur: "38" },
+          { label: "Chambres aux haras", valeur: "47, près des salles de réunion" },
+          { label: "Petites chambres et chambres cosy", valeur: "pour les grands groupes" },
+          { label: "Retour en chambre", valeur: "sans navette, le soir" },
         ],
         reprendPhotos: [4, 5],
         photos: [
           { src: "/images/seminaire-abbaye-vallee-de-chevreuse-chambre-petite-haras.webp", legende: "Petite chambre mansardée aux haras" },
         ],
         conseil:
-          "Pour un séminaire en grand groupe, donnez-moi la composition de vos équipes : nous les répartissons entre l'abbaye, les haras et la ferme.",
+          "Pour les équipes de votre séminaire qui enchaînent les ateliers, demandez-moi les 47 chambres des haras : elles sont au plus près des salles de réunion.",
       },
       {
         ancre: "direction-invites",
@@ -202,12 +213,12 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         reprend: [],
         blocs: [
           { titre: "Un hameau à part pour le comité de direction", texte: "La ferme et ses 38 chambres fonctionnent comme un hameau à part : vous y logez votre comité de direction ou une équipe à l'écart du groupe, le temps de votre séminaire." },
-          { titre: "Des chambres avec vue pour vos invités", texte: "À l'abbaye, les chambres donnent sur les ruines, le lac ou la forêt. Les suites reviennent à vos dirigeants et à vos invités de marque, les chambres supérieures et deluxe à l'encadrement." },
+          { titre: "Suites et chambres deluxe", texte: "Les suites reviennent à vos dirigeants et à vos invités de marque, les chambres supérieures et deluxe à l'encadrement de votre séminaire." },
         ],
         faits: [
           { label: "Chambres à la ferme", valeur: "38, à l'écart du groupe" },
           { label: "Suites", valeur: "pour vos dirigeants et invités" },
-          { label: "Chambres de l'abbaye", valeur: "vue sur les ruines, le lac ou la forêt" },
+          { label: "Chambres supérieures et deluxe", valeur: "pour l'encadrement" },
         ],
         reprendPhotos: [0, 3, 6],
         photos: [
@@ -220,7 +231,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         etiquette: "Le séjour de vos participants",
         titre: "Wi-Fi, parking, transferts : le séjour de vos participants à l'abbaye",
         intro:
-          "Pendant votre séminaire résidentiel, vos participants trouvent sur place de quoi travailler et se reposer, dans des chambres toutes rénovées en 2023.",
+          "Pendant votre séminaire résidentiel, vos participants trouvent dans leur chambre de quoi travailler le soir et se reposer, sur un domaine facile à rejoindre.",
         reprend: [],
         blocs: [
           { titre: "Dans chaque chambre", texte: "Toutes nos chambres offrent à vos participants le Wi-Fi haut débit et une literie haut de gamme : de quoi travailler le soir et bien dormir avant la session du lendemain." },

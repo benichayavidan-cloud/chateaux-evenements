@@ -220,7 +220,9 @@ test('pages détaillées : 28 sections, chacune avec titre, texte, photos et con
   assert.equal(pagesDetaillees.length, 28);
   for (const { slug, id, s } of pagesDetaillees) {
     assert.ok(s.titre && s.titre.length <= 75 && !/[{}]/.test(s.titre), `${slug}/${id} : titre « ${s.titre} »`);
-    assert.ok(s.intro && s.blocs.length >= 2 && s.photos.length >= 1, `${slug}/${id}`);
+    // Une page qui a des sections supplémentaires peut ouvrir sur un seul paragraphe.
+    const minimum = RUBRIQUES_PAR_CHATEAU[slug][id]?.sections?.length ? 1 : 2;
+    assert.ok(s.intro && s.blocs.length >= minimum && s.photos.length >= 1, `${slug}/${id}`);
     assert.ok(s.conseil && s.conseil.length <= 260, `${slug}/${id} : conseil manquant ou trop long`);
     assert.match(s.conseil, /séminaire|participants|convention|collaborateurs/i, `${slug}/${id}`);
     assert.deepEqual(s.liens, [], `${slug}/${id} : la page ne renvoie pas vers elle-même`);
@@ -307,5 +309,12 @@ test('pages détaillées : une photo n’apparaît que dans un seul diaporama de
       const srcs = [sectionRubrique(id, rubs[id]!), ...sectionsSupplementaires(id, rubs[id]!)].flatMap((x) => x.photos.map((p) => p.src));
       assert.equal(new Set(srcs).size, srcs.length, `${slug}/${id}`);
     }
+  }
+});
+
+test('fiches de l’abbaye et du 92 : l’hébergement garde ses deux paragraphes, sans ceux de la page Chambres', () => {
+  for (const slug of ['abbaye-millenaire-vallee-chevreuse', 'hotel-historique-seminaire-paris-92']) {
+    const fiche = sectionsFiche(slug, parSlug[slug]).find((x) => x.id === 'hebergement')!;
+    assert.deepEqual(fiche.blocs, RUBRIQUES_PAR_CHATEAU[slug].chambres!.blocs.slice(0, 2), slug);
   }
 });
