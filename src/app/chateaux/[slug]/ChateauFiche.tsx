@@ -61,13 +61,13 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
             <div
               className="inline-flex items-center gap-2"
               style={{
-                padding: '0.375rem 0.75rem',
+                padding: '4px 12px 4px 4px',
                 background: `linear-gradient(135deg, ${theme.colors.primary.bronze}12, ${theme.colors.primary.gold}08)`,
                 border: `1px solid ${theme.colors.primary.bronze}40`,
                 borderRadius: theme.effects.borderRadius.full,
               }}
             >
-              <MapPin className="w-3.5 h-3.5" style={{ color: theme.colors.primary.bronze }} />
+              <Medaillon icone={MapPin} taille="petit" />
               <span style={{ fontSize: '0.8125rem', fontWeight: theme.typography.fontWeight.semibold, color: theme.colors.primary.bronze }}>
                 {chateau.region}
               </span>
@@ -110,25 +110,25 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
 
           <div className="flex flex-wrap items-center" style={{ columnGap: 'clamp(0.625rem, 1.6vw, 1.25rem)', rowGap: '0.5rem', color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>
             <span className="inline-flex items-center gap-1.5">
-              <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+              <Medaillon icone={Users} taille="petit" />
               {chateau.capacite.min}–{chateau.capacite.max} personnes
             </span>
             <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
             <span className="inline-flex items-center gap-1.5">
-              <Bed className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+              <Medaillon icone={Bed} taille="petit" />
               {chateau.roomsTotal} chambres
               {chateau.roomsTwin ? ` (${chateau.roomsTwin} twins)` : ''}
             </span>
             <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
             <span className="inline-flex items-center gap-1.5">
-              <Building2 className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+              <Medaillon icone={Building2} taille="petit" />
               {chateau.styleArchitectural}
             </span>
             {chateau.trajet && (
               <>
                 <span className={styles.separateurInfos} style={{ color: theme.colors.neutral.gray300 }} aria-hidden>·</span>
                 <span className="inline-flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                  <Medaillon icone={MapPin} taille="petit" />
                   {chateau.trajet}
                 </span>
               </>
@@ -270,7 +270,7 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
               if (!links) return null;
               return (
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: theme.spacing.lg, marginTop: theme.spacing.xl, flexWrap: "wrap" }}>
-                  <MapPin className="w-4 h-4" style={{ color: theme.colors.primary.bronze, opacity: 0.7 }} />
+                  <Medaillon icone={MapPin} taille="petit" />
                   {links.map((link, i) => (
                     <Link key={i} href={link.href} style={{ color: theme.colors.neutral.gray600, fontSize: theme.typography.fontSize.sm, textDecoration: "underline", textUnderlineOffset: "3px" }}>
                       {link.label}
@@ -292,7 +292,7 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
             <div>
               <div style={{ marginBottom: '1.5rem' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: '1rem' }}>
-                  <HelpCircle className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
+                  <Medaillon icone={HelpCircle} taille="petit" />
                   <span style={{ fontSize: '0.75rem', fontWeight: 600, color: theme.colors.primary.bronze, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Questions fréquentes</span>
                 </div>
                 <Text variant="h2" style={{ marginBottom: theme.spacing.sm, textAlign: 'left' }}>
