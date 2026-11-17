@@ -23,9 +23,11 @@ interface DecouvrirDomaineProps {
   rubriques: RubriqueId[];
   /** Titre de la section (défaut : « Découvrir le domaine »). */
   titre?: string;
+  /** « au Grand Château Anglo-Normand » : seconde ligne du titre, en doré. */
+  lieu?: string;
 }
 
-export function DecouvrirDomaine({ slug, rubriques, titre = "Découvrir le domaine" }: DecouvrirDomaineProps) {
+export function DecouvrirDomaine({ slug, rubriques, titre = "Découvrir le domaine", lieu }: DecouvrirDomaineProps) {
   if (rubriques.length === 0) return null;
 
   return (
@@ -35,10 +37,14 @@ export function DecouvrirDomaine({ slug, rubriques, titre = "Découvrir le domai
         <div style={{ textAlign: "center" }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "5px 14px 5px 5px", background: `${theme.colors.primary.bronze}10`, borderRadius: theme.effects.borderRadius.full, border: `1px solid ${theme.colors.primary.bronze}30`, marginBottom: "1rem" }}>
             <Medaillon icone={Sparkles} taille="petit" />
-            <span style={{ fontSize: "0.75rem", fontWeight: 600, color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>Le domaine en détail</span>
+            <span style={{ fontSize: "0.75rem", fontWeight: 600, color: theme.colors.primary.bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>Toujours dans le même domaine</span>
           </div>
         </div>
-        <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "center" }}>{titre}</Text>
+        <Text variant="h2" style={{ marginBottom: "1.5rem", textAlign: "center" }}>
+          {titre}
+          {/* Le lieu en seconde ligne : sans lui, rien ne disait que ces pages sont celles du même domaine (retour PO du 17/11/2026). */}
+          {lieu && <span className={styles.titreLieu}>{lieu}</span>}
+        </Text>
         <ul className={styles.grilleRubriques}>
           {rubriques.map((id) => {
             const r = lireRubrique(slug, id);

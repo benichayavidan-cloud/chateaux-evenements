@@ -141,7 +141,7 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
         </Section>
       )}
 
-      <DecouvrirDomaine slug={chateau.slug} rubriques={autres} titre="Découvrir aussi le domaine" />
+      <DecouvrirDomaine slug={chateau.slug} rubriques={autres} titre="Les autres espaces de votre séminaire" lieu={lieuDansTitre(chateau.slug)} />
 
       <Section spacing="lg" background="white" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
         <Container size="xl">
