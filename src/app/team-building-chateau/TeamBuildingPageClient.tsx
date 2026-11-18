@@ -468,7 +468,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
   return (
     <>
       {/* ─── Breadcrumbs visuels SEO ─── */}
-      <nav aria-label="Fil d'Ariane" style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 4vw, 2rem) 0' }}>
+      <nav aria-label="Fil d'Ariane" style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 4vw, 2rem) clamp(1.25rem, 3vw, 2rem)' }}>
         <ol style={{ display: 'flex', alignItems: 'center', gap: '6px', listStyle: 'none', margin: 0, padding: 0, fontSize: '0.8125rem' }}>
           <li>
             <Link href="/" style={{ color: theme.colors.neutral.gray500, textDecoration: 'none', transition: 'color 0.2s' }}>

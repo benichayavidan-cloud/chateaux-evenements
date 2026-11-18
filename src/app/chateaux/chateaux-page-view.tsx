@@ -108,7 +108,7 @@ export function ChateauxPageView({ dept }: ChateauxPageViewProps) {
       {/* H1 SEO - moved to visible heading below */}
 
       {/* Hero Section — Style Airbnb (comme les pages châteaux individuelles) */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) 0' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem) clamp(1.25rem, 3vw, 2rem)' }}>
         {/* Titre + infos au-dessus des photos */}
         <div style={{ marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
           <div className="flex flex-wrap items-center gap-2" style={{ marginBottom: '0.5rem' }}>
