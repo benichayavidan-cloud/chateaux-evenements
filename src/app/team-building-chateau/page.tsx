@@ -53,7 +53,7 @@ const faq = [
   },
   {
     question: "Comment organiser un team building en château près de Paris ?",
-    answer: "3 étapes : (1) définir vos objectifs (cohésion, intégration, récompense) et le nombre de participants, (2) choisir le château selon la taille du groupe et le style d'activités souhaité — nos 4 domaines offrent chacun un cadre unique, (3) contacter Select Châteaux pour recevoir un programme sur-mesure avec devis sous 24h. Nous gérons la logistique de A à Z : transport, hébergement, restauration et +40 activités."
+    answer: "3 étapes : (1) définir vos objectifs (cohésion, intégration, récompense) et le nombre de participants, (2) choisir le château selon la taille du groupe et le style d'activités souhaité — nos 4 domaines offrent chacun un cadre unique, (3) contacter Select Châteaux pour recevoir un programme sur-mesure avec devis sous 24h. Nous gérons la logistique de A à Z : transport, hébergement, restauration et animations."
   },
 ];
 
