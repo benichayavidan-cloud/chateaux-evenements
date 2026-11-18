@@ -247,6 +247,7 @@ export const camilleArticles: BlogPost[] = [
 
   {
     id: 1241,
+    seoTitle: "Laser game et escape game nature à Fontainebleau",
     slug: "animation-escape-game-nature-chateau-fontainebleau-rambouillet-2026",
     title: "Laser game et escape game nature à Fontainebleau et Rambouillet : tarifs et organisation",
     excerpt: "Laser game ou escape game nature en forêt de Fontainebleau et de Rambouillet : tarifs, formats et étapes pour organiser une animation en plein air.",
