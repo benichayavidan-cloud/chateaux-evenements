@@ -268,66 +268,6 @@ export function ChateauxPageView({ dept }: ChateauxPageViewProps) {
           </div>
         </div>
 
-        {/* CTA Bar sous les photos */}
-        <div
-          className="hero-cta-bar"
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-            marginTop: 'clamp(1rem, 2vw, 1.25rem)',
-            padding: 'clamp(1rem, 2vw, 1.25rem)',
-            background: theme.colors.neutral.gray50,
-            borderRadius: theme.effects.borderRadius.xl,
-            border: `1px solid ${theme.colors.neutral.gray200}`,
-            flexWrap: 'wrap',
-          }}
-        >
-          <p
-            style={{
-              fontSize: 'clamp(0.8125rem, 2vw, 1rem)',
-              color: theme.colors.neutral.gray600,
-              fontStyle: 'italic',
-              margin: 0,
-              flex: '1 1 auto',
-              minWidth: 0,
-            }}
-          >
-            Collection exclusive de domaines privatisables aux portes de Paris pour vos événements d'entreprise
-          </p>
-          <div className="hero-cta-buttons flex gap-2.5 flex-shrink-0 items-center">
-            <Link
-              href="/devis#formulaire"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 24px',
-                borderRadius: theme.effects.borderRadius.full,
-                background: `linear-gradient(135deg, ${theme.colors.primary.gold} 0%, ${theme.colors.primary.bronze} 100%)`,
-                color: '#FFFFFF',
-                fontWeight: theme.typography.fontWeight.bold,
-                fontSize: '0.875rem',
-                textDecoration: 'none',
-                boxShadow: '0 4px 12px rgba(183, 135, 77, 0.3)',
-                transition: 'all 0.2s ease',
-              }}
-            >
-              Devis Gratuit en 24h
-            </Link>
-            <a
-              href={`tel:${CONTACT_PHONE_E164}`}
-              onClick={() => trackPhoneClick()}
-              className="badge-lg border-2 border-white/40 bg-black/40 backdrop-blur-md text-white font-semibold text-sm hover:bg-black/50 transition-all"
-              style={{ textDecoration: 'none', color: 'white' }}
-            >
-              <Phone className="w-4 h-4" style={{ color: 'white' }} />
-              {CONTACT_PHONE_DISPLAY}
-            </a>
-          </div>
-        </div>
       </div>
 
       {/* ========== 2. LES 4 CHÂTEAUX — Cards éditoriales alternées ========== */}

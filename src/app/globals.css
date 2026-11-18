@@ -1688,27 +1688,6 @@ textarea::placeholder {
   }
 }
 
-/* Page /chateaux — Hero CTA bar responsive */
-@media (max-width: 639px) {
-  .hero-cta-bar {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    text-align: center;
-  }
-  .hero-cta-bar p {
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
-  .hero-cta-buttons {
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-  }
-  .hero-cta-buttons a {
-    flex: 1 1 auto;
-    justify-content: center;
-    text-align: center;
-  }
-}
 
 /* Page /chateaux — Pitch layout responsive */
 @media (max-width: 767px) {
