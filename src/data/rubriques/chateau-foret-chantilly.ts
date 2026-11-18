@@ -541,7 +541,6 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           { src: "/images/services/soiree-entreprise-white-party-chateau-acrobates.webp", legende: "Soirée blanche (image d’illustration, autre lieu)" },
           { src: "/images/services/soiree-entreprise-casino-royale-chateau-tables-jeux.webp", legende: "Soirée Casino (image d’illustration, autre lieu)" },
         ],
-        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
         conseil:
           "Après une journée de team building, misez sur la guinguette en plein air : vos participants restent dehors, dans le parc du château.",
       },

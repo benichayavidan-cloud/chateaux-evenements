@@ -547,7 +547,6 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           { src: "/images/services/soiree-entreprise-gatsby-annees-folles-chateau-jazz.webp", legende: "Soirée Gatsby (image d’illustration, autre lieu)" },
           { src: "/images/services/soiree-entreprise-festival-guinguette-chateau-plein-air.webp", legende: "Soirée guinguette en plein air (image d’illustration, autre lieu)" },
         ],
-        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
         conseil:
           "Pour une soirée de séminaire qui ne ressemble à aucune autre, demandez-moi le thème Prohibition : il fait écho au bar à rhum du domaine, installé dans une ancienne chapelle.",
       },

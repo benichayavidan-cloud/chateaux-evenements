@@ -575,7 +575,6 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           { src: "/images/services/soiree-entreprise-casino-royale-chateau-tables-jeux.webp", legende: "Soirée Casino (image d’illustration, autre lieu)" },
           { src: "/images/services/soiree-entreprise-bal-masque-venitien-chateau-salon.webp", legende: "Bal masqué vénitien (image d’illustration, autre lieu)" },
         ],
-        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
         conseil:
           "Pour le gala de clôture de votre convention, demandez-moi le thème Gatsby : il va bien avec ce château du début du XXe siècle.",
       },

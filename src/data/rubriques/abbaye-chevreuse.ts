@@ -519,7 +519,6 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           { src: "/images/services/soiree-entreprise-murder-party-enquete-chateau.webp", legende: "Murder party (image d’illustration, autre lieu)" },
           { src: "/images/services/soiree-entreprise-bal-masque-venitien-chateau-salon.webp", legende: "Bal masqué vénitien (image d’illustration, autre lieu)" },
         ],
-        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
         conseil:
           "Pour une soirée de séminaire qui tire parti du lieu, demandez-moi le banquet médiéval : il se tient sous les voûtes du XIIe siècle.",
       },
