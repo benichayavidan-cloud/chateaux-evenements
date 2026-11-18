@@ -499,18 +499,18 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         ancre: "soirees-a-theme",
         etiquette: "Soirées à thème",
-        titre: "Soirées à thème à l'abbaye : banquet médiéval, soirée enquête et bal masqué",
+        titre: "Soirées à thème à l'abbaye : banquet médiéval, murder party et bal masqué",
         intro:
           "Au-delà du dîner de gala, notre équipe met en scène des soirées à thème sur le domaine. Trois d'entre elles tirent le meilleur parti de l'abbaye.",
         reprend: [],
         blocs: [
           { titre: "Banquet médiéval sous les voûtes", texte: "Banquet aux chandelles, troubadours, spectacle de fauconnerie et tir à l'arc : sous des voûtes du XIIe siècle, le thème médiéval n'a pas besoin de décor ajouté." },
-          { titre: "Soirée enquête (murder party)", texte: "Un scénario original, des comédiens professionnels et des indices cachés dans les salons : vos participants mènent l'enquête par équipes. Un format de cohésion qui fait travailler la communication et la stratégie, le temps d'une soirée." },
+          { titre: "Murder party", texte: "Un scénario original, des comédiens professionnels et des indices cachés dans les salons : vos participants mènent l'enquête par équipes. Un format de cohésion qui fait travailler la communication et la stratégie, le temps d'une soirée." },
           { titre: "Bal masqué vénitien", texte: "Un bal costumé aux chandelles : chaque invité reçoit son masque en arrivant, puis se laisse guider pour les danses de salon, sur une musique baroque. Après le dîner de gala, vos invités changent d'époque sans quitter le domaine." },
         ],
         faits: [
           { label: "Soirée à thème conseillée", valeur: "banquet médiéval" },
-          { label: "Autres thèmes de soirée", valeur: "soirée enquête, bal masqué" },
+          { label: "Autres thèmes de soirée", valeur: "murder party, bal masqué" },
           { label: "Décor et animation de soirée", valeur: "sur mesure" },
         ],
         reprendPhotos: [],
