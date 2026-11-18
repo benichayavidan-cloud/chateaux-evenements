@@ -139,7 +139,151 @@
     },
     {
       "from": "seminaire-chantilly-activites-team-building",
-      "to": "/team-building-chateau"
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "seminaire-chateau-yvelines-automne-2026",
+      "to": "/blog/seminaire-yvelines-78-luxe-proximite"
+    },
+    {
+      "from": "seminaire-yvelines-lieu-atypique-domaine-2026",
+      "to": "/blog/seminaire-yvelines-78-luxe-proximite"
+    },
+    {
+      "from": "seminaire-automne-chateau-foret-programme-octobre-novembre-2026",
+      "to": "/blog/seminaire-automne-foret-fontainebleau-rambouillet-guide-2026"
+    },
+    {
+      "from": "securite-juridique-assurance-evenement-entreprise-chateau-2026",
+      "to": "/blog/assurance-responsabilite-organisateur-seminaire-chateau-2026"
+    },
+    {
+      "from": "drh-guide-juridique-contrat-seminaire-chateau-2026",
+      "to": "/blog/contrat-organisateur-evenementiel-clauses-essentielles-seminaire-chateau-2026"
+    },
+    {
+      "from": "negocier-clauses-force-majeure-contrat-seminaire-chateau-2026",
+      "to": "/blog/contrat-organisateur-evenementiel-clauses-essentielles-seminaire-chateau-2026"
+    },
+    {
+      "from": "interpreter-contrat-location-salle-seminaire-chateau-clauses-cles-2026",
+      "to": "/blog/contrat-organisateur-evenementiel-clauses-essentielles-seminaire-chateau-2026"
+    },
+    {
+      "from": "negocier-contrat-prestataire-evenementiel-chateau-2026",
+      "to": "/blog/contrat-organisateur-evenementiel-clauses-essentielles-seminaire-chateau-2026"
+    },
+    {
+      "from": "incentive-commercial-chateau-recompenser-equipe-vente-2026",
+      "to": "/blog/seminaire-incentive-recompense-top-equipe-chateau-experience-2026"
+    },
+    {
+      "from": "programme-reconnaissance-top-performers-chateau-2026",
+      "to": "/blog/seminaire-incentive-recompense-top-equipe-chateau-experience-2026"
+    },
+    {
+      "from": "seminaire-rencontre-equipe-commerciale-chateau-guide-2026",
+      "to": "/blog/seminaire-kick-off-rentree-chateau-guide-2026"
+    },
+    {
+      "from": "gestion-allergies-regimes-traiteur-seminaire-chateau-2026",
+      "to": "/blog/regimes-alimentaires-invites-seminaire-chateau-guide-2026"
+    },
+    {
+      "from": "seminaire-entreprise-accessibilite-regime-alimentaire-guide-vegetarien-vegan-halal-2026",
+      "to": "/blog/regimes-alimentaires-invites-seminaire-chateau-guide-2026"
+    },
+    {
+      "from": "gastronomie-menu-diner-gala-seminaire-chateau-automne-2026",
+      "to": "/blog/catering-vip-seminaire-chateau-cocktail-diner-gala-2026"
+    },
+    {
+      "from": "gastronomie-traiteur-diner-gala-chateau-guide-prestataires-2026",
+      "to": "/blog/catering-vip-seminaire-chateau-cocktail-diner-gala-2026"
+    },
+    {
+      "from": "guide-seminaire-residentiel-chateau",
+      "to": "/blog/seminaire-residentiel-vs-journee"
+    },
+    {
+      "from": "combien-jours-seminaire-efficace",
+      "to": "/blog/seminaire-residentiel-vs-journee"
+    },
+    {
+      "from": "gestion-conflits-interpersonnels-seminaire-chateau-prevention-2026",
+      "to": "/blog/interpreter-conflits-equipe-seminaire-chateau-mediation-guide-2026"
+    },
+    {
+      "from": "prevenir-conflits-interets-seminaire-chateau-guide-rh-2026",
+      "to": "/blog/interpreter-conflits-equipe-seminaire-chateau-mediation-guide-2026"
+    },
+    {
+      "from": "gestion-pluie-intemperies-seminaire-chateau-plan-b-2026",
+      "to": "/blog/preparer-seminaire-entreprise-previsions-meteo-plan-b-2026"
+    },
+    {
+      "from": "interpreter-meteo-juillet-aout-seminaire-chateau-contingences-2026",
+      "to": "/blog/preparer-seminaire-entreprise-previsions-meteo-plan-b-2026"
+    },
+    {
+      "from": "photographe-videaste-seminaire-chateau-guide-2026",
+      "to": "/blog/photographier-souvenir-seminaire-chateau-guide-2026"
+    },
+    {
+      "from": "prevenir-epuisement-organisateur-seminaire-chateau-guide-2026",
+      "to": "/blog/wellbeing-chef-projet-evenementiel-burnout-prevention-2026"
+    },
+    {
+      "from": "seminaire-chateau-nature-oise-experience-2026",
+      "to": "/blog/seminaire-oise-nature-prestige-paris"
+    },
+    {
+      "from": "top-chateaux-oise-60",
+      "to": "/blog/seminaire-oise-nature-prestige-paris"
+    },
+    {
+      "from": "mobilite-pmr-acces-chateau-seminaire-guide-pratique-2026",
+      "to": "/blog/accessibilite-pmr-seminaire-chateau-guide-2026"
+    },
+    {
+      "from": "allergie-insolation-premiers-secours-seminaire-chateau-ete-2026",
+      "to": "/blog/gestion-allergies-malaises-seminaire-chateau-protocole-urgence-2026"
+    },
+    {
+      "from": "charte-numerique-droit-deconnexion-seminaire-chateau-2026",
+      "to": "/blog/deconnexion-digitale-seminaire-chateau-guide-pratique-2026"
+    },
+    {
+      "from": "negocier-reduction-fiscale-seminaire-chateau-cse-2026",
+      "to": "/blog/financement-cse-seminaire-chateau-guide-pratique-2026"
+    },
+    {
+      "from": "responsable-formation-financer-seminaire-chateau-subventions-aides-2026",
+      "to": "/blog/financer-seminaire-opco-plan-formation-chateau-2026"
+    },
+    {
+      "from": "gestion-stress-thermique-canicule-seminaire-chateau-ete-2026",
+      "to": "/blog/gerer-chaleur-aout-seminaire-chateau-bien-etre-ete-2026"
+    },
+    {
+      "from": "seminaire-lancement-nouveau-produit-chateau-guide-2026",
+      "to": "/blog/lancement-produit-chateau-evenement-corporate-2026"
+    },
+    {
+      "from": "scenographie-decoration-evenementielle-seminaire-chateau-2026",
+      "to": "/blog/mobilier-decoration-salle-seminaire-chateau-guide-2026"
+    },
+    {
+      "from": "musique-live-orchestre-seminaire-chateau-guide-2026",
+      "to": "/blog/musique-live-jazz-cocktail-seminaire-chateau-prestataires-tarifs-2026"
+    },
+    {
+      "from": "seminaire-integration-fusion-equipes-chateau-guide-2026",
+      "to": "/blog/seminaire-post-fusion-acquisition-cohesion-equipe-chateau-2026"
+    },
+    {
+      "from": "seminaire-vallee-de-chevreuse-abbaye-secrete",
+      "to": "/chateaux/abbaye-millenaire-vallee-chevreuse"
     }
   ]
 }

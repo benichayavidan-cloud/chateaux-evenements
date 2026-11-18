@@ -63,12 +63,6 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
 
   // ── PRIORITÉ MAXIMALE (articles satellites proches page 1) ──
 
-  {
-    keywords: ["activités Chantilly", "team building Chantilly", "activités team building à Chantilly", "activités team building Chantilly", "domaines Chantilly", "team building forêt Chantilly"],
-    targetSlug: "seminaire-chantilly-activites-team-building",
-    title: "15 activités team building à Chantilly",
-    priority: 9,
-  },
 
   // ── PRIORITÉ HAUTE (pages avec 100+ imp et pos > 25 ou 0 clics) ──
 
@@ -121,12 +115,6 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
     keywords: ["repas séminaire", "traiteur séminaire", "menu séminaire entreprise"],
     targetSlug: "repas-seminaire-tendances-traiteur-2026",
     title: "Tendances repas séminaire 2026",
-    priority: 7,
-  },
-  {
-    keywords: ["châteaux dans l'Oise", "château Oise séminaire", "top châteaux Oise"],
-    targetSlug: "top-chateaux-oise-60",
-    title: "Top châteaux dans l'Oise pour séminaire",
     priority: 7,
   },
   {
