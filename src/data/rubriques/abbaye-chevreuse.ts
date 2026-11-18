@@ -496,6 +496,33 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         conseil:
           "Pour finir la soirée de votre séminaire au calme, demandez-moi une séance privée au cinéma du domaine pour vos participants.",
       },
+      {
+        ancre: "soirees-a-theme",
+        etiquette: "Soirées à thème",
+        titre: "Soirées à thème à l'abbaye : banquet médiéval, Murder party et Bal masqué",
+        intro:
+          "Au-delà du dîner de gala, notre équipe met en scène des soirées à thème sur le domaine. Trois d'entre elles tirent le meilleur parti de l'abbaye.",
+        reprend: [],
+        blocs: [
+          { titre: "Banquet médiéval sous les voûtes", texte: "Banquet aux chandelles, troubadours, spectacle de fauconnerie et tir à l'arc : sous des voûtes du XIIe siècle, le thème médiéval n'a pas besoin de décor ajouté. La soirée peut se terminer par une montée aux flambeaux dans le parc." },
+          { titre: "Murder party", texte: "Un scénario original, des comédiens professionnels et des indices cachés dans les salons : vos participants mènent l'enquête par équipes. Un format de cohésion qui fait travailler la communication et la stratégie, le temps d'une soirée." },
+          { titre: "Bal masqué vénitien", texte: "Masques remis à l'arrivée, musique baroque en direct et danses de salon guidées : après le dîner de gala, vos invités changent d'époque sans quitter le domaine." },
+        ],
+        faits: [
+          { label: "Thèmes de soirée", valeur: "Médiéval, Murder party, Bal masqué" },
+          { label: "Animations de soirée", valeur: "troubadours, comédiens, musique baroque" },
+          { label: "Soirée sur mesure", valeur: "décor, animation et dress code" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/services/soiree-entreprise-medievale-banquet-chateau-chandelles.webp", legende: "Banquet médiéval aux chandelles : exemple de soirée à thème organisée par notre équipe (photo d’illustration)" },
+          { src: "/images/services/soiree-entreprise-murder-party-enquete-chateau.webp", legende: "Murder party : exemple de soirée à thème organisée par notre équipe (photo d’illustration)" },
+          { src: "/images/services/soiree-entreprise-bal-masque-venitien-chateau-salon.webp", legende: "Bal masqué vénitien : exemple de soirée à thème organisée par notre équipe (photo d’illustration)" },
+        ],
+        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
+        conseil:
+          "Pour une soirée de séminaire qui tire parti du lieu, demandez-moi le banquet médiéval : il se tient sous les voûtes du XIIe siècle.",
+      },
     ],
     sources: [FICHE, CVENT],
   },

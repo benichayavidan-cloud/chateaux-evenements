@@ -76,6 +76,8 @@ export interface SectionSupplementaire {
   photos: PhotoRubrique[];
   /** Photos de la rubrique reprises ici (rangs dans `Rubrique.photos`). */
   reprendPhotos?: number[];
+  /** Liens affichés sous le texte (vers une page du site qui détaille le sujet). */
+  liens?: Array<{ href: string; label: string }>;
   conseil?: string;
 }
 

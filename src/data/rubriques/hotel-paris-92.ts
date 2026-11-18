@@ -524,6 +524,33 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         conseil:
           "Pour le cocktail de clôture de votre convention, le jardin reçoit jusqu'à 300 invités ; pour passer à table ensuite, la grande terrasse accueille 70 convives.",
       },
+      {
+        ancre: "soirees-a-theme",
+        etiquette: "Soirées à thème",
+        titre: "Soirées à thème aux portes de Paris : Prohibition, Gatsby et guinguette",
+        intro:
+          "Notre équipe organise des soirées à thème sur le domaine, du décor à l'animation. Trois thèmes s'y installent naturellement, entre la chapelle et le jardin.",
+        reprend: [],
+        blocs: [
+          { titre: "Prohibition et bar clandestin", texte: "Entrée secrète avec mot de passe, barmans en costume d'époque, cocktails à l'ancienne et musique swing : le thème prolonge naturellement notre bar à rhum, installé dans une ancienne chapelle." },
+          { titre: "Gatsby et années folles", texte: "Orchestre de jazz, démonstration de charleston, tables de casino vintage et dress code noir et or : une soirée de gala aux portes de Paris, pour clore une convention." },
+          { titre: "Guinguette au jardin", texte: "Jeux en bois géants, guirlandes lumineuses, food trucks et piste de danse en plein air : aux beaux jours, le jardin se transforme en village en fête, avec la tour Eiffel à l'horizon." },
+        ],
+        faits: [
+          { label: "Thèmes de soirée", valeur: "Prohibition, Gatsby, Guinguette" },
+          { label: "Animations de soirée", valeur: "barmans en costume, orchestre de jazz, groupe en direct" },
+          { label: "Soirée sur mesure", valeur: "décor, animation et dress code" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/services/soiree-entreprise-prohibition-speakeasy-chateau-cave.webp", legende: "Soirée Prohibition : exemple de soirée à thème organisée par notre équipe (photo d’illustration)" },
+          { src: "/images/services/soiree-entreprise-gatsby-annees-folles-chateau-jazz.webp", legende: "Soirée Gatsby : exemple de soirée à thème organisée par notre équipe (photo d’illustration)" },
+          { src: "/images/services/soiree-entreprise-festival-guinguette-chateau-plein-air.webp", legende: "Soirée guinguette en plein air : exemple de soirée à thème organisée par notre équipe (photo d’illustration)" },
+        ],
+        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
+        conseil:
+          "Pour une soirée de séminaire qui ne ressemble à aucune autre, demandez-moi le thème Prohibition : le bar de la chapelle en est le décor tout trouvé.",
+      },
     ],
     sources: [URL_OFFICIEL, URL_RESTO, URL_REUNIONS, URL_PRESSE],
   },
