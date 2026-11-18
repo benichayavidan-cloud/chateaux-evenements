@@ -20,6 +20,8 @@ import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 interface TeamBuildingPageClientProps {
   faq: Array<{ question: string; answer: string }>;
+  /** Bloc affiché après les animations, avant les questions fréquentes et le formulaire (les 4 châteaux). */
+  avantFaq?: React.ReactNode;
 }
 
 // ─── Images ────────────────────────────────────────────────────────
@@ -439,7 +441,7 @@ export function TeamBuildingPointsForts() {
   );
 }
 
-export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientProps) {
+export default function TeamBuildingPageClient({ faq, avantFaq }: TeamBuildingPageClientProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showStickyBar, setShowStickyBar] = useState(false);
@@ -747,6 +749,8 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
 
       {/* Le catalogue de 41 activités (brique ActivityCatalogue) n'est plus affiché ici depuis le 18/11/2026 :
           la page présente les animations des 4 châteaux de la collection, pas un catalogue d'agence. */}
+
+      {avantFaq}
 
       {/* ─── Section FAQ — 2 colonnes : FAQ + Image équipe ─── */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>

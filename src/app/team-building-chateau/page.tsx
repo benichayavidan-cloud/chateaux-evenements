@@ -157,7 +157,10 @@ export default function TeamBuildingPage() {
   return (
     <>
       <StructuredData data={structuredData} />
-      <TeamBuildingPageClient faq={faq} />
+      <TeamBuildingPageClient
+        faq={faq}
+        avantFaq={
+          <>
       {/* Les 4 châteaux de la collection et leurs animations (18/11/2026). Remplace les blocs
           « par territoire » et « Lieux pour un team building », qui renvoyaient vers l'annuaire. */}
       <section style={{ background: "#fafafa", padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
@@ -171,6 +174,9 @@ export default function TeamBuildingPage() {
           <ChateauxPourTeamBuilding chateaux={chateaux} />
         </div>
       </section>
+          </>
+        }
+      />
       {/* Donnée propriétaire (observatoire des 188 devis) et maillage vers le
           blog — les deux leviers mesurés le 06/09/2026. */}
       <ObservatoireSection departementCode={null} background="white" />
