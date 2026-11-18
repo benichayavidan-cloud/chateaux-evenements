@@ -81,6 +81,7 @@ export interface BlogPost {
 
 const article1: BlogPost = {
   id: 1,
+  seoTitle: "Combien coûte un séminaire en château ? Tarifs et budget",
   slug: "combien-coute-seminaire-chateau-2026",
   title: "Combien coûte un séminaire en château ? Tarifs et postes de dépense",
   excerpt: "De 150 € à 450 € par personne selon le château : la grille des postes de dépense, les coûts cachés à éviter et cinq façons de réduire la facture.",
