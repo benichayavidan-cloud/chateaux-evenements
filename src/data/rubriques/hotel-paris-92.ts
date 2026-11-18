@@ -622,19 +622,19 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         ancre: "team-building",
         etiquette: "Team building",
-        titre: "Team building aux portes de Paris : rallye au jardin, ateliers et gestion de crise",
+        titre: "Rallye au jardin, ateliers créatifs et gestion de crise : nos team buildings à Paris",
         intro:
-          "Notre équipe organise des team buildings sur le domaine, sans car ni transfert : vos participants passent de la salle de réunion à l'activité en quelques minutes.",
+          "Notre équipe organise des team buildings sur le domaine : tout se passe sur place, sans car ni transfert.",
         reprend: [],
         blocs: [
-          { titre: "Rallye découverte au jardin", texte: "Énigmes, défis photo et épreuves d'adresse dans le jardin du domaine : un rallye par équipes aux portes de Paris, sans quitter le site de votre séminaire." },
-          { titre: "Challenges créatifs", texte: "Fresque collective, création vidéo ou quiz de culture générale : des ateliers par équipes, faciles à glisser dans une journée de séminaire." },
-          { titre: "Simulation de gestion de crise", texte: "Une situation d'urgence fictive à gérer en équipe : prise de décision rapide, communication sous pression, leadership. Un format pensé pour un comité de direction." },
+          { titre: "Rallye découverte au jardin", texte: "Dans le jardin du domaine, les équipes s'affrontent sur un parcours d'énigmes, de défis photo et d'épreuves d'adresse, sans quitter le site de votre séminaire." },
+          { titre: "Ateliers créatifs en équipe", texte: "Fresque collective ou création vidéo : une réalisation commune par équipe, qui change du tour de table habituel." },
+          { titre: "Simulation de gestion de crise", texte: "Face à une urgence fictive, votre comité de direction s'exerce à décider vite et à communiquer sous pression : un team building utile au quotidien de vos managers." },
         ],
         faits: [
           { label: "Team building en plein air", valeur: "rallye découverte" },
-          { label: "Team building en intérieur", valeur: "ateliers, gestion de crise" },
-          { label: "Organisation du team building", valeur: "par notre équipe" },
+          { label: "Team building en intérieur", valeur: "créatifs, gestion de crise" },
+          { label: "Lieu du team building", valeur: "sur le domaine" },
         ],
         reprendPhotos: [],
         photos: [
@@ -643,7 +643,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           { src: "/images/gestion-crise-team-building-formation-entreprise.webp", legende: "Simulation de gestion de crise (image d’illustration, autre lieu)" },
         ],
         conseil:
-          "Pour un comité de direction en séminaire, demandez-moi la simulation de gestion de crise : un team building qui parle le langage de vos managers.",
+          "Pour un séminaire d'une journée à Paris, gardez le team building pour la fin d'après-midi : il se tient sur le domaine, vos participants n'ont pas à se déplacer.",
       },
     ],
     sources: [URL_REUNIONS, URL_OFFICIEL, URL_BIEN_ETRE, URL_HISTOIRE],

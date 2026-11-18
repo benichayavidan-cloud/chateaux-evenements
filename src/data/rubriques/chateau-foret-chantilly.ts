@@ -26,6 +26,8 @@
  * Volontairement écartés : les prix (brochure p.5-6), la « murder party », les
  * jeux d'enquête et l'escape game (brochure p.11), le nom de la marque de soins
  * du spa (site officiel).
+ * Depuis le 18/11/2026, à la demande du PO, l'escape game est nommé dans la
+ * section « Team building » de la page Activités (organisé par notre équipe).
  */
 import type { RubriquesDomaine } from '../../types/rubriques.ts';
 import { chateauImage } from '../../lib/media.ts';
@@ -617,28 +619,28 @@ export const rubriquesChateauForet: RubriquesDomaine = {
       {
         ancre: "team-building",
         etiquette: "Team building",
-        titre: "Team building en forêt de Chantilly : challenges sportifs, escape game et ateliers",
+        titre: "Rallye dans le parc, escape game et ateliers créatifs pour fédérer vos équipes",
         intro:
-          "Pour souder vos équipes entre deux sessions, notre équipe organise des team buildings au château, dehors quand le temps s'y prête, en intérieur le reste de l'année.",
+          "Entre deux sessions de travail, notre équipe organise des team buildings au château, en plein air comme en intérieur.",
         reprend: [],
         blocs: [
-          { titre: "Challenges sportifs dans le parc", texte: "Baby-foot humain, relais créatifs, parcours d'obstacles : dans le parc du château, des épreuves qui mêlent sport et fous rires pour souder vos équipes." },
-          { titre: "Escape game au château", texte: "Le temps d'une énigme, les salons de réunion changent de rôle : vos participants enquêtent par équipes, contre la montre." },
-          { titre: "Challenges créatifs", texte: "Fresque collective, création vidéo, quiz ou blind test musical : des ateliers en intérieur pour faire émerger d'autres talents que ceux du quotidien." },
+          { titre: "Rallye découverte dans le parc", texte: "Par équipes, vos participants sillonnent le parc du château : des énigmes, des défis photo et des épreuves d'adresse rythment le parcours." },
+          { titre: "Escape game au château", texte: "Les salons de réunion changent de rôle et deviennent des salles d'énigmes : vos équipes jouent contre la montre pour s'en échapper." },
+          { titre: "Challenges créatifs", texte: "Création vidéo, quiz de culture générale ou blind test musical : des ateliers en intérieur, pour une équipe qui préfère la créativité à l'effort physique." },
         ],
         faits: [
-          { label: "Team building en plein air", valeur: "challenges sportifs" },
+          { label: "Team building en plein air", valeur: "rallye découverte" },
           { label: "Team building en intérieur", valeur: "escape game, ateliers créatifs" },
-          { label: "Organisation du team building", valeur: "par notre équipe" },
+          { label: "Format du team building", valeur: "par équipes" },
         ],
         reprendPhotos: [],
         photos: [
-          { src: "/images/services/team-building-activite-babyfoot-humain-exterieur-parc.webp", legende: "Baby-foot humain en plein air (image d’illustration, autre lieu)" },
+          { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
           { src: "/images/escape-game-chateau-team-building-enigmes.webp", legende: "Escape game en équipe (image d’illustration, autre lieu)" },
           { src: "/images/challenges-creatifs-team-building-chateau-activites.webp", legende: "Atelier créatif en équipe (image d’illustration, autre lieu)" },
         ],
         conseil:
-          "Pour une équipe qui sort d'une journée de réunion, choisissez les challenges sportifs dans le parc : vos participants se défoulent avant le dîner.",
+          "Pour une équipe qui sort d'une journée de réunion, choisissez le rallye dans le parc : vos participants prennent l'air avant le dîner.",
       },
     ],
     sources: [BROCHURE, PRATIQUE],

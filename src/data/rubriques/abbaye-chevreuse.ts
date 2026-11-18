@@ -593,28 +593,28 @@ export const rubriquesAbbaye: RubriquesDomaine = {
       {
         ancre: "team-building",
         etiquette: "Team building",
-        titre: "Team building à l'abbaye : rallye autour du lac, escape game et gestion de crise",
+        titre: "Rallye autour du lac, escape game, ateliers créatifs : nos team buildings à l'abbaye",
         intro:
-          "Notre équipe organise aussi des team buildings sur le domaine, à choisir selon l'objectif de votre séminaire : fédérer, faire réfléchir ou mettre vos managers en situation.",
+          "Notre équipe organise aussi des team buildings sur le domaine, à choisir selon l'objectif de votre séminaire : faire découvrir le lieu, faire réfléchir ou faire créer ensemble.",
         reprend: [],
         blocs: [
-          { titre: "Rallye découverte autour du lac", texte: "Sur 80 hectares, le rallye prend de l'ampleur : énigmes historiques, défis photo et épreuves d'adresse mènent vos équipes du lac aux ruines de l'église abbatiale." },
-          { titre: "Escape game à l'abbaye", texte: "Un escape game grandeur nature dans les salons : vos participants cherchent les indices par équipes et doivent s'échapper avant la fin du temps imparti." },
-          { titre: "Simulation de gestion de crise", texte: "Vos équipes affrontent une situation d'urgence fictive : décision rapide, communication sous pression, leadership. Un team building à forte valeur managériale, qui trouve sa place dans un séminaire de direction." },
+          { titre: "Rallye découverte autour du lac", texte: "Sur 80 hectares, le terrain de jeu ne manque pas : énigmes historiques, défis photo et épreuves d'adresse font découvrir à vos équipes le lac et les ruines de l'église abbatiale." },
+          { titre: "Escape game à l'abbaye", texte: "Enfermées dans un salon transformé en salle d'énigmes, vos équipes ont un temps compté pour trouver la sortie. Un format qui oblige à communiquer." },
+          { titre: "Challenges créatifs", texte: "Fresque collective, construction en briques ou création vidéo : chaque équipe réalise une œuvre commune, et les talents cachés de vos collaborateurs se révèlent." },
         ],
         faits: [
           { label: "Team building en plein air", valeur: "rallye découverte" },
-          { label: "Team building en intérieur", valeur: "escape game, gestion de crise" },
-          { label: "Organisation du team building", valeur: "par notre équipe" },
+          { label: "Team building en intérieur", valeur: "escape game, ateliers créatifs" },
+          { label: "Team building sur mesure", valeur: "selon votre objectif" },
         ],
         reprendPhotos: [],
         photos: [
           { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
           { src: "/images/escape-game-chateau-team-building-enigmes.webp", legende: "Escape game en équipe (image d’illustration, autre lieu)" },
-          { src: "/images/gestion-crise-team-building-formation-entreprise.webp", legende: "Simulation de gestion de crise (image d’illustration, autre lieu)" },
+          { src: "/images/challenges-creatifs-team-building-chateau-activites.webp", legende: "Atelier créatif en équipe (image d’illustration, autre lieu)" },
         ],
         conseil:
-          "Pour un séminaire de managers, demandez-moi la simulation de gestion de crise : elle fait travailler la prise de décision en équipe.",
+          "Pour faire découvrir le domaine à vos participants dès le premier jour du séminaire, placez le rallye en ouverture de programme.",
       },
     ],
     sources: [FICHE, CVENT],
