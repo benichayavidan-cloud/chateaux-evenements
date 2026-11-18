@@ -573,9 +573,10 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       { label: 'Serre pour les ateliers', valeur: '300 m²', source: MICE },
     ],
     photos: [
+      { src: stock('velos-facade-lierre'), legende: "Des vélos à disposition devant la façade du château" },
+      { src: stock('court-de-tennis'), legende: "Le court de tennis du domaine" },
       { src: img('jardin-amphitheatre-exterieur'), legende: "L'amphithéâtre de verdure, cadre des ateliers en plein air" },
       { src: img('salle-atelier-creatif'), legende: 'Atelier créatif en sous-groupe' },
-      { src: img('allee-parc-arboree'), legende: 'Les allées du parc, pour les sorties à vélo' },
     ],
     blocs: [
       {
