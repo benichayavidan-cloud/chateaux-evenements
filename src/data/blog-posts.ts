@@ -82,8 +82,8 @@ export interface BlogPost {
 const article1: BlogPost = {
   id: 1,
   slug: "combien-coute-seminaire-chateau-2026",
-  title: "Combien Coûte un Séminaire en Château ? Tarifs 2026",
-  excerpt: "Tarifs 2026 : 150€ à 450€/pers selon le château. Grille complète, coûts cachés à éviter, 5 astuces pour économiser 20%. Devis gratuit en 24h.",
+  title: "Combien coûte un séminaire en château ? Tarifs et postes de dépense",
+  excerpt: "De 150 € à 450 € par personne selon le château : la grille des postes de dépense, les coûts cachés à éviter et cinq façons de réduire la facture.",
   category: "organisation",
   author: {
     name: "L'équipe Select Châteaux",
@@ -384,7 +384,7 @@ const article2: BlogPost = {
   slug: "checklist-organiser-seminaire",
   seoTitle: "Programme de séminaire : modèle, exemple et check-list",
   seoDescription: "Le programme type d'un séminaire en 25 étapes et 7 phases, de J-90 à J+7 : modèle de déroulé à adapter et check-list PDF à télécharger.",
-  title: "Checklist Séminaire 2026 : 25 Étapes Clés [PDF Gratuit]",
+  title: "Checklist séminaire : 25 étapes clés, de J-90 à J+7",
   excerpt: "Check-list complète à télécharger en PDF. 25 étapes réparties sur 7 phases de J-90 à J+7 pour organiser votre séminaire d'entreprise sans rien oublier.",
   category: "organisation",
   author: {
@@ -1413,9 +1413,9 @@ const article5: BlogPost = {
   id: 32,
   slug: "seminaire-codir-chateau-privatise",
   seoTitle: "Séminaire CODIR en château privatisé : critères et budget",
-  seoDescription: "417 € par personne et par jour en médiane pour un CODIR en château privatisé : critères de choix, confidentialité, cadrage du programme.",
-  title: "Séminaire CODIR en Château Privatisé : Confidentialité Totale, dès 120€/pers",
-  excerpt: "Concentration, confidentialité, impact : découvrez pourquoi 78% des CODIR les plus efficaces se tiennent hors des murs de l'entreprise — et pourquoi un château privatisé fait la différence. Budget, formats et châteaux IDF à jour 2026.",
+  seoDescription: "Séminaire CODIR en château privatisé : critères de choix, confidentialité, cadrage du programme et budget.",
+  title: "Séminaire CODIR en château privatisé : confidentialité, critères et budget",
+  excerpt: "Concentration, confidentialité, impact : pourquoi un comité de direction gagne à se tenir hors des murs de l'entreprise, et ce qu'un château privatisé change. Critères de choix, formats et budget.",
   category: "organisation",
   author: { name: "L'équipe Select Châteaux", role: "Experte Événementiel", avatar: "SD" },
   publishedAt: "2026-03-19",
@@ -1826,9 +1826,10 @@ const article6: BlogPost = {
 
 const article7: BlogPost = {
   id: 34,
+  seoTitle: "Séminaire dans l'Oise : 2 châteaux en forêt de Chantilly",
   slug: "seminaire-oise-nature-prestige-paris",
-  title: "Séminaire dans l'Oise : Nature et Prestige à 35 min de Paris",
-  excerpt: "Forêt de Chantilly (6 300 ha), châteaux anglo-normands, spas 5★ : l'Oise combine nature préservée et infrastructure haut de gamme. Le département séminaire le plus accessible d'Île-de-France.",
+  title: "Séminaire dans l'Oise : 2 châteaux en forêt de Chantilly, à 35 min de Paris",
+  excerpt: "Forêt de Chantilly de 6 300 hectares, deux châteaux privatisables avec hébergement, 35 minutes de Paris : ce que l'Oise apporte à un séminaire d'entreprise.",
   category: "lieux",
   author: { name: "Laurent Petit", role: "Expert Lieux Événementiels", avatar: "LP" },
   publishedAt: "2026-03-19",
@@ -2566,8 +2567,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 5,
     slug: "seminaire-residentiel-vs-journee",
-    title: "Résidentiel vs 1 jour 2026 : quel format choisir pour votre équipe ?",
-    excerpt: "Séminaire résidentiel avec nuitée ou format condensé sans hébergement ? Budgets réels, cohésion d'équipe et organisation comparés pour choisir le bon format en 2026, avec deux retours d'expérience concrets en château.",
+    title: "Séminaire résidentiel ou journée d'étude : quel format choisir pour votre équipe ?",
+    excerpt: "Séminaire résidentiel avec nuitée ou format condensé sans hébergement ? Budgets, cohésion d'équipe et organisation comparés pour choisir le bon format.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -6674,8 +6675,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 15,
     slug: "seminaire-yvelines-78-luxe-proximite",
-    title: "Château hôtel 78 dès 350€/pers 2026 : comparatif et tarifs Yvelines",
-    excerpt: "Combien coûte un séminaire en château-hôtel dans les Yvelines en 2026 ? Comparatif complet des zones, tarifs par château et étude de cas d'une banque régionale dans une abbaye cistercienne de la vallée de Chevreuse.",
+    title: "Séminaire en château dans les Yvelines : zones, budgets et abbaye de la vallée de Chevreuse",
+    excerpt: "Combien coûte un séminaire en château-hôtel dans les Yvelines ? Les zones du département, les budgets de 350 à 950 € par personne en 2 jours/1 nuit, et l'abbaye cistercienne de la vallée de Chevreuse.",
     category: "lieux" as const,
     author: {
       name: "Laurent Petit",
@@ -9570,8 +9571,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 21,
     slug: "murder-party-chateau-activite-immersive",
-    title: "Murder Party Château : Enquête Grandeur Nature [Guide 2026]",
-    excerpt: "Enquête policière grandeur nature dans un château : comment ça marche, combien ça coûte, pourquoi c'est l'activité team building la plus demandée en 2026. Guide complet.",
+    title: "Murder party en château : l'enquête grandeur nature",
+    excerpt: "Enquête policière grandeur nature dans un château : comment ça marche, combien ça coûte et pour quels groupes.",
     category: "team-building",
     author: { name: "Ludovic Martin", role: "Créateur d'Activités Immersives", avatar: "LM" },
     publishedAt: "2025-12-04",
@@ -11144,8 +11145,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 23,
     slug: "escape-game-geant-chateau",
-    title: "Escape Game Château dès 90€/pers 2026 : guide complet pour 10 à 200 participants",
-    excerpt: "Un escape game géant en château coûte entre 90€ et 220€ par personne en 2026 et transforme 15 à 30 pièces d'un domaine historique en terrain de jeu pour 10 à 200 collaborateurs. Formats, scénarios, énigmes et budget détaillés avec un cas réel vécu dans les Yvelines.",
+    title: "Escape game géant en château : formats, scénarios et budget pour 10 à 200 participants",
+    excerpt: "Un escape game géant en château coûte entre 90€ et 220€ par personne et transforme les pièces d'un domaine historique en terrain de jeu pour 10 à 200 collaborateurs. Formats, scénarios, énigmes et budget détaillés.",
     category: "team-building" as const,
     author: {
       name: "Ludovic Martin",
@@ -16030,8 +16031,8 @@ const placeholderArticles: BlogPost[] = [
   {
     id: 204,
     slug: "seminaire-nature-chevreuse-deconnexion",
-    title: "Séminaire nature à 35 min de Paris 2026 : Vallée de Chevreuse, guide complet",
-    excerpt: "Un séminaire nature en Vallée de Chevreuse coûte entre 80€ et 500€ par personne et se trouve à seulement 35 minutes de Paris en RER B — le guide complet pour organiser un séminaire au vert réussi en 2026.",
+    title: "Séminaire nature en vallée de Chevreuse, à 35 min de Paris",
+    excerpt: "Un séminaire nature en vallée de Chevreuse se trouve à 35 minutes de Paris en RER B : formats, budget de 80 € à 500 € par personne et conseils pour un séminaire au vert.",
     category: "lieux" as const,
     author: {
       name: "L'équipe Select Châteaux",

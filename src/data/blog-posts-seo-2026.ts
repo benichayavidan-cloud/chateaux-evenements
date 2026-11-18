@@ -8,8 +8,8 @@ import type { BlogPost } from "./blog-posts";
 const article44: BlogPost = {
     id: 44,
     slug: "chantilly-vs-fontainebleau-seminaire-comparatif",
-    title: "Chantilly ou Fontainebleau dès 130€ 2026 : le comparatif complet pour organiser votre séminaire",
-    excerpt: "Chantilly ou Fontainebleau ? Comparatif 2026 des prix, temps de trajet, capacités et activités pour choisir le château idéal de votre séminaire en Île-de-France.",
+    title: "Chantilly ou Fontainebleau : quelle destination pour votre séminaire ?",
+    excerpt: "Chantilly ou Fontainebleau ? Prix, temps de trajet, capacités et activités comparés pour choisir la destination de votre séminaire en Île-de-France.",
     category: "lieux" as const,
     author: {
       name: "L'équipe Select Châteaux",

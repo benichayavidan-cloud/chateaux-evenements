@@ -248,8 +248,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1241,
     slug: "animation-escape-game-nature-chateau-fontainebleau-rambouillet-2026",
-    title: "Laser Game Fontainebleau dès 30€/pers. : le guide complet 2026 escape game nature & château",
-    excerpt: "Laser game ou escape game nature à Fontainebleau et Rambouillet : tarifs, cas clients vérifiés et étapes pour organiser une animation outdoor réussie en 2026.",
+    title: "Laser game et escape game nature à Fontainebleau et Rambouillet : tarifs et organisation",
+    excerpt: "Laser game ou escape game nature en forêt de Fontainebleau et de Rambouillet : tarifs, formats et étapes pour organiser une animation en plein air.",
     category: "team-building" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -410,8 +410,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1237,
     slug: "animer-soiree-networking-chateau-idf-guide-2026",
-    title: "Soirée Networking en Château IDF : Animer & Réussir 2026",
-    excerpt: "Organiser une soirée networking en château en Île-de-France, c'est transformer un événement professionnel ordinaire en expérience mémorable. Tarifs, formats et conseils terrain pour 2026.",
+    title: "Soirée networking en château en Île-de-France : formats et animation",
+    excerpt: "Organiser une soirée networking en château en Île-de-France : formats, tarifs et conseils pour que les invités se parlent vraiment.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -1453,8 +1453,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1222,
     slug: "protocole-art-table-diner-gala-chateau-2026",
-    title: "Dîner Gala Château dès 105€/pers 2026 : protocole, placement & budget",
-    excerpt: "Dîner de gala en château : budget réel, protocole de placement et choix entre service à la française, à l'anglaise ou buffet dressé pour une soirée corporate réussie en Île-de-France en 2026, illustrés par un cas chiffré dans un château des Yvelines.",
+    title: "Dîner de gala en château : protocole, placement et budget",
+    excerpt: "Dîner de gala en château : budget, protocole de placement et choix du style de service pour une soirée d'entreprise en Île-de-France.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -3549,8 +3549,8 @@ export const camilleArticles: BlogPost[] = [
     slug: "seminaire-storytelling-narratif-chateau-marque-2026",
     seoTitle: "Atelier de storytelling en séminaire : déroulé et consignes",
     seoDescription: "4 temps pour animer un atelier de storytelling en séminaire : préparation, consignes au groupe, écriture des récits, restitution devant l'équipe.",
-    title: "Storytelling d'Entreprise en Château : Séminaire Narratif 2026",
-    excerpt: "Transformer votre séminaire en château en expérience narrative mémorable : méthodes de storytelling d'entreprise, ateliers narratifs, tarifs dès 155€/pers et exemples concrets pour ancrer votre culture d'entreprise en 2026.",
+    title: "Storytelling d'entreprise en château : animer un séminaire narratif",
+    excerpt: "Faire de votre séminaire en château une expérience narrative : méthodes de storytelling d'entreprise, ateliers et déroulé pour ancrer votre culture d'entreprise.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -4510,8 +4510,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1168,
     slug: "menu-cocktail-dinatoire-seminaire-chateau-guide-2026",
-    title: "Cocktail dînatoire château dès 65€ en 2026 : menu, budget et astuces",
-    excerpt: "Un cocktail dînatoire en château coûte entre 65€ et 180€ par personne en 2026 : menu type, budget poste par poste et erreurs à éviter, illustrés par un cas réel dans l'Oise.",
+    title: "Cocktail dînatoire en château : menu, budget et erreurs à éviter",
+    excerpt: "Un cocktail dînatoire en château coûte entre 65€ et 180€ par personne : menu type, budget poste par poste et erreurs à éviter.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -4591,8 +4591,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1166,
     slug: "seminaire-automne-foret-fontainebleau-rambouillet-guide-2026",
-    title: "Séminaire en Forêt : Fontainebleau & Rambouillet dès 165€/pers 2026",
-    excerpt: "Fontainebleau, Rambouillet, Chevreuse : organiser un séminaire en forêt en Île-de-France cet automne, entre nature immersive et châteaux d'exception. Tarifs, programmes et conseils 2026.",
+    title: "Séminaire en forêt en Île-de-France : Fontainebleau, Rambouillet, Chevreuse",
+    excerpt: "Fontainebleau, Rambouillet, Chevreuse : organiser un séminaire en forêt en Île-de-France à l'automne. Tarifs, programmes et conseils.",
     category: "lieux" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -8231,8 +8231,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1125,
     slug: "co-construction-strategie-seminaire-chateau-methode-2026",
-    title: "Co-Construction Stratégique en Château : Méthode & Résultats 2026",
-    excerpt: "Organiser un atelier de co-construction de stratégie en château mobilise l'intelligence collective de toute l'équipe direction en 1 journée. Découvrez la méthode, le programme type et les résultats concrets obtenus par nos clients en Île-de-France.",
+    title: "Co-construction stratégique en château : méthode et programme type",
+    excerpt: "Un atelier de co-construction de stratégie en château mobilise toute l'équipe de direction sur une journée : la méthode, le programme type et les conditions de réussite.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -8393,8 +8393,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1123,
     slug: "tva-deductibilite-seminaire-chateau-fiscalite-2026",
-    title: "TVA et Déductibilité du Séminaire en Château : Guide Fiscal 2026",
-    excerpt: "Quelles dépenses de séminaire en château sont déductibles ? Peut-on récupérer la TVA sur la salle, le traiteur et l'hébergement ? Réponses concrètes et exemples chiffrés pour optimiser votre budget événementiel 2026.",
+    title: "TVA et déductibilité du séminaire en château : guide fiscal",
+    excerpt: "Quelles dépenses de séminaire en château sont déductibles ? Peut-on récupérer la TVA sur la salle, le traiteur et l'hébergement ? Réponses concrètes et exemples chiffrés pour préparer votre budget.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -10107,7 +10107,7 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1095,
     slug: "dress-code-seminaire-chateau-guide-2026",
-    title: "Dress Code Séminaire en Château : Guide Complet 2026",
+    title: "Dress code d'un séminaire en château : le guide",
     excerpt: "Costume ou casual chic ? Définir et communiquer le dress code d'un séminaire en château est souvent négligé — et source de malaise le jour J. Voici le guide pratique pour éviter les faux pas.",
     category: "organisation" as const,
     author: {
@@ -11554,8 +11554,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1076,
     slug: "assemblee-generale-entreprise-chateau-guide-organisation-2026",
-    title: "Assemblée Générale en Château Île-de-France : Guide 2026 (dès 95€/pers)",
-    excerpt: "Organiser son assemblée générale en château proche de Paris : espaces, logistique, tarifs réels et retours d'expérience. Le guide complet 2026 pour les secrétaires généraux et DG.",
+    title: "Assemblée générale en château en Île-de-France : espaces, logistique et budget",
+    excerpt: "Organiser son assemblée générale en château proche de Paris : espaces, logistique et budget, pour les secrétaires généraux et les directions générales.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -12378,8 +12378,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1066,
     slug: "seminaire-jeu-serieux-serious-game-chateau-2026",
-    title: "Serious Game en Séminaire Château : Guide Complet 2026 (dès 45€/pers)",
-    excerpt: "Intégrer un serious game (jeu sérieux) à votre séminaire en château transforme un moment de formation en expérience engageante et mémorable. Découvrez les formats les plus efficaces en 2026, les tarifs réels et comment choisir le bon prestataire pour un groupe de 15 à 200 personnes en Île-de-France.",
+    title: "Serious game en séminaire au château : formats et organisation",
+    excerpt: "Intégrer un serious game (jeu sérieux) à votre séminaire en château : les formats, les budgets et la façon de choisir un prestataire pour un groupe de 15 à 200 personnes.",
     category: "team-building" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -13153,7 +13153,7 @@ export const camilleArticles: BlogPost[] = [
     slug: "discours-cloture-seminaire-entreprise-guide-2026",
     seoTitle: "Discours de clôture de séminaire : modèle et exemples",
     seoDescription: "Le discours de clôture en 3 parties : ce qui a été décidé, ce qui change lundi, ce que vous demandez à l'équipe. Avec un modèle à adapter.",
-    title: "Discours de Clôture de Séminaire : Guide Dirigeant 2026 (dès 5 min)",
+    title: "Discours de clôture de séminaire : le guide du dirigeant",
     excerpt: "Le discours de clôture est le moment le plus mémorable de votre séminaire — et le plus sous-préparé. Voici comment conclure en 5 à 15 minutes avec impact, sincérité et un vrai élan collectif.",
     category: "organisation" as const,
     author: {
@@ -13193,8 +13193,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1049,
     slug: "invitation-seminaire-entreprise-rediger-communiquer-2026",
-    title: "7 Infos Invitation Séminaire 2026 : guide rédaction complet",
-    excerpt: "Découvrez les 7 informations essentielles et le calendrier en 4 temps pour rédiger une invitation séminaire d'entreprise qui mobilise vraiment vos équipes en 2026.",
+    title: "Invitation à un séminaire : les 7 informations à donner",
+    excerpt: "Les 7 informations essentielles et le calendrier en 4 temps pour rédiger une invitation à un séminaire d'entreprise qui mobilise vraiment vos équipes.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -13230,7 +13230,7 @@ export const camilleArticles: BlogPost[] = [
       ],
     },
     seoTitle: "Invitation à un séminaire d'entreprise : modèles à copier",
-    seoDescription: "Une invitation bien écrite fait gagner 25 % de participation : objet du mail, informations à donner, relances et modèles à adapter.",
+    seoDescription: "Invitation à un séminaire d'entreprise : objet du mail, informations à donner, calendrier des relances et modèles à adapter.",
   },
 
   {
@@ -13524,8 +13524,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1041,
     slug: "discours-inauguration-seminaire-prise-de-parole-dirigeant-2026",
-    title: "Discours Ouverture Séminaire 2026 dès 5min : Guide Dirigeant Complet",
-    excerpt: "Un discours d'ouverture de séminaire efficace dure entre 5 et 12 minutes et suit une structure en 4 temps : ancrage, contexte, enjeux, invitation à l'action. Découvrez comment préparer une prise de parole dirigeante qui engage réellement vos équipes dès les premières minutes, avec la méthode utilisée par Select Châteaux en Île-de-France.",
+    title: "Discours d'ouverture de séminaire : le guide du dirigeant",
+    excerpt: "Un discours d'ouverture de séminaire efficace dure entre 5 et 12 minutes et suit une structure en 4 temps : ancrage, contexte, enjeux, invitation à l'action.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -14314,8 +14314,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1022,
     slug: "assurance-responsabilite-organisateur-seminaire-chateau-2026",
-    title: "Assurance séminaire château dès 80€ 2026 : ce que doit couvrir votre RC",
-    excerpt: "Une RC événementielle pour un séminaire en château coûte entre 80€ et 350€ en 2026, mais un sinistre sur un bien classé révèle vite les lacunes d'un contrat mal calibré. Voici les garanties à vérifier avant de signer.",
+    title: "Assurance d'un séminaire en château : ce que doit couvrir votre responsabilité civile",
+    excerpt: "Une responsabilité civile événementielle pour un séminaire en château coûte entre 80€ et 350€, mais un sinistre sur un bien classé révèle vite les lacunes d'un contrat mal calibré. Les garanties à vérifier avant de signer.",
     category: "organisation" as const,
     author: {
       name: "Sophie Durand",
@@ -14397,8 +14397,8 @@ export const camilleArticles: BlogPost[] = [
     slug: "alternative-chateauform-ile-de-france",
     seoTitle: "Alternative à Châteauform en Île-de-France : comparatif",
     seoDescription: "Alternative à Châteauform en Île-de-France : tarifs, niveau de service, flexibilité des dates et conditions de privatisation comparés.",
-    title: "Alternative à Châteauform en Île-de-France : Comparatif 2026",
-    excerpt: "Vous cherchez une alternative à Châteauform pour votre séminaire en Île-de-France ? Comparatif factuel 2026 : exclusivité, flexibilité, budget (dès 150€/pers) et accompagnement sur-mesure.",
+    title: "Alternative à Châteauform en Île-de-France : comparatif",
+    excerpt: "Vous cherchez une alternative à Châteauform pour votre séminaire en Île-de-France ? Comparatif factuel : exclusivité, flexibilité, budget (dès 150€/pers) et accompagnement.",
     category: "lieux" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -14426,8 +14426,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1019,
     slug: "team-building-yvelines-activites-nature-chateau-2026",
-    title: "Team Building Yvelines dès 30€ 2026 : 10 activités château",
-    excerpt: "Un team building en château dans les Yvelines coûte entre 30€ et 180€ par personne en 2026 selon l'activité choisie. Découvrez les 10 meilleures activités, un cas concret en Vallée de Chevreuse et comment bien choisir selon votre budget.",
+    title: "Team building en château dans les Yvelines : 10 activités",
+    excerpt: "Un team building en château dans les Yvelines coûte entre 30€ et 180€ par personne selon l'activité : dix activités et la façon de choisir selon votre budget.",
     category: "team-building" as const,
     author: {
       name: "Sophie Durand",
@@ -14507,8 +14507,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1017,
     slug: "soiree-entreprise-hauts-de-seine-chateau-guide-2026",
-    title: "Soirée entreprise Hauts-de-Seine dès 120€ : guide château 2026",
-    excerpt: "Découvrez combien coûte une soirée d'entreprise en château dans les Hauts-de-Seine en 2026, avec un cas client chiffré, les meilleurs domaines privatisables et une méthode en 5 étapes pour tout organiser sans stress.",
+    title: "Soirée d'entreprise dans les Hauts-de-Seine : le guide en château",
+    excerpt: "Combien coûte une soirée d'entreprise en château dans les Hauts-de-Seine, et comment l'organiser : budget, formats et méthode en 5 étapes.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -14547,8 +14547,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1016,
     slug: "seminaire-entreprise-rambouillet-yvelines-guide-2026",
-    title: "Séminaire d'Entreprise à Rambouillet (78) : Guide Complet 2026",
-    excerpt: "Rambouillet et ses environs concentrent certains des plus beaux domaines des Yvelines pour vos séminaires d'entreprise. Découvrez les lieux, tarifs réels et conseils d'organisation pour un événement mémorable à 45 min de Paris.",
+    title: "Séminaire d'entreprise à Rambouillet (78) : le guide",
+    excerpt: "Organiser un séminaire d'entreprise autour de Rambouillet, à 45 min de Paris : types de domaines, tarifs et conseils d'organisation.",
     category: "lieux" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -14589,8 +14589,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1015,
     slug: "soiree-gala-entreprise-chateau-ile-de-france-guide-2026",
-    title: "Soirée Gala Château dès 120€/pers. 2026 : le guide complet",
-    excerpt: "Une soirée gala d'entreprise en château privatisé en Île-de-France coûte entre 120€ et 350€ par personne en 2026 : budgets par zone, châteaux à privatiser, programme type et pièges à éviter pour une soirée mémorable.",
+    title: "Soirée de gala en château en Île-de-France : le guide complet",
+    excerpt: "Une soirée de gala d'entreprise en château privatisé en Île-de-France coûte entre 120€ et 350€ par personne : budget, programme type et pièges à éviter.",
     category: "organisation" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -14629,8 +14629,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1014,
     slug: "seminaire-chateau-nature-oise-experience-2026",
-    title: "Séminaire Nature Oise dès 160€/pers. 2026 : le guide complet du château immersif",
-    excerpt: "Un séminaire nature en château dans l'Oise coûte entre 160€ et 450€ par personne en 2026 selon la formule choisie. Guide complet : prix réels, types de domaines, activités outdoor et retour d'expérience d'une Responsable Formation francilienne.",
+    title: "Séminaire nature dans l'Oise : le guide du château au vert",
+    excerpt: "Un séminaire nature en château dans l'Oise coûte entre 160€ et 450€ par personne selon la formule : prix, types de domaines et activités en plein air.",
     category: "lieux" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -14711,8 +14711,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1012,
     slug: "team-building-chantilly-equitation-polo-activites-prestige-2026",
-    title: "Team Building Chantilly dès 85€ : Polo, Équitation & Activités 2026",
-    excerpt: "À Chantilly, un après-midi de polo ou d'équitation coûte entre 85€ et 180€ par personne et transforme un séminaire classique en expérience de cohésion mémorable — voici comment l'organiser en 2026.",
+    title: "Team building à Chantilly : polo, équitation et activités",
+    excerpt: "À Chantilly, un après-midi de polo ou d'équitation coûte entre 85€ et 180€ par personne et change un séminaire classique en moment de cohésion : comment l'organiser.",
     category: "team-building" as const,
     author: {
       name: "L'équipe Select Châteaux",
@@ -14822,8 +14822,8 @@ export const camilleArticles: BlogPost[] = [
   {
     id: 1009,
     slug: "seminaire-yvelines-lieu-atypique-domaine-2026",
-    title: "Séminaire Yvelines 2026 dès 240€/pers. : domaines atypiques insolites",
-    excerpt: "Abbayes médiévales, manoirs forestiers, châteaux classés : les Yvelines concentrent les lieux de séminaire les plus atypiques d'Île-de-France. Budgets réels, étude de cas et méthode de sélection pour 2026.",
+    title: "Séminaire dans les Yvelines : abbayes, manoirs et lieux atypiques",
+    excerpt: "Abbayes médiévales, manoirs forestiers, châteaux classés : les types de lieux atypiques des Yvelines pour un séminaire, avec les budgets et la façon de choisir.",
     category: "lieux" as const,
     author: {
       name: "L'équipe Select Châteaux",
