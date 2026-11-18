@@ -16361,6 +16361,14 @@ import mergedRedirects from "./merged-redirects.json";
 
 export const MERGED_SLUGS = new Set(mergedRedirects.merges.map((m) => m.from));
 
+/**
+ * ARTICLES SUPPRIMÉS sans équivalent (tri du 18/11/2026) — SOURCE UNIQUE :
+ * src/data/articles-supprimes.json. Leur adresse répond 404 (dynamicParams = false).
+ */
+import articlesSupprimes from "./articles-supprimes.json";
+
+export const SLUGS_SUPPRIMES = new Set([...articlesSupprimes.articles, ...articlesSupprimes.fusionsOrphelines]);
+
 export const blogPosts: BlogPost[] = [
   article1,
   article2,
@@ -16380,6 +16388,7 @@ export const blogPosts: BlogPost[] = [
   ...camilleArticles
 ]
   .filter(post => !MERGED_SLUGS.has(post.slug))
+  .filter(post => !SLUGS_SUPPRIMES.has(post.slug))
   // E-E-A-T : un seul auteur public (entité forte + page auteur), quel que
   // soit l'auteur saisi dans les fichiers sources ou par l'agent.
   .map(post => ({ ...post, author: CANONICAL_AUTHOR }));

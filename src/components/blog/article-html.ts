@@ -14,6 +14,8 @@
 
 import { BLOG_LINK_MAP } from "@/data/internal-link-map";
 import { lienFinal, reecrireLiensHtml } from "@/data/redirections";
+import { SLUGS_SUPPRIMES } from "@/data/blog-posts";
+import { retirerLiensSupprimes } from "@/lib/liens-supprimes";
 
 /* ─────────────────────────── Auto-maillage ─────────────────────────── */
 
@@ -48,6 +50,7 @@ function getBlogLinkRules(currentSlug?: string): { keyword: string; url: string;
   const soiMeme = currentSlug ? `/blog/${currentSlug}` : null;
   return BLOG_LINK_MAP
     .filter(rule => rule.targetSlug !== currentSlug)
+    .filter(rule => !rule.targetSlug || rule.targetPath || !SLUGS_SUPPRIMES.has(rule.targetSlug))
     .filter(rule => lienFinal(rule.targetPath ?? `/blog/${rule.targetSlug}`) !== soiMeme)
     .sort((a, b) => b.priority - a.priority)
     .flatMap(rule =>
@@ -293,5 +296,6 @@ export function prepareArticleHtml(
   // Un lien du texte vers une landing devenue CET article pointerait sur
   // lui-même : on garde le texte, sans le lien.
   const maille = currentSlug ? retirerLiensVersSoi(reecrit, `/blog/${currentSlug}`) : reecrit;
-  return addHeadingIds(maille);
+  // Un lien vers un article supprimé (data/articles-supprimes.json) mènerait à une 404 : on garde le texte.
+  return addHeadingIds(retirerLiensSupprimes(maille, (slug) => SLUGS_SUPPRIMES.has(slug)));
 }
