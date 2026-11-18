@@ -374,7 +374,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         faits: [
           { label: "Tennis", valeur: "un court à disposition" },
           { label: "Jeux d'extérieur", valeur: "pétanque, mölkky" },
-          { label: "Rucher du domaine", valeur: "visite en saison, sur réservation" },
+          { label: "Rucher du domaine", valeur: "visite sur réservation" },
         ],
         reprendPhotos: [1],
         photos: [
@@ -472,7 +472,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         faits: [
           { label: "Petit-déjeuner", valeur: "en libre-service" },
-          { label: "Pauses gourmandes", valeur: "dans les salons attenants aux salles" },
+          { label: "Pauses gourmandes", valeur: "à côté de vos salles" },
           { label: "Régimes alimentaires", valeur: "cinq pris en charge" },
         ],
         reprendPhotos: [1],
@@ -502,7 +502,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
     faits: [
       { label: 'Dîner de gala', valeur: '240 convives', source: MICE },
       { label: 'Cocktail au Grand Salon', valeur: '250 personnes', source: MICE },
-      { label: 'Bar ouvert le vendredi et le samedi', valeur: "jusqu'à 1 h", source: SITE },
+      { label: 'Bar, vendredi et samedi', valeur: "jusqu'à 1 h", source: SITE },
     ],
     photos: [
       { src: img('salon-lounge-bar'), legende: 'Le salon du bar, fauteuils colorés et sol à motifs' },

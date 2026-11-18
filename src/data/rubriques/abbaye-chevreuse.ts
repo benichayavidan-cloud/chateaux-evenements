@@ -194,7 +194,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         ],
         faits: [
           { label: "Chambres aux haras", valeur: "47, près des salles de réunion" },
-          { label: "Petites chambres et chambres cosy", valeur: "pour les grands groupes" },
+          { label: "Petites chambres et cosy", valeur: "pour les grands groupes" },
           { label: "Retour en chambre", valeur: "sans navette, le soir" },
         ],
         reprendPhotos: [4, 5],
@@ -418,7 +418,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           { titre: "Des menus composés selon votre programme", texte: "Notre équipe compose les menus selon le programme de votre séminaire et prend en charge les régimes végétarien, végan, sans gluten, halal ou casher." },
         ],
         faits: [
-          { label: "Pauses", valeur: "dans les salons attenants aux salles" },
+          { label: "Pauses", valeur: "à côté de vos salles" },
           { label: "Menus", valeur: "composés selon votre programme" },
           { label: "Régimes alimentaires", valeur: "cinq pris en charge" },
         ],
@@ -486,7 +486,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         blocs: [
         ],
         faits: [
-          { label: "Salons et bars", valeur: "un salon privatisable après le dîner" },
+          { label: "Salons et bars", valeur: "un salon privatisable" },
           { label: "Espace jeux", valeur: "quiz musical et soirée animée" },
           { label: "Cinéma", valeur: "séance privée pour votre groupe" },
         ],
@@ -649,7 +649,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         blocs: [
         ],
         faits: [
-          { label: "RER B", valeur: "terminus Saint-Rémy-lès-Chevreuse" },
+          { label: "RER B", valeur: "Saint-Rémy-lès-Chevreuse" },
           { label: "Train depuis Paris-Montparnasse", valeur: "jusqu'à Rambouillet" },
           { label: "Transfert depuis la gare", valeur: "sur réservation" },
         ],

@@ -70,7 +70,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       { label: 'Espaces de réunion', valeur: '9', source: REUNIONS },
       { label: 'Participants en réunion', valeur: "jusqu'à 70", source: REUNIONS },
       { label: 'Plus grand salon intérieur', valeur: '50 m²', source: REUNIONS },
-      { label: 'Hauteur sous plafond de la chapelle', valeur: '7 m', source: REUNIONS },
+      { label: 'Hauteur de la chapelle', valeur: '7 m', source: REUNIONS },
     ],
     salles: [
       { nom: 'Le Salon modulable', surfaceM2: 50, theatre: 32, classe: 15, enU: 17, banquet: null, cocktail: null, cabaret: null, note: '40 personnes autour d’une table de conférence' },
@@ -150,7 +150,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         faits: [
           { label: "Salons intérieurs", valeur: "5, de 22 à 50 m²" },
           { label: "Salon modulable", valeur: "32 places en théâtre" },
-          { label: "Comité de direction", valeur: "de 8 à 12 personnes autour d'une table" },
+          { label: "Comité de direction", valeur: "de 8 à 12 personnes à table" },
         ],
         reprendPhotos: [0, 3],
         photos: [],
@@ -609,7 +609,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           { titre: "Une pause au jardin", texte: "Le jardin de 9 500 m² sert de décor aux pauses de vos participants, avec la tour Eiffel à l'horizon." },
         ],
         faits: [
-          { label: "Spa", valeur: "piscine intérieure, hammam, sauna" },
+          { label: "Spa", valeur: "piscine, hammam, sauna" },
           { label: "Soins et massages", valeur: "en complément, sur réservation" },
           { label: "Vélos électriques", valeur: "à disposition" },
         ],
