@@ -8,21 +8,15 @@ import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
 import { StructuredData } from "@/components/StructuredData";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { theme } from "@/design-system/tokens";
-import { chateaux, chiffresCles, clientLogos, typesEvenements } from "@/data/chateaux";
+import { chateaux, chiffresCles, clientLogos } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/home/LogoCarousel";
-import { ServiceCard } from "@/components/home/ServiceCard";
 import { StatsSection } from "@/components/home/StatsSection";
 import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "lucide-react";
 import { lienFinal } from "@/data/redirections";
 import DevisFormMini from "@/components/DevisFormMini";
-
-/** Où mène chaque carte de « Ce que notre équipe organise » : les onglets du menu pour les soirées et le team building, la collection sinon. */
-const LIEN_SERVICE: Record<string, string> = {
-  "soiree-entreprise": "/seminaires-soirees-entreprise",
-  "team-building": "/team-building-chateau",
-  "journee-etude": "/journee-etude-seminaire",
-};
+import { ComparatifChateaux } from "@/components/home/ComparatifChateaux";
+import { SoireesEtAnimations } from "@/components/home/SoireesEtAnimations";
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
@@ -273,6 +267,21 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Quel château pour quel séminaire ? — ce qu'une collection peut offrir : aider à choisir (18/11/2026). */}
+      <section style={{ background: '#fafafa', padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+        <Container size="xl">
+          <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
+            <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
+              Quel château pour quel séminaire ?
+            </Text>
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '760px', margin: '0 auto' }}>
+              Les 4 châteaux de la collection côte à côte : capacité, chambres, salles de réunion et accès, pour repérer en un coup d&apos;œil celui qui convient à votre groupe.
+            </Text>
+          </div>
+          <ComparatifChateaux chateaux={chateaux} />
+        </Container>
+      </section>
+
       {/* Formulaire de devis sur place (18/11/2026) : l'accueil est la première page d'arrivée des demandes,
           et c'était la seule page de la collection sans formulaire. Même brique que /chateaux. */}
       <section style={{ background: '#FFFFFF' }}>
@@ -293,28 +302,14 @@ export default function Home() {
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-              Ce que notre équipe organise dans nos 4 châteaux
+              Soirées et team building : ce que notre équipe organise dans nos 4 châteaux
             </Text>
             <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '940px', margin: '0 auto' }}>
-              Séminaire résidentiel, journée d'étude, soirée ou team building : notre équipe organise votre événement de bout en bout dans l'un des 4 châteaux de la collection. Situés au vert, près des aéroports et des gares, ils comptent de 83 à 144 chambres : votre groupe travaille, dîne et dort sur un seul site.
+              Un séminaire ne s'arrête pas à la salle de réunion. Dans chacun des 4 châteaux de la collection, notre équipe organise aussi la soirée et les temps de cohésion, de bout en bout.
             </Text>
           </div>
 
-          {/* Services Grid - 4 colonnes verticales type forfait */}
-          <div className="services-forfait-grid">
-            {typesEvenements.map((service, index) => (
-              <Link key={service.id} href={LIEN_SERVICE[service.id] ?? "/chateaux"} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <ServiceCard
-                  icon={service.icon}
-                  titre={service.titre}
-                  description={service.description}
-                  servicesInclus={service.servicesInclus}
-                  variant="compact"
-                  index={index}
-                />
-              </Link>
-            ))}
-          </div>
+          <SoireesEtAnimations />
         </Container>
       </section>
 
