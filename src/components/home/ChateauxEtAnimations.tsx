@@ -22,6 +22,11 @@ const NOMS: Record<string, string> = {
   "palais-royal-foret-chantilly": "Château en forêt",
 };
 
+/** Capacité à afficher pour une soirée quand elle diffère de la capacité en réunion (jardin du domaine du 92 : sources officielles, 18/11/2026). */
+const CAPACITE_SOIREE: Record<string, string> = {
+  "hotel-historique-seminaire-paris-92": "jusqu'à 300 invités au jardin",
+};
+
 interface ChateauxEtAnimationsProps {
   chateaux: Chateau[];
   /** Rubrique du château où se trouve la section. */
@@ -57,7 +62,7 @@ export function ChateauxEtAnimations({ chateaux, rubrique, ancre, lien }: Chatea
           <div className={styles.blocTexte}>
             <h3 className={styles.blocTitre}>{NOMS[chateau.slug]}</h3>
             <p className={styles.sousTitre}>
-              {chateau.region} · jusqu&apos;à {chateau.capacite.max} participants
+              {chateau.region} · {(rubrique === "soirees" && CAPACITE_SOIREE[chateau.slug]) || `jusqu'à ${chateau.capacite.max} participants`}
             </p>
             <ul className={styles.exemples}>
               {animations.map((a) => (
