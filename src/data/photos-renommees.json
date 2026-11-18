@@ -187,6 +187,216 @@
           "nouveau": "seminaire-chateau-chantilly-salle-pleniere-brique.webp",
           "ou": "stockage",
           "alt": "Salle plénière aux murs de brique, séminaire en château à Chantilly"
+        },
+        {
+          "ancien": "66e843c6b4021c5843574012_Petit Dejeuner Montvillargenne.png",
+          "nouveau": "seminaire-chateau-chantilly-petit-dejeuner-terrasse-balustrade.webp",
+          "ou": "stockage",
+          "alt": "Petit-déjeuner servi sur une terrasse à balustres, face au parc"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Double_room_superior-19-27775 (1).jpg",
+          "nouveau": "seminaire-chateau-chantilly-salle-de-bains-douche-baignoire.webp",
+          "ou": "stockage",
+          "alt": "Salle de bains sous les toits, avec douche et baignoire"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Double_room_superior-19-27775 (2).jpg",
+          "nouveau": "seminaire-chateau-chantilly-suite-sous-les-toits-murs-dores.webp",
+          "ou": "stockage",
+          "alt": "Suite sous les toits aux murs dorés, avec coin salon"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Double_room_superior-19-27775 (3).jpg",
+          "nouveau": "seminaire-chateau-chantilly-chambre-prestige-parquet-coin-salon.webp",
+          "ou": "stockage",
+          "alt": "Grande chambre du château : parquet, moulures et coin salon"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Double_room_superior-19-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-chambre-classique-tete-de-lit-fleurie.webp",
+          "ou": "stockage",
+          "alt": "Chambre du château à la tête de lit fleurie, ouverte sur un balcon"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Fitness_room-1-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-salle-fitness-spa.webp",
+          "ou": "stockage",
+          "alt": "La salle de fitness du spa"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Hotel_indoor_area-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-salon-travail-pause-fauteuils.webp",
+          "ou": "stockage",
+          "alt": "Le salon de travail et de pause, avec ses fauteuils et ses tables hautes"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Hotel_outdoor_area-2-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-facade-lierre-colombages.webp",
+          "ou": "stockage",
+          "alt": "La façade du château, couverte de verdure"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Info-11-27775 (1).jpg",
+          "nouveau": "seminaire-chateau-chantilly-terrasse-tables-dressees-parc.webp",
+          "ou": "stockage",
+          "alt": "Tables dressées sur une terrasse fleurie, face au parc"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Info-11-27775 (2).jpg",
+          "nouveau": "seminaire-chateau-chantilly-petit-dejeuner-gaufres-oeufs.webp",
+          "ou": "stockage",
+          "alt": "Petit-déjeuner : gaufres, œufs au plat, fruits frais et café"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Info-11-27775 (3).jpg",
+          "nouveau": "seminaire-chateau-chantilly-petit-dejeuner-balcon-foret.webp",
+          "ou": "stockage",
+          "alt": "Petit-déjeuner sur un balcon, face aux arbres du parc"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Info-11-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-bar-cocktails-comptoir.webp",
+          "ou": "stockage",
+          "alt": "Le bar à cocktails et son comptoir"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Massage_room-1-27775 (1).jpg",
+          "nouveau": "seminaire-chateau-chantilly-cabine-massage-spa.webp",
+          "ou": "stockage",
+          "alt": "Une cabine de soins du spa"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Massage_room-1-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-cabine-massage-duo-spa.webp",
+          "ou": "stockage",
+          "alt": "La cabine de massage en duo du spa"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Meeting_room-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-salle-reunion-table-conseil.webp",
+          "ou": "stockage",
+          "alt": "Salon du château en table de conseil, pour un comité de direction"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Pool-1-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-piscine-interieure-spa.webp",
+          "ou": "stockage",
+          "alt": "La piscine intérieure du spa et ses transats"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Reception-2-27775 (1).jpg",
+          "nouveau": "seminaire-chateau-chantilly-diner-salon-prive-cheminee.webp",
+          "ou": "stockage",
+          "alt": "Un dîner dressé sur une grande table ovale, devant la cheminée d'un salon boisé"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Reception-2-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-salle-banquet-tables-rondes.webp",
+          "ou": "stockage",
+          "alt": "Une salle du château dressée en tables rondes pour un banquet"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Restaurant-5-27775 (1).jpg",
+          "nouveau": "seminaire-chateau-chantilly-salon-bar-fauteuils-velours.webp",
+          "ou": "stockage",
+          "alt": "Le salon du bar : fauteuils de velours et sol en damier"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Restaurant-5-27775 (2).jpg",
+          "nouveau": "seminaire-chateau-chantilly-terrasse-fleurie-hortensias.webp",
+          "ou": "stockage",
+          "alt": "Un coin de terrasse au milieu des hortensias"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Sports_facilities-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-velos-facade-lierre.webp",
+          "ou": "stockage",
+          "alt": "Des vélos à disposition devant la façade du château"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Standard_room-7-27775 (1).jpg",
+          "nouveau": "seminaire-chateau-chantilly-salle-de-bains-peignoirs.webp",
+          "ou": "stockage",
+          "alt": "Salle de bains avec vasque, peignoirs à disposition"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Standard_room-7-27775 (3).jpg",
+          "nouveau": "seminaire-chateau-chantilly-chambre-claire-coin-salon.webp",
+          "ou": "stockage",
+          "alt": "Chambre lumineuse avec coin salon"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Standard_room-7-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-chambre-bois-clair-coin-salon.webp",
+          "ou": "stockage",
+          "alt": "Chambre aux tons bois clair, avec coin salon séparé"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Suite-2-27775 (1).jpg",
+          "nouveau": "seminaire-chateau-chantilly-suite-coin-bureau-vasque.webp",
+          "ou": "stockage",
+          "alt": "Suite avec bureau et vasque, ouverte sur la chambre"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Suite-2-27775 (2).jpg",
+          "nouveau": "seminaire-chateau-chantilly-suite-coin-salon-canape.webp",
+          "ou": "stockage",
+          "alt": "Le coin salon d'une suite : canapé, table basse et bibliothèque"
+        },
+        {
+          "ancien": "Chateau_Jeanne_The_Forest-Chantilly-Tennis_court-27775.jpg",
+          "nouveau": "seminaire-chateau-chantilly-court-de-tennis.webp",
+          "ou": "stockage",
+          "alt": "Le court de tennis du domaine"
+        },
+        {
+          "ancien": "J-F-10.-2-1200x800.jpg",
+          "nouveau": "seminaire-chateau-chantilly-restaurant-mezzanine-escalier.webp",
+          "ou": "stockage",
+          "alt": "Le restaurant sur deux niveaux, avec son escalier et son sol en damier"
+        },
+        {
+          "ancien": "J-F-11-2-1200x800.jpg",
+          "nouveau": "seminaire-chateau-chantilly-restaurant-boiseries-tables-dressees.webp",
+          "ou": "stockage",
+          "alt": "Une salle de restaurant aux boiseries, tables dressées pour le déjeuner"
+        },
+        {
+          "ancien": "J-F-12-2-1200x800.jpg",
+          "nouveau": "seminaire-chateau-chantilly-dejeuner-libre-service-salle-boisee.webp",
+          "ou": "stockage",
+          "alt": "Le déjeuner en libre-service raffiné, dans une salle aux boiseries"
+        },
+        {
+          "ancien": "J-F-23-800x1200.jpg",
+          "nouveau": "seminaire-chateau-chantilly-assiette-oeuf-poche-avocat.webp",
+          "ou": "stockage",
+          "alt": "Une assiette du restaurant : œuf coulant, avocat et jeunes pousses"
+        },
+        {
+          "ancien": "J-F-24-800x1200.jpg",
+          "nouveau": "seminaire-chateau-chantilly-assiette-dessert-fruits-rouges.webp",
+          "ou": "stockage",
+          "alt": "Un dessert à l'assiette aux fruits rouges"
+        },
+        {
+          "ancien": "J-F-25-1200x675.jpg",
+          "nouveau": "seminaire-chateau-chantilly-dessert-tartelette-meringuee.webp",
+          "ou": "stockage",
+          "alt": "Un dessert à l'assiette : tartelette meringuée"
+        },
+        {
+          "ancien": "J-F-26-800x1200.jpg",
+          "nouveau": "seminaire-chateau-chantilly-dessert-chocolat.webp",
+          "ou": "stockage",
+          "alt": "Un dessert au chocolat, servi avec le café"
+        },
+        {
+          "ancien": "J-F-27-1200x800.jpg",
+          "nouveau": "seminaire-chateau-chantilly-dejeuner-libre-service-produits-saison.webp",
+          "ou": "stockage",
+          "alt": "Le libre-service raffiné : produits de saison présentés devant les boiseries"
         }
       ]
     },

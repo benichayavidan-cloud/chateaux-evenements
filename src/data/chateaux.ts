@@ -25,6 +25,7 @@ const fiches: Chateau[] = [
     images: {
       hero: [
         "/images/chateau-anglo-normand-vue-aerienne-parc-foret-chantilly.webp",
+        imgPath("Manoir Chantilly", "seminaire-chateau-chantilly-facade-lierre-colombages.webp"),
         "/images/seminaire-chateau-chantilly-allee-parc-arboree.webp",
         "/images/seminaire-chateau-chantilly-salle-pleniere-theatre.webp",
         "/images/seminaire-chateau-chantilly-salle-pleniere-brique.webp",
