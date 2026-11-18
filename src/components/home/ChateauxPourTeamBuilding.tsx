@@ -59,7 +59,7 @@ export function ChateauxPourTeamBuilding({ chateaux }: ChateauxPourTeamBuildingP
               ))}
             </ul>
             <Link href={`/chateaux/${chateau.slug}/activites#team-building`} className={styles.lienFiche}>
-              Le team building dans ce château <ArrowRight className="w-4 h-4" aria-hidden />
+              Voir ses animations <ArrowRight className="w-4 h-4" aria-hidden />
             </Link>
           </div>
         </article>
