@@ -81,3 +81,11 @@
   .duo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
   .blocTexte { padding: 1.5rem 1.75rem 1.75rem; }
 }
+
+/* ---- Les 4 châteaux et ce qu'on y organise (page Team building) : 1 colonne, puis 2, puis 4 ---- */
+.quatuor { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+.quatuor .blocPhoto { aspect-ratio: 16 / 10; }
+.quatuor .blocTitre { font-size: 1.375rem; }
+.sousTitre { margin: 0; font-size: 0.8125rem; font-weight: 500; color: #737373; }
+@media (min-width: 640px) { .quatuor { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .quatuor { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

@@ -365,7 +365,7 @@ export function TeamBuildingPointsForts() {
   const pointsForts = [
     "Cadre exceptionnel",
     "Activités sur mesure",
-    "20 à 500 participants",
+    "20 à 280 participants",
     "Encadrement professionnel",
     "Privatisation totale",
     "Hébergement sur place",
@@ -533,7 +533,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
           <div className="flex flex-wrap items-center gap-3" style={{ color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>
             <span className="inline-flex items-center gap-1.5">
               <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-              20–500 participants
+              20–280 participants
             </span>
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span className="inline-flex items-center gap-1.5">
@@ -669,7 +669,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               <ParaCard text="Des activités sur mesure : Chaque team building est conçu en fonction de vos objectifs — cohésion, communication, leadership, créativité. Nos chefs de projet vous accompagnent pour créer le programme parfait, de la demi-journée au séjour complet." sectionBg="gray" />
               <ParaCard text="Un accompagnement de A à Z : De la recherche du lieu idéal à la coordination le jour J, notre équipe gère tous les détails. Animateurs professionnels, matériel, logistique, restauration... Vous n'avez qu'à profiter du moment." sectionBg="gray" />
               <div className="flex flex-wrap" style={{ gap: '0.5rem', marginTop: '1rem' }}>
-                {["Outdoor & Indoor", "20 à 500 pers.", "Sur mesure", "Clé en main"].map((atout, i) => (
+                {["Outdoor & Indoor", "20 à 280 pers.", "Sur mesure", "Clé en main"].map((atout, i) => (
                   <Link key={i} href="/devis#formulaire" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap', textDecoration: 'none', transition: 'all 0.2s ease' }}>
                     <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>{atout}</span>
