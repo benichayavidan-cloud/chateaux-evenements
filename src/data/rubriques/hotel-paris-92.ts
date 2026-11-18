@@ -619,6 +619,32 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         conseil:
           "Pensez à l'heure d'accès au spa incluse par nuit : placez-la avant le dîner dans le programme de votre séminaire.",
       },
+      {
+        ancre: "team-building",
+        etiquette: "Team building",
+        titre: "Team building aux portes de Paris : rallye au jardin, ateliers et gestion de crise",
+        intro:
+          "Notre équipe organise des team buildings sur le domaine, sans car ni transfert : vos participants passent de la salle de réunion à l'activité en quelques minutes.",
+        reprend: [],
+        blocs: [
+          { titre: "Rallye découverte au jardin", texte: "Énigmes, défis photo et épreuves d'adresse dans le jardin du domaine : un rallye par équipes aux portes de Paris, sans quitter le site de votre séminaire." },
+          { titre: "Challenges créatifs", texte: "Fresque collective, création vidéo ou quiz de culture générale : des ateliers par équipes, faciles à glisser dans une journée de séminaire." },
+          { titre: "Simulation de gestion de crise", texte: "Une situation d'urgence fictive à gérer en équipe : prise de décision rapide, communication sous pression, leadership. Un format pensé pour un comité de direction." },
+        ],
+        faits: [
+          { label: "Team building en plein air", valeur: "rallye découverte" },
+          { label: "Team building en intérieur", valeur: "ateliers, gestion de crise" },
+          { label: "Organisation du team building", valeur: "par notre équipe" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/challenges-creatifs-team-building-chateau-activites.webp", legende: "Atelier créatif en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/gestion-crise-team-building-formation-entreprise.webp", legende: "Simulation de gestion de crise (image d’illustration, autre lieu)" },
+        ],
+        conseil:
+          "Pour un comité de direction en séminaire, demandez-moi la simulation de gestion de crise : un team building qui parle le langage de vos managers.",
+      },
     ],
     sources: [URL_REUNIONS, URL_OFFICIEL, URL_BIEN_ETRE, URL_HISTOIRE],
   },

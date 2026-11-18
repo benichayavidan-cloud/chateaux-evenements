@@ -614,6 +614,32 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         conseil:
           "Laissez un créneau libre dans le programme de votre séminaire : vos participants le passent au spa, sur le court de tennis ou à VTT en forêt.",
       },
+      {
+        ancre: "team-building",
+        etiquette: "Team building",
+        titre: "Team building en forêt de Chantilly : challenges sportifs, escape game et ateliers",
+        intro:
+          "Pour souder vos équipes entre deux sessions, notre équipe organise des team buildings au château, dehors quand le temps s'y prête, en intérieur le reste de l'année.",
+        reprend: [],
+        blocs: [
+          { titre: "Challenges sportifs dans le parc", texte: "Baby-foot humain, relais créatifs, parcours d'obstacles : dans le parc du château, des épreuves qui mêlent sport et fous rires pour souder vos équipes." },
+          { titre: "Escape game au château", texte: "Le temps d'une énigme, les salons de réunion changent de rôle : vos participants enquêtent par équipes, contre la montre." },
+          { titre: "Challenges créatifs", texte: "Fresque collective, création vidéo, quiz ou blind test musical : des ateliers en intérieur pour faire émerger d'autres talents que ceux du quotidien." },
+        ],
+        faits: [
+          { label: "Team building en plein air", valeur: "challenges sportifs" },
+          { label: "Team building en intérieur", valeur: "escape game, ateliers créatifs" },
+          { label: "Organisation du team building", valeur: "par notre équipe" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/services/team-building-activite-babyfoot-humain-exterieur-parc.webp", legende: "Baby-foot humain en plein air (image d’illustration, autre lieu)" },
+          { src: "/images/escape-game-chateau-team-building-enigmes.webp", legende: "Escape game en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/challenges-creatifs-team-building-chateau-activites.webp", legende: "Atelier créatif en équipe (image d’illustration, autre lieu)" },
+        ],
+        conseil:
+          "Pour une équipe qui sort d'une journée de réunion, choisissez les challenges sportifs dans le parc : vos participants se défoulent avant le dîner.",
+      },
     ],
     sources: [BROCHURE, PRATIQUE],
   },

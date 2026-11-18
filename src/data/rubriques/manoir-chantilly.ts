@@ -649,6 +649,32 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         conseil:
           "Pour un séminaire de plusieurs jours, laissez à vos participants un créneau libre en fin de journée : le spa reste ouvert jusqu'à 22 h.",
       },
+      {
+        ancre: "team-building",
+        etiquette: "Team building",
+        titre: "Team building au château : rallye dans le parc, escape game et ateliers créatifs",
+        intro:
+          "En plus des activités propres au château, notre équipe organise des team buildings de bout en bout, en plein air ou en intérieur selon la saison et votre programme.",
+        reprend: [],
+        blocs: [
+          { titre: "Rallye découverte dans le parc", texte: "Une chasse au trésor grandeur nature dans les 6 hectares du parc : énigmes, défis photo et épreuves d'adresse font circuler vos équipes d'un bout à l'autre du domaine." },
+          { titre: "Escape game dans les salons", texte: "Les salons du château deviennent des salles d'énigmes : vos équipes résolvent les mystères en temps limité. Un format qui fait travailler la communication et la résolution de problèmes." },
+          { titre: "Challenges créatifs", texte: "Fresque collective, construction en briques, création vidéo ou blind test musical : des ateliers qui révèlent d'autres talents chez vos collaborateurs, à l'abri quelle que soit la météo." },
+        ],
+        faits: [
+          { label: "Team building en plein air", valeur: "rallye découverte" },
+          { label: "Team building en intérieur", valeur: "escape game, ateliers créatifs" },
+          { label: "Organisation du team building", valeur: "par notre équipe" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/escape-game-chateau-team-building-enigmes.webp", legende: "Escape game en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/challenges-creatifs-team-building-chateau-activites.webp", legende: "Atelier créatif en équipe (image d’illustration, autre lieu)" },
+        ],
+        conseil:
+          "Prévoyez une activité en intérieur en solution de repli : si la météo tourne, le team building de votre séminaire bascule dans les salons.",
+      },
     ],
     sources: [SITE, MICE],
   },

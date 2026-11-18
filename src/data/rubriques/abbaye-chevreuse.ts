@@ -590,6 +590,32 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         conseil:
           "Pour vos participants qui aiment bouger, signalez le parcours sportif de 500 mètres : il se fait librement, entre deux sessions.",
       },
+      {
+        ancre: "team-building",
+        etiquette: "Team building",
+        titre: "Team building à l'abbaye : rallye autour du lac, escape game et gestion de crise",
+        intro:
+          "Notre équipe organise aussi des team buildings sur le domaine, à choisir selon l'objectif de votre séminaire : fédérer, faire réfléchir ou mettre vos managers en situation.",
+        reprend: [],
+        blocs: [
+          { titre: "Rallye découverte autour du lac", texte: "Sur 80 hectares, le rallye prend de l'ampleur : énigmes historiques, défis photo et épreuves d'adresse mènent vos équipes du lac aux ruines de l'église abbatiale." },
+          { titre: "Escape game à l'abbaye", texte: "Un escape game grandeur nature dans les salons : vos participants cherchent les indices par équipes et doivent s'échapper avant la fin du temps imparti." },
+          { titre: "Simulation de gestion de crise", texte: "Vos équipes affrontent une situation d'urgence fictive : décision rapide, communication sous pression, leadership. Un team building à forte valeur managériale, qui trouve sa place dans un séminaire de direction." },
+        ],
+        faits: [
+          { label: "Team building en plein air", valeur: "rallye découverte" },
+          { label: "Team building en intérieur", valeur: "escape game, gestion de crise" },
+          { label: "Organisation du team building", valeur: "par notre équipe" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/escape-game-chateau-team-building-enigmes.webp", legende: "Escape game en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/gestion-crise-team-building-formation-entreprise.webp", legende: "Simulation de gestion de crise (image d’illustration, autre lieu)" },
+        ],
+        conseil:
+          "Pour un séminaire de managers, demandez-moi la simulation de gestion de crise : elle fait travailler la prise de décision en équipe.",
+      },
     ],
     sources: [FICHE, CVENT],
   },
