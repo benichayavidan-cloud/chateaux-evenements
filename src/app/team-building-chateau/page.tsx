@@ -48,8 +48,8 @@ const faq = [
     answer: "Nous disposons de 4 domaines d'exception en Île-de-France : un Manoir Anglo-Normand à Chantilly, un Domaine Historique dans les Hauts-de-Seine (92), une Abbaye Millénaire dans la Vallée de Chevreuse et un Château 5 Étoiles en Forêt de Chantilly. Tous sont privatisables et situés à moins d'1h de Paris."
   },
   {
-    question: "Organisez-vous des team building dans les Hauts-de-Seine (92) et à Issy-les-Moulineaux ?",
-    answer: "Oui. Notre Domaine Historique se trouve à Issy-les-Moulineaux, dans les Hauts-de-Seine : un boutique-hôtel 5 étoiles accessible en métro (5 min à pied), avec vue sur la Tour Eiffel, 9 salles de réunion, 83 chambres et un spa de 360 m². C'est le choix des équipes qui veulent un team building en Île-de-France sans temps de transport : jusqu'à 70 participants en réunion et 300 invités au jardin, jardin suspendu pour les activités outdoor et privatisation totale possible."
+    question: "Organisez-vous des team building dans les Hauts-de-Seine (92) ?",
+    answer: "Oui. Notre Domaine Historique se trouve dans les Hauts-de-Seine, aux portes de Paris : un boutique-hôtel 5 étoiles accessible en métro (5 min à pied), avec vue sur la Tour Eiffel, 9 salles de réunion, 83 chambres et un spa de 360 m². C'est le choix des équipes qui veulent un team building en Île-de-France sans temps de transport : jusqu'à 70 participants en réunion et 300 invités au jardin, jardin suspendu pour les activités outdoor et privatisation totale possible."
   },
   {
     question: "Comment organiser un team building en château près de Paris ?",

@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Extraction du type de lieu depuis le nom (ex: "Grand Château", "Domaine Historique", "Ancienne Abbaye")
   const typeLieu = chateau.nom.split(" de ")[0].split(" à ")[0].split(" en ")[0];
 
-  // Extraction de la ville (ex: "Chantilly", "Issy-les-Moulineaux", "Vallée de Chevreuse")
+  // Extraction de la ville (ex: "Chantilly", "Hauts-de-Seine", "Vallée de Chevreuse")
   const ville = localite(chateau.region);
 
   return {

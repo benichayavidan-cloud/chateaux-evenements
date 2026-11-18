@@ -217,7 +217,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       "L'excellence événementielle à 30 minutes de la capitale",
     heroImage: "/images/seminaires-soirees-entreprise-hero.webp",
     introTitre: "Séminaire en château proche de Paris : le dépaysement sans la logistique",
-    introduction: `Proximité et excellence : vos collaborateurs quittent Paris le matin et se retrouvent dans un château d'exception en moins de 45 minutes — sans bus affrété ni organisation complexe. Choisir un château proche de Paris pour votre séminaire d'entreprise, c'est réduire 79 % de votre bilan carbone événementiel (lié au transport) tout en offrant un cadre qui booste la productivité de +43 % selon l'université de Warwick. Le dépaysement est immédiat, la logistique est simplifiée. 4 domaines à portée de main : l'un est accessible en métro ligne 12 à seulement 2 arrêts de Paris, deux sont nichés en forêt de Chantilly à 35 minutes par l'A1 et à 15 minutes de Roissy-CDG, le dernier se cache dans la Vallée de Chevreuse sur un domaine de 80 hectares. Plus de 450 chambres et 56 salles de réunion vous attendent pour des séminaires résidentiels de 10 à 300 personnes, avec spa, gastronomie et activités team building inclus. Formats flexibles, zéro contrainte : journée d'étude, CODIR de 10 personnes, convention de 300 participants ou soirée de gala — la proximité de Paris permet même les arrivées décalées et les départs anticipés. 60 % des dates sont déjà réservées pour les prochains mois : anticipez et demandez votre devis gratuit sous 24 h. Notre équipe Select Châteaux organise tout — transferts depuis vos locaux, salles équipées, restauration gastronomique, animations sur-mesure — pour que vous vous concentriez sur l'essentiel : vos équipes.`,
+    introduction: `Proximité et excellence : vos collaborateurs quittent Paris le matin et se retrouvent dans un château d'exception en moins de 45 minutes — sans bus affrété ni organisation complexe. Choisir un château proche de Paris pour votre séminaire d'entreprise, c'est réduire 79 % de votre bilan carbone événementiel (lié au transport) tout en offrant un cadre qui booste la productivité de +43 % selon l'université de Warwick. Le dépaysement est immédiat, la logistique est simplifiée. 4 domaines à portée de main : l'un est accessible en métro à seulement 2 arrêts de Paris, deux sont nichés en forêt de Chantilly à 35 minutes par l'A1 et à 15 minutes de Roissy-CDG, le dernier se cache dans la Vallée de Chevreuse sur un domaine de 80 hectares. Plus de 450 chambres et 56 salles de réunion vous attendent pour des séminaires résidentiels de 10 à 300 personnes, avec spa, gastronomie et activités team building inclus. Formats flexibles, zéro contrainte : journée d'étude, CODIR de 10 personnes, convention de 300 participants ou soirée de gala — la proximité de Paris permet même les arrivées décalées et les départs anticipés. 60 % des dates sont déjà réservées pour les prochains mois : anticipez et demandez votre devis gratuit sous 24 h. Notre équipe Select Châteaux organise tout — transferts depuis vos locaux, salles équipées, restauration gastronomique, animations sur-mesure — pour que vous vous concentriez sur l'essentiel : vos équipes.`,
     pourquoiTitre: "Pourquoi choisir un château proche de Paris pour votre séminaire ?",
     pointsForts: [
       {
@@ -276,7 +276,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Quel est le château le plus proche de Paris ?",
         answer:
-          "Notre boutique-hôtel 5 étoiles dans les Hauts-de-Seine (92) est le plus proche : à 4 minutes à pied de la station Mairie d'Issy (métro ligne 12), soit 2 arrêts de Paris. Vue Tour Eiffel, spa 360 m², restaurant bistronomique bio. Labellisé Clef Verte.",
+          "Notre boutique-hôtel 5 étoiles dans les Hauts-de-Seine (92) est le plus proche : à 4 minutes à pied du métro, soit 2 arrêts de Paris. Vue Tour Eiffel, spa 360 m², restaurant bistronomique bio. Labellisé Clef Verte.",
       },
       {
         question: "Peut-on faire un séminaire à la journée sans hébergement ?",
@@ -300,7 +300,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       },
     ],
     contenuSEO: `<h2>Paris et ses châteaux : un patrimoine à portée de main</h2>
-<p>La région parisienne regorge de domaines historiques qui ont traversé les siècles. Les 4 domaines incarnent cette diversité exceptionnelle. Au nord, la forêt de Chantilly abrite un château anglo-normand de 120 chambres (21 salles, spa) et un château-hôtel 5 étoiles de 109 chambres (centre de convention 700 m², à 15 min de CDG). Au sud-ouest, la Vallée de Chevreuse accueille une abbaye cistercienne rénovée en 2023 de 144 chambres sur 80 hectares (14 salles, 6 restaurants). Et aux portes mêmes de Paris, un boutique-hôtel 5 étoiles de 83 chambres avec vue Tour Eiffel, accessible en métro ligne 12.</p>
+<p>La région parisienne regorge de domaines historiques qui ont traversé les siècles. Les 4 domaines incarnent cette diversité exceptionnelle. Au nord, la forêt de Chantilly abrite un château anglo-normand de 120 chambres (21 salles, spa) et un château-hôtel 5 étoiles de 109 chambres (centre de convention 700 m², à 15 min de CDG). Au sud-ouest, la Vallée de Chevreuse accueille une abbaye cistercienne rénovée en 2023 de 144 chambres sur 80 hectares (14 salles, 6 restaurants). Et aux portes mêmes de Paris, un boutique-hôtel 5 étoiles de 83 chambres avec vue Tour Eiffel, accessible en métro.</p>
 
 <h2>L'avantage décisif de la proximité</h2>
 <p>Organiser un séminaire proche de Paris élimine le principal frein logistique : le transport. Fini les billets d'avion, les transferts complexes et les demi-journées perdues en déplacement. En 30 à 45 minutes, vos collaborateurs passent de leur bureau à un cadre d'exception. Cette proximité permet aussi une grande flexibilité : séminaires à la journée, événements sur 2 jours / 1 nuit, ou formats plus longs. Les participants avec des contraintes peuvent facilement arriver plus tard ou repartir plus tôt.</p>
@@ -478,25 +478,25 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-hauts-de-seine-92",
-    title: "Séminaire Hauts-de-Seine : château-hôtel 5★, métro L12",
-    description: "83 chambres, 9 salles et un spa de 360 m² dans un château-hôtel 5★ des Hauts-de-Seine, accessible en métro L12. Devis chiffré sous 24 h.",
+    title: "Séminaire Hauts-de-Seine : château-hôtel 5★ en métro",
+    description: "83 chambres, 9 salles et un spa de 360 m² dans un château-hôtel 5★ des Hauts-de-Seine, accessible en métro. Devis chiffré sous 24 h.",
     keywords: ["seminaire entreprise hauts-de-seine", "séminaire château 92", "hôtel séminaire paris 92", "lieu séminaire hauts-de-seine", "séminaire métro paris", "séminaire entreprise issy"],
     ogTitle: "Séminaire en Château Hauts-de-Seine (92) | Select Châteaux",
     ogDescription:
-      "Boutique-hôtel 5★ dans le 92. 83 chambres vue Tour Eiffel, spa 360m², restaurant bio, accessible métro L12. Séminaires de prestige.",
+      "Boutique-hôtel 5★ dans le 92. 83 chambres vue Tour Eiffel, spa 360m², restaurant bio, accessible en métro. Séminaires de prestige.",
     canonical: "/seminaire-chateau-hauts-de-seine-92",
     h1: "Séminaire en Château dans les Hauts-de-Seine",
     heroAccroche:
       "Boutique-hôtel 5 étoiles avec vue Tour Eiffel, accessible métro",
     heroImage: "/images/seminaires-soirees-entreprise-hero.webp",
     introTitre: "Séminaire en château dans les Hauts-de-Seine : un hôtel 5 étoiles confidentiel aux portes de Paris",
-    introduction: `L'adresse la plus confidentielle d'Île-de-France : à 4 minutes à pied du métro Mairie d'Issy (ligne 12), soit 2 arrêts de Paris, ce boutique-hôtel 5 étoiles est le secret le mieux gardé des organisateurs de CODIR et COMEX. Classé Monument Historique depuis 1996, ce domaine du XVIIe siècle — ancienne retraite royale — offre un dépaysement saisissant : vue imprenable sur la Tour Eiffel, jardin botanique de 5 000 m² et chapelle désacralisée transformée en bar à rhum exclusif avec 400 références. 83 chambres et suites au design contemporain, 9 espaces de réunion modulables : du CODIR de 10 personnes au séminaire stratégique de 70 participants, chaque format est sublimé par un cadre 5 étoiles. Spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga, restaurant bistronomique privilégiant les produits bio et locaux, institut de beauté haut de gamme — vos collaborateurs alternent sessions de travail et moments de bien-être dans un même lieu. Le chef du domaine compose des menus sur-mesure pour vos déjeuners de travail et dîners de gala. Confidentialité et standing pour vos décisions stratégiques : les Hauts-de-Seine abritent 14 entreprises du CAC 40 et le premier quartier d'affaires d'Europe à La Défense. Ce lieu confidentiel, labellisé Clef Verte, est l'adresse de référence pour les réunions de direction où discrétion et inspiration sont essentielles. Accessible en métro, zéro logistique de transport — vos participants arrivent détendus et opérationnels. Select Châteaux vous accompagne de la conception à la réalisation : demandez votre devis gratuit sous 24 h.`,
+    introduction: `L'adresse la plus confidentielle d'Île-de-France : à 4 minutes à pied du métro, soit 2 arrêts de Paris, ce boutique-hôtel 5 étoiles est le secret le mieux gardé des organisateurs de CODIR et COMEX. Classé Monument Historique depuis 1996, ce domaine du XVIIe siècle — ancienne retraite royale — offre un dépaysement saisissant : vue imprenable sur la Tour Eiffel, jardin botanique de 5 000 m² et chapelle désacralisée transformée en bar à rhum exclusif avec 400 références. 83 chambres et suites au design contemporain, 9 espaces de réunion modulables : du CODIR de 10 personnes au séminaire stratégique de 70 participants, chaque format est sublimé par un cadre 5 étoiles. Spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga, restaurant bistronomique privilégiant les produits bio et locaux, institut de beauté haut de gamme — vos collaborateurs alternent sessions de travail et moments de bien-être dans un même lieu. Le chef du domaine compose des menus sur-mesure pour vos déjeuners de travail et dîners de gala. Confidentialité et standing pour vos décisions stratégiques : les Hauts-de-Seine abritent 14 entreprises du CAC 40 et le premier quartier d'affaires d'Europe à La Défense. Ce lieu confidentiel, labellisé Clef Verte, est l'adresse de référence pour les réunions de direction où discrétion et inspiration sont essentielles. Accessible en métro, zéro logistique de transport — vos participants arrivent détendus et opérationnels. Select Châteaux vous accompagne de la conception à la réalisation : demandez votre devis gratuit sous 24 h.`,
     pourquoiTitre: "Pourquoi les Hauts-de-Seine pour votre séminaire en château ?",
     pointsForts: [
       {
         titre: "Accessible en métro",
         description:
-          "4 minutes à pied de la station Mairie d'Issy (métro ligne 12), à seulement 2 arrêts de Paris. Parking avec voiturier, bornes de recharge électriques et rack à vélos. Zéro logistique de transport.",
+          "4 minutes à pied du métro, à seulement 2 arrêts de Paris. Parking avec voiturier, bornes de recharge électriques et rack à vélos. Zéro logistique de transport.",
         icon: "Train",
       },
       {
@@ -521,7 +521,7 @@ export const geoLandingPages: GeoLandingPage[] = [
     chateauxIds: ["2"],
     infosPratiques: [
       { label: "Département", value: "Hauts-de-Seine (92)" },
-      { label: "Métro", value: "Ligne 12 — Mairie d'Issy (4 min)" },
+      { label: "Métro", value: "À 4 min à pied" },
       { label: "Depuis Paris centre", value: "2 arrêts de métro" },
       { label: "Capacité", value: "70 en réunion, 300 au jardin" },
       { label: "Chambres", value: "83 chambres et suites" },
@@ -554,7 +554,7 @@ export const geoLandingPages: GeoLandingPage[] = [
       {
         question: "Comment accéder au domaine en transports en commun ?",
         answer:
-          "Le domaine est à 4 minutes à pied de la station Mairie d'Issy (métro ligne 12), soit à seulement 2 arrêts de Paris. Parking avec voiturier, bornes de recharge électriques et rack à vélos. C'est le seul domaine château d'exception accessible en métro.",
+          "Le domaine est à 4 minutes à pied du métro, soit à seulement 2 arrêts de Paris. Parking avec voiturier, bornes de recharge électriques et rack à vélos. C'est le seul domaine château d'exception accessible en métro.",
       },
       {
         question: "Ce lieu est-il adapté pour un CODIR ou un COMEX ?",
@@ -579,7 +579,7 @@ export const geoLandingPages: GeoLandingPage[] = [
 <p>Ce boutique-hôtel offre 83 chambres et suites au design contemporain raffiné, dont des Junior Suites avec vue sur la Tour Eiffel. Le domaine se distingue par ses espaces uniques : une chapelle désacralisée transformée en bar à rhum, un jardin botanique de 5 000 m² avec terrasse panoramique, un spa de 360 m² avec piscine intérieure, sauna, hammam et studio de yoga, et le restaurant bistronomique privilégiant les produits bio et locaux. Labellisé Clef Verte, le domaine allie prestige et engagement environnemental.</p>
 
 <h2>L'adresse des décideurs</h2>
-<p>9 espaces de réunion modulables s'adaptent à tous les formats : du salon board de 50 m² (17 personnes en boardroom) pour vos CODIR, au restaurant (160 m², 100 en cocktail) pour vos réceptions. La terrasse jardin de 100 m² accueille vos cocktails en plein air face à la Tour Eiffel. Accessible en 4 minutes à pied depuis la station Mairie d'Issy (métro ligne 12), c'est l'adresse privilégiée des entreprises qui exigent confidentialité, standing et accessibilité.</p>`,
+<p>9 espaces de réunion modulables s'adaptent à tous les formats : du salon board de 50 m² (17 personnes en boardroom) pour vos CODIR, au restaurant (160 m², 100 en cocktail) pour vos réceptions. La terrasse jardin de 100 m² accueille vos cocktails en plein air face à la Tour Eiffel. Accessible en 4 minutes à pied depuis le métro, c'est l'adresse privilégiée des entreprises qui exigent confidentialité, standing et accessibilité.</p>`,
     breadcrumb: [
       { name: "Accueil", url: "/" },
       { name: "Séminaire Château Hauts-de-Seine", url: "/seminaire-chateau-hauts-de-seine-92" },

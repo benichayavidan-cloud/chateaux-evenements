@@ -56,7 +56,7 @@ const stockage = (fichier: string) => chateauImage('Hotel Paris 92', `seminaire-
 
 export const rubriquesHotelParis92: RubriquesDomaine = {
   salles: {
-    seoTitle: 'Salles de réunion 5 étoiles à Issy-les-Moulineaux',
+    seoTitle: 'Salles de réunion 5 étoiles aux portes de Paris',
     titreSection: "Salles de réunion aux portes de Paris : jusqu'à 70 participants",
     conseil:
       "À la belle saison, sortez la réunion dehors avec vos participants : la grande terrasse de 100 m² et le jardin prolongent vos salons, avec la tour Eiffel en toile de fond.",
@@ -649,18 +649,18 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
   },
 
   acces: {
-    seoTitle: "Accès en métro ligne 12 : Mairie d'Issy, hôtel 5 étoiles",
+    seoTitle: "Accès en métro : hôtel 5 étoiles aux portes de Paris",
     titreSection: "Accès au séminaire : métro, Porte de Versailles et Orly",
     conseil:
       "Si votre séminaire suit un salon professionnel, pensez-y : Paris Expo Porte de Versailles est à 5 minutes en voiture, et vos participants peuvent aussi venir en métro.",
     seoDescription:
-      "Métro ligne 12 à 5 min à pied, Porte de Versailles à 5 min en voiture, Orly à 25 min, CDG à 50 min. Parking avec voiturier et bornes de recharge.",
+      "Métro à 5 min à pied, Porte de Versailles à 5 min en voiture, Orly à 25 min, CDG à 50 min. Parking avec voiturier et bornes de recharge.",
     resume:
-      "Métro ligne 12 (Mairie d'Issy) à 5 minutes à pied, Orly à 25 minutes. Parking avec voiturier et bornes de recharge.",
+      "Métro à 5 minutes à pied, Orly à 25 minutes. Parking avec voiturier et bornes de recharge.",
     intro:
-      "Pour un séminaire résidentiel aux portes de Paris, le domaine se trouve à Issy-les-Moulineaux, au sud-ouest de la capitale. Vos participants arrivent en métro, sans navette ni transfert ; pour ceux qui viennent en voiture, notre parking dispose d'un voiturier et de bornes de recharge.",
+      "Pour un séminaire résidentiel aux portes de Paris, le domaine se trouve au sud-ouest de la capitale, dans les Hauts-de-Seine. Vos participants arrivent en métro, sans navette ni transfert ; pour ceux qui viennent en voiture, notre parking dispose d'un voiturier et de bornes de recharge.",
     faits: [
-      { label: "Métro Mairie d'Issy (ligne 12)", valeur: '5 min à pied', source: RESA },
+      { label: "Métro", valeur: '5 min à pied', source: RESA },
       { label: 'Paris Expo Porte de Versailles', valeur: '5 min en voiture', source: RESA },
       { label: "Aéroport d'Orly", valeur: '25 min', source: OFFICIEL },
       { label: 'Aéroport Roissy-CDG', valeur: '50 min', source: OFFICIEL },
@@ -673,7 +673,7 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'En métro',
         texte:
-          "La ligne 12 du métro s'arrête à Mairie d'Issy, à environ 5 minutes à pied du domaine. Elle relie directement le centre de Paris : vos participants viennent en transports en commun, comme pour une réunion en ville.",
+          "Le métro s'arrête à environ 5 minutes à pied du domaine. Il relie directement le centre de Paris : vos participants viennent en transports en commun, comme pour une réunion en ville.",
       },
       {
         titre: 'En train',
@@ -683,12 +683,12 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
       {
         titre: 'En voiture',
         texte:
-          "La sortie d'autoroute d'Issy est à 2 km, soit 5 minutes. Paris Expo Porte de Versailles est à 5 minutes en voiture : le domaine prolonge naturellement un salon professionnel pour vos équipes. Notre parking propose à vos participants un service de voiturier et des bornes de recharge pour véhicules électriques.",
+          "La sortie d'autoroute est à 2 km, soit 5 minutes. Paris Expo Porte de Versailles est à 5 minutes en voiture : le domaine prolonge naturellement un salon professionnel pour vos équipes. Notre parking propose à vos participants un service de voiturier et des bornes de recharge pour véhicules électriques.",
       },
       {
         titre: 'En avion ou en hélicoptère',
         texte:
-          "Pour vos participants venus de province ou de l'étranger, l'aéroport d'Orly est à 25 minutes de route, Roissy-Charles-de-Gaulle à 50 minutes. L'héliport d'Issy se trouve à 2,3 km, à 8 minutes en voiture.",
+          "Pour vos participants venus de province ou de l'étranger, l'aéroport d'Orly est à 25 minutes de route, Roissy-Charles-de-Gaulle à 50 minutes. L'héliport se trouve à 2,3 km, à 8 minutes en voiture.",
       },
     ],
     blocsSection: [0, 2],
