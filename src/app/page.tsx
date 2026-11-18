@@ -15,11 +15,19 @@ import { StatsSection } from "@/components/home/StatsSection";
 import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "lucide-react";
 import { lienFinal } from "@/data/redirections";
+import DevisFormMini from "@/components/DevisFormMini";
+
+/** Où mène chaque carte de « Ce que notre équipe organise » : les onglets du menu pour les soirées et le team building, la collection sinon. */
+const LIEN_SERVICE: Record<string, string> = {
+  "soiree-entreprise": "/seminaires-soirees-entreprise",
+  "team-building": "/team-building-chateau",
+  "journee-etude": "/journee-etude-seminaire",
+};
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Location de Château pour Séminaire dès 150 €/pers.",
-  description: "Location de château pour séminaire d'entreprise : 4 domaines privatisables, 10 à 500 pers, hébergement inclus dès 150€/pers. Devis gratuit en 24h.",
+  title: "Séminaire en château : 4 domaines près de Paris",
+  description: "Une collection de 4 châteaux privatisables pour vos séminaires d'entreprise, en Île-de-France et dans l'Oise : de 10 à 280 participants, hébergement sur place. Devis gratuit en 24 h.",
   robots: {
     index: true,
     follow: true,
@@ -59,7 +67,7 @@ export default function Home() {
         autoPlay
         autoPlayDuration={3000}
         height="100vh"
-        heading="Location de Château pour Séminaire d'Entreprise — 4 Domaines d'Exception"
+        heading="Séminaire d'entreprise en château — une collection de 4 domaines d'exception"
       />
 
       {/* Stats Section - Cartes animées */}
@@ -265,6 +273,14 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Formulaire de devis sur place (18/11/2026) : l'accueil est la première page d'arrivée des demandes,
+          et c'était la seule page de la collection sans formulaire. Même brique que /chateaux. */}
+      <section style={{ background: '#FFFFFF' }}>
+        <Container size="lg">
+          <DevisFormMini chateauId="conseil" chateauNom="Châteaux d'Exception" />
+        </Container>
+      </section>
+
       {/* Services Section - Clean & Elegant */}
       <section
         style={{
@@ -277,17 +293,17 @@ export default function Home() {
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-              Services Sur Mesure : 4 Châteaux d'Exception Proches de Paris
+              Ce que notre équipe organise dans nos 4 châteaux
             </Text>
             <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '940px', margin: '0 auto' }}>
-              Concevez un séminaire d'entreprise sans contrainte grâce à des solutions événementielles entièrement intégrées. Situés au vert, à deux pas des aéroports internationaux et des gares TGV, ces 4 châteaux d'exception en Île-de-France offrent un équilibre parfait entre accessibilité et déconnexion. Avec un parc hôtelier allant de 40 à 120 chambres, chaque domaine devient le théâtre exclusif de vos ambitions, garantissant une unité de lieu propice à l'efficacité et au ressourcement de vos équipes.
+              Séminaire résidentiel, journée d'étude, soirée ou team building : notre équipe organise votre événement de bout en bout dans l'un des 4 châteaux de la collection. Situés au vert, près des aéroports et des gares, ils comptent de 83 à 144 chambres : votre groupe travaille, dîne et dort sur un seul site.
             </Text>
           </div>
 
           {/* Services Grid - 4 colonnes verticales type forfait */}
           <div className="services-forfait-grid">
             {typesEvenements.map((service, index) => (
-              <Link key={service.id} href="/seminaires-soirees-entreprise" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link key={service.id} href={LIEN_SERVICE[service.id] ?? "/chateaux"} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ServiceCard
                   icon={service.icon}
                   titre={service.titre}
@@ -513,7 +529,7 @@ export default function Home() {
       </section>
 
       {/* CTA persistant mobile/desktop — apparaît au scroll, route vers /devis#formulaire */}
-      <StickyCtaBar />
+      <StickyCtaBar cible="#devis-express" />
     </>
   );
 }

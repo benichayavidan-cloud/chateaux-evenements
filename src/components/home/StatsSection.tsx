@@ -12,7 +12,9 @@ interface ChiffreCle {
 }
 
 function AnimatedCounter({ value, duration = 2 }: { value: number; duration?: number }) {
-  const [count, setCount] = useState(0);
+  // Valeur réelle au premier rendu : c'est elle que reçoivent Google et un navigateur sans JavaScript
+  // (le HTML servi affichait « 0 ans d'expérience, 0 lieux… », constat du 18/11/2026).
+  const [count, setCount] = useState(value);
   const { ref, isInView } = useInView<HTMLSpanElement>();
 
   useEffect(() => {
