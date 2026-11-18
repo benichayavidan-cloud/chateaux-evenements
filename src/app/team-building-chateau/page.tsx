@@ -21,7 +21,7 @@ import { GuidesSection, ObservatoireSection } from "@/components/lieux";
 const faq = [
   {
     question: "Quels types de team building proposez-vous en château ?",
-    answer: "Nous proposons plus de 40 activités : olympiades sportives, escape game grandeur nature, murder party immersive, atelier cuisine gastronomique, challenge Koh-Lectif, build and race, lego challenge, drum batucada et bien plus. Chaque programme est personnalisé selon vos objectifs de cohésion d'équipe."
+    answer: "Nos animations se déroulent en plein air ou en intérieur : olympiades, rallye découverte, challenges sportifs, escape game, murder party, challenges créatifs, simulation de gestion de crise et ateliers cuisine. Chaque programme est personnalisé selon vos objectifs de cohésion d'équipe."
   },
   {
     question: "Combien de participants peuvent être accueillis pour un team building ?",
@@ -59,7 +59,7 @@ const faq = [
 
 // Titre et description écrits une seule fois, repris par les aperçus de partage (18/11/2026).
 const TITRE_PAGE = "Team building en château, Île-de-France : nos 4 domaines";
-const DESCRIPTION_PAGE = "Team building dans une collection de 4 châteaux privatisables en Île-de-France : 40 activités dès 45 € par personne, de 20 à 280 participants. Devis en 24 h.";
+const DESCRIPTION_PAGE = "Team building dans une collection de 4 châteaux privatisables en Île-de-France : olympiades, rallye, escape game, dès 45 € par personne. 20 à 280 participants.";
 
 export const metadata: Metadata = {
   // `absolute` : pas de suffixe de marque, pour garder les mots réellement tapés dans les 60 caractères affichés.
@@ -102,7 +102,7 @@ export default function TeamBuildingPage() {
         "@type": "Service",
         "@id": "https://www.selectchateaux.com/team-building-chateau#service",
         name: "Team Building en Château",
-        description: "Organisation de team building et d'activités de cohésion d'équipe dans les 4 châteaux privatisables de la collection Select Châteaux, en Île-de-France. Plus de 40 animations : olympiades, escape game, murder party, ateliers cuisine, challenges créatifs, soirées entreprise.",
+        description: "Organisation de team building et d'activités de cohésion d'équipe dans les 4 châteaux privatisables de la collection Select Châteaux, en Île-de-France. Animations en plein air et en intérieur : olympiades, rallye découverte, escape game, murder party, challenges créatifs, ateliers cuisine.",
         url: "https://www.selectchateaux.com/team-building-chateau",
         provider: {
           "@id": "https://www.selectchateaux.com/#organization",
