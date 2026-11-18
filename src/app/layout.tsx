@@ -176,29 +176,15 @@ export default function RootLayout({
                 { label: "Palais Royal Forêt Chantilly", href: "/chateaux/palais-royal-foret-chantilly" },
               ],
             },
-            {
-              label: "Par département",
-              href: "/lieux",
-              children: [
-                { label: "Tous les lieux", href: "/lieux" },
-                { label: "Yvelines (78)", href: lienFinal("/seminaire-chateau-yvelines-78") },
-                { label: "Oise (60)", href: lienFinal("/seminaire-chateau-oise-60") },
-                { label: "Seine-et-Marne (77)", href: "/seminaire-chateau-seine-et-marne-77" },
-                { label: "Val-d'Oise (95)", href: "/seminaire-chateau-val-d-oise-95" },
-                { label: "Essonne (91)", href: "/seminaire-chateau-essonne-91" },
-                { label: "Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
-              ],
-            },
-            {
-              label: "Team Building",
-              href: "/team-building-chateau",
-              children: [
-                { label: "Toutes les activités", href: "/team-building-chateau" },
-                { label: "Team building à Chantilly", href: "/team-building-chantilly" },
-                { label: "Team building Hauts-de-Seine", href: "/team-building-hauts-de-seine-92" },
-                { label: "Team building Val-d'Oise", href: "/team-building-val-d-oise-95" },
-              ],
-            },
+            // Menu recentré sur la collection (décision PO du 18/11/2026). « Par
+            // département » (qui menait à l'annuaire /lieux) et « Team Building »
+            // sortent du menu : le site se présente comme une collection de 4
+            // châteaux, pas comme un annuaire ni un catalogue d'agence. Rien n'est
+            // supprimé : ces pages restent en ligne, dans le plan du site et dans
+            // le pied de page, qui garde leurs liens (une page que plus rien ne
+            // relie perd son classement). Le team building et les soirées à thème
+            // sont désormais présentés dans les pages Activités et Soirées de
+            // chaque château.
             {
               // « Journée d'étude » et « Budget » étaient au PREMIER niveau depuis
               // la PR #14 (30/08) : le menu y avait servi de véhicule de maillage
@@ -218,7 +204,6 @@ export default function RootLayout({
               children: [
                 { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
                 { label: "Journée d'étude", href: "/journee-etude-seminaire" },
-                { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
                 { label: "Alternative à Châteauform'", href: "/alternative-chateauform" },
               ],
             },
