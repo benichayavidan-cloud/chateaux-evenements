@@ -619,6 +619,32 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
         conseil:
           "Pensez à l'heure d'accès au spa incluse par nuit : placez-la avant le dîner dans le programme de votre séminaire.",
       },
+      {
+        ancre: "team-building",
+        etiquette: "Team building",
+        titre: "Rallye au jardin, ateliers créatifs et gestion de crise : nos team buildings à Paris",
+        intro:
+          "Notre équipe organise des team buildings sur le domaine : tout se passe sur place, sans car ni transfert.",
+        reprend: [],
+        blocs: [
+          { titre: "Rallye découverte au jardin", texte: "Dans le jardin du domaine, les équipes s'affrontent sur un parcours d'énigmes, de défis photo et d'épreuves d'adresse, sans quitter le site de votre séminaire." },
+          { titre: "Ateliers créatifs en équipe", texte: "Fresque collective ou création vidéo : une réalisation commune par équipe, qui change du tour de table habituel." },
+          { titre: "Simulation de gestion de crise", texte: "Face à une urgence fictive, votre comité de direction s'exerce à décider vite et à communiquer sous pression : un team building utile au quotidien de vos managers." },
+        ],
+        faits: [
+          { label: "Team building en plein air", valeur: "rallye découverte" },
+          { label: "Team building en intérieur", valeur: "créatifs, gestion de crise" },
+          { label: "Lieu du team building", valeur: "sur le domaine" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/challenges-creatifs-team-building-chateau-activites.webp", legende: "Atelier créatif en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/gestion-crise-team-building-formation-entreprise.webp", legende: "Simulation de gestion de crise (image d’illustration, autre lieu)" },
+        ],
+        conseil:
+          "Pour un séminaire d'une journée à Paris, gardez le team building pour la fin d'après-midi : il se tient sur le domaine, vos participants n'ont pas à se déplacer.",
+      },
     ],
     sources: [URL_REUNIONS, URL_OFFICIEL, URL_BIEN_ETRE, URL_HISTOIRE],
   },

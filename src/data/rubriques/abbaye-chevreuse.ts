@@ -590,6 +590,32 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         conseil:
           "Pour vos participants qui aiment bouger, signalez le parcours sportif de 500 mètres : il se fait librement, entre deux sessions.",
       },
+      {
+        ancre: "team-building",
+        etiquette: "Team building",
+        titre: "Rallye autour du lac, escape game, ateliers créatifs : nos team buildings à l'abbaye",
+        intro:
+          "Notre équipe organise aussi des team buildings sur le domaine, à choisir selon l'objectif de votre séminaire : faire découvrir le lieu, faire réfléchir ou faire créer ensemble.",
+        reprend: [],
+        blocs: [
+          { titre: "Rallye découverte autour du lac", texte: "Sur 80 hectares, le terrain de jeu ne manque pas : énigmes historiques, défis photo et épreuves d'adresse font découvrir à vos équipes le lac et les ruines de l'église abbatiale." },
+          { titre: "Escape game à l'abbaye", texte: "Enfermées dans un salon transformé en salle d'énigmes, vos équipes ont un temps compté pour trouver la sortie. Un format qui oblige à communiquer." },
+          { titre: "Challenges créatifs", texte: "Fresque collective, construction en briques ou création vidéo : chaque équipe réalise une œuvre commune, et les talents cachés de vos collaborateurs se révèlent." },
+        ],
+        faits: [
+          { label: "Team building en plein air", valeur: "rallye découverte" },
+          { label: "Team building en intérieur", valeur: "escape game, ateliers créatifs" },
+          { label: "Team building sur mesure", valeur: "selon votre objectif" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/escape-game-chateau-team-building-enigmes.webp", legende: "Escape game en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/challenges-creatifs-team-building-chateau-activites.webp", legende: "Atelier créatif en équipe (image d’illustration, autre lieu)" },
+        ],
+        conseil:
+          "Pour faire découvrir le domaine à vos participants dès le premier jour du séminaire, placez le rallye en ouverture de programme.",
+      },
     ],
     sources: [FICHE, CVENT],
   },

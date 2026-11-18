@@ -649,6 +649,32 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         conseil:
           "Pour un séminaire de plusieurs jours, laissez à vos participants un créneau libre en fin de journée : le spa reste ouvert jusqu'à 22 h.",
       },
+      {
+        ancre: "team-building",
+        etiquette: "Team building",
+        titre: "Rallye, escape game, gestion de crise : le team building organisé par notre équipe",
+        intro:
+          "En plus des activités propres au château, notre équipe organise des team buildings de bout en bout, en plein air ou en intérieur.",
+        reprend: [],
+        blocs: [
+          { titre: "Rallye découverte dans le parc", texte: "Vos équipes partent à la découverte des 6 hectares du parc : énigmes à résoudre, photos à réussir, épreuves d'adresse à remporter." },
+          { titre: "Escape game dans les salons", texte: "Le temps d'une partie, un salon du château se ferme sur une énigme. Chaque équipe doit en sortir avant la fin du chrono : il faut s'écouter, se répartir les rôles et décider vite." },
+          { titre: "Simulation de gestion de crise", texte: "Un scénario d'urgence fictif tombe sur la table, et vos managers doivent trancher sans attendre. L'exercice met à l'épreuve la prise de décision, la communication sous pression et le leadership." },
+        ],
+        faits: [
+          { label: "Team building en plein air", valeur: "rallye découverte" },
+          { label: "Team building en intérieur", valeur: "escape game, gestion de crise" },
+          { label: "Organisation du team building", valeur: "par notre équipe" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/rallye-decouverte-chateau-team.webp", legende: "Rallye découverte en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/escape-game-chateau-team-building-enigmes.webp", legende: "Escape game en équipe (image d’illustration, autre lieu)" },
+          { src: "/images/gestion-crise-team-building-formation-entreprise.webp", legende: "Simulation de gestion de crise (image d’illustration, autre lieu)" },
+        ],
+        conseil:
+          "Vous hésitez entre plein air et intérieur ? Donnez-moi la taille de votre groupe et la saison de votre séminaire : je vous oriente vers le bon format.",
+      },
     ],
     sources: [SITE, MICE],
   },

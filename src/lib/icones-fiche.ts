@@ -37,6 +37,7 @@ const CHIFFRES: Table = [
   [/tennis|padel/i, Trophy],
   [/jeux/i, Gamepad2],
   [/soirée/i, PartyPopper],
+  [/team building/i, Trophy],
   // Hébergement
   [/room service|arrivée/i, Clock],
   [/capacité|participants|cohésion|en théâtre|en réunion|autour d'une table/i, Users],

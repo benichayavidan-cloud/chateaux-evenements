@@ -258,7 +258,7 @@ test('sections supplémentaires : les 4 pages Salles ont leur salle signature et
   assert.deepEqual(supplementaires.filter((x) => x.id === 'restauration').map((x) => x.s.ancre), Array(4).fill(['banquets', 'pauses']).flat());
   assert.deepEqual(supplementaires.filter((x) => x.id === 'exterieurs').map((x) => x.s.ancre), Array(4).fill(['plein-air', 'detente']).flat());
   assert.deepEqual(supplementaires.filter((x) => x.id === 'soirees').map((x) => x.s.ancre).sort(), ['apres-diner', 'apres-diner', 'apres-diner', 'cocktail-jardin', 'soirees-a-theme', 'soirees-a-theme', 'soirees-a-theme', 'soirees-a-theme']);
-  assert.deepEqual(supplementaires.filter((x) => x.id === 'activites').map((x) => x.s.ancre), Array(4).fill('temps-libre'));
+  assert.deepEqual(supplementaires.filter((x) => x.id === 'activites').map((x) => x.s.ancre), Array(4).fill(['temps-libre', 'team-building']).flat());
   assert.deepEqual(supplementaires.filter((x) => x.id === 'acces').map((x) => x.s.ancre), Array(4).fill('sans-voiture'));
   for (const { slug, id, s } of supplementaires) {
     assert.ok(s.titre && s.intro && s.blocs.length >= 2 && s.faits.length >= 3, `${slug}/${id}`);
