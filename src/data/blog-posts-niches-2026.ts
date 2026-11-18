@@ -58,7 +58,7 @@ const workationArticle: BlogPost = {
     {
       question: "Quel type de château est adapté à une workation ?",
       answer:
-        "Un château avec hébergement individuel (10-20 chambres), wifi fibré 500 Mbps minimum, 3-5 salles de réunion modulables, espaces extérieurs pour décompresser, et idéalement un spa. Nos domaines IDF proches de Paris (40 min) permettent un aller-retour facile sans dépayser complètement l'équipe.",
+        "Un château avec hébergement individuel (10-20 chambres), wifi fibré 500 Mbps minimum, 3-5 salles de réunion modulables, espaces extérieurs pour décompresser, et idéalement un spa. Nos 4 châteaux, proches de Paris, permettent un aller-retour facile sans dépayser complètement l'équipe.",
     },
   ],
   content: `
@@ -86,7 +86,7 @@ const workationArticle: BlogPost = {
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Format Type : Workation de 4 Jours / 3 Nuits</h2>
 
-<p class="mb-6">Le format 4J/3N est le plus populaire en 2026. Voici le planning type testé sur 15 workations organisées dans nos châteaux Île-de-France :</p>
+<p class="mb-6">Le format 4J/3N est le plus populaire en 2026. Voici le planning type testé sur 15 workations organisées dans nos châteaux :</p>
 
 <table class="w-full border-collapse mt-6 mb-6">
   <thead class="bg-gray-100">
@@ -127,7 +127,7 @@ const workationArticle: BlogPost = {
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Budget Workation 2026 : Les Vrais Chiffres</h2>
 
-<p class="mb-6">Pour une équipe de 12 collaborateurs sur 4 jours dans un de nos châteaux IDF, la grille budgétaire ressemble à ceci :</p>
+<p class="mb-6">Pour une équipe de 12 collaborateurs sur 4 jours dans l'un de nos 4 châteaux, la grille budgétaire ressemble à ceci :</p>
 
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2">Privatisation château 4J : 6 000 à 9 000€</li>
