@@ -1,18 +1,20 @@
 import { Metadata } from "next";
 
+// Titre et description écrits une seule fois, repris par les aperçus de partage (18/11/2026).
+const TITRE_PAGE = "Soirée d'entreprise en château près de Paris : 4 domaines";
+const DESCRIPTION_PAGE = "Soirée d'entreprise dans une collection de 4 châteaux privatisables près de Paris : gala, soirée à thème, cocktail. 50 à 280 participants, hébergement sur site.";
+
 export const metadata: Metadata = {
-  title: "Soirées d'Entreprise en Château",
-  description:
-    "Séminaires et soirées à thème en château en Île-de-France : Gatsby, Casino, Murder Party, Bal Masqué. 50 à 280 pers., hébergement sur place. Devis 24h.",
+  // `absolute` : pas de suffixe de marque, pour garder les mots tapés dans les 60 caractères affichés.
+  title: { absolute: TITRE_PAGE },
+  description: DESCRIPTION_PAGE,
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title:
-      "Soirées d'Entreprise en Château près de Paris",
-    description:
-      "Soirées à thème (Gatsby, Casino, Murder Party), séminaires résidentiels et galas corporate dans 4 châteaux d'exception en Île-de-France. De 50 à 280 personnes.",
+    title: TITRE_PAGE,
+    description: DESCRIPTION_PAGE,
     url: "https://www.selectchateaux.com/seminaires-soirees-entreprise",
     type: "website",
     images: [
@@ -26,10 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Séminaires & Soirées d'Entreprise en Château proche Paris",
-    description:
-      "Soirées à thème, galas et séminaires résidentiels dans des châteaux d'exception en Île-de-France. Devis gratuit 24h.",
+    title: TITRE_PAGE,
+    description: DESCRIPTION_PAGE,
     images: [
       "/images/soiree-entreprise-theme-gatsby-chateau-seminaire.webp",
     ],
