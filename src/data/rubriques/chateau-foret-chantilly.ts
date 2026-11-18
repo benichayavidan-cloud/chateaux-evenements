@@ -529,9 +529,9 @@ export const rubriquesChateauForet: RubriquesDomaine = {
           { titre: "Casino", texte: "Roulette, poker et black-jack, cocktails au shaker et tapis rouge : en smoking et robe longue, vos participants passent la soirée aux tables, guidés par des croupiers professionnels. Un thème de prestige pour une fin d'année ou une remise de récompenses, dans les salons du château." },
         ],
         faits: [
-          { label: "Thèmes de soirée", valeur: "Guinguette, Soirée blanche, Casino" },
-          { label: "Animations de soirée", valeur: "groupe en direct, acrobates, croupiers" },
-          { label: "Soirée sur mesure", valeur: "en intérieur ou en plein air" },
+          { label: "Soirée à thème conseillée", valeur: "guinguette" },
+          { label: "Autres thèmes de soirée", valeur: "soirée blanche, casino" },
+          { label: "Décor et animation de soirée", valeur: "sur mesure" },
         ],
         reprendPhotos: [],
         photos: [
@@ -604,7 +604,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         blocs: [
         ],
         faits: [
-          { label: "Spa", valeur: "sauna, bain à remous, salle de fitness" },
+          { label: "Spa", valeur: "sauna, bain à remous" },
           { label: "Tennis", valeur: "un court sous les arbres" },
           { label: "Vélos électriques et VTT", valeur: "pour la forêt de Chantilly" },
         ],

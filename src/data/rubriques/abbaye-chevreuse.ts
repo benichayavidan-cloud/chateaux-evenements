@@ -305,7 +305,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         ],
         faits: [
           { label: "Cocktail au bord du lac", valeur: "en fin de journée" },
-          { label: "Terrasses de restaurant", valeur: "restaurant gastronomique et table champêtre" },
+          { label: "Terrasses de restaurant", valeur: "gastronomique et champêtre" },
           { label: "Déjeuner en terrasse", valeur: "à la belle saison" },
         ],
         reprendPhotos: [1, 2, 3],
@@ -420,7 +420,7 @@ export const rubriquesAbbaye: RubriquesDomaine = {
         faits: [
           { label: "Pauses", valeur: "dans les salons attenants aux salles" },
           { label: "Menus", valeur: "composés selon votre programme" },
-          { label: "Régimes alimentaires", valeur: "végétarien, végan, sans gluten, halal, casher" },
+          { label: "Régimes alimentaires", valeur: "cinq pris en charge" },
         ],
         reprendPhotos: [4, 5],
         photos: [
@@ -509,9 +509,9 @@ export const rubriquesAbbaye: RubriquesDomaine = {
           { titre: "Bal masqué vénitien", texte: "Un bal costumé aux chandelles : chaque invité reçoit son masque en arrivant, puis se laisse guider pour les danses de salon, sur une musique baroque. Après le dîner de gala, vos invités changent d'époque sans quitter le domaine." },
         ],
         faits: [
-          { label: "Thèmes de soirée", valeur: "Banquet médiéval, soirée enquête, bal masqué" },
-          { label: "Animations de soirée", valeur: "troubadours, comédiens, musique baroque" },
-          { label: "Soirée sur mesure", valeur: "mise en scène adaptée à votre groupe" },
+          { label: "Soirée à thème conseillée", valeur: "banquet médiéval" },
+          { label: "Autres thèmes de soirée", valeur: "soirée enquête, bal masqué" },
+          { label: "Décor et animation de soirée", valeur: "sur mesure" },
         ],
         reprendPhotos: [],
         photos: [
