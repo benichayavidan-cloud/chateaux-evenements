@@ -8,11 +8,14 @@
 
 import fusions from "./merged-redirects.json";
 import commerciales from "./redirections-commerciales.json";
+import annuaire from "./redirections-annuaire.json";
 import { creerResolveur } from "@/lib/redirections";
 
 const resolveur = creerResolveur([
   ...fusions.merges.map((m) => ({ from: `/blog/${m.from}`, to: m.to })),
   ...commerciales.redirections,
+  // Pages de l'annuaire supprimées le 18/11/2026 : voir le _doc du fichier.
+  ...annuaire.redirections,
 ]);
 
 export const lienFinal = resolveur.resoudre;

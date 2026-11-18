@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import mergedRedirects from "./src/data/merged-redirects.json";
 import venuesDepubliees from "./src/data/venues-depubliees.json";
 import redirectionsCommerciales from "./src/data/redirections-commerciales.json";
+import redirectionsAnnuaire from "./src/data/redirections-annuaire.json";
 import { creerResolveur } from "./src/lib/redirections";
 import photosRenommees from "./src/data/photos-renommees.json";
 import { redirectionsPhotos, type PhotosRenommees } from "./src/lib/photo-alt";
@@ -12,6 +13,7 @@ import { redirectionsPhotos, type PhotosRenommees } from "./src/lib/photo-alt";
 const { resoudre: destinationFinale } = creerResolveur([
   ...mergedRedirects.merges.map((m) => ({ from: `/blog/${m.from}`, to: m.to })),
   ...redirectionsCommerciales.redirections,
+  ...redirectionsAnnuaire.redirections,
 ]);
 
 /**
@@ -238,6 +240,18 @@ const nextConfig: NextConfig = {
         destination: destinationFinale(r.to),
         permanent: true,
       })),
+
+      // ── ANNUAIRE SUPPRIMÉ (18/11/2026) ──
+      // SOURCE UNIQUE : src/data/redirections-annuaire.json — chaque fiche de
+      // lieu, page département sans château et page team building par zone
+      // est redirigée vers la page de la collection la plus proche par le sujet.
+      ...redirectionsAnnuaire.redirections.map((r) => ({
+        source: r.from,
+        destination: destinationFinale(r.to),
+        permanent: true,
+      })),
+      // Filet : une adresse /lieux/… inconnue du registre (ancienne fiche) mène à la collection.
+      { source: "/lieux/:slug*", destination: "/chateaux", permanent: true },
     ];
   },
 };

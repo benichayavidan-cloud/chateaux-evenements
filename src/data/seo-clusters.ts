@@ -10,6 +10,7 @@
  */
 
 import clustersJson from "../../scripts/agent-cm/seo-clusters.json";
+import { estRedirige } from "./redirections";
 
 export interface SeoCluster {
   id: string;
@@ -21,7 +22,11 @@ export interface SeoCluster {
   anchorText: string;
 }
 
-export const seoClusters: SeoCluster[] = (clustersJson.clusters ?? []) as SeoCluster[];
+// Un cluster dont la page de référence a été supprimée (redirigée) ne sert plus :
+// sans ce filtre, l'encadré « Notre page dédiée » des articles pointerait vers une page disparue.
+export const seoClusters: SeoCluster[] = ((clustersJson.clusters ?? []) as SeoCluster[]).filter(
+  (c) => !estRedirige(c.canonical),
+);
 
 /** Normalise pour comparaison : minuscules, sans accents, sans ponctuation. */
 function normaliser(texte: string): string {

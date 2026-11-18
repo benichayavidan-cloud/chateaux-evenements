@@ -102,7 +102,8 @@ function pagesFraiches(): PageFraiche[] {
   for (const g of geoLandingPages) {
     pages.push({ chemin: `/${g.slug}`, motsCles: [g.h1, ...(g.keywords ?? [])].filter(Boolean) });
   }
-  for (const l of landingsFormats) {
+  // Une page supprimée (redirigée) ne reçoit plus d'articles à lier.
+  for (const l of landingsFormats.filter((x) => !estRedirige(`/${x.slug}`))) {
     pages.push({ chemin: `/${l.slug}`, motsCles: [l.eyebrow, l.h1].filter(Boolean) });
   }
   // Une landing redirigée (301) ne reçoit plus d'articles à lier.

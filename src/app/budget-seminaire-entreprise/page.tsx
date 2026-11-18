@@ -13,7 +13,6 @@
 import type { Metadata } from "next";
 import NextLink from "next/link";
 import { OBSERVATOIRE as O } from "@/data/budget-observatoire";
-import { venues } from "@/data/venues";
 import { StructuredData } from "@/components/StructuredData";
 import { Section, Container } from "@/components/layout-v2";
 import {
@@ -232,14 +231,10 @@ export default function Page() {
         <Container size="lg">
           <p style={{ color: G.gray700, margin: 0, fontSize: "1rem", lineHeight: 1.8, background: G.gray50, borderRadius: "16px", padding: "clamp(18px, 3vw, 26px)", borderLeft: `4px solid ${GOLD}` }}>
             Un budget n&apos;a de sens que rapporté à un lieu.{" "}
-            <NextLink href="/lieux" style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
-              Voir nos {venues.length} lieux de séminaire
+            <NextLink href="/chateaux" style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
+              Voir nos 4 châteaux
             </NextLink>{" "}
-            avec leurs capacités réelles, ou comparer{" "}
-            <NextLink href="/journee-etude-seminaire" style={{ color: BRONZE_DARK, fontWeight: 600, textDecoration: "underline" }}>
-              journée d&apos;étude et résidentiel
-            </NextLink>
-            .
+            avec leurs capacités réelles.
           </p>
         </Container>
       </Section>

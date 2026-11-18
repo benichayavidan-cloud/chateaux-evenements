@@ -1,0 +1,289 @@
+{
+  "_doc": "Pages de l'annuaire supprimées le 18/11/2026 (décision du PO : le site se présente comme une collection de 4 châteaux, pas comme un annuaire). Chaque adresse est redirigée (301) vers la page de la collection la plus proche par le sujet : une fiche de lieu vers la page de sa zone (Yvelines → vallée de Chevreuse, Oise → Chantilly, Hauts-de-Seine → page du 92, autres départements → Île-de-France), l'index /lieux vers /chateaux, les pages département sans château vers Île-de-France, les pages team building par zone vers /team-building-chateau. Mesure avant suppression (Search Console 24/09→16/11, demandes 01/10→09/11) : annuaire 9 clics et 1 demande ; Seine-et-Marne 2 clics et 2 demandes ; team building Chantilly 1 clic et 1 demande. Lu par data/redirections.ts (liens internes) et next.config.ts (redirections).",
+  "redirections": [
+    {
+      "from": "/lieux",
+      "to": "/chateaux"
+    },
+    {
+      "from": "/lieux/campus-serge-kampf-les-fontaines-gouvieux",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/domaine-de-montigny-russy-bemont",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/le-clos-barisseuse-saint-vaast-les-mello",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/chateau-de-sainte-claire-berneuil-sur-aisne",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/abbaye-royale-du-moncel-pontpoint",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/chateau-de-la-trye-hermes",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/aiden-by-best-western-t-aim-hotel-margny-les-compiegne",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/auberge-du-jeu-de-paume-chantilly",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/best-western-hotel-du-parc-chantilly",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/chateau-d-ermenonville-ermenonville",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/chateau-de-montataire-montataire",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/la-croisee-des-possibles-crepy-en-valois",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/auberge-du-mont-saint-mard-vieux-moulin",
+      "to": "/seminaire-chateau-chantilly"
+    },
+    {
+      "from": "/lieux/abbaye-du-golf-de-lesigny-lesigny",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/grand-magic-hotel-magny-le-hongre",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/novotel-fontainebleau-ury-ury",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/la-ferme-de-la-petite-loge-la-haute-maison",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/aux-vieux-remparts-provins",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/domaine-de-la-pepiniere-chatenay-sur-seine",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/relais-spa-val-d-europe-chessy",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/chateau-du-mee-le-mee-sur-seine",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/rock-bleau-noisy-sur-ecole",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/palais-des-congres-de-versailles-versailles",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/la-ferme-du-manet-montigny-le-bretonneux",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/domaine-de-la-butte-ronde-la-boissiere-ecole",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/chateau-du-bois-du-rocher-jouy-en-josas",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/dolce-wyndham-versailles-jouy-en-josas",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/la-ferme-du-prieure-rennemoulin",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/domaine-de-la-roche-couloir-chevreuse",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/golf-de-la-vaucouleurs-civry-la-foret",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/la-ferme-de-la-faisanderie-villepreux",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/cazaudehore-saint-germain-en-laye",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/chateau-de-villiers-le-mahieu-villiers-le-mahieu",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/chateau-des-mesnuls-chateauform-les-mesnuls",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/le-barn-hotel-bonnelles",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/hotel-inn-design-paris-st-quentin-en-yvelines-montigny-le-bretonneux",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/centre-port-royal-saint-lambert",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/le-relais-de-voisins-voisins-le-bretonneux",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/hotel-du-jeu-de-paume-versailles",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/maison-prairie-bonheur-magny-les-hameaux",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/la-seigneurie-lepic-andresy",
+      "to": "/seminaire-vallee-de-chevreuse"
+    },
+    {
+      "from": "/lieux/chateau-de-farcheville-bouville",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/domaine-de-fremigny-bouray-sur-juine",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/domaine-de-quincampoix-les-molieres",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/novotel-paris-saclay-saclay",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/demeures-de-campagne-parc-du-coudray-le-coudray-montceaux",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/novotel-senart-golf-de-greenparc-saint-pierre-du-perray",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/espace-leonard-de-vinci-lisses",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/renaissance-la-defense-puteaux",
+      "to": "/seminaire-chateau-hauts-de-seine-92"
+    },
+    {
+      "from": "/lieux/la-treso-malakoff",
+      "to": "/seminaire-chateau-hauts-de-seine-92"
+    },
+    {
+      "from": "/lieux/hotel-spa-les-etangs-de-corot-ville-d-avray",
+      "to": "/seminaire-chateau-hauts-de-seine-92"
+    },
+    {
+      "from": "/lieux/la-filature-clamart",
+      "to": "/seminaire-chateau-hauts-de-seine-92"
+    },
+    {
+      "from": "/lieux/l-iroquois-levallois-perret",
+      "to": "/seminaire-chateau-hauts-de-seine-92"
+    },
+    {
+      "from": "/lieux/abbaye-de-royaumont-asnieres-sur-oise",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/domaine-de-brunel-aincourt",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/chateau-de-maudetour-maudetour-en-vexin",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/hotel-inn-paris-cdg-airport-roissy-en-france",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/hotel-b-b-cergy-port-cergy",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/westotel-taverny-paris-val-d-oise-taverny",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/chateau-de-la-bucherie-saint-cyr-en-arthies",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/le-clos-des-fees-asnieres-sur-oise",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/lieux/chateau-de-l-hermitage-ennery",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/seminaire-chateau-seine-et-marne-77",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/seminaire-chateau-essonne-91",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/seminaire-chateau-val-d-oise-95",
+      "to": "/seminaire-chateau-ile-de-france"
+    },
+    {
+      "from": "/team-building-chantilly",
+      "to": "/team-building-chateau"
+    },
+    {
+      "from": "/team-building-hauts-de-seine-92",
+      "to": "/team-building-chateau"
+    },
+    {
+      "from": "/team-building-val-d-oise-95",
+      "to": "/team-building-chateau"
+    },
+    {
+      "from": "/journee-etude-seminaire",
+      "to": "/chateaux"
+    },
+    {
+      "from": "/alternative-chateauform",
+      "to": "/blog/alternative-chateauform-ile-de-france"
+    }
+  ]
+}

@@ -221,46 +221,44 @@ export default function RootLayout({
             // 30/08 (91, 77, 95), absentes du pied de page, y entrent — sur un
             // site où 284 articles sur 284 n'ont aucun lien entrant, chaque lien
             // interne depuis une page fréquemment crawlée compte.
+            // Pied de page recentré sur la collection (18/11/2026) : les pages de
+            // l'annuaire, des départements sans château et du team building par
+            // zone ont été supprimées (data/redirections-annuaire.json).
+            {
+              title: "Nos 4 châteaux",
+              links: [
+                { label: "Manoir anglo-normand, Chantilly", href: "/chateaux/manoir-anglo-normand-chantilly" },
+                { label: "Domaine historique, Paris 92", href: "/chateaux/hotel-historique-seminaire-paris-92" },
+                { label: "Abbaye, vallée de Chevreuse", href: "/chateaux/abbaye-millenaire-vallee-chevreuse" },
+                { label: "Château en forêt de Chantilly", href: "/chateaux/palais-royal-foret-chantilly" },
+                { label: "Comparer les 4 châteaux", href: "/chateaux" },
+              ],
+            },
             {
               title: "Séminaires par région",
               links: [
                 { label: "Île-de-France", href: "/seminaire-chateau-ile-de-france" },
                 { label: "Proche Paris", href: "/seminaire-chateau-proche-paris" },
                 { label: "Chantilly", href: "/seminaire-chateau-chantilly" },
-                { label: "Vallée de Chevreuse", href: "/seminaire-vallee-de-chevreuse" },
                 { label: "Oise (60)", href: lienFinal("/seminaire-chateau-oise-60") },
-              ],
-            },
-            {
-              title: "Par département",
-              links: [
+                { label: "Vallée de Chevreuse", href: "/seminaire-vallee-de-chevreuse" },
                 { label: "Yvelines (78)", href: lienFinal("/seminaire-chateau-yvelines-78") },
                 { label: "Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
-                { label: "Essonne (91)", href: "/seminaire-chateau-essonne-91" },
-                { label: "Seine-et-Marne (77)", href: "/seminaire-chateau-seine-et-marne-77" },
-                { label: "Val-d'Oise (95)", href: "/seminaire-chateau-val-d-oise-95" },
               ],
             },
             {
-              title: "Formats et budgets",
+              title: "Ce que nous organisons",
               links: [
-                { label: "Team building en château", href: "/team-building-chateau" },
-                { label: "Team building Chantilly", href: "/team-building-chantilly" },
-                { label: "Team building Hauts-de-Seine", href: "/team-building-hauts-de-seine-92" },
-                { label: "Team building Val-d'Oise", href: "/team-building-val-d-oise-95" },
-                { label: "Journée d'étude", href: "/journee-etude-seminaire" },
-                { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
+                { label: "Nos soirées", href: "/seminaires-soirees-entreprise" },
+                { label: "Nos animations team building", href: "/team-building-chateau" },
                 { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
-                { label: "Alternative à Châteauform'", href: "/alternative-chateauform" },
               ],
             },
             {
-              title: "L'agence",
+              title: "Select Châteaux",
               links: [
-                { label: "Nos domaines", href: "/chateaux" },
-                { label: "Tous les lieux", href: "/lieux" },
-                { label: "Références clients", href: "/references" },
                 { label: "Notre histoire", href: "/a-propos" },
+                { label: "Références clients", href: "/references" },
                 { label: "Blog", href: "/blog" },
                 { label: "Demander un devis", href: "/devis" },
               ],

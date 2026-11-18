@@ -1,6 +1,7 @@
 import { chateaux } from '@/data/chateaux'
 import { geoLandingPages } from '@/data/geo-landing-pages'
 import { landingsDepartements } from '@/data/landings-departements'
+import { estRedirige } from '@/data/redirections'
 import { blogPosts } from '@/data/blog-posts'
 import { estHorsGoogle } from '@/data/articles-hors-google'
 import { PRICING, pricingSummary } from '@/data/pricing'
@@ -117,7 +118,8 @@ function buildLlmsFullTxt(): string {
 
   // ── Guides de département (91, 77, 95, et depuis le 24/09 78 et 60) : ils
   //    manquaient ici, alors que ce sont les pages aux chiffres les plus citables.
-  for (const l of landingsDepartements) {
+  // Seules les pages encore servies : une page redirigée (annuaire supprimé le 18/11/2026) n'est plus annoncée.
+  for (const l of landingsDepartements.filter((x) => !estRedirige(`/${x.slug}`))) {
     lines.push(`### ${l.h1}`)
     lines.push('')
     lines.push(`- URL : ${BASE_URL}/${l.slug}`)
