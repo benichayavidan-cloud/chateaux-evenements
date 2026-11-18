@@ -537,9 +537,9 @@ export const rubriquesHotelParis92: RubriquesDomaine = {
           { titre: "Guinguette au jardin", texte: "Aux beaux jours, le jardin accueille une guinguette : food trucks, photobooths, jeux en bois géants et piste de danse sous les guirlandes, avec la tour Eiffel à l'horizon." },
         ],
         faits: [
-          { label: "Thèmes de soirée", valeur: "Prohibition, Gatsby, Guinguette" },
-          { label: "Animations de soirée", valeur: "barmans en costume, jazz en direct, food trucks" },
-          { label: "Soirée sur mesure", valeur: "du décor à l'animation" },
+          { label: "Soirée à thème conseillée", valeur: "Prohibition" },
+          { label: "Autres thèmes de soirée", valeur: "Gatsby, guinguette" },
+          { label: "Décor et animation de soirée", valeur: "sur mesure" },
         ],
         reprendPhotos: [],
         photos: [

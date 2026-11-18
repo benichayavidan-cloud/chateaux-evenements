@@ -56,7 +56,7 @@ export function SectionFiche({ section, photos, rang, ancre }: SectionFicheProps
         <Medaillon icone={Icone} taille="petit" />
         <span style={{ fontSize: "0.75rem", fontWeight: 600, color: bronze, textTransform: "uppercase", letterSpacing: "0.05em" }}>{section.etiquette}</span>
       </div>
-      <Text variant="h2" style={{ marginBottom: "1rem", textAlign: "left" }}>{section.titre}</Text>
+      <Text variant="h2" style={{ marginBottom: "1rem", textAlign: "left" }}>{section.titre.replace(/ : /g, "\u00a0: ")}</Text>
       <p style={{ fontSize: "clamp(0.9375rem, 1.6vw, 1.0625rem)", lineHeight: 1.75, color: theme.colors.neutral.gray700, margin: "0 0 1.25rem" }}>{section.intro}</p>
       {section.conseil && <ConseilAssistante texte={section.conseil} />}
       {section.blocs.map((b) => (

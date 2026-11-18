@@ -473,7 +473,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         faits: [
           { label: "Petit-déjeuner", valeur: "en libre-service" },
           { label: "Pauses gourmandes", valeur: "dans les salons attenants aux salles" },
-          { label: "Régimes alimentaires", valeur: "végétarien, végan, sans gluten, halal, casher" },
+          { label: "Régimes alimentaires", valeur: "cinq pris en charge" },
         ],
         reprendPhotos: [1],
         photos: [
@@ -540,7 +540,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         blocs: [
         ],
         faits: [
-          { label: "Bar", valeur: "jusqu'à 1 h le vendredi et le samedi, 0 h 30 les autres soirs" },
+          { label: "Bar, du dimanche au jeudi", valeur: "jusqu'à 0 h 30" },
           { label: "Salons du château", valeur: "billard, ping-pong, échecs" },
           { label: "Cocktails du bar", valeur: "sirops et hydrolats maison" },
         ],
@@ -565,9 +565,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           { titre: "Bal masqué vénitien", texte: "Masques distribués à l'arrivée, musique baroque jouée en direct et danses de salon guidées : les boiseries des salons du château servent de décor à une soirée hors du temps." },
         ],
         faits: [
-          { label: "Thèmes de soirée", valeur: "Gatsby, Casino, Bal masqué" },
-          { label: "Animations de soirée", valeur: "orchestre de jazz, croupiers, danses de salon" },
-          { label: "Soirée sur mesure", valeur: "décor, animation et dress code" },
+          { label: "Soirée à thème conseillée", valeur: "Gatsby" },
+          { label: "Autres thèmes de soirée", valeur: "casino, bal masqué" },
+          { label: "Décor et animation de soirée", valeur: "sur mesure" },
         ],
         reprendPhotos: [],
         photos: [
