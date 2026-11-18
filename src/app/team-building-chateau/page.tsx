@@ -12,7 +12,6 @@ import {
   generateOrganizationSchema,
 } from "@/utils/seo/structured-data";
 import TeamBuildingPageClient, { TeamBuildingPointsForts } from "./TeamBuildingPageClient";
-import { VenuesByDepartment } from "@/components/geo/VenuesByDepartment";
 import { ChateauxPourTeamBuilding } from "@/components/home/ChateauxPourTeamBuilding";
 import { chateaux } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
