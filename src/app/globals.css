@@ -2517,3 +2517,21 @@ nav button:active {
     max-width: 100%;
   }
 }
+
+/*
+ * Débordement horizontal sur téléphone : « clip » au lieu de « hidden » sur
+ * body et main (18/11/2026). « overflow-x: hidden » transforme l'élément en
+ * zone de défilement, ce qui empêche tout « position: sticky » à l'intérieur
+ * (le menu des rubriques d'un château ne restait pas collé sur téléphone).
+ * « clip » coupe le débordement de la même façon sans créer cette zone.
+ * html garde « hidden ». Navigateur sans « clip » : les règles « hidden »
+ * plus haut restent en vigueur, rien ne change pour lui.
+ */
+@supports (overflow: clip) {
+  @media (max-width: 1023px) {
+    body,
+    main {
+      overflow-x: clip !important;
+    }
+  }
+}
