@@ -87,9 +87,12 @@ const fiches: Chateau[] = [
     ref: "#92-REFUGE",
     nom: "Domaine Historique de Luxe aux Portes de Paris",
     region: "Issy-les-Moulineaux (92)",
+    // 70 en réunion : page officielle des réunions du lieu (« jusqu'à 70 participants ») et fiche de
+    // réservation officielle, relues le 18/11/2026. L'ancien « 80 à 180 » n'avait aucune source.
+    // Le jardin reçoit 300 invités (cocktail, banquet) : dit dans les textes, pas dans ce champ.
     capacite: {
-      min: 80,
-      max: 180,
+      min: 10,
+      max: 70,
     },
     styleArchitectural: "Bâtisse du XVIIe siècle classée Monument Historique",
     description:
@@ -136,7 +139,7 @@ const fiches: Chateau[] = [
     faq: [
       {
         question: "Quels types d'événements d'entreprise peut-on organiser ?",
-        answer: "Le domaine accueille séminaires résidentiels, comités de direction, journées d'étude, lancements de produit, cocktails dînatoires et soirées de gala jusqu'à 180 personnes. L'intimité du boutique-hôtel (83 chambres) est idéale pour les événements exclusifs où la qualité du cadre et du service prime sur le volume. La chapelle classée Monument Historique est privatisable pour des expériences uniques."
+        answer: "Le domaine accueille séminaires résidentiels, comités de direction, journées d'étude, lancements de produit jusqu'à 70 participants en réunion, et cocktails ou dîners au jardin jusqu'à 300 invités. L'intimité du boutique-hôtel (83 chambres) est idéale pour les événements exclusifs où la qualité du cadre et du service prime sur le volume. La chapelle classée Monument Historique est privatisable pour des expériences uniques."
       },
       {
         question: "Comment accéder au domaine ?",

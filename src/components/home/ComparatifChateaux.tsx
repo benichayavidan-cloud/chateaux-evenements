@@ -12,9 +12,9 @@ import styles from "@/components/home/accueil.module.css";
 import type { Chateau } from "@/types";
 
 /** Nom court (celui du menu) et usage conseillé, par château. */
-const PROFILS: Record<string, { nom: string; idealPour: string }> = {
+const PROFILS: Record<string, { nom: string; idealPour: string; complement?: string }> = {
   "manoir-anglo-normand-chantilly": { nom: "Manoir anglo-normand", idealPour: "Les conventions et les grands groupes" },
-  "hotel-historique-seminaire-paris-92": { nom: "Domaine historique", idealPour: "Un séminaire à Paris, en métro" },
+  "hotel-historique-seminaire-paris-92": { nom: "Domaine historique", idealPour: "Un séminaire à Paris, en métro", complement: "300 invités au jardin" },
   "abbaye-millenaire-vallee-chevreuse": { nom: "Abbaye cistercienne", idealPour: "Un séminaire au vert, autour d'un lac" },
   "palais-royal-foret-chantilly": { nom: "Château en forêt", idealPour: "Des équipes venues par Roissy" },
 };
@@ -50,7 +50,7 @@ export function ComparatifChateaux({ chateaux }: ComparatifChateauxProps) {
                 <span className={styles.lieuChateau}>{c.region}</span>
               </Link>
             </th>
-            <td data-libelle="Participants"><span className={styles.chiffre}>jusqu&apos;à {c.capacite.max}</span></td>
+            <td data-libelle="Participants"><span><span className={styles.chiffre}>jusqu&apos;à {c.capacite.max}</span>{PROFILS[c.slug].complement && <span className={styles.lieuChateau}>{PROFILS[c.slug].complement}</span>}</span></td>
             <td data-libelle="Chambres"><span className={styles.chiffre}>{c.roomsTotal}</span></td>
             <td data-libelle="Salles de réunion"><span className={styles.chiffre}>{c.meetingRooms}</span></td>
             <td data-libelle="Accès">{c.trajet}</td>
