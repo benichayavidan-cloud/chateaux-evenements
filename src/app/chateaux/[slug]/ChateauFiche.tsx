@@ -22,6 +22,7 @@ import { BandeauConfiance } from "@/components/domaine/BandeauConfiance";
 import { sectionsFiche } from "@/lib/fiche-sections";
 import { lienFinal } from "@/data/redirections";
 import photosRenommees from "@/data/photos-renommees.json";
+import stylesDomaine from "@/components/domaine/domaine.module.css";
 import { creerAltPhoto, type PhotosRenommees } from "@/lib/photo-alt";
 
 const altPhoto = creerAltPhoto(photosRenommees as PhotosRenommees);
@@ -70,7 +71,7 @@ export default function ChateauFiche({ chateau, navRubriques, avantFaq }: Chatea
       {/* Menu des thèmes : onglets collés sous les badges, ligne fine sur toute la
           largeur (modèle PO du 17/11/2026). */}
       {navRubriques && (
-        <div style={{ background: '#FFFFFF', borderBottom: `1px solid ${theme.colors.neutral.gray200}` }}>
+        <div className={stylesDomaine.barreRubriques}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>{navRubriques}</div>
         </div>
       )}

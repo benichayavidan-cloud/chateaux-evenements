@@ -115,7 +115,7 @@ export function RubriquePage({ chateau, id, r, rubriques }: RubriquePageProps) {
       <BandeauConfiance />
 
       {/* Menu des thèmes : onglets collés sous les badges, comme sur la fiche. */}
-      <div style={{ background: "#FFFFFF", borderBottom: `1px solid ${theme.colors.neutral.gray200}` }}>
+      <div className={styles.barreRubriques}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <RubriquesNav slug={chateau.slug} rubriques={rubriques} active={id} />
         </div>

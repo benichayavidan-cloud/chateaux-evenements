@@ -156,6 +156,17 @@
    centrent la liste quand elle tient dans l'écran et s'annulent quand elle
    déborde : sur mobile, le premier onglet reste atteignable au doigt
    (justify-content: center le couperait). */
+/* Barre du menu des rubriques : elle reste collée sous l'en-tête du site quand
+   on descend dans la page (demande PO du 18/11/2026). 60px = hauteur de
+   l'en-tête une fois la page défilée (sections-v2/Navigation) ; l'empilement
+   reste sous celui de l'en-tête (1020), dont le sous-menu passe par-dessus. */
+.barreRubriques {
+  position: sticky;
+  top: 60px;
+  z-index: 1010;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E5E5; /* neutral.gray200 */
+}
 .navRubriques {
   overflow-x: auto;
   scrollbar-width: none;
