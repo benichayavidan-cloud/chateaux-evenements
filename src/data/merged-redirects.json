@@ -119,7 +119,7 @@
     },
     {
       "from": "privatisation-journee-etude-chateau",
-      "to": "/journee-etude-seminaire"
+      "to": "/chateaux"
     },
     {
       "from": "soiree-entreprise-chateau-idees-themes",
@@ -139,7 +139,7 @@
     },
     {
       "from": "seminaire-chantilly-activites-team-building",
-      "to": "/team-building-chantilly"
+      "to": "/team-building-chateau"
     }
   ]
 }
