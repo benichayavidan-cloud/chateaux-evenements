@@ -39,6 +39,8 @@ const CVENT = 'Fiche Cvent du lieu, consultée le 16/11/2026';
 const TRAIN = 'Comparateur Omio, Paris-Nord → gare de Chantilly, consulté le 16/11/2026';
 
 const img = (nom: string) => `/images/seminaire-chateau-chantilly-${nom}.webp`;
+/** Photo hébergée dans le stockage (lot du 18/11/2026, éclairage retouché ; originaux dans manoir-chantilly/originaux). */
+const stock = (nom: string) => chateauImage('Manoir Chantilly', `seminaire-chateau-chantilly-${nom}.webp`);
 
 export const rubriquesManoirChantilly: RubriquesDomaine = {
   salles: {
@@ -93,6 +95,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       { src: img('salle-seminaire-verte'), legende: 'Salle de séminaire avec écran et parquet en chevrons' },
       { src: img('salle-atelier-creatif'), legende: "Salle d'atelier, tables hautes et mur de post-it" },
       { src: img('lobby-salon-accueil'), legende: 'Le salon de travail et de pause, ouvert sur le parc' },
+      { src: stock('salon-travail-pause-fauteuils'), legende: "Le salon de travail et de pause, avec ses fauteuils et ses tables hautes" },
     ],
     blocs: [
       {
@@ -159,7 +162,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           { label: "Lumière du jour", valeur: "dans tous les espaces" },
         ],
         reprendPhotos: [4, 6, 5, 7],
-        photos: [],
+        photos: [
+          { src: stock('salle-reunion-table-conseil'), legende: "Salon du château en table de conseil, pour un comité de direction" },
+        ],
         conseil:
           "Pour vos sous-commissions, donnez-moi le nombre de groupes et leur taille : entre les salons du château et l'aile contemporaine, chaque atelier de votre séminaire a sa salle.",
       },
@@ -190,6 +195,10 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       { src: img('chambre-double-cosy'), legende: 'Chambre double, tons bois et lin' },
       { src: img('chambre-elegante-moderne'), legende: 'Chambre sous les toits, tons gris et blanc' },
       { src: img('chambre-prestige-rouge'), legende: 'Grande chambre aux murs rouges et parquet en point de Hongrie' },
+      { src: stock('chambre-claire-coin-salon'), legende: "Chambre lumineuse avec coin salon" },
+      { src: stock('chambre-bois-clair-coin-salon'), legende: "Chambre aux tons bois clair, avec coin salon séparé" },
+      { src: stock('salle-de-bains-douche-baignoire'), legende: "Salle de bains sous les toits, avec douche et baignoire" },
+      { src: stock('salle-de-bains-peignoirs'), legende: "Salle de bains avec vasque, peignoirs à disposition" },
     ],
     blocs: [
       {
@@ -249,6 +258,11 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         reprendPhotos: [4, 0],
         photos: [
+          { src: stock('chambre-prestige-parquet-coin-salon'), legende: "Grande chambre du château : parquet, moulures et coin salon" },
+          { src: stock('chambre-classique-tete-de-lit-fleurie'), legende: "Chambre du château à la tête de lit fleurie, ouverte sur un balcon" },
+          { src: stock('suite-sous-les-toits-murs-dores'), legende: "Suite sous les toits aux murs dorés, avec coin salon" },
+          { src: stock('suite-coin-bureau-vasque'), legende: "Suite avec bureau et vasque, ouverte sur la chambre" },
+          { src: stock('suite-coin-salon-canape'), legende: "Le coin salon d'une suite : canapé, table basse et bibliothèque" },
         ],
         conseil:
           "Pour les intervenants de votre séminaire, pensez aux chambres prestige du château : 40 m² dans l'esprit Belle Époque.",
@@ -306,6 +320,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       { src: img('facade-chateau'), legende: 'La façade à colombages et sa terrasse à balustres' },
       { src: img('terrasse-restaurant-exterieur'), legende: 'La terrasse du restaurant, face aux arbres du parc' },
       { src: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/manoir-chantilly/seminaire-chateau-chantilly-facade-anglo-normande.webp", legende: 'La façade anglo-normande du château' },
+      { src: stock('facade-lierre-colombages'), legende: "La façade du château, couverte de verdure" },
     ],
     blocs: [
       {
@@ -339,6 +354,8 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         reprendPhotos: [2, 4],
         photos: [
+          { src: stock('terrasse-tables-dressees-parc'), legende: "Tables dressées sur une terrasse fleurie, face au parc" },
+          { src: stock('terrasse-fleurie-hortensias'), legende: "Un coin de terrasse au milieu des hortensias" },
         ],
         conseil:
           "Pour un atelier de votre séminaire entre mai et octobre, demandez-moi la serre du parc : 300 m² au milieu des arbres.",
@@ -359,8 +376,10 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           { label: "Jeux d'extérieur", valeur: "pétanque, mölkky" },
           { label: "Rucher du domaine", valeur: "visite en saison, sur réservation" },
         ],
-        reprendPhotos: [1, 5],
+        reprendPhotos: [1],
         photos: [
+          { src: stock('velos-facade-lierre'), legende: "Des vélos à disposition devant la façade du château" },
+          { src: stock('court-de-tennis'), legende: "Le court de tennis du domaine" },
         ],
         conseil:
           "Pour une pause originale pendant votre séminaire, demandez-moi la visite du rucher : elle se réserve en saison pour vos participants.",
@@ -391,6 +410,12 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       { src: img('patisseries-pause-gourmande'), legende: 'Les pâtisseries de la pause gourmande' },
       { src: img('restaurant-bar-lounge'), legende: 'La salle du restaurant, sur deux niveaux, au sol en damier' },
       { src: img('terrasse-restaurant-exterieur'), legende: 'Déjeuner en terrasse, face au parc' },
+      { src: stock('restaurant-mezzanine-escalier'), legende: "Le restaurant sur deux niveaux, avec son escalier et son sol en damier" },
+      { src: stock('restaurant-boiseries-tables-dressees'), legende: "Une salle de restaurant aux boiseries, tables dressées pour le déjeuner" },
+      { src: stock('dejeuner-libre-service-salle-boisee'), legende: "Le déjeuner en libre-service raffiné, dans une salle aux boiseries" },
+      { src: stock('dejeuner-libre-service-produits-saison'), legende: "Le libre-service raffiné : produits de saison présentés devant les boiseries" },
+      { src: stock('assiette-oeuf-poche-avocat'), legende: "Une assiette du restaurant : œuf coulant, avocat et jeunes pousses" },
+      { src: stock('dessert-tartelette-meringuee'), legende: "Un dessert à l'assiette : tartelette meringuée" },
     ],
     blocs: [
       {
@@ -428,7 +453,8 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         reprendPhotos: [2],
         photos: [
-          { src: "/images/seminaire-chateau-chantilly-salle-pleniere-theatre.webp", legende: "La salle plénière et sa scène, ici en disposition théâtre" },
+          { src: stock('salle-banquet-tables-rondes'), legende: "Une salle du château dressée en tables rondes pour un banquet" },
+          { src: stock('diner-salon-prive-cheminee'), legende: "Un dîner dressé sur une grande table ovale, devant la cheminée d'un salon boisé" },
         ],
         conseil:
           "Pour le repas d'un groupe restreint pendant votre séminaire, demandez-moi le salon privé : 40 convives à table, dans un cadre à part.",
@@ -451,7 +477,9 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         reprendPhotos: [1],
         photos: [
-          { src: "/images/seminaire-chateau-chantilly-lobby-salon-accueil.webp", legende: "Le salon de travail et de pause, ouvert sur le parc" },
+          { src: stock('petit-dejeuner-terrasse-balustrade'), legende: "Petit-déjeuner servi sur une terrasse à balustres, face au parc" },
+          { src: stock('petit-dejeuner-gaufres-oeufs'), legende: "Petit-déjeuner : gaufres, œufs au plat, fruits frais et café" },
+          { src: stock('petit-dejeuner-balcon-foret'), legende: "Petit-déjeuner sur un balcon, face aux arbres du parc" },
         ],
         conseil:
           "Pensez à me transmettre les régimes alimentaires de vos participants avec votre demande : les menus de votre séminaire en tiennent compte.",
@@ -481,6 +509,7 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
       { src: img('bar-lounge-chic'), legende: 'Le salon-bar contemporain, fauteuils de cuir et étagères' },
       { src: img('salon-cheminee-cosy'), legende: 'Le salon au coin du feu, boiseries et fauteuils fleuris' },
       { src: img('restaurant-bar-lounge'), legende: 'La grande salle dressée pour le dîner' },
+      { src: stock('salle-banquet-tables-rondes'), legende: "Une salle du château dressée en tables rondes pour un banquet" },
     ],
     blocs: [
       {
@@ -517,6 +546,8 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         reprendPhotos: [0, 1, 2],
         photos: [
+          { src: stock('bar-cocktails-comptoir'), legende: "Le bar à cocktails et son comptoir" },
+          { src: stock('salon-bar-fauteuils-velours'), legende: "Le salon du bar : fauteuils de velours et sol en damier" },
         ],
         conseil:
           "Après le dîner de votre séminaire, vos participants se retrouvent au bar ou autour du billard ; la soirée DJ, elle, s'organise avec notre équipe.",
@@ -580,9 +611,12 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
           { label: "Soins et massages", valeur: "sur réservation" },
           { label: "Jeux d'extérieur", valeur: "pétanque, mölkky" },
         ],
-        reprendPhotos: [2],
+        reprendPhotos: [],
         photos: [
-          { src: "/images/seminaire-chateau-chantilly-vue-aerienne-domaine.webp", legende: "Le château anglo-normand et ses terrasses, vus du ciel" },
+          { src: stock('piscine-interieure-spa'), legende: "La piscine intérieure du spa et ses transats" },
+          { src: stock('cabine-massage-spa'), legende: "Une cabine de soins du spa" },
+          { src: stock('cabine-massage-duo-spa'), legende: "La cabine de massage en duo du spa" },
+          { src: stock('salle-fitness-spa'), legende: "La salle de fitness du spa" },
         ],
         conseil:
           "Pour un séminaire de plusieurs jours, laissez à vos participants un créneau libre en fin de journée : le spa reste ouvert jusqu'à 22 h.",
@@ -652,8 +686,8 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         ],
         reprendPhotos: [],
         photos: [
-          { src: "/images/seminaire-chateau-chantilly-vue-aerienne-domaine.webp", legende: "Le château anglo-normand et ses terrasses, vus du ciel" },
-          { src: "/images/seminaire-chateau-chantilly-facade-chateau.webp", legende: "La façade à colombages et sa terrasse à balustres" },
+          { src: stock('facade-lierre-colombages'), legende: "La façade du château, couverte de verdure" },
+          { src: stock('velos-facade-lierre'), legende: "Des vélos à disposition devant la façade du château" },
         ],
         conseil:
           "Pour vos participants qui viennent en train, indiquez-leur le TER direct depuis Paris-Gare du Nord : la gare de Chantilly est à 5 minutes en voiture du domaine.",
