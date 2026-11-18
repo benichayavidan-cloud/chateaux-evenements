@@ -1,11 +1,11 @@
 /**
- * « Dans quel château organiser votre team building ? » — les 4 châteaux de
- * la collection et les animations que l'équipe y organise (18/11/2026).
- * Server Component, utilisé sur /team-building-chateau à la place des blocs
- * qui renvoyaient vers l'annuaire.
+ * Les 4 châteaux de la collection et ce que l'équipe y organise (18/11/2026).
+ * Server Component, commun aux pages /team-building-chateau et
+ * /seminaires-soirees-entreprise : une carte par château, avec les titres
+ * d'une section de sa rubrique (« team-building » dans Activités,
+ * « soirees-a-theme » dans Soirées) et un lien vers cette section.
  *
- * Les animations sont lues dans la section « team-building » de la rubrique
- * Activités de chaque château (data/rubriques) : un seul endroit à corriger.
+ * Les titres sont lus dans data/rubriques : un seul endroit à corriger.
  */
 import Image from "next/image";
 import Link from "next/link";
@@ -22,15 +22,26 @@ const NOMS: Record<string, string> = {
   "palais-royal-foret-chantilly": "Château en forêt",
 };
 
-interface ChateauxPourTeamBuildingProps {
+/** Capacité à afficher pour une soirée quand elle diffère de la capacité en réunion (jardin du domaine du 92 : sources officielles, 18/11/2026). */
+const CAPACITE_SOIREE: Record<string, string> = {
+  "hotel-historique-seminaire-paris-92": "jusqu'à 300 invités au jardin",
+};
+
+interface ChateauxEtAnimationsProps {
   chateaux: Chateau[];
+  /** Rubrique du château où se trouve la section. */
+  rubrique: "activites" | "soirees";
+  /** Ancre de la section dans la page de la rubrique. */
+  ancre: string;
+  /** Texte du lien de chaque carte. */
+  lien: string;
 }
 
-export function ChateauxPourTeamBuilding({ chateaux }: ChateauxPourTeamBuildingProps) {
+export function ChateauxEtAnimations({ chateaux, rubrique, ancre, lien }: ChateauxEtAnimationsProps) {
   const cartes = chateaux
     .map((c) => ({
       chateau: c,
-      animations: RUBRIQUES_PAR_CHATEAU[c.slug]?.activites?.sections?.find((s) => s.ancre === "team-building")?.blocs.map((b) => b.titre) ?? [],
+      animations: RUBRIQUES_PAR_CHATEAU[c.slug]?.[rubrique]?.sections?.find((s) => s.ancre === ancre)?.blocs.map((b) => b.titre) ?? [],
     }))
     .filter((x) => NOMS[x.chateau.slug] && x.animations.length > 0);
   if (cartes.length === 0) return null;
@@ -51,15 +62,15 @@ export function ChateauxPourTeamBuilding({ chateaux }: ChateauxPourTeamBuildingP
           <div className={styles.blocTexte}>
             <h3 className={styles.blocTitre}>{NOMS[chateau.slug]}</h3>
             <p className={styles.sousTitre}>
-              {chateau.region} · jusqu&apos;à {chateau.capacite.max} participants
+              {chateau.region} · {(rubrique === "soirees" && CAPACITE_SOIREE[chateau.slug]) || `jusqu'à ${chateau.capacite.max} participants`}
             </p>
             <ul className={styles.exemples}>
               {animations.map((a) => (
                 <li key={a}>{a}</li>
               ))}
             </ul>
-            <Link href={`/chateaux/${chateau.slug}/activites#team-building`} className={styles.lienFiche}>
-              Voir ses animations <ArrowRight className="w-4 h-4" aria-hidden />
+            <Link href={`/chateaux/${chateau.slug}/${rubrique}#${ancre}`} className={styles.lienFiche}>
+              {lien} <ArrowRight className="w-4 h-4" aria-hidden />
             </Link>
           </div>
         </article>

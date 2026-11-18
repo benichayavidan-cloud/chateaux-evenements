@@ -12,7 +12,7 @@ import {
   generateOrganizationSchema,
 } from "@/utils/seo/structured-data";
 import TeamBuildingPageClient, { TeamBuildingPointsForts } from "./TeamBuildingPageClient";
-import { ChateauxPourTeamBuilding } from "@/components/home/ChateauxPourTeamBuilding";
+import { ChateauxEtAnimations } from "@/components/home/ChateauxEtAnimations";
 import { chateaux } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
@@ -171,7 +171,7 @@ export default function TeamBuildingPage() {
           <p style={{ maxWidth: "760px", margin: "0 auto 2.5rem", textAlign: "center", fontSize: "1.0625rem", lineHeight: 1.6, color: "#525252" }}>
             Nos animations ont lieu dans les 4 châteaux de la collection. Voici ce que notre équipe organise dans chacun, sans que votre groupe quitte le domaine.
           </p>
-          <ChateauxPourTeamBuilding chateaux={chateaux} />
+          <ChateauxEtAnimations chateaux={chateaux} rubrique="activites" ancre="team-building" lien="Voir ses animations" />
         </div>
       </section>
           </>
