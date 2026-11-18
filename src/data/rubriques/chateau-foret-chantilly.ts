@@ -516,6 +516,33 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         conseil:
           "Pour une soirée privée pendant votre séminaire, demandez-moi le bar du patio : il se réserve pour votre groupe, sous la verrière.",
       },
+      {
+        ancre: "soirees-a-theme",
+        etiquette: "Soirées à thème",
+        titre: "Soirées à thème en forêt de Chantilly : guinguette, soirée blanche et casino",
+        intro:
+          "Pour donner un fil conducteur à la soirée de votre séminaire, notre équipe organise des soirées à thème au château et dans son parc. Trois formats s'y prêtent particulièrement.",
+        reprend: [],
+        blocs: [
+          { titre: "Guinguette et festival en plein air", texte: "Jeux en bois géants, guirlandes lumineuses, food trucks, groupe en direct et piste de danse en plein air : à la belle saison, le parc et les terrasses face à la forêt prennent des airs de village en fête. Un format décontracté, idéal après une journée de team building." },
+          { titre: "Soirée blanche", texte: "Dress code tout en blanc, décoration épurée, acrobates aériens et jeux de lumière : un cocktail dînatoire d'été qui marque les esprits et laisse de belles photos à vos équipes." },
+          { titre: "Casino", texte: "Roulette, poker et black-jack, cocktails au shaker et tapis rouge : en smoking et robe longue, vos participants passent la soirée aux tables, guidés par des croupiers professionnels. Un thème de prestige pour une fin d'année ou une remise de récompenses, dans les salons du château." },
+        ],
+        faits: [
+          { label: "Thèmes de soirée", valeur: "Guinguette, Soirée blanche, Casino" },
+          { label: "Animations de soirée", valeur: "groupe en direct, acrobates, croupiers" },
+          { label: "Soirée sur mesure", valeur: "en intérieur ou en plein air" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/services/soiree-entreprise-festival-guinguette-chateau-plein-air.webp", legende: "Soirée guinguette en plein air (image d’illustration, autre lieu)" },
+          { src: "/images/services/soiree-entreprise-white-party-chateau-acrobates.webp", legende: "Soirée blanche (image d’illustration, autre lieu)" },
+          { src: "/images/services/soiree-entreprise-casino-royale-chateau-tables-jeux.webp", legende: "Soirée Casino (image d’illustration, autre lieu)" },
+        ],
+        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
+        conseil:
+          "Après une journée de team building, misez sur la guinguette en plein air : vos participants restent dehors, dans le parc du château.",
+      },
     ],
     sources: [BROCHURE],
   },

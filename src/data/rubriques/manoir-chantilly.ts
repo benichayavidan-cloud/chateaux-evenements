@@ -552,6 +552,33 @@ export const rubriquesManoirChantilly: RubriquesDomaine = {
         conseil:
           "Après le dîner de votre séminaire, vos participants se retrouvent au bar ou autour du billard ; la soirée DJ, elle, s'organise avec notre équipe.",
       },
+      {
+        ancre: "soirees-a-theme",
+        etiquette: "Soirées à thème",
+        titre: "Soirées à thème au château : Gatsby, casino et bal masqué",
+        intro:
+          "Notre équipe organise aussi des soirées à thème au château : décor, animation et dress code sont réglés pour votre groupe. Voici les trois thèmes qui vont le mieux avec le lieu.",
+        reprend: [],
+        blocs: [
+          { titre: "Gatsby et années folles", texte: "Orchestre de jazz, démonstration de charleston, tables de casino vintage et dress code noir et or : le thème est chez lui dans un château construit au début du XXe siècle. Un classique pour le gala de clôture d'une convention." },
+          { titre: "Casino", texte: "Tables de black-jack, de roulette et de poker tenues par des croupiers professionnels, tapis rouge à l'entrée et animation DJ : vos participants jouent pour le plaisir, en smoking et robe longue. Un format qui convient aux soirées de fin d'année et aux remises de récompenses." },
+          { titre: "Bal masqué vénitien", texte: "Masques distribués à l'arrivée, musique baroque jouée en direct et danses de salon guidées : les boiseries des salons du château servent de décor à une soirée hors du temps." },
+        ],
+        faits: [
+          { label: "Thèmes de soirée", valeur: "Gatsby, Casino, Bal masqué" },
+          { label: "Animations de soirée", valeur: "orchestre de jazz, croupiers, danses de salon" },
+          { label: "Soirée sur mesure", valeur: "décor, animation et dress code" },
+        ],
+        reprendPhotos: [],
+        photos: [
+          { src: "/images/services/soiree-entreprise-gatsby-annees-folles-chateau-jazz.webp", legende: "Soirée Gatsby (image d’illustration, autre lieu)" },
+          { src: "/images/services/soiree-entreprise-casino-royale-chateau-tables-jeux.webp", legende: "Soirée Casino (image d’illustration, autre lieu)" },
+          { src: "/images/services/soiree-entreprise-bal-masque-venitien-chateau-salon.webp", legende: "Bal masqué vénitien (image d’illustration, autre lieu)" },
+        ],
+        liens: [{ href: "/seminaires-soirees-entreprise", label: "Voir tous nos thèmes de soirée" }],
+        conseil:
+          "Pour le gala de clôture de votre convention, demandez-moi le thème Gatsby : il va bien avec ce château du début du XXe siècle.",
+      },
     ],
     sources: [MICE, SITE, FACTSHEET],
   },

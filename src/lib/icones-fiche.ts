@@ -6,7 +6,7 @@
  */
 import {
   Accessibility, Award, Bed, Briefcase, Bus, Car, Clock, Film, Gamepad2, Landmark, Leaf, Monitor, ParkingCircle, Plane,
-  Presentation, Ruler, Sparkles, Sun, TrainFront, TramFront, Trees, Trophy, Users, UtensilsCrossed, Waves, Wine,
+  PartyPopper, Presentation, Ruler, Sparkles, Sun, TrainFront, TramFront, Trees, Trophy, Users, UtensilsCrossed, Waves, Wine,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -36,6 +36,7 @@ const CHIFFRES: Table = [
   [/spa|soins|piscine/i, Waves],
   [/tennis|padel/i, Trophy],
   [/jeux/i, Gamepad2],
+  [/soirée/i, PartyPopper],
   // Hébergement
   [/room service|arrivée/i, Clock],
   [/capacité|participants|cohésion|en théâtre|en réunion|autour d'une table/i, Users],

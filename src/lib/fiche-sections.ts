@@ -271,7 +271,7 @@ export function sectionsSupplementaires(rubrique: RubriqueId, r: Rubrique): Arra
     blocs: [...(x.reprend ?? []).map((i) => r.blocs[i]).filter((b): b is BlocTexte => b !== undefined), ...x.blocs],
     faits: x.faits,
     photos: [...(x.reprendPhotos ?? []).map((i) => r.photos[i]).filter((p) => p !== undefined), ...x.photos].map((p) => ({ src: p.src, alt: p.legende })),
-    liens: [],
+    liens: x.liens ?? [],
     conseil: x.conseil,
   }));
 }
