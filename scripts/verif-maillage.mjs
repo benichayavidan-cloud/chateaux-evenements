@@ -135,7 +135,9 @@ if (orphelins.length) {
     `    PAR_PAGE_MAX). Dans ce second cas, le signal est à prendre au sérieux :\n` +
     `    on publie plus vite que Google ne peut absorber.\n`
   );
-  process.exit(1);
+  // Rapport NON bloquant depuis le 18/11/2026 : l'annuaire (62 fiches) a été supprimé sur décision
+  // du PO, la surface de pages fraîches est passée de ~75 à ~7. Règle du PO (16/11) : un garde-fou
+  // ne retient jamais une publication. Le chiffre reste affiché à chaque build.
 }
 
 const compte = [...depuisPagesFraiches.values()].map((v) => v.size).sort((a, b) => a - b);
