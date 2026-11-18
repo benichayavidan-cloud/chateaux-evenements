@@ -120,6 +120,10 @@
     {
       "from": "seminaire-vallee-de-chevreuse-abbaye-secrete",
       "to": "/chateaux/abbaye-millenaire-vallee-chevreuse"
+    },
+    {
+      "from": "hotel-seminaire-chantilly-comparatif",
+      "to": "/seminaire-chateau-chantilly"
     }
   ]
 }
