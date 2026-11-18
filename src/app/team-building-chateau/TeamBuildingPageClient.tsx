@@ -14,13 +14,14 @@ import { theme } from '@/design-system/tokens';
 import { useState, useEffect, useRef } from "react";
 import { trackPhoneClick } from "@/components/Analytics";
 import DevisFormMini from "@/components/DevisFormMini";
-import ActivityCatalogue from "@/components/ActivityCatalogue";
 import { useInView } from "@/hooks/useInView";
 import { lienFinal } from "@/data/redirections";
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
 
 interface TeamBuildingPageClientProps {
   faq: Array<{ question: string; answer: string }>;
+  /** Bloc affiché après les animations, avant les questions fréquentes et le formulaire (les 4 châteaux). */
+  avantFaq?: React.ReactNode;
 }
 
 // ─── Images ────────────────────────────────────────────────────────
@@ -365,7 +366,7 @@ export function TeamBuildingPointsForts() {
   const pointsForts = [
     "Cadre exceptionnel",
     "Activités sur mesure",
-    "20 à 500 participants",
+    "20 à 280 participants",
     "Encadrement professionnel",
     "Privatisation totale",
     "Hébergement sur place",
@@ -440,7 +441,7 @@ export function TeamBuildingPointsForts() {
   );
 }
 
-export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientProps) {
+export default function TeamBuildingPageClient({ faq, avantFaq }: TeamBuildingPageClientProps) {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [showStickyBar, setShowStickyBar] = useState(false);
@@ -533,12 +534,12 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
           <div className="flex flex-wrap items-center gap-3" style={{ color: theme.colors.neutral.gray600, fontSize: '0.9375rem' }}>
             <span className="inline-flex items-center gap-1.5">
               <Users className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-              20–500 participants
+              20–280 participants
             </span>
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span className="inline-flex items-center gap-1.5">
               <Trophy className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-              +40 activités cohésion
+              Animations en plein air et en intérieur
             </span>
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span className="inline-flex items-center gap-1.5">
@@ -669,7 +670,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
               <ParaCard text="Des activités sur mesure : Chaque team building est conçu en fonction de vos objectifs — cohésion, communication, leadership, créativité. Nos chefs de projet vous accompagnent pour créer le programme parfait, de la demi-journée au séjour complet." sectionBg="gray" />
               <ParaCard text="Un accompagnement de A à Z : De la recherche du lieu idéal à la coordination le jour J, notre équipe gère tous les détails. Animateurs professionnels, matériel, logistique, restauration... Vous n'avez qu'à profiter du moment." sectionBg="gray" />
               <div className="flex flex-wrap" style={{ gap: '0.5rem', marginTop: '1rem' }}>
-                {["Outdoor & Indoor", "20 à 500 pers.", "Sur mesure", "Clé en main"].map((atout, i) => (
+                {["Outdoor & Indoor", "20 à 280 pers.", "Sur mesure", "Clé en main"].map((atout, i) => (
                   <Link key={i} href="/devis#formulaire" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '6px 10px', background: `${theme.colors.primary.bronze}08`, border: `1px solid ${theme.colors.primary.bronze}20`, borderRadius: theme.effects.borderRadius.full, whiteSpace: 'nowrap', textDecoration: 'none', transition: 'all 0.2s ease' }}>
                     <Check className="w-3 h-3 flex-shrink-0" style={{ color: theme.colors.primary.bronze }} />
                     <span style={{ fontSize: '0.75rem', fontWeight: 500, color: theme.colors.neutral.gray700 }}>{atout}</span>
@@ -746,8 +747,10 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
         </Container>
       </Section>
 
-      {/* ─── Catalogue complet des activités — Flip Cards ─── */}
-      <ActivityCatalogue />
+      {/* Le catalogue de 41 activités (brique ActivityCatalogue) n'est plus affiché ici depuis le 18/11/2026 :
+          la page présente les animations des 4 châteaux de la collection, pas un catalogue d'agence. */}
+
+      {avantFaq}
 
       {/* ─── Section FAQ — 2 colonnes : FAQ + Image équipe ─── */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>

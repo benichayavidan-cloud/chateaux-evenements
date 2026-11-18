@@ -12,8 +12,8 @@ import {
   generateOrganizationSchema,
 } from "@/utils/seo/structured-data";
 import TeamBuildingPageClient, { TeamBuildingPointsForts } from "./TeamBuildingPageClient";
-import { VenuesByDepartment } from "@/components/geo/VenuesByDepartment";
-import { TeamBuildingParZone } from "@/components/lieux/TeamBuildingParZone";
+import { ChateauxPourTeamBuilding } from "@/components/home/ChateauxPourTeamBuilding";
+import { chateaux } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/LogoCarousel";
 import { ReviewsSection } from "@/components/ReviewsSection";
 import { GuidesSection, ObservatoireSection } from "@/components/lieux";
@@ -21,11 +21,11 @@ import { GuidesSection, ObservatoireSection } from "@/components/lieux";
 const faq = [
   {
     question: "Quels types de team building proposez-vous en château ?",
-    answer: "Nous proposons plus de 40 activités : olympiades sportives, escape game grandeur nature, murder party immersive, atelier cuisine gastronomique, challenge Koh-Lectif, build and race, lego challenge, drum batucada et bien plus. Chaque programme est personnalisé selon vos objectifs de cohésion d'équipe."
+    answer: "Nos animations se déroulent en plein air ou en intérieur : olympiades, rallye découverte, challenges sportifs, escape game, murder party, challenges créatifs, simulation de gestion de crise et ateliers cuisine. Chaque programme est personnalisé selon vos objectifs de cohésion d'équipe."
   },
   {
     question: "Combien de participants peuvent être accueillis pour un team building ?",
-    answer: "Nos châteaux peuvent accueillir de 20 à 500 participants selon le domaine choisi. Que ce soit pour une petite équipe de direction ou un grand séminaire d'entreprise, nous adaptons les activités et les espaces à la taille de votre groupe."
+    answer: "Nos 4 châteaux accueillent de 20 à 280 participants selon le domaine choisi. Que ce soit pour une petite équipe de direction ou un grand séminaire d'entreprise, nous adaptons les activités et les espaces à la taille de votre groupe."
   },
   {
     question: "Les activités de team building sont-elles adaptées à tous les niveaux ?",
@@ -53,21 +53,22 @@ const faq = [
   },
   {
     question: "Comment organiser un team building en château près de Paris ?",
-    answer: "3 étapes : (1) définir vos objectifs (cohésion, intégration, récompense) et le nombre de participants, (2) choisir le château selon la taille du groupe et le style d'activités souhaité — nos 4 domaines offrent chacun un cadre unique, (3) contacter Select Châteaux pour recevoir un programme sur-mesure avec devis sous 24h. Nous gérons la logistique de A à Z : transport, hébergement, restauration et +40 activités."
+    answer: "3 étapes : (1) définir vos objectifs (cohésion, intégration, récompense) et le nombre de participants, (2) choisir le château selon la taille du groupe et le style d'activités souhaité — nos 4 domaines offrent chacun un cadre unique, (3) contacter Select Châteaux pour recevoir un programme sur-mesure avec devis sous 24h. Nous gérons la logistique de A à Z : transport, hébergement, restauration et animations."
   },
 ];
 
+// Titre et description écrits une seule fois, repris par les aperçus de partage (18/11/2026).
+const TITRE_PAGE = "Team building en château, Île-de-France : nos 4 domaines";
+const DESCRIPTION_PAGE = "Team building dans une collection de 4 châteaux privatisables en Île-de-France : olympiades, rallye, escape game, dès 45 € par personne. 20 à 280 participants.";
+
 export const metadata: Metadata = {
-    // `absolute` : la page renonce au suffixe de marque pour garder le mot
-  // réellement tapé dans les 60 caractères affichés. Même arbitrage que les
-  // fiches lieux — sur un site à 11 domaines référents, la marque n'est pas
-  // cherchée.
-  title: { absolute: "Team building en château, Île-de-France : 40 activités" },
-  description: "40 activités de cohésion en château privatisé dès 45 € par personne : olympiades, escape game, murder party, de 20 à 500 participants.",
+  // `absolute` : pas de suffixe de marque, pour garder les mots réellement tapés dans les 60 caractères affichés.
+  title: { absolute: TITRE_PAGE },
+  description: DESCRIPTION_PAGE,
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Team Building Château Île-de-France : +40 Activités dès 45€/pers",
-    description: "+40 activités de cohésion en château privatisé : olympiades, escape game, murder party, atelier cuisine. Devis gratuit en 24h.",
+    title: TITRE_PAGE,
+    description: DESCRIPTION_PAGE,
     url: "https://www.selectchateaux.com/team-building-chateau",
     siteName: "Select Châteaux",
     images: [
@@ -83,8 +84,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Team Building en Château près de Paris | +40 Activités",
-    description: "+40 activités de team building en château privatisé près de Paris. Devis gratuit.",
+    title: TITRE_PAGE,
+    description: DESCRIPTION_PAGE,
     images: ["https://www.selectchateaux.com/images/team-building-chateau-seminaire-cohesion-equipe-hero.webp"],
   },
   alternates: {
@@ -101,7 +102,7 @@ export default function TeamBuildingPage() {
         "@type": "Service",
         "@id": "https://www.selectchateaux.com/team-building-chateau#service",
         name: "Team Building en Château",
-        description: "Organisation de team building et activités de cohésion d'équipe dans des châteaux d'exception en Île-de-France. Plus de 40 animations : olympiades, escape game, murder party, ateliers cuisine, challenges créatifs, soirées entreprise.",
+        description: "Organisation de team building et d'activités de cohésion d'équipe dans les 4 châteaux privatisables de la collection Select Châteaux, en Île-de-France. Animations en plein air et en intérieur : olympiades, rallye découverte, escape game, murder party, challenges créatifs, ateliers cuisine.",
         url: "https://www.selectchateaux.com/team-building-chateau",
         provider: {
           "@id": "https://www.selectchateaux.com/#organization",
@@ -156,12 +157,25 @@ export default function TeamBuildingPage() {
   return (
     <>
       <StructuredData data={structuredData} />
-      <TeamBuildingPageClient faq={faq} />
-      <TeamBuildingParZone />
-      <VenuesByDepartment
-        departments={["78", "60", "77", "95", "91", "92"]}
-        title="Lieux pour un team building en château"
-        intro="Parc, forêt, espace extérieur : les domaines qui se prêtent aux activités de cohésion, avec leur capacité réelle et leur hébergement. Devis sous 24 h."
+      <TeamBuildingPageClient
+        faq={faq}
+        avantFaq={
+          <>
+      {/* Les 4 châteaux de la collection et leurs animations (18/11/2026). Remplace les blocs
+          « par territoire » et « Lieux pour un team building », qui renvoyaient vers l'annuaire. */}
+      <section style={{ background: "#fafafa", padding: "clamp(2.5rem, 5vw, 4rem) 0" }}>
+        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(1rem, 4vw, 2rem)" }}>
+          <h2 style={{ margin: "0 0 0.75rem", textAlign: "center", fontFamily: "var(--font-cormorant), Georgia, serif", fontStyle: "italic", fontWeight: 500, fontSize: "clamp(1.75rem, 4vw, 2.75rem)", lineHeight: 1.15, color: "#171717" }}>
+            Dans quel château organiser votre team building ?
+          </h2>
+          <p style={{ maxWidth: "760px", margin: "0 auto 2.5rem", textAlign: "center", fontSize: "1.0625rem", lineHeight: 1.6, color: "#525252" }}>
+            Nos animations ont lieu dans les 4 châteaux de la collection. Voici ce que notre équipe organise dans chacun, sans que votre groupe quitte le domaine.
+          </p>
+          <ChateauxPourTeamBuilding chateaux={chateaux} />
+        </div>
+      </section>
+          </>
+        }
       />
       {/* Donnée propriétaire (observatoire des 188 devis) et maillage vers le
           blog — les deux leviers mesurés le 06/09/2026. */}

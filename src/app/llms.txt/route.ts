@@ -101,7 +101,7 @@ function buildLlmsTxt(): string {
   for (const l of landingsFormats) {
     lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
   }
-  lines.push(`- [Team building en château](${BASE_URL}/team-building-chateau) : +40 activités de cohésion en château privatisé, de 20 à 500 personnes`)
+  lines.push(`- [Team building en château](${BASE_URL}/team-building-chateau) : animations de cohésion dans les 4 châteaux de la collection, de 20 à 280 personnes`)
   lines.push(`- [Soirées d'entreprise](${BASE_URL}/seminaires-soirees-entreprise) : soirées de gala, dîners d'exception et événements d'entreprise en château`)
   lines.push(`- [Catalogue des châteaux](${BASE_URL}/chateaux)`)
   lines.push('')

@@ -246,6 +246,8 @@ export default function RootLayout({
               links: [
                 { label: "Team building en château", href: "/team-building-chateau" },
                 { label: "Team building Chantilly", href: "/team-building-chantilly" },
+                { label: "Team building Hauts-de-Seine", href: "/team-building-hauts-de-seine-92" },
+                { label: "Team building Val-d'Oise", href: "/team-building-val-d-oise-95" },
                 { label: "Journée d'étude", href: "/journee-etude-seminaire" },
                 { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
                 { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
