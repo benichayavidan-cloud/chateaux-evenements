@@ -241,8 +241,25 @@
   line-height: 1.35;
   color: #8B6A24;
 }
+/* Case étroite (téléphone, ou rangée de 3 sur ordinateur) : le médaillon passe
+   au-dessus du texte, centré. À côté, il ne laissait qu'une centaine de pixels
+   au texte, qui s'empilait sur 3 lignes (retour PO du 18/11/2026). */
+.chiffre {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+.chiffreTexte { align-items: center; }
+/* Téléphone : la 3e case d'une rangée de 3 prend toute la largeur au lieu de rester seule à gauche. */
+.chiffresPar3 .chiffre:last-child { grid-column: 1 / -1; }
 @media not all and (max-width: 768px) {
+  .chiffre { flex-direction: row; justify-content: flex-start; text-align: left; gap: 0.75rem; }
+  .chiffreTexte { align-items: flex-start; }
   .chiffresPar3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .chiffresPar3 .chiffre { flex-direction: column; justify-content: center; text-align: center; gap: 0.5rem; }
+  .chiffresPar3 .chiffreTexte { align-items: center; }
+  .chiffresPar3 .chiffre:last-child { grid-column: auto; }
 }
 
 /* Médaillon doré en relief : dégradé or, reflet en haut, ombre interne en bas,

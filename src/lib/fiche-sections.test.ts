@@ -323,3 +323,13 @@ test('fiches de l’abbaye et du 92 : l’hébergement garde ses deux paragraphe
     assert.deepEqual(fiche.blocs, RUBRIQUES_PAR_CHATEAU[slug].chambres!.blocs.slice(0, 2), slug);
   }
 });
+
+// ---- Cases de chiffres : le texte doit tenir dans une case étroite (retour PO du 18/11/2026)
+test('cases de chiffres : valeur et libellé de 32 caractères au plus, sur les fiches et les 28 pages', () => {
+  const trop = [
+    ...sectionsDesFiches.flatMap((s) => s.faits.map((f) => ({ ou: `fiche/${s.id}`, f }))),
+    ...pagesDetaillees.flatMap((p) => p.s.faits.map((f) => ({ ou: `${p.slug}/${p.id}`, f }))),
+    ...supplementaires.flatMap((x) => x.s.faits.map((f) => ({ ou: `${x.slug}/${x.id}/${x.s.ancre}`, f }))),
+  ].filter(({ f }) => f.valeur.length > 32 || f.label.length > 32);
+  assert.deepEqual(trop.map(({ ou, f }) => `${ou} : ${f.label} = ${f.valeur}`), []);
+});

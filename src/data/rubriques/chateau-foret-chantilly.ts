@@ -139,7 +139,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         faits: [
           { label: "Salles de sous-commission", valeur: "9, de 33 à 75 m²" },
           { label: "Grand salon", valeur: "70 places en théâtre" },
-          { label: "Comité de direction", valeur: "de 15 à 21 places dans la plupart des salons" },
+          { label: "Comité de direction", valeur: "salons de 15 à 21 places" },
         ],
         reprendPhotos: [2, 3, 6],
         photos: [],
@@ -208,7 +208,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         faits: [
           { label: "Chambres et suites", valeur: "109" },
           { label: "Chambres convertibles en twin", valeur: "45" },
-          { label: "Chambres accessibles", valeur: "aux participants à mobilité réduite" },
+          { label: "Chambres accessibles", valeur: "aux personnes à mobilité réduite" },
         ],
         reprendPhotos: [2, 1],
         photos: [
@@ -440,7 +440,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
         faits: [
           { label: "Pauses", valeur: "servies dans le patio" },
           { label: "Déjeuner de journée d'étude", valeur: "compris dans l'offre" },
-          { label: "Bar du patio", valeur: "sur réservation, pour vos apéritifs" },
+          { label: "Bar du patio", valeur: "sur réservation" },
         ],
         reprendPhotos: [2, 3],
         photos: [
@@ -632,7 +632,7 @@ export const rubriquesChateauForet: RubriquesDomaine = {
     faits: [
       { label: 'Paris en voiture', valeur: '45 min', source: BROCHURE },
       { label: 'Aéroport Roissy-CDG', valeur: '20 min', source: BROCHURE },
-      { label: 'Gare du Nord - Orry-la-Ville-Coye', valeur: '20 min de train', source: BROCHURE },
+      { label: 'Train pour Orry-la-Ville-Coye', valeur: '20 min depuis la gare du Nord', source: BROCHURE },
       { label: 'Parking', valeur: '70 places, 4 bornes de recharge', source: BROCHURE },
     ],
     photos: [
