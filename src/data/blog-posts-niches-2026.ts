@@ -8,9 +8,9 @@ import type { BlogPost } from "./blog-posts";
 const workationArticle: BlogPost = {
   id: 300,
   slug: "workation-chateau-teletravail-premium",
-  title: "Workation en Château : Télétravail Premium + Cohésion d'Équipe (2026)",
+  title: "Workation en château : télétravail et cohésion d'équipe",
   excerpt:
-    "La workation, nouvelle formule 2026 : 3-5 jours de télétravail en château avec cohésion d'équipe intégrée. Prix, formats, exemples. 40% plus productif qu'au bureau.",
+    "La workation : 3 à 5 jours de télétravail en château avec cohésion d'équipe intégrée. Prix, formats et exemples de programme.",
   category: "organisation",
   author: {
     name: "L'équipe Select Châteaux",
