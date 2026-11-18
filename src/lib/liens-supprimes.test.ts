@@ -9,6 +9,7 @@ const supprime = (s: string) => s === 'article-retire';
 test('un lien vers un article supprimé disparaît, son texte reste', () => {
   assert.equal(retirerLiensSupprimes('<p>Voir <a href="/blog/article-retire" class="x">notre <strong>guide</strong></a>.</p>', supprime), '<p>Voir notre <strong>guide</strong>.</p>');
   assert.equal(retirerLiensSupprimes("<a href='https://www.selectchateaux.com/blog/article-retire/#prix'>prix</a>", supprime), 'prix');
+  assert.equal(retirerLiensSupprimes('<a href="https://selectchateaux.com/blog/article-retire">sans www</a>', supprime), 'sans www');
 });
 
 test('les autres liens ne bougent pas', () => {
