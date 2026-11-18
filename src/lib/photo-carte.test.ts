@@ -18,22 +18,8 @@ test('chaque index pointe vers une photo existante', () => {
   }
 });
 
-test('la photo de carte est celle choisie, pas la première du CRM', () => {
-  const palais = venues.find((v) => v.slug === 'palais-des-congres-de-versailles-versailles')!;
-  assert.equal(photoCarte(palais)?.url, palais.photos[3].url);
-});
-
-test('un lieu sans photo du lieu lui-même n\'a pas de carte', () => {
-  // Ferme du Manet : ses 6 photos portent un logo ou un bandeau « LA GRANGE » (vu le 11/10).
-  const masques = ['auberge-du-mont-saint-mard-vieux-moulin', 'golf-de-la-vaucouleurs-civry-la-foret', 'la-ferme-du-manet-montigny-le-bretonneux'];
-  for (const slug of masques) {
-    const v = venues.find((x) => x.slug === slug)!;
-    assert.equal(photoCarte(v), null, slug);
-  }
-  const affiches = avecPhotoCarte(venues).map((v) => v.slug);
-  assert.ok(masques.every((s) => !affiches.includes(s)));
-  assert.equal(affiches.length, venues.length - masques.length);
-});
+// Deux tests retirés le 18/11/2026 : ils lisaient des lieux précis de l'annuaire, vidé ce jour-là
+// (data/venues.ts, décision du PO : le site est une collection de 4 châteaux).
 
 test('un lieu inconnu de la table n\'a pas de carte', () => {
   assert.equal(photoCarte({ slug: 'lieu-pas-encore-verifie', photos: [{ url: 'https://x/logo.png' }] }), null);

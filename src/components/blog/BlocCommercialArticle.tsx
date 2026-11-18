@@ -30,7 +30,7 @@ export function BlocCommercialArticle({ departementCode, urlArticle }: BlocComme
   const landing = landingsDepartements.find((l) => l.code === departementCode);
   // Seuls les lieux montrables en carte : le titre, le texte et l'ItemList comptent les mêmes.
   const lieux = avecPhotoCarte(getVenuesByDepartment(departementCode)).sort((a, b) => b.capacite - a.capacite);
-  if (!landing || !lieux.length) return null;
+  if (!landing) return null;
 
   const dans = avecPreposition(landing.departement);
   const capMin = Math.min(...lieux.map((v) => v.capacite));
@@ -53,15 +53,19 @@ export function BlocCommercialArticle({ departementCode, urlArticle }: BlocComme
 
   return (
     <>
-      <StructuredData data={itemList} />
-      <div id="lieux">
-        <CartesLieux
-          lieux={lieux}
-          titre={`Nos ${lieux.length} lieux de séminaire ${dans}`}
-          texte={`De ${capMin.toLocaleString("fr-FR")} à ${capMax.toLocaleString("fr-FR")} personnes, dont ${avecChambres} avec hébergement sur place. Chaque fiche montre les salles, les chambres et les photos réelles.`}
-          cta="article-lieux"
-        />
-      </div>
+      {lieux.length > 0 && (
+        <>
+          <StructuredData data={itemList} />
+          <div id="lieux">
+            <CartesLieux
+              lieux={lieux}
+              titre={`Nos ${lieux.length} lieux de séminaire ${dans}`}
+              texte={`De ${capMin.toLocaleString("fr-FR")} à ${capMax.toLocaleString("fr-FR")} personnes, dont ${avecChambres} avec hébergement sur place. Chaque fiche montre les salles, les chambres et les photos réelles.`}
+              cta="article-lieux"
+            />
+          </div>
+        </>
+      )}
 
       <section id="budget" className="w-full flex justify-center" style={{ padding: "8px 20px 40px", background: "#FFFFFF" }}>
         <div className="w-full max-w-5xl">
@@ -86,7 +90,7 @@ export function BlocCommercialArticle({ departementCode, urlArticle }: BlocComme
           </div>
           <p className="text-center" style={{ margin: "24px 0 0" }} data-cta="article-commercial">
             <Link href="#devis-express" style={{ color: BRONZE, fontWeight: 600, textDecoration: "underline" }}>
-              Recevoir une sélection de lieux {dans} sous 24 h
+              Recevoir une proposition {dans} sous 24 h
             </Link>
           </p>
         </div>

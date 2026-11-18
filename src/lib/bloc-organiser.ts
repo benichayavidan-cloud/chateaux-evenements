@@ -49,9 +49,9 @@ export function blocOrganiserHtml(activite: string, lieux: LieuBloc[]): string {
   return (
     `<aside class="article-organiser" ${MARQUEUR}>` +
     `<p class="article-organiser__titre">Où organiser votre ${act} ?</p>` +
-    `<p class="article-organiser__texte">Des lieux privatisables de notre sélection, avec salles et hébergement pour votre groupe :</p>` +
+    `<p class="article-organiser__texte">${items ? "Des lieux privatisables de notre sélection, avec salles et hébergement pour votre groupe :" : "Dans l'un des 4 châteaux privatisables de notre collection, avec salles et hébergement pour votre groupe."}</p>` +
     (items ? `<ul class="article-organiser__lieux">${items}</ul>` : "") +
-    `<a class="article-organiser__bouton" href="#devis-express" data-cta="article-organiser-devis">Recevoir des lieux pour votre ${act}</a>` +
+    `<a class="article-organiser__bouton" href="#devis-express" data-cta="article-organiser-devis">Recevoir une proposition pour votre ${act}</a>` +
     `</aside>`
   );
 }

@@ -1,5 +1,4 @@
 import { chateaux } from '@/data/chateaux'
-import { venues } from '@/data/venues'
 import { landingsDepartements } from '@/data/landings-departements'
 import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
@@ -56,31 +55,6 @@ function buildLlmsTxt(): string {
   }
   lines.push('')
 
-  // ── Répertoire complet des lieux (données live depuis venues.ts, généré CRM).
-  // C'est le contenu que les moteurs de réponse ne trouvent nulle part ailleurs :
-  // capacité, chambres et salles réelles, lieu par lieu.
-  const byDept: Record<string, typeof venues> = {}
-  for (const v of venues) (byDept[v.departementCode] ||= []).push(v)
-  const deptLabels: Record<string, string> = {
-    '78': 'Yvelines (78)', '60': 'Oise (60)', '77': 'Seine-et-Marne (77)',
-    '95': "Val-d'Oise (95)", '91': 'Essonne (91)', '92': 'Hauts-de-Seine (92)',
-  }
-  lines.push(`## Répertoire des lieux de séminaire (${venues.length} lieux vérifiés)`)
-  lines.push('')
-  lines.push(`Index complet : ${BASE_URL}/lieux`)
-  lines.push('')
-  for (const [code, list] of Object.entries(byDept).sort((a, b) => b[1].length - a[1].length)) {
-    lines.push(`### ${deptLabels[code] ?? code} — ${list.length} lieux`)
-    lines.push('')
-    for (const v of [...list].sort((a, b) => b.capacite - a.capacite)) {
-      const rooms = v.chambres ? `, ${v.chambres} chambres` : ''
-      const halls = v.sallesReunion ? `, ${v.sallesReunion} salles` : ''
-      const city = v.ville ? `${v.ville} — ` : ''
-      lines.push(`- [${v.nom}](${BASE_URL}/lieux/${v.slug}) : ${city}${v.categorie}, jusqu'à ${v.capacite} personnes${rooms}${halls}`)
-    }
-    lines.push('')
-  }
-
   // ── Pages services par zone (données live depuis geo-landing-pages.ts)
   lines.push('## Séminaires par zone géographique')
   lines.push('')
@@ -93,12 +67,13 @@ function buildLlmsTxt(): string {
     if (estRedirige(`/${l.slug}`)) {
       const r = redirectionsCommerciales.find((x) => x.from === `/${l.slug}`)
       const article = r && blogPosts.find((b) => `/blog/${b.slug}` === r.to)
-      if (article) lines.push(`- [${l.h1}](${BASE_URL}${r.to}) : ${l.description}`)
+      if (article) lines.push(`- [${article.title}](${BASE_URL}${r.to}) : ${article.excerpt}`)
       continue
     }
     lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
   }
   for (const l of landingsFormats) {
+    if (estRedirige(`/${l.slug}`)) continue // page supprimée (data/redirections-annuaire.json)
     lines.push(`- [${l.h1}](${BASE_URL}/${l.slug}) : ${l.description}`)
   }
   lines.push(`- [Team building en château](${BASE_URL}/team-building-chateau) : animations de cohésion dans les 4 châteaux de la collection, de 20 à 280 personnes`)
@@ -134,7 +109,6 @@ function buildLlmsTxt(): string {
   lines.push('## Budgets observés')
   lines.push('')
   lines.push(`- [Combien coûte un séminaire d'entreprise ?](${BASE_URL}/budget-seminaire-entreprise) : budgets réels par personne et par jour, ventilés par durée, taille de groupe et département, calculés sur 188 devis traités. Médiane 417 €/pers ; journée d'étude 150 € ; résidentiel 2 jours 517 €.`)
-  lines.push(`- [Alternative à Châteauform'](${BASE_URL}/alternative-chateauform) : comparatif propriétaire-exploitant contre agence indépendante.`)
   lines.push('')
 
   lines.push('## Contact')

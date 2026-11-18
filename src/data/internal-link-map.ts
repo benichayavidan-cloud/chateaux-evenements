@@ -142,14 +142,6 @@ export const BLOG_LINK_MAP: BlogLinkRule[] = [
     priority: 6,
   },
   {
-    keywords: ["privatisation château", "journée d'étude château", "privatiser un château"],
-    // Article fusionné en 301 le 24/09/2026 (275 mots, jamais indexé) : la
-    // landing possède « journée d'étude château » (seo-clusters.json).
-    targetPath: "/journee-etude-seminaire",
-    title: "Journée d'étude en château",
-    priority: 6,
-  },
-  {
     keywords: ["séminaire éco-responsable", "RSE séminaire", "séminaire vert"],
     targetSlug: "seminaire-eco-responsable-rse",
     title: "Organiser un séminaire éco-responsable",

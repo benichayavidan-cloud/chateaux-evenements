@@ -4,7 +4,6 @@ import { RUBRIQUES_PAR_CHATEAU } from '@/data/rubriques'
 import { rubriquesPubliees, urlRubrique } from '@/lib/rubriques'
 
 import { blogPosts } from '@/data/blog-posts'
-import { venues, GENERATED_AT } from '@/data/venues'
 import { landingsDepartements } from '@/data/landings-departements'
 import { landingsFormats } from '@/data/landings-formats'
 import { geoLandingPages } from '@/data/geo-landing-pages'
@@ -162,24 +161,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }))
 
-  // 6. Fiches lieux (générées depuis le CRM) + leur index
-  // Les fiches lieux ont reçu leur bloc de questions le 01/09 : même raisonnement
-  // que pour les articles, le document servi a changé après sa génération.
-  const venuesUpdated = laPlusRecente(new Date(GENERATED_AT), gabaritModifie)
-  const lieuxListingPage: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/lieux`,
-      lastModified: venuesUpdated,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    }
-  ]
-  const lieuxPages: MetadataRoute.Sitemap = venues.map((venue) => ({
-    url: `${baseUrl}/lieux/${venue.slug}`,
-    lastModified: venuesUpdated,
-    changeFrequency: 'monthly' as const,
-    priority: 0.75,
-  }))
+  // 6. (Fiches de l'annuaire et leur index : supprimés le 18/11/2026, voir data/redirections-annuaire.json.)
 
   // 7. Landings départementales (91, 77, 95)
   // Une landing redirigée (301, data/redirections-commerciales.json) sort du sitemap.
@@ -191,7 +173,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // 8. Landings par format (team building géo, journée d'étude)
-  const landingsFormatPages: MetadataRoute.Sitemap = landingsFormats.map((l) => ({
+  // Une page par format supprimée (redirigée) sort du sitemap.
+  const landingsFormatPages: MetadataRoute.Sitemap = landingsFormats.filter((l) => !estRedirige(`/${l.slug}`)).map((l) => ({
     url: `${baseUrl}/${l.slug}`,
     lastModified: staticPagesUpdated,
     changeFrequency: 'weekly' as const,
@@ -201,7 +184,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 9. Pages autonomes à forte valeur GEO
   const pagesGeo: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/budget-seminaire-entreprise`, lastModified: staticPagesUpdated, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/alternative-chateauform`, lastModified: staticPagesUpdated, changeFrequency: 'monthly', priority: 0.8 },
   ]
 
   // 10. Retour du sitemap complet
@@ -212,8 +194,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...chateauxPages,
     ...rubriquesPages,
-    ...lieuxListingPage,
-    ...lieuxPages,
     ...geoPages,
     ...blogListingPage,
     ...blogPages,
