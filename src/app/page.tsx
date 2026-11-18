@@ -302,7 +302,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-              Soirées et team building : ce que notre équipe organise dans nos 4 châteaux
+              Soirées et team building dans nos 4 châteaux
             </Text>
             <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '940px', margin: '0 auto' }}>
               Un séminaire ne s'arrête pas à la salle de réunion. Dans chacun des 4 châteaux de la collection, notre équipe organise aussi la soirée et les temps de cohésion, de bout en bout.

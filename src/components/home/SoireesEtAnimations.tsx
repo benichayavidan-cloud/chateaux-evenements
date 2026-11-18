@@ -1,8 +1,8 @@
 /**
  * « Nos soirées » et « Nos animations team building » sur l'accueil
  * (18/11/2026). Server Component. Mêmes mots que les onglets du menu ;
- * photos prises dans les châteaux de la collection ; texte propre à
- * l'accueil (pas une reprise des deux pages).
+ * photos de soirée et d'animation avec du monde (demande PO : plus
+ * évocatrices que des lieux vides) ; texte propre à l'accueil.
  */
 import Image from "next/image";
 import Link from "next/link";
@@ -15,8 +15,8 @@ const BLOCS = [
     texte:
       "Dîner de gala, cocktail au jardin ou soirée à thème : notre équipe met en scène la soirée de votre séminaire dans le château que vous avez choisi. Vos participants regagnent ensuite leur chambre à pied.",
     exemples: ["Dîner de gala", "Soirée à thème", "Cocktail"],
-    photo: "/images/seminaire-abbaye-vallee-de-chevreuse-diner-gala-grande-salle-voutes.webp",
-    alt: "Dîner de gala dressé sous les voûtes de l'abbaye, l'un des 4 châteaux de la collection",
+    photo: "/images/services/soiree-entreprise-gatsby-annees-folles-chateau-jazz.webp",
+    alt: "Soirée d'entreprise à thème années folles : invités en tenue de gala et orchestre de jazz",
     href: "/seminaires-soirees-entreprise",
     lien: "Découvrir nos soirées",
   },
@@ -25,8 +25,8 @@ const BLOCS = [
     texte:
       "Rallye dans le parc, escape game dans les salons, olympiades : des animations organisées par notre équipe pour fédérer vos collaborateurs entre deux sessions de travail, sans quitter le domaine.",
     exemples: ["Rallye découverte", "Escape game", "Olympiades"],
-    photo: "/images/seminaire-chateau-foret-chantilly-activites-team-building.webp",
-    alt: "Le boulodrome sous les arbres du parc d'un château de la collection, prêt pour un tournoi d'équipes",
+    photo: "/images/olympiades-entreprise-team-building-sport-chateau.webp",
+    alt: "Olympiades d'entreprise : des équipes s'affrontent dans le parc d'un château",
     href: "/team-building-chateau",
     lien: "Découvrir nos animations team building",
   },
