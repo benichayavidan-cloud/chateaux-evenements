@@ -14,7 +14,6 @@ import { theme } from '@/design-system/tokens';
 import { useState, useEffect, useRef } from "react";
 import { trackPhoneClick } from "@/components/Analytics";
 import DevisFormMini from "@/components/DevisFormMini";
-import ActivityCatalogue from "@/components/ActivityCatalogue";
 import { useInView } from "@/hooks/useInView";
 import { lienFinal } from "@/data/redirections";
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "@/lib/contact";
@@ -538,7 +537,7 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span className="inline-flex items-center gap-1.5">
               <Trophy className="w-4 h-4" style={{ color: theme.colors.primary.bronze }} />
-              +40 activités cohésion
+              Animations en plein air et en intérieur
             </span>
             <span style={{ color: theme.colors.neutral.gray300 }}>·</span>
             <span className="inline-flex items-center gap-1.5">
@@ -746,8 +745,8 @@ export default function TeamBuildingPageClient({ faq }: TeamBuildingPageClientPr
         </Container>
       </Section>
 
-      {/* ─── Catalogue complet des activités — Flip Cards ─── */}
-      <ActivityCatalogue />
+      {/* Le catalogue de 41 activités (brique ActivityCatalogue) n'est plus affiché ici depuis le 18/11/2026 :
+          la page présente les animations des 4 châteaux de la collection, pas un catalogue d'agence. */}
 
       {/* ─── Section FAQ — 2 colonnes : FAQ + Image équipe ─── */}
       <Section background="gray" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem) 0', background: '#f6f9fc' }}>
