@@ -63,9 +63,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Select Châteaux - La Collection Confidentielle",
+    title: "Select Châteaux — séminaires dans une collection de 4 châteaux",
     description:
-      "4 Domaines d'exception cachés aux portes de Paris pour vos événements d'entreprise.",
+      "Une collection de 4 châteaux privatisables près de Paris pour vos séminaires d'entreprise, avec hébergement sur place.",
     url: "https://www.selectchateaux.com/",
     siteName: "Select Châteaux",
     locale: "fr_FR",
@@ -80,8 +80,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Select Châteaux | Lieux Secrets pour Séminaires",
-    description: "Découvrez des domaines privés d'exception pour vos événements d'entreprise.",
+    title: "Select Châteaux — séminaires dans une collection de 4 châteaux",
+    description: "Une collection de 4 châteaux privatisables près de Paris pour vos séminaires d'entreprise, avec hébergement sur place.",
     images: ["/brand/og-image.jpg"]
   },
 };

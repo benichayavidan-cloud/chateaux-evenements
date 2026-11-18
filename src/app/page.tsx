@@ -8,18 +8,39 @@ import { ReviewsSectionLazy } from "@/components/ReviewsSectionLazy";
 import { StructuredData } from "@/components/StructuredData";
 import { StickyCtaBar } from "@/components/StickyCtaBar";
 import { theme } from "@/design-system/tokens";
-import { chateaux, chiffresCles, clientLogos, typesEvenements } from "@/data/chateaux";
+import { chateaux, chiffresCles, clientLogos } from "@/data/chateaux";
 import { LogoCarousel } from "@/components/home/LogoCarousel";
-import { ServiceCard } from "@/components/home/ServiceCard";
 import { StatsSection } from "@/components/home/StatsSection";
 import { generateBreadcrumbSchema } from "@/utils/seo/structured-data";
 import { MapPin, Users, Building2, Star, ArrowRight, DoorOpen, Send } from "lucide-react";
 import { lienFinal } from "@/data/redirections";
+import DevisFormMini from "@/components/DevisFormMini";
+import { ComparatifChateaux } from "@/components/home/ComparatifChateaux";
+import { SoireesEtAnimations } from "@/components/home/SoireesEtAnimations";
+
+// Titre et description de l'accueil : écrits une seule fois, repris tels quels par les aperçus de
+// partage (LinkedIn, WhatsApp, X). Avant le 18/11/2026, ces aperçus héritaient des textes par défaut
+// du site et affichaient trois messages différents pour la même page.
+const TITRE_ACCUEIL = "Séminaire en château : 4 domaines près de Paris";
+const DESCRIPTION_ACCUEIL = "Collection de 4 châteaux privatisables pour séminaires d'entreprise près de Paris : 10 à 280 participants, hébergement sur place, dès 150 €/pers. Devis en 24 h.";
 
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Location de Château pour Séminaire dès 150 €/pers.",
-  description: "Location de château pour séminaire d'entreprise : 4 domaines privatisables, 10 à 500 pers, hébergement inclus dès 150€/pers. Devis gratuit en 24h.",
+  title: TITRE_ACCUEIL,
+  description: DESCRIPTION_ACCUEIL,
+  openGraph: {
+    type: "website",
+    title: `${TITRE_ACCUEIL} | Select Châteaux`,
+    description: DESCRIPTION_ACCUEIL,
+    url: "https://www.selectchateaux.com/",
+    siteName: "Select Châteaux",
+    locale: "fr_FR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${TITRE_ACCUEIL} | Select Châteaux`,
+    description: DESCRIPTION_ACCUEIL,
+  },
   robots: {
     index: true,
     follow: true,
@@ -59,7 +80,7 @@ export default function Home() {
         autoPlay
         autoPlayDuration={3000}
         height="100vh"
-        heading="Location de Château pour Séminaire d'Entreprise — 4 Domaines d'Exception"
+        heading="Séminaire d'entreprise en château — une collection de 4 domaines d'exception"
       />
 
       {/* Stats Section - Cartes animées */}
@@ -265,6 +286,29 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Quel château pour quel séminaire ? — ce qu'une collection peut offrir : aider à choisir (18/11/2026). */}
+      <section style={{ background: '#fafafa', padding: 'clamp(2.5rem, 5vw, 4rem) 0' }}>
+        <Container size="xl">
+          <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
+            <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
+              Quel château pour quel séminaire ?
+            </Text>
+            <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '760px', margin: '0 auto' }}>
+              Les 4 châteaux de la collection côte à côte : capacité, chambres, salles de réunion et accès, pour repérer en un coup d&apos;œil celui qui convient à votre groupe.
+            </Text>
+          </div>
+          <ComparatifChateaux chateaux={chateaux} />
+        </Container>
+      </section>
+
+      {/* Formulaire de devis sur place (18/11/2026) : l'accueil est la première page d'arrivée des demandes,
+          et c'était la seule page de la collection sans formulaire. Même brique que /chateaux. */}
+      <section style={{ background: '#FFFFFF' }}>
+        <Container size="lg">
+          <DevisFormMini chateauId="conseil" chateauNom="Châteaux d'Exception" />
+        </Container>
+      </section>
+
       {/* Services Section - Clean & Elegant */}
       <section
         style={{
@@ -277,28 +321,14 @@ export default function Home() {
           {/* Section Header */}
           <div className="section-header" style={{ marginBottom: theme.spacing['3xl'] }}>
             <Text variant="h2" align="center" style={{ marginBottom: theme.spacing.md }}>
-              Services Sur Mesure : 4 Châteaux d'Exception Proches de Paris
+              Soirées et team building dans nos 4 châteaux
             </Text>
             <Text variant="bodyLarge" color="muted" align="center" style={{ maxWidth: '940px', margin: '0 auto' }}>
-              Concevez un séminaire d'entreprise sans contrainte grâce à des solutions événementielles entièrement intégrées. Situés au vert, à deux pas des aéroports internationaux et des gares TGV, ces 4 châteaux d'exception en Île-de-France offrent un équilibre parfait entre accessibilité et déconnexion. Avec un parc hôtelier allant de 40 à 120 chambres, chaque domaine devient le théâtre exclusif de vos ambitions, garantissant une unité de lieu propice à l'efficacité et au ressourcement de vos équipes.
+              Un séminaire ne s'arrête pas à la salle de réunion. Dans chacun des 4 châteaux de la collection, notre équipe organise aussi la soirée et les temps de cohésion, de bout en bout.
             </Text>
           </div>
 
-          {/* Services Grid - 4 colonnes verticales type forfait */}
-          <div className="services-forfait-grid">
-            {typesEvenements.map((service, index) => (
-              <Link key={service.id} href="/seminaires-soirees-entreprise" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <ServiceCard
-                  icon={service.icon}
-                  titre={service.titre}
-                  description={service.description}
-                  servicesInclus={service.servicesInclus}
-                  variant="compact"
-                  index={index}
-                />
-              </Link>
-            ))}
-          </div>
+          <SoireesEtAnimations />
         </Container>
       </section>
 
@@ -513,7 +543,7 @@ export default function Home() {
       </section>
 
       {/* CTA persistant mobile/desktop — apparaît au scroll, route vers /devis#formulaire */}
-      <StickyCtaBar />
+      <StickyCtaBar cible="#devis-express" />
     </>
   );
 }

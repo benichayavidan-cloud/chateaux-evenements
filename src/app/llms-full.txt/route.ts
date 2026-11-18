@@ -36,7 +36,7 @@ function buildLlmsFullTxt(): string {
   lines.push('# Select Châteaux — dossier complet')
   lines.push('')
   lines.push(
-    "> Select Châteaux organise des séminaires d'entreprise, journées d'étude, soirées d'entreprise et team building dans 4 châteaux privatisables en Île-de-France (Chantilly/Oise, Yvelines/Vallée de Chevreuse, Hauts-de-Seine), de 10 à 500 personnes, avec hébergement sur place. Interlocuteur unique, devis gratuit avec réponse garantie sous 24h."
+    "> Select Châteaux organise des séminaires d'entreprise, journées d'étude, soirées d'entreprise et team building dans 4 châteaux privatisables en Île-de-France (Chantilly/Oise, Yvelines/Vallée de Chevreuse, Hauts-de-Seine), de 10 à 280 personnes, avec hébergement sur place. Interlocuteur unique, devis gratuit avec réponse garantie sous 24h."
   )
   lines.push('')
   lines.push(
@@ -53,7 +53,7 @@ function buildLlmsFullTxt(): string {
   lines.push('')
   lines.push(`- Nombre de domaines privatisables : ${chateaux.length}`)
   lines.push('- Zone : Île-de-France, à 30-45 minutes de Paris (certains à 15 min de Roissy-CDG, un accessible en métro ligne 12)')
-  lines.push(`- Capacité : de 10 à 500 personnes selon le domaine, jusqu'à ${capMax} selon le format`)
+  lines.push(`- Capacité : de 10 à ${capMax} personnes selon le domaine`)
   lines.push(`- Hébergement : ${roomsTotal} chambres au total, jusqu'à ${roomsMax} sur un seul site`)
   lines.push(`- Salles de réunion : ${meetingTotal} au total`)
   lines.push("- Formats : séminaire résidentiel, journée d'étude, convention, kick-off, CODIR/COMEX, soirée de gala, team building")
