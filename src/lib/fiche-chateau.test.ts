@@ -45,7 +45,7 @@ test('sans description propre, la phrase de repli dit « à », jamais « en Cha
 
 test('la ville balisée ne contient pas le département', () => {
   assert.equal(localite('Chantilly (60)'), 'Chantilly');
-  assert.equal(localite('Issy-les-Moulineaux (92)'), 'Issy-les-Moulineaux');
+  assert.equal(localite('Hauts-de-Seine (92)'), 'Hauts-de-Seine');
 });
 
 test('les badges chambres et salles suivent les données, les autres restent', () => {

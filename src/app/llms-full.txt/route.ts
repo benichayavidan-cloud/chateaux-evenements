@@ -53,7 +53,7 @@ function buildLlmsFullTxt(): string {
   lines.push('## Faits clés')
   lines.push('')
   lines.push(`- Nombre de domaines privatisables : ${chateaux.length}`)
-  lines.push('- Zone : Île-de-France, à 30-45 minutes de Paris (certains à 15 min de Roissy-CDG, un accessible en métro ligne 12)')
+  lines.push('- Zone : Île-de-France, à 30-45 minutes de Paris (certains à 15 min de Roissy-CDG, un accessible en métro)')
   lines.push(`- Capacité : de 10 à ${capMax} personnes selon le domaine`)
   lines.push(`- Hébergement : ${roomsTotal} chambres au total, jusqu'à ${roomsMax} sur un seul site`)
   lines.push(`- Salles de réunion : ${meetingTotal} au total`)

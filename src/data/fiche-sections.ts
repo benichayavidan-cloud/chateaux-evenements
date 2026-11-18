@@ -223,7 +223,7 @@ export const FICHE_SECTIONS: Record<string, FicheSectionsChateau> = {
       reunion: "Pour un comité de direction, demandez-moi la chapelle : une réunion stratégique à 14 autour d'une même table, sous 7 mètres de plafond. Vos participants s'en souviendront.",
       restauration: "Aux beaux jours, installez le déjeuner de votre séminaire sur la terrasse, jusqu'à 70 convives, puis le cocktail au jardin. La cuisine du potager s'adapte aux régimes de vos participants.",
       activites: "Pour clore une journée de séminaire, la masterclass de rhum dans la chapelle réunit le groupe autour d'un même récit. Entre deux sessions de travail, le spa est ouvert à vos participants.",
-      acces: "Pour un séminaire à Paris, vos participants viennent en métro : la ligne 12 s'arrête à 5 minutes à pied. Aucune navette à organiser pour le groupe.",
+      acces: "Pour un séminaire à Paris, vos participants viennent en métro : le métro s'arrête à 5 minutes à pied. Aucune navette à organiser pour le groupe.",
     },
   },
 };
