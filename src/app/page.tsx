@@ -27,7 +27,7 @@ const LIEN_SERVICE: Record<string, string> = {
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
   title: "Séminaire en château : 4 domaines près de Paris",
-  description: "Une collection de 4 châteaux privatisables pour vos séminaires d'entreprise, en Île-de-France et dans l'Oise : de 10 à 280 participants, hébergement sur place. Devis gratuit en 24 h.",
+  description: "Une collection de 4 châteaux privatisables pour séminaires d'entreprise près de Paris : 10 à 280 participants, hébergement sur place. Devis gratuit en 24 h.",
   robots: {
     index: true,
     follow: true,
