@@ -264,6 +264,8 @@ export function descriptionLieu(
 }
 
 /**
+ * Note du 18/11/2026 : le numéro de ligne et la station de métro ont été retirés des textes
+ * (blind booking, décision du PO) ; l'exemple « métro L12 » ci-dessous est historique.
  * Titre d'une landing de zone — la marque cède quand le titre a besoin de place.
  *
  * `titreSousMarque()` borne à 42 caractères pour laisser les 18 du suffixe. Le

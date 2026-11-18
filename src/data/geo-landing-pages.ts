@@ -478,12 +478,12 @@ export const geoLandingPages: GeoLandingPage[] = [
   // ============================================
   {
     slug: "seminaire-chateau-hauts-de-seine-92",
-    title: "Séminaire Hauts-de-Seine : château-hôtel 5★, métro L12",
-    description: "83 chambres, 9 salles et un spa de 360 m² dans un château-hôtel 5★ des Hauts-de-Seine, accessible en métro L12. Devis chiffré sous 24 h.",
+    title: "Séminaire Hauts-de-Seine : château-hôtel 5★ en métro",
+    description: "83 chambres, 9 salles et un spa de 360 m² dans un château-hôtel 5★ des Hauts-de-Seine, accessible en métro. Devis chiffré sous 24 h.",
     keywords: ["seminaire entreprise hauts-de-seine", "séminaire château 92", "hôtel séminaire paris 92", "lieu séminaire hauts-de-seine", "séminaire métro paris", "séminaire entreprise issy"],
     ogTitle: "Séminaire en Château Hauts-de-Seine (92) | Select Châteaux",
     ogDescription:
-      "Boutique-hôtel 5★ dans le 92. 83 chambres vue Tour Eiffel, spa 360m², restaurant bio, accessible métro L12. Séminaires de prestige.",
+      "Boutique-hôtel 5★ dans le 92. 83 chambres vue Tour Eiffel, spa 360m², restaurant bio, accessible en métro. Séminaires de prestige.",
     canonical: "/seminaire-chateau-hauts-de-seine-92",
     h1: "Séminaire en Château dans les Hauts-de-Seine",
     heroAccroche:
