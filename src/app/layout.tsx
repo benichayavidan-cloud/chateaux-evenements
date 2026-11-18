@@ -176,52 +176,16 @@ export default function RootLayout({
                 { label: "Palais Royal Forêt Chantilly", href: "/chateaux/palais-royal-foret-chantilly" },
               ],
             },
-            {
-              label: "Par département",
-              href: "/lieux",
-              children: [
-                { label: "Tous les lieux", href: "/lieux" },
-                { label: "Yvelines (78)", href: lienFinal("/seminaire-chateau-yvelines-78") },
-                { label: "Oise (60)", href: lienFinal("/seminaire-chateau-oise-60") },
-                { label: "Seine-et-Marne (77)", href: "/seminaire-chateau-seine-et-marne-77" },
-                { label: "Val-d'Oise (95)", href: "/seminaire-chateau-val-d-oise-95" },
-                { label: "Essonne (91)", href: "/seminaire-chateau-essonne-91" },
-                { label: "Hauts-de-Seine (92)", href: "/seminaire-chateau-hauts-de-seine-92" },
-              ],
-            },
-            {
-              label: "Team Building",
-              href: "/team-building-chateau",
-              children: [
-                { label: "Toutes les activités", href: "/team-building-chateau" },
-                { label: "Team building à Chantilly", href: "/team-building-chantilly" },
-                { label: "Team building Hauts-de-Seine", href: "/team-building-hauts-de-seine-92" },
-                { label: "Team building Val-d'Oise", href: "/team-building-val-d-oise-95" },
-              ],
-            },
-            {
-              // « Journée d'étude » et « Budget » étaient au PREMIER niveau depuis
-              // la PR #14 (30/08) : le menu y avait servi de véhicule de maillage
-              // interne vers les 8 landings créées ce jour-là. Résultat, 6 entrées
-              // au lieu de 4 et un menu qui passait sur deux lignes — une décision
-              // SEO qui écrasait la décision design d'origine.
-              //
-              // Mesuré le 06/09 sur 90 jours : /journee-etude-seminaire fait 0 clic,
-              // 0 impression, 0 requête. Le sujet, lui, existe (~300 impressions),
-              // mais c'est /blog/seminaire-residentiel-vs-journee qui le capte
-              // (287 impressions, position 18). La landing ne prenait rien.
-              //
-              // Les liens sont conservés — ils passent par ce sous-menu. Le maillage
-              // interne ne perd rien, le premier niveau retrouve une seule ligne.
-              label: "Organiser",
-              href: "/budget-seminaire-entreprise",
-              children: [
-                { label: "Budget d'un séminaire", href: "/budget-seminaire-entreprise" },
-                { label: "Journée d'étude", href: "/journee-etude-seminaire" },
-                { label: "Soirées d'entreprise", href: "/seminaires-soirees-entreprise" },
-                { label: "Alternative à Châteauform'", href: "/alternative-chateauform" },
-              ],
-            },
+            // Menu recentré sur la collection (décisions PO du 18/11/2026) : les
+            // châteaux, puis ce que l'équipe y organise (soirées, team building).
+            // « Par département » (qui menait à l'annuaire /lieux), le sous-menu
+            // « Team Building » par zone et « Organiser » sortent du menu : le site
+            // se présente comme une collection de 4 châteaux, pas comme un annuaire.
+            // Rien n'est supprimé : ces pages restent en ligne, dans le plan du
+            // site et dans le pied de page, qui garde leurs liens (une page que
+            // plus rien ne relie perd son classement).
+            { label: "Nos soirées", href: "/seminaires-soirees-entreprise" },
+            { label: "Nos animations team building", href: "/team-building-chateau" },
             { label: "À propos", href: "/a-propos" },
           ]}
           cta={{
