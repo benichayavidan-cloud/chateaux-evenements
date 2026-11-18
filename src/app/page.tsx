@@ -18,10 +18,29 @@ import DevisFormMini from "@/components/DevisFormMini";
 import { ComparatifChateaux } from "@/components/home/ComparatifChateaux";
 import { SoireesEtAnimations } from "@/components/home/SoireesEtAnimations";
 
+// Titre et description de l'accueil : écrits une seule fois, repris tels quels par les aperçus de
+// partage (LinkedIn, WhatsApp, X). Avant le 18/11/2026, ces aperçus héritaient des textes par défaut
+// du site et affichaient trois messages différents pour la même page.
+const TITRE_ACCUEIL = "Séminaire en château : 4 domaines près de Paris";
+const DESCRIPTION_ACCUEIL = "Collection de 4 châteaux privatisables pour séminaires d'entreprise près de Paris : 10 à 280 participants, hébergement sur place, dès 150 €/pers. Devis en 24 h.";
+
 // Metadata statique - Homepage toujours servie en cache (ISR/SSG)
 export const metadata: Metadata = {
-  title: "Séminaire en château : 4 domaines près de Paris",
-  description: "Une collection de 4 châteaux privatisables pour séminaires d'entreprise près de Paris : 10 à 280 participants, hébergement sur place. Devis gratuit en 24 h.",
+  title: TITRE_ACCUEIL,
+  description: DESCRIPTION_ACCUEIL,
+  openGraph: {
+    type: "website",
+    title: `${TITRE_ACCUEIL} | Select Châteaux`,
+    description: DESCRIPTION_ACCUEIL,
+    url: "https://www.selectchateaux.com/",
+    siteName: "Select Châteaux",
+    locale: "fr_FR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${TITRE_ACCUEIL} | Select Châteaux`,
+    description: DESCRIPTION_ACCUEIL,
+  },
   robots: {
     index: true,
     follow: true,

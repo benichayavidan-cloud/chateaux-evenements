@@ -30,7 +30,7 @@ export function generateOrganizationSchema() {
     },
     image: `${BASE_URL}/brand/og-image.jpg`,
     description:
-      "Accès confidentiel aux plus beaux châteaux d'Île-de-France pour vos événements d'entreprise. Séminaires, team building, soirées corporate sur-mesure.",
+      "Select Châteaux réunit une collection de 4 châteaux privatisables près de Paris et y organise séminaires, soirées et team building pour les entreprises.",
     email: "seminaires@selectchateaux.com",
     telephone: CONTACT_PHONE_E164,
     address: {
@@ -251,7 +251,7 @@ export function generateLocalBusinessSchema({ avecNote = false }: { avecNote?: b
     logo: `${BASE_URL}/brand/logo.png`,
     image: `${BASE_URL}/brand/og-image.jpg`,
     description:
-      "Select Châteaux est l'agence spécialiste de la location de châteaux et la privatisation de lieux d'exception pour vos événements professionnels. Séminaires, CODIR, lancements de produits, team building et soirées de gala à Paris, en Île-de-France et partout en France.",
+      "Select Châteaux réunit une collection de 4 châteaux privatisables près de Paris et y organise séminaires, soirées et team building pour les entreprises.",
     telephone: CONTACT_PHONE_E164,
     email: "seminaires@selectchateaux.com",
     address: {
@@ -345,7 +345,7 @@ export function generateWebSiteSchema() {
     url: BASE_URL,
     name: "Select Châteaux",
     description:
-      "Châteaux d'exception pour séminaires et événements d'entreprise en Île-de-France",
+      "Une collection de 4 châteaux privatisables près de Paris pour les séminaires d'entreprise",
     publisher: {
       "@id": `${BASE_URL}/#organization`,
     },
