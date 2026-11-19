@@ -12,7 +12,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { blogPosts } from './blog-posts';
 import { CAS_DEMANDES, casDemande } from './cas-demandes';
-import { EQUIPE } from './equipe';
+import { EQUIPE, signature } from './equipe';
 
 /** Experts inventés connus + motif « Prénom X. » des faux clients. */
 const PERSONNAGE_INVENTE =
@@ -52,7 +52,7 @@ test('chaque cas cité existe et ses chiffres sont ceux du CRM', () => {
     for (const m of p.content.matchAll(/class="cas-demande cas-(D\d+)"[^>]*>([\s\S]*?)<\/(?:p|div|blockquote|aside)>/g)) {
       const cas = casDemande(m[1]);
       if (!cas) { erreurs.push(`${p.slug} : cas ${m[1]} inconnu`); continue; }
-      if (!m[2].includes(`${cas.participants}`)) erreurs.push(`${p.slug} : cas ${m[1]} sans son effectif (${cas.participants})`);
+      if (!new RegExp(`(?<!\\d)(?<!\\d[  ])${cas.participants}(?!\\d)(?![  ]\\d{3})`).test(m[2])) erreurs.push(`${p.slug} : cas ${m[1]} sans son effectif (${cas.participants})`);
     }
   }
   assert.deepEqual(erreurs, []);
@@ -63,12 +63,12 @@ test('blind booking : aucun vrai nom de château dans les cas ni dans les articl
   for (const p of blogPosts) assert.doesNotMatch(texte(p), VRAIS_NOMS, p.slug);
 });
 
-test('les citations sont signées par une vraie personne de l’équipe', () => {
-  const noms = EQUIPE.map((m) => m.prenom);
+test('les citations portent la signature exacte d’une vraie personne de l’équipe', () => {
+  const signatures = EQUIPE.map((m) => `— ${signature(m)}`);
   const erreurs: string[] = [];
   for (const p of blogPosts) {
     for (const m of p.content.matchAll(/class="citation-equipe"[^>]*>([\s\S]*?)<\/blockquote>/g)) {
-      if (!noms.some((n) => m[1].includes(n))) erreurs.push(p.slug);
+      if (!signatures.some((s) => m[1].includes(s))) erreurs.push(p.slug);
     }
   }
   assert.deepEqual(erreurs, []);
