@@ -349,7 +349,7 @@ export default function Home() {
           </Text>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: theme.spacing.md }}>
             {[
-              { href: '/seminaire-chateau-ile-de-france', label: 'Séminaire Château Île-de-France', desc: '4 domaines privatisables' },
+              { href: '/seminaire-chateau-ile-de-france', label: 'Île-de-France', desc: '4 domaines privatisables' },
               { href: '/seminaire-chateau-proche-paris', label: 'Proche Paris', desc: 'À 30 min de la capitale' },
               { href: '/seminaire-chateau-chantilly', label: 'Chantilly', desc: '228 chambres en forêt' },
               { href: lienFinal("/seminaire-chateau-oise-60"), label: 'Oise (60)', desc: 'Forêt de Chantilly' },
@@ -357,8 +357,9 @@ export default function Home() {
               { href: '/seminaire-chateau-hauts-de-seine-92', label: 'Hauts-de-Seine (92)', desc: 'Hôtel 5★ en métro' },
               { href: '/seminaire-vallee-de-chevreuse', label: 'Vallée de Chevreuse', desc: 'Abbaye millénaire 80 ha' },
             ].map((region) => (
-              <Link key={region.href} href={region.href} style={{ textDecoration: 'none', width: 'calc(25% - 12px)', minWidth: '220px' }}>
+              <Link key={region.href} href={region.href} style={{ textDecoration: 'none', width: 'calc(25% - 12px)', minWidth: '220px', display: 'flex' }}>
                 <div style={{
+                  flex: 1,
                   padding: theme.spacing.lg,
                   borderRadius: '12px',
                   border: `1px solid ${theme.colors.neutral.gray200}`,
