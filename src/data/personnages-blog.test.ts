@@ -13,16 +13,26 @@ import assert from 'node:assert/strict';
 import { blogPosts } from './blog-posts';
 import { CAS_DEMANDES, casDemande } from './cas-demandes';
 import { EQUIPE, signature } from './equipe';
+import { MOTS_BANNIS, sansAccents } from '../lib/rubriques';
 
 /** Experts inventés connus + motif « Prénom X. » des faux clients. */
 const PERSONNAGE_INVENTE =
   /Sophie Durand|Thomas Lef[eè]vre|Claire Martin|Antoine Moreau|\b[A-ZÉ][a-zéèëï]+ [A-Z]\.(?=[\s,)<’'])/;
 
+/**
+ * Domaine des Hauts-de-Seine : ni commune ni métro (PR #137, 18/11/2026) — y compris les
+ * communes voisines qui le situent (relecture SEO du 19/11/2026).
+ */
+/** Tournures qui visent les particuliers (pas de trafic de particuliers, PR #61). */
+const PARTICULIERS = /public familial|volet familial/;
+
+const LOCALISATION_92 = /Sceaux|Châtenay|Garches|Malmaison|arrêts? de métro|accessible en métro/;
+
 /** Vrais noms de nos châteaux (blind booking) : jamais dans un cas ni un article. */
 const VRAIS_NOMS = /Montvillargenne|Mont[- ]Royal|Vaux[- ]de[- ]Cernay|Reine Margot|Jeanne and the Forest|InterContinental|MGallery/i;
 
 const texte = (p: (typeof blogPosts)[number]) =>
-  [p.title, p.seoTitle ?? '', p.excerpt, p.content, JSON.stringify(p.faq ?? [])].join('\n');
+  [p.title, p.seoTitle ?? '', p.excerpt, p.content, JSON.stringify(p.faq ?? []), (p.keywords ?? []).join(' '), p.imageAlt ?? ''].join('\n');
 
 /**
  * Fausses preuves d'expérience (19/11/2026) : le CRM compte 55 demandes depuis
@@ -30,7 +40,7 @@ const texte = (p: (typeof blogPosts)[number]) =>
  * « 24 AG coordonnées », « NPS +42 », « notre consultante depuis 6 ans » étaient inventés.
  */
 const FAUSSE_PREUVE =
-  /[Nn]otre consultante|[Nn]os consultants|que nous avons (?:organisé|coordonné|accompagné)|(?:nous|organis\w*|coordonn\w*|accompagn\w*|observ\w*)[^.]{0,40}depuis 20(?:1|2)\d|depuis \d+ ans|baromètre|notre suivi|\bNPS\b|budget moyen constaté|\d+ AG\b|\d+\+? (?:séminaires|soirées|ateliers|sessions) (?:que nous|organisé|coordonné)/;
+  /[Nn]otre consultante|[Nn]os consultants|que nous avons (?:organisé|coordonné|accompagné)|(?:nous|organis\w*|coordonn\w*|accompagn\w*|observ\w*)[^.]{0,40}depuis 20(?:1|2)\d|depuis \d+ ans|baromètre|notre suivi|\bNPS\b|budget moyen constaté|[Oo]bservatoire|devis reçus|plébiscité|par nos clients|\d+ AG\b|\d+\+? (?:séminaires|soirées|ateliers|sessions) (?:que nous|organisé|coordonné)/;
 
 const fautifs = (motif: RegExp) =>
   blogPosts.flatMap((p) => {
@@ -72,4 +82,25 @@ test('les citations portent la signature exacte d’une vraie personne de l’é
     }
   }
   assert.deepEqual(erreurs, []);
+});
+
+test('blind booking : le domaine des Hauts-de-Seine n’est pas localisé', () => {
+  assert.deepEqual(fautifs(LOCALISATION_92), []);
+});
+
+test('mots bannis (src/lib/rubriques.ts) absents des articles', () => {
+  const erreurs: string[] = [];
+  for (const p of blogPosts) {
+    const t = sansAccents(texte(p));
+    // « familial » vise la « chambre familiale » des fiches ; au blog, « contraintes
+    // familiales » ou « SARL familiale » sont légitimes : contrôlé par PARTICULIERS.
+    for (const mot of MOTS_BANNIS.filter((m) => m !== 'familial')) {
+      if (new RegExp(`(^|[^a-z0-9])${sansAccents(mot)}`).test(t)) erreurs.push(`${p.slug} : ${mot}`);
+    }
+  }
+  assert.deepEqual(erreurs, []);
+});
+
+test('pas de tournure qui vise les particuliers', () => {
+  assert.deepEqual(fautifs(PARTICULIERS), []);
 });
