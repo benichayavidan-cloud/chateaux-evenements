@@ -6,7 +6,8 @@
 // par l'équipe réelle (equipe.ts), clients par de vraies demandes du CRM
 // anonymisées (cas-demandes.ts).
 //
-// Garde-fou : plus aucun personnage inventé dans les articles servis (29 nettoyés le 19/11/2026).
+// Garde-fou : plus aucun personnage inventé ni fausse preuve d'expérience dans
+// les articles servis (nettoyés le 19/11/2026).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { blogPosts } from './blog-posts';
@@ -18,18 +19,31 @@ const PERSONNAGE_INVENTE =
   /Sophie Durand|Thomas Lef[eè]vre|Claire Martin|Antoine Moreau|\b[A-ZÉ][a-zéèëï]+ [A-Z]\.(?=[\s,)<’'])/;
 
 /** Vrais noms de nos châteaux (blind booking) : jamais dans un cas ni un article. */
-const VRAIS_NOMS = /Montvillargenne|Mont[- ]Royal|Vaux[- ]de[- ]Cernay|Reine Margot|Jeanne and the Forest|InterContinental/i;
+const VRAIS_NOMS = /Montvillargenne|Mont[- ]Royal|Vaux[- ]de[- ]Cernay|Reine Margot|Jeanne and the Forest|InterContinental|MGallery/i;
 
 const texte = (p: (typeof blogPosts)[number]) =>
   [p.title, p.seoTitle ?? '', p.excerpt, p.content, JSON.stringify(p.faq ?? [])].join('\n');
 
+/**
+ * Fausses preuves d'expérience (19/11/2026) : le CRM compte 55 demandes depuis
+ * avril 2026, aucun historique avant. « 47 séminaires organisés depuis 2021 »,
+ * « 24 AG coordonnées », « NPS +42 », « notre consultante depuis 6 ans » étaient inventés.
+ */
+const FAUSSE_PREUVE =
+  /[Nn]otre consultante|[Nn]os consultants|que nous avons (?:organisé|coordonné|accompagné)|(?:nous|organis\w*|coordonn\w*|accompagn\w*|observ\w*)[^.]{0,40}depuis 20(?:1|2)\d|depuis \d+ ans|baromètre|notre suivi|\bNPS\b|budget moyen constaté|\d+ AG\b|\d+\+? (?:séminaires|soirées|ateliers|sessions) (?:que nous|organisé|coordonné)/;
+
+const fautifs = (motif: RegExp) =>
+  blogPosts.flatMap((p) => {
+    const m = texte(p).match(motif);
+    return m ? [`${p.slug} : « ${m[0]} »`] : [];
+  });
+
 test('aucun personnage inventé dans les articles', () => {
-  const fautifs = blogPosts
-    .flatMap((p) => {
-      const m = texte(p).match(PERSONNAGE_INVENTE);
-      return m ? [`${p.slug} : « ${m[0]} »`] : [];
-    });
-  assert.deepEqual(fautifs, []);
+  assert.deepEqual(fautifs(PERSONNAGE_INVENTE), []);
+});
+
+test('aucune fausse preuve d’expérience dans les articles', () => {
+  assert.deepEqual(fautifs(FAUSSE_PREUVE), []);
 });
 
 test('chaque cas cité existe et ses chiffres sont ceux du CRM', () => {

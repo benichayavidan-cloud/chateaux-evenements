@@ -110,10 +110,10 @@ const article1: BlogPost = {
   featured: true,
   faq: [
     { question: "Combien coûte un séminaire en château par personne ?", answer: "De 150€ à 450€ par personne selon la formule : journée d'étude (120-180€), résidentiel 1 nuit (240-350€), ou séminaire 2 nuits tout compris (400-550€). Le prix inclut hébergement, restauration et salles de réunion." },
-    { question: "Comment présenter le budget séminaire à sa direction ?", answer: "Présentez-le comme un investissement avec un ROI mesurable (4,8x en moyenne) : comparez le coût du séminaire (environ 300€/pers) au coût d'un turnover évité (15 000 à 25 000€ par employé). Un seul départ évité rembourse le séminaire." },
+    { question: "Comment présenter le budget séminaire à sa direction ?", answer: "Présentez-le comme un investissement : rattachez chaque poste de dépense à un objectif concret (décision à prendre, équipe à souder, lancement à préparer), donnez le coût total plutôt que le seul coût par personne, et comparez-le à une alternative réaliste (hôtel d'affaires, journée dans vos locaux). Annoncez aussi comment vous ferez le point au retour." },
     { question: "Quels sont les coûts cachés d'un séminaire en château ?", answer: "Les principaux coûts souvent oubliés : transport (bus 800-1 500€), activités team building (30-80€/pers), équipement technique (500-2 000€), et la privatisation exclusive (+15-25%). Demandez toujours un devis tout compris pour éviter les surprises." },
     { question: "Comment réduire le budget d'un séminaire sans sacrifier la qualité ?", answer: "Choisissez un jour de semaine (mardi-jeudi, -20%), réservez 3-6 mois à l'avance, optez pour un forfait tout compris plutôt qu'à la carte, et privilégiez les châteaux proches de Paris pour réduire les coûts de transport." },
-    { question: "Un séminaire en château est-il plus cher qu'un hôtel ?", answer: "Le surcoût est de 15-20% par rapport à un hôtel 4★, mais l'impact est incomparable : privatisation exclusive, cadre mémorable, espaces extérieurs vastes. Rapporté au ROI (productivité, cohésion), c'est un investissement rentable." },
+    { question: "Un séminaire en château est-il plus cher qu'un hôtel ?", answer: "Le surcoût est de 15-20% par rapport à un hôtel 4★, mais l'impact est incomparable : privatisation exclusive, cadre mémorable, espaces extérieurs vastes. Ce surcoût se justifie surtout quand le séminaire porte un vrai enjeu (cohésion, décision stratégique, lancement)." },
     { question: "Quel budget prévoir pour un séminaire de 50 personnes en château ?", answer: "Pour 50 personnes en formule résidentielle 1 nuit, comptez entre 12 500€ et 17 500€ tout compris (250-350€/pers). Ce budget inclut la privatisation du château, l'hébergement, la restauration, les salles de réunion et le petit-déjeuner. Ajoutez 2 000 à 4 000€ pour le transport et les activités team building." },
     { question: "Quand réserver pour obtenir les meilleurs tarifs ?", answer: "Réservez 4 à 6 mois à l'avance pour les meilleures disponibilités et tarifs. Les périodes les plus avantageuses sont janvier-mars et novembre (hors vacances scolaires). Les mardis et mercredis sont 15 à 20% moins chers que les jeudis et vendredis." },
     { question: "Le prix d'un séminaire en château inclut-il les activités team building ?", answer: "Non, les activités team building sont généralement en supplément (30 à 80€/personne). Certains châteaux proposent des forfaits tout compris avec 1 ou 2 activités incluses. Chez Select Châteaux, nous négocions des packages sur mesure pour optimiser votre budget global." }
@@ -226,7 +226,7 @@ const article1: BlogPost = {
 
     <h3>Budget total selon la taille du groupe</h3>
 
-    <p>Pour vous projeter d'un coup d'œil, voici les budgets totaux constatés sur nos 200+ séminaires, par format et taille de groupe :</p>
+    <p>Pour vous projeter d'un coup d'œil, voici des ordres de grandeur de budget total, à titre indicatif, par format et taille de groupe :</p>
 
     <table class="breakdown-table">
       <thead>
@@ -309,37 +309,28 @@ const article1: BlogPost = {
 
     <blockquote class="citation-equipe"><p>« Le retour d'un séminaire ne se mesure pas avec un chiffre trouvé ailleurs. Fixez deux ou trois objectifs concrets avant de partir, gardez dans le programme le temps de les travailler, et faites le point à votre retour avec vos propres indicateurs. Le cadre aide les gens à se parler ; le reste dépend de ce que vous avez préparé. »</p><p>— Avidan Benichay, responsable événementiel</p></blockquote>
 
-    <div class="roi-metrics">
-      <div class="metric">
-        <div class="metric-value">+38%</div>
-        <div class="metric-label">Productivité post-séminaire</div>
-      </div>
-      <div class="metric">
-        <div class="metric-value">-22%</div>
-        <div class="metric-label">Turnover à 12 mois</div>
-      </div>
-      <div class="metric">
-        <div class="metric-value">92%</div>
-        <div class="metric-label">Satisfaction collaborateurs</div>
-      </div>
-    </div>
+    <ul>
+      <li><strong>Avant :</strong> écrivez deux ou trois objectifs concrets (une décision à prendre, un plan d'action à produire, des équipes à faire travailler ensemble).</li>
+      <li><strong>Pendant :</strong> réservez dans le programme le temps nécessaire pour les traiter, sans le sacrifier aux activités.</li>
+      <li><strong>Après :</strong> faites le point avec vos propres indicateurs (décisions prises, engagements tenus, retours des participants).</li>
+    </ul>
 
-    <h3>6. Études de Cas Réels</h3>
+    <h3>6. Deux Exemples de Budget</h3>
 
     <div class="case-study">
-      <h4>📊 Cas 1 : Start-up Tech (30 pers, Budget serré)</h4>
+      <h4>📊 Exemple 1 : équipe de 30 personnes, budget serré</h4>
       <p><strong>Objectif :</strong> Séminaire 2j/1n < 5000€ total</p>
-      <p><strong>Solution :</strong> Manoir Oise en mars, chambres triples, buffet, activités maison</p>
-      <p><strong>Coût final :</strong> 165€/pers = 4950€ total</p>
-      <p><strong>Résultat :</strong> "On a eu l'effet château premium pour le prix d'un hôtel de chaîne" - CEO</p>
+      <p><strong>Piste :</strong> Manoir dans l'Oise en mars, chambres partagées, libre-service raffiné, activités menées en interne</p>
+      <p><strong>Ordre de grandeur :</strong> environ 165€/pers, soit près de 5 000€ au total</p>
+      <p><strong>À vérifier :</strong> le nombre de chambres partagées acceptable pour votre équipe et ce que comprend exactement le forfait.</p>
     </div>
 
     <div class="case-study">
-      <h4>💼 Cas 2 : Groupe CAC40 (120 pers, CODIR Annuel)</h4>
+      <h4>💼 Exemple 2 : grand groupe, 120 personnes, CODIR élargi annuel</h4>
       <p><strong>Objectif :</strong> Prestige maximum, confidentialité, services 5★</p>
-      <p><strong>Solution :</strong> Privatisation château Yvelines, chef étoilé, spa privatisé</p>
-      <p><strong>Coût final :</strong> 420€/pers = 50 400€ total</p>
-      <p><strong>Résultat :</strong> "Le lieu a renforcé notre image de leader. Contrats signés in situ." - CFO</p>
+      <p><strong>Piste :</strong> Privatisation d'un château, chef étoilé, spa privatisé</p>
+      <p><strong>Ordre de grandeur :</strong> environ 420€/pers, soit près de 50 000€ au total</p>
+      <p><strong>À vérifier :</strong> les conditions de privatisation complète et le calendrier d'annulation, plus engageants à ce niveau de budget.</p>
     </div>
 
     <h3>7. Votre Action Plan Budget</h3>
@@ -372,7 +363,7 @@ const article1: BlogPost = {
       <h4>📖 Lire aussi :</h4>
       <ul>
         <li><a href="/blog/checklist-organiser-seminaire">La Check-list ultime pour organiser un séminaire sans stress</a></li>
-        <li><a href="/blog/seminaire-nature-chevreuse-deconnexion">Pourquoi quitter Paris augmente la productivité de 30%</a></li>
+        <li><a href="/blog/seminaire-nature-chevreuse-deconnexion">Séminaire nature en vallée de Chevreuse : pourquoi quitter Paris</a></li>
         <li><a href="/blog/top-chateaux-oise-60">Top 7 des Châteaux dans l'Oise (60)</a></li>
       </ul>
     </div>
@@ -411,7 +402,7 @@ const article2: BlogPost = {
   ],
   video: {
     name: "Planification de Séminaire — Les 4 Phases du Succès",
-    description: "Guide vidéo complet : de la stratégie à la mesure du succès. Découvrez les 4 phases clés pour planifier un séminaire d'entreprise avec un ROI de 4,8x.",
+    description: "Guide vidéo complet : de la stratégie à la mesure du succès. Découvrez les 4 phases clés pour planifier un séminaire d'entreprise efficace.",
     thumbnailUrl: "https://www.selectchateaux.com/images/reunion-entreprise-chateau-elegant.webp",
     contentUrl: "https://jmeiepmtgidqtmxfnlwf.supabase.co/storage/v1/object/public/chateaux-images/video/Planification_de_Seminaire_SelectChateaux.mp4",
     duration: "PT5M29S",
@@ -440,7 +431,7 @@ const article2: BlogPost = {
   content: `
     <h2>📋 La Check-list ZERO OUBLI pour votre Séminaire en Château</h2>
 
-    <p class="lead">Organiser un séminaire, c'est jongler avec 50 tâches simultanées. Un détail oublié = stress et budget qui explose. Voici la méthode éprouvée par 200+ événements réussis.</p>
+    <p class="lead">Organiser un séminaire, c'est jongler avec 50 tâches simultanées. Un détail oublié = stress et budget qui explose. Voici une méthode pas à pas, phase par phase.</p>
 
     <div class="download-box">
       <h3>📥 Téléchargez la Check-list PDF Imprimable</h3>
@@ -579,7 +570,7 @@ const article2: BlogPost = {
       <div class="pillar">
         <span class="pillar-number">3</span>
         <h4>Lieu Inspirant</h4>
-        <p>Le château crée l'effet "Wow" dès l'arrivée. 70% de l'expérience se joue ici.</p>
+        <p>Le château crée l'effet "Wow" dès l'arrivée. Une grande partie de l'expérience se joue ici.</p>
         <div class="pillar-checklist">
           <label><input type="checkbox"> Visite du lieu effectuée en amont</label>
           <label><input type="checkbox"> Capacité vérifiée (salles + hébergement)</label>
@@ -724,44 +715,44 @@ const article2: BlogPost = {
       </div>
     </div>
 
-    <h3>🎯 Cas Pratique : Séminaire Tech 60 pers</h3>
+    <h3>🎯 Exemple d'Application : Séminaire de 60 personnes</h3>
 
     <div class="case-study-detailed">
       <h4>Contexte</h4>
-      <p>Start-up SaaS en hypercroissance. Objectif : fédérer les équipes après 3 acquisitions et définir la roadmap 2026.</p>
+      <p>Exemple : une entreprise de 60 personnes qui veut fédérer des équipes récemment réunies et définir sa feuille de route de l'année.</p>
 
       <h4>Application de la Check-list</h4>
 
       <div class="case-timeline">
         <div class="case-step">
-          <strong>J-120 :</strong> Budget validé à 18k€. Réservation d'un château à Chantilly (60). Constitution comité orga (3 pers).
+          <strong>J-120 :</strong> Budget validé (par exemple 18 000€). Réservation d'un château à Chantilly (60). Constitution d'un comité d'organisation (3 pers).
         </div>
         <div class="case-step">
-          <strong>J-60 :</strong> Programme finalisé : 1) Plénière Vision 2026, 2) Ateliers par équipe, 3) Murder Party, 4) Dîner de gala.
+          <strong>J-60 :</strong> Programme finalisé : 1) Plénière de vision, 2) Ateliers par équipe, 3) Murder Party, 4) Dîner de gala.
         </div>
         <div class="case-step">
-          <strong>J-30 :</strong> Save-the-date envoyé. Taux de confirmation : 58/60 (97%). Menus validés (3 vegans identifiés).
+          <strong>J-30 :</strong> Save-the-date envoyé, relance des non-répondants. Menus validés avec les régimes particuliers signalés.
         </div>
         <div class="case-step">
-          <strong>J-7 :</strong> Infos pratiques envoyées (plan, horaires bus, dress code). Météo vérifiée → Murder Party en intérieur confirmée.
+          <strong>J-7 :</strong> Infos pratiques envoyées (plan, horaires bus, dress code). Météo vérifiée → solution de repli en intérieur prête.
         </div>
         <div class="case-step">
-          <strong>J-1 :</strong> Installation signalétique, test WiFi (upgrade 4G obtenu), briefing équipe château.
+          <strong>J-1 :</strong> Installation de la signalétique, test du WiFi avec un appel réel, briefing de l'équipe du château.
         </div>
         <div class="case-step">
-          <strong>Jour J :</strong> Déroulé parfait. Seul imprévu : CEO en retard 30min → petit-déj prolongé (bien perçu).
+          <strong>Jour J :</strong> Un responsable désigné pour gérer les imprévus (retard d'un intervenant, changement de salle) sans bousculer le programme.
         </div>
         <div class="case-step">
-          <strong>J+2 :</strong> Questionnaire envoyé. Score satisfaction : 9.2/10. Citation CEO : "Meilleur séminaire depuis la création."
+          <strong>J+2 :</strong> Questionnaire envoyé tant que les souvenirs sont frais, debrief interne programmé.
         </div>
       </div>
 
-      <h4>Résultats Mesurables</h4>
+      <h4>Ce qu'il faut mesurer au retour</h4>
       <ul>
-        <li>✅ 92% des participants ont compris la vision 2026 (vs 60% attendu)</li>
-        <li>✅ 87% se sentent "plus connectés aux autres équipes"</li>
-        <li>✅ 3 initiatives stratégiques co-créées lors des ateliers</li>
-        <li>✅ Budget respecté à 99% (17 820€ dépensés)</li>
+        <li>✅ La compréhension des messages clés (une ou deux questions simples dans le questionnaire)</li>
+        <li>✅ Le sentiment de mieux connaître les autres équipes</li>
+        <li>✅ Les initiatives concrètes sorties des ateliers, avec un responsable chacune</li>
+        <li>✅ L'écart entre le budget prévu et le budget réellement dépensé</li>
       </ul>
     </div>
 
@@ -793,7 +784,7 @@ const article2: BlogPost = {
 
     <h3>Conclusion : L'Organisation, ça s'Apprend</h3>
 
-    <p>Un séminaire réussi n'est pas une question de chance, mais de <strong>méthode</strong>. Avec cette check-list, vous avez la roadmap éprouvée par des centaines d'événements. Plus d'oubli, plus de stress de dernière minute.</p>
+    <p>Un séminaire réussi n'est pas une question de chance, mais de <strong>méthode</strong>. Avec cette check-list, vous avez une feuille de route complète, de J-90 à J+7. Plus d'oubli, plus de stress de dernière minute.</p>
 
     <p>Téléchargez, imprimez, cochez. Et si vous voulez déléguer ? Nous sommes là.</p>
 
@@ -1428,7 +1419,7 @@ const article5: BlogPost = {
     { question: "Pourquoi organiser un CODIR en château plutôt qu'à l'hôtel ?", answer: "Un château privatisé offre une confidentialité totale (pas d'autres clients), une immersion complète dans un cadre unique, et des espaces extérieurs vastes pour les échanges informels. L'impact mémoriel est nettement supérieur à un hôtel classique, pour un surcoût de seulement 15-20%." },
     { question: "Quel budget prévoir pour un CODIR en château privatisé ?", answer: "Pour un CODIR résidentiel de 10 personnes avec une nuit, comptez 3 000 à 4 000€ tout compris (hébergement, pension complète, salle de réunion équipée). Pour 20 personnes : 5 500 à 7 000€. Une journée sans hébergement revient à 1 500-2 000€ pour 10 personnes." },
     { question: "Quel est le meilleur format pour un séminaire de direction ?", answer: "Le format résidentiel d'une nuit est le plus efficace : arrivée J1 après-midi pour un premier atelier et un dîner d'échange, puis J2 matin pour les décisions et le plan d'action. Le dîner du soir est crucial — c'est là que les positions se rapprochent et que les consensus se construisent." },
-    { question: "Quels châteaux près de Paris pour un CODIR de 10-20 personnes ?", answer: "En Île-de-France, nous recommandons : l'Abbaye de la Vallée de Chevreuse (45 min, déconnexion totale), le Château 5★ de Chantilly (35 min, prestige international), ou le domaine historique des Hauts-de-Seine (15 min, 2 arrêts métro). Chacun offre la privatisation et des salles adaptées aux petits comités." }
+    { question: "Quels châteaux près de Paris pour un CODIR de 10-20 personnes ?", answer: "En Île-de-France, nous recommandons : l'Abbaye de la Vallée de Chevreuse (45 min, déconnexion totale), le Château 5★ de Chantilly (35 min, prestige international), ou le domaine historique des Hauts-de-Seine (aux portes de Paris). Chacun offre la privatisation et des salles adaptées aux petits comités." }
   ],
   howTo: {
     name: "Organiser un séminaire CODIR en château en Île-de-France",
@@ -1443,7 +1434,7 @@ const article5: BlogPost = {
   content: `
     <div class="prose prose-lg max-w-none">
 
-<p class="mb-6">Un <strong>CODIR</strong> dans une salle de réunion au siège, c'est un CODIR parasité : interruptions, urgences qui "ne peuvent pas attendre", collaborateurs qui passent la tête par la porte. Résultat : 3 heures de réunion pour 45 minutes de travail réel. Les dirigeants les plus efficaces l'ont compris depuis longtemps — le lieu conditionne la qualité des décisions. Et un <strong>château privatisé</strong> offre exactement ce dont un comité de direction a besoin : isolement total, cadre inspirant, et zéro distraction.</p>
+<p class="mb-6">Un <strong>CODIR</strong> dans une salle de réunion au siège, c'est un CODIR parasité : interruptions, urgences qui "ne peuvent pas attendre", collaborateurs qui passent la tête par la porte. Au bout du compte, de longues heures de réunion pour bien peu de travail réel. Les dirigeants les plus efficaces l'ont compris depuis longtemps — le lieu conditionne la qualité des décisions. Et un <strong>château privatisé</strong> offre exactement ce dont un comité de direction a besoin : isolement total, cadre inspirant, et zéro distraction.</p>
 
 <p class="mb-6">Ce guide s'adresse aux DG, DRH et assistantes de direction qui organisent des <strong>séminaires CODIR</strong>, COMEX ou retraites stratégiques. Nous décryptons pourquoi le format château privatisé s'impose comme la référence, quel format choisir, et combien prévoir.</p>
 
@@ -1592,7 +1583,7 @@ const article5: BlogPost = {
     <tr>
       <td class="border border-gray-300 px-4 py-2"><a href="/seminaire-chateau-hauts-de-seine-92" class="text-blue-600 hover:underline">Domaine historique des Hauts-de-Seine</a></td>
       <td class="border border-gray-300 px-4 py-2">6-20 pers</td>
-      <td class="border border-gray-300 px-4 py-2">2 arrêts métro de Paris</td>
+      <td class="border border-gray-300 px-4 py-2">Aux portes de Paris</td>
       <td class="border border-gray-300 px-4 py-2">15 min</td>
     </tr>
   </tbody>
@@ -1604,7 +1595,7 @@ const article5: BlogPost = {
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Budget CODIR en Château : Combien Prévoir ?</h2>
 
-<p class="mb-6">Le budget dépend du format, du nombre de participants et du niveau de prestation. Voici les fourchettes constatées sur nos 150+ CODIR organisés :</p>
+<p class="mb-6">Le budget dépend du format, du nombre de participants et du niveau de prestation. Voici des fourchettes indicatives, à titre d'ordre de grandeur :</p>
 
 <table class="w-full border-collapse mt-6 mb-6">
   <thead class="bg-gray-100">
@@ -1688,7 +1679,7 @@ const article5: BlogPost = {
 <div class="faq-item mb-6" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
   <h3 class="text-xl font-semibold text-gray-800 mb-2" itemprop="name">Quels châteaux près de Paris pour un CODIR de 10-20 personnes ?</h3>
   <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <p class="mb-4" itemprop="text">En Île-de-France, nous recommandons : l'Abbaye de la Vallée de Chevreuse (45 min, déconnexion totale), le Château 5★ de Chantilly (35 min, prestige international), ou le domaine historique des Hauts-de-Seine (15 min, 2 arrêts métro). Chacun offre la privatisation et des salles adaptées aux petits comités.</p>
+    <p class="mb-4" itemprop="text">En Île-de-France, nous recommandons : l'Abbaye de la Vallée de Chevreuse (45 min, déconnexion totale), le Château 5★ de Chantilly (35 min, prestige international), ou le domaine historique des Hauts-de-Seine (aux portes de Paris). Chacun offre la privatisation et des salles adaptées aux petits comités.</p>
   </div>
 </div>
 
@@ -7826,7 +7817,7 @@ const placeholderArticles: BlogPost[] = [
     imageAlt: "Petits comités et board meetings en château intime et luxueux",
     keywords: ["château petit comité", "codir intimiste", "board restreint", "salon privé", "séminaire petit groupe château", "lieu confidentiel direction"],
     faq: [
-      { question: "Quel château pour un séminaire de 10 personnes ?", answer: "L'Abbaye de Chevreuse (salons privatifs 10-50 pers, déconnexion totale) ou le MGallery des Hauts-de-Seine (salons 6-20 pers, 2 arrêts métro de Paris). Les deux offrent intimité et confidentialité." },
+      { question: "Quel château pour un séminaire de 10 personnes ?", answer: "L'Abbaye de Chevreuse (salons privatifs 10-50 pers, déconnexion totale) ou le MGallery des Hauts-de-Seine (salons 6-20 pers, Aux portes de Paris). Les deux offrent intimité et confidentialité." },
       { question: "Un château est-il adapté pour un petit comité de direction ?", answer: "Oui, c'est même le format idéal. La privatisation d'un salon dans un château offre la confidentialité d'un bureau privé dans un cadre qui libère la pensée stratégique. Budget : 150-350€/pers/jour." }
     ],
     content: `
@@ -9590,7 +9581,7 @@ const placeholderArticles: BlogPost[] = [
     <div class="prose prose-lg max-w-none">
 <p class="mb-6">La <strong>Murder Party en château</strong> s'est imposée comme l'animation team building la plus demandée par les entreprises innovantes entre 2023 et 2026. Pourquoi cet engouement ? Parce qu'elle combine trois dimensions rarement réunies : <strong>immersion narrative totale</strong> (enquête policière grandeur nature), <strong>collaboration intense</strong> (résolution d'énigmes en équipe), et <strong>cadre exceptionnel</strong> (décors authentiques de château historique). Contrairement aux activités team building classiques souvent perçues comme artificielles, la murder party créé une expérience viscérale où chaque participant devient acteur d'une histoire captivante.</p>
 
-<p class="mb-6">Ce guide ultra-complet explore pourquoi la murder party surpasse les autres animations en termes d'engagement et de mémorisation, les 4 formats principaux (du dîner enquête classique 30 pers à l'immersion château entier 120 pers), les scénarios sur mesure possibles, le budget réaliste (80-200€/pers selon format), et les erreurs critiques à éviter. Basé sur 85 murder parties organisées entre 2020 et 2026, nous révélons les secrets d'une enquête immersive réussie qui marque durablement les équipes.</p>
+<p class="mb-6">Ce guide ultra-complet explore pourquoi la murder party surpasse les autres animations en termes d'engagement et de mémorisation, les 4 formats principaux (du dîner enquête classique 30 pers à l'immersion château entier 120 pers), les scénarios sur mesure possibles, le budget réaliste (80-200€/pers selon format), et les erreurs critiques à éviter. Vous y trouverez les clés d'une enquête immersive réussie qui marque durablement les équipes.</p>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🔍 Pourquoi la Murder Party est l'Animation Team Building la Plus Mémorable</h2>
 
@@ -9608,7 +9599,7 @@ const placeholderArticles: BlogPost[] = [
   <li class="mb-2">Argumentation (défendre sa théorie)</li>
 </ul>
 
-<strong>Mesure :</strong> Enquêtes post-murder party montrent 68% participants déclarent "amélioration significative capacité écoute collègues" (vs 32% activités team building classiques).
+<strong>À retenir :</strong> aucun indice ne suffit seul : le jeu oblige chacun à écouter vraiment ses collègues avant de conclure.
 
 <strong>2. Collaboration et intelligence collective</strong>
 
@@ -9622,7 +9613,7 @@ const placeholderArticles: BlogPost[] = [
   <li class="mb-2">Discrets s'expriment (cadre ludique libère parole)</li>
 </ul>
 
-<strong>Impact mesuré :</strong> 73% participants déclarent "découverte talents cachés collègues" (vs 41% escape game, 28% séminaire classique).
+<strong>À retenir :</strong> le cadre ludique fait souvent apparaître chez des collègues des qualités que le quotidien ne montre pas.
 
 <strong>3. Gestion du stress et de l'incertitude</strong>
 
@@ -9640,41 +9631,39 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Mécanisme :</strong> Énigmes non linéaires nécessitent pensée divergente. Solutions évidentes sont souvent fausses pistes.
 
-<strong>Exemple :</strong> Dans scénario "Meurtre à Versailles", indice clé (partition musicale annotée) passe inaperçu 70% équipes focalisées sur témoignages explicites. Équipe gagnante = celle qui explore pistes inattendues.
+<strong>Exemple :</strong> Dans scénario "Meurtre à Versailles", indice clé (partition musicale annotée) passe souvent inaperçu des équipes focalisées sur les témoignages explicites. Équipe gagnante = celle qui explore pistes inattendues.
 
-<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">ROI formation et cohésion : Chiffres mesurables</h3>
+<h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Ce que la murder party apporte à un séminaire</h3>
 
-<strong>Étude Select Châteaux (60 murder parties analysées, 2 400 participants, 2020-2026) :</strong>
-
-<strong>Mémorisation contenu :</strong>
+<strong>Mémorisation des messages :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2">Taux rappel messages clés J+30 : 82% (vs 38% séminaire classique, 61% escape game)</li>
-  <li class="mb-2">Explication : Ancrage émotionnel fort (suspense, surprise, rire) améliore consolidation mémorielle</li>
+  <li class="mb-2">Un scénario qui intègre vos messages clés les fait vivre au lieu de les présenter sur une diapositive</li>
+  <li class="mb-2">Explication : l'émotion (suspense, surprise, rire) aide à retenir ce qui a été vécu</li>
 </ul>
 
-<strong>Cohésion équipe :</strong>
+<strong>Cohésion d'équipe :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2">Sentiment "meilleure connaissance collègues" : 89% (vs 45% séminaire)</li>
-  <li class="mb-2">Anecdotes partagées 6 mois après : 94% (murder party devient référence commune durable)</li>
+  <li class="mb-2">Des collègues qui se connaissent peu doivent coopérer pour avancer</li>
+  <li class="mb-2">L'enquête devient une référence commune dont on reparle après le séminaire</li>
 </ul>
 
-<strong>Engagement pendant activité :</strong>
+<strong>Engagement pendant l'activité :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2">Taux participation active : 96% (vs 68% conférences, 81% ateliers)</li>
-  <li class="mb-2">Temps "téléphone sorti" : 3 minutes/3h (vs 42 min séminaire classique)</li>
+  <li class="mb-2">Chaque participant détient une partie des indices : personne ne reste spectateur</li>
+  <li class="mb-2">Le rythme de l'enquête laisse peu de place aux téléphones</li>
 </ul>
 
-<strong>Satisfaction globale :</strong>
+<strong>Points de vigilance :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2">Note moyenne : 9,4/10</li>
-  <li class="mb-2">Taux recommandation collègues : 97%</li>
-  <li class="mb-2">Demande renouvellement (autre scénario) : 78%</li>
+  <li class="mb-2">Un scénario mal calibré (trop facile ou trop difficile) casse l'engagement</li>
+  <li class="mb-2">Sans débriefing, l'activité reste un divertissement</li>
+  <li class="mb-2">Prévoyez des rôles pour les profils plus réservés</li>
 </ul>
 
-<strong>ROI perçu direction :</strong>
+<strong>Pour convaincre votre direction :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2">84% DRH/dirigeants considèrent murder party "meilleur investissement team building"</li>
-  <li class="mb-2">Coût par heure engagement actif : 31€/pers (vs 58€ séminaire classique moins engageant)</li>
+  <li class="mb-2">Reliez le scénario à un objectif du séminaire (décloisonner, intégrer, faire passer un message)</li>
+  <li class="mb-2">Comparez le coût par personne à celui d'une animation classique de même durée</li>
 </ul>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🎭 Les 4 Formats de Murder Party en Château</h2>
@@ -9866,9 +9855,9 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Principe :</strong> Scénario 100% personnalisé intégrant univers, enjeux, histoire entreprise. Murder party devient outil formation déguisé.
 
-<strong>Exemples scénarios sur mesure réalisés :</strong>
+<strong>Exemples de scénarios sur mesure possibles :</strong>
 
-<strong>Cas 1 : Cabinet audit (50 pers)</strong>
+<strong>Exemple 1 : cabinet d'audit (50 pers)</strong>
 <strong>Scénario :</strong> "Meurtre au Comité d'Audit"
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2">Victime : Directeur financier château-entreprise fictive</li>
@@ -9877,9 +9866,9 @@ const placeholderArticles: BlogPost[] = [
   <li class="mb-2">Débriefing : Partner cabinet décrypte vraies techniques détection fraude utilisées enquête</li>
 </ul>
 
-<strong>Résultat :</strong> Formation détection fraude 3x plus mémorisée qu'e-learning classique.
+<strong>Intérêt :</strong> les techniques de détection de fraude sont vécues en situation, et non lues dans un support de formation.
 
-<strong>Cas 2 : Laboratoire pharma (80 pers)</strong>
+<strong>Exemple 2 : laboratoire pharmaceutique (80 pers)</strong>
 <strong>Scénario :</strong> "Le Poison du Comte"
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2">Victime : Comte empoisonné lors banquet château</li>
@@ -9888,9 +9877,9 @@ const placeholderArticles: BlogPost[] = [
   <li class="mb-2">Équipes mixtes : Chercheurs + commerciaux + RH (décloisonnement)</li>
 </ul>
 
-<strong>Résultat :</strong> 92% participants "meilleure compréhension métier chercheurs".
+<strong>Intérêt :</strong> commerciaux et RH découvrent concrètement le métier des chercheurs.
 
-<strong>Cas 3 : Banque (120 pers)</strong>
+<strong>Exemple 3 : banque (120 pers)</strong>
 <strong>Scénario :</strong> "Le Banquier de Versailles"
 <ul class="list-disc ml-6 mb-6">
   <li class="mb-2">Contexte : Banquier XVIIIe siècle assassiné, coffres vidés</li>
@@ -10273,14 +10262,14 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Notre recommandation :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><strong>Privilégiez format immersif</strong> (château entier) vs dîner enquête si budget permet : Impact cohésion +40%</li>
-  <li class="mb-2"><strong>Investissez dans scénario sur mesure</strong> pour séminaires stratégiques (ROI mémorisation × 2,1)</li>
+  <li class="mb-2"><strong>Privilégiez format immersif</strong> (château entier) vs dîner enquête si budget permet : immersion nettement plus forte</li>
+  <li class="mb-2"><strong>Investissez dans scénario sur mesure</strong> pour séminaires stratégiques (messages mieux ancrés)</li>
   <li class="mb-2"><strong>Choisissez châteaux authentiques</strong> : Décors réels battent décors carton-pâte</li>
   <li class="mb-2"><strong>Intégrez débriefing pédagogique</strong> obligatoire : Transforme divertissement en outil développement</li>
   <li class="mb-2"><strong>Testez avant si sur mesure</strong> : Groupe cobaye évite ratés jour J</li>
 </ul>
 
-<p class="mb-6">Les équipes qui ont vécu ensemble une murder party château parlent encore de "l'énigme de la bibliothèque" ou "du twist final" 18 mois après. Cette mémoire collective durable, ancrée émotionnellement, fait de la murder party l'investissement team building au ROI le plus élevé. Dans un monde professionnel souvent déshumanisé, offrir à vos équipes une soirée où elles redeviennent acteurs d'une intrigue captivante, dans un décor de rêve, ce n'est pas du luxe. C'est créer les conditions d'une cohésion authentique et durable.</p>
+<p class="mb-6">Une murder party réussie devient souvent une référence commune : on reparle longtemps de "l'énigme de la bibliothèque" ou "du twist final". Cette mémoire collective, ancrée émotionnellement, fait de la murder party un investissement team building particulièrement durable. Dans un monde professionnel souvent déshumanisé, offrir à vos équipes une soirée où elles redeviennent acteurs d'une intrigue captivante, dans un décor de rêve, ce n'est pas du luxe. C'est créer les conditions d'une cohésion authentique et durable.</p>
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">
@@ -12024,7 +12013,7 @@ const placeholderArticles: BlogPost[] = [
     <div class="prose prose-lg max-w-none">
 <p class="mb-6">L'<strong>atelier cuisine avec chef en château</strong> s'impose comme le team building le plus inclusif et universel. Pourquoi ? Parce qu'il réunit trois dimensions fédératrices : <strong>créativité accessible</strong> (pas besoin être expert, juste envie faire), <strong>plaisir sensoriel immédiat</strong> (dégustation collective œuvre créée), et <strong>métaphore professionnelle naturelle</strong> (coordination, timing, qualité, adaptation). Contrairement aux activités sportives excluant certains profils, la cuisine accueille tous âges, conditions physiques, personnalités, dans une atmosphère conviviale où l'erreur devient moment de rire partagé.</p>
 
-<p class="mb-6">Ce guide explore pourquoi les ateliers cuisine génèrent 92% satisfaction (record team buildings), les 5 formules optimales (classique 3 plats, pâtisserie créative, cuisine moléculaire, challenge Top Chef, cuisine monde), les critères d'une cuisine adaptée, les chefs partenaires (étoilés, meilleurs ouvriers, spécialistes), et le budget réaliste (60-140€/pers selon standing chef). Basé sur 110 ateliers cuisine organisés 2020-2026, nous révélons comment transformer préparation d'un menu en expérience collaborative mémorable ancrant messages clés séminaire.</p>
+<p class="mb-6">Ce guide explore pourquoi les ateliers cuisine plaisent à presque tous les profils, les 5 formules optimales (classique 3 plats, pâtisserie créative, cuisine moléculaire, challenge Top Chef, cuisine monde), les critères d'une cuisine adaptée, les chefs partenaires (étoilés, meilleurs ouvriers, spécialistes), et le budget réaliste (60-140€/pers selon standing chef). Vous y verrez comment transformer préparation d'un menu en expérience collaborative mémorable ancrant messages clés séminaire.</p>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">👨‍🍳 Pourquoi l'Atelier Cuisine est le Team Building Universel</h2>
 
@@ -12041,7 +12030,7 @@ const placeholderArticles: BlogPost[] = [
   <li class="mb-2">Respecter timing (tout prêt simultanément) = Coordination inter-services</li>
 </ul>
 
-<strong>Observation récurrente :</strong> Équipes excellant mise en place cuisine = Souvent mêmes performantes coordination projets complexes (corrélation mesurée 68%).
+<strong>À retenir :</strong> la mise en place en cuisine fait travailler les mêmes réflexes que la coordination d'un projet complexe : anticiper, séquencer, synchroniser.
 
 <strong>2. Communication claire et concise (brigade)</strong>
 
@@ -12049,7 +12038,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Compétence :</strong> Transmettre info essentielle rapidement, confirmer réception, pas ambiguïté.
 
-<strong>Exercice atelier :</strong> Chef impose règles communication type brigade. Équipes adoptent codes clairs. Impact mesuré : -34% malentendus vs communication floue habituelle.
+<strong>Exercice atelier :</strong> Chef impose règles communication type brigade. Équipes adoptent codes clairs. Le débriefing permet ensuite de transposer ces codes clairs aux réunions d'équipe.
 
 <strong>3. Gestion erreurs et résilience</strong>
 
@@ -12057,7 +12046,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Compétence :</strong> Accepter échec, rebondir vite, créativité sous pression.
 
-<strong>Exemple réel (atelier 40 pers) :</strong> Équipe brûle caramel. Chef guide vers plan B (coulis fruits). Débriefing : "Comme en business, échec n'est pas fin, c'est pivot." Leçon ancrée émotionnellement (frustration puis soulagement).
+<strong>Exemple (atelier 40 pers) :</strong> Équipe brûle caramel. Chef guide vers plan B (coulis fruits). Débriefing : "Comme en business, échec n'est pas fin, c'est pivot." Leçon ancrée émotionnellement (frustration puis soulagement).
 
 <strong>4. Créativité dans contraintes</strong>
 
@@ -12065,7 +12054,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Compétence :</strong> Innover malgré limitations ressources, combiner éléments inattendus.
 
-<strong>Mesure :</strong> 71% participants déclarent "amélioration pensée créative sous contraintes" post-atelier.
+<strong>À retenir :</strong> l'exercice montre concrètement qu'une contrainte peut devenir un moteur de créativité.
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Atelier cuisine : Inclusivité et accessibilité</h3>
 
@@ -12112,13 +12101,13 @@ const placeholderArticles: BlogPost[] = [
       <td class="border border-gray-300 px-4 py-2">Très forte</td>
     </tr>
     <tr>
-      <td class="border border-gray-300 px-4 py-2"><strong>Satisfaction mesurée</strong></td>
-      <td class="border border-gray-300 px-4 py-2">8,2/10</td>
-      <td class="border border-gray-300 px-4 py-2">8,7/10</td>
-      <td class="border border-gray-300 px-4 py-2">9,2/10</td>
+      <td class="border border-gray-300 px-4 py-2"><strong>Effort physique</strong></td>
+      <td class="border border-gray-300 px-4 py-2">Élevé</td>
+      <td class="border border-gray-300 px-4 py-2">Modéré</td>
+      <td class="border border-gray-300 px-4 py-2">Faible</td>
     </tr>
   </tbody>
-</table><strong>Témoignage récurrent (seniors, personnes mobilité réduite) :</strong> "Enfin activité où je ne me sens pas exclu. J'ai contribué autant que jeunes."
+</table><strong>Point fort (seniors, personnes à mobilité réduite) :</strong> chacun contribue au repas à sa mesure, quel que soit son âge ou sa condition physique.
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">🍽️ Les 5 Formules d'Ateliers Cuisine en Château</h2>
 
@@ -12473,7 +12462,7 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>3. Chefs privés spécialisés team building :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><strong>Réseau national d'ateliers culinaires</strong> : Formule clé en main, 50+ ateliers catalogue</li>
+  <li class="mb-2"><strong>Réseau national d'ateliers culinaires</strong> : Formule clé en main, large catalogue d'ateliers</li>
   <li class="mb-2"><strong>Cours de Cuisine</strong> : Chefs itinérants châteaux IdF</li>
   <li class="mb-2"><strong>Enseigne d'ateliers culinaires</strong> : Ateliers ludiques, accessible</li>
   <li class="mb-2"><strong>Budget :</strong> 60-100€/pers</li>
@@ -12685,14 +12674,14 @@ const placeholderArticles: BlogPost[] = [
 
 <strong>Notre recommandation :</strong>
 <ul class="list-disc ml-6 mb-6">
-  <li class="mb-2"><strong>Privilégiez formule classique 3 plats si groupe mixte</strong> (accessibilité maximale, satisfaction 92%)</li>
+  <li class="mb-2"><strong>Privilégiez formule classique 3 plats si groupe mixte</strong> (accessibilité maximale)</li>
   <li class="mb-2"><strong>Optez challenge Top Chef si culture compétitive</strong> (commerciaux, startups dynamiques)</li>
   <li class="mb-2"><strong>Choisissez cuisine monde si équipes multiculturelles</strong> (célébration diversité)</li>
   <li class="mb-2"><strong>Investissez chef étoilé pour événements prestige</strong> (CODIR, clients VIP) : ROI image</li>
   <li class="mb-2"><strong>Documentez et partagez</strong> (photos, vidéos, recettes) : Prolongement plaisir post-événement</li>
 </ul>
 
-<p class="mb-6">Les équipes ayant cuisiné ensemble développent complicité durable ancrée dans sensorialité. "Notre magret sauce fruits rouges", "le dessert effondré d'Éric (devenu légende)", "le défi Top Chef remporté" deviennent anecdotes fondatrices chargées émotionnellement. Dans un monde professionnel souvent déshumanisé et virtuel, offrir à vos collaborateurs moment authentique de création manuelle, sensorielle et collective, c'est investir dans le ciment humain essentiel de toute organisation performante.</p>
+<p class="mb-6">Les équipes ayant cuisiné ensemble développent complicité durable ancrée dans sensorialité. "Notre magret sauce fruits rouges", "le dessert effondré (devenu légende)", "le défi Top Chef remporté" deviennent anecdotes fondatrices chargées émotionnellement. Dans un monde professionnel souvent déshumanisé et virtuel, offrir à vos collaborateurs moment authentique de création manuelle, sensorielle et collective, c'est investir dans le ciment humain essentiel de toute organisation performante.</p>
 
 <strong>Liens internes cluster team building :</strong>
 <ul class="list-disc ml-6 mb-6">

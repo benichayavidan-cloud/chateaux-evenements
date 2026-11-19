@@ -43,17 +43,17 @@ const workationArticle: BlogPost = {
     {
       question: "Quel est le budget d'une workation en château en 2026 ?",
       answer:
-        "Comptez entre 180 et 280€ par personne et par jour en formule tout inclus (hébergement, pension complète, espaces de travail privatisés, wifi haut débit, activités). Pour 12 collaborateurs sur 4 jours, le budget oscille entre 8 600€ et 13 500€. C'est un investissement 30% inférieur à un séminaire classique équivalent car moins d'intervenants externes.",
+        "Comptez entre 180 et 280€ par personne et par jour en formule tout inclus (hébergement, pension complète, espaces de travail privatisés, wifi haut débit, activités). Pour 12 collaborateurs sur 4 jours, le budget oscille entre 8 600€ et 13 500€. Le budget est souvent plus contenu qu'un séminaire classique équivalent, car il fait moins appel à des intervenants externes.",
     },
     {
       question: "Pourquoi organiser une workation plutôt qu'un séminaire classique ?",
       answer:
-        "Trois bénéfices mesurés : la productivité augmente de 40% vs open-space (étude Stanford 2024), la cohésion naît naturellement dans les temps informels (vs forcée dans un séminaire), et le ROI s'étale sur 2-3 mois (les automatismes d'équipe créés en workation persistent). C'est particulièrement efficace pour les équipes projet ou tech en phase de lancement.",
+        "Trois bénéfices : un travail de fond sans les interruptions de l'open-space, une cohésion qui naît naturellement dans les temps informels (plutôt que forcée dans un séminaire), et des automatismes d'équipe qui se prolongent après le retour au bureau. C'est particulièrement efficace pour les équipes projet ou tech en phase de lancement.",
     },
     {
       question: "Quelle durée idéale pour une workation d'entreprise ?",
       answer:
-        "4 jours / 3 nuits est le format optimal identifié en 2026 : assez long pour décrocher du bureau et créer du lien, assez court pour ne pas peser sur les agendas familiaux. Les workations d'une semaine complète fonctionnent pour les équipes en full-remote qui se retrouvent 2-3 fois par an.",
+        "4 jours / 3 nuits est un bon équilibre : assez long pour décrocher du bureau et créer du lien, assez court pour ne pas peser sur les agendas familiaux. Les workations d'une semaine complète fonctionnent pour les équipes en full-remote qui se retrouvent 2-3 fois par an.",
     },
     {
       question: "Quel type de château est adapté à une workation ?",
@@ -65,14 +65,14 @@ const workationArticle: BlogPost = {
     <div class="prose prose-lg max-w-none">
 <p class="mb-6">La <strong>workation</strong> — contraction de <em>work</em> et <em>vacation</em> — s'impose en 2026 comme le format hybride de référence pour les équipes qui veulent mixer productivité et cohésion. Ni séminaire traditionnel, ni vacances déguisées : il s'agit de passer 3 à 7 jours en château, à travailler <strong>sérieusement</strong>, mais dans un cadre qui libère la créativité et crée naturellement du lien entre collaborateurs.</p>
 
-<p class="mb-6">Portée par la généralisation du télétravail et la tendance <strong>slow corporate</strong>, la workation est désormais proposée par les entreprises les plus attractives (Alan, Shine, Swile, PayFit) pour retenir les talents et renforcer la culture d'équipe. En France, le marché de la workation B2B a bondi de <strong>+180% entre 2024 et 2026</strong>.</p>
+<p class="mb-6">Portée par la généralisation du télétravail et la tendance <strong>slow corporate</strong>, la workation est désormais proposée par les entreprises les plus attractives (Alan, Shine, Swile, PayFit) pour retenir les talents et renforcer la culture d'équipe. En France, le format séduit de plus en plus d'<strong>équipes hybrides ou à distance</strong>.</p>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Workation vs Séminaire : La Différence Fondamentale</h2>
 
 <p class="mb-6">Un séminaire classique concentre le travail d'équipe (ateliers, brainstorms, formations) sur 1 ou 2 jours. Une workation, elle, <strong>conserve 60-70% du temps en mode "travail individuel ou projet"</strong>, mais dans un environnement radicalement différent. Les bureaux deviennent des salons historiques, les pauses café deviennent des promenades dans le parc, et les fins de journée deviennent des moments informels autour d'un feu de cheminée.</p>
 
 <div class="alert alert-info">
-<strong>Étude Stanford 2024 :</strong> Les équipes en workation produisent 40% de livrables en plus qu'en open-space, avec une qualité perçue supérieure de 23%. Effet mesuré pendant 2-3 mois après le retour au bureau.
+<strong>À retenir :</strong> l'intérêt d'une workation tient à la qualité du temps de travail (moins d'interruptions, plus de concentration) autant qu'à la cohésion. Pour qu'il dure, prévoyez dès le départ ce que l'équipe doit avoir livré en repartant.
 </div>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Les 4 piliers d'une workation réussie</h3>
@@ -86,7 +86,7 @@ const workationArticle: BlogPost = {
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Format Type : Workation de 4 Jours / 3 Nuits</h2>
 
-<p class="mb-6">Le format 4J/3N est le plus populaire en 2026. Voici le planning type testé sur 15 workations organisées dans nos châteaux :</p>
+<p class="mb-6">Le format 4J/3N est un bon point de départ. Voici un planning type à adapter à votre équipe :</p>
 
 <table class="w-full border-collapse mt-6 mb-6">
   <thead class="bg-gray-100">
@@ -137,12 +137,12 @@ const workationArticle: BlogPost = {
   <li class="mb-2">Transport minibus aller-retour Paris : 400-600€</li>
 </ul>
 
-<p class="mb-6"><strong>Total : 9 100 à 14 200€</strong>, soit <strong>190-295€/jour/pers</strong>. 30% moins cher qu'un séminaire classique équivalent de par l'absence d'intervenants externes coûteux.</p>
+<p class="mb-6"><strong>Total : 9 100 à 14 200€</strong>, soit <strong>190-295€/jour/pers</strong>. Souvent moins cher qu'un séminaire classique équivalent, faute d'intervenants externes coûteux.</p>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Quelles Équipes Tirent le Plus de Valeur d'une Workation ?</h2>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Équipes tech en phase de lancement produit</h3>
-<p class="mb-6">4 jours de deep work sans interruption = un sprint de développement équivalent à 2 semaines au bureau. L'effet silence + concentration est radical sur les métiers cognitifs.</p>
+<p class="mb-6">4 jours de deep work sans interruption permettent d'avancer nettement sur un sprint de développement. L'effet silence + concentration est radical sur les métiers cognitifs.</p>
 
 <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-4">Équipes en full-remote qui se voient 2-3 fois/an</h3>
 <p class="mb-6">Pour les entreprises distribuées (ex : 100% remote Europe), la workation remplace à la fois le séminaire et le <em>onboarding</em> des nouveaux arrivants. 1 workation par trimestre suffit à créer une vraie culture d'équipe.</p>
@@ -151,7 +151,7 @@ const workationArticle: BlogPost = {
 <p class="mb-6">4 jours pour construire un plan stratégique annuel, hors des distractions quotidiennes. Nos châteaux privatisables à Chantilly ou en Vallée de Chevreuse sont prisés pour cette utilisation (confidentialité + confort).</p>
 
 <div class="alert alert-info">
-<strong>À lire aussi :</strong> Notre guide <a href="/blog/seminaire-nature-chevreuse-deconnexion">Séminaire Nature en Vallée de Chevreuse</a> pour comprendre pourquoi la reconnexion avec la nature double la valeur d'une workation.
+<strong>À lire aussi :</strong> Notre guide <a href="/blog/seminaire-nature-chevreuse-deconnexion">Séminaire Nature en Vallée de Chevreuse</a> pour comprendre pourquoi la reconnexion avec la nature renforce une workation.
 </div>
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Les Pièges à Éviter</h2>
@@ -165,7 +165,7 @@ const workationArticle: BlogPost = {
 
 <h2 class="text-3xl font-light italic text-gray-900 mt-16 mb-6 pb-2 border-b-2 border-[--bronze-antique]">Et Après ? Pérenniser l'Effet Workation</h2>
 
-<p class="mb-6">Les gains de productivité d'une workation s'estompent au bout de 8-10 semaines si rien n'est capitalisé. Les entreprises qui en tirent le maximum organisent <strong>2 workations par an</strong> (printemps + automne) et complètent avec 1-2 journées off-site trimestrielles. C'est ce rythme qui verrouille la culture d'équipe à long terme.</p>
+<p class="mb-6">Les bénéfices d'une workation s'estompent en quelques semaines si rien n'est capitalisé. Les entreprises qui en tirent le maximum organisent <strong>2 workations par an</strong> (printemps + automne) et complètent avec 1-2 journées off-site trimestrielles. C'est ce rythme qui verrouille la culture d'équipe à long terme.</p>
 
 <p class="mb-6">Pour aller plus loin, consultez notre <a href="/blog/combien-coute-seminaire-chateau-2026">guide tarifs 2026</a> et notre <a href="/devis">formulaire devis workation</a> pour un projet personnalisé.</p>
 
