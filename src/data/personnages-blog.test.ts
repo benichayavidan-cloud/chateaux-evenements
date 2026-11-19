@@ -104,3 +104,52 @@ test('mots bannis (src/lib/rubriques.ts) absents des articles', () => {
 test('pas de tournure qui vise les particuliers', () => {
   assert.deepEqual(fautifs(PARTICULIERS), []);
 });
+
+/**
+ * 19/11/2026 (PO) : une même demande racontée dans 3 ou 4 articles, presque mot pour
+ * mot, se voyait. Chaque cas sert dans 2 articles au plus, et deux récits d'un même
+ * cas ne partagent aucune suite de MOTS_COMMUNS_MAX + 1 mots.
+ */
+const ARTICLES_PAR_CAS_MAX = 2;
+const MOTS_COMMUNS_MAX = 6;
+
+const recitsParCas = () => {
+  const parCas = new Map<string, { slug: string; texte: string }[]>();
+  for (const p of blogPosts) {
+    for (const m of p.content.matchAll(/class="cas-demande cas-(D\d+)"[^>]*>([\s\S]*?)<\/(?:p|div|blockquote|aside)>/g)) {
+      parCas.set(m[1], [...(parCas.get(m[1]) ?? []), { slug: p.slug, texte: m[2] }]);
+    }
+  }
+  return parCas;
+};
+
+/** Désignations fixes des châteaux (blind booking) : elles se répètent forcément, ce n'est pas de la formulation. */
+const DESIGNATIONS = /manoir anglo normand en foret de chantilly|chateau 5 etoiles en foret de chantilly|abbaye (?:du xiie siecle en|cistercienne de la) vallee de chevreuse|domaine historique aux portes de paris/g;
+
+const suites = (t: string, n: number) => {
+  const mots = sansAccents(t.replace(/<[^>]+>/g, ' ')).replace(/[^a-z0-9€]+/g, ' ').replace(DESIGNATIONS, '·').match(/[a-z0-9€·]+/g) ?? [];
+  return new Set(mots.slice(0, Math.max(0, mots.length - n + 1)).map((_, i) => mots.slice(i, i + n).join(' ')));
+};
+
+test('une même demande sert dans 2 articles au plus', () => {
+  const trop = [...recitsParCas()].flatMap(([id, r]) => {
+    const slugs = new Set(r.map((x) => x.slug));
+    return slugs.size > ARTICLES_PAR_CAS_MAX ? [`${id} : ${[...slugs].join(', ')}`] : [];
+  });
+  assert.deepEqual(trop, []);
+});
+
+test('deux récits d’une même demande ne sont pas formulés pareil', () => {
+  const n = MOTS_COMMUNS_MAX + 1;
+  const erreurs: string[] = [];
+  for (const [id, r] of recitsParCas()) {
+    for (let i = 0; i < r.length; i++) {
+      for (let j = i + 1; j < r.length; j++) {
+        const a = suites(r[i].texte, n);
+        const commune = [...suites(r[j].texte, n)].find((s) => a.has(s));
+        if (commune) erreurs.push(`${id} (${r[i].slug} / ${r[j].slug}) : « ${commune} »`);
+      }
+    }
+  }
+  assert.deepEqual(erreurs, []);
+});
